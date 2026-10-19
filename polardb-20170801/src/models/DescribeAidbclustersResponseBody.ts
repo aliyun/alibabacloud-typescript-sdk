@@ -188,7 +188,7 @@ export class DescribeAIDBClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 7
@@ -204,7 +204,7 @@ export class DescribeAIDBClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 5

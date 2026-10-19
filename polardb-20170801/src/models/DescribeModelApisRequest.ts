@@ -15,7 +15,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The model API IDs.
+   * The IDs of the model APIs.
    * 
    * @example
    * mi-xxx,mi-xxxx
@@ -23,7 +23,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   modelApiIds?: string;
   /**
    * @remarks
-   * The model category. Valid values:
+   * The category. Valid values:
    * * **text**
    * * **embedding**
    * * **rerank**
@@ -34,7 +34,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The model API name.
+   * The name of the model API.
    * 
    * @example
    * testName
@@ -54,7 +54,6 @@ export class DescribeModelApisRequest extends $dara.Model {
    * * **30**
    * * **50**
    * * **100**
-   * 
    * Default value: **30**.
    * 
    * @example
@@ -92,7 +91,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The model API status.
+   * The status of the model API.
    * 
    * @example
    * Enable

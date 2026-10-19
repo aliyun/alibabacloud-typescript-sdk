@@ -45,7 +45,7 @@ export class CreateApplicationShrinkRequestTag extends $dara.Model {
 export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of an existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The ID of the existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * pm-xxxxxx
@@ -53,7 +53,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   AIDBClusterId?: string;
   /**
    * @remarks
-   * The AgenticDB branch specification.
+   * The AgenticDB branch specifications.
    * 
    * @example
    * {"DBClusterId":"pagc-2zea920mcvd5o87","TenantId":"t-cfc2d7df0e59439681f0087f51","ProjectId":"proj-d7849d0050664c758af795d468","BranchId":"br-9054b3b7649e4c0d977bd0df37","ForkFromBranch":true,"ForkFromApplicationId":"pa-source"}
@@ -61,7 +61,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   agenticDBBranchSpecShrink?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * @example
    * pagc-xxx
@@ -70,10 +70,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The application type. Valid values:
-   * 
-   * - supabase: Set this value to create a managed Supabase application.
-   * - raycluster: Set this value to create a managed Ray Cluster application.
-   * - polarclaw: Set this value to create a managed PolarClaw application.
+   * - supabase: Specify this value to create a managed Supabase application.
+   * - raycluster: Specify this value to create a managed Ray Cluster application.
+   * - polarclaw: Specify this value to create a managed PolarClaw application.
    * 
    * This parameter is required.
    * 
@@ -84,7 +83,6 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The CPU architecture. Valid values:
-   * 
    * - x86
    * 
    * This parameter is required.
@@ -111,17 +109,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   authProviderConfig?: string;
   /**
    * @remarks
-   * Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
-   * 
-   * @example
-   * qwen3-max
+   * Specifies whether automatic creation is enabled and the instance will attach and associate with an EIP.
    */
   autoAllocatePublicEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
-   * * false (default): Automatic creation is disabled.
-   * * true: Automatic creation is enabled.
+   * Specifies whether to automatically create a Polarlakebase cold storage edition instance. Valid values:
+   * * false (default): Do not automatically create the instance.
+   * * true: Automatically create the instance.
    * 
    * @example
    * false
@@ -147,12 +142,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The list of user-defined application subcomponents.
+   * The list of custom application subcomponents.
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * The instance ID of the PolarDB instance on which the application depends.
+   * The ID of the PolarDB instance on which the application depends.
    * 
    * @example
    * pc-**************
@@ -160,7 +155,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the application.
+   * The description or remark of the application.
    * 
    * @example
    * myapp
@@ -168,12 +163,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
+   * The expected list of DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. Leave this parameter empty if you do not want to create DNAT entries.
    */
   dnatEntriesShrink?: string;
   /**
    * @remarks
-   * The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
+   * The dedicated NAT IP address allocated for DNAT mapping, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
    * 
    * @example
    * 10.64.0.10
@@ -181,7 +176,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   dnatIpAddress?: string;
   /**
    * @remarks
-   * Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating the resource.
+   * Specifies whether to perform a dry run. Default value: false. If you set this parameter to true, only parameter and resource validations are performed, and no resources are actually created.
    * 
    * @example
    * false
@@ -189,7 +184,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The list of user-defined service endpoints. By default, a VPC endpoint is created.
+   * The list of custom service endpoints. By default, a VPC endpoint is created.
    */
   endpointsShrink?: string;
   /**
@@ -204,7 +199,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   memApplicationSpecShrink?: string;
   /**
    * @remarks
-   * The model API. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The API of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * openai-completions
@@ -212,7 +207,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   modelApi?: string;
   /**
    * @remarks
-   * The model API key. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The API key of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * sk-xxxxxx
@@ -220,7 +215,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   modelApiKey?: string;
   /**
    * @remarks
-   * The model base URL. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The endpoint of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -229,10 +224,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The model source. Valid values:
-   * 
-   * * bailian: Bailian model.
-   * * custom: Custom model.
-   * * maas: PolarDB model operator.
+   * * bailian: Model Studio models.
+   * * custom: Custom models.
+   * * maas: PolarDB model operators.
    * 
    * @example
    * bailian
@@ -240,7 +234,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   modelFrom?: string;
   /**
    * @remarks
-   * The model name. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * qwen3-max
@@ -253,7 +247,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   parametersShrink?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * Postpaid
@@ -261,7 +255,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription type (yearly or monthly).
+   * The subscription period unit.
    * 
    * @example
    * Year
@@ -269,9 +263,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If specified, the corresponding storage is mounted to the application.
+   * The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
    * 
-   * Currently, only the following applications support this parameter:
+   * Currently, only the following applications are supported:
    * - supabase
    * - raycluster
    * 
@@ -289,7 +283,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region. Default value: the region of the instance.
+   * The region ID. Default value: the region of the instance.
    * 
    * @example
    * cn-beijing
@@ -297,7 +291,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-********************
@@ -305,7 +299,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-********************
@@ -313,7 +307,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the IP whitelist group. Default value: `default`.
+   * The name of the IP address whitelist group. Default value: default.
    * 
    * @example
    * default
@@ -321,7 +315,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
+   * The IP address whitelist. If you do not specify this parameter, the default value 127.0.0.1 is used.
    * 
    * @example
    * 127.0.0.1,172.17.0.0/24
@@ -337,7 +331,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityIPType?: string;
   /**
    * @remarks
-   * The skill template ID.
+   * The ID of the skill template.
    * 
    * @example
    * xxx
@@ -374,7 +368,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The vSwitch. Default value: the vSwitch in the primary zone of the instance.
+   * The vSwitch ID. Default value: the current vSwitch in the primary zone of the instance.
    * 
    * @example
    * vsw-*********************
@@ -382,7 +376,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-********************
@@ -390,7 +384,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
+   * The NAT gateway ID of the self-managed VPC NAT gateway for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, use the private network (intranet) type, and be active.
    * 
    * @example
    * ngw-xxx
@@ -398,7 +392,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vpcNatGatewayId?: string;
   /**
    * @remarks
-   * The zone. Default value: the primary zone of the instance.
+   * The zone ID. Default value: the primary zone of the instance.
    * 
    * @example
    * cn-beijing-k

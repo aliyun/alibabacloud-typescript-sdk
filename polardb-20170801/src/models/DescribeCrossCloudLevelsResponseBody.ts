@@ -24,7 +24,7 @@ export class DescribeCrossCloudLevelsResponseBodyCrossCloudLevelList extends $da
    * The CPU and memory.
    * 
    * @example
-   * 2 core 8 GB
+   * 2 cores 8 GB
    */
   levelName?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class DescribeCrossCloudLevelsResponseBodyCrossCloudLevelList extends $da
 export class DescribeCrossCloudLevelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of supported cross-cloud specifications.
+   * The list of specifications supported for cross-cloud scenarios.
    */
   crossCloudLevelList?: DescribeCrossCloudLevelsResponseBodyCrossCloudLevelList[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the registration is newly created. A value of false indicates that an existing registration was updated.
+   * Indicates whether a new registration is created. A value of false indicates that an existing registration is updated.
    * 
    * @example
    * true
@@ -13,12 +13,20 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   created?: boolean;
   /**
    * @remarks
-   * The display name and initial client-facing invocation name.
+   * The display name and the initial invocation name for clients.
    * 
    * @example
    * my-qwen3
    */
   displayModelName?: string;
+  /**
+   * @remarks
+   * The image import status. The initial value is Importing after an image is registered.
+   * 
+   * @example
+   * Importing
+   */
+  imageImportStatus?: string;
   /**
    * @remarks
    * The model registration ID.
@@ -63,6 +71,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
     return {
       created: 'Created',
       displayModelName: 'DisplayModelName',
+      imageImportStatus: 'ImageImportStatus',
       modelId: 'ModelId',
       modelName: 'ModelName',
       modelType: 'ModelType',
@@ -75,6 +84,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
     return {
       created: 'boolean',
       displayModelName: 'string',
+      imageImportStatus: 'string',
       modelId: 'number',
       modelName: 'string',
       modelType: 'string',

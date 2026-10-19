@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIDBClusterRequestTimeSlices extends $dara.Model {
   /**
    * @remarks
-   * The start time of the task. The time is in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+   * The start time of the task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
    * 
    * @example
    * 1758729600
@@ -13,7 +13,7 @@ export class CreateAIDBClusterRequestTimeSlices extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
+   * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
    * 
    * @example
    * 1758733200
@@ -55,12 +55,12 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * - **true**: Auto-renewal is enabled.
-   * - **false**: Auto-renewal is not enabled.
+   * - **true**: enables auto-renewal.
+   * - **false**: disables auto-renewal.
    * 
    * Default value: **false**.
    * 
-   * > This parameter takes effect only when **PayType** is set to **Prepaid**.
+   * > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
    * false
@@ -69,13 +69,21 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically use coupons. Valid values:
-   * * true (default): Use coupons.
-   * * false: Do not use coupons.
+   * * true (default): uses coupons.
+   * * false: does not use coupons.
    * 
    * @example
    * false
    */
   autoUseCoupon?: boolean;
+  /**
+   * @remarks
+   * The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N equivalent card.
+   * 
+   * @example
+   * 4000
+   */
+  capacity?: number;
   clientToken?: string;
   /**
    * @remarks
@@ -87,7 +95,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   createPublicEndpoint?: string;
   /**
    * @remarks
-   * The cluster description. Fuzzy match is supported.
+   * The description of the cluster. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -95,7 +103,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The instance ID of the PolarDB instance on which the application depends.
+   * The PolarDB instance ID on which the application depends.
    * 
    * @example
    * pc-******************
@@ -127,7 +135,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   inferenceEngine?: string;
   /**
    * @remarks
-   * The ACK cluster ID.
+   * The ID of the ACK cluster.
    * 
    * @example
    * xxxxxxxxxxxxxxxxxxxxxxx
@@ -143,7 +151,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   kubeConfig?: string;
   /**
    * @remarks
-   * The Kubernetes cluster management mode.
+   * The management mode of the Kubernetes cluster.
    * 
    * @example
    * self_k8s
@@ -175,7 +183,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   managementMode?: string;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * Qwen3-30B-A3B
@@ -214,10 +222,10 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * This parameter is required to pass parameter when **PayType** is set to **Prepaid**. Specifies the unit of the upfront payment duration for the subscription cluster. 
+   * If the billing method is **Prepaid**, you must pass parameter. Specifies the upfront cluster as yearly or monthly. Valid values: 
    * 
-   * - **Year**: The subscription duration is measured in years.
-   * - **Month**: The subscription duration is measured in months.
+   * - **Year**: yearly. The unit is year.
+   * - **Month**: monthly. The unit is month.
    * 
    * @example
    * 5
@@ -225,7 +233,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The coupon code. If this parameter is not specified, the default coupon is used.
+   * The coupon code. If you do not specify this parameter, the default coupon is used.
    * 
    * @example
    * 727xxxxxx934
@@ -245,7 +253,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-bp**************
@@ -269,14 +277,14 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The pay-as-you-go time intervals.
+   * The pay-as-you-go time ranges.
    */
   timeSlices?: CreateAIDBClusterRequestTimeSlices[];
   /**
    * @remarks
-   * This parameter is required when **PayType** is set to **Prepaid**.
-   * - If **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
-   * - If **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
+   * The subscription duration. This parameter is required when the billing method is set to **Prepaid**.
+   * - If **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
+   * - If **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
    * 
    * @example
    * 1
@@ -284,7 +292,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * This parameter is required.
    * 
@@ -294,7 +302,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * This parameter is required.
    * 
@@ -315,6 +323,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       ackAdmin: 'AckAdmin',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
+      capacity: 'Capacity',
       clientToken: 'ClientToken',
       createPublicEndpoint: 'CreatePublicEndpoint',
       DBClusterDescription: 'DBClusterDescription',
@@ -355,6 +364,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       ackAdmin: 'string',
       autoRenew: 'string',
       autoUseCoupon: 'boolean',
+      capacity: 'number',
       clientToken: 'string',
       createPublicEndpoint: 'string',
       DBClusterDescription: 'string',

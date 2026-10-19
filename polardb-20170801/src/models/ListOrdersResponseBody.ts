@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrdersResponseBodyOrderList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1910740440664****
@@ -15,9 +15,9 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go
+   * - **Postpaid**: pay-as-you-go.
    * 
-   * - **Prepaid**: subscription
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Prepaid
@@ -26,30 +26,18 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   /**
    * @remarks
    * The commodity code. Valid values:
-   * 
-   * - polardb_sub: subscription in the Chinese mainland.
-   * 
-   * - polardb_sub_intl: subscription in Hong Kong (China) and regions outside China.
-   * 
-   * - polardb_payg: pay-as-you-go in the Chinese mainland.
-   * 
-   * - polardb_payg_intl: pay-as-you-go in Hong Kong (China) and regions outside China.
-   * 
-   * - polardb_sub_jushita: Jushita subscription.
-   * 
-   * - polardb_payg_jushita: Jushita pay-as-you-go.
-   * 
-   * - polardb_sub_cainiao: Cainiao subscription.
-   * 
-   * - polardb_payg_cainiao: Cainiao pay-as-you-go.
-   * 
-   * > * If you use an Alibaba Cloud account for the China site, you can view only the commodity codes for the Chinese mainland.
-   * >
-   * > * If you use an Alibaba Cloud international site account, you can view only the commodity codes for regions outside the Chinese mainland.
-   * >
-   * > * If you use a Jushita account, you can view only the commodity codes for Jushita.
-   * >
-   * > * If you use a Cainiao account, you can view only the commodity codes for Cainiao.
+   * * polardb_sub: subscription in the Chinese mainland.
+   * * polardb_sub_intl: subscription in Hong Kong (China) and outside China.
+   * * polardb_payg: pay-as-you-go in the Chinese mainland.
+   * * polardb_payg_intl: pay-as-you-go in Hong Kong (China) and outside China.
+   * * polardb_sub_jushita: Jushita subscription.
+   * * polardb_payg_jushita: Jushita pay-as-you-go.
+   * * polardb_sub_cainiao: Cainiao subscription.
+   * * polardb_payg_cainiao: Cainiao pay-as-you-go.
+   * >- If you use an Alibaba Cloud China Website account, you can view only the commodity codes for the Chinese mainland.
+   * >- If you use an Alibaba Cloud International Website account, you can view only the commodity codes for international regions.
+   * >- If you use a Jushita account, you can view only the commodity codes for Jushita.
+   * >- If you use a Cainiao account, you can view only the commodity codes for Cainiao.
    * 
    * @example
    * polardb_payg_intl
@@ -57,7 +45,9 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the order was created.
+   * The creation time.
+   * 
+   * The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2021-03-31T16:09:13
@@ -65,7 +55,7 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster ID of the instance.
    * 
    * @example
    * pc-uf6k532gav*******
@@ -81,17 +71,17 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The status of the order.
+   * The order status. Valid values:
    * 
    * - **pending**: The task is waiting to start.
    * 
-   * - **create**: The order is placed and is being processed.
+   * - **create**: The order has been placed and entered the production process.
    * 
-   * - **fail**: The instance failed to be created.
+   * - **fail**: Production failed.
    * 
    * - **cancel**: The order is canceled.
    * 
-   * - **success**: The instance is created.
+   * - **success**: Production succeeded.
    * 
    * @example
    * success
@@ -99,15 +89,11 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   orderStatus?: string;
   /**
    * @remarks
-   * The type of the order. Valid values:
-   * 
-   * - BUY: The instance is purchased.
-   * 
-   * - UPGRADE: The instance configuration is changed.
-   * 
-   * - RENEW: The subscription is renewed.
-   * 
-   * - CONVERT: The billing method is changed.
+   * The order type. Valid values:
+   * * BUY: new purchase.
+   * * UPGRADE: configuration change.
+   * * RENEW: renewal.
+   * * CONVERT: billing method conversion.
    * 
    * @example
    * BUY
@@ -123,7 +109,7 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
   produceCode?: string;
   /**
    * @remarks
-   * The region information
+   * The region information.
    * 
    * @example
    * cn-hangzhou
@@ -171,7 +157,7 @@ export class ListOrdersResponseBodyOrderList extends $dara.Model {
 export class ListOrdersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned for the current request. Default value: 10.
+   * The maximum number of entries to return. Default value: 10.
    * 
    * @example
    * 10
@@ -179,7 +165,7 @@ export class ListOrdersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. If the query results are not returned in a single call, this token is returned. Use this token in a subsequent call to retrieve the remaining results.
+   * The pagination token that is used to retrieve more results. If a single request does not return all results, this parameter is returned. You can pass the returned token in a subsequent request to continue retrieving results.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******
@@ -187,14 +173,14 @@ export class ListOrdersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of orders.
+   * The order list.
    * 
    * This parameter is required.
    */
   orderList?: ListOrdersResponseBodyOrderList[];
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -202,13 +188,10 @@ export class ListOrdersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 

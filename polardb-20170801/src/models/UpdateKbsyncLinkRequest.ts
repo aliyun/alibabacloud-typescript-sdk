@@ -21,7 +21,15 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   clientSecret?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The validity period of a successful Lark group member snapshot used for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of a snapshot allowed for reuse. If this parameter is omitted, the original value is retained. Explicitly passing -1 restores the default behavior.
+   * 
+   * @example
+   * -1
+   */
+  feishuChatMemberStaleTtlSeconds?: number;
+  /**
+   * @remarks
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -31,7 +39,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The synchronization link ID.
+   * The ID of the synchronization link.
    * 
    * This parameter is required.
    * 
@@ -41,7 +49,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The DingTalk document MCP Server endpoint.
+   * The endpoint of the DingTalk Docs MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -59,7 +67,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The DingTalk spreadsheet MCP Server endpoint.
+   * The endpoint of the DingTalk Sheets MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -67,7 +75,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   sheetMcpEndpoint?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic synchronization. This parameter can only be modified independently and cannot be changed together with other configurations.
+   * Specifies whether to enable automatic synchronization. This parameter must be modified individually and cannot be changed along with other configurations.
    * 
    * @example
    * false
@@ -91,16 +99,25 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   userAccessToken?: string;
   /**
    * @remarks
-   * The DingTalk user ID of the operator.
+   * The ID of the DingTalk user that performs the operation.
    * 
    * @example
    * 123***56
    */
   userId?: string;
+  /**
+   * @remarks
+   * The new Lark user refresh token. Pass this parameter together with UserAccessToken. Passing empty strings for both parameters indicates deletion.
+   * 
+   * @example
+   * ******
+   */
+  userRefreshToken?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
+      feishuChatMemberStaleTtlSeconds: 'FeishuChatMemberStaleTtlSeconds',
       knowledgeBaseId: 'KnowledgeBaseId',
       linkId: 'LinkId',
       mcpEndpoint: 'McpEndpoint',
@@ -110,6 +127,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
       syncIntervalMinutes: 'SyncIntervalMinutes',
       userAccessToken: 'UserAccessToken',
       userId: 'UserId',
+      userRefreshToken: 'UserRefreshToken',
     };
   }
 
@@ -117,6 +135,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
     return {
       clientId: 'string',
       clientSecret: 'string',
+      feishuChatMemberStaleTtlSeconds: 'number',
       knowledgeBaseId: 'string',
       linkId: 'string',
       mcpEndpoint: 'string',
@@ -126,6 +145,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
       syncIntervalMinutes: 'number',
       userAccessToken: 'string',
       userId: 'string',
+      userRefreshToken: 'string',
     };
   }
 

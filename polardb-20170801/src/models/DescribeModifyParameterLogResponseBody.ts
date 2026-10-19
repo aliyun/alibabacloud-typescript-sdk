@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModifyParameterLogResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the parameter was last modified.
+   * The last modification time.
+   * 
+   * The time is in the ISO 8601 format. The time is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2024-10-29T09:31:37Z
@@ -37,7 +39,7 @@ export class DescribeModifyParameterLogResponseBodyItems extends $dara.Model {
   parameterName?: string;
   /**
    * @remarks
-   * Indicates whether the modification was applied successfully.
+   * Indicates whether the modification is applied.
    * 
    * @example
    * True
@@ -83,7 +85,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The engine version.
+   * The database engine version.
    * 
    * @example
    * 8.0
@@ -96,7 +98,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   items?: DescribeModifyParameterLogResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******

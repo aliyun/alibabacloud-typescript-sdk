@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   /**
    * @remarks
-   * The TTL of the access time. Unit: seconds.
+   * The TTL for access time. Unit: seconds.
    * 
    * @example
    * 7200
@@ -13,7 +13,7 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   accessTTL?: number;
   /**
    * @remarks
-   * The TTL of the change time. Unit: seconds.
+   * The TTL for change time. Unit: seconds.
    * 
    * @example
    * 7200
@@ -29,11 +29,10 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
+   * Specifies whether the rule is enabled. Valid values:
    * 
-   * - **true**: The rule takes effect immediately for new events. This is the default value.
-   * 
-   * - **false**: The rule does not take effect for new events.
+   * - **true**: The new event takes effect immediately for new transactions. This is the default value.
+   * - **false**: The new event does not take effect for new transactions.
    * 
    * @example
    * false
@@ -41,9 +40,8 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The glob pattern of paths to exclude.
-   * 
-   * - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+   * The matching rule for excluding specific paths.
+   * - A path pattern that starts with `/` (supports `*`, `?`, and `**` glob syntax).
    * 
    * @example
    * NULL
@@ -51,7 +49,7 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   exclude?: string;
   /**
    * @remarks
-   * The maximum number of files in the directory.
+   * The file count limit for users in the directory.
    * 
    * @example
    * 77
@@ -67,9 +65,8 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The glob pattern for paths to include.
-   * 
-   * - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+   * The glob pattern for matching paths.
+   * - A path pattern that starts with `/` (supports `*`, `?`, and `**` glob syntax).
    * 
    * @example
    * /a*
@@ -93,9 +90,8 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The maximum total size of files in the directory. Unit: GB.
-   * 
-   * - The value must be greater than or equal to 1.
+   * The total file capacity limit for the directory. Unit: GB.
+   * - Note: The value must be at least 1 GB.
    * 
    * @example
    * 1
@@ -153,7 +149,7 @@ export class DescribePolarFsQuotaResponseBodyQuotaItems extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The total number of inodes.
+   * Inodes
    * 
    * @example
    * 100
@@ -223,7 +219,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 5
@@ -231,7 +227,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 5 to 50. Default value: 10.
+   * The number of records per page. Valid values: 5 to 50. Default value: 10.
    * 
    * @example
    * 10
@@ -239,7 +235,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The path of the directory.
+   * The directory path.
    * 
    * @example
    * /data
@@ -247,7 +243,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The Polarlakebase instance ID.
    * 
    * @example
    * pfs-2ze0i74ka607*****
@@ -255,7 +251,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The details of the rules.
+   * The rule details.
    */
   policyItems?: DescribePolarFsQuotaResponseBodyPolicyItems[];
   /**
@@ -265,7 +261,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   quotaItems?: DescribePolarFsQuotaResponseBodyQuotaItems[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627******
@@ -273,7 +269,7 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 5

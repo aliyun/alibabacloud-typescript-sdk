@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application ID. Example: pa-**************.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class ModifyActiveOperationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task IDs.
+   * The list of task IDs.
    * 
    * @example
    * 11111,22222

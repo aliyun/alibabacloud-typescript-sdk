@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAgenticDBTenantApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The plaintext API key to validate.
+   * The plaintext of the API key to be validated.
    * 
    * This parameter is required.
    * 

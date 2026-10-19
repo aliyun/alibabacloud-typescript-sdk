@@ -15,7 +15,7 @@ export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 

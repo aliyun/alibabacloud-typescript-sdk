@@ -7,6 +7,8 @@ export class DescribeDBClusterVersionZonalRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
+   * > Note: This parameter accepts only the ID of a PolarDB on ENS cluster. Regular PolarDB cluster IDs are not supported. You can call the DescribeDBClustersZonal operation to query the ID of an edge cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,9 +17,9 @@ export class DescribeDBClusterVersionZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to return information about the latest version or a list of upgradable versions. Valid values:
+   * Specifies the type of version information to return. Valid values:
    * 
-   * - LATEST_VERSION: Queries information about the latest version.
+   * - LATEST_VERSION: Queries the latest version information.
    * 
    * - AVAILABLE_VERSION: Queries the list of upgradable versions.
    * 

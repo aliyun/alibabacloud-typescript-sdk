@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseAnswerRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeKnowledgeBaseAnswerRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The unique ID of the Q&A task.
+   * The unique identifier of the Q&A task.
    * 
    * This parameter is required.
    * 

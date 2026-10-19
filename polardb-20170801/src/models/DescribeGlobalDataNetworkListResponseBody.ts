@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the synchronization channel.
+   * The synchronization channel ID.
    * 
    * @example
    * gdc-xxx
@@ -13,35 +13,22 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels exte
   channelId?: string;
   /**
    * @remarks
-   * The status of the synchronization channel. Valid values:
+   * The synchronization channel status. Valid values:
    * 
-   * - **Creating**: The channel is being created.
-   * 
-   * - **Running**: The channel is running.
-   * 
-   * - **Syncing**: The channel is synchronizing data.
-   * 
-   * - **SyncFinished**: Data synchronization is complete.
-   * 
-   * - **SyncFailed**: Data synchronization failed.
-   * 
-   * - **SyncPartialFailed**: Data synchronization partially failed.
-   * 
-   * - **Stopped**: The channel is stopped.
-   * 
-   * - **Maintaining**: The channel is under maintenance.
-   * 
-   * - **Restarting**: The channel is restarting.
-   * 
-   * - **Locking**: The channel is being locked.
-   * 
-   * - **Locked**: The channel is locked.
-   * 
-   * - **Unlocking**: The channel is being unlocked.
-   * 
-   * - **Deleting**: The channel is being deleted.
-   * 
-   * - **Deleted**: The channel is deleted.
+   * - **Creating**: Being created.
+   * - **Running**: Running.
+   * - **Syncing**: Being synchronized.
+   * - **SyncFinished**: Synchronization completed.
+   * - **SyncFailed**: Synchronization failed.
+   * - **SyncPartialFailed**: Partial synchronization failed.
+   * - **Stopped**: Stopped.
+   * - **Maintaining**: Under maintenance.
+   * - **Restarting**: Being restarted.
+   * - **Locking**: Being locked.
+   * - **Locked**: Locked.
+   * - **Unlocking**: Being unlocked.
+   * - **Deleting**: Being deleted.
+   * - **Deleted**: Deleted.
    * 
    * @example
    * Syncing
@@ -49,7 +36,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels exte
   channelStatus?: string;
   /**
    * @remarks
-   * Indicates whether the source path is frozen during data transmission.
+   * Specifies whether to freeze the source path during the transfer.
    * 
    * @example
    * true
@@ -57,9 +44,9 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels exte
   freezeSourceDuringSync?: boolean;
   /**
    * @remarks
-   * The synchronization progress.
+   * The current synchronization progress.
    * 
-   * > The value is a percentage that is accurate to two decimal places.
+   * > The value is a floating-point percentage with two decimal places.
    * 
    * @example
    * 11.45%
@@ -103,7 +90,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   destinationFileSystemPath?: string;
   /**
    * @remarks
-   * Destination PolarDB instance
+   * The destination Polarlakebase instance.
    * 
    * @example
    * pfs-xxx
@@ -111,7 +98,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   destinationId?: string;
   /**
    * @remarks
-   * The region of the destination.
+   * The destination region.
    * 
    * @example
    * cn-beijing
@@ -119,11 +106,9 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   destinationRegion?: string;
   /**
    * @remarks
-   * The type of the destination. Valid values:
-   * 
-   * - **pfs**: Polarlakebase High-performance Edition.
-   * 
-   * - **pcs**: Polarlakebase Cold Storage Edition.
+   * The destination type. Valid values:
+   *   - **pfs**: Polarlakebase High-performance Edition.
+   *   - **pcs**: Polarlakebase Cold Storage Edition.
    * 
    * @example
    * pfs
@@ -167,7 +152,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   sourceFileSystemPath?: string;
   /**
    * @remarks
-   * The ID of the source Polarlakebase instance.
+   * The source Polarlakebase instance.
    * 
    * @example
    * pcs-xxx
@@ -175,7 +160,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   sourceId?: string;
   /**
    * @remarks
-   * The region of the source.
+   * The source region.
    * 
    * @example
    * cn-wulanchabu
@@ -183,11 +168,10 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
   sourceRegion?: string;
   /**
    * @remarks
-   * The type of the source. Valid values:
+   * The source type. Valid values:
    * 
-   * - **pfs**: Polarlakebase High-performance Edition.
-   * 
-   * - **pcs**: Polarlakebase Cold Storage Edition.
+   *   - **pfs**: Polarlakebase High-performance Edition.
+   *   - **pcs**: Polarlakebase Cold Storage Edition.
    * 
    * @example
    * pcs
@@ -223,12 +207,12 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
 export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology extends $dara.Model {
   /**
    * @remarks
-   * The synchronization destinations.
+   * The list of synchronization destinations.
    */
   destinations?: DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations[];
   /**
    * @remarks
-   * The synchronization sources.
+   * The list of synchronization sources.
    */
   sources?: DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources[];
   static names(): { [key: string]: string } {
@@ -263,12 +247,14 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopolo
 export class DescribeGlobalDataNetworkListResponseBodyItemsNetworks extends $dara.Model {
   /**
    * @remarks
-   * The synchronization channels.
+   * The list of synchronization channels.
    */
   channels?: DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels[];
   /**
    * @remarks
-   * The time when the GDN was created.
+   * The creation time of the GDN.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -284,7 +270,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworks extends $dar
   networkDescription?: string;
   /**
    * @remarks
-   * The ID of the GDN.
+   * GDN ID
    * 
    * @example
    * gdn-xxx
@@ -292,35 +278,22 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworks extends $dar
   networkId?: string;
   /**
    * @remarks
-   * The status of the GDN. Valid values:
+   * The GDN status. Valid values:
    * 
-   * - **Creating**: The GDN is being created.
-   * 
-   * - **Running**: The GDN is running.
-   * 
-   * - **Syncing**: The GDN is synchronizing data.
-   * 
-   * - **SyncFinished**: Data synchronization is complete.
-   * 
-   * - **SyncFailed**: Data synchronization failed.
-   * 
-   * - **SyncPartialFailed**: Data synchronization partially failed.
-   * 
-   * - **Stopped**: The GDN is stopped.
-   * 
-   * - **Maintaining**: The GDN is under maintenance.
-   * 
-   * - **Restarting**: The GDN is restarting.
-   * 
-   * - **Locking**: The GDN is being locked.
-   * 
-   * - **Locked**: The GDN is locked.
-   * 
-   * - **Unlocking**: The GDN is being unlocked.
-   * 
-   * - **Deleting**: The GDN is being deleted.
-   * 
-   * - **Deleted**: The GDN is deleted.
+   * - **Creating**: Being created.
+   * - **Running**: Running.
+   * - **Syncing**: Being synchronized.
+   * - **SyncFinished**: Synchronization completed.
+   * - **SyncFailed**: Synchronization failed.
+   * - **SyncPartialFailed**: Partial synchronization failed.
+   * - **Stopped**: Stopped.
+   * - **Maintaining**: Under maintenance.
+   * - **Restarting**: Being restarted.
+   * - **Locking**: Being locked.
+   * - **Locked**: Locked.
+   * - **Unlocking**: Being unlocked.
+   * - **Deleting**: Being deleted.
+   * - **Deleted**: Deleted.
    * 
    * @example
    * Running
@@ -328,7 +301,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItemsNetworks extends $dar
   networkStatus?: string;
   /**
    * @remarks
-   * The network topology of the GDN.
+   * The GDN network topology.
    */
   networkTopology?: DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology;
   static names(): { [key: string]: string } {
@@ -401,7 +374,7 @@ export class DescribeGlobalDataNetworkListResponseBodyItems extends $dara.Model 
 export class DescribeGlobalDataNetworkListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the Global Data Networks (GDNs).
+   * The GDN details.
    */
   items?: DescribeGlobalDataNetworkListResponseBodyItems;
   /**

@@ -16,10 +16,8 @@ export class ModifyEncryptionDBSecretRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the key. Valid values:
-   * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -39,7 +37,7 @@ export class ModifyEncryptionDBSecretRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The Global Resource Descriptor (GRD) of the role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   * The global resource descriptor of the RAM role. The descriptor is used to specify a RAM role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @example
    * acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole

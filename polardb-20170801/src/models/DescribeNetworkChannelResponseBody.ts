@@ -13,20 +13,23 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   channelName?: string;
   /**
    * @remarks
-   * The ID of the source cluster.
+   * The source instance name.
    * 
    * @example
    * pc-*************
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The ID of the elastic network interfaces (ENIs) used by the reverse access link of the network channel. The network interface controller (NIC) is used for the connection.
+   * 
    * @example
    * eni-2z******
    */
   eniId?: string;
   /**
    * @remarks
-   * The notes about the channel.
+   * The remarks.
    * 
    * @example
    * test update
@@ -42,7 +45,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The ID of the target cluster.
+   * The target instance name.
    * 
    * @example
    * pc-*************
@@ -50,7 +53,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   targetDBClusterId?: string;
   /**
    * @remarks
-   * The IP address of the target cluster.
+   * The IP address of the target instance.
    * 
    * @example
    * 33.*.*.240
@@ -58,7 +61,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   targetIp?: string;
   /**
    * @remarks
-   * The port of the target cluster.
+   * The port of the target instance.
    * 
    * @example
    * 3389
@@ -66,7 +69,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   targetPort?: string;
   /**
    * @remarks
-   * The type of the target cluster.
+   * The target instance type.
    * 
    * @example
    * polardb_for_postgresql
@@ -74,7 +77,7 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
   targetType?: string;
   /**
    * @remarks
-   * The ID of the VPC that contains the endpoint.
+   * The ID of the VPC where the access endpoint resides.
    * 
    * @example
    * vpc-2ze13g2c6j7j2jl*******
@@ -122,12 +125,12 @@ export class DescribeNetworkChannelResponseBodyChannelInfos extends $dara.Model 
 export class DescribeNetworkChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of network channels.
+   * The list of network channels.
    */
   channelInfos?: DescribeNetworkChannelResponseBodyChannelInfos[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

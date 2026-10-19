@@ -15,7 +15,7 @@ export class DeleteAgenticDBTenantApiKeyRequest extends $dara.Model {
   apiKeyId?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DeleteAgenticDBTenantApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant ID, which is used for secondary authentication on the backend.
+   * The tenant ID, which is used for secondary verification on the backend.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelApisResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The model category. Valid values:
+   * The category. Valid values:
    * * **text**
    * * **embedding**
    * * **rerank**
@@ -14,6 +14,13 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
    * text
    */
   category?: string;
+  /**
+   * @remarks
+   * The gateway retry configuration.
+   * 
+   * @example
+   * {"failover":{"enabled":true,"max_provider_retries":2,"max_failover_providers":1,"retryable_status_codes":[429,500,502,503,504],"retry_delay":0.5}}
+   */
   config?: string;
   /**
    * @remarks
@@ -25,7 +32,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The model API IDs.
+   * The IDs of the model APIs.
    * 
    * @example
    * mi-xxxx
@@ -33,7 +40,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The model API name.
+   * The name of the model API.
    * 
    * @example
    * testName
@@ -62,7 +69,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input tokens.
+   * The number of input points.
    * 
    * @example
    * 10
@@ -70,7 +77,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output tokens.
+   * The number of output points.
    * 
    * @example
    * 10
@@ -78,7 +85,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordOutput?: string;
   /**
    * @remarks
-   * The routing rules list (JSON array string).
+   * The list of routing rules, formatted as a JSON array string.
    * 
    * @example
    * [
@@ -109,7 +116,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   routeRules?: string;
   /**
    * @remarks
-   * The model API status.
+   * The status of the model API.
    * 
    * @example
    * Enable
@@ -172,7 +179,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -180,7 +187,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30**, **50**, or **100**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
    * 
    * Default value: **30**.
    * 
@@ -198,7 +205,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

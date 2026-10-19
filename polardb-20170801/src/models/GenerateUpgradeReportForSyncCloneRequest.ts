@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   /**
    * @remarks
-   * The product series. Valid values:
+   * The edition of the cluster. Valid values:
+   * * **Normal**: Cluster Edition (default)
+   * * **SENormal**: Standard Edition
    * 
-   * - **Normal**: Cluster Edition (default)
-   * 
-   * - **SENormal**: Standard Edition
-   * 
-   * See [Product series](https://help.aliyun.com/document_detail/183258.html).
+   * For more information about cluster editions, see [Product editions](https://help.aliyun.com/document_detail/183258.html).
    * 
    * @example
    * Normal
@@ -19,11 +17,11 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   creationCategory?: string;
   /**
    * @remarks
-   * The creation method. Valid values:
+   * The creation pattern. Valid values: 
    * 
-   * - **MigrationFromRDS**: Migrate data from an existing RDS instance to a new PolarDB cluster. The created PolarDB cluster is in read-only mode and has binary logging enabled by default. For operations in the console, see [Upgrade an ApsaraDB RDS for MySQL instance to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
+   * * **MigrationFromRDS**: migrates data from an existing ApsaraDB RDS instance to a new PolarDB cluster. The created PolarDB cluster is in read-only mode and has binary logging enabled by default. For more information about the console operation, see [Upgrade an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121582.html).
    * 
-   * - **UpgradeFromPolarDB**: Upgrade and migrate data from a PolarDB cluster. See [Upgrade the major version](https://help.aliyun.com/document_detail/459712.html).
+   * * **UpgradeFromPolarDB**: performs instance migration from PolarDB. For more information about the console operation, see [Major engine version upgrade](https://help.aliyun.com/document_detail/459712.html).
    * 
    * @example
    * MigrationFromRDS
@@ -33,7 +31,7 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
    * @remarks
    * The name of the database. You can specify only one database name.
    * 
-   * > This parameter is supported only for PolarDB for PostgreSQL (Oracle Compatible) clusters.
+   * > Only PolarDB for PostgreSQL (Compatible with Oracle) clusters support this parameter.
    * 
    * @example
    * testDB
@@ -42,9 +40,7 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the database engine. Valid values:
-   * 
    * - **MySQL**
-   * 
    * - **Oracle**
    * 
    * @example
@@ -53,17 +49,12 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the destination database engine.
-   * 
-   * - Valid values for MySQL:
-   * 
-   *   - **5.6**
-   * 
-   *   - **5.7**
-   * 
-   *   - **8.0**
-   * 
-   * - Valid value for Oracle: **14**.
+   * The version number of the destination database DPI engine.
+   * * Valid values for MySQL: 
+   *     * **5.6**
+   *     * **5.7**
+   *     * **8.0**
+   * * Valid value for Oracle: **14**.
    * 
    * @example
    * 5.6
@@ -81,7 +72,7 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A reserved parameter in the JSON string format.
+   * The reserved parameter. The value is a JSON string.
    * 
    * @example
    * {\\"targetTableMode\\":2}
@@ -91,7 +82,7 @@ export class GenerateUpgradeReportForSyncCloneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * pc-k2j96w169uhu868l8

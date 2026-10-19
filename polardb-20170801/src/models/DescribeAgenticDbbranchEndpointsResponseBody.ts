@@ -21,7 +21,9 @@ export class DescribeAgenticDBBranchEndpointsResponseBodyItemsAddressItems exten
   connectionString?: string;
   /**
    * @remarks
-   * The network type. Valid values: Private and Public.
+   * The network type. Valid values:
+   * - Private: private network.
+   * - Public: public network.
    * 
    * @example
    * Private
@@ -73,7 +75,7 @@ export class DescribeAgenticDBBranchEndpointsResponseBodyItems extends $dara.Mod
   account?: string;
   /**
    * @remarks
-   * The compatible connection address. The public endpoint is returned first. If no public endpoint is available, the private endpoint is returned.
+   * The compatible connection address. A public endpoint is returned first. If no public endpoint is available, a private endpoint is returned.
    * 
    * @example
    * 10.0.1.100
@@ -86,7 +88,7 @@ export class DescribeAgenticDBBranchEndpointsResponseBodyItems extends $dara.Mod
   addressItems?: DescribeAgenticDBBranchEndpointsResponseBodyItemsAddressItems[];
   /**
    * @remarks
-   * The compatible connection string. The public connection string is returned first. If no public connection string is available, the private connection string is returned.
+   * The compatible connection string. A public connection string is returned first. If no public connection string is available, a private connection string is returned.
    * 
    * @example
    * postgresql://cloud_admin:******@10.0.1.100:5432/neondb

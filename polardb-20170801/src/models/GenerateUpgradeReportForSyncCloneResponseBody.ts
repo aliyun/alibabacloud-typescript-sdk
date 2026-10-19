@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUpgradeReportForSyncCloneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -13,7 +13,7 @@ export class GenerateUpgradeReportForSyncCloneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * pc-k2j96w169uhu868l8

@@ -53,7 +53,7 @@ export class RestartPolarClawGatewayResponseBody extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class RestartPolarClawGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway has been confirmed available after the restart. This value is returned synchronously.
+   * Indicates whether the gateway is confirmed available after the restart. This value is returned synchronously.
    * 
    * @example
    * true

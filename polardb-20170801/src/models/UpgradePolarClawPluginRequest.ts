@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePolarClawPluginRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The PolarClaw application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpgradePolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name and version of the new npm package.
+   * The new npm package name, including the version number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpgradePolarClawPluginRequest extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
-   * The ID of the plugin to upgrade.
+   * The ID of the plug-in to upgrade.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpgradePolarClawPluginRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after the upgrade. The default is true.
+   * Specifies whether to restart the gateway after the upgrade. Default value: true.
    * 
    * @example
    * true

@@ -7,7 +7,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The allowed operation information.
    * 
-   * > This feature is not supported yet.
+   * > This feature is not supported.
    * 
    * @example
    * {}
@@ -16,10 +16,8 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The request source. Valid values:
-   * 
-   * - **System**: system
-   * 
-   * - **User**: user
+   * * **System**: system.
+   * * **User**: user.
    * 
    * @example
    * User
@@ -27,7 +25,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   callerSource?: string;
   /**
    * @remarks
-   * The ID of the requesting user. If `CallerSource` is `User`, this is the user\\"s UID.
+   * The ID of the requesting user. When CallerSource is set to User, this value represents the user UID.
    * 
    * @example
    * 1816563541899***
@@ -35,7 +33,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * The name of the current step being executed. If this parameter is empty, the task has not started.
+   * The name of the current step being executed. An empty value indicates that the task has not started.
    * 
    * @example
    * finish_task
@@ -51,7 +49,9 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The task end time.
+   * 
+   * The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-03-03T07:30:57Z
@@ -91,7 +91,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The completion progress of the task, from 0.0 to 100.0.
+   * The current progress.
    * 
    * @example
    * 100.0
@@ -99,7 +99,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The reason for initiating the current task.
+   * The reason why the current task was initiated.
    * 
    * @example
    * ""
@@ -115,9 +115,9 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The estimated remaining execution time, in seconds (s).
+   * The estimated remaining execution duration. Unit: seconds.
    * 
-   * > This value is for reference only. The actual execution time prevails.
+   * > This value is for reference only. The actual execution duration may vary.
    * 
    * @example
    * 0
@@ -125,7 +125,9 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   remainTime?: number;
   /**
    * @remarks
-   * The start time of the task.
+   * The task start time.
+   * 
+   * The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-03-03T07:25:16Z
@@ -133,21 +135,15 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The final status of the task.
+   * The task status.
    * 
-   * - Scheduled: waiting for execution
-   * 
-   * - Running: executing
-   * 
-   * - Succeed: executed successfully
-   * 
-   * - Failed: execution failed
-   * 
-   * - Cancelling: stopping
-   * 
-   * - Canceled: stopped
-   * 
-   * - Waiting: waiting for preset time
+   * * Scheduled: Waiting for execution.
+   * * Running: Running.
+   * * Succeed: Succeeded.
+   * * Failed: Failed.
+   * * Cancelling: Being canceled.
+   * * Canceled: Canceled.
+   * * Waiting: Waiting for the scheduled time.
    * 
    * @example
    * Succeed
@@ -179,7 +175,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The UID of the account that owns the resource.
+   * The ID of the user to whom the resource belongs.
    * 
    * @example
    * 1816563541899***
@@ -247,12 +243,12 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
 export class DescribeHistoryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks.
+   * The task list.
    */
   items?: DescribeHistoryTasksResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the query result.
+   * The page number of the query results.
    * 
    * @example
    * 1
@@ -260,7 +256,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -268,7 +264,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * F90D7C14-2D1C-5B88-9CD1-23AB2CF89***
@@ -276,7 +272,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of tasks that meet the conditions, regardless of paging factors.
+   * The total number of tasks that meet the filter conditions, regardless of pagination.
    * 
    * @example
    * 2

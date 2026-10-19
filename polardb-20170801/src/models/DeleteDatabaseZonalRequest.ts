@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatabaseZonalRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
+   * 
+   * > Note: The DBClusterId must be the ID of a PolarDB on ENS cluster created by calling CreateDBCluster(CloudProvider=ENS, EnsRegionId=xxx).
    * 
    * This parameter is required.
    * 

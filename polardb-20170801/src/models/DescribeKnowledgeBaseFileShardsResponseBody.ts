@@ -13,7 +13,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShardsImageResources ext
   documentIndex?: number;
   /**
    * @remarks
-   * The unique ID of the image resource.
+   * The unique identifier of the image resource.
    * 
    * @example
    * document-0/pictures/1
@@ -29,7 +29,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShardsImageResources ext
   itemRef?: string;
   /**
    * @remarks
-   * The media type of the image resource.
+   * The MIME type of the image resource.
    * 
    * @example
    * image/png
@@ -80,12 +80,12 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
   captions?: string[];
   /**
    * @remarks
-   * The list of Docling source document structured element references associated with the shard. You can use these references to precisely locate original document elements.
+   * The list of structured element references in the Docling source document associated with the shard, which can be used to precisely locate the original elements.
    */
   docItems?: string[];
   /**
    * @remarks
-   * The chain of section headings to which the shard belongs.
+   * The section heading chain to which the shard belongs.
    */
   headings?: string[];
   /**
@@ -173,7 +173,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -181,7 +181,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 30
@@ -202,7 +202,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBody extends $dara.Model {
   shards?: DescribeKnowledgeBaseFileShardsResponseBodyShards[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10

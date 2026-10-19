@@ -13,7 +13,7 @@ export class UpgradePolarClawPluginResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class UpgradePolarClawPluginResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The ID of the upgraded plugin.
+   * The ID of the upgraded plug-in.
    * 
    * @example
    * openclaw-lark
@@ -53,7 +53,7 @@ export class UpgradePolarClawPluginResponseBody extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 7E2FE3BB-C677-5FF9-9FC5-9CF364BD6BE5
@@ -61,7 +61,7 @@ export class UpgradePolarClawPluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway restarted.
+   * Indicates whether the gateway was restarted.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class DescribeKnowledgeBaseAnswerResponseBodySourcesImageResources extend
   documentIndex?: number;
   /**
    * @remarks
-   * The unique ID of the image resource.
+   * The unique identifier of the image resource.
    * 
    * @example
    * document-0/pictures/1
@@ -29,7 +29,7 @@ export class DescribeKnowledgeBaseAnswerResponseBodySourcesImageResources extend
   itemRef?: string;
   /**
    * @remarks
-   * The media type of the image resource.
+   * The MIME type of the image resource.
    * 
    * @example
    * image/png
@@ -75,7 +75,7 @@ export class DescribeKnowledgeBaseAnswerResponseBodySourcesImageResources extend
 export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model {
   /**
    * @remarks
-   * The chunk metadata.
+   * The shard metadata.
    * 
    * @example
    * {}
@@ -94,17 +94,17 @@ export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model 
    * The file name.
    * 
    * @example
-   * FinancialReport.pdf
+   * Financial_Report.pdf
    */
   fileName?: string;
   /**
    * @remarks
-   * The list of image resources associated with the referenced chunk in the Q&A.
+   * The list of image resources associated with the shard referenced in the Q&A.
    */
   imageResources?: DescribeKnowledgeBaseAnswerResponseBodySourcesImageResources[];
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base.
    * 
    * @example
    * pkb-xxxxx
@@ -120,20 +120,20 @@ export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model 
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The list of page numbers to which the chunk belongs.
+   * The list of page numbers to which the shard belongs.
    */
   pageNumbers?: number[];
   /**
    * @remarks
-   * The chunk content.
+   * The shard content.
    * 
    * @example
-   * FinancialReport
+   * Financial report
    */
   shardContent?: string;
   /**
    * @remarks
-   * The chunk ID.
+   * The shard ID.
    * 
    * @example
    * 8
@@ -219,15 +219,15 @@ export class DescribeKnowledgeBaseAnswerResponseBody extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The answer content.
+   * The content of the answer.
    * 
    * @example
-   * The financial report summary is as follows: ******
+   * The content of the financial report is summarized as follows: ******
    */
   answer?: string;
   /**
    * @remarks
-   * The cumulative number of tokens generated for completion.
+   * The cumulative number of completion tokens generated.
    * 
    * @example
    * 3935
@@ -251,7 +251,7 @@ export class DescribeKnowledgeBaseAnswerResponseBody extends $dara.Model {
   errorType?: string;
   /**
    * @remarks
-   * The large language model ID.
+   * The ID of the large language model.
    * 
    * @example
    * OO1A6p8B******_xPUC
@@ -259,7 +259,7 @@ export class DescribeKnowledgeBaseAnswerResponseBody extends $dara.Model {
   LLMModelId?: string;
   /**
    * @remarks
-   * The cumulative number of tokens consumed by the prompt.
+   * The cumulative number of prompt tokens consumed.
    * 
    * @example
    * 2459
@@ -267,7 +267,7 @@ export class DescribeKnowledgeBaseAnswerResponseBody extends $dara.Model {
   promptTokens?: number;
   /**
    * @remarks
-   * The unique ID of the Q&A task.
+   * The unique identifier of the Q&A task.
    * 
    * @example
    * R3BGbnBqcXN******.2a5a23c9-******-179970533d30
@@ -289,8 +289,8 @@ export class DescribeKnowledgeBaseAnswerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the Q&A task. Valid values:
-   * - RUNNING: In progress.
-   * - COMPLETED: Completed.
+   * - RUNNING: The task is in progress.
+   * - COMPLETED: The task is completed.
    * 
    * @example
    * COMPLETED

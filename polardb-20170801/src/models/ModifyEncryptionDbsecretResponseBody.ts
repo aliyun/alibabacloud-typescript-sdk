@@ -13,9 +13,8 @@ export class ModifyEncryptionDBSecretResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message is returned, such as an error code.
+   * The message returned for the request.
+   * >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -23,7 +22,7 @@ export class ModifyEncryptionDBSecretResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 4CE6DF97-AEA4-484F-906F-C407EE******
@@ -31,11 +30,11 @@ export class ModifyEncryptionDBSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The result of the request. Valid values:
    * 
-   * - **true**
+   * - **true**: The request is successful.
    * 
-   * - **false**
+   * - **false**: The request fails.
    * 
    * @example
    * true

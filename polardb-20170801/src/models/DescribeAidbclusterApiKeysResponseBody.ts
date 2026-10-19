@@ -15,6 +15,8 @@ export class DescribeAIDBClusterApiKeysResponseBodyApiKeys extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time is displayed in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-04-09T03:19:19Z
    */

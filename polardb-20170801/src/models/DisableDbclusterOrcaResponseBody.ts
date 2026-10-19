@@ -6,8 +6,7 @@ export class DisableDBClusterOrcaResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters that belong to your account, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including the cluster ID.
    * 
    * @example
    * pc-***************
@@ -15,7 +14,7 @@ export class DisableDBClusterOrcaResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E6CD86******

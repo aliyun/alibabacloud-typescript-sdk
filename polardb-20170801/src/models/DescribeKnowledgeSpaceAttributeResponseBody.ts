@@ -160,7 +160,7 @@ export class DescribeKnowledgeSpaceAttributeResponseBodyShardingStrategyConfigRu
   parameters?: DescribeKnowledgeSpaceAttributeResponseBodyShardingStrategyConfigRulesStrategyParameters;
   /**
    * @remarks
-   * The chunking strategy type used when a rule is matched.
+   * The chunking strategy type used when the rule is matched.
    * 
    * @example
    * hierarchical
@@ -276,8 +276,8 @@ export class DescribeKnowledgeSpaceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The access control list (ACL) mode of the knowledge space. Valid values:
-   * - DISABLED
-   * - ENFORCED
+   * - DISABLED: ACL is disabled.
+   * - ENFORCED: ACL is enforced.
    * 
    * @example
    * ENFORCED
@@ -285,7 +285,9 @@ export class DescribeKnowledgeSpaceAttributeResponseBody extends $dara.Model {
   ACLMode?: string;
   /**
    * @remarks
-   * The time when the knowledge space was created.
+   * The creation time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-25T09:53:44Z
@@ -309,7 +311,7 @@ export class DescribeKnowledgeSpaceAttributeResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
+   * The database engine type. Valid values:
    * * MySQL
    * * PostgreSQL
    * 
@@ -407,7 +409,7 @@ export class DescribeKnowledgeSpaceAttributeResponseBody extends $dara.Model {
   shardSize?: number;
   /**
    * @remarks
-   * The default chunking strategy configuration of the knowledge space. This parameter may be empty if existing instances do not have the complete configuration saved.
+   * The default chunking strategy configuration of the knowledge space. This value may be empty if existing instances do not have a complete configuration saved.
    */
   shardingStrategyConfig?: DescribeKnowledgeSpaceAttributeResponseBodyShardingStrategyConfig;
   /**

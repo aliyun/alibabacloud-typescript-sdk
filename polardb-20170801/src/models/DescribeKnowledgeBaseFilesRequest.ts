@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of file IDs, separated by commas (,).
+   * The list of file IDs, separated by commas.
    * 
    * @example
    * doc_a,doc_b
@@ -13,15 +13,15 @@ export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
   fileIds?: string;
   /**
    * @remarks
-   * The keyword used to filter file names.
+   * The keyword for the file name.
    * 
    * @example
-   * Financial report
+   * FinancialReport
    */
   keyword?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The unique ID of the synchronization link.
+   * The unique identifier of the synchronization link.
    * 
    * @example
    * pkbl-2ze123456789abc

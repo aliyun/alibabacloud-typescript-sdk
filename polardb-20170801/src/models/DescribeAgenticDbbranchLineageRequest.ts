@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The anchor branch ID. If this parameter is not specified, the primary branch of the project is used by default.
+   * The ID of the anchor branch. If this parameter is not specified, the primary branch of the project is used by default.
    * 
    * @example
    * br-7g8h9i0j1k2l
@@ -13,7 +13,7 @@ export class DescribeAgenticDBBranchLineageRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -30,6 +30,9 @@ export class DescribeAgenticDBBranchLineageRequest extends $dara.Model {
    */
   includeDestroying?: boolean;
   /**
+   * @remarks
+   * The maximum number of levels to return in the view, including the anchor branch itself. Valid values: 1 to 20. Default value: 3. The server automatically allocates the budget for ancestor and descendant levels with a downward bias.
+   * 
    * @example
    * 3
    */

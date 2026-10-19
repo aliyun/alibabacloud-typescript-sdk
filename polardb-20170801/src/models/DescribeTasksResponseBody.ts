@@ -93,7 +93,7 @@ export class DescribeTasksResponseBodyTasks extends $dara.Model {
 export class DescribeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the task belongs.
+   * The cluster ID associated with the task.
    * 
    * @example
    * pc-***************
@@ -101,7 +101,9 @@ export class DescribeTasksResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
+   * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
    * 
    * @example
    * 2020-12-02T03:00Z
@@ -117,7 +119,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -133,7 +135,9 @@ export class DescribeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query.
+   * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
    * 
    * @example
    * 2020-11-30T00:00Z
@@ -142,7 +146,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   tasks?: DescribeTasksResponseBodyTasks;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1

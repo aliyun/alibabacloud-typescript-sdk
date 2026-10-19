@@ -15,7 +15,7 @@ export class DescribeKnowledgeBaseFileShardsRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeKnowledgeBaseFileShardsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30

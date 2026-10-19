@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrGetVirtualLicenseOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the engine. Valid values: PG, Oracle, and MySQL.
+   * The engine type. Valid values: PG, Oracle, and MySQL.
    * 
    * This parameter is required.
    * 

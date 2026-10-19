@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCostRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cost rule ID.
+   * The ID of the cost rule.
    * 
    * @example
    * 924d450014e64e88ac6e8486f8e990**

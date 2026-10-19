@@ -26,7 +26,7 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -50,7 +50,7 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1

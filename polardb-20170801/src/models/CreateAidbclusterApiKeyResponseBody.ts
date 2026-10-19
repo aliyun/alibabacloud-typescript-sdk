@@ -13,7 +13,9 @@ export class CreateAIDBClusterApiKeyResponseBodyApiKey extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the API key was created.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-12T03:41:53Z

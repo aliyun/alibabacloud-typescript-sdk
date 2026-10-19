@@ -13,7 +13,7 @@ export class CreateGwConsumerOrderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The expiration time of the API key in ISO-8601 format. The value must be later than the current time.
+   * The expiration time of the API key in ISO 8601 format. The value must be later than the current time.
    * 
    * @example
    * 2027-07-23T03:09:08Z
@@ -31,7 +31,7 @@ export class CreateGwConsumerOrderRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The number of API keys to generate (the number of capacity plans to order). Valid values: 1 to 30.
+   * The number of API keys to generate, which is the number of capacity plans to order. Valid values: 1 to 30.
    * 
    * This parameter is required.
    * 

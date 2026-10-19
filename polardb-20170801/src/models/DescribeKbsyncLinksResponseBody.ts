@@ -15,6 +15,8 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-08-11T09:55:19Z
    */

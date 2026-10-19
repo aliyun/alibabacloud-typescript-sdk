@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * The child component ID.
+   * The subcomponent ID.
    * 
    * @example
    * pac-********************
@@ -43,12 +43,12 @@ export class CreateApplicationResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The list of child components.
+   * The list of subcomponents.
    */
   components?: CreateApplicationResponseBodyComponents[];
   /**
    * @remarks
-   * The description of the application.
+   * The application remarks.
    * 
    * @example
    * myapp
@@ -56,7 +56,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The generated order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 2148126708*****
@@ -72,7 +72,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether resources are sufficient. This parameter is returned only when DryRun is set to true.
+   * Indicates whether the required resources are available. This parameter is returned only when DryRun is set to true.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   resourceAvailable?: boolean;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-********************

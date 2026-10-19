@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of AI applications bound to the knowledge base.
+   * The number of AI applications associated with the knowledge base.
    * 
    * @example
    * 2
@@ -13,7 +13,9 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   bindingAppCount?: number;
   /**
    * @remarks
-   * The creation time.
+   * The time when the knowledge base was created.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z

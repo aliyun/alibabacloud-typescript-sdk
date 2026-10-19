@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountZonalRequest extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * This parameter is required.
    * 
@@ -16,6 +16,8 @@ export class DeleteAccountZonalRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
+   * 
+   * > Note: This parameter accepts only the ID of a PolarDB on ENS cluster (CloudProvider=ENS). For standard cloud clusters, use the DeleteAccount API. You can call the DescribeDBClustersZonal operation to query existing PolarDB on ENS clusters.
    * 
    * This parameter is required.
    * 

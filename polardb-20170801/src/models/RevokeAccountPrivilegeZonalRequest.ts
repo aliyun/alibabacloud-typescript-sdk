@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It is case-sensitive and cannot exceed 64 ASCII characters.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token. The token must be unique across different requests and is case-sensitive. The token can be up to 64 ASCII characters in length.
    * 
    * @example
    * 6000170000591aed949d0f5********************
@@ -25,6 +25,8 @@ export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
+   * > Note: This API supports only the cluster IDs of PolarDB on ENS clusters. For common clusters, use RevokeAccountPrivilege. You can call the DescribeDBClustersZonal operation to query the list of edge clusters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,7 +35,7 @@ export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database. To specify multiple databases, separate the names with a comma (,).
+   * The name of the database. You can specify multiple database names separated by commas (,).
    * 
    * This parameter is required.
    * 

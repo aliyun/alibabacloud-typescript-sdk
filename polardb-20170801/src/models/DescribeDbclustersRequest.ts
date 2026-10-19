@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer that starts from 1. The Tag.n.Key parameter is paired with the Tag.n.Value parameter.
+   * The tag key. You can filter the cluster list based on tags. You can specify up to 20 tag key-value pairs. The number n in each tag key-value pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
    * 
    * > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
@@ -65,7 +65,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID. Separate multiple cluster IDs with commas (,).
+   * The cluster IDs. Separate multiple cluster IDs with commas (,).
    * 
    * @example
    * pc-****************
@@ -81,7 +81,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The node ID. You can specify multiple node IDs, separated by commas (,).
+   * The node IDs. You can specify multiple node IDs and separate them with commas (,).
    * 
    * @example
    * pi-***************
@@ -100,7 +100,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The database version.
    * 
    * @example
    * 5.6
@@ -108,8 +108,8 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The query mode for the list. Set the value to Simple to use the simple mode, which returns only basic metadata of clusters.
-   * > If you do not specify this parameter, the detailed mode is used by default, which returns detailed information about clusters.
+   * The query mode for the list. A value of Simple indicates the brief mode, in which only the basic metadata of the clusters is returned.
+   * > If this parameter is not specified, the detailed mode is used by default, and the detailed information of the clusters is returned.
    * 
    * @example
    * Simple
@@ -151,8 +151,8 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * @remarks
    * The billing method. Valid values: 
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -160,7 +160,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * Filters clusters created within the last N days. Valid values: 0 to 15.
+   * Filters the clusters created in the last N days. Valid values: 0 to 15.
    * 
    * @example
    * 7
@@ -168,7 +168,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   recentCreationInterval?: number;
   /**
    * @remarks
-   * Filters clusters that expire within the next N days. Valid values: 0 to 15.
+   * Filters the clusters that expire in N days. Valid values: 0 to 15.
    * 
    * @example
    * 6
@@ -197,7 +197,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeDBClustersRequestTag[];
   static names(): { [key: string]: string } {

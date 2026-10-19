@@ -7,6 +7,8 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2025-09-26T08:25:44Z
    */
@@ -62,6 +64,8 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The update time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-16T02:27:33Z

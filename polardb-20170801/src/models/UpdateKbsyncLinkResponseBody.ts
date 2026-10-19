@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKBSyncLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The synchronization link ID.
+   * The ID of the synchronization link.
    * 
    * @example
    * pkbl-xxxxx
@@ -21,7 +21,7 @@ export class UpdateKBSyncLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduled time of the synchronization task.
+   * The schedule time of the synchronization task.
    */
   syncSchedule?: string;
   static names(): { [key: string]: string } {

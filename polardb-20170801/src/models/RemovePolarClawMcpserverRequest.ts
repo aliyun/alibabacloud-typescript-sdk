@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePolarClawMCPServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The PolarClaw application ID.
    * 
    * This parameter is required.
    * 

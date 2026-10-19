@@ -14,14 +14,10 @@ export class DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList exte
   /**
    * @remarks
    * The release status of the database version. Valid values:
-   * 
-   * - **Stable**: The current version is stable.
-   * 
-   * - **Old**: The current version is outdated. Do not upgrade to this version.
-   * 
-   * - **HighRisk**: The current version has critical bugs. Do not upgrade to this version.
-   * 
-   * - **Beta**: The current version is a beta version.
+   * * **Stable**: The current version is stable.
+   * * **Old**: The current version is outdated. Do not upgrade to this version.
+   * * **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+   * * **Beta**: The current version is a beta release.
    * 
    * @example
    * Stable
@@ -29,7 +25,7 @@ export class DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList exte
   releaseType?: string;
   /**
    * @remarks
-   * The code of the patch version for the database engine. Use this code to specify the target version for an upgrade.
+   * The revision version code of the database engine, which is used to specify the target version for the upgrade.
    * 
    * @example
    * 20230707
@@ -37,7 +33,7 @@ export class DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList exte
   revisionVersionCode?: string;
   /**
    * @remarks
-   * The patch version of the database engine.
+   * The revision version number of the database engine.
    * 
    * @example
    * 8.0.1.1.35.1
@@ -82,10 +78,8 @@ export class DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList e
   /**
    * @remarks
    * The release type. Valid values:
-   * 
-   * - **LTS**: Long-Term Support (LTS) version.
-   * 
-   * - **BETA**: Preview version.
+   * * **LTS**: Long-term support version.
+   * * **BETA**: Preview version.
    * 
    * @example
    * LTS
@@ -93,7 +87,7 @@ export class DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList e
   releaseType?: string;
   /**
    * @remarks
-   * The code of the patch version for the database proxy. Use this code to specify the target version for an upgrade.
+   * The revision version code of the PolarProxy engine, which is used to specify the target version for the upgrade.
    * 
    * @example
    * 20230707
@@ -101,7 +95,7 @@ export class DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList e
   revisionVersionCode?: string;
   /**
    * @remarks
-   * The patch version of the database proxy.
+   * The revision version number of the PolarProxy engine.
    * 
    * @example
    * 2.8.24
@@ -145,7 +139,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The latest version of the database kernel.
+   * The latest version of the database kernel engine.
    * 
    * @example
    * 8.0.1.1.16
@@ -153,17 +147,13 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBLatestVersion?: string;
   /**
    * @remarks
-   * The minor version of the database engine.
+   * The minor version number of the database engine.
+   * * If `DBVersion` is **8.0**, valid values are:
+   *     * **8.0.2**
+   *     * **8.0.1**
+   * * If `DBVersion` is **5.7**, the value is **5.7.28**.
    * 
-   * - If `DBVersion` is **8.0**, the valid values are:
-   * 
-   *   - **8.0.2**
-   * 
-   *   - **8.0.1**
-   * 
-   * - If `DBVersion` is **5.7**, the value is **5.7.28**.
-   * 
-   * - If `DBVersion` is **5.6**, the value is **5.6.16**.
+   * * If `DBVersion` is **5.6**, the value is **5.6.16**.
    * 
    * @example
    * 8.0.1
@@ -171,7 +161,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBMinorVersion?: string;
   /**
    * @remarks
-   * The patch version of the database engine.
+   * The revision version number of the database engine.
    * 
    * @example
    * 8.0.1.1.7
@@ -184,7 +174,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBRevisionVersionList?: DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList[];
   /**
    * @remarks
-   * The major version of the database engine. Valid values:
+   * The major version number of the database engine. Valid values:
    * 
    * - 8.0
    * 
@@ -198,15 +188,15 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The status of the current minor version of the database. Valid values:
+   * The status of the current database minor version. Valid values:
    * 
    * - Stable: The current version is stable.
    * 
    * - Old: The current version is outdated. Upgrade to the latest version.
    * 
-   * - HighRisk: The current version has critical bugs. Upgrade to the latest version immediately.
+   * - HighRisk: The current version has critical defects. Upgrade to the latest version immediately.
    * 
-   * - Beta: The current version is a beta version.
+   * - Beta: The current version is a beta release.
    * 
    * @example
    * Stable
@@ -214,7 +204,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   DBVersionStatus?: string;
   /**
    * @remarks
-   * Indicates whether the current database kernel version is the latest version. Valid values:
+   * Indicates whether the current database kernel engine version is the latest version. Valid values:
    * 
    * - true
    * 
@@ -226,7 +216,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   isLatestVersion?: string;
   /**
    * @remarks
-   * Indicates whether the current database proxy version is the latest version. Valid values:
+   * Indicates whether the current database kernel engine version is the latest version. Valid values:
    * 
    * - true
    * 
@@ -238,7 +228,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   isProxyLatestVersion?: string;
   /**
    * @remarks
-   * The latest version of the database proxy.
+   * The latest version of PolarProxy.
    * 
    * @example
    * 2.4.17
@@ -246,7 +236,7 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   proxyLatestVersion?: string;
   /**
    * @remarks
-   * The version of the database proxy.
+   * The version of PolarProxy.
    * 
    * @example
    * 2.4.15
@@ -254,28 +244,25 @@ export class DescribeDBClusterVersionZonalResponseBody extends $dara.Model {
   proxyRevisionVersion?: string;
   /**
    * @remarks
-   * The list of upgradable database proxy versions.
+   * The release status of the PolarProxy version. Valid values:
    * 
    * - **Stable**: The current version is stable.
-   * 
    * - **Old**: The current version is outdated. Do not upgrade to this version.
-   * 
-   * - **HighRisk**: The current version has critical bugs. Do not upgrade to this version.
-   * 
-   * - **Beta**: The current version is a beta version.
+   * - **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+   * - **Beta**: The current version is a beta release.
    */
   proxyRevisionVersionList?: DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList[];
   /**
    * @remarks
-   * The status of the database proxy version. Valid values:
+   * The version status of PolarProxy. Valid values:
    * 
    * - Stable: The current version is stable.
    * 
    * - Old: The current version is outdated. Upgrade to the latest version.
    * 
-   * - HighRisk: The current version has critical bugs. Upgrade to the latest version immediately.
+   * - HighRisk: The current version has critical defects. Upgrade to the latest version immediately.
    * 
-   * - Beta: The current version is a beta version.
+   * - Beta: The current version is a beta release.
    * 
    * @example
    * Stable

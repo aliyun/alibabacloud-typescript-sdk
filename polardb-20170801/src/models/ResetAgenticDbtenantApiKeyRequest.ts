@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAgenticDBTenantApiKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the target API key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResetAgenticDBTenantApiKeyRequest extends $dara.Model {
   apiKeyId?: string;
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ResetAgenticDBTenantApiKeyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ResetAgenticDBTenantApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the target tenant.
+   * 
    * This parameter is required.
    * 
    * @example

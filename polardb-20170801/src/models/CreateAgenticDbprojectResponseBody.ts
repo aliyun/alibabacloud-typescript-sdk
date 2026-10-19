@@ -15,6 +15,8 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
    * @remarks
    * The time when the project was created.
    * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-06-10T11:00:00Z
    */

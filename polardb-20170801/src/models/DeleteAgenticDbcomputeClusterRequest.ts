@@ -31,7 +31,7 @@ export class DeleteAgenticDBComputeClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The project ID to which the resource belongs.
+   * The project ID.
    * 
    * @example
    * proj-7140b4c74b3a44978c825bac77

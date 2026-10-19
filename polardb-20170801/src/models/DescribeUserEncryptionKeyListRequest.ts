@@ -6,8 +6,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in the destination region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in the specified region, including the cluster ID.
    * 
    * @example
    * pc-************
@@ -25,7 +24,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -35,7 +34,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query information about the available regions of the destination account, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions for the current account, including the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +44,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The region of the transparent data encryption (TDE) key.
+   * The region where the TDE key resides.
    * 
    * @example
    * cn-beijing

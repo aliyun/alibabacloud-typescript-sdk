@@ -45,7 +45,7 @@ export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $d
 export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the protocol connection.
+   * The protocol endpoint.
    * 
    * @example
    * aclsh-prd-pdb12-rw.rwlb.rds.aliyuncs.com
@@ -236,7 +236,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The acceleration storage space, in GB.
+   * The acceleration storage space. Unit: GB.
    * 
    * @example
    * 1000
@@ -270,7 +270,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   authorizedUserIds?: string;
   /**
    * @remarks
-   * The bandwidth, in MB/s.
+   * The bandwidth. Unit: MB/s.
    * 
    * @example
    * 100
@@ -278,7 +278,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The bandwidth baseline, in MB/s/TiB.
+   * The bandwidth baseline. Unit: MB/s/TiB.
    * 
    * @example
    * 100
@@ -318,6 +318,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2021-08-02T05:57:10Z
    */
@@ -355,7 +357,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The list of endpoints, including endpoint information for NAS, S3Gateway, and other types.
+   * The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
    */
   endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
@@ -363,6 +365,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * The expiration time of the cluster.
    * 
    * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-10T16:00:00Z
@@ -407,7 +411,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   maxscaleEndpointId?: string;
   /**
    * @remarks
-   * The metadata service cluster endpoint.
+   * The cluster endpoint of the metadata service.
    * 
    * @example
    * pc-x67w12d2d5t13mt88.pg.polardb.rds.aliyuncs.com
@@ -423,7 +427,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaInstanceName?: string;
   /**
    * @remarks
-   * The metadata proxy service cluster endpoint.
+   * The cluster endpoint of the metadata proxy service.
    * 
    * @example
    * pc-y3610mp168p3bb740.rwlb.rds.aliyuncs.com
@@ -431,7 +435,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaMxsConnString?: string;
   /**
    * @remarks
-   * The metadata address for Fuse mount (encrypted).
+   * The metadata address for Fuse mounting (encrypted).
    * 
    * @example
    * e6cc1d2e2a6fa292038d999fda6501*****
@@ -488,8 +492,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance version. Valid values:
-   * - **PolarFS 2.0**: 2.0
-   * - **PolarFS 1.0**: 1.0
+   * - **PolarFS 2.0**: 2.0.
+   * - **PolarFS 1.0**: 1.0.
    * 
    * @example
    * PolarFS 2.0
@@ -545,7 +549,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The storage space, in GB.
+   * The storage space. Unit: GB.
    * 
    * @example
    * 1000
@@ -553,12 +557,12 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * The storage type for the High-performance Edition. Valid values:
+   * Storage types for the High-performance Edition. Valid values:
    * * **ESSDPL1**
    * * **ESSDPL0**
    * 
-   * The storage type for the Basic Edition. Valid values:
-   * * **city_redundancy**: cross-zone redundancy.
+   * Storage types for the Basic Edition. Valid values:
+   * * **city_redundancy**: zone-redundant storage.
    * 
    * @example
    * essdpl1
@@ -566,7 +570,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The storage usage, in bytes.
+   * The used storage space. Unit: bytes.
    * 
    * @example
    * 3012558848

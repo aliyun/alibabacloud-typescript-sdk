@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The product series. Valid values:
+   * The edition. Valid values:
+   * * **Normal**: Cluster Edition (default).
+   * * **SENormal**: Standard Edition.
    * 
-   * - **Normal**: Cluster Edition (default)
-   * 
-   * - **SENormal**: Standard Edition
-   * 
-   * For more information, see [Product series](https://help.aliyun.com/document_detail/183258.html).
+   * For more information about editions, see [Product editions](https://help.aliyun.com/document_detail/183258.html).
    * 
    * @example
    * Normal
@@ -21,9 +19,8 @@ export class DescribeUpgradeReportRequest extends $dara.Model {
    * @remarks
    * The database type. Valid values:
    * 
-   * - **MySQL**
-   * 
-   * - **Oracle**
+   * - **MySQL**.
+   * - **Oracle**.
    * 
    * @example
    * MySQL
@@ -57,9 +54,8 @@ export class DescribeUpgradeReportRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
-   * 
-   * > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +65,7 @@ export class DescribeUpgradeReportRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * rm-2zen5pe5vi56447d0
@@ -93,7 +89,7 @@ export class DescribeUpgradeReportRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * A special metric. This parameter is supported only for instances that use the Tair architecture.
+   * The special metric. Currently, only tair (PolarTair architecture) is supported.
    * 
    * @example
    * orca

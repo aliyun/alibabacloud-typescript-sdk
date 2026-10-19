@@ -13,9 +13,9 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   connectionString?: string;
   /**
    * @remarks
-   * Specifies whether the endpoint is the dashboard endpoint of a PolarDB search node. Valid values:
+   * Specifies whether the address is the dashboard address of a PolarDB Search node. Valid values:
    * 
-   * - True: Yes.
+   * - Ture: Yes.
    * 
    * - False: No.
    * 
@@ -37,7 +37,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
    * 
    * - Public: Internet.
    * 
-   * - Private: internal network.
+   * - Private: Private network.
    * 
    * @example
    * Private
@@ -45,7 +45,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   netType?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 1521
@@ -53,7 +53,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   port?: string;
   /**
    * @remarks
-   * The private domain name that is bound to the endpoint.
+   * The bound private domain name.
    * 
    * @example
    * ***.***.**.com
@@ -61,7 +61,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   privateZoneConnectionString?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-***************
@@ -69,7 +69,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   VPCId?: string;
   /**
    * @remarks
-   * The virtual switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-************
@@ -77,7 +77,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItemsAddressItems extend
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * pe-*************
@@ -148,7 +148,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the endpoint.
+   * The endpoint name.
    * 
    * @example
    * test
@@ -166,27 +166,20 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
    * @remarks
    * The advanced configurations of the cluster endpoint.
    * 
-   * - **DistributedTransaction**: The status of transaction splitting. Valid values:
+   * * **DistributedTransaction**: The transaction splitting status. Valid values:
+   *     * **on**: Transaction splitting is enabled.
+   *     * **off**: Transaction splitting is disabled.
    * 
-   *   - **on**: Transaction splitting is enabled.
+   * * **ConsistLevel**: The session consistency level. Valid values:
+   *     * **0**: Eventual consistency.
+   *     * **1**: Session consistency.
+   *     * **2**: Global consistency.
    * 
-   *   - **off**: Transaction splitting is disabled.
+   * *  **LoadBalanceStrategy**: The load balancing policy. Automatic scheduling based on load. The value is fixed as **load**.
    * 
-   * - **ConsistLevel**: The consistency level. Valid values:
-   * 
-   *   - **0**: Eventual consistency.
-   * 
-   *   - **1**: Session consistency.
-   * 
-   *   - **2**: Global consistency.
-   * 
-   * - **LoadBalanceStrategy**: The load balancing policy for automatic scheduling based on loads. The value is fixed as **load**.
-   * 
-   * - **MasterAcceptReads**: Specifies whether the primary node accepts read requests. Valid values:
-   * 
-   *   - **on**: The primary node accepts read requests.
-   * 
-   *   - **off**: The primary node does not accept read requests.
+   * * **MasterAcceptReads**: Specifies whether the primary database accepts reads. Valid values:
+   *     * **on**: The primary database accepts reads.
+   *     * **off**: Offload reads from primary node.
    * 
    * @example
    * {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
@@ -194,13 +187,13 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   endpointConfig?: string;
   /**
    * @remarks
-   * The type of the cluster endpoint. Valid values:
+   * The cluster endpoint type. Valid values:
    * 
-   * - Cluster: the default cluster endpoint.
+   * - Cluster: Default cluster endpoint.
    * 
-   * - Primary: the primary endpoint.
+   * - Primary: Primary endpoint.
    * 
-   * - Custom: a custom cluster endpoint.
+   * - Custom: Custom cluster endpoint.
    * 
    * @example
    * Custom
@@ -208,7 +201,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   endpointType?: string;
   /**
    * @remarks
-   * The role of each node in the endpoint. The primary node has the Writer role. Because multiple read-only nodes can be added to an endpoint, each read-only node is assigned a role name suffixed with a number, such as Reader1 and Reader2.
+   * The role names of the nodes under the target endpoint. The primary node is named Writer. Because multiple read-only nodes can be added to an endpoint, a number is appended to the role name of each read-only node for distinction, such as Reader1 and Reader2.
    * 
    * @example
    * Reader1
@@ -216,7 +209,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   nodeWithRoles?: string;
   /**
    * @remarks
-   * The list of nodes that are configured for the endpoint.
+   * The list of nodes configured for the endpoint.
    * 
    * @example
    * pi-***************,pi-***************
@@ -224,11 +217,11 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   nodes?: string;
   /**
    * @remarks
-   * The policy for global consistency timeout. Valid values:
+   * The global consistency timeout policy. Valid values:
    * 
    * - 0: Sends the request to the primary node.
    * 
-   * - 2: Degrades the request. If a global consistency read times out, the query is automatically degraded to a regular request. The client does not receive an error message.
+   * - 2: Downgrades upon timeout. If a global consistency read times out, the query is automatically downgraded to regular requests, and the client does not receive an error message.
    * 
    * @example
    * 0
@@ -236,7 +229,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   polarSccTimeoutAction?: string;
   /**
    * @remarks
-   * The timeout period for global consistency.
+   * The global consistency timeout period.
    * 
    * @example
    * 100
@@ -246,9 +239,9 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
    * @remarks
    * The read/write mode. Valid values:
    * 
-   * - ReadWrite: read and write (automatic read/write splitting).
+   * - ReadWrite: Read and write (automatic read/write splitting).
    * 
-   * - ReadOnly: read-only.
+   * - ReadOnly: Read-only.
    * 
    * @example
    * ReadOnly
@@ -256,11 +249,11 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
   readWriteMode?: string;
   /**
    * @remarks
-   * Specifies whether global consistency (high-performance mode) is enabled for the node. Valid values:
+   * Specifies whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
    * 
-   * - on: enabled.
+   * - on: Enabled.
    * 
-   * - off: disabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -317,7 +310,7 @@ export class DescribeDBClusterEndpointsZonalResponseBodyItems extends $dara.Mode
 export class DescribeDBClusterEndpointsZonalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the cluster endpoints.
+   * The cluster endpoint details.
    */
   items?: DescribeDBClusterEndpointsZonalResponseBodyItems[];
   /**

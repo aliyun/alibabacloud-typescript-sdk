@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of generated activation codes.
+   * The number of activation codes that have been generated.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   activatedCodeCount?: number;
   /**
    * @remarks
-   * The maximum number of activation codes that you can apply for.
+   * The quota of activation codes that can be requested.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   activationCodeQuota?: number;
   /**
    * @remarks
-   * The Alibaba Cloud order ID (including the virtual order ID).
+   * The Alibaba Cloud order ID, which includes the virtual order ID.
    * 
    * @example
    * 2233****445566
@@ -29,7 +29,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   aliyunOrderId?: string;
   /**
    * @remarks
-   * Indicates whether activation codes can be generated without the system identifier.
+   * Indicates whether the System Identifier can be left empty when generating an activation code.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the order is a virtual order (virtual orders allow pre-generation of activation codes).
+   * Indicates whether the order is a virtual order. Virtual orders allow pre-generation of activation codes.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   isVirtualOrder?: boolean;
   /**
    * @remarks
-   * Indicates whether the virtual order is frozen (activation codes cannot be generated for a frozen virtual order).
+   * Indicates whether the virtual order is frozen. A frozen virtual order does not allow further generation of activation codes.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   isVirtualOrderFrozen?: boolean;
   /**
    * @remarks
-   * The plan type.
+   * The package type.
    * 
    * @example
    * pre_generation_long_term
@@ -77,7 +77,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The validity period of the plan, which is one year (common) or thirty years (long-term).
+   * The validity period of the package. Typical values are one year or long-term (30 years).
    * 
    * @example
    * 30 years
@@ -93,7 +93,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   purchaseChannel?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 45D24263-7E3A-4140-9472-************
@@ -101,7 +101,7 @@ export class CreateOrGetVirtualLicenseOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the virtual order.
+   * The virtual order ID.
    * 
    * @example
    * 2024********483

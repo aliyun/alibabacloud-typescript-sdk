@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * @example
    * pg-xxxxxxxxxx
@@ -13,7 +13,7 @@ export class DescribeGatewayListRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The description of the gateway instance.
+   * The gateway description.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeGatewayListRequest extends $dara.Model {
   gwDescription?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -30,12 +30,9 @@ export class DescribeGatewayListRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 

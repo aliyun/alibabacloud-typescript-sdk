@@ -55,7 +55,9 @@ export class DescribeGlobalDatabaseNetworkResponseBodyConnections extends $dara.
 export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends $dara.Model {
   /**
    * @remarks
-   * The time when the node was created.
+   * The time when the database node was created.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-03-23T21:35:43Z
@@ -63,7 +65,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   creationTime?: string;
   /**
    * @remarks
-   * The node type.
+   * The node specifications of the database node.
    * 
    * @example
    * polar.mysql.x4.large
@@ -71,7 +73,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   DBNodeClass?: string;
   /**
    * @remarks
-   * The node ID.
+   * The database node ID.
    * 
    * @example
    * pi-****************
@@ -79,11 +81,11 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   DBNodeId?: string;
   /**
    * @remarks
-   * The role of the node. Valid values:
+   * The role of the database node. Valid values:
    * 
-   * - **Writer**: the primary node
+   * - **Writer**: primary node
    * 
-   * - **Reader**: a read-only node
+   * - **Reader**: read-only node
    * 
    * @example
    * Reader
@@ -93,25 +95,25 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
    * @remarks
    * The status of the node. Valid values:
    * 
-   * - **Creating**: The node is being created.
+   * - **Creating**: Being created.
    * 
-   * - **Running**: The node is running.
+   * - **Running**: Running.
    * 
-   * - **Deleting**: The node is being deleted.
+   * - **Deleting**: Being deleted.
    * 
-   * - **Rebooting**: The node is being restarted.
+   * - **Rebooting**: Being restarted.
    * 
-   * - **ClassChanging**: The node type is being changed.
+   * - **ClassChanging**: The node specifications are being changed.
    * 
-   * - **NetAddressCreating**: A network connection is being created.
+   * - **NetAddressCreating**: Network connectivity is being created.
    * 
-   * - **NetAddressDeleting**: A network connection is being deleted.
+   * - **NetAddressDeleting**: Network connectivity is being deleted.
    * 
-   * - **NetAddressModifying**: A network connection is being modified.
+   * - **NetAddressModifying**: Network connectivity is being modified.
    * 
-   * - **MinorVersionUpgrading**: The minor version is being upgraded.
+   * - **MinorVersionUpgrading**: A minor engine version upgrade is in progress.
    * 
-   * - **Maintaining**: The cluster is being maintained.
+   * - **Maintaining**: The cluster is under maintenance.
    * 
    * - **Switching**: A failover is in progress.
    * 
@@ -121,7 +123,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   DBNodeStatus?: string;
   /**
    * @remarks
-   * The failover priority. In the event of a failover, the system promotes a read-only node to the primary node. A larger value indicates a higher priority. Each read-only node is assigned a failover priority. Valid values: 1 to 15.
+   * The failover priority. Each node has a failover priority that determines the likelihood of the node being elected as the primary node during a failover. A higher value indicates a higher priority. Valid values: 1 to 15.
    * 
    * @example
    * 1
@@ -129,7 +131,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   failoverPriority?: number;
   /**
    * @remarks
-   * The maximum number of concurrent connections.
+   * The maximum number of concurrent connections to the cluster.
    * 
    * @example
    * 8000
@@ -137,7 +139,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
   maxConnections?: number;
   /**
    * @remarks
-   * The maximum I/O operations per second (IOPS).
+   * The maximum number of I/O requests per second (IOPS).
    * 
    * @example
    * 32000
@@ -191,15 +193,17 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
 export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.Model {
   /**
    * @remarks
-   * The edition of the cluster. Valid values:
+   * The edition of the product. Valid values:
    * 
-   * `Normal`: Cluster Edition `Basic`: Single-node Edition `Archive`: X-Engine Edition `NormalMultimaster`: Multi-master Cluster Edition `SENormal`: Standard Edition
+   * Normal: Cluster Edition
+   * Basic: Single Node Edition
+   * Archive: PolarDB X-Engine Edition
+   * NormalMultimaster: Multi-master Cluster Edition
+   * SENormal: PolarDB for MySQL Standard Edition
    * 
-   * > - Single-node Edition is not supported for PolarDB for PostgreSQL clusters that run PostgreSQL 11.
-   * >
-   * > - Standard Edition is supported for PolarDB for MySQL clusters that run MySQL 8.0 or 5.7 and for PolarDB for PostgreSQL clusters that run PostgreSQL 14.
-   * >
-   * > - X-Engine Edition and Multi-master Cluster Edition are supported only for PolarDB for MySQL clusters that run MySQL 8.0.
+   * >- PolarDB for PostgreSQL 11 does not support Single Node Edition.
+   * >- PolarDB for MySQL 8.0, PolarDB for MySQL 5.7, and PolarDB for PostgreSQL 14 support PolarDB for MySQL Standard Edition.
+   * >- PolarDB for MySQL 8.0 supports PolarDB X-Engine Edition and Multi-master Cluster Edition.
    * 
    * @example
    * Normal
@@ -207,7 +211,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   category?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * test
@@ -215,7 +219,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster ID in the GDN.
    * 
    * @example
    * pc-wz9fb5nn44u1d****
@@ -223,7 +227,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   DBClusterId?: string;
   /**
    * @remarks
-   * The status of the cluster. For more information, see [Cluster statuses](https://help.aliyun.com/document_detail/99286.html).
+   * The status of the cluster in the GDN. For more information, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
    * 
    * @example
    * Running
@@ -231,7 +235,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The node type.
+   * The node specifications of the database node.
    * 
    * @example
    * polar.mysql.x4.large
@@ -239,12 +243,12 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   DBNodeClass?: string;
   /**
    * @remarks
-   * The details of the nodes in the cluster.
+   * The details of the database nodes.
    */
   DBNodes?: DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes[];
   /**
    * @remarks
-   * The database engine. Only MySQL is supported.
+   * The database engine type. Currently, only MySQL is supported.
    * 
    * @example
    * MySQL
@@ -252,7 +256,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   DBType?: string;
   /**
    * @remarks
-   * The database engine version. Only version 8.0 is supported.
+   * The database engine version. Currently, only version 8.0 is supported.
    * 
    * @example
    * 8.0
@@ -262,7 +266,9 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
    * @remarks
    * The expiration time of the cluster.
    * 
-   * > This parameter is returned only for subscription clusters. An empty string is returned for pay-as-you-go clusters.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -272,11 +278,11 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
    * @remarks
    * Indicates whether the cluster has expired. Valid values:
    * 
-   * - **true**: The cluster has expired.
+   * - **true**
    * 
-   * - **false**: The cluster has not expired.
+   * - **false**
    * 
-   * > This parameter is returned only for subscription clusters.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
    * 
    * @example
    * false
@@ -284,7 +290,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   expired?: string;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
    * - **Postpaid**: pay-as-you-go.
    * 
@@ -296,7 +302,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   payType?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -304,7 +310,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * The replication lag for cross-region replication between the primary and standby clusters. Unit: seconds.
+   * The cross-region replication delay between the primary and secondary clusters. Unit: seconds.
    * 
    * @example
    * 1
@@ -312,13 +318,13 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   replicaLag?: string;
   /**
    * @remarks
-   * The role of the cluster in the GDN. Valid values:
+   * The role of the cluster. Valid values:
    * 
-   * - **primary**: the primary cluster
+   * - **primary**: primary cluster
    * 
-   * - **standby**: a standby cluster
+   * - **standby**: secondary cluster
    * 
-   * > A GDN consists of one primary cluster and up to four standby clusters.
+   * > A GDN contains one primary cluster and up to four secondary clusters.
    * 
    * @example
    * primary
@@ -326,9 +332,8 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   role?: string;
   /**
    * @remarks
-   * The type of the Serverless cluster. The value is fixed as `AgileServerless`.
-   * 
-   * > This parameter is returned only for Serverless clusters.
+   * The serverless type. The value is fixed as AgileServerless.
+   * > This parameter is supported only for serverless clusters.
    * 
    * @example
    * AgileServerless
@@ -336,7 +341,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
   serverlessType?: string;
   /**
    * @remarks
-   * The amount of storage space used. Unit: bytes.
+   * The storage usage. Unit: bytes.
    * 
    * @example
    * 3012558848
@@ -399,7 +404,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $dara.M
 export class DescribeGlobalDatabaseNetworkResponseBodyLabels extends $dara.Model {
   /**
    * @remarks
-   * The version of the GDN.
+   * The GDN version.
    * 
    * @example
    * 2.0
@@ -429,12 +434,14 @@ export class DescribeGlobalDatabaseNetworkResponseBodyLabels extends $dara.Model
 export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connection details.
+   * The connection information.
    */
   connections?: DescribeGlobalDatabaseNetworkResponseBodyConnections[];
   /**
    * @remarks
    * The time when the GDN was created.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-02-24T11:57:54Z
@@ -455,7 +462,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   DBClusters?: DescribeGlobalDatabaseNetworkResponseBodyDBClusters[];
   /**
    * @remarks
-   * The database engine type. Only MySQL is supported.
+   * The database engine type. Currently, only MySQL is supported.
    * 
    * @example
    * MySQL
@@ -463,7 +470,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The database engine version. Only version 8.0 is supported.
+   * The database engine version. Currently, only version 8.0 is supported.
    * 
    * @example
    * 8.0
@@ -471,13 +478,13 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The description of the GDN. It must meet the following requirements:
+   * The description of the GDN. The description must meet the following requirements:
    * 
-   * - It cannot start with `http://` or `https://`.
+   * - It cannot start with http:// or https://.
    * 
-   * - It must start with a letter or a Chinese character.
+   * - It must start with an uppercase letter, a lowercase letter, or a Chinese character.
    * 
-   * - It can contain only letters, Chinese characters, digits, underscores (_), and hyphens (-).
+   * - It can contain uppercase letters, lowercase letters, Chinese characters, digits, underscores (_), or hyphens (-).
    * 
    * - It must be 2 to 126 characters in length.
    * 
@@ -487,7 +494,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   GDNDescription?: string;
   /**
    * @remarks
-   * The GDN ID.
+   * GDN ID。
    * 
    * @example
    * gdn-bp1fttxsrmv*****
@@ -495,15 +502,15 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   GDNId?: string;
   /**
    * @remarks
-   * The status of the Global Database Network (GDN). Valid values:
+   * The status of the GDN. Valid values:
    * 
-   * - **creating**: The GDN is being created.
+   * - **creating**: Being created.
    * 
-   * - **active**: The GDN is running.
+   * - **active**: Running.
    * 
-   * - **deleting**: The GDN is being deleted.
+   * - **deleting**: Being deleted.
    * 
-   * - **locked**: The GDN is locked. In this state, you cannot perform any operations on any cluster in the GDN.
+   * - **locked**: Locked. No operations can be performed on any cluster in the GDN.
    * 
    * - **removing_member**: A cluster is being removed from the GDN.
    * 
@@ -521,7 +528,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
   globalDomainName?: string;
   /**
    * @remarks
-   * The labels of the GDN.
+   * The property labels.
    */
   labels?: DescribeGlobalDatabaseNetworkResponseBodyLabels;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The compute cluster ID of the branch.
+   * The ID of the compute cluster associated with the branch.
    * 
    * @example
    * pc-g0lsayq8c5qe
@@ -39,13 +39,15 @@ export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model
    * @remarks
    * The time when the branch was created.
    * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-06-10T11:00:00Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The depth relative to the anchor branch. The anchor branch has a depth of 0. Ancestor branches have negative values. Descendant branches have positive values.
+   * The depth relative to the anchor branch. The anchor branch has a depth of 0. Ancestor branches have negative values, and descendant branches have positive values.
    * 
    * @example
    * 0
@@ -84,6 +86,9 @@ export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model
    */
   isAnchor?: boolean;
   /**
+   * @remarks
+   * Indicates whether the branch is the default branch.
+   * 
    * @example
    * false
    */
@@ -98,7 +103,7 @@ export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model
   isRoot?: boolean;
   /**
    * @remarks
-   * The parent branch ID.
+   * The ID of the parent branch.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -106,7 +111,7 @@ export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model
   parentBranchId?: string;
   /**
    * @remarks
-   * The parent branch name.
+   * The name of the parent branch.
    * 
    * @example
    * main
@@ -174,7 +179,7 @@ export class DescribeAgenticDBBranchLineageResponseBodyItems extends $dara.Model
 export class DescribeAgenticDBBranchLineageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The anchor branch ID.
+   * The ID of the anchor branch.
    * 
    * @example
    * br-7g8h9i0j1k2l
@@ -187,7 +192,7 @@ export class DescribeAgenticDBBranchLineageResponseBody extends $dara.Model {
   items?: DescribeAgenticDBBranchLineageResponseBodyItems[];
   /**
    * @remarks
-   * The total number of returned nodes.
+   * The total number of nodes returned.
    * 
    * @example
    * 6
@@ -219,7 +224,7 @@ export class DescribeAgenticDBBranchLineageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The primary branch ID.
+   * The ID of the primary branch.
    * 
    * @example
    * br-root

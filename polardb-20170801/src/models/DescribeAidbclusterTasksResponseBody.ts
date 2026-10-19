@@ -7,6 +7,8 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The task completion time.
    * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-06-09T18:00:00Z
    */
@@ -14,6 +16,8 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The creation time.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -29,7 +33,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   DBNodeDescription?: string;
   /**
    * @remarks
-   * The template operator instance ID.
+   * The model operator instance ID.
    * 
    * @example
    * pm-2ze***
@@ -69,7 +73,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The DPI engine version.
    * 
    * @example
    * 3.1
@@ -101,7 +105,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   modelSource?: string;
   /**
    * @remarks
-   * The running parameters.
+   * The runtime parameters.
    * 
    * @example
    * xxx
@@ -110,6 +114,8 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task start time.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-06-09T18:00:00Z
@@ -133,7 +139,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   trainType?: string;
   /**
    * @remarks
-   * The tuning framework.
+   * The fine-tuning framework.
    */
   tuneArch?: string;
   static names(): { [key: string]: string } {
@@ -200,7 +206,7 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The DPI engine version.
    * 
    * @example
    * 3.1
@@ -218,7 +224,7 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of records on the current page.
+   * The total number of records on the page.
    */
   pageRecordCount?: string;
   /**

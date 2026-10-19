@@ -79,6 +79,8 @@ export class DescribeAgenticDBClustersResponseBodyItems extends $dara.Model {
    * @remarks
    * The time when the cluster was created.
    * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2020-08-14T05:58:42Z
    */
@@ -128,6 +130,8 @@ export class DescribeAgenticDBClustersResponseBodyItems extends $dara.Model {
    * The expiration time of the cluster.
    * > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
    * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2025-06-25T09:37:10Z
    */
@@ -151,8 +155,8 @@ export class DescribeAgenticDBClustersResponseBodyItems extends $dara.Model {
    * The lock status of the cluster. Valid values: 
    * 
    * - **Unlock**: Normal. 
-   * - **ManualLock**: Manually locked. 
-   * - **LockByExpiration**: Automatically locked due to cluster expiration.
+   * - **ManualLock**: manually locked. 
+   * - **LockByExpiration**: automatically locked due to cluster expiration.
    * 
    * @example
    * Unlock
@@ -195,7 +199,7 @@ export class DescribeAgenticDBClustersResponseBodyItems extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The serverless type. A value of **AgileServerless** indicates that the cluster is a serverless cluster.
+   * The serverless type. A return value of **AgileServerless** indicates that the cluster is a serverless cluster.
    * 
    * @example
    * AgileServerless
@@ -223,7 +227,7 @@ export class DescribeAgenticDBClustersResponseBodyItems extends $dara.Model {
   storageUsed?: number;
   /**
    * @remarks
-   * The tag key. You can filter the cluster list by tag. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key corresponds to Tag.n.Value.
+   * The tag key. You can use tags to filter clusters. You can specify up to 20 tags. The number n for each tag pair must be unique and must be a consecutive integer that starts from 1. The Tag.n.Key parameter is paired with the Tag.n.Value parameter.
    */
   tags?: DescribeAgenticDBClustersResponseBodyItemsTags[];
   /**
@@ -334,7 +338,7 @@ export class DescribeAgenticDBClustersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call. If there is no next query, do not pass this parameter.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call. If there is no next query, do not specify this parameter.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******

@@ -45,12 +45,44 @@ export class DescribeAvailableModelsResponseBodyItemsGpuRequired extends $dara.M
 export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The custom model registration key.
+   * The container startup environment variables registered for the custom model.
+   * 
+   * @example
+   * {"HF_HOME":"/cache/hf"}
+   */
+  containerEnv?: { [key: string]: string };
+  /**
+   * @remarks
+   * The source image address registered by the customer.
+   * 
+   * @example
+   * registry.example.com/customer/model:v1
+   */
+  customImageSource?: string;
+  /**
+   * @remarks
+   * The registration key of the custom model.
    * 
    * @example
    * Qwen3-32B
    */
   customModelName?: string;
+  /**
+   * @remarks
+   * The deployment specifications registered for the custom model.
+   * 
+   * @example
+   * polardb.gpu.gn8is.4xlarge
+   */
+  DBInstanceClass?: string;
+  /**
+   * @remarks
+   * The direct startup command registered for the custom model.
+   * 
+   * @example
+   * python -m vllm.entrypoints.openai.api_server
+   */
+  directCommand?: string;
   /**
    * @remarks
    * The display name of the model.
@@ -61,7 +93,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   displayModelName?: string;
   /**
    * @remarks
-   * The last modified time of the registration.
+   * The time when the registration was last modified.
    * 
    * @example
    * 2026-09-07 20:57:20
@@ -69,12 +101,36 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The supported GPU types.
+   * The supported GPU models.
    */
   gpuRequired?: DescribeAvailableModelsResponseBodyItemsGpuRequired[];
   /**
    * @remarks
-   * The minimum number of CPUs.
+   * The image import status. Valid values: Importing, Available, and Failed.
+   * 
+   * @example
+   * Available
+   */
+  imageImportStatus?: string;
+  /**
+   * @remarks
+   * The model service image address registered by the customer.
+   * 
+   * @example
+   * registry.example.com/customer/model:v1
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * The inference engine registered for the custom model.
+   * 
+   * @example
+   * vllm
+   */
+  inferenceEngine?: string;
+  /**
+   * @remarks
+   * The minimum CPU requirement.
    * 
    * @example
    * 8
@@ -82,7 +138,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   minimumCpu?: number;
   /**
    * @remarks
-   * The minimum memory size.
+   * The minimum memory requirement.
    * 
    * @example
    * 16384
@@ -96,6 +152,14 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
    * Qwen3-32B-GPTQ-Int4
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The startup parameters registered for the custom model.
+   * 
+   * @example
+   * {"--max-model-len":"32768"}
+   */
+  modelParams?: { [key: string]: string };
   /**
    * @remarks
    * The model series.
@@ -125,16 +189,31 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
    * The supported GPU models.
    */
   supportedGpuModels?: string[];
+  /**
+   * @remarks
+   * The model fine-tuning architecture.
+   * 
+   * @example
+   * swift
+   */
   tuneArch?: string;
   static names(): { [key: string]: string } {
     return {
+      containerEnv: 'ContainerEnv',
+      customImageSource: 'CustomImageSource',
       customModelName: 'CustomModelName',
+      DBInstanceClass: 'DBInstanceClass',
+      directCommand: 'DirectCommand',
       displayModelName: 'DisplayModelName',
       gmtModified: 'GmtModified',
       gpuRequired: 'GpuRequired',
+      imageImportStatus: 'ImageImportStatus',
+      imageName: 'ImageName',
+      inferenceEngine: 'InferenceEngine',
       minimumCpu: 'MinimumCpu',
       minimumMemory: 'MinimumMemory',
       modelName: 'ModelName',
+      modelParams: 'ModelParams',
       modelSeries: 'ModelSeries',
       modelType: 'ModelType',
       ossPath: 'OssPath',
@@ -145,13 +224,21 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containerEnv: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      customImageSource: 'string',
       customModelName: 'string',
+      DBInstanceClass: 'string',
+      directCommand: 'string',
       displayModelName: 'string',
       gmtModified: 'string',
       gpuRequired: { 'type': 'array', 'itemType': DescribeAvailableModelsResponseBodyItemsGpuRequired },
+      imageImportStatus: 'string',
+      imageName: 'string',
+      inferenceEngine: 'string',
       minimumCpu: 'number',
       minimumMemory: 'number',
       modelName: 'string',
+      modelParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       modelSeries: 'string',
       modelType: 'string',
       ossPath: 'string',
@@ -161,8 +248,14 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(this.containerEnv) {
+      $dara.Model.validateMap(this.containerEnv);
+    }
     if(Array.isArray(this.gpuRequired)) {
       $dara.Model.validateArray(this.gpuRequired);
+    }
+    if(this.modelParams) {
+      $dara.Model.validateMap(this.modelParams);
     }
     if(Array.isArray(this.supportedGpuModels)) {
       $dara.Model.validateArray(this.supportedGpuModels);
@@ -186,7 +279,7 @@ export class DescribeAvailableModelsResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The DPI engine version.
    * 
    * @example
    * 3.0

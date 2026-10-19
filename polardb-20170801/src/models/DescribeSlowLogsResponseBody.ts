@@ -104,7 +104,9 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end date of the query.
+   * 
+   * The date is in UTC. Format: YYYY-MM-DDZ.
    * 
    * @example
    * 2021-05-30Z
@@ -145,7 +147,9 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start date of the query.
+   * 
+   * The date is in UTC. Format: YYYY-MM-DDZ.
    * 
    * @example
    * 2021-05-01Z

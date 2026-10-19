@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeReportResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The Data Definition Language (DDL) statements for object synchronization.
+   * The DDL statement for object synchronization.
    * 
    * @example
    * CREATE XXXX
@@ -13,7 +13,7 @@ export class DescribeUpgradeReportResponseBodyItems extends $dara.Model {
   DDL?: string;
   /**
    * @remarks
-   * The name of the evaluation object.
+   * The name of the assessed object.
    * 
    * @example
    * testName
@@ -21,7 +21,7 @@ export class DescribeUpgradeReportResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The schema of the evaluation object.
+   * The schema to which the assessed object belongs.
    * 
    * @example
    * ny_openapi
@@ -29,10 +29,8 @@ export class DescribeUpgradeReportResponseBodyItems extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The result of the compatibility evaluation. Valid values:
-   * 
+   * The compatibility assessment result. Valid values:
    * - **0**: Failed.
-   * 
    * - **1**: Succeeded.
    * 
    * @example
@@ -41,7 +39,7 @@ export class DescribeUpgradeReportResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the evaluation object.
+   * The object type of the assessed object.
    * 
    * @example
    * orca
@@ -81,13 +79,15 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
    * @remarks
    * The check time.
    * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2024-03-15T06:48:44Z
    */
   checkTime?: string;
   /**
    * @remarks
-   * The version of the destination instance.
+   * The version of the target instance.
    * 
    * @example
    * 8.0
@@ -95,7 +95,9 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
   dstVersion?: string;
   /**
    * @remarks
-   * The effective time of the evaluation.
+   * The effective period of the assessment.
+   * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2024-03-08T06:48:44Z
@@ -103,7 +105,9 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
   effectiveTime?: string;
   /**
    * @remarks
-   * The end time of the evaluation.
+   * The end time of the assessment.
+   * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2024-03-08T06:48:44Z
@@ -111,7 +115,7 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
   endTime?: string;
   /**
    * @remarks
-   * The status of the evaluation task.
+   * The status of the assessment task.
    * 
    * @example
    * running
@@ -135,7 +139,9 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
   srcVersion?: string;
   /**
    * @remarks
-   * The start time of the evaluation.
+   * The start time of the assessment.
+   * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-07-05T01:56:00Z
@@ -143,7 +149,7 @@ export class DescribeUpgradeReportResponseBodyUpgradeReportList extends $dara.Mo
   startTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the target task.
    * 
    * @example
    * 275948
@@ -207,11 +213,10 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   details?: string;
   /**
    * @remarks
-   * The database type of the destination instance. Valid values:
+   * The database type of the target instance. Valid values:
    * 
-   * - **MySQL**
-   * 
-   * - **Oracle**
+   * - **MySQL**.
+   * - **Oracle**.
    * 
    * @example
    * MySQL
@@ -219,14 +224,13 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   dstDBType?: string;
   /**
    * @remarks
-   * The list of Oracle compatibility evaluation details.
-   * 
-   * > This parameter is supported only for **Oracle** instances.
+   * The Oracle compatibility assessment details list.
+   * > Only **Oracle** instances are supported.
    */
   items?: DescribeUpgradeReportResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries in the list of Oracle compatibility evaluation details.
+   * The length of the Oracle compatibility assessment details list.
    * 
    * @example
    * 10
@@ -234,7 +238,7 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   itemsSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627******
@@ -242,7 +246,7 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * rm-2zen5pe5vi56447d0
@@ -252,9 +256,8 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
    * @remarks
    * The database type of the source instance. Valid values:
    * 
-   * - **MySQL**
-   * 
-   * - **Oracle**
+   * - **MySQL**.
+   * - **Oracle**.
    * 
    * @example
    * MySQL
@@ -265,7 +268,6 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
    * The deletion status of the source instance. Valid values:
    * 
    * - **0**: Not deleted.
-   * 
    * - **1**: Deleted.
    * 
    * @example
@@ -274,7 +276,7 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   srcDeleted?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the query result.
    * 
    * @example
    * 137
@@ -282,7 +284,7 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   totalSize?: number;
   /**
    * @remarks
-   * A special metric. This parameter is supported only for instances that use the Tair architecture.
+   * The special metric. Currently, only tair (PolarTair architecture) is supported.
    * 
    * @example
    * tair
@@ -290,7 +292,7 @@ export class DescribeUpgradeReportResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The list of evaluation reports.
+   * The list of assessment reports.
    */
   upgradeReportList?: DescribeUpgradeReportResponseBodyUpgradeReportList[];
   static names(): { [key: string]: string } {

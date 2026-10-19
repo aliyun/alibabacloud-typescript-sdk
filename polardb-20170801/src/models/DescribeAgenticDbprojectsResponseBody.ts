@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the project was created.
+   * 
+   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -13,7 +15,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The associated AgenticDB cluster ID.
+   * The ID of the associated AgenticDB cluster.
    * 
    * @example
    * pagc-bp1abcdef1234567
@@ -60,13 +62,20 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The project status. Valid values:
+   * 
+   * - Active: Normal.
+   * - Destroying: Being destroyed.
+   * - Destroyed: Destroyed.
+   * 
    * @example
    * Active
    */
   status?: string;
   /**
    * @remarks
-   * The tenant ID to which the project belongs.
+   * The ID of the tenant to which the project belongs.
    * 
    * @example
    * t-4b83e0da66674951

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHALogsResponseBodyHaLogItems extends $dara.Model {
   /**
    * @remarks
-   * The cause code of the switchover.
+   * The switchover cause code.
    * 
    * @example
    * Platform.Ha.AuroraService.ManualOperations
@@ -13,7 +13,7 @@ export class DescribeHALogsResponseBodyHaLogItems extends $dara.Model {
   switchCauseCode?: string;
   /**
    * @remarks
-   * The cause of the switchover.
+   * The switchover cause.
    * 
    * @example
    * Platform.Ha.ManuallyTriggered
@@ -22,6 +22,8 @@ export class DescribeHALogsResponseBodyHaLogItems extends $dara.Model {
   /**
    * @remarks
    * The end time of the switchover.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-05-20T03:09:56Z
@@ -38,6 +40,8 @@ export class DescribeHALogsResponseBodyHaLogItems extends $dara.Model {
   /**
    * @remarks
    * The start time of the switchover.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-05-20T03:09:45Z
@@ -83,9 +87,8 @@ export class DescribeHALogsResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The instance type. Valid values:
-   * 
-   * - **polardb_mysql_rw**: read-write instance.
+   * The instance type. Valid values: 
+   * - **polardb_mysql_rw**: read/write instance.
    * - **polardb_mysql_ro**: read-only instance.
    * - **polardb_mysql_standby**: standby instance.
    * 
@@ -95,15 +98,14 @@ export class DescribeHALogsResponseBody extends $dara.Model {
   DBInstanceType?: string;
   /**
    * @remarks
-   * The list of primary/secondary 这里 AI 机翻使用了 failover，但代码里用了 switch，建议保持一致，都改为 swichover logs.
+   * The list of primary/secondary switchover logs.
    */
   haLogItems?: DescribeHALogsResponseBodyHaLogItems[];
   /**
    * @remarks
    * Indicates whether primary/secondary switchover records exist. Valid values:
-   * 
-   * - **1**: No
-   * - **0**: Yes
+   * - **1**: No records exist.
+   * - **0**: Records exist.
    * 
    * @example
    * 1
@@ -119,7 +121,7 @@ export class DescribeHALogsResponseBody extends $dara.Model {
   itemsNumbers?: number;
   /**
    * @remarks
-   * The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: 1.
+   * The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -127,7 +129,7 @@ export class DescribeHALogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values: 30 to 100. Default value: 30.
+   * The number of entries per page. Valid values: 30 to 100. Default value: 30.
    * 
    * @example
    * 30

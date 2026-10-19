@@ -29,7 +29,7 @@ export class CreateBatchConsumerRequest extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The redemption code. If specified, the recharge-type activation branch is used, and the count and quota are populated from the database.
+   * The redemption code. If specified, the recharge activation branch is used, and the count and quota are populated from the database.
    * 
    * @example
    * "9"

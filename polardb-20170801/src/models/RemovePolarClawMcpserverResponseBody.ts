@@ -13,7 +13,7 @@ export class RemovePolarClawMCPServerResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class RemovePolarClawMCPServerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of `true` indicates success.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class RemovePolarClawMCPServerResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E56531A4-E552-40BA-9C58-137B80******

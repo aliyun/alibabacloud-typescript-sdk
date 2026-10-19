@@ -23,7 +23,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityGroups ex
   regionId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-*******************
@@ -83,7 +83,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays 
   securityIPArrayTag?: string;
   /**
    * @remarks
-   * The whitelisted IP addresses, separated by commas (,).
+   * The whitelist IP addresses, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -91,7 +91,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays 
   securityIPList?: string;
   /**
    * @remarks
-   * The network type of the whitelisted IP addresses. Default value: `mix`.
+   * The network type of the whitelist IP addresses. Default value: `mix`.
    * 
    * @example
    * mix
@@ -137,12 +137,12 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays 
 export class DescribeApplicationAttributeResponseBodyComponentsTopology extends $dara.Model {
   /**
    * @remarks
-   * The list of topology child node IDs or child node subcomponent types of the current application subcomponent.
+   * The list of topology child node IDs for the current application subcomponent, or the list of subcomponent types of the child nodes.
    */
   children?: string[];
   /**
    * @remarks
-   * The topology layer of the current application subcomponent.
+   * The topology layer of the topology information for the current application subcomponent.
    * 
    * @example
    * 0
@@ -150,7 +150,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsTopology extends 
   layer?: string;
   /**
    * @remarks
-   * The list of topology parent node IDs or parent node subcomponent types of the current application subcomponent.
+   * The list of topology parent node IDs for the current application subcomponent, or the list of subcomponent types of the parent nodes.
    */
   parents?: string[];
   static names(): { [key: string]: string } {
@@ -187,7 +187,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsTopology extends 
 export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * The specification of the application subcomponent.
+   * The specifications of the application subcomponent.
    * 
    * @example
    * polar.app.g2.medium
@@ -195,7 +195,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentClass?: string;
   /**
    * @remarks
-   * The specification description of the application subcomponent.
+   * The description of the specifications for the application subcomponent.
    * 
    * @example
    * 2C4GB
@@ -203,7 +203,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentClassDescription?: string;
   /**
    * @remarks
-   * The subcomponent ID.
+   * The ID of the subcomponent.
    * 
    * @example
    * pac-*******************
@@ -211,7 +211,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentId?: string;
   /**
    * @remarks
-   * The maximum number of replicas of the application subcomponent.
+   * The maximum number of replicas for the application subcomponent.
    * 
    * @example
    * 1
@@ -219,7 +219,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentMaxReplica?: number;
   /**
    * @remarks
-   * The number of replicas of the application subcomponent.
+   * The number of replicas for the application subcomponent.
    * 
    * @example
    * 1
@@ -227,7 +227,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentReplica?: number;
   /**
    * @remarks
-   * The group name of the replicas of the application subcomponent.
+   * The name of the replica group for the application subcomponent.
    * 
    * @example
    * default
@@ -245,19 +245,19 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
    * @remarks
    * The list of security groups at the subcomponent level.
    * 
-   * If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
+   * If the security groups at the subcomponent level are the same as those at the application level, this return value is omitted.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodyComponentsSecurityGroups[];
   /**
    * @remarks
-   * The list of whitelist addresses at the subcomponent level.
+   * The list of whitelist IP addresses at the subcomponent level.
    * 
-   * If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
+   * If the whitelist at the subcomponent level is the same as that at the application level, this return value is omitted.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays[];
   /**
    * @remarks
-   * The component status. Valid values are the same as those of the application status.
+   * The status of the component. The valid values are the same as those of the application status.
    * 
    * @example
    * Activated
@@ -321,7 +321,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
 export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.Model {
   /**
    * @remarks
-   * The access address in the format of NatIp:FrontPort. This address can be used directly from the office network.
+   * The access address in the NatIp:FrontPort format, which can be directly used on the office network.
    * 
    * @example
    * 10.64.0.10:10001
@@ -337,7 +337,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   backendPort?: number;
   /**
    * @remarks
-   * The DNAT entry ID.
+   * The ID of the DNAT entry.
    * 
    * @example
    * fwd-xxx
@@ -353,7 +353,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   frontPort?: number;
   /**
    * @remarks
-   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+   * The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
    * 
    * @example
    * webui
@@ -361,7 +361,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   portName?: string;
   /**
    * @remarks
-   * The entry status.
+   * The status of the entry.
    * 
    * @example
    * Available
@@ -410,7 +410,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   domain?: string;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint.
    * 
    * @example
    * pa-**************
@@ -426,9 +426,9 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   IP?: string;
   /**
    * @remarks
-   * The endpoint type. Valid values:
-   * - Private: VPC endpoint.
-   * - Public: Public endpoint.
+   * The type of the endpoint. Valid values:
+   * - Private: VPC address.
+   * - Public: public network address.
    * 
    * @example
    * Private
@@ -444,7 +444,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   port?: string;
   /**
    * @remarks
-   * The port description.
+   * The description of the port.
    * 
    * @example
    * kong_http
@@ -494,7 +494,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
   accountMode?: string;
   /**
    * @remarks
-   * The PolarDB cluster ID used for session storage. This parameter is returned only when the status is ENABLED.
+   * The ID of the PolarDB cluster used for session storage. This parameter is returned only when the status is ENABLED.
    * 
    * @example
    * pc-xxx
@@ -502,7 +502,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
   DBClusterId?: string;
   /**
    * @remarks
-   * The session database name. This parameter is returned only when the status is ENABLED.
+   * The name of the session database. This parameter is returned only when the status is ENABLED.
    * 
    * @example
    * contextdb_example
@@ -510,7 +510,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
   DBName?: string;
   /**
    * @remarks
-   * The session storage status. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+   * The status of the session store. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
    * 
    * @example
    * ENABLED
@@ -546,7 +546,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
 export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute extends $dara.Model {
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * test-database-name
@@ -554,7 +554,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   dbName?: string;
   /**
    * @remarks
-   * The embedder model name.
+   * The name of the embedder model.
    * 
    * @example
    * text-embedding-v4
@@ -570,7 +570,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   graphLlmModelName?: string;
   /**
    * @remarks
-   * The LLM model name.
+   * The name of the LLM model.
    * 
    * @example
    * qwen3-max
@@ -578,7 +578,23 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   llmModelName?: string;
   /**
    * @remarks
-   * The project name, which corresponds to the schema that stores project data in the database.
+   * The active memory type.
+   * 
+   * @example
+   * MULTIMODAL_TEXT
+   */
+  memoryType?: string;
+  /**
+   * @remarks
+   * Indicates whether the multimodal feature is enabled.
+   * 
+   * @example
+   * true
+   */
+  multimodalEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the project, which corresponds to the schema in the database where project data is stored.
    * 
    * @example
    * test-project-name
@@ -586,7 +602,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   projectName?: string;
   /**
    * @remarks
-   * The reranker model name.
+   * The name of the reranker model.
    * 
    * @example
    * qwen3-rerank
@@ -605,16 +621,51 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
    * test-user
    */
   userName?: string;
+  /**
+   * @remarks
+   * The current dimensions of the VisualEmbedder.
+   * 
+   * @example
+   * 2560
+   */
+  visualEmbedderDimensions?: number;
+  /**
+   * @remarks
+   * The current VisualEmbedder model.
+   * 
+   * @example
+   * qwen3.7-text-embedding
+   */
+  visualEmbedderModelName?: string;
+  /**
+   * @remarks
+   * The currently enabled understanding modalities.
+   */
+  visualLlmModalities?: string[];
+  /**
+   * @remarks
+   * The current VisualLLM model.
+   * 
+   * @example
+   * qwen3.6-flash
+   */
+  visualLlmModelName?: string;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
       embedderModelName: 'EmbedderModelName',
       graphLlmModelName: 'GraphLlmModelName',
       llmModelName: 'LlmModelName',
+      memoryType: 'MemoryType',
+      multimodalEnabled: 'MultimodalEnabled',
       projectName: 'ProjectName',
       rerankerModelName: 'RerankerModelName',
       sessionStore: 'SessionStore',
       userName: 'UserName',
+      visualEmbedderDimensions: 'VisualEmbedderDimensions',
+      visualEmbedderModelName: 'VisualEmbedderModelName',
+      visualLlmModalities: 'VisualLlmModalities',
+      visualLlmModelName: 'VisualLlmModelName',
     };
   }
 
@@ -624,16 +675,135 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
       embedderModelName: 'string',
       graphLlmModelName: 'string',
       llmModelName: 'string',
+      memoryType: 'string',
+      multimodalEnabled: 'boolean',
       projectName: 'string',
       rerankerModelName: 'string',
       sessionStore: DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore,
       userName: 'string',
+      visualEmbedderDimensions: 'number',
+      visualEmbedderModelName: 'string',
+      visualLlmModalities: { 'type': 'array', 'itemType': 'string' },
+      visualLlmModelName: 'string',
     };
   }
 
   validate() {
     if(this.sessionStore && typeof (this.sessionStore as any).validate === 'function') {
       (this.sessionStore as any).validate();
+    }
+    if(Array.isArray(this.visualLlmModalities)) {
+      $dara.Model.validateArray(this.visualLlmModalities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttributeLangfuseBinding extends $dara.Model {
+  /**
+   * @remarks
+   * The effective period of the attach. The value is a UNIX timestamp.
+   * 
+   * @example
+   * 1788771141
+   */
+  activatedAt?: number;
+  /**
+   * @remarks
+   * Langfuse API Key ID
+   * 
+   * @example
+   * api-key-xxx
+   */
+  apiKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the binding task.
+   * 
+   * @example
+   * 387
+   */
+  bindingTaskId?: number;
+  /**
+   * @remarks
+   * The ID of the Langfuse application.
+   * 
+   * @example
+   * pa-xxx
+   */
+  langfuseApplicationId?: string;
+  /**
+   * @remarks
+   * The phase of the binding.
+   * 
+   * @example
+   * ACTIVE
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The ID of the Langfuse project.
+   * 
+   * @example
+   * project-xxx
+   */
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activatedAt: 'ActivatedAt',
+      apiKeyId: 'ApiKeyId',
+      bindingTaskId: 'BindingTaskId',
+      langfuseApplicationId: 'LangfuseApplicationId',
+      phase: 'Phase',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activatedAt: 'number',
+      apiKeyId: 'string',
+      bindingTaskId: 'number',
+      langfuseApplicationId: 'string',
+      phase: 'string',
+      projectId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * The Langfuse binding information.
+   */
+  langfuseBinding?: DescribeApplicationAttributeResponseBodyPolarClawApplicationAttributeLangfuseBinding;
+  static names(): { [key: string]: string } {
+    return {
+      langfuseBinding: 'LangfuseBinding',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      langfuseBinding: DescribeApplicationAttributeResponseBodyPolarClawApplicationAttributeLangfuseBinding,
+    };
+  }
+
+  validate() {
+    if(this.langfuseBinding && typeof (this.langfuseBinding as any).validate === 'function') {
+      (this.langfuseBinding as any).validate();
     }
     super.validate();
   }
@@ -655,7 +825,7 @@ export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAtt
   authProviders?: string[];
   /**
    * @remarks
-   * The Supabase cluster ID.
+   * The identifier of the Supabase cluster.
    * 
    * @example
    * pa-**************
@@ -710,7 +880,7 @@ export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-**************
@@ -770,7 +940,7 @@ export class DescribeApplicationAttributeResponseBodySecurityIPArrays extends $d
   securityIPArrayTag?: string;
   /**
    * @remarks
-   * The whitelisted IP addresses, separated by commas (,).
+   * The whitelist IP addresses, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -778,7 +948,7 @@ export class DescribeApplicationAttributeResponseBodySecurityIPArrays extends $d
   securityIPList?: string;
   /**
    * @remarks
-   * The network type of the whitelisted IP addresses. Default value: `mix`.
+   * The network type of the whitelist IP addresses. Default value: `mix`.
    * 
    * @example
    * mix
@@ -921,13 +1091,15 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2025-03-25T09:37:10Z
    */
   creationTime?: string;
   /**
    * @remarks
-   * The instance ID of the PolarDB instance on which the application depends.
+   * The PolarDB instance ID on which the application depends.
    * 
    * @example
    * pc-**************
@@ -948,14 +1120,16 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   dnatMappings?: DescribeApplicationAttributeResponseBodyDnatMappings[];
   /**
    * @remarks
-   * The list of endpoints of the application.
+   * The list of endpoints for the application.
    */
   endpoints?: DescribeApplicationAttributeResponseBodyEndpoints[];
   /**
    * @remarks
    * The expiration time.
    * 
-   * This value is empty if the billing method is Postpaid.
+   * This parameter is empty when the billing method is pay-as-you-go.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-06-25T09:37:10Z
@@ -971,7 +1145,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   expired?: boolean;
   /**
    * @remarks
-   * Indicates whether this is the latest version.
+   * Indicates whether the application is of the latest version.
    * 
    * @example
    * true
@@ -989,8 +1163,8 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values:
    * 
-   * - Unlock: Not locked.
-   * - Lock: Locked.
+   * - Unlock: The application is not locked.
+   * - Lock: The application is locked.
    * 
    * @example
    * Unlock
@@ -1000,6 +1174,8 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * @remarks
    * The end time of the maintenance window.
    * 
+   * The time is displayed in UTC in the HH:mmZ format.
+   * 
    * @example
    * 19:00Z
    */
@@ -1007,6 +1183,8 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The start time of the maintenance window.
+   * 
+   * The time is displayed in UTC in the HH:mmZ format.
    * 
    * @example
    * 18:00Z
@@ -1027,7 +1205,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   minorVersion?: string;
   /**
    * @remarks
-   * The NAT gateway ID.
+   * The ID of the NAT gateway.
    * 
    * @example
    * pc-xxx
@@ -1035,7 +1213,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This is a customer-managed SNAT entry that is discovered and returned by the control plane in real time. It is not related to the Internet NAT gateway SNAT.
+   * The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
    * 
    * @example
    * 10.64.0.20
@@ -1051,12 +1229,17 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
+   * The PolarClaw application attributes.
+   */
+  polarClawApplicationAttribute?: DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribute;
+  /**
+   * @remarks
    * The PolarClaw SaaS application attributes.
    */
   polarClawSaaSApplicationAttribute?: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute;
   /**
    * @remarks
-   * The instance ID of PolarFS Cold Storage Edition or High Performance Edition.
+   * The instance ID of the PolarFS Cold Storage Edition or High-performance Edition.
    * 
    * @example
    * pfs-**************
@@ -1080,19 +1263,19 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of security groups at the application level.
+   * The list of application-level security groups.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodySecurityGroups[];
   /**
    * @remarks
-   * The list of whitelists at the application level.
+   * The list of application-level whitelists.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
   /**
    * @remarks
    * The serverless type. Valid values:
-   * - 2: agile.
-   * - 3: steady.
+   * - 2: Agile.
+   * - 3: Stable.
    * 
    * @example
    * 2
@@ -1109,21 +1292,20 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The application status. Valid values:
-   * 
-   * - Creating: Being created.
-   * - Activated: Running.
-   * - Maintaining: Under maintenance.
-   * - ClassChanging: Configuration is being changed.
-   * - Transing: Being migrated.
-   * - MinorVersionUpgrading: Minor version is being upgraded.
-   * - NetCreating: Endpoint is being created.
-   * - NetDeleting: Endpoint is being deleted.
-   * - NetModifying: Endpoint is being modified.
-   * - Restarting: Being restarted.
-   * - Locking: Being locked.
-   * - Locked: Locked.
-   * - Unlocking: Being unlocked.
-   * - Deleting: Being deleted.
+   * - Creating: The application is being created.
+   * - Activated: The application is running.
+   * - Maintaining: The application is under maintenance.
+   * - ClassChanging: The application specifications are being changed.
+   * - Transing: The application is being migrated.
+   * - MinorVersionUpgrading: The minor version of the application is being upgraded.
+   * - NetCreating: The endpoint of the application is being created.
+   * - NetDeleting: The endpoint of the application is being deleted.
+   * - NetModifying: The endpoint of the application is being modified.
+   * - Restarting: The application is being restarted.
+   * - Locking: The application is being locked.
+   * - Locked: The application is locked.
+   * - Unlocking: The application is being unlocked.
+   * - Deleting: The application is being deleted.
    * 
    * @example
    * Activated
@@ -1131,12 +1313,12 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage resource information.
+   * The storage resources.
    */
   storages?: DescribeApplicationAttributeResponseBodyStorages[];
   /**
    * @remarks
-   * Indicates whether an upgrade is available.
+   * Specifies whether an upgrade is available.
    * 
    * @example
    * false
@@ -1168,7 +1350,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The customer-created VPC NAT gateway ID for NAT mapping.
+   * The customer-managed VPC NAT gateway ID for NAT mapping.
    * 
    * @example
    * ngw-xxx
@@ -1206,6 +1388,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       natGatewayId: 'NatGatewayId',
       natMappingSnatIpAddress: 'NatMappingSnatIpAddress',
       payType: 'PayType',
+      polarClawApplicationAttribute: 'PolarClawApplicationAttribute',
       polarClawSaaSApplicationAttribute: 'PolarClawSaaSApplicationAttribute',
       polarFSInstanceId: 'PolarFSInstanceId',
       regionId: 'RegionId',
@@ -1249,6 +1432,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       natGatewayId: 'string',
       natMappingSnatIpAddress: 'string',
       payType: 'string',
+      polarClawApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribute,
       polarClawSaaSApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute,
       polarFSInstanceId: 'string',
       regionId: 'string',
@@ -1280,6 +1464,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
     }
     if(this.memApplicationAttribute && typeof (this.memApplicationAttribute as any).validate === 'function') {
       (this.memApplicationAttribute as any).validate();
+    }
+    if(this.polarClawApplicationAttribute && typeof (this.polarClawApplicationAttribute as any).validate === 'function') {
+      (this.polarClawApplicationAttribute as any).validate();
     }
     if(this.polarClawSaaSApplicationAttribute && typeof (this.polarClawSaaSApplicationAttribute as any).validate === 'function') {
       (this.polarClawSaaSApplicationAttribute as any).validate();

@@ -17,6 +17,8 @@ export class CheckAccountNameZonalRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
+   * > Note: This parameter accepts only edge cluster IDs, which you can obtain by calling the DescribeDBClustersZonal operation. For common PolarDB clusters, use the CheckAccountName operation.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The bucket to which the dataset belongs.
    * 
    * @example
    * pcs-2ze22***-q7***
@@ -13,7 +13,7 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   bucketName?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The file size.
    * 
    * @example
    * 2845904
@@ -21,7 +21,9 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   capacity?: string;
   /**
    * @remarks
-   * The time the file was created, in UTC and formatted as ISO 8601.
+   * The creation time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-11-06T06:50:43Z
@@ -37,11 +39,10 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   datasetId?: string;
   /**
    * @remarks
-   * The dataset type. Valid values:
+   * The type of the dataset. Valid values:
    * 
-   * - **train**: The training set.
-   * 
-   * - **eval**: The evaluation set.
+   * * **train**: training dataset.
+   * * **eval**: evaluation dataset.
    * 
    * @example
    * train
@@ -57,7 +58,7 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   fileName?: string;
   /**
    * @remarks
-   * The time the file was last modified, in UTC and formatted as ISO 8601.
+   * The last modified time.
    * 
    * @example
    * 2025-11-06T06:50:43Z
@@ -65,7 +66,7 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   lastModified?: string;
   /**
    * @remarks
-   * The file path.
+   * The dataset path.
    * 
    * @example
    * polardb_ai/datasets/train/sft/dataset01/train-***.json
@@ -73,9 +74,9 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   path?: string;
   /**
    * @remarks
-   * The storage type. The only valid value is:
+   * The storage type. Valid values:
    * 
-   * - **Standard**.
+   * * **Standard**: Standard storage.
    * 
    * @example
    * Standard
@@ -83,13 +84,11 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
   storageType?: string;
   /**
    * @remarks
-   * The training mode. Valid values:
+   * The training mode of the dataset. Valid values:
    * 
-   * - **sft**: Supervised Fine-Tuning (SFT).
-   * 
-   * - **grpo**: Reinforcement Learning (RL).
-   * 
-   * - **text**: Text generation.
+   * * **sft**: supervised fine-tuning.
+   * * **grpo**: reinforcement learning.
+   * * **text**: text generation.
    * 
    * @example
    * stf
@@ -137,7 +136,7 @@ export class DescribeAIDBClusterDatasetsResponseBodyDatasets extends $dara.Model
 export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The continuation token from the request.
+   * The ContinuationToken element is included in the response if the ContinuationToken parameter is specified in the request.
    * 
    * @example
    * EFSDF-DF-***
@@ -145,7 +144,7 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   continuationToken?: string;
   /**
    * @remarks
-   * The data service ID.
+   * The instance ID of the dataset management service.
    * 
    * @example
    * pcs-2zeei***
@@ -161,13 +160,11 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The training mode. Valid values:
+   * The training mode of the dataset. Valid values:
    * 
-   * - **sft**: Supervised Fine-Tuning (SFT).
-   * 
-   * - **grpo**: Reinforcement Learning (RL).
-   * 
-   * - **text**: Text generation.
+   * * **sft**: supervised fine-tuning.
+   * * **grpo**: reinforcement learning.
+   * * **text**: text generation.
    * 
    * @example
    * stf
@@ -175,11 +172,10 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   datasetMode?: string;
   /**
    * @remarks
-   * The dataset type. Valid values:
+   * The type of the dataset. Valid values:
    * 
-   * - **train**: The training set.
-   * 
-   * - **eval**: The evaluation set.
+   * * **train**: training dataset.
+   * * **eval**: evaluation dataset.
    * 
    * @example
    * train
@@ -187,12 +183,12 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   datasetType?: string;
   /**
    * @remarks
-   * An array of dataset objects.
+   * The datasets.
    */
   datasets?: DescribeAIDBClusterDatasetsResponseBodyDatasets[];
   /**
    * @remarks
-   * The total number of files in the dataset.
+   * The total number of files.
    * 
    * @example
    * 6
@@ -200,11 +196,10 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   fileCount?: string;
   /**
    * @remarks
-   * Indicates if more datasets are available. Valid values:
+   * Indicates whether more datasets exist. Valid values:
    * 
-   * - **true**: More datasets are available.
-   * 
-   * - **false**: All datasets have been listed.
+   * * **true**: More datasets exist.
+   * * **false**: No more datasets exist.
    * 
    * @example
    * true
@@ -212,7 +207,7 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The token for retrieving the next page of results. This parameter is returned only if `IsTruncated` is `true`.
+   * The ContinuationToken for the next listing of files.
    * 
    * @example
    * EFSDF-DF-***
@@ -236,7 +231,7 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The relative DB cluster ID.
+   * The ID of the database management service.
    * 
    * @example
    * pc-2ze88***
@@ -244,7 +239,7 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   relativeDBClusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2921D843-433A-5FB3-A03B-4EC093B219F8
@@ -252,7 +247,7 @@ export class DescribeAIDBClusterDatasetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of datasets.
+   * The total number of records. This parameter is returned only when you query a list.
    * 
    * @example
    * 6

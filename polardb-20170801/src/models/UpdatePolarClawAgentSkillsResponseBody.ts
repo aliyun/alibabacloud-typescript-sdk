@@ -21,7 +21,7 @@ export class UpdatePolarClawAgentSkillsResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The return code.
+   * The response status code.
    * 
    * @example
    * 200

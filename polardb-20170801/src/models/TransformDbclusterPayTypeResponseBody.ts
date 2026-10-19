@@ -28,6 +28,8 @@ export class TransformDBClusterPayTypeResponseBody extends $dara.Model {
    * The expiration time of the instance.
    * > This response parameter is returned only when **PayType** is set to **Prepaid**.
    * 
+   * The time follows the ISO 8601 standard in the format of YYYY-MM-DDTHH:mm:ssZ. The time is displayed in UTC.
+   * 
    * @example
    * 2020-04-20T10:00:00Z
    */

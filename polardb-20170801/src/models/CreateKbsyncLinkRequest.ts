@@ -33,7 +33,15 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The validity period of the Lark group member snapshot for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, -1 takes effect.
+   * 
+   * @example
+   * -1
+   */
+  feishuChatMemberStaleTtlSeconds?: number;
+  /**
+   * @remarks
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 
@@ -43,7 +51,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The name of the synchronization link.
+   * The name of the link.
    * 
    * This parameter is required.
    * 
@@ -53,7 +61,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   linkName?: string;
   /**
    * @remarks
-   * The MCP Server endpoint for DingTalk documents.
+   * The endpoint of the DingTalk document MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -71,7 +79,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The MCP Server endpoint for DingTalk spreadsheets.
+   * The endpoint of the DingTalk sheet MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -79,7 +87,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   sheetMcpEndpoint?: string;
   /**
    * @remarks
-   * The directory address of the synchronization source.
+   * The source directory address for synchronization.
    * 
    * This parameter is required.
    * 
@@ -99,7 +107,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The synchronization interval. Unit: minutes.
+   * The synchronization interval, in minutes.
    * 
    * @example
    * 30
@@ -115,7 +123,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+   * The Lark user access token. This token is used only when the application identity cannot retrieve group members because the bot is not in the group chat.
    * 
    * @example
    * ******
@@ -123,17 +131,26 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   userAccessToken?: string;
   /**
    * @remarks
-   * The DingTalk user ID of the operator.
+   * The ID of the DingTalk operator.
    * 
    * @example
    * 123***56
    */
   userId?: string;
+  /**
+   * @remarks
+   * The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for retrieving group members.
+   * 
+   * @example
+   * ******
+   */
+  userRefreshToken?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
       description: 'Description',
+      feishuChatMemberStaleTtlSeconds: 'FeishuChatMemberStaleTtlSeconds',
       knowledgeBaseId: 'KnowledgeBaseId',
       linkName: 'LinkName',
       mcpEndpoint: 'McpEndpoint',
@@ -145,6 +162,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       tenantId: 'TenantId',
       userAccessToken: 'UserAccessToken',
       userId: 'UserId',
+      userRefreshToken: 'UserRefreshToken',
     };
   }
 
@@ -153,6 +171,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       clientId: 'string',
       clientSecret: 'string',
       description: 'string',
+      feishuChatMemberStaleTtlSeconds: 'number',
       knowledgeBaseId: 'string',
       linkName: 'string',
       mcpEndpoint: 'string',
@@ -164,6 +183,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       tenantId: 'string',
       userAccessToken: 'string',
       userId: 'string',
+      userRefreshToken: 'string',
     };
   }
 

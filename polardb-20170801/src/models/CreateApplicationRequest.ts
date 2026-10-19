@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationRequestAgenticDBBranchSpec extends $dara.Model {
   /**
    * @remarks
-   * The AgenticDB branch ID.
+   * The ID of the AgenticDB branch.
    * 
    * @example
    * br-9054b3b7649e4c0d977bd0df37
@@ -13,7 +13,7 @@ export class CreateApplicationRequestAgenticDBBranchSpec extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * @example
    * pagc-2zea920mcvd5o87
@@ -37,7 +37,7 @@ export class CreateApplicationRequestAgenticDBBranchSpec extends $dara.Model {
   forkFromBranch?: boolean;
   /**
    * @remarks
-   * The AgenticDB project ID.
+   * The ID of the AgenticDB project.
    * 
    * @example
    * proj-d7849d0050664c758af795d468
@@ -45,7 +45,7 @@ export class CreateApplicationRequestAgenticDBBranchSpec extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The AgenticDB tenant ID.
+   * The ID of the AgenticDB tenant.
    * 
    * @example
    * t-cfc2d7df0e59439681f0087f51
@@ -85,7 +85,7 @@ export class CreateApplicationRequestAgenticDBBranchSpec extends $dara.Model {
 export class CreateApplicationRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * The specification of the application subcomponent.
+   * The specifications of the application subcomponent.
    * 
    * @example
    * polar.app.g2.medium
@@ -93,9 +93,8 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   componentClass?: string;
   /**
    * @remarks
-   * The maximum number of application subcomponents with the same specification. Default value: the value of ComponentReplica.
-   * 
-   * - Only raycluster supports this parameter.
+   * The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica.
+   * - This parameter is supported only for raycluster.
    * 
    * @example
    * 1
@@ -112,14 +111,10 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   /**
    * @remarks
    * The type of the application subcomponent.
-   * 
    * For supabase, valid values:
-   * 
    * - gateway
    * - backend
-   * 
    * For raycluster, valid values:
-   * 
    * - head
    * - worker
    * - gpuworker
@@ -146,7 +141,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The list of security groups for the application subcomponent. Separate multiple security groups with commas (,).
+   * The list of security groups for the application subcomponent. Separate multiple security group IDs with commas (,).
    * 
    * @example
    * sg-********************
@@ -154,7 +149,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityGroups?: string;
   /**
    * @remarks
-   * The name of the IP whitelist group for the application subcomponent. Default value: default.
+   * The name of the IP address whitelist group for the application subcomponent. Default value: default.
    * 
    * @example
    * default
@@ -162,7 +157,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The whitelisted IP addresses for the application subcomponent. Separate multiple IP addresses with commas (,).
+   * The IP addresses in the whitelist for the application subcomponent. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -170,7 +165,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The type of the whitelisted IP addresses for the application subcomponent. Default value: ipv4.
+   * The type of the IP addresses in the whitelist for the application subcomponent. Default value: ipv4.
    * 
    * @example
    * ipv4
@@ -218,7 +213,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
 export class CreateApplicationRequestDnatEntries extends $dara.Model {
   /**
    * @remarks
-   * The frontend port. This parameter is optional. If not specified, the control plane automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
+   * The frontend port. This parameter is optional. By default, the system automatically assigns a port that is not occupied by the gateway. You can call the DescribeApplicationAttribute operation to query the assigned port.
    * 
    * @example
    * 10001
@@ -226,7 +221,7 @@ export class CreateApplicationRequestDnatEntries extends $dara.Model {
   frontPort?: number;
   /**
    * @remarks
-   * The port name. Valid values: webui | hermesagent | dashboard | ssh.
+   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
    * 
    * @example
    * webui
@@ -258,7 +253,7 @@ export class CreateApplicationRequestDnatEntries extends $dara.Model {
 export class CreateApplicationRequestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The description of the service endpoint.
+   * The remark of the service endpoint.
    * 
    * @example
    * my_endpoint
@@ -266,7 +261,7 @@ export class CreateApplicationRequestEndpoints extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the service endpoint. The value is fixed as Primary.
+   * The type of the service endpoint. Set the value to Primary.
    * 
    * @example
    * Primary
@@ -308,7 +303,10 @@ export class CreateApplicationRequestKnowledgeApplicationSpec extends $dara.Mode
   dbPassword?: string;
   /**
    * @remarks
-   * The LLM model name. This parameter is required for knowledge applications, such as qwen3-max.
+   * Required for knowledge applications. The name of the LLM model, such as qwen3-max.
+   * 
+   * @example
+   * qwen3-max
    */
   llmModel?: string;
   static names(): { [key: string]: string } {
@@ -363,7 +361,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   dbUser?: string;
   /**
    * @remarks
-   * The embedder model name. This parameter is required for mem0 applications, such as text-embedding-v4.
+   * Required for mem0 applications. The name of the embedder model, such as text-embedding-v4.
    * 
    * @example
    * text-embedding-v4
@@ -387,12 +385,20 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   graphLlmModel?: string;
   /**
    * @remarks
-   * The LLM model name. This parameter is required for mem0 applications, such as qwen3-max.
+   * Required for mem0 applications. The name of the LLM model, such as qwen3-max.
    * 
    * @example
    * qwen3-max
    */
   llmModel?: string;
+  /**
+   * @remarks
+   * The memory type, such as multimodal.
+   * 
+   * @example
+   * MULTIMODAL_TEXT
+   */
+  memoryType?: string;
   /**
    * @remarks
    * The project name, which corresponds to the schema in the database where project data is stored.
@@ -403,7 +409,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The reranker model name. This parameter is required for mem0 applications, such as qwen3-rerank.
+   * Required for mem0 applications. The name of the reranker model, such as qwen3-rerank.
    * 
    * @example
    * qwen3-rerank
@@ -411,12 +417,41 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   rerankerModel?: string;
   /**
    * @remarks
-   * The number of table shards.
+   * The number of shards.
    * 
    * @example
    * 1
    */
   shard?: number;
+  /**
+   * @remarks
+   * The name of the visual embedder model.
+   * 
+   * @example
+   * qwen3.7-text-embedding
+   */
+  visualEmbedderModel?: string;
+  /**
+   * @remarks
+   * The vector dimensions of the visual embedder.
+   * 
+   * @example
+   * 2560
+   */
+  visualEmbedderModelDimension?: number;
+  /**
+   * @remarks
+   * The list of modalities for the visual LLM, such as image.
+   */
+  visualLlmModalities?: string[];
+  /**
+   * @remarks
+   * The name of the visual LLM model.
+   * 
+   * @example
+   * qwen3.6-flash
+   */
+  visualLlmModel?: string;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
@@ -426,9 +461,14 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
       embedderModelDimension: 'EmbedderModelDimension',
       graphLlmModel: 'GraphLlmModel',
       llmModel: 'LlmModel',
+      memoryType: 'MemoryType',
       projectName: 'ProjectName',
       rerankerModel: 'RerankerModel',
       shard: 'Shard',
+      visualEmbedderModel: 'VisualEmbedderModel',
+      visualEmbedderModelDimension: 'VisualEmbedderModelDimension',
+      visualLlmModalities: 'VisualLlmModalities',
+      visualLlmModel: 'VisualLlmModel',
     };
   }
 
@@ -441,13 +481,21 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
       embedderModelDimension: 'number',
       graphLlmModel: 'string',
       llmModel: 'string',
+      memoryType: 'string',
       projectName: 'string',
       rerankerModel: 'string',
       shard: 'number',
+      visualEmbedderModel: 'string',
+      visualEmbedderModelDimension: 'number',
+      visualLlmModalities: { 'type': 'array', 'itemType': 'string' },
+      visualLlmModel: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.visualLlmModalities)) {
+      $dara.Model.validateArray(this.visualLlmModalities);
+    }
     super.validate();
   }
 
@@ -459,7 +507,7 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
 export class CreateApplicationRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * secret.gateway.auth.token
@@ -467,7 +515,7 @@ export class CreateApplicationRequestParameters extends $dara.Model {
   parameterName?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * TK***
@@ -499,7 +547,7 @@ export class CreateApplicationRequestParameters extends $dara.Model {
 export class CreateApplicationRequestStorages extends $dara.Model {
   /**
    * @remarks
-   * The mount path inside the container.
+   * The mount path in the container.
    * 
    * @example
    * /data/container
@@ -515,7 +563,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The storage mount path.
+   * The mount path of the storage.
    * 
    * @example
    * /data/source
@@ -531,7 +579,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storageCapacity?: string;
   /**
    * @remarks
-   * The storage access address.
+   * The access endpoint of the storage.
    * 
    * @example
    * polarfs.example.com
@@ -539,7 +587,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storageEndpoint?: string;
   /**
    * @remarks
-   * The storage instance ID.
+   * The ID of the storage instance.
    * 
    * @example
    * pfs-xxxx
@@ -555,7 +603,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storagePerformanceLevel?: string;
   /**
    * @remarks
-   * The storage type.
+   * The type of the storage.
    * 
    * @example
    * oss
@@ -639,7 +687,7 @@ export class CreateApplicationRequestTag extends $dara.Model {
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of an existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The ID of the existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * pm-xxxxxx
@@ -647,7 +695,7 @@ export class CreateApplicationRequest extends $dara.Model {
   AIDBClusterId?: string;
   /**
    * @remarks
-   * The AgenticDB branch specification.
+   * The AgenticDB branch specifications.
    * 
    * @example
    * {"DBClusterId":"pagc-2zea920mcvd5o87","TenantId":"t-cfc2d7df0e59439681f0087f51","ProjectId":"proj-d7849d0050664c758af795d468","BranchId":"br-9054b3b7649e4c0d977bd0df37","ForkFromBranch":true,"ForkFromApplicationId":"pa-source"}
@@ -655,7 +703,7 @@ export class CreateApplicationRequest extends $dara.Model {
   agenticDBBranchSpec?: CreateApplicationRequestAgenticDBBranchSpec;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * @example
    * pagc-xxx
@@ -664,10 +712,9 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The application type. Valid values:
-   * 
-   * - supabase: Set this value to create a managed Supabase application.
-   * - raycluster: Set this value to create a managed Ray Cluster application.
-   * - polarclaw: Set this value to create a managed PolarClaw application.
+   * - supabase: Specify this value to create a managed Supabase application.
+   * - raycluster: Specify this value to create a managed Ray Cluster application.
+   * - polarclaw: Specify this value to create a managed PolarClaw application.
    * 
    * This parameter is required.
    * 
@@ -678,7 +725,6 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The CPU architecture. Valid values:
-   * 
    * - x86
    * 
    * This parameter is required.
@@ -705,17 +751,14 @@ export class CreateApplicationRequest extends $dara.Model {
   authProviderConfig?: string;
   /**
    * @remarks
-   * Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
-   * 
-   * @example
-   * qwen3-max
+   * Specifies whether automatic creation is enabled and the instance will attach and associate with an EIP.
    */
   autoAllocatePublicEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
-   * * false (default): Automatic creation is disabled.
-   * * true: Automatic creation is enabled.
+   * Specifies whether to automatically create a Polarlakebase cold storage edition instance. Valid values:
+   * * false (default): Do not automatically create the instance.
+   * * true: Automatically create the instance.
    * 
    * @example
    * false
@@ -741,12 +784,12 @@ export class CreateApplicationRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The list of user-defined application subcomponents.
+   * The list of custom application subcomponents.
    */
   components?: CreateApplicationRequestComponents[];
   /**
    * @remarks
-   * The instance ID of the PolarDB instance on which the application depends.
+   * The ID of the PolarDB instance on which the application depends.
    * 
    * @example
    * pc-**************
@@ -754,7 +797,7 @@ export class CreateApplicationRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the application.
+   * The description or remark of the application.
    * 
    * @example
    * myapp
@@ -762,12 +805,12 @@ export class CreateApplicationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
+   * The expected list of DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. Leave this parameter empty if you do not want to create DNAT entries.
    */
   dnatEntries?: CreateApplicationRequestDnatEntries[];
   /**
    * @remarks
-   * The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
+   * The dedicated NAT IP address allocated for DNAT mapping, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
    * 
    * @example
    * 10.64.0.10
@@ -775,7 +818,7 @@ export class CreateApplicationRequest extends $dara.Model {
   dnatIpAddress?: string;
   /**
    * @remarks
-   * Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating the resource.
+   * Specifies whether to perform a dry run. Default value: false. If you set this parameter to true, only parameter and resource validations are performed, and no resources are actually created.
    * 
    * @example
    * false
@@ -783,7 +826,7 @@ export class CreateApplicationRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The list of user-defined service endpoints. By default, a VPC endpoint is created.
+   * The list of custom service endpoints. By default, a VPC endpoint is created.
    */
   endpoints?: CreateApplicationRequestEndpoints[];
   /**
@@ -798,7 +841,7 @@ export class CreateApplicationRequest extends $dara.Model {
   memApplicationSpec?: CreateApplicationRequestMemApplicationSpec;
   /**
    * @remarks
-   * The model API. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The API of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * openai-completions
@@ -806,7 +849,7 @@ export class CreateApplicationRequest extends $dara.Model {
   modelApi?: string;
   /**
    * @remarks
-   * The model API key. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The API key of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * sk-xxxxxx
@@ -814,7 +857,7 @@ export class CreateApplicationRequest extends $dara.Model {
   modelApiKey?: string;
   /**
    * @remarks
-   * The model base URL. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The endpoint of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -823,10 +866,9 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The model source. Valid values:
-   * 
-   * * bailian: Bailian model.
-   * * custom: Custom model.
-   * * maas: PolarDB model operator.
+   * * bailian: Model Studio models.
+   * * custom: Custom models.
+   * * maas: PolarDB model operators.
    * 
    * @example
    * bailian
@@ -834,7 +876,7 @@ export class CreateApplicationRequest extends $dara.Model {
   modelFrom?: string;
   /**
    * @remarks
-   * The model name. This parameter takes effect only when ApplicationType is set to polarclaw.
+   * The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
    * 
    * @example
    * qwen3-max
@@ -847,7 +889,7 @@ export class CreateApplicationRequest extends $dara.Model {
   parameters?: CreateApplicationRequestParameters[];
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * Postpaid
@@ -855,7 +897,7 @@ export class CreateApplicationRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription type (yearly or monthly).
+   * The subscription period unit.
    * 
    * @example
    * Year
@@ -863,9 +905,9 @@ export class CreateApplicationRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If specified, the corresponding storage is mounted to the application.
+   * The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
    * 
-   * Currently, only the following applications support this parameter:
+   * Currently, only the following applications are supported:
    * - supabase
    * - raycluster
    * 
@@ -883,7 +925,7 @@ export class CreateApplicationRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region. Default value: the region of the instance.
+   * The region ID. Default value: the region of the instance.
    * 
    * @example
    * cn-beijing
@@ -891,7 +933,7 @@ export class CreateApplicationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-********************
@@ -899,7 +941,7 @@ export class CreateApplicationRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-********************
@@ -907,7 +949,7 @@ export class CreateApplicationRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the IP whitelist group. Default value: `default`.
+   * The name of the IP address whitelist group. Default value: default.
    * 
    * @example
    * default
@@ -915,7 +957,7 @@ export class CreateApplicationRequest extends $dara.Model {
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
+   * The IP address whitelist. If you do not specify this parameter, the default value 127.0.0.1 is used.
    * 
    * @example
    * 127.0.0.1,172.17.0.0/24
@@ -931,7 +973,7 @@ export class CreateApplicationRequest extends $dara.Model {
   securityIPType?: string;
   /**
    * @remarks
-   * The skill template ID.
+   * The ID of the skill template.
    * 
    * @example
    * xxx
@@ -968,7 +1010,7 @@ export class CreateApplicationRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The vSwitch. Default value: the vSwitch in the primary zone of the instance.
+   * The vSwitch ID. Default value: the current vSwitch in the primary zone of the instance.
    * 
    * @example
    * vsw-*********************
@@ -976,7 +1018,7 @@ export class CreateApplicationRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-********************
@@ -984,7 +1026,7 @@ export class CreateApplicationRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
+   * The NAT gateway ID of the self-managed VPC NAT gateway for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, use the private network (intranet) type, and be active.
    * 
    * @example
    * ngw-xxx
@@ -992,7 +1034,7 @@ export class CreateApplicationRequest extends $dara.Model {
   vpcNatGatewayId?: string;
   /**
    * @remarks
-   * The zone. Default value: the primary zone of the instance.
+   * The zone ID. Default value: the primary zone of the instance.
    * 
    * @example
    * cn-beijing-k

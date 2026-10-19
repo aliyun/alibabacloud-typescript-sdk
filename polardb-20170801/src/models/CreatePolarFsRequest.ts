@@ -45,7 +45,7 @@ export class CreatePolarFsRequestCustomBucketPathList extends $dara.Model {
 export class CreatePolarFsRequest extends $dara.Model {
   /**
    * @remarks
-   * The acceleration storage space for Basic Edition with acceleration enabled. Unit: GB.
+   * The acceleration storage space for the Basic Edition with acceleration enabled. Unit: GB.
    * 
    * @example
    * 500
@@ -75,7 +75,7 @@ export class CreatePolarFsRequest extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The list of authorized account IDs for Cold Storage Edition instances, separated by commas (,).
+   * The list of authorized account IDs for the Cold Storage Edition instance, separated by commas (,).
    * 
    * @example
    * 128***********，198***********
@@ -99,7 +99,7 @@ export class CreatePolarFsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically use coupons. Valid values:
-   * - **true**: Coupons are used (default).
+   * - **true**: Coupons are automatically used (default).
    * - **false**: Coupons are not used.
    * 
    * @example
@@ -142,7 +142,7 @@ export class CreatePolarFsRequest extends $dara.Model {
    * @remarks
    * The bucket and path information.
    * 
-   * > This parameter is required for transparent acceleration scenarios.
+   * > This parameter is required for the transparent acceleration scenario.
    */
   customBucketPathList?: CreatePolarFsRequestCustomBucketPathList[];
   /**
@@ -192,10 +192,10 @@ export class CreatePolarFsRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * This parameter is required when **PayType** is set to **Prepaid**. Specifies whether the subscription cluster uses a yearly or monthly billing cycle. You must pass this parameter when the billing method is subscription. 
+   * The unit of the subscription duration. This parameter is required if PayType is set to **Prepaid**. Specifies whether the subscription cluster uses a yearly or monthly billing cycle. Valid values: 
    * 
-   * - **Year**: The subscription period is measured in years.
-   * - **Month**: The subscription period is measured in months.
+   * - **Year**: The subscription duration is measured in years.
+   * - **Month**: The subscription duration is measured in months.
    * 
    * @example
    * Month
@@ -212,7 +212,7 @@ export class CreatePolarFsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
+   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -230,14 +230,14 @@ export class CreatePolarFsRequest extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * Valid values for high-performance storage type:
+   * Valid values for the high-performance storage type:
    * - **ESSDPL0**
    * - **ESSDPL1**
    * 
-   * Valid values for Basic Edition storage type:
+   * Valid values for the Basic Edition storage type:
    * - **city_redundancy (zone-redundant)**
    * 
-   * Valid values for Cold Storage Edition storage type:
+   * Valid values for the Cold Storage Edition storage type:
    * - **city_redundancy (zone-redundant)**
    * - **local_redundancy (locally redundant)**
    * 
@@ -247,9 +247,9 @@ export class CreatePolarFsRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * This parameter is required when **PayType** is set to **Prepaid**.
-   * - When **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
-   * - When **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
+   * The subscription duration. This parameter is required when PayType is set to **Prepaid**.
+   * - If **Period** is set to **Month**, valid values of **UsedTime** are integers in the range of `[1-9]`.
+   * - If **Period** is set to **Year**, valid values of **UsedTime** are integers in the range of `[1-3]`.
    * 
    * @example
    * 1
@@ -257,7 +257,7 @@ export class CreatePolarFsRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-*******************

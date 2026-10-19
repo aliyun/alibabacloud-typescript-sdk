@@ -15,6 +15,8 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
+   * > Note: Only the IDs of edge clusters (clusters created by setting the CloudProvider parameter to ENS when calling CreateDBCluster) are supported. If you specify the ID of common clusters, the CrossCloudOpenAPI.CallError error is returned.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,7 +25,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
+   * The maximum number of entries to return for this request.
    * 
    * @example
    * 10
@@ -31,7 +33,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. You do not need to specify this parameter for the first request. In a subsequent request, set this parameter to the NextToken value returned in the previous response.
+   * The query token. Set the value to the NextToken value returned in the last API call. If no subsequent query is required, do not specify this parameter.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******
@@ -39,7 +41,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The node type. This parameter is required when you query the accounts of a PolarDB Search node.
+   * The node type. This parameter is required when you query the accounts of PolarDB Search nodes. Valid values:
    * 
    * - Search
    * 
@@ -51,7 +53,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0. The default value is 1.
+   * The page number. Valid values: integers greater than 0 and less than or equal to the maximum value of the Integer type. Default value: 1.
    * 
    * @example
    * 1
@@ -59,7 +61,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
    * 
    * - 30
    * 
@@ -67,7 +69,7 @@ export class DescribeAccountsZonalRequest extends $dara.Model {
    * 
    * - 100
    * 
-   * The default value is 30.
+   * Default value: 30.
    * 
    * @example
    * 30

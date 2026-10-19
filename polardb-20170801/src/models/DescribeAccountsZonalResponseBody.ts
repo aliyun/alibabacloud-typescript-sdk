@@ -53,7 +53,7 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The lock state of the account. Valid values:
+   * The lock status of the account. Valid values:
    * 
    * - UnLock: The account is not locked.
    * 
@@ -73,7 +73,7 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The time when the password expires.
+   * The expiration time of the password.
    * 
    * @example
    * undefined
@@ -83,11 +83,11 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
    * @remarks
    * The status of the account. Valid values:
    * 
-   * Creating: The account is being created.
+   * - Creating: The account is being created.
    * 
-   * Available: The account is active.
+   * - Available: The account is available.
    * 
-   * Deleting: The account is being deleted.
+   * - Deleting: The account is being deleted.
    * 
    * @example
    * Available
@@ -97,11 +97,11 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
    * @remarks
    * The type of the account. Valid values:
    * 
-   * - Normal: A standard account.
+   * - Normal: standard account.
    * 
-   * - Super: A privileged account.
+   * - Super: privileged account.
    * 
-   * - ReadOnly: A global read-only account.
+   * - ReadOnly: global read-only account.
    * 
    * @example
    * Normal
@@ -109,7 +109,7 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The details of the database permissions that the account has.
+   * The details of the database permissions granted to the account.
    */
   databasePrivileges?: DescribeAccountsZonalResponseBodyAccountsDatabasePrivileges[];
   static names(): { [key: string]: string } {
@@ -151,12 +151,12 @@ export class DescribeAccountsZonalResponseBodyAccounts extends $dara.Model {
 export class DescribeAccountsZonalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the accounts.
+   * The details of the account information.
    */
   accounts?: DescribeAccountsZonalResponseBodyAccounts[];
   /**
    * @remarks
-   * The maximum number of entries returned in the request.
+   * The maximum number of entries to return for this request.
    * 
    * @example
    * 10
@@ -164,7 +164,7 @@ export class DescribeAccountsZonalResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If the results are not fully returned, this token is returned. You can use this token in the next request to retrieve the remaining results.
+   * The query token. Set the value to the NextToken value returned in the last API call. If no subsequent query is required, do not specify this parameter.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******

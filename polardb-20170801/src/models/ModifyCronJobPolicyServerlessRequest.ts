@@ -7,9 +7,9 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable No-activity Suspension. Valid values:
    * 
-   * - **true**: Enables the feature.
+   * - **true**: Enabled.
    * 
-   * - **false** (default): Disables the feature.
+   * - **false** (default): Disabled.
    * 
    * @example
    * true
@@ -17,7 +17,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   allowShutDown?: string;
   /**
    * @remarks
-   * The Cron expression.
+   * The cron expression.
    * 
    * This parameter is required.
    * 
@@ -39,6 +39,8 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
    * @remarks
    * The end time.
    * 
+   * Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,7 +49,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the scheduled task.
+   * The scheduled task ID.
    * 
    * @example
    * 8006e51c-dab3-4602-bc69-4f728002c6ce
@@ -85,7 +87,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   scaleApRoNumMin?: string;
   /**
    * @remarks
-   * The maximum number of PCUs. Valid values: 1 to 32.
+   * The maximum value. Valid values: 1 to 32. Unit: PCU.
    * 
    * @example
    * 12
@@ -93,7 +95,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of PolarDB Capacity Units (PCUs). Valid values: 0.25 to 32. This value must be less than or equal to the value of ScaleMax.
+   * The minimum value. Valid values: 0.25 to 32. The minimum value must be less than or equal to the maximum value. Unit: PCU.
    * 
    * @example
    * 1
@@ -101,7 +103,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+   * The maximum number of read-only nodes for scaling. The value cannot be less than the minimum value. Valid values: 0 to 15.
    * 
    * @example
    * 4
@@ -117,7 +119,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   scaleRoNumMin?: string;
   /**
    * @remarks
-   * The detection period for No-activity Suspension. Unit: minutes. Valid values: 5 to 1440. The value must be a multiple of 5.
+   * The detection duration for No-activity Suspension. Valid values: 5 to 1440. Unit: minutes. The detection duration must be a multiple of 5 minutes.
    * 
    * @example
    * 10
@@ -125,7 +127,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   secondsUntilAutoPause?: string;
   /**
    * @remarks
-   * The CPU utilization threshold for a scale-up. Unit: percent. Valid values: 40 to 100.
+   * The CPU scale-up threshold. Valid values: 40 to 100. Unit: %.
    * 
    * @example
    * 80
@@ -133,7 +135,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   serverlessRuleCpuEnlargeThreshold?: string;
   /**
    * @remarks
-   * The CPU utilization threshold for a scale-down. Unit: percent. Valid values: 10 to 100. The value of ServerlessRuleCpuEnlargeThreshold minus the value of this parameter must be greater than or equal to 30.
+   * The CPU scale-down threshold. Valid values: 10 to 100. Unit: %. The difference between the scale-up threshold and the scale-down threshold must be at least 30.
    * 
    * @example
    * 25
@@ -143,9 +145,8 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
    * @remarks
    * The scaling sensitivity. Valid values:
    * 
-   * - normal
-   * 
-   * - flexible
+   * - normal: standard.
+   * - flexible: sensitive.
    * 
    * @example
    * normal
@@ -153,7 +154,7 @@ export class ModifyCronJobPolicyServerlessRequest extends $dara.Model {
   serverlessRuleMode?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The start time. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2020-09-23T01:00:00Z

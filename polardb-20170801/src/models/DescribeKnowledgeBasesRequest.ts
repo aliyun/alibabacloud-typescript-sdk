@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for searching knowledge bases.
+   * The keyword used to filter knowledge bases.
    * 
    * @example
    * testkb

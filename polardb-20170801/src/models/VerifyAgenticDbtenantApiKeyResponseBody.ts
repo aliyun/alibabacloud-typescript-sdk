@@ -21,7 +21,9 @@ export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The expiration time of the API key. This parameter is empty if the API key is permanently valid.
+   * The expiration time. This parameter is empty if the API key is permanently valid.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-01-01T00:00:00Z
@@ -29,10 +31,17 @@ export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The reason why the validation failed. Valid values: NotFound, Expired, and Revoked. This parameter is empty if the API key is valid.
+   * The reason for the validation failure. This parameter is empty if the API key is valid. Valid values:
+   * 
+   * - NotFound: The API key is not found.
+   * - Expired: The API key has expired.
+   * - Revoked: The API key has been revoked.
    */
   reason?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

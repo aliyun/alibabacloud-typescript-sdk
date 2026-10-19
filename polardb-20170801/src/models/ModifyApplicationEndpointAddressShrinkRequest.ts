@@ -38,7 +38,7 @@ export class ModifyApplicationEndpointAddressShrinkRequest extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * The new endpoint prefix.
+   * The new endpoint address prefix.
    * 
    * @example
    * xg06iror0l

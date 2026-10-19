@@ -2,10 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCostRulesResponseBodyItemsInputTokenTiers extends $dara.Model {
+  /**
+   * @remarks
+   * The input cost points per million tokens for the tier.
+   * 
+   * @example
+   * 1000
+   */
+  inputCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The token tier. Valid values: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
+   * 
+   * @example
+   * 0-32K
+   */
+  tier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+      tier: 'Tier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputCostPointsPerMillion: 'string',
+      tier: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The cost points per million cache tokens. Default value: 0.
+   * The cache read cost points per million tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -13,7 +53,15 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   cacheCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The cost rule ID.
+   * The cache creation or write cost points per million tokens.
+   * 
+   * @example
+   * 400
+   */
+  cacheCreationCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The ID of the cost rule.
    * 
    * @example
    * 924d450014e64e88ac6e8486f8e990**
@@ -21,7 +69,23 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The effective target type.
+   * The end time of the effective period.
+   * 
+   * @example
+   * 2026-10-01T00:00:00Z
+   */
+  effectiveEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the effective period.
+   * 
+   * @example
+   * 2026-09-01T00:00:00Z
+   */
+  effectiveStartTime?: string;
+  /**
+   * @remarks
+   * The type of the effective target.
    * 
    * @example
    * global
@@ -29,7 +93,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveTargetType?: string;
   /**
    * @remarks
-   * The effective target value.
+   * The value of the effective target.
    * 
    * @example
    * user
@@ -37,7 +101,15 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveTargetValue?: string;
   /**
    * @remarks
-   * The creation time.
+   * The explicit cache read cost points per million tokens.
+   * 
+   * @example
+   * 100
+   */
+  explicitCacheCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The time when the cost rule was created.
    * 
    * @example
    * 2026-01-04T16:09:29+08:00
@@ -45,7 +117,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the cost rule was last updated.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -61,7 +133,15 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The cost points per million input tokens. Default value: 0.
+   * The image input cost points per image.
+   * 
+   * @example
+   * 5
+   */
+  imageCostPointsPerCount?: string;
+  /**
+   * @remarks
+   * The input cost points per million tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -69,7 +149,20 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The model name.
+   * The input token tier. An empty value indicates a legacy or default rule.
+   * 
+   * @example
+   * 0-32K
+   */
+  inputTokenTier?: string;
+  /**
+   * @remarks
+   * The non-cumulative tiered pricing for input tokens. Each element includes the tier and the input cost points per million tokens.
+   */
+  inputTokenTiers?: DescribeCostRulesResponseBodyItemsInputTokenTiers[];
+  /**
+   * @remarks
+   * The name of the model.
    * 
    * @example
    * gpt-4
@@ -77,7 +170,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The model service ID.
+   * The ID of the model service.
    * 
    * @example
    * ms-xxxxxxxxx
@@ -85,45 +178,82 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The cost points per million output tokens. Default value: 0.
+   * The model service name.
+   * 
+   * @example
+   * qwen-service
+   */
+  modelServiceName?: string;
+  /**
+   * @remarks
+   * The output cost points per million tokens. Default value: 0.
    * 
    * @example
    * 0
    */
   outputCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The video input cost points per second.
+   * 
+   * @example
+   * 20
+   */
+  videoCostPointsPerSecond?: string;
   static names(): { [key: string]: string } {
     return {
       cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
+      cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
       costRuleId: 'CostRuleId',
+      effectiveEndTime: 'EffectiveEndTime',
+      effectiveStartTime: 'EffectiveStartTime',
       effectiveTargetType: 'EffectiveTargetType',
       effectiveTargetValue: 'EffectiveTargetValue',
+      explicitCacheCostPointsPerMillion: 'ExplicitCacheCostPointsPerMillion',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       gwClusterId: 'GwClusterId',
+      imageCostPointsPerCount: 'ImageCostPointsPerCount',
       inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+      inputTokenTier: 'InputTokenTier',
+      inputTokenTiers: 'InputTokenTiers',
       model: 'Model',
       modelServiceId: 'ModelServiceId',
+      modelServiceName: 'ModelServiceName',
       outputCostPointsPerMillion: 'OutputCostPointsPerMillion',
+      videoCostPointsPerSecond: 'VideoCostPointsPerSecond',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cacheCostPointsPerMillion: 'string',
+      cacheCreationCostPointsPerMillion: 'string',
       costRuleId: 'string',
+      effectiveEndTime: 'string',
+      effectiveStartTime: 'string',
       effectiveTargetType: 'string',
       effectiveTargetValue: 'string',
+      explicitCacheCostPointsPerMillion: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       gwClusterId: 'string',
+      imageCostPointsPerCount: 'string',
       inputCostPointsPerMillion: 'string',
+      inputTokenTier: 'string',
+      inputTokenTiers: { 'type': 'array', 'itemType': DescribeCostRulesResponseBodyItemsInputTokenTiers },
       model: 'string',
       modelServiceId: 'string',
+      modelServiceName: 'string',
       outputCostPointsPerMillion: 'string',
+      videoCostPointsPerSecond: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.inputTokenTiers)) {
+      $dara.Model.validateArray(this.inputTokenTiers);
+    }
     super.validate();
   }
 
@@ -148,7 +278,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -172,7 +302,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

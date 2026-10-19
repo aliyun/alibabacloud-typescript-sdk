@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the gateway instance was created.
+   * The creation time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -21,11 +23,11 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The expiration time of the gateway instance.
+   * The expiration time of the cluster.
+   * - If the billing method of the cluster is subscription, the actual expiration time is returned.
+   * - If the billing method of the cluster is pay-as-you-go, an empty value is returned.
    * 
-   * - For subscription instances, this parameter indicates the expiration time.
-   * 
-   * - This parameter is empty for pay-as-you-go instances.
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2028-09-01T16:00:00Z
@@ -33,7 +35,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the gateway instance has expired. Valid values:
+   * Indicates whether the cluster has expired. Valid values:
    * 
    * - **true**
    * 
@@ -53,7 +55,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The description of the gateway instance.
+   * The gateway description.
    * 
    * @example
    * pg-xxxxxx
@@ -61,7 +63,9 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   gwDescription?: string;
   /**
    * @remarks
-   * The time when the gateway instance was last modified.
+   * The last modification time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2024-10-29T09:31:37Z
@@ -69,11 +73,10 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method. Valid values: 
    * 
-   * - **Postpaid**: pay-as-you-go
-   * 
-   * - **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Postpaid
@@ -89,11 +92,10 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the gateway instance. Valid values:
+   * The application status. Valid values:
    * 
-   * - **CREATE**: creating
-   * 
-   * - **ACTIVATION**: running
+   * - CREATE: being created.
+   * - ACTIVATION: running.
    * 
    * @example
    * ACTIVATION
@@ -109,7 +111,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-****************
@@ -161,12 +163,12 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
 export class DescribeGatewayListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of gateway instances.
+   * The list of gateway instances.
    */
   items?: DescribeGatewayListResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -174,7 +176,7 @@ export class DescribeGatewayListResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -182,13 +184,10 @@ export class DescribeGatewayListResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
@@ -198,7 +197,7 @@ export class DescribeGatewayListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CED079B7-A408-41A1-BFF1-EC608E******

@@ -13,7 +13,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The full API key. Returned only in this response.
+   * The complete API key. Returned only in this response.
    * 
    * @example
    * xxxxxxxx
@@ -103,13 +103,15 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
    * @remarks
    * The expiration time.
    * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2025-06-25T09:37:10Z
    */
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the key is expired.
+   * Indicates whether the key has expired.
    * 
    * @example
    * false
@@ -125,7 +127,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The update time.
    * 
    * @example
    * 2026-01-04T16:09:29+08:00

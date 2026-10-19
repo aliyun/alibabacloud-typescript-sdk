@@ -39,6 +39,8 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
    * @remarks
    * The time when the compute instance was created.
    * 
+   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-06-10T11:00:00Z
    */
@@ -52,6 +54,9 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the compute instance is the default branch.
+   * 
    * @example
    * false
    */
@@ -88,7 +93,15 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
    * Neon
    */
   operatorType?: string;
+  /**
+   * @remarks
+   * The ID of the parent branch. This value is an empty string for the root branch.
+   */
   parentBranchId?: string;
+  /**
+   * @remarks
+   * The name of the parent branch. This value is an empty string for the root branch.
+   */
   parentBranchName?: string;
   /**
    * @remarks
@@ -116,7 +129,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The amount of used data, in bytes.
+   * The amount of data used, in bytes.
    * 
    * @example
    * 1073741824

@@ -160,7 +160,7 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRu
   parameters?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesStrategyParameters;
   /**
    * @remarks
-   * The chunking strategy type applied after a rule is matched.
+   * The chunking strategy type after a rule is matched.
    * 
    * @example
    * hierarchical
@@ -294,12 +294,12 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
    * The file name.
    * 
    * @example
-   * Financial_report.pdf
+   * FinancialReport.pdf
    */
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 318881
@@ -315,7 +315,7 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Indicates whether the chunking strategy is inherited from the knowledge space.
+   * Indicates whether the knowledge space chunking strategy is inherited.
    * 
    * @example
    * true
@@ -350,7 +350,7 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
    * The OSS file path.
    * 
    * @example
-   * oss://test-bucket-example/pks-xxxx/pkb-xxxx/Financial_report.pdf
+   * oss://test-bucket-example/pks-xxxx/pkb-xxxx/FinancialReport.pdf
    */
   OSSPath?: string;
   /**
@@ -363,7 +363,7 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
   shardCount?: number;
   /**
    * @remarks
-   * The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing objects.
+   * The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing instances.
    */
   shardingStrategyConfig?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfig;
   /**
@@ -386,6 +386,8 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
    * @remarks
    * The update time.
    * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * 
    * @example
    * 2026-06-15T22:28:53Z
    */
@@ -393,6 +395,8 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The upload time.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-15T22:28:53Z

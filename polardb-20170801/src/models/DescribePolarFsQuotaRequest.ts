@@ -6,8 +6,7 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > To find the cluster ID for enterprise, basic, or data lakehouse edition clusters, call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation.
+   * > Enterprise Edition, Basic Edition, and Data Lakehouse Edition: You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query the cluster ID.
    * 
    * @example
    * pc-**************
@@ -15,7 +14,7 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The destination path.
+   * The target path.
    * 
    * @example
    * /data
@@ -23,7 +22,7 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The Polarlakebase instance ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +42,7 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to find the IDs of all available regions in your account.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
    * 
    * @example
    * cn-beijing

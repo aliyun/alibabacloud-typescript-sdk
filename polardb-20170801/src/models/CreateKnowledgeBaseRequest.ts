@@ -52,7 +52,6 @@ export class CreateKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
    * The search mode. Valid values:
-   * 
    * * balanced (default): balanced mode
    * * precise: precise mode
    * * semantic: semantic mode

@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCostRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters by effective target type. Valid values: global, consumerGroup, and consumer.
+   * The ID of the cost rule.
+   * 
+   * @example
+   * cr-xxx
+   */
+  costRuleId?: string;
+  /**
+   * @remarks
+   * The type of the effective target. Valid values: global, consumerGroup, and consumer.
    * 
    * @example
    * global
@@ -13,7 +21,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   effectiveTargetType?: string;
   /**
    * @remarks
-   * Filters by effective target value.
+   * The value of the effective target used to filter results.
    * 
    * @example
    * user
@@ -31,7 +39,15 @@ export class DescribeCostRulesRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The model name, such as gpt-4 or qwen-turbo.
+   * The input token tier used to filter results. Rules that include this tier are returned. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
+   * 
+   * @example
+   * 0-32K
+   */
+  inputTokenTier?: string;
+  /**
+   * @remarks
+   * The name of the model, such as gpt-4 or qwen-turbo.
    * 
    * @example
    * qwen3-max
@@ -39,7 +55,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model service ID.
+   * The ID of the model service.
    * 
    * @example
    * ms-xxxxxx
@@ -76,9 +92,11 @@ export class DescribeCostRulesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      costRuleId: 'CostRuleId',
       effectiveTargetType: 'EffectiveTargetType',
       effectiveTargetValue: 'EffectiveTargetValue',
       gwClusterId: 'GwClusterId',
+      inputTokenTier: 'InputTokenTier',
       modelName: 'ModelName',
       modelServiceId: 'ModelServiceId',
       pageNumber: 'PageNumber',
@@ -89,9 +107,11 @@ export class DescribeCostRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      costRuleId: 'string',
       effectiveTargetType: 'string',
       effectiveTargetValue: 'string',
       gwClusterId: 'string',
+      inputTokenTier: 'string',
       modelName: 'string',
       modelServiceId: 'string',
       pageNumber: 'number',

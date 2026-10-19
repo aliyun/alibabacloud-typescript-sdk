@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
-   * The batch ID.
+   * The batch task ID.
    * 
    * @example
    * pcb-xxx
@@ -21,7 +21,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of successfully completed subtasks in the batch.
+   * The number of successful batch tasks.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   taskEnd?: string;
   /**
    * @remarks
-   * The task name.
+   * The description of the model service.
    * 
    * @example
    * batch_task_test
@@ -61,7 +61,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of subtasks in the batch.
+   * The total number of tasks that meet the filter conditions, regardless of pagination.
    * 
    * @example
    * 8
@@ -105,7 +105,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
 export class DescribeBatchTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned results.
+   * The page number.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class DescribeBatchTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -121,7 +121,7 @@ export class DescribeBatchTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******
@@ -129,12 +129,12 @@ export class DescribeBatchTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task list.
+   * The task information.
    */
   taskList?: DescribeBatchTasksResponseBodyTaskList[];
   /**
    * @remarks
-   * The total number of tasks that match the query, ignoring pagination.
+   * The total number of tasks that meet the filter conditions, regardless of pagination.
    * 
    * @example
    * 6

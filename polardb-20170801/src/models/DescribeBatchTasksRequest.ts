@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBatchTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range. Specify the time in UTC format.
+   * The end of the creation time range.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -15,7 +17,7 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer. The default is 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +25,7 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -31,7 +33,9 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query range. Specify the time in UTC format.
+   * The start of the creation time range.
+   * 
+   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -41,14 +45,14 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task statuses.
+   * The list of task statuses.
    * 
-   * > If you omit this parameter, the operation returns tasks of all statuses.
+   * > If this parameter is left empty, scheduled tasks in all statuses are queried by default.
    */
   status?: string[];
   /**
    * @remarks
-   * The type of the batch task.
+   * The batch task type.
    * 
    * @example
    * polarclaw_install_skills

@@ -13,9 +13,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The time when the synchronization link was created.
-   * 
-   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is in ISO 8601 format and the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-08-14T05:58:42Z
@@ -23,7 +21,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the synchronization link.
+   * The description of the link.
    * 
    * @example
    * testDesc
@@ -49,7 +47,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The name of the synchronization link.
+   * The name of the link.
    * 
    * @example
    * testName
@@ -65,7 +63,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The directory address of the synchronization source.
+   * The source directory address for synchronization.
    * 
    * @example
    * https://example.feishu.cn/wiki/space/xxxxxx
@@ -73,7 +71,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   sourceDir?: string;
   /**
    * @remarks
-   * The synchronization interval. Unit: minutes.
+   * The synchronization interval, in minutes.
    * 
    * @example
    * 30

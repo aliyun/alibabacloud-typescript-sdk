@@ -5,17 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIDBClusterCustomModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarDB AI 3.0 logical instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pm-2ze4x2mwo81knj08a
-   */
-  DBClusterId?: string;
-  /**
-   * @remarks
-   * The key of the custom model registration to delete.
+   * The custom model registration key to delete.
    * 
    * This parameter is required.
    * 
@@ -35,7 +25,6 @@ export class DeleteAIDBClusterCustomModelRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      DBClusterId: 'DBClusterId',
       modelName: 'ModelName',
       regionId: 'RegionId',
     };
@@ -43,7 +32,6 @@ export class DeleteAIDBClusterCustomModelRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DBClusterId: 'string',
       modelName: 'string',
       regionId: 'string',
     };

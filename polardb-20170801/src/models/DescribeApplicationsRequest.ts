@@ -45,7 +45,7 @@ export class DescribeApplicationsRequestTag extends $dara.Model {
 export class DescribeApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs. If specified, only information about these applications is returned.
+   * The list of application IDs. If specified, only the information of these applications is returned.
    * 
    * @example
    * pa-**************
@@ -58,7 +58,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   applicationTypes?: string;
   /**
    * @remarks
-   * The PolarDB instance ID. If specified, only application information related to this PolarDB instance is returned.
+   * The PolarDB instance ID. If specified, only the application information related to this PolarDB instance is returned.
    * 
    * @example
    * pc-**************
@@ -97,7 +97,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag.
    */
   tag?: DescribeApplicationsRequestTag[];
   static names(): { [key: string]: string } {

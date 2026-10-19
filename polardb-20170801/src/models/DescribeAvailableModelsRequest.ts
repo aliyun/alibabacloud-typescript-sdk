@@ -13,7 +13,7 @@ export class DescribeAvailableModelsRequest extends $dara.Model {
   kubeType?: string;
   /**
    * @remarks
-   * The model type. Valid values: custom or public. If this parameter is not specified, all models are returned.
+   * The model type. Valid values: custom and public. If you do not specify this parameter, all models are returned.
    * 
    * @example
    * custom

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCronJobPolicyServerlessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D1401250-910B-57A6-8A6A-D9988A62B1CD
