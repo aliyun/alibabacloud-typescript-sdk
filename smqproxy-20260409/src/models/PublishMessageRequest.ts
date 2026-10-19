@@ -4,18 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishMessageRequestMessageAttributes extends $dara.Model {
   /**
+   * @remarks
+   * **Email push attributes** (JSON-formatted string).
+   * 
    * @example
-   * 详见 https://help.aliyun.com/zh/direct-mail/singlesendmail
+   * For more information, see https://www.alibabacloud.com/help/en/direct-mail/singlesendmail.
    */
   directMail?: string;
   /**
+   * @remarks
+   * SMS push attributes (JSON-formatted string), including `FreeSignName`, `TemplateCode`, `Type`, `Receiver`, and `SmsParams`.
+   * 
    * @example
-   * {"FreeSignName":"阿里云","TemplateCode":"SMS_123456","Type":"singleContent","Receiver":"13800000000","SmsParams":"{\\"code\\":\\"1234\\"}"}
+   * {"FreeSignName":"Alibaba Cloud","TemplateCode":"SMS_123456","Type":"singleContent","Receiver":"13800000000","SmsParams":"{\\"code\\":\\"1234\\"}"}
    */
   directSMS?: string;
   /**
+   * @remarks
+   * Mobile push attributes (JSON-formatted string).
+   * 
    * @example
-   * 移动推送属性示例值
+   * Sample mobile push attributes value.
    */
   push?: string;
   static names(): { [key: string]: string } {
@@ -44,14 +53,26 @@ export class PublishMessageRequestMessageAttributes extends $dara.Model {
 }
 
 export class PublishMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * **Message attributes**. You do not need to set this parameter when pushing messages to queues or HTTP endpoints.
+   */
   messageAttributes?: PublishMessageRequestMessageAttributes;
   /**
+   * @remarks
+   * **Message content**. Base64-encode the content beforehand.
+   * Maximum size: 64 KB.
+   * 
    * @example
    * hello topic
    */
   messageBody?: string;
   messageGroupId?: string;
   /**
+   * @remarks
+   * **Message tag**, used for message filtering on subscriptions.
+   * Maximum length: 64 characters.
+   * 
    * @example
    * order-event
    */

@@ -5,21 +5,33 @@ import { MessagesUserPropertiesValue } from "./MessagesUserPropertiesValue";
 
 export class BatchSendMessageRequestMessages extends $dara.Model {
   /**
+   * @remarks
+   * The delay in seconds before the message becomes consumable.
+   * 
    * @example
    * 60
    */
   delaySeconds?: number;
   /**
+   * @remarks
+   * The message body.
+   * 
    * @example
    * This is test message 1.
    */
   messageBody?: string;
   /**
+   * @remarks
+   * The message group ID. Messages within the same group are delivered in order. This parameter is valid only for FIFO queues.
+   * 
    * @example
    * group1
    */
   messageGroupId?: string;
   /**
+   * @remarks
+   * The priority. A smaller value indicates a higher priority. The value 1 represents the highest priority.
+   * 
    * @example
    * 1
    */
@@ -58,6 +70,10 @@ export class BatchSendMessageRequestMessages extends $dara.Model {
 }
 
 export class BatchSendMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The message list.
+   */
   messages?: BatchSendMessageRequestMessages[];
   static names(): { [key: string]: string } {
     return {

@@ -20,7 +20,15 @@ export default class Client extends OpenApi {
 
 
   /**
-   * 批量删除消息
+   * Deletes messages from a queue in a batch. A maximum of 16 messages can be deleted at a time.
+   * 
+   * @remarks
+   * ## Request description
+   * - Use this operation together with BatchReceiveMessage.
+   * - The result of a batch operation may contain both successful and failed sub-requests. The HTTP status code is 204 only when all sub-requests succeed.
+   * - A maximum of 16 messages can be deleted per request.
+   * - Provide the list of `ReceiptHandle` values returned from the previous consumption to identify the messages to delete.
+   * - This operation succeeds only when executed before `NextVisibleTime`. After the timeout, the message becomes Active again, the ReceiptHandle becomes invalid, and you must consume the message again to obtain a new handle.
    * 
    * @param request - BatchDeleteMessageRequest
    * @param headers - map
@@ -53,7 +61,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除消息
+   * Deletes messages from a queue in a batch. A maximum of 16 messages can be deleted at a time.
+   * 
+   * @remarks
+   * ## Request description
+   * - Use this operation together with BatchReceiveMessage.
+   * - The result of a batch operation may contain both successful and failed sub-requests. The HTTP status code is 204 only when all sub-requests succeed.
+   * - A maximum of 16 messages can be deleted per request.
+   * - Provide the list of `ReceiptHandle` values returned from the previous consumption to identify the messages to delete.
+   * - This operation succeeds only when executed before `NextVisibleTime`. After the timeout, the message becomes Active again, the ReceiptHandle becomes invalid, and you must consume the message again to obtain a new handle.
    * 
    * @param request - BatchDeleteMessageRequest
    * @returns BatchDeleteMessageResponse
@@ -65,16 +81,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查看消息
+   * Batch peeks at messages in a queue without changing the message status.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该接口用于批量查看指定队列中的消息，一次最多可以查看16条消息。
-   * - 使用此接口不会改变消息的状态，消息仍保持为Active状态。
-   * - 不支持长轮询功能。
-   * - 需要提供`queueName`作为路径参数，并通过查询参数设置`peekonly=true`及指定要查看的消息数量`numOfMessages`（范围在1到16之间）。
-   * - 成功响应将返回一个包含所请求消息详细信息的数组，包括但不限于消息ID、正文、入队时间等。
-   * - 如果指定的队列不存在或队列中没有可见消息，则会返回相应的错误码。
+   * ## Request description
+   * - This operation batch peeks at messages in a specified queue. You can peek at up to 16 messages at a time.
+   * - This operation does not change the message status. Messages remain in the Active state.
+   * - Long polling is not supported.
+   * - Provide `queueName` as a path parameter, and set the query parameter `peekonly=true` along with `numOfMessages` (range: 1 to 16) to specify the number of messages to peek at.
+   * - A successful response returns an array containing the details of the requested messages, including but not limited to the message ID, body, and enqueue time.
+   * - If the specified queue does not exist or no visible messages are in the queue, the corresponding error code is returned.
    * 
    * @param request - BatchPeekMessageRequest
    * @param headers - map
@@ -111,16 +127,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查看消息
+   * Batch peeks at messages in a queue without changing the message status.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该接口用于批量查看指定队列中的消息，一次最多可以查看16条消息。
-   * - 使用此接口不会改变消息的状态，消息仍保持为Active状态。
-   * - 不支持长轮询功能。
-   * - 需要提供`queueName`作为路径参数，并通过查询参数设置`peekonly=true`及指定要查看的消息数量`numOfMessages`（范围在1到16之间）。
-   * - 成功响应将返回一个包含所请求消息详细信息的数组，包括但不限于消息ID、正文、入队时间等。
-   * - 如果指定的队列不存在或队列中没有可见消息，则会返回相应的错误码。
+   * ## Request description
+   * - This operation batch peeks at messages in a specified queue. You can peek at up to 16 messages at a time.
+   * - This operation does not change the message status. Messages remain in the Active state.
+   * - Long polling is not supported.
+   * - Provide `queueName` as a path parameter, and set the query parameter `peekonly=true` along with `numOfMessages` (range: 1 to 16) to specify the number of messages to peek at.
+   * - A successful response returns an array containing the details of the requested messages, including but not limited to the message ID, body, and enqueue time.
+   * - If the specified queue does not exist or no visible messages are in the queue, the corresponding error code is returned.
    * 
    * @param request - BatchPeekMessageRequest
    * @returns BatchPeekMessageResponse
@@ -132,14 +148,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量消费消息
+   * Batch receives up to 16 messages from a specified queue for consumption.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该操作会将取得的消息状态变为 Inactive，Inactive 持续时间由队列属性 `VisibilityTimeout` 决定。
-   * - 消费者需在 VisibilityTimeout 时间内调用 DeleteMessage 删除消息，否则消息会重新变为 Active。
-   * - 支持长轮询（Long Polling）：设置 `waitseconds > 0` 后，若队列为空则等待至有消息到达或超时返回。
-   * >Notice: 进入长轮询后，建议您降低外部调用长轮询的并发数，选择合适的长轮询时间。目前服务端会根据长轮询数量、长轮询等待时间、访问 IP 数量等因素动态调整长轮询防攻击的并发上限值。当队列无消息时，超过长轮询上限值的请求将无法被监听到，并直接返回 404 MessageNotExist（按请求量正常计费）。如果您有临时提升长轮询上限值的需求，请及时提交工单。
+   * ## Operation description
+   * - This operation changes the status of received messages to Inactive. The Inactive duration is determined by the `VisibilityTimeout` attribute of the queue.
+   * - Consumers must call DeleteMessage to delete messages within the VisibilityTimeout period. Otherwise, messages become Active again.
+   * - Long polling is supported: if you set `waitseconds > 0` and the queue is empty, the request waits until a message arrives or the timeout expires.
+   * >Notice: After long polling is enabled, reduce the concurrency of external long polling calls and select an appropriate long polling duration. The server dynamically adjusts the concurrency limit for long polling based on factors such as the number of long polling requests, long polling wait time, and number of access IP addresses. When the queue has no messages, requests that exceed the long polling limit cannot be listened to and directly return 404 MessageNotExist (billed normally by request count). If you need to temporarily increase the long polling limit, submit a ticket promptly.
    * 
    * @param request - BatchReceiveMessageRequest
    * @param headers - map
@@ -176,14 +192,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量消费消息
+   * Batch receives up to 16 messages from a specified queue for consumption.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该操作会将取得的消息状态变为 Inactive，Inactive 持续时间由队列属性 `VisibilityTimeout` 决定。
-   * - 消费者需在 VisibilityTimeout 时间内调用 DeleteMessage 删除消息，否则消息会重新变为 Active。
-   * - 支持长轮询（Long Polling）：设置 `waitseconds > 0` 后，若队列为空则等待至有消息到达或超时返回。
-   * >Notice: 进入长轮询后，建议您降低外部调用长轮询的并发数，选择合适的长轮询时间。目前服务端会根据长轮询数量、长轮询等待时间、访问 IP 数量等因素动态调整长轮询防攻击的并发上限值。当队列无消息时，超过长轮询上限值的请求将无法被监听到，并直接返回 404 MessageNotExist（按请求量正常计费）。如果您有临时提升长轮询上限值的需求，请及时提交工单。
+   * ## Operation description
+   * - This operation changes the status of received messages to Inactive. The Inactive duration is determined by the `VisibilityTimeout` attribute of the queue.
+   * - Consumers must call DeleteMessage to delete messages within the VisibilityTimeout period. Otherwise, messages become Active again.
+   * - Long polling is supported: if you set `waitseconds > 0` and the queue is empty, the request waits until a message arrives or the timeout expires.
+   * >Notice: After long polling is enabled, reduce the concurrency of external long polling calls and select an appropriate long polling duration. The server dynamically adjusts the concurrency limit for long polling based on factors such as the number of long polling requests, long polling wait time, and number of access IP addresses. When the queue has no messages, requests that exceed the long polling limit cannot be listened to and directly return 404 MessageNotExist (billed normally by request count). If you need to temporarily increase the long polling limit, submit a ticket promptly.
    * 
    * @param request - BatchReceiveMessageRequest
    * @returns BatchReceiveMessageResponse
@@ -195,15 +211,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量发送消息
+   * Sends a batch of up to 16 messages to a specified queue, with a total size not exceeding 64 KB.
    * 
    * @remarks
-   * ## 请求说明
-   * - 一次 Batch 请求的消息总大小不得超过 64 KB。
-   * - `BatchSendMessage` 与 `SendMessage` 使用相同的 URL 路径，通过 Body 结构区分：包含 `Messages` 数组即为批量发送，否则为单条发送。
-   * - 批量操作的返回结果可能同时包含成功和失败的子消息。
-   * - 每次请求中可以包含多个消息对象，每个消息对象可以设置不同的延迟时间和优先级。
-   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 参数来指定消息分组 ID。
+   * ## Request description
+   * - The total size of messages in a single batch request must not exceed 64 KB.
+   * - `BatchSendMessage` and `SendMessage` use the same URL path. They are distinguished by the body structure: if the body contains a `Messages` array, it is a batch send operation. Otherwise, it is a single message send operation.
+   * - The response of a batch operation may contain both successful and failed sub-messages.
+   * - Each request can contain multiple message objects. Each message object can have a different delay time and priority.
+   * - For FIFO queues, you can use the `MessageGroupId` parameter to specify a message group ID.
    * 
    * @param request - BatchSendMessageRequest
    * @param headers - map
@@ -236,15 +252,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量发送消息
+   * Sends a batch of up to 16 messages to a specified queue, with a total size not exceeding 64 KB.
    * 
    * @remarks
-   * ## 请求说明
-   * - 一次 Batch 请求的消息总大小不得超过 64 KB。
-   * - `BatchSendMessage` 与 `SendMessage` 使用相同的 URL 路径，通过 Body 结构区分：包含 `Messages` 数组即为批量发送，否则为单条发送。
-   * - 批量操作的返回结果可能同时包含成功和失败的子消息。
-   * - 每次请求中可以包含多个消息对象，每个消息对象可以设置不同的延迟时间和优先级。
-   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 参数来指定消息分组 ID。
+   * ## Request description
+   * - The total size of messages in a single batch request must not exceed 64 KB.
+   * - `BatchSendMessage` and `SendMessage` use the same URL path. They are distinguished by the body structure: if the body contains a `Messages` array, it is a batch send operation. Otherwise, it is a single message send operation.
+   * - The response of a batch operation may contain both successful and failed sub-messages.
+   * - Each request can contain multiple message objects. Each message object can have a different delay time and priority.
+   * - For FIFO queues, you can use the `MessageGroupId` parameter to specify a message group ID.
    * 
    * @param request - BatchSendMessageRequest
    * @returns BatchSendMessageResponse
@@ -256,7 +272,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息下次可消费时间
+   * Extends or shortens the invisibility period of a message that is in the Inactive state.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the VisibilityTimeout of a message that has been consumed and is currently in the Inactive state. The VisibilityTimeout is the countdown from the current moment until the message becomes Active again.
+   * - A successful invocation returns a new `ReceiptHandle`. Use this new handle for subsequent delete or visibility timeout modification operations on this message.
+   * - This operation can only be invoked successfully before `NextVisibleTime`. Otherwise, a fault is returned.
+   * - Common scenarios include when a consumer requires a longer processing time and needs to extend the VisibilityTimeout to prevent the message from being consumed again.
    * 
    * @param request - ChangeMessageVisibilityRequest
    * @param headers - map
@@ -293,7 +316,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息下次可消费时间
+   * Extends or shortens the invisibility period of a message that is in the Inactive state.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the VisibilityTimeout of a message that has been consumed and is currently in the Inactive state. The VisibilityTimeout is the countdown from the current moment until the message becomes Active again.
+   * - A successful invocation returns a new `ReceiptHandle`. Use this new handle for subsequent delete or visibility timeout modification operations on this message.
+   * - This operation can only be invoked successfully before `NextVisibleTime`. Otherwise, a fault is returned.
+   * - Common scenarios include when a consumer requires a longer processing time and needs to extend the VisibilityTimeout to prevent the message from being consumed again.
    * 
    * @param request - ChangeMessageVisibilityRequest
    * @returns ChangeMessageVisibilityResponse
@@ -305,14 +335,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布消息
+   * Publishes a message to a specified topic. The message is pushed to all subscribed endpoints.
    * 
    * @remarks
-   * ## 请求说明
-   * - 消息发布后会被推送到该 Topic 下所有 Subscription 的 Endpoint。
-   * - 推送到 Queue 和 HTTP Endpoint 时不需要设置 `MessageAttributes`。
-   * - 推送到邮件、短信或移动推送时需要设置对应的 `MessageAttributes` 子属性。
-   * - 消息内容建议事先进行 Base64 编码以避免特殊字符问题。
+   * ## Operation description
+   * - After a message is published, it is pushed to the endpoints of all subscriptions under the topic.
+   * - You do not need to set `MessageAttributes` when pushing messages to queues or HTTP endpoints.
+   * - You must set the corresponding `MessageAttributes` sub-properties when pushing messages to email, SMS, or mobile push endpoints.
+   * - Base64-encode the message content beforehand to avoid special character issues.
    * 
    * @param request - PublishMessageRequest
    * @param headers - map
@@ -357,14 +387,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布消息
+   * Publishes a message to a specified topic. The message is pushed to all subscribed endpoints.
    * 
    * @remarks
-   * ## 请求说明
-   * - 消息发布后会被推送到该 Topic 下所有 Subscription 的 Endpoint。
-   * - 推送到 Queue 和 HTTP Endpoint 时不需要设置 `MessageAttributes`。
-   * - 推送到邮件、短信或移动推送时需要设置对应的 `MessageAttributes` 子属性。
-   * - 消息内容建议事先进行 Base64 编码以避免特殊字符问题。
+   * ## Operation description
+   * - After a message is published, it is pushed to the endpoints of all subscriptions under the topic.
+   * - You do not need to set `MessageAttributes` when pushing messages to queues or HTTP endpoints.
+   * - You must set the corresponding `MessageAttributes` sub-properties when pushing messages to email, SMS, or mobile push endpoints.
+   * - Base64-encode the message content beforehand to avoid special character issues.
    * 
    * @param request - PublishMessageRequest
    * @returns PublishMessageResponse
@@ -376,16 +406,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送消息
+   * Sends a message to a specified queue with support for delay and priority settings.
    * 
    * @remarks
-   * ## 请求说明
-   * - **SendMessage** 接口用于将消息发送至指定队列。
-   * - 消息可以立即被消费或通过设置 `DelaySeconds` 参数来延迟消费。
-   * - 发送的消息可以指定优先级，数值越小表示优先级越高。
-   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 来保证同一分组内消息的顺序投递。
-   * - 用户还可以自定义属性 `UserProperties`，以 JSON 格式字符串形式提供额外信息。
-   * - 当 `DelaySeconds` 大于 0 时，API 返回的 `ReceiptHandle` 可用来在消息变为 Active 状态前删除该延迟消息。
+   * ## Operation description
+   * - The **SendMessage** operation sends a message to a specified queue.
+   * - Messages can be consumed immediately or delayed by setting the `DelaySeconds` parameter.
+   * - You can specify a priority for the message. A smaller value indicates a higher priority.
+   * - For FIFO queues, use `MessageGroupId` to ensure ordered delivery of messages within the same group.
+   * - You can also set custom attributes in `UserProperties` as a JSON-formatted string to provide additional information.
+   * - When `DelaySeconds` is greater than 0, the `ReceiptHandle` returned by the API can be used to delete the delayed message before it becomes Active.
    * 
    * @param request - SendMessageRequest
    * @param headers - map
@@ -434,16 +464,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送消息
+   * Sends a message to a specified queue with support for delay and priority settings.
    * 
    * @remarks
-   * ## 请求说明
-   * - **SendMessage** 接口用于将消息发送至指定队列。
-   * - 消息可以立即被消费或通过设置 `DelaySeconds` 参数来延迟消费。
-   * - 发送的消息可以指定优先级，数值越小表示优先级越高。
-   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 来保证同一分组内消息的顺序投递。
-   * - 用户还可以自定义属性 `UserProperties`，以 JSON 格式字符串形式提供额外信息。
-   * - 当 `DelaySeconds` 大于 0 时，API 返回的 `ReceiptHandle` 可用来在消息变为 Active 状态前删除该延迟消息。
+   * ## Operation description
+   * - The **SendMessage** operation sends a message to a specified queue.
+   * - Messages can be consumed immediately or delayed by setting the `DelaySeconds` parameter.
+   * - You can specify a priority for the message. A smaller value indicates a higher priority.
+   * - For FIFO queues, use `MessageGroupId` to ensure ordered delivery of messages within the same group.
+   * - You can also set custom attributes in `UserProperties` as a JSON-formatted string to provide additional information.
+   * - When `DelaySeconds` is greater than 0, the `ReceiptHandle` returned by the API can be used to delete the delayed message before it becomes Active.
    * 
    * @param request - SendMessageRequest
    * @returns SendMessageResponse

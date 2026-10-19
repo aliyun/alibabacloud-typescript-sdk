@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchDeleteMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ReceiptHandle values of multiple messages.
+   */
   receiptHandles?: string[];
   static names(): { [key: string]: string } {
     return {
