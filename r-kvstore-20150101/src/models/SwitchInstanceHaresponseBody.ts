@@ -12,6 +12,9 @@ export class SwitchInstanceHAResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 674546459
    */

@@ -66,7 +66,7 @@ export class ModifyInstanceNetExpireTimeResponseBodyNetInfoItems extends $dara.M
 export class ModifyInstanceNetExpireTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -75,7 +75,7 @@ export class ModifyInstanceNetExpireTimeResponseBody extends $dara.Model {
   netInfoItems?: ModifyInstanceNetExpireTimeResponseBodyNetInfoItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C4AF387-1EA3-4C84-8013-3F6B973EDDF5

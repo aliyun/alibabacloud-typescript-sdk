@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceNetExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The extension period to retain the classic network endpoint of the instance. Unit: days. Valid values: **14**, **30**, **60**, and **120**.
+   * The extended retention period of the classic network endpoint. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyInstanceNetExpireTimeRequest extends $dara.Model {
   classicExpiredDays?: number;
   /**
    * @remarks
-   * The endpoint of the classic network.
+   * The classic network endpoint of the instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyInstanceNetExpireTimeRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

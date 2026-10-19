@@ -6,8 +6,9 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The expiration time of the instance.
+   * > This parameter is returned only when the billing method of the instance is changed from pay-as-you-go to subscription.
    * 
-   * > This parameter is returned only when you change the billing method of an instance from pay-as-you-go to subscription.
+   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2021-05-13T00:00:00Z
@@ -15,7 +16,7 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20881824000****
@@ -23,7 +24,7 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 82C791FB-8979-489E-853D-706D7743****

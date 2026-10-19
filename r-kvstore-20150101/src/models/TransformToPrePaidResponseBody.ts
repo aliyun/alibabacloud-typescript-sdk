@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TransformToPrePaidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the instance\\"s new subscription.
+   * The time when the instance expires after the billing method of the instance is changed to subscription.
+   * 
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2019-01-18T16:00:00Z
@@ -13,7 +15,7 @@ export class TransformToPrePaidResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 111111111111111
@@ -21,7 +23,7 @@ export class TransformToPrePaidResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 426F1356-B6EF-4DAD-A1C3-DE53B9DAF586

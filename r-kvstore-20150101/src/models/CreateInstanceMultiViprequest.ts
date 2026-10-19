@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceMultiVIPRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of LBs to add.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateInstanceMultiVIPRequest extends $dara.Model {
   addCount?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) operation to query the username of the account.
+   * The account name. You can call [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) to query the account name.
    * 
    * This parameter is required.
    * 

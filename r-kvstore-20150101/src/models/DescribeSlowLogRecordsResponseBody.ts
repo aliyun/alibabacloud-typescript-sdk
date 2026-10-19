@@ -78,7 +78,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine that the instance runs.
+   * The database engine.
    * 
    * @example
    * Redis
@@ -86,7 +86,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp10n********
@@ -95,7 +95,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 686BB8A6-BBA5-47E5-8A75-D2ADE433****
@@ -129,13 +129,15 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
    * @remarks
    * The start time of the query.
    * 
+   * The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
+   * 
    * @example
    * 2019-03-10T14:00Z
    */
   startTime?: string;
   /**
    * @remarks
-   * The total number of returned log entries.
+   * The total number of log entries.
    * 
    * @example
    * 1

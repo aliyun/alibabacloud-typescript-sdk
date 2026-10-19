@@ -15,7 +15,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   currentConnectionString?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,9 +26,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the endpoint. Valid values:
-   * 
-   * *   **Private**: internal network
-   * *   **Public**: Internet
+   * * **Private**: virtual private cloud (VPC).
+   * * **Public**: Internet.
    * 
    * @example
    * Public
@@ -36,9 +35,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   IPType?: string;
   /**
    * @remarks
-   * The prefix of the new endpoint. Specify the endpoint in the `<prefix>.redis.rds.aliyuncs.com` format. The prefix must be 8 to 40 characters in length and can contain lowercase letters and digits. It must start with a lowercase letter.
-   * 
-   * >  You must specify one of the **NewConnectionString** and **Port** parameters.
+   * The prefix of the new endpoint. The endpoint of the instance is in the format of `<prefix>.redis.rds.aliyuncs.com`. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix must be 8 to 40 characters in length.
+   * > You must specify at least one of the request parameters **NewConnectionString** and **Port**.
    * 
    * @example
    * standardredis123
@@ -48,9 +46,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The port number of the instance. Valid values: **1024** to **65535**.
-   * 
-   * >  You must specify one of the **NewConnectionString** and **Port** parameters.
+   * The service port number of the instance. Valid values: **1** to **65535**.
+   * > You must specify at least one of the request parameters **NewConnectionString** and **Port**.
    * 
    * @example
    * 6379

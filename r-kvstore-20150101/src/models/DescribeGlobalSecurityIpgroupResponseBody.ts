@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $dara.Model {
   /**
    * @remarks
-   * An array of instance IDs that are associated with the global IP whitelist template.
+   * The instance IDs associated with the IP whitelist template.
    */
   DBInstances?: string[];
   /**
    * @remarks
-   * The IP addresses in the global IP whitelist template.
-   * 
-   * > Separate multiple IP addresses with a comma.
+   * The IP addresses in the whitelist template.
+   * > Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 192.168.0.1,10.10.10.10
@@ -20,7 +19,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   GIpList?: string;
   /**
    * @remarks
-   * The name of the global IP whitelist template.
+   * The name of the IP whitelist template.
    * 
    * @example
    * test_123
@@ -28,7 +27,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the global IP whitelist template.
+   * The ID of the IP whitelist template.
    * 
    * @example
    * g-zsldxfiwjmti0kcm****
@@ -36,7 +35,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   globalSecurityGroupId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +76,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
 export class DescribeGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of global IP whitelist templates.
+   * The IP whitelist template information.
    */
   globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The common name of the CA certificate. The default value is the internal endpoint of the instance.
+   * The common name of the CA certificate. The default value is the internal network endpoint of the instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
@@ -21,7 +21,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   certDownloadURL?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -29,7 +29,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 02260F96-913E-4655-9BA5-A3651CAF****
@@ -38,9 +38,8 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the TLS (SSL) encryption feature. Valid values:
-   * 
-   * *   **Enable**: SSL encryption is enabled.
-   * *   **Disable**: SSL encryption is disabled.
+   * * **Enable**: Enabled.
+   * * **Disable**: Disabled.
    * 
    * @example
    * Enable
@@ -48,7 +47,9 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   SSLEnabled?: string;
   /**
    * @remarks
-   * The time when the CA certificate expires.
+   * The expiration time of the CA certificate.
+   * 
+   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2020-08-05T09:05:53Z

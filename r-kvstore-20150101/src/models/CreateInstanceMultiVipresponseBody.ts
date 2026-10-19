@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceMultiVIPResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 52D901ED-E0A5-42FB-B9DB-39C295C3****
    */

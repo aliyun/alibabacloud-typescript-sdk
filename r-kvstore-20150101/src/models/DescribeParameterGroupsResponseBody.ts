@@ -6,8 +6,8 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   /**
    * @remarks
    * The product category. Valid values:
-   * - **0**: Redis Community Edition
-   * - **1**: Tair (Enhanced Edition)
+   * - **0**: open-source Redis.
+   * - **1**: Tair (Enterprise Edition).
    * 
    * @example
    * 0
@@ -15,7 +15,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   category?: number;
   /**
    * @remarks
-   * The creation time of the parameter template.
+   * The time when the parameter template was created.
    * 
    * @example
    * 2023-04-18 16:32:45
@@ -24,9 +24,9 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   /**
    * @remarks
    * The engine type. Valid values:
-   * - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
-   * - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
-   * - **tair_pdb**: Tair (Enhanced Edition) cloud disk type.
+   * - **redis**: open-source Redis or Tair (Memory-optimized).
+   * - **tair_pena**: Tair (Persistent Memory-optimized).
+   * - **tair_pdb**: Tair (Disk-optimized).
    * 
    * @example
    * tair_pena
@@ -34,7 +34,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   engine?: string;
   /**
    * @remarks
-   * The engine-compatible version.
+   * The compatible engine version.
    * 
    * @example
    * 5
@@ -42,7 +42,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   engineVersion?: string;
   /**
    * @remarks
-   * The most recent modification time of the parameter template.
+   * The time when the parameter template was last modified.
    * 
    * @example
    * 2023-04-18 16:32:45
@@ -50,7 +50,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   modified?: string;
   /**
    * @remarks
-   * The parameter template ID.
+   * The ID of the parameter template.
    * 
    * @example
    * test01
@@ -110,7 +110,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
 export class DescribeParameterGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of parameter templates.
+   * The parameter templates.
    */
   parameterGroups?: DescribeParameterGroupsResponseBodyParameterGroups[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time of the order.
+   * The end time of the order. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-19T00:00:00Z
@@ -13,7 +13,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 111111111111111
@@ -21,7 +21,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2222245-222A-4155-9349-E22222****

@@ -69,7 +69,7 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database type. The return value is fixed as **Redis**.
+   * The database engine. The value is always **Redis**.
    * 
    * @example
    * redis
@@ -94,7 +94,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9DA28D8E-514D-4F12-ADED-70A9C818****

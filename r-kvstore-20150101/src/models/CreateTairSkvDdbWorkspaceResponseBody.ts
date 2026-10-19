@@ -14,7 +14,6 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
    * * `PrePaid`: subscription.
    * * `PostPaid`: pay-as-you-go.
    * 
@@ -24,7 +23,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The detailed configuration of the instance.
+   * The detailed configurations of the instance.
    * 
    * @example
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
@@ -32,7 +31,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The internal endpoint of the Redis instance.
+   * The internal network connection endpoint of the Redis instance.
    * 
    * @example
    * r-bp1zxszhcgatnx**.redis.rds.aliyuncs.com
@@ -40,7 +39,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The maximum number of connections supported by the instance.
+   * The maximum number of connections to the instance.
    * 
    * @example
    * 10000
@@ -64,7 +63,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The current status of the instance. The return value is fixed as Creating.
+   * The current status of the instance. The value is fixed as Creating.
    * 
    * @example
    * Creating
@@ -88,7 +87,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The queries per second (QPS). This value is the theoretical value for the current instance specifications.
+   * The queries per second (QPS). This is the theoretical value for the current instance specifications.
    * 
    * @example
    * 100000
@@ -96,7 +95,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   QPS?: number;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance is deployed.
    * 
    * @example
    * cn-hongkong
@@ -112,7 +111,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task flow that is executed for the creation.
+   * The ID of the task flow executed for creation.
    * 
    * @example
    * 1111
@@ -120,7 +119,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone where the instance is deployed.
    * 
    * @example
    * cn-hangzhou-b

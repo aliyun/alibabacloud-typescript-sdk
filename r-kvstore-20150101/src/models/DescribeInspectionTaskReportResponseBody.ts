@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of high-risk items.
+   * 
    * @example
    * 0
    */
   error?: number;
   /**
+   * @remarks
+   * The number of failed items.
+   * 
    * @example
    * 0
    */
   failed?: number;
   /**
+   * @remarks
+   * The number of normal items.
+   * 
    * @example
    * 1
    */
   normal?: number;
   /**
+   * @remarks
+   * The number of warning items.
+   * 
    * @example
    * 0
    */
@@ -51,24 +63,44 @@ export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.M
 }
 
 export class DescribeInspectionTaskReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of associated instance IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The Markdown text of the report details.
+   * 
    * @example
-   * # Tair 智能巡检报告\\n\\n## 总览...
+   * # Tair Intelligent Inspection Report\\n\\n## Overview..
    */
   markdownText?: string;
   /**
+   * @remarks
+   * The report language.
+   * 
    * @example
    * zh-CN
    */
   reportLanguage?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * SUCCEEDED
    */
   status?: string;
+  /**
+   * @remarks
+   * The summary.
+   */
   summary?: DescribeInspectionTaskReportResponseBodyDataSummary;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * tit-dca42f85c73644e0ab5c80ef6412xxx
    */
@@ -111,13 +143,23 @@ export class DescribeInspectionTaskReportResponseBodyData extends $dara.Model {
 }
 
 export class DescribeInspectionTaskReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The task report.
+   */
   data?: DescribeInspectionTaskReportResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 561AFBF1-BE20-44DB-9BD1-6988B53E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGlobalDistributeCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the distributed instance.
+   * The distributed instance ID.
    * 
    * @example
    * gr-8vbzg1y6m****t38p
@@ -13,7 +13,7 @@ export class CreateGlobalDistributeCacheResponseBody extends $dara.Model {
   globalInstanceId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-8vb6ffc5****4ec4

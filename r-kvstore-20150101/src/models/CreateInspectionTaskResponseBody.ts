@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInspectionTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * PENDING
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * tit-dca42f85c73644e0ab5c80ef641xxxx
    */
@@ -37,13 +43,25 @@ export class CreateInspectionTaskResponseBodyData extends $dara.Model {
 }
 
 export class CreateInspectionTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The task data.
+   */
   data?: CreateInspectionTaskResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9A931CE5-C926-5E09-B0EC-6299C4A6****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * true
    */

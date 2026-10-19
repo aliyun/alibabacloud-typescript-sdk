@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RetryInspectionTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 794120D1-E0CF-4713-BAE4-EBAEA04506AF
    */

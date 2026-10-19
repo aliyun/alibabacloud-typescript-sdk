@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AAAF99B1-69ED-4E80-8CD5-272C09E4****

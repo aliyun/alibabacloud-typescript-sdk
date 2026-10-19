@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether any O\\&M tasks need pop-up windows to notify users actions. Valid values:
+   * Indicates whether there are O&M tasks that require a pop-up notification for user action. Valid values:
    * 
-   * *   **0**: No O\\&M tasks need pop-up windows to notify users actions.
-   * *   **1**: Some O\\&M tasks need pop-up windows to notify users actions.
+   * - **0**: No pop-up notification.
+   * - **1**: A pop-up notification exists.
    * 
    * @example
    * 0
@@ -16,7 +16,7 @@ export class DescribeActiveOperationTaskCountResponseBody extends $dara.Model {
   needPop?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2D9F3768-EDA9-4811-943E-42C8006E****
@@ -24,7 +24,7 @@ export class DescribeActiveOperationTaskCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of pending O\\&M tasks.
+   * The number of pending O&M tasks.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDbInstanceConnectivityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class DescribeDbInstanceConnectivityRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The source IP address of the user.
    * 
    * This parameter is required.
    * 

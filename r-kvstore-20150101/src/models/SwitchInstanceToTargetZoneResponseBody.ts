@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SwitchInstanceToTargetZoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 5D622714-AEDD-4609-9167-F5DDD3D1****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

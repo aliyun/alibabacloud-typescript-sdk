@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDistributeCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the distributed instance.
+   * The distributed instance ID.
    * 
    * @example
    * gr-bp14rkqrhac****
@@ -15,7 +15,7 @@ export class DescribeGlobalDistributeCacheRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * The page number. Set the value to a number that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeGlobalDistributeCacheRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class DescribeGlobalDistributeCacheRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the child instance that is attached to the distributed instance.
+   * The child instance ID.
    * 
    * @example
    * gr-bp1zcjlobkyrq****

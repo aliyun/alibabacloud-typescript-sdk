@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceMinorVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when you want to update the minor version. Valid values:
+   * The time when the upgrade is performed. Valid values:
+   * * **Immediately**: Performs the upgrade immediately. This is the default value.
+   * * **MaintainTime**: Performs the upgrade during the maintenance window.
    * 
-   * *   **Immediately** (default): immediately updates the minor version.
-   * *   **MaintainTime**: updates the minor version during the maintenance window.
-   * 
-   * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of an instance.
+   * > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to change the maintenance window of the instance.
    * 
    * @example
    * Immediately
@@ -18,7 +17,7 @@ export class ModifyInstanceMinorVersionRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,7 @@ export class ModifyInstanceMinorVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The minor version to which you want to update. Default value: **latest_version**.
+   * The minor version to which you want to upgrade. Default value: **latest_version**, which indicates the latest version.
    * 
    * @example
    * latest_version

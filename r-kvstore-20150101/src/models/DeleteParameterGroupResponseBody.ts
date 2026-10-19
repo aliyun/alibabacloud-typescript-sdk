@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameter template ID, which is globally unique.
+   * The parameter template ID.
    * 
    * @example
    * rpg-sys-00*****
@@ -13,7 +13,7 @@ export class DeleteParameterGroupResponseBody extends $dara.Model {
   paramGroupId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2BE6E619-A657-42E3-AD2D-18F8428A****

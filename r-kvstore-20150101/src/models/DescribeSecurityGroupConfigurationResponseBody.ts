@@ -61,7 +61,7 @@ export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model 
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 981C0D6A-D9DD-466C-92DA-F29DF755****

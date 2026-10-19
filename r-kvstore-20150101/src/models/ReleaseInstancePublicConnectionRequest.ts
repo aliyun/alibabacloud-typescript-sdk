@@ -15,7 +15,7 @@ export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
   currentConnectionString?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

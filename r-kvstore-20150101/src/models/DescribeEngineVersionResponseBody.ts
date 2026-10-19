@@ -67,11 +67,10 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease
   releaseInfo?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo;
   /**
    * @remarks
-   * The version update level, which indicates how strongly the update is recommended. Valid values:
-   * 
-   * *   0: regular
-   * *   1: recommended
-   * *   2: critical
+   * The importance level of the version upgrade (recommended upgrade level). Valid values:
+   * * 0: Normal.
+   * * 1: Important.
+   * * 2: Critical.
    * 
    * @example
    * 0
@@ -106,11 +105,10 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $dara.Model {
   /**
    * @remarks
-   * The version update level. Valid values:
-   * 
-   * *   **0**: regular
-   * *   **1**: recommended
-   * *   **2**: critical
+   * The importance level of the version change. Valid values:
+   * * **0**: Normal.
+   * * **1**: Important.
+   * * **2**: Critical.
    * 
    * @example
    * 0
@@ -126,7 +124,7 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $dara
   minorVersion?: string;
   /**
    * @remarks
-   * The version update path from the current minor version to the latest minor version of the instance, which is consistent with the version documentation. For more detailed information, you can directly refer to the release notes.
+   * The version evolution path from the current minor version of the instance to the latest minor version. This is consistent with the version documentation. You can refer to the version release notes for more detailed information.
    */
   versionRelease?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease;
   static names(): { [key: string]: string } {
@@ -222,11 +220,10 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRele
   releaseInfo?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo;
   /**
    * @remarks
-   * The version update level, which indicates how strongly the update is recommended. Valid values:
-   * 
-   * *   0: regular
-   * *   1: recommended
-   * *   2: critical
+   * The importance level of the version upgrade (recommended upgrade level). Valid values:
+   * * 0: Normal.
+   * * 1: Important.
+   * * 2: Critical.
    * 
    * @example
    * 0
@@ -261,11 +258,10 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRele
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $dara.Model {
   /**
    * @remarks
-   * The version update level. Valid values:
-   * 
-   * *   **0**: regular
-   * *   **1**: recommended
-   * *   **2**: critical
+   * The importance level of the version change. Valid values:
+   * * **0**: Normal.
+   * * **1**: Important.
+   * * **2**: Critical.
    * 
    * @example
    * 0
@@ -281,7 +277,7 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $d
   minorVersion?: string;
   /**
    * @remarks
-   * The version update path from the current minor version to the latest minor version of the instance, which is consistent with the version documentation. For more detailed information, you can directly refer to the release notes.
+   * The version evolution path from the current minor version of the instance to the latest minor version. This is consistent with the version documentation. You can refer to the version release notes for more detailed information.
    */
   versionRelease?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease;
   static names(): { [key: string]: string } {
@@ -315,25 +311,24 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $d
 export class DescribeEngineVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The latest minor version to which the instance can be updated.
+   * The information about the latest minor version to which the instance can be upgraded.
    */
   DBLatestMinorVersion?: DescribeEngineVersionResponseBodyDBLatestMinorVersion;
   /**
    * @remarks
-   * The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
+   * The update notes for the minor version of the instance, including the release time, minor version number, type (such as new feature), and detailed description.
    * 
    * @example
-   * {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"功能更新：增强稳定性。\\"}],\\"versionChangesLevel\\":2}
+   * {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"Feature update: Enhanced stability.\\"}],\\"versionChangesLevel\\":2}
    */
   DBVersionRelease?: string;
   /**
    * @remarks
-   * Indicates whether the instance major version can be upgraded. Valid values:
+   * Indicates whether the major version of the instance can be upgraded. Valid values:
+   * * **true**: The major version can be upgraded.
+   * * **false**: The major version cannot be upgraded, usually because it is already the latest version.
    * 
-   * *   **true**: The major version can be upgraded.
-   * *   **false**: The major version is the latest version and cannot be upgraded.
-   * 
-   * >  To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/473776.html) operation.
+   * > To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/473776.html) operation.
    * 
    * @example
    * true
@@ -341,12 +336,12 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   enableUpgradeMajorVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether the instance minor version can be updated. Valid values:
+   * Indicates whether the minor version of the instance can be upgraded. Valid values:
    * 
-   * *   **true**: The minor version can be updated.
-   * *   **false**: The minor version is the latest version and cannot be updated.
+   * * **true**: The minor version can be upgraded.
+   * * **false**: The minor version is already the latest and cannot be upgraded. 
    * 
-   * >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/473777.html) operation.
+   * > To upgrade the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/473777.html) operation.
    * 
    * @example
    * true
@@ -354,7 +349,7 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   enableUpgradeMinorVersion?: boolean;
   /**
    * @remarks
-   * The database engine. Valid values: **redis** and **memcache**.
+   * The database engine type. Valid values: **redis** and **memcache**.
    * 
    * @example
    * redis
@@ -362,10 +357,10 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * Indicates whether automatic minor version update is enabled. Valid values:
+   * Indicates whether automatic minor version upgrade is enabled. Valid values:
    * 
-   * *   **0**: Automatic minor version update is disabled.
-   * *   **1**: Automatic minor version update is enabled.
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -373,10 +368,9 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   isAutoUpgradeOpen?: string;
   /**
    * @remarks
-   * Indicates whether the instance uses the latest minor version. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the minor version of the instance is the latest. Valid values:
+   * * **true**: Yes.
+   * * **false**: No.
    * 
    * @example
    * false
@@ -384,10 +378,9 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   isLatestVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether Transport Layer Security (TLS) is enabled. Valid values:
-   * 
-   * *   **1**: TLS is enabled.
-   * *   **0**: TLS is disabled.
+   * Indicates whether the new TLS version is supported. Valid values:
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * @example
    * 1
@@ -395,10 +388,9 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   isNewSSLMode?: string;
   /**
    * @remarks
-   * Indicates whether the NGLB mode is enabled. Valid values:
-   * 
-   * *   **0**: The NGLB mode is disabled.
-   * *   **1**: The NGLB mode is enabled.
+   * Indicates whether NGLB mode is enabled. Valid values:
+   * * **0**: Disabled.
+   * * **1**: Enabled.
    * 
    * @example
    * 1
@@ -406,7 +398,7 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   isOpenNGLB?: string;
   /**
    * @remarks
-   * Indicates whether the instance runs a Redis version.
+   * Indicates whether the instance is a Redis-compatible version.
    * 
    * @example
    * 1
@@ -415,9 +407,8 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether SSL is enabled. Valid values:
-   * 
-   * *   **1**: SSL is enabled.
-   * *   **0**: TLS is disabled.
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * @example
    * 1
@@ -441,14 +432,13 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   minorVersion?: string;
   /**
    * @remarks
-   * The latest minor version to which the proxy node can be updated.
+   * The information about the latest minor version to which the proxy node can be upgraded.
    */
   proxyLatestMinorVersion?: DescribeEngineVersionResponseBodyProxyLatestMinorVersion;
   /**
    * @remarks
    * The current minor version of the proxy node.
-   * 
-   * >  This parameter is returned only for cluster and read/write splitting instances.
+   * > This parameter is returned only for instances of the cluster or read/write splitting architecture.
    * 
    * @example
    * 6.6.0
@@ -456,17 +446,16 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
   proxyMinorVersion?: string;
   /**
    * @remarks
-   * The release notes for the minor version of proxy nodes. The release notes include the release date, minor version number, release type such as new feature, and description.
-   * 
-   * >  This parameter is returned only for cluster and read/write splitting instances.
+   * The update notes for the minor version of the proxy node, including the release time, minor version number, type (such as new feature), and detailed description.
+   * > This parameter is returned only for instances of the cluster or read/write splitting architecture.
    * 
    * @example
-   * {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"新特性：增加对部分内部命令的支持。\\"}],\\"versionChangesLevel\\":2}
+   * {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"New feature: Added support for some internal commands.\\"}],\\"versionChangesLevel\\":2}
    */
   proxyVersionRelease?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A52974D1-9D57-4805-86CC-92E6EDE8****

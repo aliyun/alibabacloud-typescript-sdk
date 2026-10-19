@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionScheduleReportsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class DescribeInspectionScheduleReportsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 10
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the timed scheduling.
+   * 
    * @example
    * scheduleId-202604141xxxx
    */

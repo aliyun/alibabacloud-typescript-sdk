@@ -15,7 +15,7 @@ export class DescribeTaskDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 

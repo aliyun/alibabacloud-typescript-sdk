@@ -27,7 +27,7 @@ export class DescribeGlobalSecurityIPGroupRelationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmyiu4ekp****

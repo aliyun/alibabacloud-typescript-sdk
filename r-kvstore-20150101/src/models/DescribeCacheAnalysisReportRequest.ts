@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of analytics. Set the value to **BigKey**.
+   * The analysis type. Set the value to **BigKey**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   analysisType?: string;
   /**
    * @remarks
-   * The date to query. You can query the report for one day each time. Specify the date in the *yyyy-MM-dd*Z format. The time must be in UTC.
+   * The date to query. You can query the offline full key analysis results for one day at a time. The format is <i>yyyy-MM-dd</i>Z (UTC time).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,8 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the child node in the cluster instance.
-   * 
-   * >  If you do not specify this parameter, the analysis results of all child nodes in the instance are returned.
+   * The ID of the child node in a cluster instance.
+   * > This parameter is required for cluster instances.
    * 
    * @example
    * r-bp1zxszhcgatnx****-db-0
@@ -48,8 +47,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   /**
    * @remarks
    * The number of the page to return.
-   * 
-   * > If the parameter value exceeds the maximum number of the returned pages, an empty large key list is returned.
+   * > If the value is greater than the maximum number of pages in the returned result, the returned big key results are empty.
    * 
    * @example
    * 1
@@ -58,8 +56,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-   * 
-   * > The default value is **30**.
+   * > Default value: **30**.
    * 
    * @example
    * 30

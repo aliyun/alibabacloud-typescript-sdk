@@ -69,7 +69,7 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1D42F072-72FE-4DC4-BB8E-64B1D298****

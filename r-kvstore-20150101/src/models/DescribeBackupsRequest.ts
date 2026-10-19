@@ -13,7 +13,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupId?: number;
   /**
    * @remarks
-   * The ID of the backup job returned by the `CreateBackup` operation. If `CreateBackup` returns multiple backup job IDs, call this operation for each ID.
+   * The ID of the backup job. This ID is returned by the CreateBackup operation. If CreateBackup returns multiple BackupJobIds, you must call this operation to query each of them separately.
    * 
    * @example
    * 10001
@@ -21,7 +21,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupJobId?: number;
   /**
    * @remarks
-   * The end time for the query. The end time must be later than the start time. Specify the time in UTC using the *yyyy-MM-dd*T*HH:mm*Z format.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -42,12 +42,10 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable AOF persistence. Valid values:
+   * * **0**: Disabled.
+   * * **1**: Enabled.
    * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled.
-   * 
-   * > The default value is **0**.
+   * > Default value: **0**.
    * 
    * @example
    * 1
@@ -57,7 +55,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number to return. The value must be greater than **0**. The default value is **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -65,7 +63,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Valid values: `30`, `50`, `100`, `200`, and `300`.
+   * The maximum number of entries per page. Valid values: 30, 50, 100, 200, and 300.
    * 
    * @example
    * 30
@@ -76,7 +74,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The start time for the query. Specify the time in UTC using the *yyyy-MM-dd*T*HH:mm*Z format.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

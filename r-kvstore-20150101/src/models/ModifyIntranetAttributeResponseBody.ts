@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyIntranetAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 97AC8948-D7E4-457E-BE03-850CF04E****

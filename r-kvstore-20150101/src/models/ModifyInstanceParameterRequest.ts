@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceParameterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -18,8 +18,7 @@ export class ModifyInstanceParameterRequest extends $dara.Model {
   /**
    * @remarks
    * The parameter template ID.
-   * 
-   * > You can view the list of parameter templates in the target region, including the parameter template ID, through the DescribeParameterGroups interface.
+   * > You can call the DescribeParameterGroups operation to query the list of parameter templates in the target region, including parameter template IDs.
    * 
    * @example
    * g-idhwofwofewhf****
@@ -27,7 +26,7 @@ export class ModifyInstanceParameterRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The information about parameters.
+   * The parameter information.
    * 
    * @example
    * {"hz": "50"}

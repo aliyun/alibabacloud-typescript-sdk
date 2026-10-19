@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransformToEcsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20905403119****
@@ -13,7 +13,7 @@ export class TransformToEcsResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * DAABAD9B-890F-56C0-806C-6144946594AB

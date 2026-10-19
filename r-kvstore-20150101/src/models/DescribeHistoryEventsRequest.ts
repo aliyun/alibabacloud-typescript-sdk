@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the event. Valid values:
-   * 
-   * *   **Archived**
-   * *   **UnArchived**
-   * *   **All**
+   * The archive status of the event. Valid values:
+   * - **Archived**: The event is archived.
+   * - **UnArchived**: The event is not archived.
+   * - **All**: All events.
    * 
    * @example
    * Archived
@@ -17,12 +16,11 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   archiveStatus?: string;
   /**
    * @remarks
-   * The system event category. Valid values:
-   * 
-   * *   **Exception**: abnormal events.
-   * *   **Optimize**: optimization events.
-   * *   **Notification**: Notification events.
-   * *   **Maintenance**: scheduled maintenance events.
+   * The category of the system event. Valid values:
+   * - **Exception**: Exception events.
+   * - **Optimize**: Optimization events.
+   * - **Notification**: Notification events.
+   * - **Maintenance**: Scheduled O&M events.
    * 
    * @example
    * Exception
@@ -30,7 +28,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventCategory?: string;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 5345398
@@ -38,11 +36,10 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The level of the event. Valid values:
-   * 
-   * *   **INFO**
-   * *   **WARN**
-   * *   **CRITICAL**
+   * The event level. Valid values:
+   * - **INFO**: Information.
+   * - **WARN**: Warning.
+   * - **CRITICAL**: Critical.
    * 
    * @example
    * INFO
@@ -51,15 +48,13 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the event. Valid values:
-   * 
-   * *   **Inquiring**
-   * *   **Scheduled**: Planned
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**
-   * *   **Canceled**
-   * 
-   * > Separate multiple states with commas (,).
+   * - **Inquiring**: Inquiring.
+   * - **Scheduled**: Scheduled.
+   * - **Running**: Running.
+   * - **Succeed**: Succeeded.
+   * - **Failed**: Failed.
+   * - **Canceled**: Canceled.
+   * > To query events in multiple statuses, separate the statuses with commas (,).
    * 
    * @example
    * Scheduled
@@ -67,20 +62,20 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * The system event type. This parameter takes effect only when InstanceEventType.N is not specified. Valid values:
+   * The type of the system event. The EventType parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values: 
    * 
-   * *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-   * *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-   * *   SystemFailure.Reboot: The instance is restarted due to a system error.
-   * *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
-   * *   SystemFailure.Delete: The instance is released due to an instance creation failure.
-   * *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
-   * *   InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
-   * *   InstanceExpiration.Delete: The subscription instance is released due to expiration.
-   * *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
-   * *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
+   * - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+   * - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+   * - SystemFailure.Reboot: The instance is restarted due to a system failure.
+   * - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+   * - SystemFailure.Delete: The instance is released due to a creation failure.
+   * - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+   * - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+   * - InstanceExpiration.Delete: The subscription instance is released due to expiration.
+   * - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
+   * - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
    * 
-   * > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The values of this parameter are applicable only to instance system events, but not to disk system events.
+   * > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a cloud disk system event.
    * 
    * @example
    * SystemFailure.Reboot
@@ -88,7 +83,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The earliest start time of the query task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-01-02T11:31:03Z
@@ -106,7 +101,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be greater than 0 and less than or equal to the maximum integer value. Default value: 1.
    * 
    * @example
    * 1
@@ -114,7 +109,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to return on each page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -122,7 +117,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
    * 
    * @example
    * cn-beijing
@@ -130,7 +125,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfnuslkubs****
@@ -141,12 +136,10 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the resource. Valid values:
-   * 
-   * *   **Instance**: instance resources.
-   * *   **Host**: host resources.
-   * *   **User**: user resources
-   * 
-   * > If you do not specify this parameter, events of all resource types are queried.
+   * - **Instance**: Instance resources.
+   * - **Host**: Host resources.
+   * - **User**: User resources.
+   * > If you do not specify this parameter, all resource types are queried.
    * 
    * @example
    * Instance
@@ -155,7 +148,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The task IDs.
+   * The ID of the task.
    * 
    * @example
    * 578678678
@@ -163,7 +156,7 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Only events that have a start time earlier than or equal to the time specified by this parameter are queried.
+   * The latest start time of the query task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC and later than the earliest start time of the task.
    * 
    * @example
    * 2022-02-02T11:31:03Z

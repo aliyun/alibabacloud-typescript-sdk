@@ -96,7 +96,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   regionIds?: DescribeRegionsResponseBodyRegionIds;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****

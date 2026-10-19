@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInspectionScheduleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 561AFBF1-BE20-44DB-9BD1-6988B53E****
    */

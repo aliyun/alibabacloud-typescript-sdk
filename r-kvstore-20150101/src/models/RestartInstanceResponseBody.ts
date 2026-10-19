@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -13,7 +13,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EFC9161F-15E3-4A6E-8A99-C33331****
@@ -21,7 +21,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 11111****

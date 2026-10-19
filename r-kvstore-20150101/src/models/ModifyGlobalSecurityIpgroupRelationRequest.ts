@@ -15,7 +15,8 @@ export class ModifyGlobalSecurityIPGroupRelationRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The IP whitelist template ID.
+   * > To dissociate a template, delete the corresponding IP whitelist template ID. This parameter overwrites the original value. To dissociate all templates, pass in an empty string.
    * 
    * This parameter is required.
    * 
@@ -37,7 +38,7 @@ export class ModifyGlobalSecurityIPGroupRelationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmyiu4ekp****

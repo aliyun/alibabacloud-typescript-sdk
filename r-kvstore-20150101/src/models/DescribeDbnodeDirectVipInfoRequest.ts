@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBNodeDirectVipInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID. Only cloud-native instances are supported.
    * 
    * This parameter is required.
    * 

@@ -8,7 +8,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
    * The architecture type. Valid values:
    * * **cluster**: Cluster Edition.
    * * **standard**: Standard Edition.
-   * * **rwsplit**: read/write splitting edition.
+   * * **rwsplit**: read/write splitting Edition.
    * 
    * @example
    * standard
@@ -125,7 +125,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID.
-   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations: see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****

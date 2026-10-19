@@ -4,12 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInspectionTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the inspection time range.
+   * 
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
+   * 
    * @example
    * 2026-07-29T06:59:26Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The specified inspection items. Valid values:
+   * - RESOURCE_USAGE
+   * - BIGKEY
+   * - HOTKEY
+   * - PERFORMANCE_METRICS
+   * - SLOWLOG
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +30,8 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
+   * The ID of the assistant instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +40,8 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The list of associated instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +49,19 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    */
   instanceIds?: string;
   /**
+   * @remarks
+   * The language of the report.
+   * 
    * @example
    * zh-CN
    */
   reportLanguage?: string;
   /**
+   * @remarks
+   * The start time of the inspection time range.
+   * 
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
+   * 
    * @example
    * 2026-07-29T05:59:26Z
    */

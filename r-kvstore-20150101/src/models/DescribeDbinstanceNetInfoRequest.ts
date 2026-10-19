@@ -13,10 +13,6 @@ export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The network type.
-   */
   netType?: string;
   ownerAccount?: string;
   ownerId?: number;

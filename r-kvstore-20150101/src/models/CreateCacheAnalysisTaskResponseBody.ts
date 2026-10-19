@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCacheAnalysisTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BBC1E3D6-7C88-4DF5-9A3D-0DB1E6D9****

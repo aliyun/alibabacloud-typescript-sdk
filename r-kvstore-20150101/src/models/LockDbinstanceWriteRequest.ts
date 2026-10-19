@@ -15,12 +15,12 @@ export class LockDBInstanceWriteRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The reason why write operations on the instance are locked.
+   * The reason for locking the instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * 锁写操作验证。
+   * Lock write operation verification
    */
   lockReason?: string;
   ownerAccount?: string;

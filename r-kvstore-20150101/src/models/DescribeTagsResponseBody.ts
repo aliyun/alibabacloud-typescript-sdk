@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * size
@@ -45,9 +45,8 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
 export class DescribeTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token to use in the next request to get the next page. If this field is empty, there are no more results.
-   * 
-   * > If not all results are returned in one query, this parameter is returned. You can pass in the returned value of this parameter for the next query.
+   * The token used to start the next query.
+   * > This parameter is returned if a single query does not return all results. You can pass the value of this parameter in a subsequent query to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec2****
@@ -63,7 +62,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the tags.
+   * The tag information.
    */
   tags?: DescribeTagsResponseBodyTags[];
   static names(): { [key: string]: string } {

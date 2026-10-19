@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The system event category. Valid values:
-   * 
-   * *   **Exception**: abnormal events
-   * *   **Optimize**: optimization events.
-   * *   **Notification**: notification events.
-   * *   **Maintenance**: scheduled maintenance events.
+   * The system event categorization. Valid values:
+   * - **Exception**: Exception event.
+   * - **Optimize**: Optimization events.
+   * - **Notification**: Notification event.
+   * - **Maintenance**: Scheduled maintenance event.
    * 
    * @example
    * Exception
@@ -18,7 +17,7 @@ export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
   eventCategory?: string;
   /**
    * @remarks
-   * The total number of returned events.
+   * The total number of records.
    * 
    * @example
    * 21
@@ -50,7 +49,7 @@ export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
 export class DescribeHistoryEventsStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried events.
+   * The event list.
    */
   items?: DescribeHistoryEventsStatResponseBodyItems[];
   /**

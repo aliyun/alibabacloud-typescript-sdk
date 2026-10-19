@@ -7,7 +7,7 @@ export class DescribeParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the parameter template.
+   * The parameter template ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing

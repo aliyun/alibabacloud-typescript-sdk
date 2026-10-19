@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsStatRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the events that you want to query. Valid values:
-   * 
-   * *   **Archived**
-   * *   **UnArchived**
-   * *   **All**
+   * The event status. Valid values:
+   * - **Archived**: Archived.
+   * - **UnArchived**: Not archived.
+   * - **All**: All events.
    * 
    * @example
    * Archived
@@ -17,7 +16,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   archiveStatus?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, this time is automatically converted to a time that is exactly 30 days earlier than the current time.
+   * The beginning of the time range for the task start time. Only tasks whose start time is later than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. The earliest supported time is 30 days before the current time. If the specified time is more than 30 days before the current time, it is automatically converted to 30 days before the current time.
    * 
    * @example
    * 2022-01-02T11:31:03Z
@@ -40,7 +39,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range for the task start time. Only tasks whose start time is earlier than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2022-02-02T11:31:03Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the event can be canceled. The value 1 indicates that the event can be canceled. The value 0 indicates that the event cannot be canceled.
+   * Indicates whether the event can be canceled. A value of 1 indicates that the event can be canceled. A value of 0 indicates that the event cannot be canceled.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowCancel?: string;
   /**
    * @remarks
-   * Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
+   * Indicates whether the event time can be modified. A value of 1 indicates that the time can be modified. A value of 0 indicates that the time cannot be modified.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowChange?: string;
   /**
    * @remarks
-   * The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
+   * The event level code. S1 indicates system O&M. S0 indicates risk recovery.
    * 
    * @example
    * S1
@@ -29,7 +29,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   changeLevel?: string;
   /**
    * @remarks
-   * The level of the task in English.
+   * The event level in English.
    * 
    * @example
    * System maintenance
@@ -37,7 +37,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   changeLevelEn?: string;
   /**
    * @remarks
-   * The level of the task in Chinese.
+   * The event level in Chinese.
    * 
    * @example
    * 系统运维
@@ -45,7 +45,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   changeLevelZh?: string;
   /**
    * @remarks
-   * The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -61,7 +61,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   currentAVZ?: string;
   /**
    * @remarks
-   * The database type of the instance. The return value is **Redis**.
+   * The database type. Return value: **redis**.
    * 
    * @example
    * redis
@@ -69,7 +69,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The Milvus version number of the kernel.
    * 
    * @example
    * 5.0
@@ -77,7 +77,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+   * The latest deadline by which the task execution time can be adjusted, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T23:59:59Z
@@ -85,7 +85,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   deadline?: string;
   /**
    * @remarks
-   * The ID of the O\\&M event.
+   * The O&M event ID.
    * 
    * @example
    * 11111
@@ -93,7 +93,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The impact of the task.
+   * The event impact.
    * 
    * @example
    * TransientDisconnection
@@ -101,7 +101,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impact?: string;
   /**
    * @remarks
-   * The impact of the task in English.
+   * The event impact in English.
    * 
    * @example
    * Transient instance disconnection
@@ -109,7 +109,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impactEn?: string;
   /**
    * @remarks
-   * The impact of the task in Chinese.
+   * The event impact in Chinese.
    * 
    * @example
    * 实例闪断
@@ -117,7 +117,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impactZh?: string;
   /**
    * @remarks
-   * The alias and description of the instance.
+   * The instance alias or description.
    * 
    * @example
    * test
@@ -133,7 +133,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The modification time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -141,7 +141,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+   * The preparation time required between the start time and the switchover time. Format: HH:mm:ss.
    * 
    * @example
    * 04:00:00
@@ -149,7 +149,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   prepareInterval?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hanghzou
@@ -157,7 +157,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The information about the execution result.
+   * The execution result information.
    * 
    * @example
    * userCancel
@@ -165,7 +165,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the event is executed in the backend. The time must be in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the backend starts executing the event, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T00:00:00Z
@@ -173,13 +173,12 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the O\\&M event. Valid values:
-   * 
-   * *   **3**: filters pending events.
-   * *   **4**: filters in-progress events.
-   * *   **5**: filters successful events.
-   * *   **6**: filters failed events.
-   * *   **7**: filters canceled events.
+   * The status of the O&M event. Valid values:
+   * - **3**: pending.
+   * - **4**: being processed.
+   * - **5**: ended successfully.
+   * - **6**: ended with failure.
+   * - **7**: canceled.
    * 
    * @example
    * 5
@@ -192,7 +191,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   subInsNames?: string[];
   /**
    * @remarks
-   * The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the backend initiates the switchover operation, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -200,7 +199,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The O\\&M event parameters.
+   * The O&M event parameters.
    * 
    * @example
    * {
@@ -210,7 +209,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskParams?: string;
   /**
    * @remarks
-   * The type of the O\\&M event.
+   * The type of the O&M event.
    * 
    * @example
    * rds_apsaradb_transfer
@@ -218,7 +217,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The cause of the O\\&M event.
+   * The reason for the O&M event in English.
    * 
    * @example
    * Minor version update
@@ -226,7 +225,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskTypeEn?: string;
   /**
    * @remarks
-   * The reason for the task in Chinese.
+   * The task reason in Chinese.
    * 
    * @example
    * 小版本升级
@@ -313,7 +312,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of O\\&M events.
+   * The list of O&M events.
    */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
@@ -326,7 +325,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default 25.
+   * The number of entries per page. Default value: 25.
    * 
    * @example
    * 25
@@ -342,7 +341,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of O\\&M events returned.
+   * The total number of O&M event records returned.
    * 
    * @example
    * 1

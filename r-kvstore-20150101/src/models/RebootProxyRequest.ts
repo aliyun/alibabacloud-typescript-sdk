@@ -17,7 +17,7 @@ export class RebootProxyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of the proxy nodes that you want to restart or rebuild. Separate multiple IDs with commas (,).
+   * The IDs of the proxy nodes to operate. Separate multiple IDs with commas.
    * 
    * @example
    * 90310144,90310144
@@ -25,7 +25,7 @@ export class RebootProxyRequest extends $dara.Model {
   proxyList?: string;
   /**
    * @remarks
-   * The IDs of the hosts on which the proxy nodes are deployed. Separate multiple IDs with commas (,).
+   * The IDs of the hosts on which the proxy nodes to operate reside. Separate multiple IDs with commas.
    * 
    * @example
    * 36912280,36912282
@@ -33,10 +33,11 @@ export class RebootProxyRequest extends $dara.Model {
   proxyNodeList?: string;
   /**
    * @remarks
-   * The type of operation that you want to perform. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **reboot**: restarts the proxy node.
-   * *   **rebuild**: rebuilds the proxy node.
+   * - **reboot**: Restarts the proxy node in place.
+   * 
+   * - **rebuild**: Rebuilds the proxy node.
    * 
    * @example
    * reboot

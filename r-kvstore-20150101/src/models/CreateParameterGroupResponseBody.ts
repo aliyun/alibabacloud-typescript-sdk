@@ -13,7 +13,7 @@ export class CreateParameterGroupResponseBody extends $dara.Model {
   paramGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62DA5BE5-F9C9-527C-ACCB-4D783C297A3A

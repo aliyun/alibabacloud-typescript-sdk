@@ -32,7 +32,7 @@ export class DescribeEncryptionKeyListResponseBody extends $dara.Model {
   keyIds?: DescribeEncryptionKeyListResponseBodyKeyIds;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 10E2160B-959C-5C3E-BFE6-86EC5925****

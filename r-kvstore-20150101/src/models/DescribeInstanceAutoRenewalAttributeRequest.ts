@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -14,8 +14,7 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the instance.
-   * 
-   * > By default, the system checks whether auto-renewal is enabled for all instances.
+   * > By default, the system queries whether enable auto-renewal is configured for all instances.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -25,7 +24,7 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of Integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,9 +32,8 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-   * 
-   * > The default value is **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
+   * > Default value: **30**.
    * 
    * @example
    * 30

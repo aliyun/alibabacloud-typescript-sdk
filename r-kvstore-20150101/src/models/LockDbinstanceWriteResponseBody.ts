@@ -13,10 +13,10 @@ export class LockDBInstanceWriteResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The reason why write operations on the instance are locked.
+   * The reason for locking the instance.
    * 
    * @example
-   * 锁定写操作测试。
+   * Lock write operation test
    */
   lockReason?: string;
   /**

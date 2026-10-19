@@ -89,7 +89,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionI
 export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extends $dara.Model {
   /**
    * @remarks
-   * The activity ID.
+   * The promotion ID.
    * 
    * @example
    * ****
@@ -97,15 +97,15 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
   activityId?: number;
   /**
    * @remarks
-   * The activity name.
+   * The promotion name.
    * 
    * @example
-   * 合同优惠_整单_xxx折
+   * Contract_Discount_Order_xxxOff
    */
   activityName?: string;
   /**
    * @remarks
-   * The preferential price.
+   * The price after the discount.
    */
   finalFee?: number;
   /**
@@ -115,7 +115,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
   finalPromFee?: number;
   /**
    * @remarks
-   * The promotion code.
+   * The discount ID.
    * 
    * @example
    * ****
@@ -169,7 +169,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
 export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction rate.
+   * The price reduction ratio.
    * 
    * @example
    * 30%
@@ -177,7 +177,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   cheapRate?: number;
   /**
    * @remarks
-   * The new total price displayed on the official website.
+   * The total price on the official website after the price reduction.
    * 
    * @example
    * 9*
@@ -185,12 +185,12 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   cheapStandAmount?: number;
   /**
    * @remarks
-   * The activity information.
+   * The promotion information.
    */
   contractActivity?: DescribePriceResponseBodyOrderDepreciateInfoContractActivity;
   /**
    * @remarks
-   * The promotional offer (displayed in the total order amount).
+   * The price difference discount, displayed in the order total.
    * 
    * @example
    * **
@@ -198,7 +198,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   differential?: number;
   /**
    * @remarks
-   * The name of the promotional offer.
+   * The name of the price difference discount.
    * 
    * @example
    * XXXXX
@@ -206,7 +206,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   differentialName?: string;
   /**
    * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
+   * Indicates whether a contract-based discount is applied.
    * 
    * @example
    * false
@@ -214,7 +214,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * Indicates whether the price reduction rate is displayed.
+   * Indicates whether the price reduction is displayed.
    * 
    * @example
    * true
@@ -230,7 +230,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   listPrice?: number;
   /**
    * @remarks
-   * The monthly price.
+   * The equivalent monthly price.
    * 
    * @example
    * **
@@ -238,7 +238,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   monthPrice?: number;
   /**
    * @remarks
-   * The original total price displayed on the official website.
+   * The original total price on the official website.
    * 
    * @example
    * 12*
@@ -324,7 +324,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   coupons?: DescribePriceResponseBodyOrderCoupons;
   /**
    * @remarks
-   * The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+   * The currency. The value is CNY (Chinese Yuan) for the China site and USD (US Dollar) for the international site.
    * 
    * @example
    * CNY
@@ -332,7 +332,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The activity information.
+   * The promotion information.
    */
   depreciateInfo?: DescribePriceResponseBodyOrderDepreciateInfo;
   /**
@@ -345,7 +345,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   discountAmount?: string;
   /**
    * @remarks
-   * The service fees of the order.
+   * The service fee.
    * 
    * @example
    * 0.1
@@ -353,7 +353,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   handlingFeeAmount?: string;
   /**
    * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
+   * Indicates whether a contract-based discount is applied.
    * 
    * @example
    * false
@@ -361,7 +361,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The information about the order.
+   * The order information.
    * 
    * @example
    * ""
@@ -378,12 +378,12 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   /**
    * @remarks
-   * Indicates whether the discount information is displayed.
+   * Indicates whether discount information is displayed.
    */
   showDiscountInfo?: boolean;
   /**
    * @remarks
-   * The discount.
+   * The discount price.
    * 
    * @example
    * ****
@@ -399,7 +399,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   standPrice?: number;
   /**
    * @remarks
-   * The transaction price of the order.
+   * The actual transaction price of the order.
    * 
    * @example
    * 10
@@ -1116,12 +1116,12 @@ export class DescribePriceResponseBodySubOrders extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the order.
+   * The order information.
    */
   order?: DescribePriceResponseBodyOrder;
   /**
    * @remarks
-   * The parameters of the order. When OrderParamOut is set to `true`, this parameter is returned.
+   * The order parameters. This parameter is returned when OrderParamOut is set to `true`.
    * 
    * @example
    * String

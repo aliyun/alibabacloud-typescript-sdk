@@ -88,7 +88,7 @@ export class DescribeRoleZoneInfoResponseBody extends $dara.Model {
   node?: DescribeRoleZoneInfoResponseBodyNode;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -112,7 +112,7 @@ export class DescribeRoleZoneInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

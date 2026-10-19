@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInspectionScheduleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the AI assistant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteInspectionScheduleRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The scheduling ID of the timed scheduling.
+   * 
    * @example
    * scheduleId-202604141xxxx
    */

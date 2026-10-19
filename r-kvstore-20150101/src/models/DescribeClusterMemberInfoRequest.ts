@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterMemberInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Tair (Redis OSS-compatible) instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance IDs.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeClusterMemberInfoRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The maximum number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30

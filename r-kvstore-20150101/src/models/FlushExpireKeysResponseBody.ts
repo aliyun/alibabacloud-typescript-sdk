@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlushExpireKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -13,7 +13,7 @@ export class FlushExpireKeysResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
@@ -21,7 +21,7 @@ export class FlushExpireKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 21986****

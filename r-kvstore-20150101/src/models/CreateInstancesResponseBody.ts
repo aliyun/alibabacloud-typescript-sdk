@@ -32,7 +32,7 @@ export class CreateInstancesResponseBody extends $dara.Model {
   instanceIds?: CreateInstancesResponseBodyInstanceIds;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20905403119****
@@ -40,7 +40,7 @@ export class CreateInstancesResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 561AFBF1-BE20-44DB-9BD1-6988B53E****

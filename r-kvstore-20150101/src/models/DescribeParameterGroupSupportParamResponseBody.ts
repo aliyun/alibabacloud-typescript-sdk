@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupSupportParamResponseBodyResourceList extends $dara.Model {
   /**
    * @remarks
-   * The service category.
+   * The product category.
    * 
    * @example
    * standard
@@ -21,7 +21,7 @@ export class DescribeParameterGroupSupportParamResponseBodyResourceList extends 
   dbType?: string;
   /**
    * @remarks
-   * The engine version.
+   * The compatible engine version.
    * 
    * @example
    * 5.0
@@ -29,7 +29,7 @@ export class DescribeParameterGroupSupportParamResponseBodyResourceList extends 
   dbVersion?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The configurable parameter.
    * 
    * @example
    * rt_threshold_ms
@@ -73,7 +73,7 @@ export class DescribeParameterGroupSupportParamResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The parameters.
+   * The list of parameters.
    */
   resourceList?: DescribeParameterGroupSupportParamResponseBodyResourceList[];
   static names(): { [key: string]: string } {

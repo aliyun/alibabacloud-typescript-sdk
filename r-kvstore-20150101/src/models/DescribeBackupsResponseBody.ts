@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   authAction?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -37,7 +37,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -53,7 +53,7 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   noPermissionType?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * See the preceding description.
    * 
    * @example
    * -
@@ -189,18 +189,14 @@ export class DescribeBackupsResponseBodyBackups extends $dara.Model {
 export class DescribeBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This group of parameters is deprecated. Ignore it.
    */
   accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
-  /**
-   * @remarks
-   * Details about the backup sets.
-   */
   backups?: DescribeBackupsResponseBodyBackups;
   /**
    * @remarks
-   * <props="china">The free backup quota for the instance, in bytes. The free quota is equal to the default memory size of the instance type. For more information, see [Changes to the free backup quota policy](https://help.aliyun.com/document_detail/2664017.html).
-   * Full backups and log backups share this free quota. When the instance type is changed, the free quota also changes.
+   * <props="china">The free backup quota for the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see [Notice on backup commercialization](https://help.aliyun.com/document_detail/2664017.html).
+   * Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
    * <props="intl">This parameter is not in effect. Ignore this parameter.
    * 
    * @example
@@ -209,9 +205,8 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   freeSize?: number;
   /**
    * @remarks
-   * The total size of full backups for the instance, in bytes. Full backups are generated from scheduled daily backups, manual backups, or cache analysis.
-   * 
-   * > This value represents the total size of all valid full backups for the instance, regardless of the backup sets returned in this request.
+   * The size of full backup files for the current instance. Unit: bytes. Full backups include daily scheduled backups, manual backups, and backups generated during cache analysis.
+   * > This value is independent of the number and size of backup sets returned in the current response. It represents the total size of all valid full backups for the instance.
    * 
    * @example
    * 1000
@@ -219,9 +214,8 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   fullStorageSize?: number;
   /**
    * @remarks
-   * The total size of log backups for the instance, in bytes. This parameter is returned only if flashback is enabled.
-   * 
-   * > This value represents the total size of all valid log backups for the instance, regardless of the backup sets returned in this request.
+   * The size of instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
+   * > This value is independent of the number and size of backup sets returned in the current response. It represents the total size of all valid instance log backups for the instance.
    * 
    * @example
    * 5000
@@ -237,7 +231,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 30
@@ -253,7 +247,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of backup sets.
+   * The total number of backups.
    * 
    * @example
    * 5

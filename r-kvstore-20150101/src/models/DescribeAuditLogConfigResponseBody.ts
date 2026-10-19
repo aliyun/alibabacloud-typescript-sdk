@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the audit log feature is enabled. Valid values:
+   * Indicates whether audit logging is enabled. Valid values:
+   * * **true**: Enabled.
+   * * **false**: Disabled.
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
-   * 
-   * > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable the audit log feature for a Tair (Redis OSS-compatible) instance.
+   * > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable audit logging for the instance.
    * 
    * @example
    * true
@@ -18,7 +17,7 @@ export class DescribeAuditLogConfigResponseBody extends $dara.Model {
   dbAudit?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2BE6E619-A657-42E3-AD2D-18F8428A****

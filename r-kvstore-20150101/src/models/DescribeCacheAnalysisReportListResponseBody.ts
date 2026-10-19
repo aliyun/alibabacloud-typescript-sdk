@@ -119,7 +119,7 @@ export class DescribeCacheAnalysisReportListResponseBody extends $dara.Model {
   dailyTasks?: DescribeCacheAnalysisReportListResponseBodyDailyTasks;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * 1041xxxx
@@ -127,7 +127,7 @@ export class DescribeCacheAnalysisReportListResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 743D0A03-52DE-4E6F-8D09-EC1414CF****

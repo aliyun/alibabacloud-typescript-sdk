@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddShardingNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the data shards.
+   * The list of data shard node IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20741011111111
@@ -18,7 +18,7 @@ export class AddShardingNodeResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B79C1A90-495B-4E99-A2AA-A4DB13B8****

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.Model {
   /**
    * @remarks
-   * The maximum bandwidth of the node. Unit: MB/s.
-   * 
-   * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+   * The bandwidth of the node. Unit: MB/s.
+   * > This parameter is returned only when the **Service** parameter is set to **redis**, which indicates that the node is a data node.
    * 
    * @example
    * 96
@@ -15,7 +14,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   bandWidth?: number;
   /**
    * @remarks
-   * The retention period of binlogs.
+   * The number of days for which binary logs are retained.
    * 
    * @example
    * 7
@@ -23,7 +22,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   binlogRetentionDays?: number;
   /**
    * @remarks
-   * The type of workload. The return value is **ALIYUN**.
+   * The business type. The value is fixed as **ALIYUN**.
    * 
    * @example
    * ALIYUN
@@ -31,9 +30,8 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   bizType?: string;
   /**
    * @remarks
-   * The maximum memory capacity per data node. Unit: MB.
-   * 
-   * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+   * The maximum memory capacity of a single data node. Unit: MB.
+   * > This parameter is returned only when the **Service** parameter is set to **redis**, which indicates that the node is a data node.
    * 
    * @example
    * 1024
@@ -41,7 +39,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   capacity?: number;
   /**
    * @remarks
-   * The specifications of the data node. For more information, see [Community Edition instances that use cloud disks](https://help.aliyun.com/document_detail/164477.html).
+   * The specifications of the data node. For more information, see [Cloud-native instance specifications](https://help.aliyun.com/document_detail/164477.html).
    * 
    * @example
    * redis.shard.small.ce
@@ -49,7 +47,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   classCode?: string;
   /**
    * @remarks
-   * The maximum number of connections supported by the data node.
+   * The maximum number of connections for the data node.
    * 
    * @example
    * 20000
@@ -57,7 +55,9 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   connections?: number;
   /**
    * @remarks
-   * The current bandwidth of the data node, which is the sum of the default bandwidth and any extra bandwidth that is purchased. Unit: Mbit/s.
+   * The current bandwidth of the node. Unit: MB/s. The value is the sum of the default bandwidth and the increased bandwidth of the node.
+   * 
+   * <props="china">This parameter is returned only when the instance is created in a dedicated cluster.
    * 
    * @example
    * 100
@@ -65,9 +65,8 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   currentBandWidth?: number;
   /**
    * @remarks
-   * The storage capacity of the [enhanced SSD (ESSD)](https://help.aliyun.com/document_detail/122389.html) that is used by the data node. Unit: MB.
-   * 
-   * > The ESSD is used only to store system operating data, such as Persistent Memory (PMEM). It is not used as a medium to write and read data.
+   * The storage space of the [ESSD cloud disk](https://help.aliyun.com/document_detail/122389.html) for the data node. Unit: MB.
+   * > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data access.
    * 
    * @example
    * 4096
@@ -75,7 +74,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   diskSizeMB?: number;
   /**
    * @remarks
-   * The ID of the replica set in the node.
+   * The replica set ID of the node.
    * 
    * @example
    * 501791111
@@ -83,7 +82,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   id?: number;
   /**
    * @remarks
-   * The name of the data node.
+   * The name of the node.
    * 
    * @example
    * r-bp1zxszhcgatnx****-db-0
@@ -91,7 +90,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   name?: string;
   /**
    * @remarks
-   * The number of replica nodes.
+   * The number of child nodes.
    * 
    * @example
    * 0
@@ -108,9 +107,8 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   /**
    * @remarks
    * The node type. Valid values:
-   * 
-   * *   **redis**: data node
-   * *   **redis_cs**: config server
+   * * **redis**: data node.
+   * * **redis_cs**: configuration server node.
    * 
    * @example
    * redis
@@ -126,7 +124,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   serviceVersion?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 2****_176498472570****
@@ -184,12 +182,12 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
 export class DescribeClusterMemberInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about data nodes in the cluster instance.
+   * The list of data node information for the cluster instance.
    */
   clusterChildren?: DescribeClusterMemberInfoResponseBodyClusterChildren[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D9F3768-EDA9-4811-943E-42C8006E****

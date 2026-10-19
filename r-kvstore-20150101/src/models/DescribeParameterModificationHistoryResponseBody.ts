@@ -64,7 +64,7 @@ export class DescribeParameterModificationHistoryResponseBody extends $dara.Mode
   historicalParameters?: DescribeParameterModificationHistoryResponseBodyHistoricalParameters;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 963C20F0-7CE1-4591-AAF3-6F3CD1CE****

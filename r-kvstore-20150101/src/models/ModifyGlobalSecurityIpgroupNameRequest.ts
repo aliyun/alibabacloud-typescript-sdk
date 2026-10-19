@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalSecurityIPGroupNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the global IP whitelist template. The name must meet the following requirements:
+   * The new name of the IP address whitelist template. The name must meet the following requirements:
    * 
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must start with a letter and end with a letter or a digit.
-   * *   The name must be 2 to 120 characters in length.
+   * - The name can contain lowercase letters, digits, and underscores (_).
+   * - The name must start with a letter and end with a letter or digit.
+   * - The name must be 2 to 120 characters in length.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class ModifyGlobalSecurityIPGroupNameRequest extends $dara.Model {
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The ID of the IP address whitelist template. You can call the [DescribeGlobalSecurityIPGroup](https://help.aliyun.com/document_detail/2400079.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ModifyGlobalSecurityIPGroupNameRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmyiu4ekp****

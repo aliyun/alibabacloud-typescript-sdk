@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   authAction?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -37,7 +37,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   authPrincipalType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -53,7 +53,7 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $dara.Mod
   noPermissionType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -103,14 +103,13 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   backupJobID?: number;
   /**
    * @remarks
-   * The state of the backup task. Valid values:
-   * 
-   * *   **NoStart**: The backup task is not started.
-   * *   **Preparing**: The backup task is being prepared.
-   * *   **Waiting**: The backup task is pending.
-   * *   **Uploading**: The system is uploading the backup file.
-   * *   **Checking**: The system is checking the uploaded backup file.
-   * *   **Finished**: The backup task is completed.
+   * The status of the backup task. Valid values:
+   * * **NoStart**: not started
+   * * **Preparing**: preparing
+   * * **Waiting**: waiting
+   * * **Uploading**: uploading
+   * * **Checking**: checking
+   * * **Finished**: completed
    * 
    * @example
    * NoStart
@@ -119,9 +118,8 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * *   **Automated**: automatic backup
-   * *   **Manual**: manual backup
+   * * **Automated**: automatic backup.
+   * * **Manual**: manual backup.
    * 
    * @example
    * Manual
@@ -137,7 +135,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The progress of the backup task in percentage.
+   * The progress percentage of the backup task. This parameter is not recommended. Refer to the **Progress** parameter.
    * 
    * @example
    * 0
@@ -145,7 +143,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   process?: string;
   /**
    * @remarks
-   * The backup progress.
+   * The progress percentage of the backup. Valid values: 0 to 100.
    * 
    * @example
    * 27
@@ -153,7 +151,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time of the backup task. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-05T19:24:00Z
@@ -162,9 +160,8 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   /**
    * @remarks
    * The type of the backup task. Valid values:
-   * 
-   * *   **TempBackupTask**: The backup task was manually performed.
-   * *   **NormalBackupTask**: The backup task was automatically performed.
+   * * **TempBackupTask**: temporary backup task, which indicates a manual backup.
+   * * **NormalBackupTask**: normal backup task, which indicates an automatic backup.
    * 
    * @example
    * NormalBackupTask
@@ -208,7 +205,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
 export class DescribeBackupTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The following parameters are no longer used. Ignore the parameters.
+   * **[Deprecated]** This group of parameters is deprecated. Ignore these parameters.
    */
   accessDeniedDetail?: DescribeBackupTasksResponseBodyAccessDeniedDetail;
   /**
@@ -226,7 +223,7 @@ export class DescribeBackupTasksResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BB73740C-23E2-4392-9DA4-2660C74C****

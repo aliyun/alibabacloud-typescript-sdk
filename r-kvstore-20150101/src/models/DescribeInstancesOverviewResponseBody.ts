@@ -8,7 +8,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
    * The architecture type. Valid values:
    * * **cluster**: Cluster Edition.
    * * **standard**: Standard Edition.
-   * * **rwsplit**: read/write splitting edition.
+   * * **rwsplit**: read/write splitting Edition.
    * 
    * @example
    * cluster
@@ -144,7 +144,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   nodeType?: string;
   /**
    * @remarks
-   * The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (internal endpoint) to connect to the instance.
+   * The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (the internal endpoint) to connect to the instance.
    * > - This parameter is not returned if the network type of the instance is classic network.
    * > - This parameter is not returned for cloud-native instances.
    * 
@@ -267,7 +267,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
 export class DescribeInstancesOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instances.
+   * The array of instances.
    */
   instances?: DescribeInstancesOverviewResponseBodyInstances[];
   /**

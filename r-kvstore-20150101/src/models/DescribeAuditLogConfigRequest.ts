@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeAuditLogConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation to query the region ID of the instance.
+   * The ID of the region where the instance resides. You can call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -6,11 +6,10 @@ export class ModifyInstanceAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
+   * * **true**: Enabled.
+   * * **false**: Disabled.
    * 
-   * *   **true**
-   * *   **false**
-   * 
-   * >  The default value is **false**.
+   * > Default value: **false**.
    * 
    * @example
    * true
@@ -18,8 +17,7 @@ export class ModifyInstanceAutoRenewalAttributeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The ID of the instance. Separate multiple instance IDs with commas (,).
-   * 
+   * The instance ID. Separate multiple instance IDs with commas (,).
    * > You can specify up to 30 instance IDs.
    * 
    * This parameter is required.
@@ -30,9 +28,8 @@ export class ModifyInstanceAutoRenewalAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The auto-renewal period. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the instance is automatically renewed based on the number of months specified by this parameter.
-   * 
-   * > This parameter is available and required only if the **AutoRenew** parameter is set to **true**.
+   * The auto-renewal cycle. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the system automatically renews the instance for the specified duration.
+   * > This parameter is available and required only when **AutoRenew** is set to **true**.
    * 
    * @example
    * 3
@@ -42,7 +39,7 @@ export class ModifyInstanceAutoRenewalAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The service. Set the value to kvstore.
+   * The product. Set the value to kvstore.
    * 
    * @example
    * kvstore

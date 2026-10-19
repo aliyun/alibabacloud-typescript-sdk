@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnlockDBInstanceWriteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * r-2ev03avw0r0552***

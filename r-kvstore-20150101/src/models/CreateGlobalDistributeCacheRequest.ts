@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGlobalDistributeCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies when to perform the operation. Valid values:
+   * The time when the operation is executed. Valid values:
+   * * **Immediately**: Executes the operation immediately.
+   * * **MaintainTime**: Executes the operation during the maintenance window. This is the default value.
    * 
-   * - **Immediately**: Performs the operation immediately.
-   * 
-   * - **MaintainTime**: Performs the operation during the maintenance window. This is the default value.
-   * 
-   * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to change the maintenance window of the instance.
+   * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of the instance.
    * 
    * @example
    * Immediately
@@ -22,8 +20,7 @@ export class CreateGlobalDistributeCacheRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource group.
-   * 
-   * > This is a system parameter. You do not need to specify it.
+   * > You do not need to specify this system parameter.
    * 
    * @example
    * -
@@ -34,7 +31,7 @@ export class CreateGlobalDistributeCacheRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The instance ID to be transformed.
    * 
    * This parameter is required.
    * 

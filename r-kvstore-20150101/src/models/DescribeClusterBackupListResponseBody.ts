@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The engine version.
+   * The database engine version.
    * 
    * @example
    * 5.0
@@ -43,7 +43,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   backupDownloadURL?: string;
   /**
    * @remarks
-   * The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and displayed in UTC.
    * 
    * @example
    * 2024-01-09T17:21:57
@@ -60,8 +60,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   /**
    * @remarks
    * The internal download URL of the backup file.
-   * 
-   * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the Tair (Redis OSS-compatible) instance. The ECS instance must reside in the same virtual private cloud (VPC) as the Tair (Redis OSS-compatible) instance.
+   * > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must reside in the same VPC.
    * 
    * @example
    * http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote-internal.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
@@ -69,7 +68,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   backupIntranetDownloadURL?: string;
   /**
    * @remarks
-   * The name of the backup.
+   * The backup name.
    * 
    * @example
    * hins100322105_data_20240110012135.rdb
@@ -85,7 +84,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   backupSize?: string;
   /**
    * @remarks
-   * The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and displayed in UTC.
    * 
    * @example
    * 2024-01-09T17:21:30Z
@@ -93,10 +92,9 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   backupStartTime?: string;
   /**
    * @remarks
-   * The status of the backup. Valid values:
-   * 
-   * *   **OK**
-   * *   **ERROR**
+   * The backup status. Valid values:
+   * * **OK**: The backup is successful.
+   * * **ERROR**: The backup failed.
    * 
    * @example
    * OK
@@ -104,7 +102,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   backupStatus?: string;
   /**
    * @remarks
-   * The database engine. The return value is **redis**.
+   * The database engine type. The value is fixed as **redis**.
    * 
    * @example
    * redis
@@ -117,7 +115,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   extraInfo?: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * r-bp1y4is8svonly****-db-0
@@ -126,9 +124,8 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   /**
    * @remarks
    * Indicates whether the backup set is available. Valid values:
-   * 
-   * *   **0**: unavailable
-   * *   **1**: available
+   * * **0**: unavailable.
+   * * **1**: available.
    * 
    * @example
    * 1
@@ -136,7 +133,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   isAvail?: string;
   /**
    * @remarks
-   * This parameter does not take effect. Ignore this parameter.
+   * This parameter is not in effect. Ignore this parameter.
    * 
    * @example
    * null
@@ -193,12 +190,12 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
 export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.Model {
   /**
    * @remarks
-   * The backup sets of all shards in the instance.
+   * The collection of backup sets for all child nodes under a single cluster backup set.
    */
   backups?: DescribeClusterBackupListResponseBodyClusterBackupsBackups[];
   /**
    * @remarks
-   * The end time of the backup.
+   * The end time of the cluster backup. The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2024-01-10T17:21:55Z
@@ -206,7 +203,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupEndTime?: string;
   /**
    * @remarks
-   * The ID of the backup set.
+   * The cluster backup set ID.
    * 
    * @example
    * cb-zmdqj2m3xyxjtdt0
@@ -214,7 +211,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupId?: string;
   /**
    * @remarks
-   * The backup mode.
+   * The cluster backup mode.
    * 
    * @example
    * Automated
@@ -222,7 +219,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupMode?: string;
   /**
    * @remarks
-   * The size of the backup set.
+   * The size of the cluster backup set.
    * 
    * @example
    * 2048
@@ -230,7 +227,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupSize?: string;
   /**
    * @remarks
-   * The start time of the backup.
+   * The start time of the cluster backup. The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2024-01-10T17:21:25Z
@@ -238,11 +235,10 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupStartTime?: string;
   /**
    * @remarks
-   * The status of the backup set.
-   * 
-   * *   OK
-   * *   RUNNING
-   * *   Failed
+   * The status of the cluster backup set. Valid values:
+   * - OK: The backup is successful.
+   * - RUNNING: The backup is in progress.
+   * - Other values: The backup failed.
    * 
    * @example
    * OK
@@ -250,7 +246,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   clusterBackupStatus?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) of the backup set, in the format yyyy-MM-ddTHH:mmZ (UTC time).
+   * The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and displayed in UTC.
    * 
    * @example
    * 2025-06-01T21:51:22Z
@@ -258,7 +254,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   expectExpireTime?: string;
   /**
    * @remarks
-   * Indicates whether the backup set is valid. A value of 0 indicates that shard-level backups failed or have not been completed.
+   * Indicates whether the cluster backup set is valid. The value is 0 if the backup sets of child nodes are incomplete or failed.
    * 
    * @example
    * 1
@@ -266,7 +262,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   isAvail?: number;
   /**
    * @remarks
-   * The backup progress. The system displays only the progress of running backup tasks.
+   * The backup progress. This parameter is returned only for backups that are in progress.
    * 
    * @example
    * 100%
@@ -274,7 +270,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   progress?: string;
   /**
    * @remarks
-   * The memory size of a single shard during a full backup. Unit: MB.
+   * The memory size of a single DB node when the full backup is created. Unit: MB.
    * 
    * @example
    * 1024
@@ -327,12 +323,13 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
 export class DescribeClusterBackupListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup sets of the instance. A backup contains the backup sets of all shards in the instance.
+   * The list of cluster backup sets. A cluster backup set contains the backup sets of all nodes in the cluster.
    */
   clusterBackups?: DescribeClusterBackupListResponseBodyClusterBackups[];
   /**
    * @remarks
-   * This parameter does not take effect. Ignore this parameter.
+   * <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on backup commercialization. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
+   * <props="intl">This parameter is not in effect. Ignore this parameter.
    * 
    * @example
    * 100000
@@ -340,9 +337,8 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   freeSize?: number;
   /**
    * @remarks
-   * The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
-   * 
-   * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid full backups of the instance.
+   * The size of full backup files for the current instance. Unit: bytes. Full backups are generated from daily scheduled backups, manual backups, and backups generated during cache analysis.
+   * > This value is independent of the number and size of backup sets returned in the current request. It represents the total size of all valid full backups for the instance.
    * 
    * @example
    * 1000
@@ -350,9 +346,8 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   fullStorageSize?: number;
   /**
    * @remarks
-   * The size of the log backup file of the instance. Unit: bytes. This parameter is valid only when flashback is enabled.
-   * 
-   * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid log backups of the instance.
+   * The size of the instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
+   * > This value is independent of the number and size of backup sets in the current response. It represents the total size of all valid instance log backups for the current instance.
    * 
    * @example
    * 5000
@@ -360,7 +355,7 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   logStorageSize?: number;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records returned by the current request.
    * 
    * @example
    * 4
@@ -368,7 +363,7 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number, which is the same as the request parameter.
    * 
    * @example
    * 1
@@ -376,7 +371,7 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of records per page, which is the same as the request parameter.
    * 
    * @example
    * 30

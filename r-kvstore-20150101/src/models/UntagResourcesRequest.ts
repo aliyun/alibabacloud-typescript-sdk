@@ -6,11 +6,10 @@ export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to remove all tags from the instance. Valid values:
+   * * **true**: removes all tags from the instance.
+   * * **false**: does not remove all tags from the instance. This is the default value.
    * 
-   * *   **true**: removes all tags from the instance.
-   * *   **false** (default): does not remove all tags from the instance.
-   * 
-   * > If you specify both this parameter and the **TagKey.N** parameter, this parameter does not take effect.
+   * > If both **TagKey.N** and this parameter are specified, this parameter does not take effect.
    * 
    * @example
    * false
@@ -20,7 +19,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the instances.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    * 
@@ -42,7 +41,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. Set the value to **INSTANCE**.
+   * The resource type. Valid value: **INSTANCE**.
    * 
    * This parameter is required.
    * 

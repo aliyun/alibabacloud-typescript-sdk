@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition that is used to return events based on the settings of event cancellation. Default value: -1. Valid values:
+   * Specifies whether the event can be canceled. Default value: -1. Valid values:
    * 
-   * *   **-1**: returns all events.
-   * *   **0**: returns only O\\&M events that cannot be canceled.
-   * *   **1**: returns only O\\&M events that can be canceled.
+   * - **-1**: all events.
+   * - **0**: returns only O&M events that cannot be canceled.
+   * - **1**: returns only O&M events that can be canceled.
    * 
    * @example
    * 1
@@ -17,11 +17,11 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   allowCancel?: number;
   /**
    * @remarks
-   * The filter condition that is used to return events based on the settings of the switching time. Default value: -1. Valid values:
+   * Specifies whether the event time can be modified. Default value: -1. Valid values:
    * 
-   * *   **-1**: returns all events.
-   * *   **0**: returns only O\\&M events for which the switching time cannot be changed.
-   * *   **-1**: returns only O\\&M events for which the switching time can be changed.
+   * - **-1**: all events.
+   * - **0**: returns only O&M events whose time cannot be modified.
+   * - **1**: returns only O&M events whose time can be modified.
    * 
    * @example
    * -1
@@ -29,11 +29,11 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   allowChange?: number;
   /**
    * @remarks
-   * The type of task configuration change. Valid values:
+   * The change level. Default value: all. Valid values:
    * 
-   * *   **all** (default): The configurations of all O\\&M tasks are changed.
-   * *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
-   * *   **S1**: The configurations of system O\\&M tasks are changed.
+   * - **all**: all levels including exception recovery and system O&M.
+   * - **S0**: exception recovery.
+   * - **S1**: system O&M.
    * 
    * @example
    * all
@@ -41,7 +41,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   changeLevel?: string;
   /**
    * @remarks
-   * The database type. Valid values: **redis**
+   * The database type. Set this parameter to **redis**.
    * 
    * @example
    * redis
@@ -49,7 +49,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+   * The instance name. This parameter is optional. If specified, only one instance name is allowed.
    * 
    * @example
    * r-wz96fzmpvpr2qnqnlb
@@ -59,7 +59,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
+   * The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set this parameter to Redis.
    * 
    * @example
    * Redis
@@ -83,9 +83,8 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region ID of the O&M task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
-   * 
-   * > A value of **all** indicates all region IDs.
+   * The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available region IDs.
+   * > Set this parameter to **all** to query events in all regions.
    * 
    * @example
    * cn-shanghai
@@ -96,14 +95,13 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The status of an O\\&M event. This parameter is used to filter returned tasks. Valid values:
-   * 
-   * *   **-1**: filters all events.
-   * *   **3**: filters pending events.
-   * *   **4**: filters in-progress events.
-   * *   **5**: filters successful events.
-   * *   **6**: filters failed events.
-   * *   **7**: filters canceled events.
+   * The status of the O&M event. This parameter is used to filter the returned events. Valid values:
+   * * **-1**: all events.
+   * * **3**: pending events.
+   * * **4**: events being processed.
+   * * **5**: events that ended successfully.
+   * * **6**: events that ended with failures.
+   * * **7**: canceled events.
    * 
    * @example
    * 3
@@ -111,18 +109,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the O\\&M event. If this parameter is not specified, all types of O\\&M events are queried.
-   * 
-   * Valid values:
-   * 
-   * *   rds_apsradb_upgrade: minor version update
-   * *   rds_apsaradb_ha: primary/secondary switchover
-   * *   rds_apsaradb_ssl_update: SSL certificate update
-   * *   rds_apsaradb_major_upgrade: major version upgrade
-   * *   rds_apsradb_transfer: instance migration
-   * *   rds_apsaradb_modify_config: network upgrade
-   * *   rds_apsaradb_modify_config: instance parameter adjustment
-   * *   rds_apsaradb_maxscale: proxy minor version update
+   * The event type of the O&M event. If this parameter is left empty, all types are queried.
    * 
    * @example
    * rds_apsradb_transfer

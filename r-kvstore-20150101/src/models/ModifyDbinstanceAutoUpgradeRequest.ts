@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceAutoUpgradeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
+   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -20,10 +20,9 @@ export class ModifyDBInstanceAutoUpgradeRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic minor version update. Valid values:
-   * 
-   * *   **1**: enables automatic minor version update.
-   * *   **0**: disables automatic minor version update.
+   * The automatic minor engine version update switch. Valid values:
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * This parameter is required.
    * 

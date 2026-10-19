@@ -80,6 +80,8 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
    * @remarks
    * The end time of the query.
    * 
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+   * 
    * @example
    * 2019-03-25T12:10:00Z
    */
@@ -95,7 +97,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
   items?: DescribeAuditRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -103,7 +105,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 30
@@ -121,13 +123,15 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
    * @remarks
    * The start time of the query.
    * 
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+   * 
    * @example
    * 2019-03-24T12:10:00Z
    */
   startTime?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 22222

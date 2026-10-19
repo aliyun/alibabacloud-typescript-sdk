@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSubInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * Instance ID of the child instance in the distributed instance. You can call the [DescribeGlobalDistributeCache](https://help.aliyun.com/document_detail/473780.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 

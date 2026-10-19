@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceLinkedRoleExistsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service-linked role is created for Tair (Redis OSS-compatible) in the current account. Valid values:
+   * Indicates whether the service-linked role has been authorized for the current account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Authorized.
+   * 
+   * - **false**: Not authorized.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class DescribeServiceLinkedRoleExistsResponseBody extends $dara.Model {
   existsServiceLinkedRole?: boolean;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 90B82DB7-FB28-4CC2-ADBF-1F8659F3****

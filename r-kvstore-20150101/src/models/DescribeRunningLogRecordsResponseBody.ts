@@ -63,7 +63,7 @@ export class DescribeRunningLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine.
    * 
    * @example
    * Redis
@@ -71,7 +71,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -80,7 +80,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   items?: DescribeRunningLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries returned on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 5
@@ -96,7 +96,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 30
@@ -112,7 +112,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query. The time is in the YYYY-MM-DDTHH:mmZ format and is in UTC.
    * 
    * @example
    * 2018-12-03T07:01Z
@@ -120,7 +120,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

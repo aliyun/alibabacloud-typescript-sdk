@@ -167,6 +167,8 @@ export { DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstance
 export { DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstanceDTOTags } from './DescribeTairKvcacheInferInstancesResponseBody';
 export { DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstanceDTO } from './DescribeTairKvcacheInferInstancesResponseBody';
 export { DescribeTairKVCacheInferInstancesResponseBodyInstances } from './DescribeTairKvcacheInferInstancesResponseBody';
+export { DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexListGlobalSecondaryIndex } from './DescribeTairSkvDdbTableResponseBody';
+export { DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexList } from './DescribeTairSkvDdbTableResponseBody';
 export { DescribeTairSkvDdbTableResponseBodyTablesTable } from './DescribeTairSkvDdbTableResponseBody';
 export { DescribeTairSkvDdbTableResponseBodyTables } from './DescribeTairSkvDdbTableResponseBody';
 export { DescribeZonesResponseBodyZonesKVStoreZone } from './DescribeZonesResponseBody';

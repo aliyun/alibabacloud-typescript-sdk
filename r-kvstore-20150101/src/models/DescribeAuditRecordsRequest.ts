@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account. If you do not specify this parameter, all accounts of the instance are queried.
+   * The name of the account. If you do not specify this parameter, the audit logs of all accounts are queried.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The name of the database in the instance. If you do not specify this parameter, all databases are queried. Valid values: 0 to 255. 0 specifies database 0.
+   * The database in the instance. If you do not specify this parameter, the audit logs of all databases are queried. Valid values: 0 to 255. For example, 0 indicates database 0.
    * 
    * @example
    * 0
@@ -21,9 +21,8 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * > We recommend that you specify a time range of 10 minutes or less because audit logs contain a great number of entries. Do not specify a time range that is longer than one day.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+   * > Because audit logs contain a large number of entries, specify a time range of up to 10 minutes and a maximum of 1 day.
    * 
    * This parameter is required.
    * 
@@ -33,7 +32,7 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The IP address of the client. If you do not specify this parameter, this call applies to all clients.
+   * The IP address of the client. If you do not specify this parameter, the audit logs of all IP addresses are queried.
    * 
    * @example
    * 127.0.0.1
@@ -51,13 +50,10 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the node in the instance. You can set this parameter to query the monitoring data of a specified node.
+   * The ID of the node in the instance. Specify this parameter to query the monitoring information of a specific node.
    * 
-   * > 
-   * 
-   * *   This parameter is available only for read/write splitting and cluster instances.
-   * 
-   * *   You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to query node IDs.
+   * > * This parameter is available only when the instance uses the read/write splitting or cluster architecture.
+   * > * You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to query the node ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****-db-0
@@ -67,7 +63,7 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -75,7 +71,7 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 30
@@ -83,9 +79,9 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword based on which the audit logs are queried. You can specify a command as a keyword to query logs. By default, all commands are queried.
+   * The keyword used to query audit logs based on a specific command. By default, the audit logs of all executed commands are queried.
    * 
-   * > You can specify only a single keyword in each call.
+   * > You can specify only one keyword.
    * 
    * @example
    * maxclients
@@ -96,7 +92,7 @@ export class DescribeAuditRecordsRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * timeout
@@ -13,7 +13,7 @@ export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails 
   paramName?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The parameter value.
    * 
    * @example
    * 1000
@@ -45,10 +45,10 @@ export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails 
 export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Model {
   /**
    * @remarks
-   * The service category. Valid values:
+   * The product category. Valid values:
    * 
-   * *   **0**: Redis Open-Source Edition
-   * *   **1**: Tair (Enterprise Edition)
+   * - **0**: Redis Community Edition.
+   * - **1**: Tair (Enterprise Edition).
    * 
    * @example
    * 1
@@ -64,11 +64,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   created?: string;
   /**
    * @remarks
-   * The engine type. Valid values:
-   * 
-   * * *redis*: Redis or Tair DRAM-based instance
-   * * *tair_pena*: Tair persistent memory-optimized instance
-   * * *tair_pdb*: Tair ESSD-based instance
+   * The engine of the parameter template.
    * 
    * @example
    * redis
@@ -76,7 +72,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   engine?: string;
   /**
    * @remarks
-   * The compatible engine version.
+   * The engine-compatible version.
    * 
    * @example
    * 5.0
@@ -92,7 +88,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   modified?: string;
   /**
    * @remarks
-   * The parameter template ID, which is globally unique.
+   * The globally unique ID of the parameter template.
    * 
    * @example
    * sys-001*****
@@ -162,7 +158,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
 export class DescribeParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the parameter template.
+   * The parameter template object.
    */
   parameterGroup?: DescribeParameterGroupResponseBodyParameterGroup;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the Tair instance. This operation is used only to modify the monitoring collection granularity of a Tair instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class ModifyDBInstanceMonitorRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. The monitoring granularity is fixed at 60 seconds.
+   * **[Deprecated]** This parameter is deprecated and uses a fixed value of 60.
+   * 
+   * The collection granularity of monitoring data. Unit: seconds. Default value: 60.
    * 
    * This parameter is required.
    * 

@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCacheAnalysisReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the large keys.
+   * The list of big keys.
    */
   bigKeys?: { [key: string]: any }[];
   /**
    * @remarks
-   * Details of the hotkeys.
-   * 
-   * > This parameter is not returned because Tair (Redis OSS-compatible) does not support hotkey analytics.
+   * The list of hot keys.
+   * > Hot key analysis is not supported. No value is returned.
    */
   hotKeys?: { [key: string]: any }[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -41,7 +40,7 @@ export class DescribeCacheAnalysisReportResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A057C066-C3F5-4CC9-9FE4-A8D8B0DC****
@@ -49,7 +48,7 @@ export class DescribeCacheAnalysisReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned across all pages.
    * 
    * @example
    * 160

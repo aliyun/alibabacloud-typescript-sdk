@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInspectionSchedulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the scheduled task is enabled.
+   * 
    * @example
    * 1
    */
   enabled?: number;
   /**
    * @remarks
+   * The instance ID of the assistant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,16 +22,25 @@ export class DescribeInspectionSchedulesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the timed scheduling.
+   * 
    * @example
    * scheduleId-202604141xxxx
    */

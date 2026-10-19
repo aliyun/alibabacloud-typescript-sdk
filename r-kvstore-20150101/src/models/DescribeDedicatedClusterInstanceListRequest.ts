@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dedicated cluster. You can view the dedicated cluster ID on the Dedicated Clusters page in the ApsaraDB for MyBase console.
-   * 
-   * > Separate multiple IDs with commas (,).
+   * The dedicated cluster ID. You can obtain the ID on the dedicated cluster information page in the ApsaraDB for MyBase console.
+   * > To specify multiple IDs, separate them with commas (,).
    * 
    * @example
    * dhg-5f2v98840ioq****
@@ -15,9 +14,8 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the host in the dedicated cluster. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/200944.html) operation to query the host ID.
-   * 
-   * > Separate multiple IDs with commas (,).
+   * The host ID in the dedicated cluster. You can call [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/200944.html) to query the host ID.
+   * > To specify multiple IDs, separate them with commas (,).
    * 
    * @example
    * ch-t4n664a9mal4c****
@@ -25,7 +23,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   dedicatedHostName?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to **Redis**.
+   * The database engine. Set the value to **Redis**.
    * 
    * @example
    * Redis
@@ -33,7 +31,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance. Set the value to **5.0**.
+   * The database engine version. Set the value to **5.0**.
    * 
    * @example
    * 5.0
@@ -41,9 +39,8 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The ID of the instance.
-   * 
-   * > The instance must be created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   * The instance ID.
+   * > The instance must be created in a dedicated cluster. For more information, see [ApsaraDB for MyBase](https://help.aliyun.com/document_detail/141455.html).
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -51,11 +48,10 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   **0**: Internet
-   * *   **1**: classic network
-   * *   **2**: Virtual Private Cloud (VPC)
+   * The network type of the instance endpoint. Valid values:
+   * * **0**: Internet.
+   * * **1**: Classic network.
+   * * **2**: Virtual Private Cloud (VPC).
    * 
    * @example
    * 2
@@ -63,16 +59,15 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   instanceNetType?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
-   * 
-   * *   **0**: The instance is being created.
-   * *   **1**: The instance is running.
-   * *   **3**: The instance is being deleted.
-   * *   **5**: The configurations of the instance are being changed.
-   * *   **6**: The instance is being migrated.
-   * *   **7**: The instance is being restored from a backup.
-   * *   **8**: A master-replica switchover is in progress.
-   * *   **9**: Expired data of the instance is being deleted.
+   * The instance status. Valid values:
+   * * **0**: Creating.
+   * * **1**: Running.
+   * * **3**: Deleting.
+   * * **5**: Changing specifications.
+   * * **6**: Migrating.
+   * * **7**: Restoring from backup.
+   * * **8**: Switching.
+   * * **9**: Deleting expired data.
    * 
    * @example
    * 1
@@ -82,7 +77,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -90,7 +85,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The maximum number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -98,7 +93,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -111,7 +106,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the most recent zone list.
+   * The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query zone IDs.
    * 
    * @example
    * cn-hangzhou-e

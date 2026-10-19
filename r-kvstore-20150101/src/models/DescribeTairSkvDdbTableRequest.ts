@@ -13,18 +13,14 @@ export class DescribeTairSkvDdbTableRequest extends $dara.Model {
    * tt-bp1zxszhcgatnx\\*\\*\\*\\*
    */
   instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  /**
+   * @example
+   * ****
+   */
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
     };
   }
@@ -32,10 +28,6 @@ export class DescribeTairSkvDdbTableRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       securityToken: 'string',
     };
   }

@@ -21,7 +21,7 @@ export class ModifyInstanceSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 32184****

@@ -58,7 +58,7 @@ export class DescribeMonitorItemsResponseBody extends $dara.Model {
   monitorItems?: DescribeMonitorItemsResponseBodyMonitorItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8BEB2618-9517-43F3-A233-E0B34512****

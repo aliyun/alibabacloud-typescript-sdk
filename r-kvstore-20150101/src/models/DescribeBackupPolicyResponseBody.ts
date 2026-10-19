@@ -110,8 +110,8 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the backup service is enabled for the instance. Valid values:
-   * * **1**: enabled.
-   * * **0**: disabled.
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * @example
    * 0
@@ -120,8 +120,8 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether incremental backup is enabled. Valid values:
-   * * **1**: enabled.
-   * * **0**: disabled.
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * @example
    * 1

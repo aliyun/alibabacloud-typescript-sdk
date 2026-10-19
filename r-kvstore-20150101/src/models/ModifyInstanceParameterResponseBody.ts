@@ -13,7 +13,7 @@ export class ModifyInstanceParameterResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 561AFBF1-BE20-44DB-9BD1-6988B53E****
@@ -21,7 +21,7 @@ export class ModifyInstanceParameterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 578678678

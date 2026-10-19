@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEngineVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+   * Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceLinkedRoleExistsRequest extends $dara.Model {
   /**
    * @remarks
-   * The database engine of the instance. Only Redis is supported.
+   * The database type. You can only set this parameter to "Redis" or leave it empty.
    * 
    * @example
    * Redis
@@ -15,9 +15,8 @@ export class DescribeServiceLinkedRoleExistsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
-   * 
-   * > This parameter does not affect the query results. You can specify any region ID.
+   * The region ID of the instance.
+   * > This parameter does not affect the query result. You can specify any region.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchInstanceHARequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SwitchInstanceHARequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard node. You can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to obtain the CustinsId parameter. Separate multiple data shard node IDs with commas (,). To specify all nodes, enter `all`.
+   * The ID of the data shard node. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to obtain the CustinsId parameter. Separate multiple data shard node IDs with commas (,). To specify all nodes, enter `all`.
    * > This parameter is available and required only when the instance uses the cluster or read/write splitting architecture.
    * 
    * @example
@@ -29,7 +29,7 @@ export class SwitchInstanceHARequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The node ID of the original MASTER node in the shard.
+   * The ID of the original primary node of the shard.
    * 
    * @example
    * 52717408
@@ -38,10 +38,10 @@ export class SwitchInstanceHARequest extends $dara.Model {
   /**
    * @remarks
    * The execution time. Valid values:
-   * * **0**: immediately. This is the default value.
-   * * **1**: during the maintenance window.
+   * * **0**: executes the operation immediately. This is the default value.
+   * * **1**: executes the operation within the maintenance window.
    * 
-   * > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to modify the maintenance window of the instance.
+   * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of the instance.
    * 
    * @example
    * 0
@@ -50,10 +50,10 @@ export class SwitchInstanceHARequest extends $dara.Model {
   /**
    * @remarks
    * The switchover mode. Valid values:
-   * * **ReliabilityPriority (default)**: Reliability is prioritized. The primary/secondary switchover is performed only when primary/secondary synchronization has no latency, which prevents data loss. In scenarios with heavy write workloads and persistent synchronization latency, this mode may cause the primary/secondary switchover to fail.
-   * * **AvailablePriority**: Availability is prioritized. The primary/secondary switchover is performed immediately regardless of primary/secondary latency, which may cause minor data loss.
+   * * **ReliabilityPriority** (default): prioritizes reliability. The primary/secondary switchover is performed only when there is no synchronization latency between the primary and secondary nodes, ensuring no data loss. In scenarios with a large write volume and continuous synchronization latency, this mode may cause the switchover to fail.
+   * * **AvailablePriority**: prioritizes availability. The primary/secondary switchover is performed immediately regardless of the synchronization latency between the primary and secondary nodes, which may result in a small amount of data loss.
    * 
-   * > Evaluate your business requirements for data integrity and service availability before selecting a switchover mode.
+   * > Select a switchover mode based on your business requirements for data and services.
    * 
    * @example
    * ReliabilityPriority
@@ -61,7 +61,7 @@ export class SwitchInstanceHARequest extends $dara.Model {
   switchType?: string;
   /**
    * @remarks
-   * The node ID of the target MASTER node after the switchover.
+   * The ID of the target primary node after the switchover.
    * 
    * @example
    * 52717403
@@ -69,7 +69,7 @@ export class SwitchInstanceHARequest extends $dara.Model {
   targetNodeId?: string;
   /**
    * @remarks
-   * The shard name of the instance.
+   * The name of the instance shard.
    * 
    * @example
    * r-2zegk3jyxxxwixfo6c-db-1

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   /**
    * @remarks
-   * The time range to query. Default value: 7. Unit: days.
+   * The number of days within which analysis results are queried. By default, analysis results of the last 7 days are queried.
    * 
-   * > If daily automatic analysis has not started and manual analysis is not performed, no records are returned.
+   * > If the automatic analysis for the current day has not started when you query and no manual analysis task has been initiated, no records exist for the current day.
    * 
    * @example
    * 7
@@ -15,7 +15,7 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   days?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the child node in the cluster instance.
+   * The child node ID of a cluster instance.
    * 
-   * >  If you do not specify this parameter, the analysis results of all child nodes in the instance are returned.
+   * > If you do not specify this parameter, the analysis results of all child nodes are returned.
    * 
    * @example
    * r-bp1zxszhcgatnx****-db-0
@@ -37,7 +37,7 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -46,8 +46,7 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-   * 
-   * > The default value is **30**.
+   * > Default value: **30**.
    * 
    * @example
    * 30

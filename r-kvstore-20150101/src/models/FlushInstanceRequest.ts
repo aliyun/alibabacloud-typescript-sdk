@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlushInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

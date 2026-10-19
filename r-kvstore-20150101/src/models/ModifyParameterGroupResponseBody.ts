@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameter template ID.
+   * The ID of the parameter template.
    * 
    * @example
    * testGroupName

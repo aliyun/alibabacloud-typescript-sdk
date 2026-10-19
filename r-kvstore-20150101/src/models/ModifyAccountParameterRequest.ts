@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountParameterRequest extends $dara.Model {
   /**
    * @remarks
+   * The account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyAccountParameterRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class ModifyAccountParameterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The account parameters to modify, in JSON format. The modified values overwrite the original values. For example, if you want to modify only the access-db-id parameter to 1, pass in {"access-db-id":"1"}.
+   * Only two parameters are supported: access-db-id (accessible DB ID) and cu-limit (CU Limit).
+   * >Notice: Currently, only Tair Serverless KV instances are supported.
+   * 
    * This parameter is required.
    * 
    * @example

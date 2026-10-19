@@ -6,8 +6,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the backup task.
-   * 
-   * >  If you call the [CreateBackup](https://help.aliyun.com/document_detail/473819.html) operation to perform a manual backup task, you can set this parameter to the returned backup ID to query the backup progress of the task.
+   * > If you called the [CreateBackup](https://help.aliyun.com/document_detail/473819.html) operation to perform a manual backup, you can pass the returned backup ID to query the backup progress.
    * 
    * @example
    * 1162****
@@ -15,7 +14,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   backupJobId?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance IDs.
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,11 +25,9 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * *   **Automated**: automatic backup. You can call the [DescribeBackupPolicy](https://help.aliyun.com/document_detail/473822.html) operation to query the automatic backup policy.
-   * *   **Manual**: manual backup.
-   * 
-   * >  By default, the information about backup tasks in both modes is returned.
+   * * **Automated**: automated backup. You can call the [DescribeBackupPolicy](https://help.aliyun.com/document_detail/473822.html) operation to query the automatic backup policy.
+   * * **Manual**: manual backup.
+   * > By default, task information for all backup modes is returned.
    * 
    * @example
    * Manual

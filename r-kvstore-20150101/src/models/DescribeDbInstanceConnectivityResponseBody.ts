@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDbInstanceConnectivityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code for connection diagnosis. Valid values:
-   * 
-   * *   **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
-   * *   **CONNECTION_ABNORMAL**: The connection to the instance is normal.
+   * The connectivity diagnostics error code. Valid values:
+   * * **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
+   * * **CONNECTION_ABNORMAL**: The connection is normal.
    * 
    * @example
    * SRC_IP_NOT_IN_USER_WHITELIST
@@ -16,7 +15,7 @@ export class DescribeDbInstanceConnectivityResponseBody extends $dara.Model {
   connCheckErrorCode?: string;
   /**
    * @remarks
-   * The error message for connection diagnosis.
+   * The connectivity diagnostics error message.
    * 
    * @example
    * Src ip:172.28.134.96 not in user whitelist
@@ -24,10 +23,9 @@ export class DescribeDbInstanceConnectivityResponseBody extends $dara.Model {
   connCheckErrorMessage?: string;
   /**
    * @remarks
-   * The connection check result. Valid values:
-   * 
-   * *   **Success**
-   * *   **Failed**
+   * The connectivity diagnostics result. Valid values:
+   * * **Success**
+   * * **Failed**
    * 
    * @example
    * Failed

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * > This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+   * The token used to start the next query to return more results.
+   * > You do not need to provide this parameter for the first query. If a single query does not return all results, you can pass the **NextToken** value returned in the previous response to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec2****
@@ -29,7 +28,7 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. Valid values: **INSTANCE** or **instance**.
+   * The resource type. Valid values: **INSTANCE** and **instance**.
    * 
    * @example
    * INSTANCE

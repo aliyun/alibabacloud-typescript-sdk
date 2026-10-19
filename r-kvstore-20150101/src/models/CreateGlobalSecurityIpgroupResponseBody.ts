@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses in the IP whitelist template.
+   * The IP addresses in the whitelist template.
    * 
    * @example
    * 192.168.0.1,10.10.10.10,172.16.0.1
@@ -15,7 +15,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
   GIpList?: string;
   /**
    * @remarks
-   * The name of the IP whitelist template.
+   * The name of the IP address whitelist template.
    * 
    * @example
    * test_123
@@ -23,7 +23,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The ID of the IP address whitelist template.
    * 
    * @example
    * g-sdgwqyp4f5j1x3qk****
@@ -67,7 +67,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
 export class CreateGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the global IP whitelist template.
+   * The information about the global IP address whitelist template.
    */
   globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**

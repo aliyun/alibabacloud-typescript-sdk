@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInspectionScheduleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cron expression.
+   * 
    * @example
    * 0 0 2 * * ?
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether to start the scheduled task. Default value: true.
+   * 
    * @example
    * false
    */
   enabled?: number;
   /**
+   * @remarks
+   * The specified inspection items. The following inspection items are supported:
+   * - RESOURCE_USAGE
+   * - BIGKEY
+   * - HOTKEY
+   * - PERFORMANCE_METRICS
+   * - SLOWLOG
+   * 
    * @example
    * HOTKEY
    */
   inspectionItems?: string;
   /**
+   * @remarks
+   * 1h
+   * 
    * @example
    * 1h
    */
   inspectionWindow?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,26 +51,41 @@ export class ModifyInspectionScheduleRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The list of associated instance IDs.
+   * 
    * @example
    * r-bp1zxszhcgatnx****
    */
   instanceIds?: string;
   /**
+   * @remarks
+   * The report language.
+   * 
    * @example
    * zh-CN
    */
   reportLanguage?: string;
   /**
+   * @remarks
+   * The ID of the timed scheduling.
+   * 
    * @example
    * sch-4dfb08ddf9f84855bacca35axxx
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The name of the timed scheduling.
+   * 
    * @example
    * test-sche
    */
   scheduleName?: string;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * Asia/Shanghai
    */

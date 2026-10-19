@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceTDEStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5D622714-AEDD-4609-9167-F5DDD3D1****
@@ -14,9 +14,8 @@ export class DescribeInstanceTDEStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether TDE is enabled. Valid values:
-   * 
-   * *   **Enabled**: TDE is enabled.
-   * *   **Disable**: TDE is disabled.
+   * * **Enabled**: TDE is enabled.
+   * * **Disabled**: TDE is disabled.
    * 
    * @example
    * Enabled

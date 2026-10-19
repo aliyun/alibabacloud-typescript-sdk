@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityGroupConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 147CAC09-E8C6-43F8-9599-982A43D6****

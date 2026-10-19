@@ -60,7 +60,7 @@ export class DescribeSecurityIpsResponseBodySecurityIpGroups extends $dara.Model
 export class DescribeSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EFC9161F-15E3-4A6E-8A99-C09916D1****

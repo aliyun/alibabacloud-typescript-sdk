@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of O\\&M events that you want to cancel at a time. Separate multiple IDs with commas (,).
+   * The IDs of the O&M events to cancel in batches. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

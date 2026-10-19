@@ -2,15 +2,77 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexListGlobalSecondaryIndex extends $dara.Model {
+  /**
+   * @example
+   * tt-gsi-xxxxxxxxx
+   */
+  gsiId?: string;
+  /**
+   * @example
+   * indexKey1
+   */
+  indexName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gsiId: 'GsiId',
+      indexName: 'IndexName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gsiId: 'string',
+      indexName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexList extends $dara.Model {
+  globalSecondaryIndex?: DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexListGlobalSecondaryIndex[];
+  static names(): { [key: string]: string } {
+    return {
+      globalSecondaryIndex: 'GlobalSecondaryIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecondaryIndex: { 'type': 'array', 'itemType': DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexListGlobalSecondaryIndex },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.globalSecondaryIndex)) {
+      $dara.Model.validateArray(this.globalSecondaryIndex);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTairSkvDdbTableResponseBodyTablesTable extends $dara.Model {
   bandwidth?: number;
   connections?: number;
+  globalSecondaryIndexList?: DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexList;
   tableId?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
       connections: 'Connections',
+      globalSecondaryIndexList: 'GlobalSecondaryIndexList',
       tableId: 'TableId',
       tableName: 'TableName',
     };
@@ -20,12 +82,16 @@ export class DescribeTairSkvDdbTableResponseBodyTablesTable extends $dara.Model 
     return {
       bandwidth: 'number',
       connections: 'number',
+      globalSecondaryIndexList: DescribeTairSkvDdbTableResponseBodyTablesTableGlobalSecondaryIndexList,
       tableId: 'string',
       tableName: 'string',
     };
   }
 
   validate() {
+    if(this.globalSecondaryIndexList && typeof (this.globalSecondaryIndexList as any).validate === 'function') {
+      (this.globalSecondaryIndexList as any).validate();
+    }
     super.validate();
   }
 
