@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateDBInstanceSrvNetworkAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6B82A9EF-9961-5A31-A19F-009B7098ACCA

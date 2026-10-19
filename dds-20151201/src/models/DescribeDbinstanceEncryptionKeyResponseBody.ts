@@ -13,7 +13,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The scheduled time when the key for the instance will be deleted. If the parameter is left empty, the key will not be deleted.
+   * The scheduled deletion time of the instance key. If this value is empty, the key is not automatically deleted.
    * 
    * @example
    * 2020-07-06T18:22:03Z
@@ -21,7 +21,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   deleteDate?: string;
   /**
    * @remarks
-   * The description of the key for the instance.
+   * The description of the instance key.
    * 
    * @example
    * key description example
@@ -29,7 +29,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The key for the instance.
+   * The instance key.
    * 
    * @example
    * 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -37,11 +37,9 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * Indicates whether the key for the instance is enabled. Valid values:
-   * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * The status of the instance key. Valid values:
+   * - **Enabled**: The instance key is available.
+   * - **Disabled**: The instance key is unavailable.
    * 
    * @example
    * Enabled
@@ -49,7 +47,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   encryptionKeyStatus?: string;
   /**
    * @remarks
-   * The purpose of the key for the instance.
+   * The purpose of the instance key.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -57,7 +55,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   keyUsage?: string;
   /**
    * @remarks
-   * The expiration time of the key for the instance. The time is displayed in UTC. If the parameter is left empty, the key for the instance will not expire.
+   * The expiration time of the key (UTC). If this value is empty, the key does not expire.
    * 
    * @example
    * 2020-07-06T18:22:03Z
@@ -65,7 +63,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   materialExpireTime?: string;
   /**
    * @remarks
-   * The source of the key for the instance.
+   * The source of the instance key.
    * 
    * @example
    * Aliyun_KMS
@@ -73,7 +71,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 783C2062-A2D3-4EA8-88AD-E43F990C23BB

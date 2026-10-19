@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine. Valid value: **MongoDB**.
+   * The database engine. Set the value to **MongoDB**.
    * 
    * @example
    * MongoDB
@@ -23,11 +23,9 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * Indicates whether the instance has been deleted. Valid values:
-   * 
-   * - **false**: The instance is running normally. Query information about a running instance.
-   * 
-   * - **true**: The instance has been deleted. Query information about a deleted instance.
+   * Specifies whether the instance is deleted. Valid values: 
+   * - **false**: The instance is running. Queries the information of a running instance.
+   * - **true**: The instance is deleted. Queries the information of a deleted instance.
    * 
    * @example
    * false
@@ -37,9 +35,8 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group. For more information, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
-   * 
-   * > This parameter is supported only on Alibaba Cloud China Website (www\\.aliyun.com).
+   * The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * >This parameter is supported only on the China site.
    * 
    * @example
    * rg-acfmyiu4ekp****

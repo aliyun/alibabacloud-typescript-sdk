@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether KMS keys are authorized to ApsaraDB for MongoDB instances. Valid values:
-   * 
-   * - **0**: KMS keys are not authorized.
-   * 
-   * - **1**: KMS keys are authorized.
-   * 
-   * - **2**: KMS is not enabled.
+   * The authorization status. Valid values:
+   * - **0**: Not authorized.
+   * - **1**: Authorized.
+   * - **2**: The user has not enabled KMS.
    * 
    * @example
    * 1
@@ -19,7 +16,7 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   authorizationState?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A0181AC4-F186-46ED-87CA-100C70B86729
@@ -27,9 +24,8 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The role information of the authorized Alibaba Resource Name (ARN).
-   * 
-   * > This parameter is returned only when the value of the **AuthorizationState** parameter is **1**.
+   * The information about the role that is authorized to access Alibaba Cloud resources.
+   * > The response includes this parameter only when the return value of **AuthorizationState** is **1**.
    * 
    * @example
    * acs:ram::140****:role/aliyunrdsinstanceencryptiondefaultrole

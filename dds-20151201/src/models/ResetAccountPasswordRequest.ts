@@ -49,6 +49,14 @@ export class ResetAccountPasswordRequest extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * 账号所在库（账号建在/操作于哪个库），缺省 admin；规则：长度1~63，禁 /、\、.、空格、"、$，禁 local
+   * 
+   * @example
+   * admin
+   */
+  DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -59,6 +67,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
       accountPassword: 'AccountPassword',
       characterType: 'CharacterType',
       DBInstanceId: 'DBInstanceId',
+      DBName: 'DBName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -72,6 +81,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
       accountPassword: 'string',
       characterType: 'string',
       DBInstanceId: 'string',
+      DBName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

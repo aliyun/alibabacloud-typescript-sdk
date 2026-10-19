@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckRecoveryConditionRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup ID.
+   * The ID of the backup set.
    * 
-   * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup ID.
-   * > *   You must specify one of the **RestoreTime** and BackupId parameters.
-   * > *   This parameter is not applicable to sharded cluster instances.
+   * > - You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup ID.
+   * > - You must specify either this parameter or the **RestoreTime** parameter.
+   * > - This parameter is not supported for sharded cluster instances.
    * 
    * @example
    * 5664****
@@ -17,9 +17,8 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The name of the source database. The value is a JSON array.
-   * 
-   * >  If you do not specify this parameter, all databases are restored by default.
+   * The names of the databases to be restored. The value is a JSON array.
+   * > If you do not specify this parameter, all databases are restored by default.
    * 
    * @example
    * ["db1","db2"]
@@ -27,9 +26,9 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   databaseNames?: string;
   /**
    * @remarks
-   * The region of the backup set used for the cross-region backup and restoration.
+   * The area where the backup set resides during geo-redundancy recover.
    * 
-   * >  This parameter is required when you set the RestoreType parameter to 3.
+   * > This parameter is required when the backup recover type is geo-redundancy cloning.
    * 
    * @example
    * cn-hangzhou
@@ -37,14 +36,14 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   destRegion?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
-   * 
-   * *   **6.0**
-   * *   **5.0**
-   * *   **4.4**
-   * *   **4.2**
-   * *   **4.0**
-   * *   **3.4**
+   * The database version. Valid values:
+   * - **8.0**
+   * - **7.0**
+   * - **6.0**
+   * - **5.0**
+   * - **4.4**
+   * - **4.2**
+   * - **4.0**
    * 
    * @example
    * 4.2
@@ -52,13 +51,12 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The instance architecture. Valid values:
+   * The instance type. Valid values:
+   * - replicate 
+   * - sharding
    * 
-   * *   replicate
-   * *   sharding
-   * 
-   * > * This parameter is required when you set the RestoreType parameter to 2.
-   * > * This parameter is required when you set the RestoreType parameter to 3.
+   * >- This parameter is required when the backup recover type is rebuilding a deleted instance.
+   * >- This parameter is required when the backup recover type is geo-redundancy cloning.
    * 
    * @example
    * replicate
@@ -68,7 +66,7 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * sg-bp179****
@@ -78,10 +76,10 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time to which the instance is restored. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The point in time to which you want to restore the instance. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * > *   The time can be a point in time within the past seven days. The time must be earlier than the current time, but later than the time when the instance was created.
-   * > *   You must specify one of the RestoreTime and **BackupId** parameters.
+   * > - The value can be any point in time within the last seven days. The value must be earlier than the current time and later than the creation time of the instance.
+   * > - You must specify either this parameter or the **BackupId** parameter.
    * 
    * @example
    * 2022-08-22T08:00:00Z
@@ -89,12 +87,12 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The restoration type.
+   * The backup recover type. Valid values:
    * 
-   * > * 0: The data of the source instance is restored to a new instance in the same region.
-   * > * 1: The data of the source instance is restored to an earlier point in time.
-   * > * 2: The data of a deleted instance is restored to a new instance from the backup set.
-   * > * 3: The data of a deleted instance is restored to a new instance in another region from the backup set.
+   * >- 0: local backup recover
+   * >- 1: local point-in-time recover
+   * >- 2: backup recover of a deleted instance using a backup set
+   * >- 3: geo-redundancy backup recover using a backup set
    * 
    * @example
    * 0
@@ -102,7 +100,7 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The instance ID of the source instance to recover.
    * 
    * @example
    * dds-bp1378****
@@ -110,10 +108,10 @@ export class CheckRecoveryConditionRequest extends $dara.Model {
   sourceDBInstance?: string;
   /**
    * @remarks
-   * The region where the source instance resides.
+   * The area where the source instance resides.
    * 
-   * > * This parameter is required when you set the RestoreType parameter to 2.
-   * > * This parameter is required when you set the RestoreType parameter to 3.
+   * >- This parameter is required when the backup recover type is rebuilding a deleted instance.
+   * >- This parameter is required when the backup recover type is geo-redundancy cloning.
    * 
    * @example
    * cn-beijing

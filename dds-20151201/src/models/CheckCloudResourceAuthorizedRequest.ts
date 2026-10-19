@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID of the instance.
+   * The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

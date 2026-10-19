@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAuditPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the request. Set this parameter to **Console**.
+   * The source of the audit log request. Valid value: **Console**.
    * 
    * @example
    * Console
@@ -13,11 +13,9 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
   auditLogSwitchSource?: string;
   /**
    * @remarks
-   * The status of the audit log. Valid values:
-   * 
-   * - **enable**: Enables the audit log feature.
-   * 
-   * - **disabled**: Disables the audit log feature.
+   * The status of audit logging. Valid values:
+   * - **enable**: Enables audit logging.
+   * - **disabled**: Disables audit logging.
    * 
    * This parameter is required.
    * 
@@ -37,7 +35,7 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * This parameter is effective only for the **V2_Standard** (DAS Enterprise Edition (NoSQL Compatible) audit log) edition. It specifies the hot storage duration for the audit log. Valid values: 0 to 7. Unit: days.
+   * This parameter takes effect only in the V2_Standard edition (DAS Enterprise Edition NoSQL-compatible audit logs) and specifies the hot storage duration of audit logs. Valid values: 0 to 7. Unit: days.
    * 
    * @example
    * 7
@@ -49,17 +47,13 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The edition of the audit log. Valid values:
+   * The edition of audit logging. Valid values:
    * 
-   * - **Trial**: Trial Edition.
-   * 
-   * - **Standard**: Standard Edition.
-   * 
-   * - **V2_Standard**: DAS Enterprise Edition (NoSQL Compatible) audit log.
-   * 
-   * > * The default value of this parameter is **Trial**. Starting from January 6, 2022, the Standard edition is being rolled out across regions, and new applications for the Trial edition are no longer accepted.
-   * >
-   * > * Starting from February 2026, the DAS Enterprise Edition (NoSQL Compatible) audit log will be rolled out across regions, and new applications for the Standard edition will no longer be accepted.
+   * - **Trial**: Free Trial edition.
+   * - **Standard**: Standard edition.
+   * - **V2_Standard**: DAS Enterprise Edition (NoSQL-compatible) audit logs.
+   * > - The default value is **Trial**. Starting from January 6, 2022, the Standard edition of audit logs is gradually rolled out across regions, and applications for the Free Trial edition are no longer accepted.
+   * > - Starting from February 2026, DAS Enterprise Edition (NoSQL-compatible) audit logs are gradually rolled out across regions, and applications for the Standard edition are no longer accepted.
    * 
    * @example
    * Standard
@@ -67,9 +61,9 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * - For the **Standard** edition, this parameter specifies the retention period for the audit log. Valid values: 1 to 365. The default value is 30. Unit: days.
+   * - In the Standard edition, this parameter specifies the retention period of audit logs. Valid values: 1 to 365. Default value: 30. Unit: days.
    * 
-   * - For the **V2_Standard** (DAS Enterprise Edition (NoSQL Compatible) audit log) edition, this parameter specifies the cold storage duration for the audit log. Valid values: 30, 180, 365, 1095, and 1825. Unit: days.
+   * - In the V2_Standard edition (DAS Enterprise Edition NoSQL-compatible audit logs), this parameter specifies the cold storage duration of audit logs. Valid values: 30, 180, 365, 1095, and 1825. Unit: days.
    * 
    * @example
    * 30

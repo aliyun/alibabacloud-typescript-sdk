@@ -5,11 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodeSpecRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to automatically align the primary node to the primary zone after operations such as specification changes for multi-zone instances. If you choose not to align the node, one primary/secondary switchover (transient disconnection) is avoided. Default value: true.
+   */
+  alignPrimaryZone?: boolean;
+  /**
+   * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * 
-   * - **true** (default): Enables automatic payment. Make sure that your account has a sufficient balance.
-   * 
-   * - **false**: Disables automatic payment. You must manually pay for the order.
+   * - **true** (default): Automatic payment is enabled. Make sure that your account has sufficient balance.
+   * - **false**: Manual payment is enabled.
    * 
    * @example
    * true
@@ -17,7 +20,7 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The business information. This is an additional parameter.
+   * The additional parameter that contains business information.
    * 
    * @example
    * {“ActivityId":"000000000"}
@@ -25,7 +28,7 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests and contains a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -34,10 +37,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
-   * 
-   * - **default** or **null** (default): A coupon is used.
-   * 
-   * - **youhuiquan_promotion_option_id_for_blank**: A coupon is not used.
+   * - **default** or **null** (default): Use a coupon.
+   * - **youhuiquan_promotion_option_id_for_blank**: Do not use a coupon.
    * 
    * @example
    * default
@@ -55,11 +56,9 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The effective time of the configuration change. Valid values:
-   * 
-   * - **Immediately** (default): The change takes effect immediately.
-   * 
-   * - **MaintainTime**: The change takes effect during the O\\&M window of the instance.
+   * The effective period of the configuration change. Valid values: 
+   * - **Immediately** (default): The configuration change takes effect immediately.
+   * - **MaintainTime**: The configuration change takes effect within the maintenance window of the instance.
    * 
    * @example
    * Immediately
@@ -68,10 +67,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the request. Valid values:
-   * 
-   * - **OpenApi**: The request is from OpenAPI.
-   * 
-   * - **mongo_buy**: The request is from the console.
+   * - **OpenApi**: The request is sent from OpenAPI.
+   * - **mongo_buy**: The request is sent from the console.
    * 
    * @example
    * OpenApi
@@ -79,7 +76,7 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   fromApp?: string;
   /**
    * @remarks
-   * The instance type of the shard or Mongos node. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * The specifications of the shard or mongos node. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
    * 
    * @example
    * dds.mongos.standard
@@ -87,9 +84,9 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   nodeClass?: string;
   /**
    * @remarks
-   * The ID of the shard or Mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the node ID.
+   * The ID of the shard or mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the node ID.
    * 
-   * > If you set this parameter to the ID of a shard node, you must also specify the **NodeStorage** parameter.
+   * > If the value is a shard node ID, you must also specify the **NodeStorage** parameter.
    * 
    * This parameter is required.
    * 
@@ -99,11 +96,10 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The storage space of the shard node. The step size is 10. Unit: GB.
+   * The storage space of the shard node. The step size is 10 GB.
    * 
-   * - SSD local disk: **10** to **2000**.
-   * 
-   * - ESSD PL1 disk: **20** to **16000**.
+   * - For local SSDs, valid values: **10** to **2000**.
+   * - For PL1 ESSDs, valid values: **20** to **16000**.
    * 
    * @example
    * 20
@@ -112,10 +108,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   /**
    * @remarks
    * The order type. Valid values:
-   * 
-   * - **UPGRADE**: upgrades the instance configuration.
-   * 
-   * - **DOWNGRADE**: downgrades the instance configuration.
+   * - **UPGRADE**: Upgrade.
+   * - **DOWNGRADE**: Downgrade.
    * 
    * @example
    * UPGRADE
@@ -137,9 +131,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The time when the configuration change takes effect. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * > This parameter is deprecated. Use the EffectiveTime parameter instead.
+   * The time when the configuration change is executed. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+   * > **[Deprecated]** This parameter is deprecated. Use the EffectiveTime parameter instead.
    * 
    * @example
    * 2022-01-05T03:18:53Z
@@ -147,11 +140,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The hidden zone to which you want to migrate the instance.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is applicable only to instances that use disks.
+   * The destination hidden zone for zone migration.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
    * 
    * @example
    * cn-hangzhou-j
@@ -159,11 +149,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   targetHiddenZoneId?: string;
   /**
    * @remarks
-   * The secondary zone to which you want to migrate the instance.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is applicable only to instances that use disks.
+   * The destination secondary zone for zone migration.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
    * 
    * @example
    * cn-hangzhou-e
@@ -171,11 +158,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   targetSecondaryZoneId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the destination zone.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is applicable only to instances that use disks.
+   * The ID of the destination vSwitch for zone migration.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
    * 
    * @example
    * vsw-xxxxxxxx
@@ -183,11 +167,8 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   targetVswitchId?: string;
   /**
    * @remarks
-   * The primary zone to which you want to migrate the instance.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is applicable only to instances that use disks.
+   * The destination primary zone for zone migration.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
    * 
    * @example
    * cn-hangzhou-h
@@ -195,6 +176,7 @@ export class ModifyNodeSpecRequest extends $dara.Model {
   targetZoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      alignPrimaryZone: 'AlignPrimaryZone',
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
@@ -221,6 +203,7 @@ export class ModifyNodeSpecRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignPrimaryZone: 'boolean',
       autoPay: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',

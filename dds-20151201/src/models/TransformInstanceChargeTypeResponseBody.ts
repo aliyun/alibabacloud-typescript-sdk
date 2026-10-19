@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 21084641369****
@@ -13,7 +13,7 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D8F1D721-6439-4257-A89C-F1E8E9C9****

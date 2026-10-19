@@ -137,7 +137,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
-   * The database engine of the instance. Default value: **mongodb**.
+   * The database engine. Default value: **mongodb**.
    * 
    * @example
    * mongodb
@@ -145,7 +145,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version.
    * 
    * @example
    * 4.0

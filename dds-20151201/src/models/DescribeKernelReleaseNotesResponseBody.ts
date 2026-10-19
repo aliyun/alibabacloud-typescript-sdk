@@ -58,7 +58,7 @@ export class DescribeKernelReleaseNotesResponseBody extends $dara.Model {
   releaseNotes?: DescribeKernelReleaseNotesResponseBodyReleaseNotes;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F01D4DDA-CB72-4083-B399-AF4642294FE6

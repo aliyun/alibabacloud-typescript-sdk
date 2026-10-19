@@ -7,7 +7,7 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * > Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP address whitelists.
+   * > Separate multiple IP addresses with commas (,). A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP whitelists in total.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
    * @remarks
    * The name of the IP whitelist template. The name must meet the following requirements:
    * 
-   * - It can contain lowercase letters, digits, and underscores (_).
+   * - It can contain only lowercase letters, digits, and underscores (_).
    * 
-   * - It must start with a letter and end with a letter or digit.
+   * - It must start with a letter and end with a letter or a digit.
    * 
    * - It must be 2 to 120 characters in length.
    * 
@@ -35,7 +35,7 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query regions.
    * 
    * This parameter is required.
    * 

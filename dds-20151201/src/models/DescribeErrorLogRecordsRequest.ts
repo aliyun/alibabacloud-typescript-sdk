@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeErrorLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
-   * 
-   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * The instance ID.
+   * > If you specify a sharded cluster instance ID for this parameter, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time and within 24 hours from the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time, and the interval between the end time and the start time cannot exceed one day. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -35,11 +34,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The logical relationship between multiple keywords. Valid values:
-   * 
-   * - **or**
-   * 
-   * - **and** (default value)
+   * The logical operator for keyword search. Default value: and.
    * 
    * @example
    * and
@@ -47,9 +42,9 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   logicalOperator?: string;
   /**
    * @remarks
-   * The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+   * The ID of a mongos node or shard node in the sharded cluster instance.
    * 
-   * > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+   * > This parameter is available only when the **DBInstanceId** parameter is set to a sharded cluster instance ID.
    * 
    * @example
    * d-bp128a003436****
@@ -59,7 +54,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -67,7 +62,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30** to **100**.
+   * The number of entries per page. Valid values: **30** to **100**.
    * 
    * @example
    * 30
@@ -75,7 +70,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+   * The keywords to search for. Separate multiple keywords with spaces. You can specify a maximum of 10 keywords.
    * 
    * @example
    * test test1
@@ -83,7 +78,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   queryKeywords?: string;
   /**
    * @remarks
-   * The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -93,13 +88,12 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The role of the node whose error logs you want to query in the instance. Valid values:
+   * The role of the node in the instance. Valid values:
+   * - **primary**: primary node.
+   * - **secondary**: secondary node.
+   * - **search**: search node.
    * 
-   * - **primary**
-   * 
-   * - **secondary**
-   * 
-   * > If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
+   * > If the **NodeId** parameter is set to a mongos node ID, this parameter can only be set to **primary**.
    * 
    * @example
    * primary
@@ -107,7 +101,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

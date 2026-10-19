@@ -2,12 +2,78 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAccountsResponseBodyAccountsAccountRolesRole extends $dara.Model {
+  /**
+   * @example
+   * admin
+   */
+  DBName?: string;
+  /**
+   * @example
+   * read
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBName: 'DBName',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBName: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountsResponseBodyAccountsAccountRoles extends $dara.Model {
+  role?: DescribeAccountsResponseBodyAccountsAccountRolesRole[];
+  static names(): { [key: string]: string } {
+    return {
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyAccountsAccountRolesRole },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.role)) {
+      $dara.Model.validateArray(this.role);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
   accountDescription?: string;
   accountName?: string;
   accountStatus?: string;
   characterType?: string;
   DBInstanceId?: string;
+  /**
+   * @example
+   * admin
+   */
+  DBName?: string;
+  roles?: DescribeAccountsResponseBodyAccountsAccountRoles;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -15,6 +81,8 @@ export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
       accountStatus: 'AccountStatus',
       characterType: 'CharacterType',
       DBInstanceId: 'DBInstanceId',
+      DBName: 'DBName',
+      roles: 'Roles',
     };
   }
 
@@ -25,10 +93,15 @@ export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
       accountStatus: 'string',
       characterType: 'string',
       DBInstanceId: 'string',
+      DBName: 'string',
+      roles: DescribeAccountsResponseBodyAccountsAccountRoles,
     };
   }
 
   validate() {
+    if(this.roles && typeof (this.roles as any).validate === 'function') {
+      (this.roles as any).validate();
+    }
     super.validate();
   }
 

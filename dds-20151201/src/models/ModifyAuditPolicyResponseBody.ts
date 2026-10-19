@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAuditPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DC04D812-F18D-4568-9B88-F260D9590116

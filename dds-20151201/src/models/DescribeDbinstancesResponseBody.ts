@@ -327,7 +327,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -343,7 +343,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of instances returned.
+   * The number of instances in the query result.
    * 
    * @example
    * 5

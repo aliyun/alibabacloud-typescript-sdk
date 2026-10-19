@@ -10,7 +10,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
   cidrBlock?: string;
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -18,7 +18,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -29,7 +29,6 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
    * - **true**: The vSwitch is the default vSwitch.
-   * 
    * - **false**: The vSwitch is not the default vSwitch.
    * 
    * @example
@@ -38,7 +37,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
   isDefault?: boolean;
   /**
    * @remarks
-   * The zone to which the vSwitch belongs.
+   * The active zone to which the vSwitch belongs.
    * 
    * @example
    * cn-hangzhou-i
@@ -46,7 +45,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
   izNo?: string;
   /**
    * @remarks
-   * The status of the vSwitch. A value of **Available** indicates that the vSwitch is active.
+   * The status of the vSwitch. **Available** indicates that the vSwitch is active.
    * 
    * @example
    * Available
@@ -106,7 +105,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcsVSwitchs extends $dara.Model 
 export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -114,7 +113,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -127,7 +126,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -135,7 +134,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * This parameter is deprecated. No value is returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -143,11 +142,11 @@ export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the VPC is the default one. Valid values:
+   * Indicates whether the VPC is the default VPC. Valid values:
    * 
-   * - **true**: The VPC is the default one.
+   * - **true**: Yes.
    * 
-   * - **false**: The VPC is not the default one.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -163,7 +162,7 @@ export class DescribeVpcsForMongoDBResponseBodyVpcs extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The status of the VPC. A value of **Available** indicates that the VPC is active.
+   * The status of the VPC. **Available** indicates that the VPC is available.
    * 
    * @example
    * Available
@@ -245,7 +244,7 @@ export class DescribeVpcsForMongoDBResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

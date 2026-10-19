@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * d-bp1b234bf7a4****
@@ -13,7 +13,7 @@ export class CreateNodeResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20951063702****
@@ -21,7 +21,7 @@ export class CreateNodeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7D48FB19-20CA-4725-A870-3D8F5CE6****

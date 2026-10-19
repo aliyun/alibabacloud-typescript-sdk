@@ -5,23 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodeSpecBatchRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to automatically align the primary node to the primary zone after operations such as configuration changes for a multi-zone instance. If you choose not to align the node, one primary/secondary switchover (transient connection) is prevented. Default value: true.
+   */
+  alignPrimaryZone?: boolean;
+  /**
+   * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * 
-   * - **true**: Automatic payment is enabled. Make sure that your account has a sufficient balance.
-   * 
-   * <props="china">
-   * 
-   * - **false**: Manual payment is enabled. Log on to the ApsaraDB for MongoDB console. In the upper-right corner, choose **Expenses** > **Expenses and Costs**. In the navigation pane on the left, choose **Subscription Orders** > **My Orders**. On the **Product Orders** tab, find the target order and pay for it.
-   * 
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * - **false**: Manual payment is enabled. Log on to the ApsaraDB for MongoDB console. In the upper-right corner, choose **Expenses** > **Expenses and Costs**. In the navigation pane on the left, click **Order Management**. On the **Product Orders** page, find the target order and pay for it.
-   * 
-   * 
-   * 
+   * - **true**: enables automatic payment. Make sure that your account has sufficient balance.
+   * <props="china">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, choose **Orders** > **My Orders** in the left-side navigation pane, and then find the target order on the **Orders** tab to complete the payment.
+   * <props="intl">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, click **Order Management** in the left-side navigation pane, and then find the target order on the **Orders** page to complete the payment.
    * 
    * Default value: **true**.
    * 
@@ -39,7 +31,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * A client token. It is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -48,10 +40,8 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
-   * 
-   * - **default** or **null** (default): A coupon is used.
-   * 
-   * - **youhuiquan_promotion_option_id_for_blank**: A coupon is not used.
+   * - **default** or **null**: uses a coupon. This is the default value.
+   * - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
    * 
    * @example
    * default
@@ -59,7 +49,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the instance for which you want to change configurations.
+   * The instance ID of the instance whose configurations you want to modify.
    * 
    * This parameter is required.
    * 
@@ -71,13 +61,11 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
    * @remarks
    * The effective period of the configuration change. Valid values:
    * 
-   * - **Immediately**: The change takes effect immediately.
+   * - **Immediately**: The configuration change takes effect immediately.
+   * - **MaintainTime**: The configuration change takes effect during the maintenance window of the instance.
    * 
-   * - **MaintainTime**: The change takes effect during the maintenance window of the instance.
-   * 
-   * > * You can call the [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/62008.html) operation to change the maintenance window of an instance.
-   * >
-   * > * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the maintenance window of an instance.
+   * > - You can invoke the [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/62008.html) operation to modify the maintenance window of the instance.
+   * > - You can invoke the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the maintenance window of the instance.
    * 
    * Default value: **Immediately**.
    * 
@@ -87,7 +75,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The instance types of the Mongos and shard nodes that you want to change. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * The specifications of the Mongos or shard nodes to be modified. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
    * 
    * This parameter is required.
    * 
@@ -97,11 +85,10 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   nodesInfo?: string;
   /**
    * @remarks
-   * The type of configuration change. Valid values:
+   * The type of the configuration change. Valid values:
    * 
-   * - **UPGRADE**: Upgrades the instance configuration.
-   * 
-   * - **DOWNGRADE**: Downgrades the instance configuration.
+   * - **UPGRADE**: upgrades the configurations.
+   * - **DOWNGRADE**: downgrades the configurations.
    * 
    * > This parameter is available only when the billing method of the instance is subscription.
    * 
@@ -113,7 +100,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -123,21 +110,12 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination zone of the hidden node for a configuration change that involves a zone migration.
+   * The destination zone of the hidden node when you migrate the instance across zones and change its configurations at the same time.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
+   * >Notice: The value of this parameter cannot be the same as the value of the TargetZoneId or TargetSecondaryZoneId parameter.</notice>
    * 
-   * >Notice: 
-   * 
-   * This parameter applies only to instances that use disks.
-   * 
-   * 
-   * 
-   * >Notice: 
-   * 
-   * The value of this parameter cannot be the same as the value of the TargetZoneId or TargetSecondaryZoneId parameter.
-   * 
-   * 
-   * 
-   * > - This parameter is required only for a configuration change that involves a zone migration.
+   * > 
+   * > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
    * 
    * @example
    * cn-hangzhou-e
@@ -145,21 +123,11 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   targetHiddenZoneId?: string;
   /**
    * @remarks
-   * The destination zone of the secondary node for a configuration change that involves a zone migration.
-   * 
-   * >Notice: 
-   * 
-   * This parameter applies only to instances that use disks.
-   * 
-   * 
-   * 
-   * >Notice: 
-   * 
-   * The value of this parameter cannot be the same as the value of the TargetZoneId or TargetHiddenZoneId parameter.
-   * 
-   * 
-   * 
-   * > - This parameter is required only for a configuration change that involves a zone migration.
+   * The destination zone of the secondary node when you migrate the instance across zones and change its configurations at the same time.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
+   * >Notice: The value of this parameter cannot be the same as the value of the TargetZoneId or TargetHiddenZoneId parameter.</notice>
+   * > 
+   * > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
    * 
    * @example
    * cn-hangzhou-j
@@ -167,15 +135,10 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   targetSecondaryZoneId?: string;
   /**
    * @remarks
-   * The ID of the destination virtual switch for a configuration change that involves a zone migration.
-   * 
-   * >Notice: 
-   * 
-   * This parameter applies only to instances that use disks.
-   * 
-   * 
-   * 
-   * > - This parameter is required only for a configuration change that involves a zone migration.
+   * The ID of the destination vSwitch when you migrate the instance across zones and change its configurations at the same time.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
+   * > 
+   * > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
    * 
    * @example
    * vsw-xxxxxxxx
@@ -183,21 +146,11 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   targetVswitchId?: string;
   /**
    * @remarks
-   * The destination zone of the primary node for a configuration change that involves a zone migration.
-   * 
-   * >Notice: 
-   * 
-   * This parameter applies only to instances that use disks.
-   * 
-   * 
-   * 
-   * >Notice: 
-   * 
-   * The value of this parameter cannot be the same as the value of the TargetSecondaryZoneId or TargetHiddenZoneId parameter.
-   * 
-   * 
-   * 
-   * > - This parameter is required only for a configuration change that involves a zone migration.
+   * The destination zone of the primary node when you migrate the instance across zones and change its configurations at the same time.
+   * >Notice: This parameter is supported only for cloud disk instances.</notice>
+   * >Notice: The value of this parameter cannot be the same as the value of the TargetSecondaryZoneId or TargetHiddenZoneId parameter.</notice>
+   * > 
+   * > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
    * 
    * @example
    * cn-hangzhou-h
@@ -205,6 +158,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   targetZoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      alignPrimaryZone: 'AlignPrimaryZone',
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
@@ -227,6 +181,7 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignPrimaryZone: 'boolean',
       autoPay: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',

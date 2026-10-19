@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckRecoveryConditionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID
+   * The instance ID.
    * 
    * @example
    * dds-bp1378****
@@ -13,10 +13,9 @@ export class CheckRecoveryConditionResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Indicates whether the data of the instance can be restored. Valid values:
-   * 
-   * *   **true**: The data of the instance can be restored.
-   * *   **false**: The data of the instance cannot be restored.
+   * Indicates whether the restoration conditions are met. Valid values:
+   * - **true**: The conditions are met.
+   * - **false**: The conditions are not met.
    * 
    * @example
    * true

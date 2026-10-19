@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the O&M task was created. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2024-11-06T13:11:08Z
@@ -13,7 +13,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The database type of the instance.
+   * The database type.
    * 
    * @example
    * mongodb
@@ -21,7 +21,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The deadline before which the time to preform the task can be modified. The time in UTC is displayed in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The latest time within the adjustable range for the execution time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2023-03-29T13:59:59Z
@@ -45,7 +45,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The time when the task was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the O&M task was modified. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2023-02-24T08:18:53Z
@@ -53,7 +53,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The required preparation period between the task start time and the switchover time. The time is displayed in the HH:mm:ss format.
+   * The preparation time required between the start time and the switchover time of the O&M task. The format is HH:mm:ss.
    * 
    * @example
    * 14:00:00
@@ -61,7 +61,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   prepareInterval?: string;
   /**
    * @remarks
-   * The region of the instance.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -69,7 +69,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The result information.
+   * The execution result information.
    * 
    * @example
    * ""
@@ -77,7 +77,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the task was preformed. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * The execution time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2023-03-20T02:40:00Z
@@ -85,19 +85,13 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The state of the task. Valid values:
-   * 
-   * - 2: The task is waiting for users to specify a switchover time.
-   * 
-   * - 3: The task is waiting to be performed.
-   * 
-   * - 4: The task is being performed. If the task is in this state, the ModifyActiveOperationTask operation cannot be called to modify the scheduled switchover time.
-   * 
-   * - 5: The task is performed.
-   * 
-   * - 6: The task fails.
-   * 
-   * - 7: The task is canceled.
+   * The task status. Valid values:
+   * - 2: Waiting for the user to specify a time.
+   * - 3: Waiting to be processed.
+   * - 4: Processing. After the task enters this state, the scheduled switchover time cannot be modified.
+   * - 5: Succeeded.
+   * - 6: Failed.
+   * - 7: Canceled.
    * 
    * @example
    * 2
@@ -105,7 +99,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * The switchover time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2024-11-06T14:11:08Z
@@ -121,15 +115,11 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   taskParams?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Valid values:
    * 
-   * - rds_apsaradb_ha: master-replica switchover
-   * 
-   * - rds_apsaradb_transfer: instance migration
-   * 
-   * - rds_apsaradb_upgrade: minor version update
-   * 
-   * - all: all types
+   * - rds_apsaradb_ha: primary/secondary node switch.
+   * - rds_apsaradb_transfer: instance migration.
+   * - rds_apsaradb_upgrade: minor version update.
    * 
    * @example
    * rds_apsaradb_ha
@@ -190,7 +180,7 @@ export class DescribeActiveOperationTaskResponseBody extends $dara.Model {
   items?: DescribeActiveOperationTaskResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -198,7 +188,7 @@ export class DescribeActiveOperationTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page. Default value: 30.
    * 
    * @example
    * 30
@@ -214,7 +204,7 @@ export class DescribeActiveOperationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 0

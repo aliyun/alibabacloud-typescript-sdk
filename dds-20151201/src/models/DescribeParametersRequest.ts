@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParametersRequest extends $dara.Model {
   /**
    * @remarks
-   * The role of the instance. Valid values:
+   * The role type of the instance. Valid values:
    * 
-   * - db: a shard node.
-   * 
-   * - cs: a Configserver node.
-   * 
-   * - mongos: a mongos node.
+   * - db: shard role
+   * - cs: config server role
+   * - mongos: mongos role
    * 
    * @example
    * mongos
@@ -21,7 +19,7 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you specify the ID of a sharded cluster instance for this parameter, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class DescribeParametersRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The parameter that is available in the future.
+   * The extended parameter.
    * 
    * @example
    * terrform
@@ -39,9 +37,9 @@ export class DescribeParametersRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The ID of the mongos or shard node in the specified sharded cluster instance.
+   * Instance ID of the mongos or shard node in the sharded cluster instance.
    * 
-   * > This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+   * > This parameter is available only when the **DBInstanceId** parameter is set to instance ID of a sharded cluster instance.
    * 
    * @example
    * d-bpxxxxxxxx

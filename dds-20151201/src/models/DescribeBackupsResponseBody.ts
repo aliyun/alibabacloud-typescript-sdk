@@ -111,12 +111,10 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * - **30** (Default)
-   * 
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example

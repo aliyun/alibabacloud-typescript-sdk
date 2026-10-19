@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -23,7 +23,7 @@ export class DeleteNodeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the shard or mongos node that you want to delete. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/61923.html) operation to query node IDs.
+   * The ID of the shard or mongos node to be deleted. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/61923.html) operation to query the node ID.
    * 
    * This parameter is required.
    * 

@@ -87,7 +87,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The maximum number of records on the current page.
    * 
    * @example
    * 30
@@ -103,7 +103,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 40

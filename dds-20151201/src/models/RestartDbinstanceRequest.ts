@@ -15,9 +15,9 @@ export class RestartDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of a shard or Mongos node in a sharded cluster instance.
+   * The ID of the shard or mongos node in the sharded cluster instance.
    * 
-   * > If you do not specify this parameter for a sharded cluster instance, the entire instance is restarted.
+   * > If you do not specify this parameter for a sharded cluster instance, the entire sharded cluster instance is restarted.
    * 
    * @example
    * d-bpxxxxxxxx
@@ -26,15 +26,18 @@ export class RestartDBInstanceRequest extends $dara.Model {
   nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to restart mongos nodes in parallel. This parameter takes effect only when you restart multiple mongos nodes at a time.
+   */
+  parallelRestartMongos?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The time to restart the instance. Valid values:
-   * 
-   * - 0: The instance is restarted immediately.
-   * 
-   * - 1: The instance is restarted within the maintenance window.
+   * The time when the instance is restarted. Valid values:
+   * - 0: Immediately.
+   * - 1: Within the O&M window.
    * 
    * @example
    * 0
@@ -47,6 +50,7 @@ export class RestartDBInstanceRequest extends $dara.Model {
       nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      parallelRestartMongos: 'ParallelRestartMongos',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       switchMode: 'SwitchMode',
@@ -60,6 +64,7 @@ export class RestartDBInstanceRequest extends $dara.Model {
       nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      parallelRestartMongos: 'boolean',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       switchMode: 'string',

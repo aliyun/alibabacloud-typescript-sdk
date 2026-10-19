@@ -1,9 +1,12 @@
+export { CreateAccountRequestRoles } from './CreateAccountRequest';
 export { CreateDBInstanceRequestTag } from './CreateDbinstanceRequest';
 export { CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './CreateGlobalSecurityIpgroupResponseBody';
 export { CreateShardingDBInstanceRequestConfigServer } from './CreateShardingDbinstanceRequest';
 export { CreateShardingDBInstanceRequestMongos } from './CreateShardingDbinstanceRequest';
 export { CreateShardingDBInstanceRequestReplicaSet } from './CreateShardingDbinstanceRequest';
 export { CreateShardingDBInstanceRequestTag } from './CreateShardingDbinstanceRequest';
+export { DescribeAccountsResponseBodyAccountsAccountRolesRole } from './DescribeAccountsResponseBody';
+export { DescribeAccountsResponseBodyAccountsAccountRoles } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccountsAccount } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccounts } from './DescribeAccountsResponseBody';
 export { DescribeActiveOperationMaintenanceConfigResponseBodyConfig } from './DescribeActiveOperationMaintenanceConfigResponseBody';
@@ -11,6 +14,8 @@ export { DescribeActiveOperationTaskResponseBodyItems } from './DescribeActiveOp
 export { DescribeActiveOperationTaskRegionResponseBodyRegionList } from './DescribeActiveOperationTaskRegionResponseBody';
 export { DescribeActiveOperationTaskTypeResponseBodyTypeList } from './DescribeActiveOperationTaskTypeResponseBody';
 export { DescribeActiveOperationTasksResponseBodyItems } from './DescribeActiveOperationTasksResponseBody';
+export { DescribeAdvancedBackupPolicyResponseBodyAdvancedBackupDataPolicies } from './DescribeAdvancedBackupPolicyResponseBody';
+export { DescribeAdvancedBackupPolicyResponseBodyAdvancedBackupLogPolicies } from './DescribeAdvancedBackupPolicyResponseBody';
 export { DescribeAuditRecordsResponseBodyItemsSQLRecord } from './DescribeAuditRecordsResponseBody';
 export { DescribeAuditRecordsResponseBodyItems } from './DescribeAuditRecordsResponseBody';
 export { DescribeAvailabilityZonesResponseBodyAvailableZones } from './DescribeAvailabilityZonesResponseBody';
@@ -164,6 +169,8 @@ export { DescribeVpcsForMongoDBResponseBodyVpcs } from './DescribeVpcsForMongoDb
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyAdvancedBackupPolicyRequestAdvancedBackupDataPolicies } from './ModifyAdvancedBackupPolicyRequest';
+export { ModifyAdvancedBackupPolicyRequestAdvancedBackupLogPolicies } from './ModifyAdvancedBackupPolicyRequest';
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { AllocateDBInstanceSrvNetworkAddressRequest } from './AllocateDbinstanceSrvNetworkAddressRequest';
@@ -244,6 +251,12 @@ export { DescribeActiveOperationTaskTypeResponse } from './DescribeActiveOperati
 export { DescribeActiveOperationTasksRequest } from './DescribeActiveOperationTasksRequest';
 export { DescribeActiveOperationTasksResponseBody } from './DescribeActiveOperationTasksResponseBody';
 export { DescribeActiveOperationTasksResponse } from './DescribeActiveOperationTasksResponse';
+export { DescribeAdvancedBackupPolicyRequest } from './DescribeAdvancedBackupPolicyRequest';
+export { DescribeAdvancedBackupPolicyResponseBody } from './DescribeAdvancedBackupPolicyResponseBody';
+export { DescribeAdvancedBackupPolicyResponse } from './DescribeAdvancedBackupPolicyResponse';
+export { DescribeAdvancedBackupStatusRequest } from './DescribeAdvancedBackupStatusRequest';
+export { DescribeAdvancedBackupStatusResponseBody } from './DescribeAdvancedBackupStatusResponseBody';
+export { DescribeAdvancedBackupStatusResponse } from './DescribeAdvancedBackupStatusResponse';
 export { DescribeAuditLogFilterRequest } from './DescribeAuditLogFilterRequest';
 export { DescribeAuditLogFilterResponseBody } from './DescribeAuditLogFilterResponseBody';
 export { DescribeAuditLogFilterResponse } from './DescribeAuditLogFilterResponse';
@@ -430,6 +443,13 @@ export { ModifyActiveOperationMaintenanceConfigResponse } from './ModifyActiveOp
 export { ModifyActiveOperationTasksRequest } from './ModifyActiveOperationTasksRequest';
 export { ModifyActiveOperationTasksResponseBody } from './ModifyActiveOperationTasksResponseBody';
 export { ModifyActiveOperationTasksResponse } from './ModifyActiveOperationTasksResponse';
+export { ModifyAdvancedBackupPolicyRequest } from './ModifyAdvancedBackupPolicyRequest';
+export { ModifyAdvancedBackupPolicyShrinkRequest } from './ModifyAdvancedBackupPolicyShrinkRequest';
+export { ModifyAdvancedBackupPolicyResponseBody } from './ModifyAdvancedBackupPolicyResponseBody';
+export { ModifyAdvancedBackupPolicyResponse } from './ModifyAdvancedBackupPolicyResponse';
+export { ModifyAdvancedBackupStatusRequest } from './ModifyAdvancedBackupStatusRequest';
+export { ModifyAdvancedBackupStatusResponseBody } from './ModifyAdvancedBackupStatusResponseBody';
+export { ModifyAdvancedBackupStatusResponse } from './ModifyAdvancedBackupStatusResponse';
 export { ModifyAuditLogFilterRequest } from './ModifyAuditLogFilterRequest';
 export { ModifyAuditLogFilterResponseBody } from './ModifyAuditLogFilterResponseBody';
 export { ModifyAuditLogFilterResponse } from './ModifyAuditLogFilterResponse';

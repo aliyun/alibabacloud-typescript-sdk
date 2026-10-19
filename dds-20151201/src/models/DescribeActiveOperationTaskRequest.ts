@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the historical tasks.
+   * Specifies whether to return historical tasks. Valid values:
    * 
-   * Default value: 0. Valid values:
-   * 
-   * - 0: returns the current task.
-   * 
-   * - 1: returns the historical tasks.
+   * - 0: returns current tasks. This is the default value.
+   * - 1: returns historical tasks.
    * 
    * @example
    * 0
@@ -21,7 +18,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+   * The page number. The value must be greater than 0 and not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +26,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Specify a value greater than 10. Default value: 30.
+   * The maximum number of entries to return on each page. The value must be greater than 10. Default value: 30.
    * 
    * @example
    * 30
@@ -37,7 +34,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the product.
+   * The product ID.
    * 
    * @example
    * MongoDB
@@ -45,9 +42,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
-   * 
-   * > If you set the Region parameter to **all**, all tasks created within your Alibaba Cloud account are queried. In this case, you must set the **taskType** parameter to **all**.
+   * The ID of the region to which the pending events belong. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query region IDs. If you set this parameter to all, all tasks under the current account are queried, and the TaskType parameter must also be set to all.
    * 
    * This parameter is required.
    * 
@@ -59,13 +54,15 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Valid values:
    * 
-   * - rds_apsaradb_ha: master-replica switchover
+   * - rds_apsaradb_ha: primary/secondary node switch.
+   * - rds_apsaradb_transfer: instance migration.
+   * - rds_apsaradb_upgrade: minor version update.
    * 
-   * - rds_apsaradb_transfer: instance migration
+   * You can obtain the valid values from the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2639186.html) operation.
    * 
-   * - rds_apsaradb_upgrade: minor version update
+   * If you set this parameter to all, all tasks under the current account are queried, and the Region parameter must also be set to all.
    * 
    * This parameter is required.
    * 

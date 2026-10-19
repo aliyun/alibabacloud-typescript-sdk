@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceNetExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The retention period of the classic network endpoint of the instance. Valid values: **14**, **30**, **60**, and **120**. Unit: day.
+   * Sets the retention period of the original classic network endpoint. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
    * 
    * This parameter is required.
    * 

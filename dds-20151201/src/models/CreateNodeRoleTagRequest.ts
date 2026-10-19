@@ -19,9 +19,8 @@ export class CreateNodeRoleTagRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the shard node.
-   * 
-   * > - This parameter applies only to sharded cluster instances.
+   * The shard node ID.
+   * >- This parameter is available only when you create a role tag for a shard node of a sharded cluster instance.
    * 
    * @example
    * d-l5xf98b78b9fxxxx,d-l5xf98b7sf9fxxxx

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateShardingDBInstanceRequestConfigServer extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the Configserver node. Valid values:
-   * 
-   * - **mdb.shard.2x.xlarge.d**: 4-core 8 GB (dedicated). This instance type is available only for instances that run MongoDB 4.4 or later.
-   * 
-   * - **dds.cs.mid**: 1-core 2 GB (general-purpose). This instance type is available only for instances that run MongoDB 4.2 or earlier.
+   * The specifications of the ConfigServer node. Valid values:
+   * - **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). This specification is supported only for instances of version 4.4 and later.
+   * - **dds.cs.mid**: 1 core, 2 GB (general-purpose). This specification is supported only for instances of version 4.2 and earlier.
    * 
    * This parameter is required.
    * 
@@ -19,9 +17,9 @@ export class CreateShardingDBInstanceRequestConfigServer extends $dara.Model {
   class?: string;
   /**
    * @remarks
-   * The storage space of the Configserver node. Unit: GB.
+   * The storage capacity of the ConfigServer node. Unit: GB.
    * 
-   * > The value of this parameter is constrained by the instance type. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * > The valid values are subject to the instance specifications. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
    * This parameter is required.
    * 
@@ -55,11 +53,10 @@ export class CreateShardingDBInstanceRequestConfigServer extends $dara.Model {
 export class CreateShardingDBInstanceRequestMongos extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the Mongos node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * The specifications of the mongos node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
-   * > - **N** in the parameter name specifies the serial number of the Mongos node. For example, **Mongos.2.Class** specifies the instance type of the second Mongos node.
-   * >
-   * > - The value of **N** ranges from **2** to **32**.
+   * > - **N** in the parameter name specifies the sequence number of the mongos node. For example, **Mongos.2.Class** specifies the specifications of the second mongos node.
+   * > - Valid values of **N**: **2** to **32**.
    * 
    * This parameter is required.
    * 
@@ -91,11 +88,10 @@ export class CreateShardingDBInstanceRequestMongos extends $dara.Model {
 export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * The specifications of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
-   * > - **N** in the parameter name specifies the serial number of the shard node. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
-   * >
-   * > - The value of **N** ranges from **2** to **32**.
+   * > - **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.Class** specifies the specifications of the second shard node.
+   * > - Valid values of **N**: **2** to **32**.
    * 
    * This parameter is required.
    * 
@@ -107,9 +103,8 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
    * @remarks
    * The number of read-only nodes in the shard node.
    * 
-   * Valid values: **0** to **5**. The default value is **0**.
-   * 
-   * > **N** in the parameter name specifies the serial number of the shard node. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+   * Valid values: **0** to **5**. Default value: **0**.
+   * > **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
    * 
    * @example
    * 0
@@ -117,11 +112,10 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
   readonlyReplicas?: number;
   /**
    * @remarks
-   * The storage space of the shard node. Unit: GB.
+   * The storage capacity of the shard node. Unit: GB.
    * 
-   * > - The value of this parameter is constrained by the instance type. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-   * >
-   * > - **N** in the parameter name specifies the serial number of the shard node. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
+   * > - The valid values are subject to the instance specifications. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * > - **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
    * 
    * This parameter is required.
    * 
@@ -158,8 +152,7 @@ export class CreateShardingDBInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
-   * 
-   * > - **N** specifies the serial number of the tag. For example, **Tag.1.Key** specifies the key of the first tag, and **Tag.2.Key** specifies the key of the second tag.
+   * > - **N** in the parameter name specifies the sequence number of the tag. For example, **Tag.1.Key** specifies the key of the first tag, and **Tag.2.Key** specifies the key of the second tag.
    * 
    * @example
    * testdatabase
@@ -168,8 +161,7 @@ export class CreateShardingDBInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
    * The value of the tag.
-   * 
-   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+   * > **N** in the parameter name specifies the sequence number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
    * 
    * @example
    * apitest
@@ -202,14 +194,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the root account. The password must meet the following requirements:
-   * 
    * - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * 
-   * - Special characters include !@#$%^&\\*()_+-=
-   * 
+   * - Special characters include !@#$%^&*()_+-=.
    * - It must be 8 to 32 characters in length.
    * 
-   * > For information about how to resolve connection failures caused by special characters in passwords, see [How do I fix connection failures caused by special characters in a password?](https://help.aliyun.com/document_detail/471568.html).
+   * > For more information about how to troubleshoot connection failures caused by special characters in database connection string, see [What do I do if database connection to an ApsaraDB for MongoDB instance fails because the username or password in database connection string contains special characters?](https://help.aliyun.com/document_detail/471568.html).
    * 
    * @example
    * 123456Aa
@@ -219,11 +208,10 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * - **true**: Auto-renewal is enabled.
+   * - **true**: Enables auto-renewal.
+   * - **false**: Disables auto-renewal. You must manually renew the instance. This is the default value.
    * 
-   * - **false**: Auto-renewal is disabled. You must manually renew the instance. This is the default value.
-   * 
-   * > This parameter is optional and takes effect only when you set the **ChargeType** parameter to **PrePaid**.
+   * > This parameter is available and optional only when the **ChargeType** parameter is set to **PrePaid**.
    * 
    * @example
    * true
@@ -231,7 +219,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The cluster backup ID.
+   * The ID of the cluster backup.
+   * 
    * 
    * > - This parameter is required only when RestoreType is set to 2 or 3.
    * 
@@ -243,9 +232,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **PostPaid**: pay-as-you-go. This is the default value.
-   * 
-   * - **PrePaid**: subscription.
+   * - **PostPaid**: Pay-as-you-go. This is the default value.
+   * - **PrePaid**: Subscription.
    * 
    * > If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
    * 
@@ -255,7 +243,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -263,7 +251,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The information of Configserver nodes.
+   * The information about the ConfigServer nodes.
    * 
    * This parameter is required.
    */
@@ -271,11 +259,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the instance. The name must meet the following requirements:
-   * 
-   * - It must start with a Chinese character or a letter.
-   * 
-   * - It can contain digits, Chinese characters, letters, underscores (_), periods (.), and hyphens (-).
-   * 
+   * - It must start with a letter or a Chinese character.
+   * - It can contain digits, letters, Chinese characters, underscores (_), periods (.), and hyphens (-).
    * - It must be 2 to 256 characters in length.
    * 
    * @example
@@ -284,7 +269,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The region where the geo-redundant backup is stored.
+   * The region where the cross-region backup is stored.
    * 
    * @example
    * cn-hangzhou
@@ -292,7 +277,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   destRegion?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether to enable cloud disk encryption.
    * 
    * @example
    * true
@@ -300,7 +285,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The custom key ID.
+   * The ID of the custom key.
    * 
    * @example
    * 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -318,25 +303,17 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database version. Valid values:
-   * 
+   * The database version number. Valid values:
    * - **8.0**
-   * 
    * - **7.0**
-   * 
    * - **6.0**
-   * 
    * - **5.0**
-   * 
    * - **4.4**
-   * 
    * - **4.2**
-   * 
    * - **4.0**
    * 
-   * > * For more information about the constraints on storage engines and database versions, see [Versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
-   * >
-   * > * When you clone an instance by calling this operation, the value of this parameter must be the same as that of the source instance.
+   * > - For more information about the constraints on storage engines and versions, see [Versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > - When you call this operation to clone an instance, the value of this parameter must be the same as that of the source instance.
    * 
    * This parameter is required.
    * 
@@ -346,7 +323,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The global IP address whitelist templates of the instance. Separate multiple templates with commas (,). Each template must be unique.
+   * The global IP address whitelist templates of the instance. Separate multiple templates with commas (,). Duplicate templates are not supported.
    * 
    * @example
    * g-qxieqf40xjst1ngpr3jz
@@ -355,48 +332,28 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The secondary zone 2 for multi-zone deployment. Valid values:
-   * 
    * - **cn-hangzhou-g**: Hangzhou Zone G.
-   * 
    * - **cn-hangzhou-h**: Hangzhou Zone H.
-   * 
    * - **cn-hangzhou-i**: Hangzhou Zone I.
-   * 
    * - **cn-hongkong-b**: Hong Kong (China) Zone B.
-   * 
    * - **cn-hongkong-c**: Hong Kong (China) Zone C.
-   * 
    * - **cn-hongkong-d**: Hong Kong (China) Zone D.
-   * 
    * - **cn-wulanchabu-a**: Ulanqab Zone A.
-   * 
    * - **cn-wulanchabu-b**: Ulanqab Zone B.
-   * 
    * - **cn-wulanchabu-c**: Ulanqab Zone C.
-   * 
    * - **ap-southeast-1a**: Singapore Zone A.
-   * 
    * - **ap-southeast-1b**: Singapore Zone B.
-   * 
    * - **ap-southeast-1c**: Singapore Zone C.
-   * 
    * - **ap-southeast-5a**: Jakarta Zone A.
-   * 
    * - **ap-southeast-5b**: Jakarta Zone B.
-   * 
    * - **ap-southeast-5c**: Jakarta Zone C.
-   * 
    * - **eu-central-1a**: Frankfurt Zone A.
-   * 
    * - **eu-central-1b**: Frankfurt Zone B.
-   * 
    * - **eu-central-1c**: Frankfurt Zone C.
    * 
-   * > * This parameter is available for disk-based instances.
-   * >
-   * > * The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
-   * >
-   * > * For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
+   * > - This parameter is available only when the instance uses cloud disks.
+   * > - The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
+   * > - For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
    * 
    * @example
    * cn-hangzhou-i
@@ -404,7 +361,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   hiddenZoneId?: string;
   /**
    * @remarks
-   * The information of Mongos nodes.
+   * The information about the mongos nodes.
    * 
    * This parameter is required.
    */
@@ -413,7 +370,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * **VPC**: virtual private cloud.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -423,11 +380,10 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration of the instance. Unit: month.
+   * The subscription duration of the instance. Unit: months.
    * 
-   * Valid values: **1** to **9** (integer), **12**, **24**, **36**, and **60**.
-   * 
-   * > This parameter is required and takes effect only when you set the **ChargeType** parameter to **PrePaid**.
+   * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
+   * > This parameter is required and takes effect only when the **ChargeType** parameter is set to **PrePaid**.
    * 
    * @example
    * 1
@@ -435,10 +391,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The protocol type of the instance. Valid values:
-   * 
+   * The type of the access protocol. Valid values:
    * - **mongodb**: MongoDB protocol.
-   * 
    * - **dynamodb**: DynamoDB protocol.
    * 
    * @example
@@ -465,7 +419,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information of shard nodes.
+   * The information about the shard nodes.
    * 
    * This parameter is required.
    */
@@ -475,9 +429,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time to which you want to restore data. You can specify any point in time within the last seven days. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in Coordinated Universal Time (UTC).
-   * 
-   * > This parameter is required only when you clone an instance by calling this operation. You must also specify the **SrcDBInstanceId** parameter.
+   * The point in time to which you want to restore the instance. You can specify any point in time within the last seven days. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+   * > This parameter is required only when you call this operation to clone an instance. You must also specify the **SrcDBInstanceId** parameter.
    * 
    * @example
    * 2022-03-08T02:30:25Z
@@ -485,13 +438,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The backup-based instance restoration method.
+   * The backup restoration type. Valid values:
    * 
-   * - 1: Restore the instance to a specific point in time.
-   * 
-   * - 2: Restore a released instance from a specific backup set.
-   * 
-   * - 3: Restore the instance from a specific geo-redundant backup set.
+   * - 1: Restore the instance to a specified point in time.
+   * - 2: Restore a released instance to a specified backup set.
+   * - 3: Restore the instance to a specified cross-region backup set.
    * 
    * @example
    * 1
@@ -500,48 +451,27 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The secondary zone 1 for multi-zone deployment. Valid values:
-   * 
    * - **cn-hangzhou-g**: Hangzhou Zone G.
-   * 
    * - **cn-hangzhou-h**: Hangzhou Zone H.
-   * 
    * - **cn-hangzhou-i**: Hangzhou Zone I.
-   * 
    * - **cn-hongkong-b**: Hong Kong (China) Zone B.
-   * 
    * - **cn-hongkong-c**: Hong Kong (China) Zone C.
-   * 
    * - **cn-hongkong-d**: Hong Kong (China) Zone D.
-   * 
    * - **cn-wulanchabu-a**: Ulanqab Zone A.
-   * 
    * - **cn-wulanchabu-b**: Ulanqab Zone B.
-   * 
    * - **cn-wulanchabu-c**: Ulanqab Zone C.
-   * 
    * - **ap-southeast-1a**: Singapore Zone A.
-   * 
    * - **ap-southeast-1b**: Singapore Zone B.
-   * 
    * - **ap-southeast-1c**: Singapore Zone C.
-   * 
    * - **ap-southeast-5a**: Jakarta Zone A.
-   * 
    * - **ap-southeast-5b**: Jakarta Zone B.
-   * 
    * - **ap-southeast-5c**: Jakarta Zone C.
-   * 
    * - **eu-central-1a**: Frankfurt Zone A.
-   * 
    * - **eu-central-1b**: Frankfurt Zone B.
-   * 
    * - **eu-central-1c**: Frankfurt Zone C.
-   * 
-   * > * This parameter is available for disk-based instances.
-   * >
-   * > * The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
-   * >
-   * > * For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
+   * >- This parameter is available only when the instance uses cloud disks.
+   * >- The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
+   * >- For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
    * 
    * @example
    * cn-hangzhou-h
@@ -549,17 +479,13 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The IP address whitelist of the instance. Separate multiple IP addresses with commas (,). Each IP address in the whitelist must be unique. The following formats are supported:
-   * 
+   * The IP address whitelist of the instance. Separate multiple IP addresses with commas (,). Duplicate IP addresses are not supported. The following formats are supported:
    * - 0.0.0.0/0
-   * 
    * - IP addresses, such as 10.23.12.24.
+   * - CIDR blocks, such as 10.23.12.0/24. 24 indicates the length of the prefix in the CIDR block, and the prefix length ranges from 1 to 32.
    * 
-   * - CIDR blocks, such as 10.23.12.0/24. The /24 part indicates the prefix length of the CIDR block. The prefix length ranges from 1 to 32.
-   * 
-   * > * You can add a maximum of 1,000 IP addresses or CIDR blocks to all IP address whitelists.
-   * >
-   * > * The 0.0.0.0/0 entry allows access from all IP addresses. This is a high-risk setting. Configure it with caution.
+   * > - You can add up to 1,000 IP addresses or CIDR blocks to the whitelist of an instance. The total number of IP addresses or CIDR blocks in all whitelist groups cannot exceed 1,000.
+   * > - 0.0.0.0/0 indicates that all IP addresses can access the instance. This is a high-risk setting. Configure this parameter with caution.
    * 
    * @example
    * 192.168.xx.xx,192.168.xx.xx
@@ -568,8 +494,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The source instance ID.
-   * 
-   * > This parameter is required only when you clone an instance by calling this operation. You must also specify the **RestoreTime** parameter.
+   * > This parameter is required only when you call this operation to clone an instance. You must also specify the **RestoreTime** parameter.
    * 
    * @example
    * dds-bp11483712c1****
@@ -577,11 +502,10 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   srcDBInstanceId?: string;
   /**
    * @remarks
-   * The region of the source instance.
+   * The region where the source instance is located.
    * 
-   * > - This parameter is required when you recreate a released instance from a backup.
-   * >
-   * > - This parameter is required when you clone an instance from a geo-redundant backup.
+   * >- This parameter is required when the backup restoration type is rebuilding a deleted instance.
+   * >- This parameter is required when the backup restoration type is cross-region backup cloning.
    * 
    * @example
    * cn-beijing
@@ -591,9 +515,8 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * The storage engine of the instance. Set the value to **WiredTiger**.
    * 
-   * > - When you clone an instance by calling this operation, the value of this parameter must be the same as that of the source instance.
-   * >
-   * > - For more information about the constraints on storage engines and database versions, see [Versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > - When you call this operation to clone an instance, the value of this parameter must be the same as that of the source instance.
+   * > - For more information about the constraints on storage engines and versions, see [Versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
    * 
    * @example
    * WiredTiger
@@ -601,19 +524,15 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   storageEngine?: string;
   /**
    * @remarks
-   * The storage type. Valid values:
+   * The storage type. Valid values: 
    * 
-   * - **cloud_essd1**: enhanced SSD (ESSD) PL1.
-   * 
-   * - **cloud_essd2**: ESSD PL2.
-   * 
-   * - **cloud_essd3**: ESSD PL3.
-   * 
+   * - **cloud_essd1**: PL1 ESSD.
+   * - **cloud_essd2**: PL2 ESSD.
+   * - **cloud_essd3**: PL3 ESSD.
    * - **local_ssd**: local SSD.
    * 
-   * > * Instances that run MongoDB 4.4 or later support only disks. If you do not specify this parameter, **cloud_essd1** is used.
-   * >
-   * > * Instances that run MongoDB 4.2 or earlier support only local disks. If you do not specify this parameter, **local_ssd** is used.
+   * > - Instances of version 4.4 and later support only cloud disks. If you do not specify this parameter, **cloud_essd1** is selected by default.
+   * > - Instances of version 4.2 and earlier support only local disks. If you do not specify this parameter, **local_ssd** is selected by default.
    * 
    * @example
    * cloud_essd1
@@ -626,7 +545,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   tag?: CreateShardingDBInstanceRequestTag[];
   /**
    * @remarks
-   * The virtual switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1vj604nj5a9zz74****
@@ -634,7 +553,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1n3i15v90el48nx****

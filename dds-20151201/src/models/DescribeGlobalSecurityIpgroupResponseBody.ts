@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $dara.Model {
   /**
    * @remarks
-   * The instances associated with the global whitelist template.
+   * The list of instances bound to the global IP whitelist template.
    */
   DBInstances?: string[];
   /**
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * > Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP address whitelists.
+   * > Separate multiple IP addresses with commas (,). A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP whitelists in total.
    * 
    * @example
    * 117.12.202.19
@@ -36,7 +36,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   globalSecurityGroupId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -77,12 +77,12 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
 export class DescribeGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The global IP whitelist templates.
+   * The list of global IP whitelist templates.
    */
   globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**
    * @remarks
-   * The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+   * The unique ID of the request. If you encounter any issues, provide this request ID to the support team for troubleshooting.
    * 
    * @example
    * 72651AF9-7897-41A7-8B67-6C15C7F26A0A

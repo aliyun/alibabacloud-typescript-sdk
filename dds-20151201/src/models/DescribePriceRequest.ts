@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The business information. This is an additional parameter.
+   * The additional parameter for business information.
    * 
    * @example
    * {"AccountPassword":"Pw123456","DBInstanceDescription":"test"}
@@ -13,25 +13,16 @@ export class DescribePriceRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The commodity code of the instance. Valid values:
-   * 
-   * - **dds**: pay-as-you-go ReplicaSet instance.
-   * 
-   * - **badds**: subscription ReplicaSet instance.
-   * 
-   * - **dds_sharding**: pay-as-you-go sharded cluster instance.
-   * 
-   * - **badds_sharding**: subscription sharded cluster instance.
-   * 
-   * - **badds_sharding_intl**: subscription sharded cluster instance on the Alibaba Cloud International Website (www\\.alibabacloud.com).
-   * 
-   * - **dds_sharding_intl**: pay-as-you-go sharded cluster instance on the Alibaba Cloud International Website (www\\.alibabacloud.com).
-   * 
-   * - **badds_sharding_jp**: subscription sharded cluster instance on the Alibaba Cloud Japan Website.
-   * 
-   * - **badds_intl**: subscription ReplicaSet instance on the Alibaba Cloud International Website (www\\.alibabacloud.com).
-   * 
-   * - **dds_intl**: pay-as-you-go ReplicaSet instance on the Alibaba Cloud International Website (www\\.alibabacloud.com).
+   * The commodity code. Valid values:
+   * - **dds**: pay-as-you-go replica set instance
+   * - **badds**: subscription replica set instance
+   * - **dds_sharding**: pay-as-you-go sharded cluster instance
+   * - **badds_sharding**: subscription sharded cluster instance
+   * - **badds_sharding_intl**: subscription sharded cluster instance on the international site
+   * - **dds_sharding_intl**: pay-as-you-go sharded cluster instance on the international site
+   * - **badds_sharding_jp**: subscription sharded cluster instance on the Japan site
+   * - **badds_intl**: subscription replica set instance on the international site
+   * - **dds_intl**: pay-as-you-go replica set instance on the international site
    * 
    * @example
    * badds
@@ -40,10 +31,8 @@ export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
-   * 
-   * - **default** or **null** (default): A coupon is used.
-   * 
-   * - **youhuiquan_promotion_option_id_for_blank**: A coupon is not used.
+   * - **default** or **null** (default): Use a coupon.
+   * - **youhuiquan_promotion_option_id_for_blank**: Do not use a coupon.
    * 
    * @example
    * default
@@ -51,7 +40,7 @@ export class DescribePriceRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * A JSON string that contains information about the instance. For more information about the parameters and JSON examples, see [DBInstances parameter of the DescribePrice operation](https://help.aliyun.com/document_detail/197291.html).
+   * The JSON-formatted string that contains multiple pieces of information about instances. For metric descriptions and more JSON format examples, see [DBInstances metric description for the DescribePrice operation](https://help.aliyun.com/document_detail/197291.html).
    * 
    * This parameter is required.
    * 
@@ -61,11 +50,9 @@ export class DescribePriceRequest extends $dara.Model {
   DBInstances?: string;
   /**
    * @remarks
-   * Specifies whether to return the order parameters. Valid values:
-   * 
-   * - **false** (default): The order parameters are not returned.
-   * 
-   * - **true**: The order parameters are returned.
+   * Specifies whether to return order parameters. Valid values:
+   * - **false** (default): Do not return order parameters.
+   * - **true**: Return order parameters.
    * 
    * @example
    * true
@@ -74,12 +61,9 @@ export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * The order type. Valid values:
-   * 
-   * - **BUY**: Creates an instance.
-   * 
-   * - **UPGRADE**: Changes the configuration of an instance.
-   * 
-   * - **RENEW**: Renews an instance.
+   * - **BUY**: Create an instance.
+   * - **UPGRADE**: Upgrade instance configurations.
+   * - **RENEW**: Renew an instance.
    * 
    * This parameter is required.
    * 
@@ -91,7 +75,7 @@ export class DescribePriceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The product code. The default value is **dds**.
+   * The product code. Default value: **dds**.
    * 
    * @example
    * dds
@@ -99,7 +83,7 @@ export class DescribePriceRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -107,7 +91,7 @@ export class DescribePriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The resource group ID. For more information about resource groups, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****

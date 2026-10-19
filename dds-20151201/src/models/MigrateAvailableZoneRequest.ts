@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateAvailableZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * > If the instance is deployed in a VPC, you must specify the **Vswitch** parameter.
+   * > If the network type of the instance is VPC, you must also specify the **Vswitch** parameter.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,9 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The time when the instance is migrated to the destination zone. Valid values:
-   * 
-   * - **Immediately**: The instance is immediately migrated to the destination zone.
-   * 
-   * - **MaintainTime**: The instance is migrated to the destination zone during the maintenance window of the instance.
+   * The effective time for migrating the zone. The instance must be active. Valid values:
+   * - **Immediately**: Takes effect immediately.
+   * - **MaintainTime**: Takes effect during the maintenance window of the instance.
    * 
    * Default value: **Immediately**.
    * 
@@ -31,7 +29,7 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The ID of the destination hidden zone.
+   * The ID of destination secondary zone 2.
    * 
    * @example
    * cn-shanghai-n
@@ -43,7 +41,7 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the destination secondary zone.
+   * The ID of destination secondary zone 1.
    * 
    * @example
    * cn-hangzhou-h
@@ -53,7 +51,7 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the vSwitch in the destination zone.
    * 
-   * > If the instance is deployed in a VPC, you must specify this parameter.
+   * > This parameter is required when the network type of the instance is VPC.
    * 
    * @example
    * vsw-bp1buy0h9myt5i9e7****
@@ -63,11 +61,8 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the destination zone.
    * 
-   * >
-   * 
-   * - The source zone and the destination zone belong to the same region.
-   * 
-   * - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
+   * > - The destination zone and the current zone of the instance are in the same region.
+   * > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query zone IDs.
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,7 @@ export class DeleteGlobalSecurityIPGroupRequest extends $dara.Model {
    * @remarks
    * The name of the IP address whitelist template. The name must meet the following requirements:
    * 
-   * - It must consist of lowercase letters, digits, and underscores (_).
+   * - It can contain only lowercase letters, digits, and underscores (_).
    * 
    * - It must start with a letter and end with a letter or a digit.
    * 
@@ -31,7 +31,7 @@ export class DeleteGlobalSecurityIPGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest list of regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

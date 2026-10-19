@@ -96,7 +96,7 @@ export class DescribeRestoreDBInstanceListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -112,7 +112,7 @@ export class DescribeRestoreDBInstanceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of instances in the query results.
+   * The total number of instances returned in the query result.
    * 
    * @example
    * 5

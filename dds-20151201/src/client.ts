@@ -72,19 +72,19 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "mongodb.aliyuncs.com",
       'eu-west-1-oxs': "mongodb.aliyuncs.com",
       'rus-west-1-pop': "mongodb.aliyuncs.com",
-      'us-southeast-1': "mongodb.us-southeast-1.aliyuncs.com",
-      'na-south-1': "mongodb.na-south-1.aliyuncs.com",
-      'me-central-1': "mongodb.me-central-1.aliyuncs.com",
-      'cn-zhongwei': "mongodb.cn-zhongwei.aliyuncs.com",
       'cn-zhengzhou-jva': "mongodb.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "mongodb.cn-wulanchabu-gic-1.aliyuncs.com",
       'cn-wuhan-lr': "mongodb.cn-wuhan-lr.aliyuncs.com",
       'cn-nanjing': "mongodb.cn-nanjing.aliyuncs.com",
-      'cn-fuzhou': "mongodb.cn-fuzhou.aliyuncs.com",
-      'ap-southeast-8': "mongodb.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "mongodb.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "mongodb.ap-southeast-6.aliyuncs.com",
       'ap-northeast-2': "mongodb.ap-northeast-2.aliyuncs.com",
+      'cn-fuzhou': "mongodb.cn-fuzhou.aliyuncs.com",
+      'ap-southeast-6': "mongodb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "mongodb.ap-southeast-7.aliyuncs.com",
+      'us-southeast-1': "mongodb.us-southeast-1.aliyuncs.com",
+      'sa-east-1': "mongodb.sa-east-1.aliyuncs.com",
+      'na-south-1': "mongodb.na-south-1.aliyuncs.com",
+      'me-central-1': "mongodb.me-central-1.aliyuncs.com",
+      'cn-heyuan-acdr-1': "mongodb.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "mongodb.cn-wulanchabu-gic-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dds", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -104,10 +104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for an SRV connection string for an ApsaraDB for MongoDB instance.
+   * Applies for an SRV address for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * Applicable only to cloud disk-based replica set and sharded cluster instances.
+   * This operation applies only to replica set instances and sharded cluster instances that use cloud disks.
    * 
    * @param request - AllocateDBInstanceSrvNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -162,10 +162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for an SRV connection string for an ApsaraDB for MongoDB instance.
+   * Applies for an SRV address for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * Applicable only to cloud disk-based replica set and sharded cluster instances.
+   * This operation applies only to replica set instances and sharded cluster instances that use cloud disks.
    * 
    * @param request - AllocateDBInstanceSrvNetworkAddressRequest
    * @returns AllocateDBInstanceSrvNetworkAddressResponse
@@ -176,11 +176,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+   * Applies for an internal network endpoint for a shard or ConfigServer node of an ApsaraDB for MongoDB database sharded cluster instance.
    * 
    * @remarks
-   * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
-   * > The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+   * This operation applies only to sharded cluster instances. For more details, see [Apply for an endpoint for a shard or ConfigServer node](https://help.aliyun.com/document_detail/134037.html).
+   * > The allocated endpoint supports only internal network access. If you require public network access, invoke the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for a public endpoint.
    * 
    * @param request - AllocateNodePrivateNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -243,11 +243,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+   * Applies for an internal network endpoint for a shard or ConfigServer node of an ApsaraDB for MongoDB database sharded cluster instance.
    * 
    * @remarks
-   * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
-   * > The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+   * This operation applies only to sharded cluster instances. For more details, see [Apply for an endpoint for a shard or ConfigServer node](https://help.aliyun.com/document_detail/134037.html).
+   * > The allocated endpoint supports only internal network access. If you require public network access, invoke the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for a public endpoint.
    * 
    * @param request - AllocateNodePrivateNetworkAddressRequest
    * @returns AllocateNodePrivateNetworkAddressResponse
@@ -258,7 +258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates a public endpoint to an instance.
+   * Allocates a public endpoint.
    * 
    * @param request - AllocatePublicNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -309,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates a public endpoint to an instance.
+   * Allocates a public endpoint.
    * 
    * @param request - AllocatePublicNetworkAddressRequest
    * @returns AllocatePublicNetworkAddressResponse
@@ -320,13 +320,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels Operations and Maintenance (O&M) events in a batch.
+   * Cancels multiple O&M events in batches.
    * 
    * @remarks
-   * An O\\&M event cannot be canceled in the following scenarios:
-   * - The event is not cancelable if the value of the AllowCancel parameter is 0.
-   * - The scheduled start time of the O\\&M event has passed.
-   * - The status of the O\\&M event is not Pending if the value of the Status parameter is not 3.
+   * Scenarios where O&M events cannot be canceled:
+   * - The event cannot be canceled (AllowCancel is 0).
+   * - The current time is later than the start time of the O&M event.
+   * - The status of the O&M event is not Pending Execution (Status is not 3).
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -377,13 +377,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels Operations and Maintenance (O&M) events in a batch.
+   * Cancels multiple O&M events in batches.
    * 
    * @remarks
-   * An O\\&M event cannot be canceled in the following scenarios:
-   * - The event is not cancelable if the value of the AllowCancel parameter is 0.
-   * - The scheduled start time of the O\\&M event has passed.
-   * - The status of the O\\&M event is not Pending if the value of the Status parameter is not 3.
+   * Scenarios where O&M events cannot be canceled:
+   * - The event cannot be canceled (AllowCancel is 0).
+   * - The current time is later than the start time of the O&M event.
+   * - The status of the O&M event is not Pending Execution (Status is not 3).
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
@@ -394,10 +394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
+   * Queries whether a Key Management Service (KMS) key is authorized for a MongoDB instance.
    * 
    * @remarks
-   * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+   * Before you invoke the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable transparent data encryption (TDE), invoke this operation to query the authorization of the KMS key for the MongoDB instance.
    * 
    * @param request - CheckCloudResourceAuthorizedRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -448,10 +448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
+   * Queries whether a Key Management Service (KMS) key is authorized for a MongoDB instance.
    * 
    * @remarks
-   * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+   * Before you invoke the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable transparent data encryption (TDE), invoke this operation to query the authorization of the KMS key for the MongoDB instance.
    * 
    * @param request - CheckCloudResourceAuthorizedRequest
    * @returns CheckCloudResourceAuthorizedResponse
@@ -462,11 +462,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+   * Checks whether a MongoDB instance meets the conditions for data restoration.
    * 
    * @remarks
-   * This operation is applicable to replica set instances and sharded cluster instances.
-   * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+   * This operation is applicable to replica set instances or sharded cluster instances.
+   * > After you call this operation to confirm that the conditions for data restoration are met, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
    * 
    * @param request - CheckRecoveryConditionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,11 +553,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+   * Checks whether a MongoDB instance meets the conditions for data restoration.
    * 
    * @remarks
-   * This operation is applicable to replica set instances and sharded cluster instances.
-   * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+   * This operation is applicable to replica set instances or sharded cluster instances.
+   * > After you call this operation to confirm that the conditions for data restoration are met, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
    * 
    * @param request - CheckRecoveryConditionRequest
    * @returns CheckRecoveryConditionResponse
@@ -568,7 +568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role (SLR) is created for an instance.
+   * Queries whether a service-linked role (SLR) has been created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role (SLR) is created for an instance.
+   * Queries whether a service-linked role (SLR) has been created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -618,11 +618,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+   * Creates a read-only shard account for an ApsaraDB for MongoDB sharded cluster instance with cloud disks.
    * 
    * @remarks
-   * - You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-   * - The account is granted read-only permissions.
+   * - Shard accounts can be created only for ApsaraDB for MongoDB sharded cluster instances with cloud disks.
+   * - Shard accounts are granted fixed read-only permissions.
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,6 +631,10 @@ export default class Client extends OpenApi {
   async createAccountWithOptions(request: $_model.CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
     if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
@@ -647,6 +651,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -661,6 +669,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.roles)) {
+      query["Roles"] = request.roles;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -681,11 +693,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+   * Creates a read-only shard account for an ApsaraDB for MongoDB sharded cluster instance with cloud disks.
    * 
    * @remarks
-   * - You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-   * - The account is granted read-only permissions.
+   * - Shard accounts can be created only for ApsaraDB for MongoDB sharded cluster instances with cloud disks.
+   * - Shard accounts are granted fixed read-only permissions.
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -696,10 +708,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup for a MongoDB instance.
+   * Creates a backup for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * The instance must be in the Running state.
+   * The instance status must be running when you invoke the CreateBackup operation.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -754,10 +766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup for a MongoDB instance.
+   * Creates a backup for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * The instance must be in the Running state.
+   * The instance status must be running when you invoke the CreateBackup operation.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -771,9 +783,9 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB replica set instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * For more information about the instance types of ApsaraDB for MongoDB, see [Instance types]().
-   * To create a sharded cluster instance, call the [CreateShardingDBInstance]() operation.
+   * Before using this operation, make sure you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * For information about instance specifications, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
+   * To create a sharded cluster instance, call the [CreateShardingDBInstance](https://help.aliyun.com/document_detail/61884.html) operation.
    * 
    * @param request - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -967,9 +979,9 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB replica set instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * For more information about the instance types of ApsaraDB for MongoDB, see [Instance types]().
-   * To create a sharded cluster instance, call the [CreateShardingDBInstance]() operation.
+   * Before using this operation, make sure you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * For information about instance specifications, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
+   * To create a sharded cluster instance, call the [CreateShardingDBInstance](https://help.aliyun.com/document_detail/61884.html) operation.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -1053,8 +1065,8 @@ export default class Client extends OpenApi {
    * Adds a shard node or a mongos node to an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before calling this operation, ensure you are familiar with the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to sharded cluster instances.
+   * Before calling this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * This operation is applicable only to sharded cluster instances.
    * 
    * @param request - CreateNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1160,8 +1172,8 @@ export default class Client extends OpenApi {
    * Adds a shard node or a mongos node to an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before calling this operation, ensure you are familiar with the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to sharded cluster instances.
+   * Before calling this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * This operation is applicable only to sharded cluster instances.
    * 
    * @param request - CreateNodeRequest
    * @returns CreateNodeResponse
@@ -1172,11 +1184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch adds mongos or shard nodes for a sharded cluster instance.
+   * Adds multiple Mongos or shard nodes to an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation is applicable only to sharded cluster instances.
+   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+   * This operation is applicable only to ApsaraDB for MongoDB sharded cluster instances.
    * 
    * @param request - CreateNodeBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1259,11 +1271,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch adds mongos or shard nodes for a sharded cluster instance.
+   * Adds multiple Mongos or shard nodes to an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation is applicable only to sharded cluster instances.
+   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+   * This operation is applicable only to ApsaraDB for MongoDB sharded cluster instances.
    * 
    * @param request - CreateNodeBatchRequest
    * @returns CreateNodeBatchResponse
@@ -1336,12 +1348,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or clones a MongoDB sharded cluster instance.
+   * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * - Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * - For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * - To create a standalone or replica set instance, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+   * - Before calling this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * - For more information about the specifications of ApsaraDB for MongoDB instances, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
+   * - To create a standalone instance or a replica set instance, call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
    * 
    * @param request - CreateShardingDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1520,12 +1532,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or clones a MongoDB sharded cluster instance.
+   * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * - Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * - For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * - To create a standalone or replica set instance, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+   * - Before calling this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * - For more information about the specifications of ApsaraDB for MongoDB instances, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
+   * - To create a standalone instance or a replica set instance, call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
    * 
    * @param request - CreateShardingDBInstanceRequest
    * @returns CreateShardingDBInstanceResponse
@@ -1539,8 +1551,8 @@ export default class Client extends OpenApi {
    * Deletes a MongoDB backup set.
    * 
    * @remarks
-   * You can delete only manual backups.
-   * This operation supports only MongoDB instances that use cloud disks.
+   * Only manual backups can be deleted.
+   * Only MongoDB instances with cloud disks are supported.
    * 
    * @param request - DeleteBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1594,8 +1606,8 @@ export default class Client extends OpenApi {
    * Deletes a MongoDB backup set.
    * 
    * @remarks
-   * You can delete only manual backups.
-   * This operation supports only MongoDB instances that use cloud disks.
+   * Only manual backups can be deleted.
+   * Only MongoDB instances with cloud disks are supported.
    * 
    * @param request - DeleteBackupRequest
    * @returns DeleteBackupResponse
@@ -1753,11 +1765,11 @@ export default class Client extends OpenApi {
    * Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that the instance meets the following requirements:
-   * - The instance is in the Running state.
+   * When you invoke this operation, the instance must meet the following requirements: 
+   * - The instance status is Running.
    * - The instance is a sharded cluster instance.
    * - The billing method of the instance is pay-as-you-go.
-   * - The number of the shard or mongos nodes in the instance is greater than two.
+   * - The number of shard or mongos nodes in the instance is greater than 2.
    * 
    * @param request - DeleteNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1815,11 +1827,11 @@ export default class Client extends OpenApi {
    * Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that the instance meets the following requirements:
-   * - The instance is in the Running state.
+   * When you invoke this operation, the instance must meet the following requirements: 
+   * - The instance status is Running.
    * - The instance is a sharded cluster instance.
    * - The billing method of the instance is pay-as-you-go.
-   * - The number of the shard or mongos nodes in the instance is greater than two.
+   * - The number of shard or mongos nodes in the instance is greater than 2.
    * 
    * @param request - DeleteNodeRequest
    * @returns DeleteNodeResponse
@@ -1830,7 +1842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database accounts of an ApsaraDB for MongoDB instance.
+   * Queries the database account information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1843,8 +1855,16 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.characterType)) {
+      query["CharacterType"] = request.characterType;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -1881,7 +1901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database accounts of an ApsaraDB for MongoDB instance.
+   * Queries the database account information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -1946,7 +1966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about tasks of an ApsaraDB for MongoDB instance.
+   * Queries the details of O&M tasks.
    * 
    * @param request - DescribeActiveOperationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2013,7 +2033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about tasks of an ApsaraDB for MongoDB instance.
+   * Queries the details of O&M tasks.
    * 
    * @param request - DescribeActiveOperationTaskRequest
    * @returns DescribeActiveOperationTaskResponse
@@ -2314,6 +2334,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries advanced backup policies.
+   * 
+   * @remarks
+   * Queries advanced backup policies. This operation is supported only for cloud disk replica set and cloud disk sharded cluster instances.
+   * 
+   * @param request - DescribeAdvancedBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAdvancedBackupPolicyResponse
+   */
+  async describeAdvancedBackupPolicyWithOptions(request: $_model.DescribeAdvancedBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAdvancedBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAdvancedBackupPolicy",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAdvancedBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAdvancedBackupPolicyResponse({}));
+  }
+
+  /**
+   * Queries advanced backup policies.
+   * 
+   * @remarks
+   * Queries advanced backup policies. This operation is supported only for cloud disk replica set and cloud disk sharded cluster instances.
+   * 
+   * @param request - DescribeAdvancedBackupPolicyRequest
+   * @returns DescribeAdvancedBackupPolicyResponse
+   */
+  async describeAdvancedBackupPolicy(request: $_model.DescribeAdvancedBackupPolicyRequest): Promise<$_model.DescribeAdvancedBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAdvancedBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries whether advanced backup is enabled.
+   * 
+   * @remarks
+   * Queries whether advanced backup is enabled. This operation supports only cloud disk replica set instances and cloud disk sharded cluster instances.
+   * 
+   * @param request - DescribeAdvancedBackupStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAdvancedBackupStatusResponse
+   */
+  async describeAdvancedBackupStatusWithOptions(request: $_model.DescribeAdvancedBackupStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAdvancedBackupStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAdvancedBackupStatus",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAdvancedBackupStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAdvancedBackupStatusResponse({}));
+  }
+
+  /**
+   * Queries whether advanced backup is enabled.
+   * 
+   * @remarks
+   * Queries whether advanced backup is enabled. This operation supports only cloud disk replica set instances and cloud disk sharded cluster instances.
+   * 
+   * @param request - DescribeAdvancedBackupStatusRequest
+   * @returns DescribeAdvancedBackupStatusResponse
+   */
+  async describeAdvancedBackupStatus(request: $_model.DescribeAdvancedBackupStatusRequest): Promise<$_model.DescribeAdvancedBackupStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAdvancedBackupStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the audit log types collected for a MongoDB instance.
    * 
    * @remarks
@@ -2454,12 +2570,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries audit log entries for a MongoDB instance.
+   * Queries the audit logs of a MongoDB instance.
    * 
    * @remarks
-   * - When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
-   * - This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The audit log feature must be enabled for the instance before you call this operation. Otherwise, the returned audit log content is empty.
+   * - This operation applies to instances of the **General-purpose local disk** and **Dedicated local disk** specification types.
+   * - This operation can be called up to 30 times per minute. Calls that exceed this limit are throttled. Do not call this operation at a high frequency. If high-frequency calls are required, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeAuditRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2550,12 +2666,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries audit log entries for a MongoDB instance.
+   * Queries the audit logs of a MongoDB instance.
    * 
    * @remarks
-   * - When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
-   * - This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The audit log feature must be enabled for the instance before you call this operation. Otherwise, the returned audit log content is empty.
+   * - This operation applies to instances of the **General-purpose local disk** and **Dedicated local disk** specification types.
+   * - This operation can be called up to 30 times per minute. Calls that exceed this limit are throttled. Do not call this operation at a high frequency. If high-frequency calls are required, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeAuditRecordsRequest
    * @returns DescribeAuditRecordsResponse
@@ -3142,7 +3258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backups of a MongoDB instance.
+   * Queries the backup list of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3229,7 +3345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backups of a MongoDB instance.
+   * Queries the backup list of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -3526,7 +3642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an ApsaraDB for MongoDB instance.
+   * Queries the information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,7 +3705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an ApsaraDB for MongoDB instance.
+   * Queries the information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -3600,10 +3716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the encryption key of a MongoDB instance.
+   * Queries the details of a specific key for a MongoDB instance.
    * 
    * @remarks
-   * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+   * When you invoke the DescribeDBInstanceEncryptionKey operation, transparent data encryption (TDE) must be enabled for the instance by using Bring Your Own Key (BYOK). You can invoke [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) to enable TDE.
    * 
    * @param request - DescribeDBInstanceEncryptionKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3618,6 +3734,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.encryptionKey)) {
       query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!$dara.isNull(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -3654,10 +3774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the encryption key of a MongoDB instance.
+   * Queries the details of a specific key for a MongoDB instance.
    * 
    * @remarks
-   * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+   * When you invoke the DescribeDBInstanceEncryptionKey operation, transparent data encryption (TDE) must be enabled for the instance by using Bring Your Own Key (BYOK). You can invoke [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) to enable TDE.
    * 
    * @param request - DescribeDBInstanceEncryptionKeyRequest
    * @returns DescribeDBInstanceEncryptionKeyResponse
@@ -4097,8 +4217,8 @@ export default class Client extends OpenApi {
    * Queries a list of MongoDB instances.
    * 
    * @remarks
-   * <props="china">By default, this operation queries a list of replica set instances, which includes standalone instances. If you do not specify the **DBInstanceType** request parameter, the default value is **replicate**. To query a list of sharded cluster instances, set **DBInstanceType** to **sharding**. To query a list of serverless instances, set **DBInstanceType** to **serverless**.
-   * <props="intl">By default, this operation queries a list of replica set instances, which includes standalone instances. If you do not specify the **DBInstanceType** request parameter, the default value is **replicate**. To query a list of sharded cluster instances, set **DBInstanceType** to **sharding**.
+   * <props="china">By default, this operation queries the list of replica set instances (including single-node instances). If the request parameter **DBInstanceType** is not specified, the default value of this parameter is **replicate**. To query the list of sharded cluster instances, set **DBInstanceType** to **sharding**. To query the list of Serverless instances, set **DBInstanceType** to **serverless**.
+   * <props="intl">By default, this operation queries the list of replica set instances (including single-node instances). If the request parameter **DBInstanceType** is not specified, the default value of this parameter is **replicate**. To query the list of sharded cluster instances, set **DBInstanceType** to **sharding**.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4232,8 +4352,8 @@ export default class Client extends OpenApi {
    * Queries a list of MongoDB instances.
    * 
    * @remarks
-   * <props="china">By default, this operation queries a list of replica set instances, which includes standalone instances. If you do not specify the **DBInstanceType** request parameter, the default value is **replicate**. To query a list of sharded cluster instances, set **DBInstanceType** to **sharding**. To query a list of serverless instances, set **DBInstanceType** to **serverless**.
-   * <props="intl">By default, this operation queries a list of replica set instances, which includes standalone instances. If you do not specify the **DBInstanceType** request parameter, the default value is **replicate**. To query a list of sharded cluster instances, set **DBInstanceType** to **sharding**.
+   * <props="china">By default, this operation queries the list of replica set instances (including single-node instances). If the request parameter **DBInstanceType** is not specified, the default value of this parameter is **replicate**. To query the list of sharded cluster instances, set **DBInstanceType** to **sharding**. To query the list of Serverless instances, set **DBInstanceType** to **serverless**.
+   * <props="intl">By default, this operation queries the list of replica set instances (including single-node instances). If the request parameter **DBInstanceType** is not specified, the default value of this parameter is **replicate**. To query the list of sharded cluster instances, set **DBInstanceType** to **sharding**.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -4358,11 +4478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries error log entries for a MongoDB instance.
+   * Queries the error logs of a MongoDB instance.
    * 
    * @remarks
-   * - This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation applies to instances of the **General-purpose Local Disk** and **Dedicated Local Disk** specification types.
+   * - This operation is limited to 30 calls per minute. Exceeding this limit triggers throttling. Do not call this operation at a high frequency. For high-frequency access, use Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeErrorLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4449,11 +4569,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries error log entries for a MongoDB instance.
+   * Queries the error logs of a MongoDB instance.
    * 
    * @remarks
-   * - This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation applies to instances of the **General-purpose Local Disk** and **Dedicated Local Disk** specification types.
+   * - This operation is limited to 30 calls per minute. Exceeding this limit triggers throttling. Do not call this operation at a high frequency. For high-frequency access, use Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeErrorLogRecordsRequest
    * @returns DescribeErrorLogRecordsResponse
@@ -4464,7 +4584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+   * Queries the global IP whitelist templates.
    * 
    * @param request - DescribeGlobalSecurityIPGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4491,7 +4611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+   * Queries the global IP whitelist templates.
    * 
    * @param request - DescribeGlobalSecurityIPGroupRequest
    * @returns DescribeGlobalSecurityIPGroupResponse
@@ -4906,7 +5026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+   * Queries the release notes of minor engine versions for a MongoDB instance.
    * 
    * @param request - DescribeKernelReleaseNotesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4953,7 +5073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+   * Queries the release notes of minor engine versions for a MongoDB instance.
    * 
    * @param request - DescribeKernelReleaseNotesRequest
    * @returns DescribeKernelReleaseNotesResponse
@@ -5238,7 +5358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameter settings of an ApsaraDB for MongoDB instance.
+   * Queries the parameter settings of a MongoDB instance.
    * 
    * @param request - DescribeParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5297,7 +5417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameter settings of an ApsaraDB for MongoDB instance.
+   * Queries the parameter settings of a MongoDB instance.
    * 
    * @param request - DescribeParametersRequest
    * @returns DescribeParametersResponse
@@ -5308,7 +5428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query prices.
+   * Queries pricing information.
    * 
    * @param request - DescribePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5387,7 +5507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query prices.
+   * Queries pricing information.
    * 
    * @param request - DescribePriceRequest
    * @returns DescribePriceResponse
@@ -5742,7 +5862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+   * Queries the backup and restoration instances of a MongoDB instance within the last 7 days.
    * 
    * @param request - DescribeRestoreDBInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5801,7 +5921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+   * Queries the backup and restoration instances of a MongoDB instance within the last 7 days.
    * 
    * @param request - DescribeRestoreDBInstanceListRequest
    * @returns DescribeRestoreDBInstanceListResponse
@@ -5870,11 +5990,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+   * Queries the roles and zones of each node in a MongoDB instance.
    * 
    * @remarks
    * > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
-   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+   * This operation is applicable to replica set instances and sharded cluster instances. Standalone instances are not supported.
    * 
    * @param request - DescribeRoleZoneInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5921,11 +6041,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+   * Queries the roles and zones of each node in a MongoDB instance.
    * 
    * @remarks
    * > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
-   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+   * This operation is applicable to replica set instances and sharded cluster instances. Standalone instances are not supported.
    * 
    * @param request - DescribeRoleZoneInfoRequest
    * @returns DescribeRoleZoneInfoResponse
@@ -5936,11 +6056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the running logs for a MongoDB instance.
+   * Queries the running logs of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - This API is for instances with the following specification types: **general-purpose local disk**, **dedicated local disk**, and **cloud disk**.
-   * - This API is limited to 30 calls per minute. Exceeding this limit triggers rate limiting, so avoid high-frequency calls. For high-frequency operations, use Logstore. For more information, see [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation is applicable to instances of the **shared local disk**, **dedicated local disk**, and **cloud disk** specification types.
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not call this operation at a high frequency. If you need to call this operation at a high frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeRunningLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6035,11 +6155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the running logs for a MongoDB instance.
+   * Queries the running logs of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - This API is for instances with the following specification types: **general-purpose local disk**, **dedicated local disk**, and **cloud disk**.
-   * - This API is limited to 30 calls per minute. Exceeding this limit triggers rate limiting, so avoid high-frequency calls. For high-frequency operations, use Logstore. For more information, see [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation is applicable to instances of the **shared local disk**, **dedicated local disk**, and **cloud disk** specification types.
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not call this operation at a high frequency. If you need to call this operation at a high frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - DescribeRunningLogRecordsRequest
    * @returns DescribeRunningLogRecordsResponse
@@ -6418,10 +6538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom keys for an instance.
+   * Queries the custom key list of an instance.
    * 
    * @remarks
-   * You can use the custom keys returned by this operation to enable transparent data encryption (TDE). For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+   * You can use the custom keys obtained by calling DescribeUserEncryptionKeyList to enable transparent data encryption (TDE). For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
    * 
    * @param request - DescribeUserEncryptionKeyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6476,10 +6596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom keys for an instance.
+   * Queries the custom key list of an instance.
    * 
    * @remarks
-   * You can use the custom keys returned by this operation to enable transparent data encryption (TDE). For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+   * You can use the custom keys obtained by calling DescribeUserEncryptionKeyList to enable transparent data encryption (TDE). For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
    * 
    * @param request - DescribeUserEncryptionKeyListRequest
    * @returns DescribeUserEncryptionKeyListResponse
@@ -6490,7 +6610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paginated list of VPCs.
+   * Retrieves a paginated list of VPCs.
    * 
    * @param request - DescribeVpcsForMongoDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6553,7 +6673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paginated list of VPCs.
+   * Retrieves a paginated list of VPCs.
    * 
    * @param request - DescribeVpcsForMongoDBRequest
    * @returns DescribeVpcsForMongoDBResponse
@@ -6650,11 +6770,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Evaluate resource availability before purchasing a new instance or changing the configuration of an existing instance.
+   * Evaluates whether sufficient resources are available before you create an instance or change the specifications of an instance.
    * 
    * @remarks
-   * Evaluate resource availability for MongoDB replica set instances and sharded cluster instances. Supported scenarios include purchasing a new instance, changing an instance configuration, and adding nodes to a sharded cluster.
-   * > You can call this operation up to 200 times per minute. Calls that exceed this limit are subject to traffic throttling.
+   * This operation evaluates resources for ApsaraDB for MongoDB replica set and sharded cluster instances. It supports resource evaluation for creating replica set and sharded cluster instances, changing instance specifications, and adding nodes to sharded cluster instances.
+   * > You can call this operation up to 200 times per minute. Exceeding this limit triggers throttling.
    * 
    * @param request - EvaluateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6737,11 +6857,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Evaluate resource availability before purchasing a new instance or changing the configuration of an existing instance.
+   * Evaluates whether sufficient resources are available before you create an instance or change the specifications of an instance.
    * 
    * @remarks
-   * Evaluate resource availability for MongoDB replica set instances and sharded cluster instances. Supported scenarios include purchasing a new instance, changing an instance configuration, and adding nodes to a sharded cluster.
-   * > You can call this operation up to 200 times per minute. Calls that exceed this limit are subject to traffic throttling.
+   * This operation evaluates resources for ApsaraDB for MongoDB replica set and sharded cluster instances. It supports resource evaluation for creating replica set and sharded cluster instances, changing instance specifications, and adding nodes to sharded cluster instances.
+   * > You can call this operation up to 200 times per minute. Exceeding this limit triggers throttling.
    * 
    * @param request - EvaluateResourceRequest
    * @returns EvaluateResourceResponse
@@ -6826,14 +6946,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates an ApsaraDB for MongoDB instance to a specific zone.
+   * Migrates the zone of a MongoDB instance.
    * 
    * @remarks
-   * - This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
-   * - If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
-   * - Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
-   * - The source zone and the destination zone belong to the same region.
-   * - A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+   * - The MigrateAvailableZone operation does not support standalone instances. It is applicable to active cloud disk instances and local disk instances.
+   * - The transparent data encryption (TDE) feature is not enabled for the instance.
+   * - The destination zone and the current zone of the instance are in the same region.
+   * - If the instance is deployed in a VPC, make sure that a vSwitch is created in the destination zone before you migrate the zone. For more information, see [Create a vSwitch](https://help.aliyun.com/document_detail/65387.html).
    * 
    * @param request - MigrateAvailableZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6900,14 +7019,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates an ApsaraDB for MongoDB instance to a specific zone.
+   * Migrates the zone of a MongoDB instance.
    * 
    * @remarks
-   * - This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
-   * - If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
-   * - Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
-   * - The source zone and the destination zone belong to the same region.
-   * - A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+   * - The MigrateAvailableZone operation does not support standalone instances. It is applicable to active cloud disk instances and local disk instances.
+   * - The transparent data encryption (TDE) feature is not enabled for the instance.
+   * - The destination zone and the current zone of the instance are in the same region.
+   * - If the instance is deployed in a VPC, make sure that a vSwitch is created in the destination zone before you migrate the zone. For more information, see [Create a vSwitch](https://help.aliyun.com/document_detail/65387.html).
    * 
    * @param request - MigrateAvailableZoneRequest
    * @returns MigrateAvailableZoneResponse
@@ -6918,11 +7036,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates an ApsaraDB for MongoDB instance to another zone.
+   * Migrates a MongoDB instance to another zone.
    * 
    * @remarks
-   * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
-   * > If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+   * - This operation is applicable to replica set instances. Standalone instances and sharded cluster instances are not supported.
+   * - Transparent Data Encryption (TDE) is not enabled for the instance.
+   * - The destination zone and the current zone of the instance must be in the same region.
+   * - If the instance is deployed in a virtual private cloud (VPC), make sure that a vSwitch is created in the destination zone before you migrate the instance. For more information, see [Create a vSwitch](https://help.aliyun.com/document_detail/65387.html).
    * 
    * @param request - MigrateToOtherZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6981,11 +7101,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates an ApsaraDB for MongoDB instance to another zone.
+   * Migrates a MongoDB instance to another zone.
    * 
    * @remarks
-   * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
-   * > If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+   * - This operation is applicable to replica set instances. Standalone instances and sharded cluster instances are not supported.
+   * - Transparent Data Encryption (TDE) is not enabled for the instance.
+   * - The destination zone and the current zone of the instance must be in the same region.
+   * - If the instance is deployed in a virtual private cloud (VPC), make sure that a vSwitch is created in the destination zone before you migrate the instance. For more information, see [Create a vSwitch](https://help.aliyun.com/document_detail/65387.html).
    * 
    * @param request - MigrateToOtherZoneRequest
    * @returns MigrateToOtherZoneResponse
@@ -7022,6 +7144,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -7072,7 +7198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Operations and Maintenance (O&M) task configuration for a MongoDB instance.
+   * Modifies the O&M task configuration of a MongoDB instance.
    * 
    * @param request - ModifyActiveOperationMaintenanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7135,7 +7261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Operations and Maintenance (O&M) task configuration for a MongoDB instance.
+   * Modifies the O&M task configuration of a MongoDB instance.
    * 
    * @param request - ModifyActiveOperationMaintenanceConfigRequest
    * @returns ModifyActiveOperationMaintenanceConfigResponse
@@ -7146,7 +7272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+   * Modifies the switchover time of scheduled O&M tasks for an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7205,7 +7331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+   * Modifies the switchover time of scheduled O&M tasks for an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
@@ -7213,6 +7339,132 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTasks(request: $_model.ModifyActiveOperationTasksRequest): Promise<$_model.ModifyActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the advanced backup policy.
+   * 
+   * @remarks
+   * Geo-redundancy applies only to cloud disk replica set and cloud disk sharded instances.
+   * 
+   * @param tmpReq - ModifyAdvancedBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAdvancedBackupPolicyResponse
+   */
+  async modifyAdvancedBackupPolicyWithOptions(tmpReq: $_model.ModifyAdvancedBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAdvancedBackupPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAdvancedBackupPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.advancedBackupDataPolicies)) {
+      request.advancedBackupDataPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedBackupDataPolicies, "AdvancedBackupDataPolicies", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.advancedBackupLogPolicies)) {
+      request.advancedBackupLogPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedBackupLogPolicies, "AdvancedBackupLogPolicies", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.advancedBackupDataPoliciesShrink)) {
+      query["AdvancedBackupDataPolicies"] = request.advancedBackupDataPoliciesShrink;
+    }
+
+    if (!$dara.isNull(request.advancedBackupLogPoliciesShrink)) {
+      query["AdvancedBackupLogPolicies"] = request.advancedBackupLogPoliciesShrink;
+    }
+
+    if (!$dara.isNull(request.backupRetentionPolicyOnClusterDeletion)) {
+      query["BackupRetentionPolicyOnClusterDeletion"] = request.backupRetentionPolicyOnClusterDeletion;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.preferredBackupTime)) {
+      query["PreferredBackupTime"] = request.preferredBackupTime;
+    }
+
+    if (!$dara.isNull(request.snapshotBackupType)) {
+      query["SnapshotBackupType"] = request.snapshotBackupType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAdvancedBackupPolicy",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAdvancedBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAdvancedBackupPolicyResponse({}));
+  }
+
+  /**
+   * Modifies the advanced backup policy.
+   * 
+   * @remarks
+   * Geo-redundancy applies only to cloud disk replica set and cloud disk sharded instances.
+   * 
+   * @param request - ModifyAdvancedBackupPolicyRequest
+   * @returns ModifyAdvancedBackupPolicyResponse
+   */
+  async modifyAdvancedBackupPolicy(request: $_model.ModifyAdvancedBackupPolicyRequest): Promise<$_model.ModifyAdvancedBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAdvancedBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables advanced backup.
+   * 
+   * @remarks
+   * Enables advanced backup. This feature is supported only for cloud disk replica set and sharded cluster instances.
+   * 
+   * @param request - ModifyAdvancedBackupStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAdvancedBackupStatusResponse
+   */
+  async modifyAdvancedBackupStatusWithOptions(request: $_model.ModifyAdvancedBackupStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAdvancedBackupStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAdvancedBackupStatus",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAdvancedBackupStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAdvancedBackupStatusResponse({}));
+  }
+
+  /**
+   * Enables advanced backup.
+   * 
+   * @remarks
+   * Enables advanced backup. This feature is supported only for cloud disk replica set and sharded cluster instances.
+   * 
+   * @param request - ModifyAdvancedBackupStatusRequest
+   * @returns ModifyAdvancedBackupStatusResponse
+   */
+  async modifyAdvancedBackupStatus(request: $_model.ModifyAdvancedBackupStatusRequest): Promise<$_model.ModifyAdvancedBackupStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAdvancedBackupStatusWithOptions(request, runtime);
   }
 
   /**
@@ -7290,10 +7542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the audit log for a MongoDB instance, or modifies the log retention period.
+   * Settings the audit log switch or log storage duration for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - You can call this operation up to 30 times per minute. The system throttles calls that exceed this limit. Avoid calling this operation frequently. If you need to make frequent calls, use Logstore. For more information, see [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the request is throttled. Do not call this operation at a high frequency. For high-frequency calls, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ModifyAuditPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7360,10 +7612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the audit log for a MongoDB instance, or modifies the log retention period.
+   * Settings the audit log switch or log storage duration for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - You can call this operation up to 30 times per minute. The system throttles calls that exceed this limit. Avoid calling this operation frequently. If you need to make frequent calls, use Logstore. For more information, see [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the request is throttled. Do not call this operation at a high frequency. For high-frequency calls, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ModifyAuditPolicyRequest
    * @returns ModifyAuditPolicyResponse
@@ -7451,7 +7703,7 @@ export default class Client extends OpenApi {
    * Modifies the backup policy of a MongoDB instance.
    * 
    * @remarks
-   * Geo-redundancy is available only for replica set instances and sharded cluster instances that use cloud disks.
+   * Cross-region backup is applicable only to replica set and sharded cluster instances that use cloud disks.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7581,7 +7833,7 @@ export default class Client extends OpenApi {
    * Modifies the backup policy of a MongoDB instance.
    * 
    * @remarks
-   * Geo-redundancy is available only for replica set instances and sharded cluster instances that use cloud disks.
+   * Cross-region backup is applicable only to replica set and sharded cluster instances that use cloud disks.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -7726,12 +7978,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the connection address and port of a MongoDB instance.
+   * Modifies the endpoint and port of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * You can modify the connection address and port for the following instance types:
-   * - You can modify the connection address and port for instances that use local disks or cloud disks.
-   * - For sharded cluster instances, you can modify only the connection address of Mongos nodes.
+   * The instance types that support modifying the endpoint and port are as follows:
+   * - You can modify the endpoints of instances with local disks and cloud disks.
+   * - For sharded cluster instances, you can modify only the endpoints of Mongos nodes.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7806,12 +8058,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the connection address and port of a MongoDB instance.
+   * Modifies the endpoint and port of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * You can modify the connection address and port for the following instance types:
-   * - You can modify the connection address and port for instances that use local disks or cloud disks.
-   * - For sharded cluster instances, you can modify only the connection address of Mongos nodes.
+   * The instance types that support modifying the endpoint and port are as follows:
+   * - You can modify the endpoints of instances with local disks and cloud disks.
+   * - For sharded cluster instances, you can modify only the endpoints of Mongos nodes.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @returns ModifyDBInstanceConnectionStringResponse
@@ -8116,13 +8368,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+   * Extends the classic network retention period for a MongoDB instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that the instance meets the following requirements:
-   * - The instance is in the Running state.
-   * - The network of the instance is in hybrid access mode.
-   * > This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+   * When you call this operation, the instance must meet the following conditions:
+   * * The instance is in the Running state.
+   * * The network type of the instance is hybrid access mode.
+   * > This operation is applicable to replica set instances and sharded cluster instances. Standalone instances are not supported.
    * 
    * @param request - ModifyDBInstanceNetExpireTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8177,13 +8429,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+   * Extends the classic network retention period for a MongoDB instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that the instance meets the following requirements:
-   * - The instance is in the Running state.
-   * - The network of the instance is in hybrid access mode.
-   * > This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+   * When you call this operation, the instance must meet the following conditions:
+   * * The instance is in the Running state.
+   * * The network type of the instance is hybrid access mode.
+   * > This operation is applicable to replica set instances and sharded cluster instances. Standalone instances are not supported.
    * 
    * @param request - ModifyDBInstanceNetExpireTimeRequest
    * @returns ModifyDBInstanceNetExpireTimeResponse
@@ -8287,12 +8539,12 @@ export default class Client extends OpenApi {
    * Modifies the SSL configuration of a MongoDB instance.
    * 
    * @remarks
-   * Before you call the ModifyDBInstanceSSL operation, make sure that the instance meets the following requirements:
-   * - The instance is in the running state.
-   * - The instance is a replica set instance or a sharded cluster instance.
-   *   - The replica set instance is version 3.4 or later.
-   *   - The sharded cluster instance uses enhanced solid-state drives (ESSDs).
-   * > Enabling, updating, or disabling SSL restarts the instance. We recommend that you perform these operations during off-peak hours.
+   * When you call the ModifyDBInstanceSSL operation, the instance must meet the following conditions: 
+   * - The instance is in the Running state.
+   * - The instance is a replica set or sharded cluster instance.
+   *   - The MongoDB version of a replica set instance must be 3.4 or later.
+   *   - The storage mode of a sharded cluster instance must be ESSD cloud disk.
+   * > When you enable, update, or disable SSL, the instance restarts once. Perform this operation during off-peak hours.
    * 
    * @param request - ModifyDBInstanceSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8354,12 +8606,12 @@ export default class Client extends OpenApi {
    * Modifies the SSL configuration of a MongoDB instance.
    * 
    * @remarks
-   * Before you call the ModifyDBInstanceSSL operation, make sure that the instance meets the following requirements:
-   * - The instance is in the running state.
-   * - The instance is a replica set instance or a sharded cluster instance.
-   *   - The replica set instance is version 3.4 or later.
-   *   - The sharded cluster instance uses enhanced solid-state drives (ESSDs).
-   * > Enabling, updating, or disabling SSL restarts the instance. We recommend that you perform these operations during off-peak hours.
+   * When you call the ModifyDBInstanceSSL operation, the instance must meet the following conditions: 
+   * - The instance is in the Running state.
+   * - The instance is a replica set or sharded cluster instance.
+   *   - The MongoDB version of a replica set instance must be 3.4 or later.
+   *   - The storage mode of a sharded cluster instance must be ESSD cloud disk.
+   * > When you enable, update, or disable SSL, the instance restarts once. Perform this operation during off-peak hours.
    * 
    * @param request - ModifyDBInstanceSSLRequest
    * @returns ModifyDBInstanceSSLResponse
@@ -8370,11 +8622,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the instance type or storage space for ApsaraDB for MongoDB standalone, replica set, or serverless instances. Serverless instances are exclusive to the Alibaba Cloud China website.
+   * Modifies the specifications or storage space of ApsaraDB for MongoDB standalone instances, replica set instances, and serverless instances. Serverless instances are supported only on the Alibaba Cloud China site.
    * 
    * @remarks
-   * Before calling this operation, make sure you understand the billing method and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to ApsaraDB for MongoDB<props="china"> standalone instances, replica set instances, and Serverless instances<props="intl"> standalone instances and replica set instances. To change the configuration of a sharded cluster instance, call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html), [CreateNode](https://help.aliyun.com/document_detail/61911.html), [DeleteNode](https://help.aliyun.com/document_detail/61922.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61816.html) operations.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * This operation is applicable only to ApsaraDB for MongoDB <props="china"><ph>standalone instances, replica set instances, and serverless instances</ph><props="intl"><ph>standalone instances and replica set instances</ph>. To modify the configurations of a sharded cluster instance, call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html), [CreateNode](https://help.aliyun.com/document_detail/61911.html), [DeleteNode](https://help.aliyun.com/document_detail/61922.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61816.html) operation based on your business requirements.
    * 
    * @param request - ModifyDBInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8383,6 +8635,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceSpecWithOptions(request: $_model.ModifyDBInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceSpecResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alignPrimaryZone)) {
+      query["AlignPrimaryZone"] = request.alignPrimaryZone;
+    }
+
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -8489,11 +8745,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the instance type or storage space for ApsaraDB for MongoDB standalone, replica set, or serverless instances. Serverless instances are exclusive to the Alibaba Cloud China website.
+   * Modifies the specifications or storage space of ApsaraDB for MongoDB standalone instances, replica set instances, and serverless instances. Serverless instances are supported only on the Alibaba Cloud China site.
    * 
    * @remarks
-   * Before calling this operation, make sure you understand the billing method and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to ApsaraDB for MongoDB<props="china"> standalone instances, replica set instances, and Serverless instances<props="intl"> standalone instances and replica set instances. To change the configuration of a sharded cluster instance, call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html), [CreateNode](https://help.aliyun.com/document_detail/61911.html), [DeleteNode](https://help.aliyun.com/document_detail/61922.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61816.html) operations.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   * This operation is applicable only to ApsaraDB for MongoDB <props="china"><ph>standalone instances, replica set instances, and serverless instances</ph><props="intl"><ph>standalone instances and replica set instances</ph>. To modify the configurations of a sharded cluster instance, call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html), [CreateNode](https://help.aliyun.com/document_detail/61911.html), [DeleteNode](https://help.aliyun.com/document_detail/61922.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61816.html) operation based on your business requirements.
    * 
    * @param request - ModifyDBInstanceSpecRequest
    * @returns ModifyDBInstanceSpecResponse
@@ -8507,13 +8763,13 @@ export default class Client extends OpenApi {
    * Modifies the Transparent Data Encryption (TDE) status of a MongoDB instance.
    * 
    * @remarks
-   * Transparent Data Encryption (TDE) provides real-time I/O encryption and decryption for data files. Data is encrypted before it is written to a disk and decrypted when it is read from the disk into memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+   * Transparent Data Encryption (TDE) performs real-time I/O encryption and decryption on data files. Data is encrypted before it is written to the disk and decrypted when it is read from the disk into the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
    * > You cannot disable TDE after it is enabled.
-   * Before you call this operation, make sure that the instance meets the following requirements:
+   * When you call this operation, the instance must meet the following requirements:
    * - The instance is a replica set instance or a sharded cluster instance.
-   * - The instance uses the WiredTiger storage engine.
-   * - The instance uses local disks.
-   * - The instance runs MongoDB 4.0 or 4.2. If the instance runs an earlier version, you must upgrade the database version by calling the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation.
+   * - The storage engine of the instance is WiredTiger.
+   * - The storage type of the instance is local disk.
+   * - The database version of the instance is 4.0 or 4.2. If the database version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database version.
    * 
    * @param request - ModifyDBInstanceTDERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8583,13 +8839,13 @@ export default class Client extends OpenApi {
    * Modifies the Transparent Data Encryption (TDE) status of a MongoDB instance.
    * 
    * @remarks
-   * Transparent Data Encryption (TDE) provides real-time I/O encryption and decryption for data files. Data is encrypted before it is written to a disk and decrypted when it is read from the disk into memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+   * Transparent Data Encryption (TDE) performs real-time I/O encryption and decryption on data files. Data is encrypted before it is written to the disk and decrypted when it is read from the disk into the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
    * > You cannot disable TDE after it is enabled.
-   * Before you call this operation, make sure that the instance meets the following requirements:
+   * When you call this operation, the instance must meet the following requirements:
    * - The instance is a replica set instance or a sharded cluster instance.
-   * - The instance uses the WiredTiger storage engine.
-   * - The instance uses local disks.
-   * - The instance runs MongoDB 4.0 or 4.2. If the instance runs an earlier version, you must upgrade the database version by calling the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation.
+   * - The storage engine of the instance is WiredTiger.
+   * - The storage type of the instance is local disk.
+   * - The database version of the instance is 4.0 or 4.2. If the database version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database version.
    * 
    * @param request - ModifyDBInstanceTDERequest
    * @returns ModifyDBInstanceTDEResponse
@@ -8962,10 +9218,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the instance type and storage space of a node in a MongoDB sharded cluster instance.
+   * Modifies the specifications and storage space of nodes in a MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of MongoDB.
+   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * > This operation is applicable only to sharded cluster instances.
    * 
    * @param request - ModifyNodeSpecRequest
@@ -8975,6 +9231,10 @@ export default class Client extends OpenApi {
   async modifyNodeSpecWithOptions(request: $_model.ModifyNodeSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyNodeSpecResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alignPrimaryZone)) {
+      query["AlignPrimaryZone"] = request.alignPrimaryZone;
+    }
+
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -9077,10 +9337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the instance type and storage space of a node in a MongoDB sharded cluster instance.
+   * Modifies the specifications and storage space of nodes in a MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of MongoDB.
+   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * > This operation is applicable only to sharded cluster instances.
    * 
    * @param request - ModifyNodeSpecRequest
@@ -9092,12 +9352,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configuration of one or more Mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+   * Modifies the configurations of one or more Mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, ensure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to ApsaraDB for MongoDB sharded cluster instances.
-   * When you upgrade or downgrade multiple sharded cluster instances in a batch, the target instance types are subject to certain constraints. For example, if you expand storage capacity, the target capacity must be greater than or equal to the current capacity. If the instances have different instance types, the system randomly selects the instance type of one instance and applies its constraints to the entire batch. This may cause the upgrade or downgrade to fail. If you cannot upgrade or downgrade instances in a batch, you can use the ModifyNodeSpec operation to change the configuration of a single sharded cluster instance.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   *  This operation is applicable only to ApsaraDB for MongoDB sharded cluster instances.
+   * When you perform batch upgrade or decrease the quota on multiple sharded cluster instances, the target specifications are subject to certain constraints. For example, for storage capacity expansion, the target capacity must be greater than or equal to the current capacity. If the specifications of multiple sharded cluster instances are inconsistent, the system randomly selects the specifications of one sharded cluster instance to construct the constraints, which may cause the upgrade or decrease the quota to fail.
+   * If the batch upgrade or decrease the quota process is not Normal, we recommend that you use the ModifyNodeSpec operation to perform an Upgrade/Downgrade on a single sharded cluster instance.
    * 
    * @param request - ModifyNodeSpecBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9106,6 +9367,10 @@ export default class Client extends OpenApi {
   async modifyNodeSpecBatchWithOptions(request: $_model.ModifyNodeSpecBatchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyNodeSpecBatchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alignPrimaryZone)) {
+      query["AlignPrimaryZone"] = request.alignPrimaryZone;
+    }
+
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -9192,12 +9457,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configuration of one or more Mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+   * Modifies the configurations of one or more Mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   * Before you call this operation, ensure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-   * This operation applies only to ApsaraDB for MongoDB sharded cluster instances.
-   * When you upgrade or downgrade multiple sharded cluster instances in a batch, the target instance types are subject to certain constraints. For example, if you expand storage capacity, the target capacity must be greater than or equal to the current capacity. If the instances have different instance types, the system randomly selects the instance type of one instance and applies its constraints to the entire batch. This may cause the upgrade or downgrade to fail. If you cannot upgrade or downgrade instances in a batch, you can use the ModifyNodeSpec operation to change the configuration of a single sharded cluster instance.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+   *  This operation is applicable only to ApsaraDB for MongoDB sharded cluster instances.
+   * When you perform batch upgrade or decrease the quota on multiple sharded cluster instances, the target specifications are subject to certain constraints. For example, for storage capacity expansion, the target capacity must be greater than or equal to the current capacity. If the specifications of multiple sharded cluster instances are inconsistent, the system randomly selects the specifications of one sharded cluster instance to construct the constraints, which may cause the upgrade or decrease the quota to fail.
+   * If the batch upgrade or decrease the quota process is not Normal, we recommend that you use the ModifyNodeSpec operation to perform an Upgrade/Downgrade on a single sharded cluster instance.
    * 
    * @param request - ModifyNodeSpecBatchRequest
    * @returns ModifyNodeSpecBatchResponse
@@ -9434,7 +9700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+   * Modifies the IP whitelist of a MongoDB instance.
    * 
    * @param request - ModifySecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9443,8 +9709,16 @@ export default class Client extends OpenApi {
   async modifySecurityIpsWithOptions(request: $_model.ModifySecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityIpsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.modifyMode)) {
@@ -9497,7 +9771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+   * Modifies the IP whitelist of a MongoDB instance.
    * 
    * @param request - ModifySecurityIpsRequest
    * @returns ModifySecurityIpsResponse
@@ -9911,6 +10185,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -9956,10 +10234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB for MongoDB instance.
+   * Restarts a MongoDB instance.
    * 
    * @remarks
-   * You can call this operation to restart an instance. You can also restart a shard or Mongos node in a sharded cluster instance.
+   * You can call this operation to restart an instance, or a specific shard or mongos node in a sharded cluster instance.
    * 
    * @param request - RestartDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9986,6 +10264,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.parallelRestartMongos)) {
+      query["ParallelRestartMongos"] = request.parallelRestartMongos;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -10018,10 +10300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB for MongoDB instance.
+   * Restarts a MongoDB instance.
    * 
    * @remarks
-   * You can call this operation to restart an instance. You can also restart a shard or Mongos node in a sharded cluster instance.
+   * You can call this operation to restart an instance, or a specific shard or mongos node in a sharded cluster instance.
    * 
    * @param request - RestartDBInstanceRequest
    * @returns RestartDBInstanceResponse
@@ -10032,12 +10314,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a single node of a MongoDB instance.
+   * Restarts a single node of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * Limitations:
-   * - The instance must be in the Running state.
-   * - The instance must be a standard replica set instance or a sharded cluster instance.
+   * Limits:
+   * *   The instance is in the running state.
+   * *   The instance is a standard replica set or sharded cluster instance.
    * 
    * @param request - RestartNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10096,12 +10378,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a single node of a MongoDB instance.
+   * Restarts a single node of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * Limitations:
-   * - The instance must be in the Running state.
-   * - The instance must be a standard replica set instance or a sharded cluster instance.
+   * Limits:
+   * *   The instance is in the running state.
+   * *   The instance is a standard replica set or sharded cluster instance.
    * 
    * @param request - RestartNodeRequest
    * @returns RestartNodeResponse
@@ -10350,15 +10632,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+   * Transforms the billing method of an ApsaraDB for MongoDB database instance by converting a pay-as-you-go instance to an upfront subscription instance or a subscription instance to a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
-   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-   * - The instance is in the Running state.
-   * - Your instance has no unpaid billing method change orders.
-   * - The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
+   * Ensure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+   * When you call this operation, the instance must meet the following requirements:
+   * - The instance status is Running.
+   * - The instance does not have unpaid orders for billing method transform.
+   * - The instance type is not a legacy instance type (an instance type that is no longer available). For more information about legacy instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * > To change the billing method of an instance of a legacy instance type, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
    * 
    * @param request - TransformInstanceChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10433,15 +10715,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+   * Transforms the billing method of an ApsaraDB for MongoDB database instance by converting a pay-as-you-go instance to an upfront subscription instance or a subscription instance to a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
-   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-   * - The instance is in the Running state.
-   * - Your instance has no unpaid billing method change orders.
-   * - The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
+   * Ensure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/mongodb/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+   * When you call this operation, the instance must meet the following requirements:
+   * - The instance status is Running.
+   * - The instance does not have unpaid orders for billing method transform.
+   * - The instance type is not a legacy instance type (an instance type that is no longer available). For more information about legacy instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * > To change the billing method of an instance of a legacy instance type, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
    * 
    * @param request - TransformInstanceChargeTypeRequest
    * @returns TransformInstanceChargeTypeResponse

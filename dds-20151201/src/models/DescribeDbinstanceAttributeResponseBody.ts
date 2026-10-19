@@ -239,6 +239,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplica
 export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardListShardAttribute extends $dara.Model {
   connectString?: string;
   currentKernelVersion?: string;
+  ebsBandwidth?: number;
+  ebsIOPS?: number;
+  ecsBandwidth?: number;
+  ecsIOPS?: number;
   lockMode?: string;
   maxConnections?: number;
   maxDiskMbps?: string;
@@ -255,6 +259,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
     return {
       connectString: 'ConnectString',
       currentKernelVersion: 'CurrentKernelVersion',
+      ebsBandwidth: 'EbsBandwidth',
+      ebsIOPS: 'EbsIOPS',
+      ecsBandwidth: 'EcsBandwidth',
+      ecsIOPS: 'EcsIOPS',
       lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxDiskMbps: 'MaxDiskMbps',
@@ -274,6 +282,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
     return {
       connectString: 'string',
       currentKernelVersion: 'string',
+      ebsBandwidth: 'number',
+      ebsIOPS: 'number',
+      ecsBandwidth: 'number',
+      ecsIOPS: 'number',
       lockMode: 'string',
       maxConnections: 'number',
       maxDiskMbps: 'string',
@@ -456,6 +468,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   DBInstanceType?: string;
   destroyTime?: string;
   disasterRecoveryInfo?: string;
+  ebsBandwidth?: number;
+  ebsIOPS?: number;
+  ecsBandwidth?: number;
+  ecsIOPS?: number;
   encrypted?: boolean;
   encryptionKey?: string;
   engine?: string;
@@ -529,6 +545,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       DBInstanceType: 'DBInstanceType',
       destroyTime: 'DestroyTime',
       disasterRecoveryInfo: 'DisasterRecoveryInfo',
+      ebsBandwidth: 'EbsBandwidth',
+      ebsIOPS: 'EbsIOPS',
+      ecsBandwidth: 'EcsBandwidth',
+      ecsIOPS: 'EcsIOPS',
       encrypted: 'Encrypted',
       encryptionKey: 'EncryptionKey',
       engine: 'Engine',
@@ -593,6 +613,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       DBInstanceType: 'string',
       destroyTime: 'string',
       disasterRecoveryInfo: 'string',
+      ebsBandwidth: 'number',
+      ebsIOPS: 'number',
+      ecsBandwidth: 'number',
+      ecsIOPS: 'number',
       encrypted: 'boolean',
       encryptionKey: 'string',
       engine: 'string',
@@ -694,7 +718,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   DBInstances?: DescribeDBInstanceAttributeResponseBodyDBInstances;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A935A8EE-A6CC-53DE-98BA-20ABAA7E632B

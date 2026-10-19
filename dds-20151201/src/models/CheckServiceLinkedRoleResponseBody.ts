@@ -13,7 +13,7 @@ export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether an SLR is created.
+   * Indicates whether the service-linked role [AliyunServiceRoleForMongoDB](https://help.aliyun.com/document_detail/384051.html) has been created.
    * 
    * @example
    * True

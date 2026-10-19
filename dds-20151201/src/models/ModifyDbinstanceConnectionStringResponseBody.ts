@@ -6,7 +6,7 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   modifiedConnectionString?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FF36A84C-0694-42D0-861D-C383E8E4FAAF

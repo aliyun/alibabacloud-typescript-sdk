@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N. The value of N must be in the range of **1** to **20**.
+   * The tag key of the instance. Valid values of N: **1** to **20**.
    * 
    * - The tag key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-   * 
    * - The tag key can be up to 64 characters in length.
-   * 
    * - The tag key cannot be an empty string.
    * 
    * @example
@@ -19,12 +17,10 @@ export class DescribeDBInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N. The value of N must be in the range of **1** to **20**.
+   * The tag value of the instance. Valid values of N: **1** to **20**.
    * 
-   * - The tag value cannot start with `aliyun`, `acs`:, `http://`, or `https://`.
-   * 
+   * - The tag value cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * - The tag value can be up to 128 characters in length.
-   * 
    * - The tag value can be an empty string.
    * 
    * @example
@@ -58,9 +54,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
    * - **PrePaid**: subscription.
-   * 
    * - **PostPaid**: pay-as-you-go.
    * 
    * @example
@@ -77,7 +71,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * The instance specification. For more information about valid values, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
    * 
    * @example
    * dds.mongo.mid
@@ -88,13 +82,11 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The instance name. The name must meet the following requirements:
    * 
    * - It must start with a Chinese character or a letter.
-   * 
    * - It can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
-   * 
    * - It must be 2 to 256 characters in length.
    * 
    * @example
-   * Test database
+   * TestDatabase
    */
   DBInstanceDescription?: string;
   /**
@@ -107,7 +99,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+   * The instance status. For more details about valid values, see [Instance status table](https://help.aliyun.com/document_detail/63870.html).
    * 
    * @example
    * Running
@@ -115,15 +107,11 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The instance architecture. Valid values:
-   * 
+   * The instance type. Valid values: 
    * - **sharding**: sharded cluster instance.
-   * 
-   * - **replicate**: replica set or standalone instance. This is the default value.
-   * 
-   * <props="china">
-   * 
-   * - **serverless**: serverless instance.
+   * - **replicate**: default value. Replica set instance or single-node instance.
+   *  <props="china">
+   * - **serverless**: Serverless instance.
    * 
    * @example
    * sharding
@@ -131,13 +119,11 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceType?: string;
   /**
    * @remarks
-   * Filters instances by type. Valid values:
+   * Specifies whether to filter standard or test instances.
    * 
-   * 1. customized: standalone instances and DBFS instances.
-   * 
-   * 2. standard: standard instances, which include replica set and sharded cluster instances.
-   * 
-   * 3. default: all instances.
+   * 1. Single-node instances and DBFS instances: customized
+   * 2. Standard instances (replica set and sharded cluster): standard
+   * 3. Default (displays all instances): default
    * 
    * @example
    * default
@@ -154,19 +140,12 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The database engine version. Valid values:
-   * 
    * - **7.0**
-   * 
    * - **6.0**
-   * 
    * - **5.0**
-   * 
    * - **4.4**
-   * 
    * - **4.2**
-   * 
    * - **4.0**
-   * 
    * - **3.4**
    * 
    * @example
@@ -175,7 +154,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is used to filter instances that expire on or before the specified time.
+   * The expiration time of the instance in the yyyy-MM-ddTHH:mm:ssZ format (UTC). This parameter is used to filter instances whose expiration time is earlier than or equal to the specified time.
    * 
    * @example
    * 2019-12-26T16:00:00Z
@@ -184,10 +163,8 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The expiration status of the instance. Valid values:
-   * 
-   * - **true**: The instance is expired.
-   * 
-   * - **false**: The instance is not expired.
+   * - **true**: expired.
+   * - **false**: not expired.
    * 
    * @example
    * true
@@ -196,10 +173,8 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * 
    * - **Classic**: classic network.
-   * 
-   * - **VPC**: virtual private cloud (VPC).
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -209,7 +184,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than 0 and no greater than the maximum value of the integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -217,12 +192,10 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
    * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -242,9 +215,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The number of nodes in the replica set instance. Valid values:
    * 
    * - **3**
-   * 
    * - **5**
-   * 
    * - **7**
    * 
    * @example
@@ -263,7 +234,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the instance.
+   * The tags.
    */
   tag?: DescribeDBInstancesRequestTag[];
   /**

@@ -7,7 +7,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * > Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP address whitelists.
+   * > Separate multiple IP addresses with commas (,). A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP whitelists in total.
    * 
    * @example
    * 111.207.194.217,61.149.7.154
@@ -17,9 +17,9 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
    * @remarks
    * The name of the IP whitelist template. The name must meet the following requirements:
    * 
-   * - It can contain lowercase letters, digits, and underscores (_).
+   * - It can contain only lowercase letters, digits, and underscores (_).
    * 
-   * - It must start with a letter and end with a letter or digit.
+   * - It must start with a letter and end with a letter or a digit.
    * 
    * - It must be 2 to 120 characters in length.
    * 
@@ -37,7 +37,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
   globalSecurityGroupId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -73,7 +73,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
 export class CreateGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist templates.
+   * The list of IP whitelist templates.
    */
   globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**

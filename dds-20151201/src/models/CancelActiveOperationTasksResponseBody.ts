@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the canceled O\\&M events. Multiple IDs are separated by commas (,).
+   * The IDs of the O&M events canceled in batches. Separate multiple IDs with commas (,).
    * 
    * @example
    * 1508850,1508310,1507849,1506274,1505811
@@ -13,7 +13,7 @@ export class CancelActiveOperationTasksResponseBody extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 55A2504F-xxxx-xxxx-xxxx-C7C5E57350A6

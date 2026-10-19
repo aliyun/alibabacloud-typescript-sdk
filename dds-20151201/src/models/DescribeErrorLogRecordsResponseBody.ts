@@ -66,7 +66,7 @@ export class DescribeErrorLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine.
+   * The engine type of the current database.
    * 
    * @example
    * MongoDB
@@ -75,7 +75,7 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   items?: DescribeErrorLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 68BCBEC2-1E66-471F-A1A8-E3C60C0A80B0
@@ -99,7 +99,7 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1

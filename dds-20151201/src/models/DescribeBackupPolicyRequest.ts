@@ -15,10 +15,8 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance type.
-   * 
+   * The instance type. Valid values:
    * - replicate: replica set instance
-   * 
    * - sharding: sharded cluster instance
    * 
    * @example
@@ -32,7 +30,7 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The region where the instance is located.
+   * The region where the instance is deployed.
    * 
    * @example
    * cn-beijing

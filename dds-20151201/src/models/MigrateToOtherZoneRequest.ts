@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateToOtherZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance is migrated to the destination zone. Valid values:
-   * 
-   * - **Immediately** (default): The instance is migrated immediately.
-   * 
-   * - **MaintainTime**: The instance is migrated during its maintenance window.
+   * The effective period for the zone migration. Valid values:
+   * - **Immediately** (default): The migration becomes active immediately.
+   * - **MaintainTime**: The migration becomes active within the O&M window of the instance.
    * 
    * @example
    * Immediately
@@ -17,9 +15,9 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * > If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
+   * > If the network type of the instance is VPC, you must also specify the **VSwitchId** parameter.
    * 
    * This parameter is required.
    * 
@@ -35,7 +33,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the vSwitch in the destination zone.
    * 
-   * > This parameter is valid and required only when the network type of the instance is VPC.
+   * > This parameter is available and required only when the network type of the instance is VPC.
    * 
    * @example
    * vsw-bp67ac****
@@ -43,11 +41,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the destination zone to which you want to migrate the ApsaraDB for MongoDB instance.
+   * The ID of the destination zone.
    * 
-   * > - The destination and source zones must be in one region.
-   * >
-   * > - You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the zone IDs.
+   * > - The destination zone must be in the same region as the current zone of the instance.
+   * > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query zone IDs.
    * 
    * This parameter is required.
    * 

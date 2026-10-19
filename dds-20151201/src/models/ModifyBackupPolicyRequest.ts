@@ -5,29 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The frequency of high-frequency backups. Valid values:
+   * The high-frequency backup frequency. Valid values:
    * 
-   * - **-1**: High-frequency backup is disabled.
+   * - **-1**: Disables high-frequency backups.
+   * - **30**: Every 30 minutes.
+   * - **60**: Every 1 hour.
+   * - **120**: Every 2 hours.
+   * - **180**: Every 3 hours.
+   * - **240**: Every 4 hours.
+   * - **360**: Every 6 hours.
+   * - **480**: Every 8 hours.
+   * - **720**: Every 12 hours.
    * 
-   * - **30**: every 30 minutes.
-   * 
-   * - **60**: every 1 hour.
-   * 
-   * - **120**: every 2 hours.
-   * 
-   * - **180**: every 3 hours.
-   * 
-   * - **240**: every 4 hours.
-   * 
-   * - **360**: every 6 hours.
-   * 
-   * - **480**: every 8 hours.
-   * 
-   * - **720**: every 12 hours.
-   * 
-   * > * If you set **SnapshotBackupType** to **Standard**, the value of this parameter is -1.
-   * >
-   * > * High-frequency backup takes effect only if you set **SnapshotBackupType** to **Flash** and set this parameter to a value greater than 0.
+   * > - If **SnapshotBackupType** is set to **Standard**, this parameter must be set to **-1**.
+   * > - If **SnapshotBackupType** is set to **Flash** and this parameter is set to a value greater than 0, high-frequency backups take effect.
    * 
    * @example
    * -1
@@ -35,11 +26,10 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   backupInterval?: string;
   /**
    * @remarks
-   * The number of days to retain full backups.
+   * The number of days for which full backups are retained.
    * 
-   * > - For instances that were created before September 10, 2021, the default retention period is 7 days.
-   * >
-   * > - For instances that are created after September 10, 2021, the default retention period is 30 days.
+   * > - For users who created instances before September 10, 2021, the default retention period is 7 days.
+   * > - For new users who created instances on or after September 10, 2021, the default retention period is 30 days.
    * 
    * @example
    * 30
@@ -47,15 +37,14 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * The policy to retain backups when you release the instance.
+   * The backup data retention policy. Valid values:
    * 
-   * - 0: All backup sets of the instance are deleted when the instance is released.
+   * - 0: Deletes all backup sets of the instance immediately when the instance is released.
    * 
-   * - 1: An automatic backup is performed when the instance is released, and this backup is retained for a long time.
+   * - 1: An automatic backup is performed when the instance is released, and the backup set is retained for long-term retention (LTR).
+   * - 2: An automatic backup is performed when the instance is released, and all backup sets of the cluster are retained for long-term retention (LTR).
    * 
-   * - 2: An automatic backup is performed when the instance is released, and all backup sets of the instance are retained for a long time.
-   * 
-   * For more information, see [Long-term backup retention](https://help.aliyun.com/document_detail/2779111.html).
+   * For more information, see [Long-term retention backups](https://help.aliyun.com/document_detail/2779111.html).
    * 
    * @example
    * 2
@@ -63,27 +52,19 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   backupRetentionPolicyOnClusterDeletion?: number;
   /**
    * @remarks
-   * The days of the week to perform geo-redundant backups. Valid values:
+   * The days of the week when cross-region backup is performed. Valid values:
    * 
-   * 1. Monday
+   * 1. Monday: Monday.
+   * 2. Tuesday: Tuesday.
+   * 3. Wednesday: Wednesday.
+   * 4. Thursday: Thursday.
+   * 5. Friday: Friday.
+   * 6. Saturday: Saturday.
+   * 7. Sunday: Sunday.
    * 
-   * 2. Tuesday
-   * 
-   * 3. Wednesday
-   * 
-   * 4. Thursday
-   * 
-   * 5. Friday
-   * 
-   * 6. Saturday
-   * 
-   * 7. Sunday
-   * 
-   * > This parameter is required if you enable geo-redundancy.
-   * >
-   * > - To specify multiple days, separate them with commas (,).
-   * >
-   * > - If you set the backup method to conventional backup, the days of the week specified by this parameter must be a subset of the days of the week specified by PreferredBackupPeriod.
+   * > This parameter is required for cross-region backup.
+   * > - If you specify multiple values, separate them with commas (,).
+   * > - When the backup settings are set to standard backup, the value must be a subset of the PreferredBackupPeriod backup epoch.
    * 
    * @example
    * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
@@ -91,13 +72,12 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   crossBackupPeriod?: string;
   /**
    * @remarks
-   * The policy for geo-redundant backups. Valid values:
+   * The operation policy for cross-region backup. Valid values:
    * 
-   * - update: Modify the geo-redundancy policy.
+   * - update: Modifies the cross-region backup policy.
+   * - delete: Deletes the cross-region backup policy.
    * 
-   * - delete: Delete the geo-redundancy policy.
-   * 
-   * > This parameter is required if you enable geo-redundancy.
+   * > This parameter is required for cross-region backup.
    * 
    * @example
    * update
@@ -105,13 +85,12 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   crossBackupType?: string;
   /**
    * @remarks
-   * The retention policy for cross-region log backups. Valid values:
+   * The retention type for cross-region log backup. Valid values:
    * 
-   * - delay: Retain the backup for a specified period.
+   * - delay: Retains backups for a specified period.
+   * - never: Never expires.
    * 
-   * - never: Retain the backup permanently.
-   * 
-   * > This parameter is required if you enable geo-redundancy.
+   * > This parameter is required for cross-region backup.
    * 
    * @example
    * delay
@@ -119,9 +98,10 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   crossLogRetentionType?: string;
   /**
    * @remarks
-   * The number of days to retain cross-region log backups. Valid values: 3 to 1825. The value must be less than or equal to the value of CrossRetentionValue.
+   * The retention period for cross-region log backup. Valid values: 3 to 1825 days. The value must be less than or equal to the value of CrossRetentionValue.
    * 
-   * > This parameter is required if you enable geo-redundancy.
+   * 
+   * > This parameter is required for cross-region backup.
    * 
    * @example
    * 3
@@ -129,13 +109,13 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   crossLogRetentionValue?: number;
   /**
    * @remarks
-   * The retention policy for geo-redundant backups. Valid values:
+   * The retention type for cross-region backup. Valid values:
    * 
-   * - delay: Retain the backup for a specified period.
+   * - delay: Retains backups for a specified period.
    * 
-   * - never: Retain the backup permanently.
+   * - never: Never expires.
    * 
-   * > This parameter is required if you enable geo-redundancy.
+   * > This parameter is required for cross-region backup.
    * 
    * @example
    * delay
@@ -143,11 +123,11 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   crossRetentionType?: string;
   /**
    * @remarks
-   * The number of days to retain geo-redundant backups. Valid values: 3 to 1825.
+   * The retention period for cross-region backup. Valid values: 3 to 1825 days.
    * 
-   * > - This parameter is required if you enable geo-redundancy.
-   * >
-   * > - This parameter is required if you set CrossRetentionType to delay.
+   * > 
+   * > - This parameter is required for cross-region backup.
+   * > - This parameter is required and must be specified when CrossRetentionType is set to delay.
    * 
    * @example
    * 7
@@ -165,9 +145,10 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the geo-redundant backup.
+   * The region where backups are stored.
    * 
-   * > This parameter is required if you enable geo-redundancy.
+   * 
+   * > This parameter is required for cross-region backup.
    * 
    * @example
    * cn-hangzhou
@@ -176,14 +157,10 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable log backup. Valid values:
+   * - **0**: Disables log backup. This is the default value.
    * 
-   * - **0**: Disable log backup. This is the default value.
-   * 
-   * - **1**: Enable log backup.
-   * 
-   * >Notice: 
-   * 
-   * You cannot disable log backup for sharded cluster instances.
+   * - **1**: Enables log backup.
+   * >Notice: Sharded cluster instances do not support disabling log backup.</notice>
    * 
    * @example
    * 0
@@ -191,13 +168,11 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   enableBackupLog?: number;
   /**
    * @remarks
-   * Specifies whether to enable cross-region log backup. Valid values:
+   * Specifies whether to enable cross-region log backup.
    * 
-   * > This parameter is required if you enable geo-redundancy.
-   * >
-   * > - 1: Enable cross-region log backup. This value is required for sharded cluster instances. This value is also required for replica set instances if you want to enable geo-redundant point-in-time recovery.
-   * >
-   * > - 0: Disable cross-region log backup.
+   * > This parameter is required for cross-region backup.
+   * > - 1: Enables cross-region log backup. This value is required for sharded cluster instances. For replica set instances, this value is required if you want to support cross-region point-in-time recovery.
+   * > - 0: Disables cross-region log backup.
    * 
    * @example
    * 1
@@ -205,7 +180,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   enableCrossLogBackup?: number;
   /**
    * @remarks
-   * The number of days to retain high-frequency backups. Before you specify this parameter, you must set the BackupInterval parameter. The default retention period is 1 day.
+   * The number of days for which high-frequency backups are retained. Before you use this parameter, make sure that the BackupInterval parameter is specified. Default value: 1.
    * 
    * @example
    * 1
@@ -214,14 +189,11 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
-   * - replicate
-   * 
+   * - replicate 
    * - sharding
    * 
-   * > * This parameter is required when you restore a deleted instance.
-   * >
-   * > * This parameter is required when you clone an instance from a geo-redundant backup.
+   * > - This parameter is required when the backup recovery type is set to rebuilding a deleted instance.
+   * > - This parameter is required when the backup recovery type is set to cloning an instance from cross-region backup.
    * 
    * @example
    * replicate
@@ -229,7 +201,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of days to retain log backups. Default value: 7.
+   * The number of days for which log backups are retained. Default value: 7.
    * 
    * Valid values: 7 to 730.
    * 
@@ -242,28 +214,17 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The backup cycle. Valid values:
+   * - **Monday**: Monday.
+   * - **Tuesday**: Tuesday.
+   * - **Wednesday**: Wednesday.
+   * - **Thursday**: Thursday.
+   * - **Friday**: Friday.
+   * - **Saturday**: Saturday.
+   * - **Sunday**: Sunday.
    * 
-   * - **Monday**
+   * >Notice: To ensure data security, back up your MongoDB data at least twice a week.</notice>
    * 
-   * - **Tuesday**
-   * 
-   * - **Wednesday**
-   * 
-   * - **Thursday**
-   * 
-   * - **Friday**
-   * 
-   * - **Saturday**
-   * 
-   * - **Sunday**
-   * 
-   * >Notice: 
-   * 
-   * To ensure data security, back up the MongoDB instance at least twice a week.
-   * 
-   * 
-   * 
-   * > To specify multiple backup cycles, separate them with commas (,).
+   * > If you specify multiple values, separate them with commas (,).
    * 
    * @example
    * Monday,Wednesday,Friday,Sunday
@@ -271,9 +232,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The time range to perform a backup. Specify the time in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in Coordinated Universal Time (UTC).
-   * 
-   * > The time range must be 1 hour.
+   * The time period during which backups are performed. The format is <i>HH:mm</i>Z-<i>HH:mm</i>Z (UTC).
+   * > The time period is limited to 1 hour.
    * 
    * @example
    * 03:00Z-04:00Z
@@ -283,9 +243,9 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable hourly sparse backup. Valid values:
    * 
-   * - true: If the backup frequency is in minutes, all snapshots that are generated within the last hour are retained. For snapshots that were generated more than 1 hour ago but less than 24 hours ago, only the first snapshot that is generated after each full hour is retained.
+   * - true: If the backup frequency is set to minutes, all snapshots taken within 1 hour from the current time are retained. For snapshots taken more than 1 hour but within 24 hours from the current time, only the first snapshot taken after the hour is retained.
    * 
-   * - false: All snapshots are retained within the high-frequency backup retention period.
+   * - false: All snapshots taken within the high-frequency backup retention period are retained.
    * 
    * @example
    * true
@@ -297,9 +257,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
    * @remarks
    * The snapshot backup type. Valid values:
    * 
-   * - **Flash**: second-level backup.
-   * 
-   * - **Standard**: conventional backup. This is the default value.
+   * - **Flash**: Backup within seconds.
+   * - **Standard**: Standard backup. This is the default value.
    * 
    * @example
    * Standard
@@ -307,11 +266,11 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   snapshotBackupType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region where the instance is deployed.
    * 
-   * > - This parameter is required if you restore a deleted instance.
-   * >
-   * > - This parameter is required if you enable geo-redundancy.
+   * > 
+   * > - This parameter is required to recover deleted instances.
+   * > - This parameter is required for cross-region backup.
    * 
    * @example
    * cn-beijing

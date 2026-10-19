@@ -63,7 +63,7 @@ export class DescribeRunningLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine.
+   * The engine type of the current database.
    * 
    * @example
    * MongoDB

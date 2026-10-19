@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TransformInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Valid values:
+   * Specifies whether automatic payment is enabled for the order. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: enables automatic payment for the order.
+   * - **false**: requires manual payment for the order.
    * 
    * > Default value: **true**.
    * 
@@ -19,11 +18,10 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Valid values:
+   * Specifies whether to enable auto-renewal upon expiration. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: enables auto-renewal.
+   * - **false**: disables auto-renewal.
    * 
    * > Default value: **false**.
    * 
@@ -33,7 +31,7 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The business information. This is an additional parameter.
+   * The additional parameter for business information.
    * 
    * @example
    * {“ActivityId":"000000000"}
@@ -42,10 +40,8 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
-   * - **PrePaid:** subscription.
-   * 
-   * - **PostPaid:** pay-as-you-go.
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -55,7 +51,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+   * Specifies whether to use a coupon. Valid values:
+   * - **default** or **null** (default): uses a coupon.
+   * - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
    * 
    * @example
    * default
@@ -63,7 +61,7 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -75,7 +73,11 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9**\\*\\*\\*\\*, **12**, **24**, and **36**.
+   * The subscription duration. Valid values:
+   * 
+   * - If PricingCycle is set to Month: **1** to **9**.
+   * 
+   * - If PricingCycle is set to Year: **1**, **2**, **3**, and **5**.
    * 
    * @example
    * 1
@@ -84,10 +86,8 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The unit of the subscription duration. Valid values:
-   * 
-   * - **Month**: month.
-   * 
-   * - **Year**: year.
+   * - **Month**: months.
+   * - **Year**: years.
    * 
    * Default value: Month.
    * 

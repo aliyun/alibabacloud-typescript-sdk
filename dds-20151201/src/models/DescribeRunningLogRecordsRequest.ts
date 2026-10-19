@@ -6,8 +6,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * 
-   * > If this parameter is set to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -25,9 +24,8 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
-   * 
-   * > The end time can be up to 24 hours later than the start time. Otherwise, the call fails.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * > The end time must be within 24 hours from the start time. Otherwise, the call fails.
    * 
    * This parameter is required.
    * 
@@ -37,7 +35,8 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The logical operator for the keyword-based query. Default value: `and`.
+   * The logical operator for keyword-based search.
+   * Default value: and.
    * 
    * @example
    * and
@@ -45,9 +44,9 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   logicalOperator?: string;
   /**
    * @remarks
-   * The ID of a mongos node or shard node in a sharded cluster instance.
+   * Instance ID of the mongos or shard node in the sharded cluster instance.
    * 
-   * > This parameter is available only when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+   * > This parameter is available only if you set the **DBInstanceId** parameter to instance ID of a sharded cluster instance.
    * 
    * @example
    * d-bpxxxxxxxx
@@ -55,11 +54,9 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The sort order of the running logs to return. Valid values:
-   * 
-   * - asc: ascending order
-   * 
-   * - desc: descending order
+   * The order in which the returned running logs are sorted by time. Valid values:
+   * - asc: ascending order.
+   * - desc: descending order.
    * 
    * @example
    * asc
@@ -69,7 +66,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -77,7 +74,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30** to **100**.
+   * The number of entries per page. Valid values: **30** to **100**.
    * 
    * @example
    * 30
@@ -85,7 +82,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keywords for the query. You can specify up to 10 keywords. Separate multiple keywords with spaces.
+   * The keywords for the query. Separate multiple keywords with spaces. You can specify up to 10 keywords.
    * 
    * @example
    * test test2
@@ -93,7 +90,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   queryKeywords?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * sg-bpxxxxxxxxxxxxxxxxxx
@@ -103,7 +100,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The role ID of the node. You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation to query the role ID.
+   * The role ID of the node. You can call [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) to query the role ID.
    * 
    * @example
    * 651xxxxx
@@ -111,13 +108,12 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * The role of the node. Valid values:
+   * The role of the node in the instance. Valid values:
+   * - **primary**: primary node.
+   * - **secondary**: secondary node.
+   * - **search**: search node.
    * 
-   * - **primary**: The primary node.
-   * 
-   * - **secondary**: A secondary node.
-   * 
-   * > If the **NodeId** parameter is set to the ID of a mongos node, the **RoleType** parameter can only be set to **primary**.
+   * > If you set the **NodeId** parameter to the ID of a mongos node, the value of **RoleType** can only be **primary**.
    * 
    * @example
    * primary
@@ -125,7 +121,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
+   * The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * This parameter is required.
    * 

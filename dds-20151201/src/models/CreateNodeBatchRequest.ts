@@ -5,19 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account. The username must meet the following requirements:
+   * The name of the account. Valid values:
    * 
-   * - The username starts with a lowercase letter.
+   * - The name must start with a lowercase letter.
+   * - The name can contain lowercase letters, digits, and underscores (_).
+   * - The name must be 4 to 16 characters in length.
    * 
-   * - The username contains lowercase letters, digits, and underscores (_).
-   * 
-   * - The username is 4 to 16 characters in length.
-   * 
-   * > * Keywords cannot be used as account usernames.
-   * >
-   * > * The permissions of this account are fixed at read-only.
-   * >
-   * > * The username and password are required to be set only when you apply for an endpoint for the shard node for the first time.
+   * > - ApsaraDB for MongoDB does not support using keywords as account names.
+   * > - The permissions of the account are fixed to read-only.
+   * > - When you apply for a direct connection endpoint for a shard node for the first time, you must set the account name and password. You do not need to set them again for subsequent applications.
    * 
    * @example
    * ceshi
@@ -25,15 +21,12 @@ export class CreateNodeBatchRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the account. The password must meet the following requirements:
+   * The password of the account. Valid values:
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Special characters include !@#$%^&*()_+-=.
+   * - The password must be 8 to 32 characters in length.
    * 
-   * - The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters.
-   * 
-   * - These special characters include ! @ # $ % ^ & \\* ( ) _ + - =
-   * 
-   * - The password is 8 to 32 characters in length.
-   * 
-   * > The account password of the shard node cannot be reset.
+   * > ApsaraDB for MongoDB does not support resetting the password of the account for a shard node.
    * 
    * @example
    * PassWord123
@@ -41,11 +34,10 @@ export class CreateNodeBatchRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-   * 
-   * - **false**: disables automatic payment. In this case, you must manually pay for the instance. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > **Orders**. On the Orders page, find the order and complete the payment.
+   * - **true**: (Default) Automatic payment is enabled. Make sure that your account has sufficient balance.
+   * - **false**: Manual payment is enabled. For more information, see [Manually renew a subscription instance](https://help.aliyun.com/document_detail/85052.html).
    * 
    * @example
    * true
@@ -61,7 +53,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -69,11 +61,9 @@ export class CreateNodeBatchRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons. Default value: null. Valid values:
-   * 
-   * - **default** or **null**: uses coupons.
-   * 
-   * - **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+   * Specifies whether to use a coupon. Valid values:
+   * - **default** or **null**: (Default) A coupon is used.
+   * - **youhuiquan_promotion_option_id_for_blank**: No coupon is used.
    * 
    * @example
    * default
@@ -81,7 +71,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the instance for which you want to add nodes.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -92,10 +82,8 @@ export class CreateNodeBatchRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the request. Valid values:
-   * 
-   * - **OpenApi**: ApsaraDB for MongoDB API
-   * 
-   * - **mongo_buy**: ApsaraDB for MongoDB console
+   * - **OpenApi**: OpenAPI.
+   * - **mongo_buy**: The console.
    * 
    * @example
    * OpenApi
@@ -103,9 +91,9 @@ export class CreateNodeBatchRequest extends $dara.Model {
   fromApp?: string;
   /**
    * @remarks
-   * The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * The specifications of the Mongos or shard nodes to be added. For more information about the specifications, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
    * 
-   * > Up to 32 mongos or shard nodes are supported for each sharded cluster instance.
+   * > By default, a sharded cluster instance supports up to 32 Mongos nodes and 32 shard nodes.
    * 
    * This parameter is required.
    * 
@@ -119,11 +107,10 @@ export class CreateNodeBatchRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to apply for an endpoint for the shard node. Default value: false. Valid values:
+   * Specifies whether to apply for a direct connection endpoint for the shard node. Valid values:
    * 
-   * - **true**: applies for an endpoint for the shard node.
-   * 
-   * - **false**: does not apply for an endpoint for the shard node.
+   * - **true**: Applies for a direct connection endpoint for the shard node.
+   * - **false**: (Default) Does not apply for a direct connection endpoint for the shard node.
    * 
    * @example
    * false

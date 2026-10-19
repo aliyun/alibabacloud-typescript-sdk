@@ -53,6 +53,11 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * dds-bp2356****
    */
   DBInstanceId?: string;
+  /**
+   * @example
+   * admin
+   */
+  DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -63,6 +68,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
       accountName: 'AccountName',
       characterType: 'CharacterType',
       DBInstanceId: 'DBInstanceId',
+      DBName: 'DBName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -76,6 +82,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
       accountName: 'string',
       characterType: 'string',
       DBInstanceId: 'string',
+      DBName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

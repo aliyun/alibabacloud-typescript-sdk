@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup ID.
+   * The ID of the backup.
    * 
-   * > This parameter is deprecated. To obtain the backup ID, call the [DescribeBackups](https://help.aliyun.com/document_detail/468441.html) operation.
+   * > **[Deprecated]** This parameter will be deprecated soon. To obtain the backup ID, call the [DescribeBackups](https://help.aliyun.com/document_detail/468441.html) operation.
    * 
    * @example
    * 5664****
@@ -15,7 +15,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup job ID.
+   * The ID of the backup job.
    * 
    * @example
    * 775051
@@ -23,7 +23,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   backupJobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7016B12F-7F64-40A4-BAFF-013F02AC82FC

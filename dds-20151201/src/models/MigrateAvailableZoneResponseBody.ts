@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateAvailableZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0FDDC511-7252-4A4A-ADDA-5CB1BF63****

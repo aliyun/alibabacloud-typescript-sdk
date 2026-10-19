@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account. Set the value to **root**.
+   * The account name.
    * 
    * @example
    * root
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The account type.
+   * 
+   * @example
+   * normal
+   */
+  characterType?: string;
   /**
    * @remarks
    * The instance ID.
@@ -21,6 +29,14 @@ export class DescribeAccountsRequest extends $dara.Model {
    * dds-bp1fd530f271****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The database to which the account belongs.
+   * 
+   * @example
+   * admin
+   */
+  DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -28,7 +44,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      characterType: 'CharacterType',
       DBInstanceId: 'DBInstanceId',
+      DBName: 'DBName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -39,7 +57,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      characterType: 'string',
       DBInstanceId: 'string',
+      DBName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

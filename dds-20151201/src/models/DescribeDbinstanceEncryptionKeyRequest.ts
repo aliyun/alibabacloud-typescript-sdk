@@ -15,12 +15,22 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The custom key for the instance. You can call the [DescribeUserEncryptionKeyList](https://help.aliyun.com/document_detail/151729.html) operation to query the list of custom keys for an ApsaraDB for MongoDB instance.
+   * The custom encryption key of the instance. You can call [DescribeUserEncryptionKeyList](https://help.aliyun.com/document_detail/151729.html) to query the custom keys of the instance.
    * 
    * @example
    * 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    */
   encryptionKey?: string;
+  /**
+   * @remarks
+   * The key scenario to query. Valid values:
+   * - TDE: Queries transparent data encryption key information.
+   * - CloudDisk: Queries cloud disk encryption key information.
+   * 
+   * @example
+   * TDE
+   */
+  encryptionType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -29,6 +39,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
     return {
       DBInstanceId: 'DBInstanceId',
       encryptionKey: 'EncryptionKey',
+      encryptionType: 'EncryptionType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -40,6 +51,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
     return {
       DBInstanceId: 'string',
       encryptionKey: 'string',
+      encryptionType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluateResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether resources are available in the current region. Valid values:
-   * 
-   * - **1**: Resources are sufficient.
-   * 
-   * - **0**: Resources are insufficient.
+   * Indicates whether sufficient resources are available in the current region. Valid values:
+   * - **1**: Sufficient resources are available.
+   * - **0**: Insufficient resources are available.
    * 
    * @example
    * 1
@@ -17,7 +15,7 @@ export class EvaluateResourceResponseBody extends $dara.Model {
   DBInstanceAvailable?: string;
   /**
    * @remarks
-   * The database engine. The value is fixed to MongoDB.
+   * The database engine. The value is fixed as MongoDB.
    * 
    * @example
    * MongoDB
