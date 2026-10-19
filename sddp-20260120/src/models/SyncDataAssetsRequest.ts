@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncDataAssetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh: Chinese. en: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
+   * 
    * @example
    * RDS
    */

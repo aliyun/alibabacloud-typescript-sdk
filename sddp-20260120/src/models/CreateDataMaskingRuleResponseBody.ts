@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataMaskingRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can use this ID to locate the API call.
+   * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
    */

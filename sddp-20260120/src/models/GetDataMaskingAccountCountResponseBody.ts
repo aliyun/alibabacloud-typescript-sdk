@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataMaskingAccountCountResponseBodyAccountCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of fullAccess accounts that have plaintext access.
+   * 
    * @example
    * 2
    */
   fullAccessCount?: number;
   /**
+   * @remarks
+   * The number of noneAccess accounts that are prohibited from decryption.
+   * 
    * @example
    * 1
    */
   noneAccessCount?: number;
   /**
+   * @remarks
+   * The number of restrictedAccess accounts that have restricted access.
+   * 
    * @example
    * 3
    */
   restrictedAccessCount?: number;
   /**
+   * @remarks
+   * The total number of database accounts.
+   * 
    * @example
    * 10
    */
@@ -51,8 +63,15 @@ export class GetDataMaskingAccountCountResponseBodyAccountCount extends $dara.Mo
 }
 
 export class GetDataMaskingAccountCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The permission statistics of column encryption accounts.
+   */
   accountCount?: GetDataMaskingAccountCountResponseBodyAccountCount;
   /**
+   * @remarks
+   * The request ID, which can be used to locate this API call.
+   * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
    */

@@ -4,48 +4,75 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The column encryption algorithm used by the instance.
+   * 
    * @example
    * AES_256_GCM
    */
   encryptionAlgorithm?: string;
   /**
+   * @remarks
+   * The ID of the KMS key used by the instance. This field may not be returned for local key scenarios.
+   * 
    * @example
    * 12345678-1234-1234-1234-12345678****
    */
   encryptionKeyId?: string;
   /**
+   * @remarks
+   * The database engine type.
+   * 
    * @example
    * MySQL
    */
   engineType?: string;
   /**
+   * @remarks
+   * The number of database accounts that have fullAccess plaintext access permissions.
+   * 
    * @example
    * 2
    */
   fullAccessAccountCount?: number;
   /**
+   * @remarks
+   * The instance identity of the database instance.
+   * 
    * @example
    * rm-2ze1abcdefgh****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The code of the cloud product.
+   * 
    * @example
    * RDS
    */
   productCode?: string;
   /**
+   * @remarks
+   * The ID of the cloud product type. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+   * 
    * @example
    * 5
    */
   productId?: number;
   /**
+   * @remarks
+   * The region ID of the asset.
+   * 
    * @example
    * cn-zhangjiakou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The region name of the asset.
+   * 
    * @example
-   * 华北 3（张家口）
+   * China (Zhangjiakou)
    */
   regionName?: string;
   static names(): { [key: string]: string } {
@@ -87,22 +114,38 @@ export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
 
 export class ListDataMaskingInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the returned data.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of records returned by the current query.
+   */
   items?: ListDataMaskingInstancesResponseBodyItems[];
   /**
+   * @remarks
+   * The number of records per page for the current query.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID. You can use this ID to locate the API call.
+   * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records that match the current statistics or query scope.
+   * 
    * @example
    * 100
    */

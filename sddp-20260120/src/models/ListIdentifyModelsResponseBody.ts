@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdentifyModelsResponseBodyRuleList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the detection model.
+   * 
    * @example
    * 1001
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the detection model or rule.
+   * 
    * @example
-   * 手机号
+   * Phone Number
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -38,10 +44,17 @@ export class ListIdentifyModelsResponseBodyRuleList extends $dara.Model {
 
 export class ListIdentifyModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID, which can be used to locate this API call.
+   * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of detection models or rules.
+   */
   ruleList?: ListIdentifyModelsResponseBodyRuleList[];
   static names(): { [key: string]: string } {
     return {

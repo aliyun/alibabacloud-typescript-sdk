@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of encrypted columns within the current scope.
+   * 
    * @example
    * 10
    */
   maskedCount?: number;
   /**
+   * @remarks
+   * The number of columns that failed to be encrypted within the current scope.
+   * 
    * @example
    * 1
    */
   maskingFailedCount?: number;
   /**
+   * @remarks
+   * The number of sensitive columns within the current scope.
+   * 
    * @example
    * 20
    */
   sensitiveCount?: number;
   /**
+   * @remarks
+   * The total number of columns within the current scope.
+   * 
    * @example
    * 100
    */
@@ -51,8 +63,15 @@ export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Mode
 }
 
 export class GetDataMaskingColumnCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The column encryption statistics.
+   */
   columnCount?: GetDataMaskingColumnCountResponseBodyColumnCount;
   /**
+   * @remarks
+   * The request ID, which can be used to locate this API call.
+   * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
    */
