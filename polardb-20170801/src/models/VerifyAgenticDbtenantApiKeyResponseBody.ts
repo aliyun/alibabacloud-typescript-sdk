@@ -36,6 +36,9 @@ export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
    * - NotFound: The API key is not found.
    * - Expired: The API key has expired.
    * - Revoked: The API key has been revoked.
+   * 
+   * @example
+   * NotFound
    */
   reason?: string;
   /**

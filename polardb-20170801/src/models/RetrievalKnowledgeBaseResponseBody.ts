@@ -146,6 +146,14 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
    * 0.8
    */
   similarityScore?: number;
+  /**
+   * @remarks
+   * The URI of the source document.
+   * 
+   * @example
+   * https://example.com/source.pdf
+   */
+  sourceUri?: string;
   static names(): { [key: string]: string } {
     return {
       captions: 'Captions',
@@ -159,6 +167,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
       shardContent: 'ShardContent',
       shardIndex: 'ShardIndex',
       similarityScore: 'SimilarityScore',
+      sourceUri: 'SourceUri',
     };
   }
 
@@ -175,6 +184,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
       shardContent: 'string',
       shardIndex: 'number',
       similarityScore: 'number',
+      sourceUri: 'string',
     };
   }
 

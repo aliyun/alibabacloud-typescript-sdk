@@ -114,6 +114,14 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
    * 1
    */
   shardIndex?: number;
+  /**
+   * @remarks
+   * The URI of the source document.
+   * 
+   * @example
+   * https://example.com/source.pdf
+   */
+  sourceUri?: string;
   static names(): { [key: string]: string } {
     return {
       captions: 'Captions',
@@ -123,6 +131,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
       pageNumbers: 'PageNumbers',
       shardContent: 'ShardContent',
       shardIndex: 'ShardIndex',
+      sourceUri: 'SourceUri',
     };
   }
 
@@ -135,6 +144,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
       pageNumbers: { 'type': 'array', 'itemType': 'string' },
       shardContent: 'string',
       shardIndex: 'number',
+      sourceUri: 'string',
     };
   }
 

@@ -155,6 +155,14 @@ export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model 
    * 1
    */
   sourceId?: number;
+  /**
+   * @remarks
+   * The URI of the original document.
+   * 
+   * @example
+   * https://example.com/source.pdf
+   */
+  sourceUri?: string;
   static names(): { [key: string]: string } {
     return {
       chunkMetadata: 'ChunkMetadata',
@@ -168,6 +176,7 @@ export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model 
       shardIndex: 'ShardIndex',
       similarityScore: 'SimilarityScore',
       sourceId: 'SourceId',
+      sourceUri: 'SourceUri',
     };
   }
 
@@ -184,6 +193,7 @@ export class DescribeKnowledgeBaseAnswerResponseBodySources extends $dara.Model 
       shardIndex: 'number',
       similarityScore: 'number',
       sourceId: 'number',
+      sourceUri: 'string',
     };
   }
 
