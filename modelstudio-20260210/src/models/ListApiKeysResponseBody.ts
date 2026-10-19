@@ -10,7 +10,7 @@ export class ListApiKeysResponseBodyApiKeysAuthModelAccessScope extends $dara.Mo
   accessibleModels?: string[];
   /**
    * @remarks
-   * Indicates whether access to all models with inference permissions in the workspace is allowed.
+   * Indicates whether all models with inference permissions granted in the workspace are accessible.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   modelAccessScope?: ListApiKeysResponseBodyApiKeysAuthModelAccessScope;
   /**
    * @remarks
-   * All: all permissions. Custom: custom permissions.
+   * All: full permissions. Custom: custom permissions.
    * 
    * @example
    * Custom
@@ -103,7 +103,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The value of the API key.
+   * The value of the API Key.
    * 
    * @example
    * sk-ws-djI.8O7d*****2aICctnid4u4
@@ -132,7 +132,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the API key is disabled. Valid values:
+   * Indicates whether the API Key is disabled.
    * 
    * - **0**: Active.
    * - **1**: Disabled.
@@ -158,6 +158,9 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * workspace_test
    */
@@ -205,7 +208,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
 export class ListApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API keys.
+   * The list of API Keys.
    */
   apiKeys?: ListApiKeysResponseBodyApiKeys[];
   /**
@@ -258,7 +261,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
+   * Indicates whether the API call was successful.
    * 
    * - true: Successful.
    * - false: Failed.

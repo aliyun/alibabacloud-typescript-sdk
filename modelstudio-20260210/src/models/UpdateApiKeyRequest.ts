@@ -6,12 +6,12 @@ export class UpdateApiKeyRequestAuthModelAccessScope extends $dara.Model {
   /**
    * @remarks
    * The list of accessible models.
-   * >Notice: The content takes effect only when allowAllModels is set to false.
+   * >Notice: The specified content takes effect only when allowAllModels is set to false.
    */
   accessibleModels?: string[];
   /**
    * @remarks
-   * Specifies whether to allow access to all models with granted inference permissions in the workspace. Valid values:
+   * Specifies whether all models with inference permissions in the workspace are accessible. Valid values:
    * 
    * - true
    * - false
@@ -59,9 +59,9 @@ export class UpdateApiKeyRequestAuth extends $dara.Model {
   modelAccessScope?: UpdateApiKeyRequestAuthModelAccessScope;
   /**
    * @remarks
-   * Valid values:
+   * The permission type. Valid values:
    * 
-   * - All: all permissions.
+   * - All: full permissions.
    * - Custom: custom permissions.
    * 
    * @example
@@ -102,9 +102,9 @@ export class UpdateApiKeyRequestAuth extends $dara.Model {
 export class UpdateApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key permission settings.
+   * The API Key permission settings.
    * 
-   * > Do not fill in this section or fill it in completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
+   * > Do not specify this parameter or specify it completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
    */
   auth?: UpdateApiKeyRequestAuth;
   /**

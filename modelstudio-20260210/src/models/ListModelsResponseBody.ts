@@ -112,11 +112,17 @@ export class ListModelsResponseBodyModelsPricesPrices extends $dara.Model {
    * Per 1M tokens
    */
   priceUnit?: string;
+  /**
+   * @example
+   * standard
+   */
+  timeBand?: string;
   static names(): { [key: string]: string } {
     return {
       price: 'price',
       priceName: 'priceName',
       priceUnit: 'priceUnit',
+      timeBand: 'timeBand',
     };
   }
 
@@ -125,6 +131,7 @@ export class ListModelsResponseBodyModelsPricesPrices extends $dara.Model {
       price: 'string',
       priceName: 'string',
       priceUnit: 'string',
+      timeBand: 'string',
     };
   }
 

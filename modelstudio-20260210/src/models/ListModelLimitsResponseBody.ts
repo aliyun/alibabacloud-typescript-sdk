@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   /**
    * @remarks
-   * The maximum concurrency.
+   * The maximum number of concurrent requests.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   asyncUserConcurrencyLimit?: number;
   /**
    * @remarks
-   * The queue size.
+   * The number of queued requests.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   requestLimit?: number;
   /**
    * @remarks
-   * The time period for request throttling, in seconds.
+   * The time period for request throttling. Unit: seconds.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   usageLimitField?: string;
   /**
    * @remarks
-   * The time period for usage throttling, in seconds.
+   * The time period for usage throttling. Unit: seconds.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
 export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model {
   /**
    * @remarks
-   * The maximum concurrency.
+   * The maximum number of concurrent requests.
    * 
    * @example
    * 10
@@ -103,7 +103,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   asyncUserConcurrencyLimit?: number;
   /**
    * @remarks
-   * The queue size.
+   * The number of queued requests.
    * 
    * @example
    * 10
@@ -119,7 +119,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   requestLimit?: number;
   /**
    * @remarks
-   * The time period for request throttling, in seconds.
+   * The time period for request throttling. Unit: seconds.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   usageLimitField?: string;
   /**
    * @remarks
-   * The time period for usage throttling, in seconds.
+   * The time period for usage throttling. Unit: seconds.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The model throttling configuration for the current user account.
+   * The model throttling for the current user account.
    */
   modelLimit?: ListModelLimitsResponseBodyLimitsModelLimit;
   /**
@@ -206,7 +206,15 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The custom model throttling configuration for the current workspace.
+   * The workspace ID.
+   * 
+   * @example
+   * ws_123xxx
+   */
+  workspaceId?: string;
+  /**
+   * @remarks
+   * The custom model throttling for the current workspace.
    */
   workspaceLimit?: ListModelLimitsResponseBodyLimitsWorkspaceLimit;
   static names(): { [key: string]: string } {
@@ -214,6 +222,7 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
       model: 'model',
       modelLimit: 'modelLimit',
       name: 'name',
+      workspaceId: 'workspaceId',
       workspaceLimit: 'workspaceLimit',
     };
   }
@@ -223,6 +232,7 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
       model: 'string',
       modelLimit: ListModelLimitsResponseBodyLimitsModelLimit,
       name: 'string',
+      workspaceId: 'string',
       workspaceLimit: ListModelLimitsResponseBodyLimitsWorkspaceLimit,
     };
   }
@@ -274,7 +284,7 @@ export class ListModelLimitsResponseBody extends $dara.Model {
   limits?: ListModelLimitsResponseBodyLimits[];
   /**
    * @remarks
-   * The maximum number of records returned in a single request.
+   * The maximum number of records to return in a single call.
    * 
    * @example
    * 20
@@ -298,7 +308,7 @@ export class ListModelLimitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
+   * Indicates whether the API call succeeded.
    * 
    * @example
    * true

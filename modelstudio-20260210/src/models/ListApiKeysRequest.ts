@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key ID for exact match.
+   * The API Key ID for exact match.
    * 
    * @example
    * 3076140
@@ -49,7 +49,7 @@ export class ListApiKeysRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field by which to sort results. Valid values:
+   * The field by which to sort the results. Valid values:
    * 
    * - apiKeyId (default)
    * 

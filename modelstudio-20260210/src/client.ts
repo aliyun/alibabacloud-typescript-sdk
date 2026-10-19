@@ -360,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business workspace.
+   * Creates a workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @param headers - map
@@ -397,7 +397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business workspace.
+   * Creates a workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -1109,7 +1109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API key information for authentication credentials.
+   * Retrieves a list of API Key authentication credentials.
    * 
    * @param request - ListApiKeysRequest
    * @param headers - map
@@ -1166,7 +1166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API key information for authentication credentials.
+   * Retrieves a list of API Key authentication credentials.
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse
@@ -1178,7 +1178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model throttling configurations for a workspace.
+   * Queries model throttling for a workspace.
    * 
    * @param request - ListModelLimitsRequest
    * @param headers - map
@@ -1227,7 +1227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model throttling configurations for a workspace.
+   * Queries model throttling for a workspace.
    * 
    * @param request - ListModelLimitsRequest
    * @returns ListModelLimitsResponse
@@ -1527,7 +1527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of business workspaces.
+   * Retrieves the list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -1572,7 +1572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of business workspaces.
+   * Retrieves the list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -1817,7 +1817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the information of an authentication credential API key.
+   * Edits the information of an API Key authentication credential.
    * 
    * @param request - UpdateApiKeyRequest
    * @param headers - map
@@ -1856,7 +1856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the information of an authentication credential API key.
+   * Edits the information of an API Key authentication credential.
    * 
    * @param request - UpdateApiKeyRequest
    * @returns UpdateApiKeyResponse

@@ -37,7 +37,7 @@ export class CreateWorkspaceResponseBodyWorkspace extends $dara.Model {
   serviceSite?: string;
   /**
    * @remarks
-   * The business workspace ID.
+   * The workspace ID.
    * 
    * @example
    * ws-ac3ef438bec22dc5
@@ -45,7 +45,7 @@ export class CreateWorkspaceResponseBodyWorkspace extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the business workspace.
+   * The workspace name.
    * 
    * @example
    * default
@@ -118,8 +118,8 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -127,7 +127,7 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The business workspace information.
+   * The workspace information.
    */
   workspace?: CreateWorkspaceResponseBodyWorkspace;
   static names(): { [key: string]: string } {

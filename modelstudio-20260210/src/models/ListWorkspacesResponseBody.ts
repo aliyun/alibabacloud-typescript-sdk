@@ -29,7 +29,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The service deployment scope. For more information, see [documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
+   * The service deployment scope. For details, [view the documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
    * 
    * @example
    * global
@@ -37,7 +37,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   serviceSite?: string;
   /**
    * @remarks
-   * The business workspace ID.
+   * The workspace ID.
    * 
    * @example
    * ws-0759e7b7ea7f585b
@@ -45,7 +45,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The business workspace name.
+   * The workspace name.
    * 
    * @example
    * default
@@ -101,7 +101,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 100
@@ -117,7 +117,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token returned in the previous response.
+   * The token used to retrieve additional results. You do not need to provide this parameter for the first request. Obtain the token for subsequent requests from the response of the previous request.
    * 
    * @example
    * TbB1IsZUSR4iE
@@ -134,7 +134,6 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call was successful. Valid values:
-   * 
    * - true: Successful.
    * - false: Failed.
    * 
@@ -152,7 +151,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of business workspaces.
+   * The list of workspaces.
    */
   workspaces?: ListWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {

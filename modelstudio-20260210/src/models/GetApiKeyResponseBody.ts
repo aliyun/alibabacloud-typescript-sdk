@@ -10,7 +10,7 @@ export class GetApiKeyResponseBodyApiKeyAuthModelAccessScope extends $dara.Model
   accessibleModels?: string[];
   /**
    * @remarks
-   * Indicates whether all models with granted inference permissions in the workspace can be accessed. Valid values:
+   * Indicates whether all models with inference permissions granted in the specified workspace are accessible. Valid values:
    * 
    * - true
    * - false
@@ -53,12 +53,15 @@ export class GetApiKeyResponseBodyApiKeyAuth extends $dara.Model {
   accessIps?: string[];
   /**
    * @remarks
-   * The model access scope.
+   * The model access scope. If configured, only the selected models can be called.
    */
   modelAccessScope?: GetApiKeyResponseBodyApiKeyAuthModelAccessScope;
   /**
    * @remarks
-   * All: all permissions. Custom: custom permissions.
+   * The permission type. Valid values:
+   * 
+   * - All: all permissions.
+   * - Custom: custom permissions.
    * 
    * @example
    * Custom
@@ -146,7 +149,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
   disabled?: number;
   /**
    * @remarks
-   * The time when the API key was created.
+   * The creation time.
    * 
    * @example
    * 1774338222000
@@ -161,6 +164,9 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * workspace_test
    */
@@ -245,9 +251,9 @@ export class GetApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request was successful. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

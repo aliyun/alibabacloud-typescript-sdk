@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The service deployment scope (the deployment scope for services that depend on GPU resources, such as inference, training, and deployment). The Beijing and Singapore regions are not supported.
+   * 
    * @example
    * global
    */
   serviceSite?: string;
   /**
    * @remarks
-   * The name of the business workspace.
+   * The workspace name.
    * 
    * This parameter is required.
    * 
