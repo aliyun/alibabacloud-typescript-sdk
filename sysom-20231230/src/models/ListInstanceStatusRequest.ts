@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceStatusRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The current page number (starting from 1). This field is present when pagination is used.
@@ -38,34 +37,29 @@ export class ListInstanceStatusRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filters the instance list by status. If this field is specified, only instances with the corresponding status are returned.
+   * The instance status used to filter the instance list. If this parameter is specified, only instances in the specified status are returned.
    * 
    * @example
    * Running
    */
   status?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       current: 'current',
       instance: 'instance',
       pageSize: 'pageSize',
       region: 'region',
       status: 'status',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       current: 'number',
       instance: 'string',
       pageSize: 'number',
       region: 'string',
       status: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

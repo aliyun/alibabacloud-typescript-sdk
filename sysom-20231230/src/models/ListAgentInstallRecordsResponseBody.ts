@@ -103,7 +103,7 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   data?: ListAgentInstallRecordsResponseBodyData[];
   /**

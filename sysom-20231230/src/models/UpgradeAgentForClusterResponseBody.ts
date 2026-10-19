@@ -62,7 +62,7 @@ export class UpgradeAgentForClusterResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * success

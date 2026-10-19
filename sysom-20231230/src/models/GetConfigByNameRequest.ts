@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConfigByNameRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The configuration name.
@@ -11,7 +10,7 @@ export class GetConfigByNameRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 节点网络延时检测
+   * Node network latency detection
    */
   configName?: string;
   /**
@@ -34,7 +33,7 @@ export class GetConfigByNameRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * Specifies whether to use the global UID.
+   * Specifies whether to use a global UID.
    * 
    * @example
    * false
@@ -48,28 +47,23 @@ export class GetConfigByNameRequest extends $dara.Model {
    * 1
    */
   versionId?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       configName: 'configName',
       configType: 'configType',
       entityId: 'entityId',
       useGlobalUid: 'useGlobalUid',
       versionId: 'versionId',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       configName: 'string',
       configType: 'string',
       entityId: 'string',
       useGlobalUid: 'boolean',
       versionId: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

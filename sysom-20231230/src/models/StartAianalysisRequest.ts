@@ -3,10 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartAIAnalysisRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
-   * The analysis tool. This parameter does not need to be specified when you use OpenAPI.
+   * The analysis tool. This parameter does not need to be specified when you call this operation by using OpenAPI.
    * 
    * @example
    * gp/pyki/analysis
@@ -14,7 +13,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   analysisTool?: string;
   /**
    * @remarks
-   * The data richness level.
+   * The data richness.
    */
   analysisParams?: string[];
   /**
@@ -35,7 +34,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   comms?: string;
   /**
    * @remarks
-   * The creator. This parameter does not need to be specified when you use OpenAPI.
+   * The creator. This parameter does not need to be specified when you call this operation by using OpenAPI.
    * 
    * @example
    * 445333
@@ -51,7 +50,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The instance type. This parameter does not need to be specified when you use OpenAPI.
+   * The instance type. This parameter does not need to be specified when you call this operation by using OpenAPI.
    * 
    * @example
    * ip/sn/hostname
@@ -80,7 +79,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   iterationRange?: number[];
   /**
    * @remarks
-   * The process IDs (PIDs) of the AI job. Multiple PIDs are supported, separated by commas.
+   * The process IDs (PIDs) of the AI job. Multiple PIDs are supported and separated by commas (,).
    * 
    * @example
    * 2421,36547,10043
@@ -96,7 +95,9 @@ export class StartAIAnalysisRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The AI Infra analysis duration. Unit: milliseconds. Default value: 2000.
+   * The AI Infra analysis duration.
+   * Unit: milliseconds.
+   * Default value: 2000.
    * 
    * @example
    * 2000
@@ -104,16 +105,14 @@ export class StartAIAnalysisRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The Alibaba Cloud user ID. This parameter does not need to be specified when you use OpenAPI.
+   * The Alibaba Cloud account ID. This parameter does not need to be specified when you call this operation by using OpenAPI.
    * 
    * @example
    * 123423414
    */
   uid?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       analysisTool: 'analysisTool',
       analysisParams: 'analysis_params',
       channel: 'channel',
@@ -128,13 +127,11 @@ export class StartAIAnalysisRequest extends $dara.Model {
       region: 'region',
       timeout: 'timeout',
       uid: 'uid',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       analysisTool: 'string',
       analysisParams: { 'type': 'array', 'itemType': 'string' },
       channel: 'string',
@@ -149,7 +146,6 @@ export class StartAIAnalysisRequest extends $dara.Model {
       region: 'string',
       timeout: 'number',
       uid: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

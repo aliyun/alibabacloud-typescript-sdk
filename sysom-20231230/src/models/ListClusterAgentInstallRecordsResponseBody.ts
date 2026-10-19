@@ -25,7 +25,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   createdAt?: string;
   /**
    * @remarks
-   * The canary release environment.
+   * The grayscale configuration.
    * 
    * @example
    * {}
@@ -49,7 +49,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   pluginVersion?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2024-12-25T15:08:19

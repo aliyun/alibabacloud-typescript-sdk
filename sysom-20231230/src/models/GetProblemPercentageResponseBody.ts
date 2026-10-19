@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProblemPercentageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the abnormal item.
+   * The anomaly item type.
    * 
    * @example
    * saturation
@@ -13,7 +13,7 @@ export class GetProblemPercentageResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The number of abnormal items of this type.
+   * The number of anomaly items of this type.
    * 
    * @example
    * 5

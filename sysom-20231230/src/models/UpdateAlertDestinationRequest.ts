@@ -21,7 +21,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The secret key of the chatbot.
+   * The chatbot secret key.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * The webhook URL of the chatbot.
+   * The webhook URL.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -63,7 +63,6 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class UpdateAlertDestinationRequest extends $dara.Model {
-  xDebugId?: string;
   appId?: string;
   appSecret?: string;
   groupId?: string[];
@@ -99,16 +98,14 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The alert notification target. Currently, only DingTalk contacts are supported.
+   * The alert push target. Currently, only DingTalk contacts are supported.
    * 
    * @example
    * dingtalk
    */
   target?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       appId: 'app_id',
       appSecret: 'app_secret',
       groupId: 'group_id',
@@ -118,13 +115,11 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
       params: 'params',
       source: 'source',
       target: 'target',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       appId: 'string',
       appSecret: 'string',
       groupId: { 'type': 'array', 'itemType': 'string' },
@@ -134,7 +129,6 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
       params: UpdateAlertDestinationRequestParams,
       source: 'string',
       target: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

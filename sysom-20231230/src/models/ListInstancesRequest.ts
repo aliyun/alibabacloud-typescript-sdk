@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -14,7 +13,7 @@ export class ListInstancesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The current page number. This field exists when pagination is used.
+   * The current page number. This field is present when pagination is used.
    * 
    * @example
    * 1
@@ -52,30 +51,25 @@ export class ListInstancesRequest extends $dara.Model {
    * Running
    */
   status?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       clusterId: 'cluster_id',
       current: 'current',
       instance: 'instance',
       pageSize: 'pageSize',
       region: 'region',
       status: 'status',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       clusterId: 'string',
       current: 'number',
       instance: 'string',
       pageSize: 'number',
       region: 'string',
       status: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

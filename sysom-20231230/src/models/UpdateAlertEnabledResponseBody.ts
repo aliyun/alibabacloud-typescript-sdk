@@ -6,8 +6,8 @@ export class UpdateAlertEnabledResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class UpdateAlertEnabledResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * {
@@ -23,7 +23,7 @@ export class UpdateAlertEnabledResponseBody extends $dara.Model {
    *     "name": "test-name",
    *     "strategy": {
    *       "items": [
-   *         "节点CPU使用率检测"
+   *         "Node CPU usage detection"
    *       ],
    *       "clusters": [
    *         "cluster1"
@@ -40,7 +40,7 @@ export class UpdateAlertEnabledResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

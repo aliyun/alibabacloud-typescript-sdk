@@ -21,7 +21,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The secret key of the chatbot.
+   * The chatbot secret key.
    * 
    * @example
    * SECxxx
@@ -65,7 +65,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
 export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the contact was created.
    * 
    * @example
    * 1753669116286
@@ -118,7 +118,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the contact was last updated.
    * 
    * @example
    * 1751254826285
@@ -180,7 +180,7 @@ export class CreateAlertDestinationResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message for the request.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

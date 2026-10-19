@@ -43,9 +43,9 @@ export class UpdateEventsAttentionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code. Valid values:
-   * - Success: The authorization is successful.
-   * - Other values: The authorization failed. Check the message field for the detailed fault information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class UpdateEventsAttentionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: UpdateEventsAttentionResponseBodyData;
   /**

@@ -153,20 +153,15 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The detailed description of the anomaly item.
+   * The description of the anomaly item.
    * 
    * @example
-   * 节点发生OOM, 可查看OOM发生原因
+   * An OOM event occurred on the node. Check the cause of the OOM event
    */
   description?: string;
   /**
    * @remarks
-   * The diagnostic status. Valid values:
-   * - 1: diagnosis ready.
-   * - 2: diagnosis in progress.
-   * - 3: diagnosis completed.
-   * - 4: not diagnosable.
-   * - 5: diagnosis failed.
+   * The diagnostic status. Valid values: 1: the diagnosis is ready. 2: the diagnosis is running. 3: the diagnosis is complete. 4: the item is not diagnosable. 5: the diagnosis failed.
    * 
    * @example
    * 3
@@ -193,7 +188,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
    * The name of the anomaly item.
    * 
    * @example
-   * 节点CPU使用率检测
+   * Node CPU usage check
    */
   item?: string;
   /**
@@ -311,7 +306,7 @@ export class ListAbnormalyEventsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization was successful.
+   * - `code == Success` indicates that the authorization is successful.
    * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
@@ -325,7 +320,7 @@ export class ListAbnormalyEventsResponseBody extends $dara.Model {
   data?: ListAbnormalyEventsResponseBodyData[];
   /**
    * @remarks
-   * The error code description. This value is empty if no error occurred.
+   * The error code description. This field is empty if no error occurs.
    * 
    * @example
    * Success

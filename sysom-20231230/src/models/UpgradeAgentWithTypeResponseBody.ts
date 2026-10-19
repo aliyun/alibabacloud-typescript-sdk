@@ -45,14 +45,14 @@ export class UpgradeAgentWithTypeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: UpgradeAgentWithTypeResponseBodyData;
   /**
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * “”

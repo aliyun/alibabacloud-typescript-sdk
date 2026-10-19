@@ -47,7 +47,6 @@ export class UpgradeAgentWithTypeRequestInstances extends $dara.Model {
 }
 
 export class UpgradeAgentWithTypeRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The ID of the component to update.
@@ -60,7 +59,7 @@ export class UpgradeAgentWithTypeRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The version of the component to update to.
+   * The version to which the component is updated.
    * 
    * This parameter is required.
    * 
@@ -78,31 +77,26 @@ export class UpgradeAgentWithTypeRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The list of instances for which to update the component.
+   * The list of instances on which to update the component.
    * 
    * This parameter is required.
    */
   instances?: UpgradeAgentWithTypeRequestInstances[];
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       agentId: 'agentId',
       agentVersion: 'agentVersion',
       instanceType: 'instanceType',
       instances: 'instances',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       instanceType: 'string',
       instances: { 'type': 'array', 'itemType': UpgradeAgentWithTypeRequestInstances },
-      xSysomInvokeSource: 'string',
     };
   }
 

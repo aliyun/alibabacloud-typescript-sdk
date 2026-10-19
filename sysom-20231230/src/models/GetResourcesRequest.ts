@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourcesRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -28,24 +27,19 @@ export class GetResourcesRequest extends $dara.Model {
    * mem
    */
   type?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       instance: 'instance',
       type: 'type',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       cluster: 'string',
       instance: 'string',
       type: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

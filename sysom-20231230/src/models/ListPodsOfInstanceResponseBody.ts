@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPodsOfInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The namespace in which the pod resides.
+   * The namespace of the pod.
    * 
    * @example
    * default
@@ -76,7 +76,7 @@ export class ListPodsOfInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The maximum number of entries returned for this request.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 42

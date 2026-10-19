@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDiagnosisResultRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The diagnostic task ID.
@@ -14,20 +13,15 @@ export class GetDiagnosisResultRequest extends $dara.Model {
    * quzuYl23
    */
   taskId?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       taskId: 'task_id',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       taskId: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

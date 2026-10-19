@@ -15,7 +15,7 @@ export class UpdateAlertDestinationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    * 
    * @example
    * {

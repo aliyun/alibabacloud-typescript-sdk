@@ -29,7 +29,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   kernelVersion?: string;
   /**
    * @remarks
-   * The metadata of the instance.
+   * The instance metadata.
    * 
    * @example
    * {
@@ -69,7 +69,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osHealthScore?: string;
   /**
    * @remarks
-   * The operating system name of the instance (obtained from /etc/os-release).
+   * The operating system name of the instance, obtained from /etc/os-release.
    * 
    * @example
    * Anolis OS
@@ -77,7 +77,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osName?: string;
   /**
    * @remarks
-   * The operating system name ID of the instance (obtained from /etc/os-release).
+   * The operating system name ID of the instance, obtained from /etc/os-release.
    * 
    * @example
    * anolis
@@ -85,7 +85,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osNameId?: string;
   /**
    * @remarks
-   * The operating system version of the instance (obtained from /etc/os-release).
+   * The operating system version of the instance, obtained from /etc/os-release.
    * 
    * @example
    * 8.9
@@ -93,7 +93,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The operating system version ID of the instance (obtained from /etc/os-release).
+   * The operating system version ID of the instance, obtained from /etc/os-release.
    * 
    * @example
    * rhel fedora centos
@@ -162,8 +162,8 @@ export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * SysomOpenAPI.ServerError

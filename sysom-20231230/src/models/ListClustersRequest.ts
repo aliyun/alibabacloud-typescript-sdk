@@ -3,10 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClustersRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
-   * Filters by cluster ID.
+   * The cluster ID used to filter clusters.
    * 
    * > This cluster ID is not the ACK cluster ID. It is the `id` field returned by this operation.
    * 
@@ -29,7 +28,7 @@ export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
    * - `ACK`: ACK cluster.
-   * - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
+   * - `CUSTOM`: Custom cluster. The default cluster belongs to the custom cluster type.
    * 
    * @example
    * ACK
@@ -45,7 +44,7 @@ export class ListClustersRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * **[Deprecated]** Use the cluster_id parameter to filter instead.
+   * **[Deprecated]** Use the cluster_id parameter to filter clusters.
    * 
    * @example
    * cb7d4cc26c8f845fb8a8255ffd394820e
@@ -53,7 +52,7 @@ export class ListClustersRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Filters plugins by plugin name.
+   * The name of the plug-in used to filter plug-ins.
    * 
    * @example
    * proxy-next-upstream
@@ -67,10 +66,8 @@ export class ListClustersRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       clusterId: 'cluster_id',
       clusterStatus: 'cluster_status',
       clusterType: 'cluster_type',
@@ -78,13 +75,11 @@ export class ListClustersRequest extends $dara.Model {
       id: 'id',
       name: 'name',
       pageSize: 'pageSize',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       clusterId: 'string',
       clusterStatus: 'string',
       clusterType: 'string',
@@ -92,7 +87,6 @@ export class ListClustersRequest extends $dara.Model {
       id: 'string',
       name: 'string',
       pageSize: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

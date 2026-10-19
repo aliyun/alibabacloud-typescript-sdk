@@ -77,7 +77,7 @@ export class GetInstantScoreResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization has failed. If the authorization has failed, check the `message` field for the detailed fault information.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -92,7 +92,7 @@ export class GetInstantScoreResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * Query no data

@@ -3,36 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitialSysomRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
-   * Specifies whether to only check if the service-linked role exists.
+   * Specifies whether to only check whether the service-linked role exists.
    */
   checkOnly?: boolean;
   /**
    * @remarks
-   * The source. Set this parameter to console.
+   * The source. Set the value to console.
    * 
    * @example
    * console
    */
   source?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       checkOnly: 'check_only',
       source: 'source',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       checkOnly: 'boolean',
       source: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

@@ -13,7 +13,7 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The reason why the instance cannot be managed. This value is not empty when success is false.
+   * The reason why the instance is not supported for management. This value is not empty when support is false.
    * 
    * @example
    * instance not found in ecs
@@ -21,11 +21,11 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * Indicates whether the instance can be managed by SysOM.
+   * Indicates whether the instance is supported for management by SysOM.
    * 
-   * - **true**: The instance can be managed by SysOM.
+   * - **true**: The instance is supported for management by SysOM.
    * 
-   * - **false**: The instance cannot be managed by SysOM.
+   * - **false**: The instance is not supported for management by SysOM.
    * 
    * @example
    * true
@@ -60,8 +60,8 @@ export class CheckInstanceSupportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -74,7 +74,7 @@ export class CheckInstanceSupportResponseBody extends $dara.Model {
   data?: CheckInstanceSupportResponseBodyData[];
   /**
    * @remarks
-   * The error message. This field contains the error information when code is not Success.
+   * The error message. This field contains detailed error information when code is not Success.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

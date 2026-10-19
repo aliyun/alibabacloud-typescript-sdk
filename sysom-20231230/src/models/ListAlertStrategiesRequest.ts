@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertStrategiesRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The current page number (starting from 1).
@@ -22,7 +21,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The policy name of the alerting policy.
+   * The Policy Name of the alerting policy.
    * 
    * @example
    * strategy1
@@ -44,28 +43,23 @@ export class ListAlertStrategiesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       current: 'current',
       maxResults: 'maxResults',
       name: 'name',
       nextToken: 'nextToken',
       pageSize: 'pageSize',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       current: 'number',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
       pageSize: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

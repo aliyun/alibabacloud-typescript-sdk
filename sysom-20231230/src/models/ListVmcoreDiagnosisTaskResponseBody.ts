@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task creation time.
+   * The time when the task was created.
    * 
    * @example
    * 2025-12-02T17:36:12
@@ -76,8 +76,8 @@ export class ListVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success`: The authorization is successful.
+   * - Other status codes: The authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -92,7 +92,7 @@ export class ListVmcoreDiagnosisTaskResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message of the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

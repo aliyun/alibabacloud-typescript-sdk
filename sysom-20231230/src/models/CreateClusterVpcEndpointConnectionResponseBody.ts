@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterVpcEndpointConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint connection.
+   * The endpoint connection ID.
    * 
    * @example
    * ep-xxx

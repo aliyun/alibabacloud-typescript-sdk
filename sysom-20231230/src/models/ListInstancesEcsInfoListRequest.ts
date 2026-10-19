@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesEcsInfoListRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The type of information to retrieve.
@@ -48,28 +47,23 @@ export class ListInstancesEcsInfoListRequest extends $dara.Model {
    * cn-shenzhen
    */
   region?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       infoType: 'info_type',
       instanceId: 'instance_id',
       managedType: 'managed_type',
       pluginId: 'plugin_id',
       region: 'region',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       infoType: 'string',
       instanceId: 'string',
       managedType: 'string',
       pluginId: 'string',
       region: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertStrategyRequestStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters for which alerts are received.
+   * The collection of clusters that receive alerts.
    */
   clusters?: string[];
   /**
@@ -15,7 +15,7 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The collection of anomaly items for which alerts are received.
+   * The collection of exception items that receive alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -53,7 +53,6 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
 }
 
 export class CreateAlertStrategyRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * Specifies whether the alert policy is enabled.
@@ -86,26 +85,21 @@ export class CreateAlertStrategyRequest extends $dara.Model {
    * This parameter is required.
    */
   strategy?: CreateAlertStrategyRequestStrategy;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       enabled: 'enabled',
       k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       enabled: 'boolean',
       k8sLabel: 'boolean',
       name: 'string',
       strategy: CreateAlertStrategyRequestStrategy,
-      xSysomInvokeSource: 'string',
     };
   }
 

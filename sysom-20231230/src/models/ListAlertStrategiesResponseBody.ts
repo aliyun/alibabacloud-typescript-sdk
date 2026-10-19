@@ -5,13 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters for which alerts are received.
+   * The collection of clusters that receive alerts.
    */
   clusters?: string[];
+  /**
+   * @remarks
+   * The list of alert contacts and policy destinations.
+   */
   destinations?: number[];
   /**
    * @remarks
-   * 接收告警的异常项列表
+   * The list of anomaly items that receive alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -73,6 +77,10 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
    * 1
    */
   id?: number;
+  /**
+   * @remarks
+   * Indicates whether Kubernetes labels are required.
+   */
   k8sLabel?: boolean;
   /**
    * @remarks
@@ -145,8 +153,8 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -169,7 +177,7 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information for the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

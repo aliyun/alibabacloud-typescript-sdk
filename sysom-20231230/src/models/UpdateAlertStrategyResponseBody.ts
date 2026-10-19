@@ -7,7 +7,7 @@ export class UpdateAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed error message when a fault occurs.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class UpdateAlertStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    * 
    * @example
    * {
@@ -33,10 +33,10 @@ export class UpdateAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
-   * Failed to update the alert policy
+   * Failed to update alert policy
    */
   message?: string;
   /**

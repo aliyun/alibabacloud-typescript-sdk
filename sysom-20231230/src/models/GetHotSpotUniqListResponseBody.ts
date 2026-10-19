@@ -60,7 +60,7 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   data?: GetHotSpotUniqListResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -76,7 +76,9 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. true: successful. false: failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - true: The API call is successful.
+   * - false: The API call failed.
    * 
    * @example
    * true

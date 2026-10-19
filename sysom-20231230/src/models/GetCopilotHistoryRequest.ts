@@ -3,10 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCopilotHistoryRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
-   * The number of historical chat records to request. The value is generally less than 100.
+   * The number of historical chat records to request, generally fewer than 100.
    * 
    * This parameter is required.
    * 
@@ -14,20 +13,15 @@ export class GetCopilotHistoryRequest extends $dara.Model {
    * 100
    */
   count?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       count: 'count',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       count: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

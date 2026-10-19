@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentForClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID. You can use this task ID to call GetAgentTask to query the execution status of the task.
+   * The task ID. You can use this task ID to call the GetAgentTasK operation to query the execution status of the task.
    * 
    * @example
    * 049ea0609515414b9e19c3389d7ba638
@@ -44,7 +44,7 @@ export class UninstallAgentForClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
+   * - `code == Success` indicates that the authorization was successful.
    * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example

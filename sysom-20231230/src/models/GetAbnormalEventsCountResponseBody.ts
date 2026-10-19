@@ -10,7 +10,7 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
   eventList?: string[];
   /**
    * @remarks
-   * The type of the abnormal event.
+   * The type of the abnormality.
    * 
    * @example
    * health
@@ -18,7 +18,7 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The number of abnormal events of this type.
+   * The number of abnormalities of this type.
    * 
    * @example
    * 1

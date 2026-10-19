@@ -135,7 +135,7 @@ export class GetServiceFuncStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: GetServiceFuncStatusResponseBodyData;
   /**

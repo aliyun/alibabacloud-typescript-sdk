@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the debuginfo-common RPM package.
+   * The download link for the debuginfo-common RPM package.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/debuginfo-common/file/path
@@ -13,7 +13,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   debuginfoCommonUrl?: string;
   /**
    * @remarks
-   * The download URL of the debuginfo RPM package.
+   * The download link for the debuginfo RPM package.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/debuginfo/file/path
@@ -21,7 +21,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   debuginfoUrl?: string;
   /**
    * @remarks
-   * The download URL of the dmesg log.
+   * The download link for the dmesg log.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/dmesg/file/path
@@ -29,7 +29,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   dmesgUrl?: string;
   /**
    * @remarks
-   * The download URL of the vmcore file.
+   * The download link for the vmcore file.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/vmcore/file/path
@@ -113,7 +113,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The download URLs of related files associated with the task.
+   * The download links for files related to the task.
    */
   urls?: GetVmcoreDiagnosisTaskResponseBodyDataUrls;
   static names(): { [key: string]: string } {
@@ -172,7 +172,7 @@ export class GetVmcoreDiagnosisTaskResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

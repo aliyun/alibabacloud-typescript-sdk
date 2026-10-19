@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckInstanceSupportRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The list of instance IDs to check.
@@ -14,28 +13,23 @@ export class CheckInstanceSupportRequest extends $dara.Model {
   instances?: string[];
   /**
    * @remarks
-   * The region to which the instances belong. Ensure that all instance IDs passed in instances belong to the same region.
+   * The region to which the instances belong. Make sure that all instance IDs specified in instances belong to the same region.
    * 
    * @example
    * cn-hangzhou
    */
   region?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       instances: 'instances',
       region: 'region',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       instances: { 'type': 'array', 'itemType': 'string' },
       region: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

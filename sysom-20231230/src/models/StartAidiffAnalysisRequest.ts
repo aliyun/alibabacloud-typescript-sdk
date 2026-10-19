@@ -13,7 +13,7 @@ export class StartAIDiffAnalysisRequestTask1 extends $dara.Model {
   analysisId?: string;
   /**
    * @remarks
-   * The process IDs (PIDs) of AI job processes. Batch input is supported with comma-separated values.
+   * The PIDs of AI job processes. You can specify multiple PIDs separated by commas.
    */
   pids?: string[];
   /**
@@ -75,7 +75,7 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
   analysisId?: string;
   /**
    * @remarks
-   * The process IDs (PIDs) of AI job processes. Batch input is supported with comma-separated values.
+   * The PIDs of AI job processes. You can specify multiple PIDs separated by commas.
    * 
    * This parameter is required.
    * 
@@ -134,7 +134,6 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
 }
 
 export class StartAIDiffAnalysisRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The task1 parameters.
@@ -152,25 +151,20 @@ export class StartAIDiffAnalysisRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * task2 parameters. Currently, only comparison with the same analysisId and pid is supported
+   * task2 parameters. Currently, only comparison with the same analysisId and PID is supported
    */
   task2?: StartAIDiffAnalysisRequestTask2;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       task1: 'task1',
       task2: 'task2',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       task1: StartAIDiffAnalysisRequestTask1,
       task2: StartAIDiffAnalysisRequestTask2,
-      xSysomInvokeSource: 'string',
     };
   }
 

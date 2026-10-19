@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotCompareRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The end time 1.
@@ -98,10 +97,8 @@ export class GetHotspotCompareRequest extends $dara.Model {
    * prof_on
    */
   table?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       beg1End: 'beg1_end',
       beg1Start: 'beg1_start',
       beg2End: 'beg2_end',
@@ -112,13 +109,11 @@ export class GetHotspotCompareRequest extends $dara.Model {
       pid1: 'pid1',
       pid2: 'pid2',
       table: 'table',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       beg1End: 'number',
       beg1Start: 'number',
       beg2End: 'number',
@@ -129,7 +124,6 @@ export class GetHotspotCompareRequest extends $dara.Model {
       pid1: 'number',
       pid2: 'number',
       table: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

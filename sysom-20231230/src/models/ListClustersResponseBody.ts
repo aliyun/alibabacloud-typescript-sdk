@@ -7,8 +7,8 @@ export class ListClustersResponseBodyData extends $dara.Model {
    * @remarks
    * The actual cluster ID.
    * 
-   * > - For `ACK` type clusters, this is the ACK cluster ID.
-   * > - For `CUSTOM` type clusters, this serves as a unique identifier with no additional meaning.
+   * > - For `ACK` clusters, this cluster ID is the ACK cluster ID.
+   * > - For `CUSTOM` clusters, this cluster ID serves as a unique identifier and has no additional meaning.
    * 
    * @example
    * c666d4774f0e2440b979bf917bf100e40
@@ -29,7 +29,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * - `ACK`: ACK cluster.
-   * - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
+   * - `CUSTOM`: Custom cluster. The default cluster belongs to the custom cluster type.
    * 
    * @example
    * ACK
@@ -122,8 +122,8 @@ export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success

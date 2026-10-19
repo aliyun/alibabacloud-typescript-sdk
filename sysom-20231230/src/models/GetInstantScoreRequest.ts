@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstantScoreRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -20,22 +19,17 @@ export class GetInstantScoreRequest extends $dara.Model {
    * i-wz9d00ut2ska3mlyhn6j
    */
   instance?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       instance: 'instance',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       cluster: 'string',
       instance: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

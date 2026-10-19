@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAbnormalEventsCountRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -30,7 +29,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The severity level of abnormal events.
+   * The severity level of the abnormal event.
    * 
    * @example
    * potential
@@ -68,10 +67,8 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
    * 1725797727754
    */
   start?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       end: 'end',
       instance: 'instance',
@@ -80,13 +77,11 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       pod: 'pod',
       showPod: 'showPod',
       start: 'start',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       cluster: 'string',
       end: 'number',
       instance: 'string',
@@ -95,7 +90,6 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       pod: 'string',
       showPod: 'number',
       start: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

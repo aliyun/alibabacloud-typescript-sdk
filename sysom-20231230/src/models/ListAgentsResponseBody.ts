@@ -21,7 +21,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   installScript?: string;
   /**
    * @remarks
-   * The uninstallation script of the component.
+   * The uninstall script of the component.
    * 
    * @example
    * sysom.sh uninstall
@@ -29,7 +29,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   uninstallScript?: string;
   /**
    * @remarks
-   * The time when the component version was updated.
+   * The time when the component version was last updated.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -37,7 +37,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The update script of the component.
+   * The upgrade script of the component.
    * 
    * @example
    * sysom.sh upgrade
@@ -45,7 +45,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   upgradeScript?: string;
   /**
    * @remarks
-   * The component version number.
+   * The version number of the component.
    * 
    * @example
    * 3.4.0-1
@@ -117,7 +117,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The supported architectures (multiple architectures are separated by commas).
+   * The supported architectures. Multiple architectures are separated by commas.
    * 
    * @example
    * x86
@@ -135,7 +135,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the component was updated.
+   * The time when the component was last updated.
    * 
    * @example
    * 2024-09-14T20:46:08

@@ -6,7 +6,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
+   * - `code == Success` indicates that the authorization was successful.
    * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
@@ -33,7 +33,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information for the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * server error
@@ -57,7 +57,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum number of records returned by this request based on MaxResults.
+   * The maximum number of records returned by MaxResults for this request.
    * 
    * @example
    * 623

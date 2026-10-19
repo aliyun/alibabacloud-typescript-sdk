@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceInfoRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The information type.
@@ -60,10 +59,8 @@ export class ListInstanceInfoRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       infoType: 'infoType',
       instanceType: 'instanceType',
       managedType: 'managedType',
@@ -71,13 +68,11 @@ export class ListInstanceInfoRequest extends $dara.Model {
       nextToken: 'nextToken',
       pluginId: 'pluginId',
       region: 'region',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       infoType: 'string',
       instanceType: 'string',
       managedType: 'string',
@@ -85,7 +80,6 @@ export class ListInstanceInfoRequest extends $dara.Model {
       nextToken: 'string',
       pluginId: 'string',
       region: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

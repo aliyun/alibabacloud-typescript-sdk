@@ -58,7 +58,7 @@ export class GetHotspotPidListResponseBody extends $dara.Model {
   data?: GetHotspotPidListResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Success

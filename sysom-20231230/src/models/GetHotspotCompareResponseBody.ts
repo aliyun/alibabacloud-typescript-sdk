@@ -188,7 +188,7 @@ export class GetHotspotCompareResponseBody extends $dara.Model {
   data?: GetHotspotCompareResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -205,8 +205,8 @@ export class GetHotspotCompareResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * - true: The API call was successful.
+   * - false: The API call failed.
    * 
    * @example
    * true

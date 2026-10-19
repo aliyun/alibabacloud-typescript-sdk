@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDiagnosisRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The current page number.
@@ -50,28 +49,23 @@ export class ListDiagnosisRequest extends $dara.Model {
    * Running
    */
   status?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       current: 'current',
       pageSize: 'pageSize',
       params: 'params',
       serviceName: 'service_name',
       status: 'status',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       current: 'number',
       pageSize: 'number',
       params: 'string',
       serviceName: 'string',
       status: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

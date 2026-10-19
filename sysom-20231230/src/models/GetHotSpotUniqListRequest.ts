@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotSpotUniqListRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The end time.
@@ -57,33 +56,28 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 默认需要为"flag"，待查询的字段
+   * The default value must be "flag", which specifies the field to query
    */
   uniq?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       begEnd: 'beg_end',
       begStart: 'beg_start',
       instance: 'instance',
       pid: 'pid',
       table: 'table',
       uniq: 'uniq',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       begEnd: 'number',
       begStart: 'number',
       instance: 'string',
       pid: 'number',
       table: 'string',
       uniq: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

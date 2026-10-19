@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters for which alerts are received.
+   * The collection of clusters that receive alerts.
    */
   clusters?: string[];
   /**
@@ -15,7 +15,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The collection of anomaly items for which alerts are received.
+   * The collection of exception items that receive alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -53,7 +53,6 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
 }
 
 export class UpdateAlertStrategyRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * Specifies whether the alert policy is enabled.
@@ -76,12 +75,12 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The Kubernetes labels.
+   * The Kubernetes label.
    */
   k8sLabel?: boolean;
   /**
    * @remarks
-   * The Policy Name of the alerting policy.
+   * The name of the alerting policy.
    * 
    * This parameter is required.
    * 
@@ -96,28 +95,23 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
    * This parameter is required.
    */
   strategy?: UpdateAlertStrategyRequestStrategy;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       enabled: 'enabled',
       id: 'id',
       k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       enabled: 'boolean',
       id: 'number',
       k8sLabel: 'boolean',
       name: 'string',
       strategy: UpdateAlertStrategyRequestStrategy,
-      xSysomInvokeSource: 'string',
     };
   }
 

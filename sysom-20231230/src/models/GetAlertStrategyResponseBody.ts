@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters for which alerts are received.
+   * The collection of clusters that receive alerts.
    */
   clusters?: string[];
   /**
@@ -15,10 +15,10 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   destinations?: any;
   /**
    * @remarks
-   * The list of anomaly items for which alerts are received.
+   * The list of exception items that receive alerts.
    * 
    * @example
-   * Node CPU utilization detection
+   * Node CPU utilization check
    */
   items?: any;
   static names(): { [key: string]: string } {
@@ -151,7 +151,7 @@ export class GetAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -159,14 +159,14 @@ export class GetAlertStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetAlertStrategyResponseBodyData;
   /**
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * success

@@ -32,7 +32,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
    * The analysis failure log.
    * 
    * @example
-   * 机器i-wz9dej066kii4goqpnze分析失败, 失败原因: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
+   * Analysis failed for instance i-wz9dej066kii4goqpnze. Failure reason: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
    */
   failedLog?: string;
   /**
@@ -88,7 +88,7 @@ export class GetListRecordResponseBody extends $dara.Model {
   data?: GetListRecordResponseBodyData[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ""

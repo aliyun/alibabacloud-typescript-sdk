@@ -44,8 +44,8 @@ export class UninstallAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success

@@ -68,7 +68,7 @@ export class ListInstanceInfoResponseBody extends $dara.Model {
   data?: ListInstanceInfoResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of entries returned per request.
+   * The maximum number of records returned in a single request.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListInstanceInfoResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * success

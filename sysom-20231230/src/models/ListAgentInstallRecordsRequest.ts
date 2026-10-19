@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstallRecordsRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The current page number. Pages start from page 1.
@@ -14,7 +13,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Specifies the instance ID. If this parameter is specified, only the Agent installation records for the specified instance are returned.
+   * The instance ID. If you specify this parameter, only the Agent installation records for the specified instance are returned.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -30,7 +29,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies the Agent ID. If this parameter is specified, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
+   * The Agent ID. If you specify this parameter, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -38,7 +37,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies the Agent version. This parameter cannot be used alone and must be used together with the plugin_id parameter to filter the installation records for a specific version of the specified Agent.
+   * The Agent version. This parameter cannot be used alone. Use it together with the plugin_id parameter to filter the installation records for a specific version of the specified Agent.
    * 
    * @example
    * 3.4.0-1
@@ -54,16 +53,14 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filters component installation records by status.
+   * The status used to filter component installation records.
    * 
    * @example
    * Installed
    */
   status?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       current: 'current',
       instanceId: 'instance_id',
       pageSize: 'pageSize',
@@ -71,13 +68,11 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pluginVersion: 'plugin_version',
       region: 'region',
       status: 'status',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       current: 'number',
       instanceId: 'string',
       pageSize: 'number',
@@ -85,7 +80,6 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pluginVersion: 'string',
       region: 'string',
       status: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

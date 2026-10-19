@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAllInstancesRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The current page number.
@@ -38,7 +37,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   managedType?: string;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of entries to return in a single request.
    * 
    * @example
    * 100
@@ -77,10 +76,8 @@ export class ListAllInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       current: 'current',
       filters: 'filters',
       instanceType: 'instanceType',
@@ -90,13 +87,11 @@ export class ListAllInstancesRequest extends $dara.Model {
       pageSize: 'pageSize',
       pluginId: 'pluginId',
       region: 'region',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       current: 'string',
       filters: 'string',
       instanceType: 'string',
@@ -106,7 +101,6 @@ export class ListAllInstancesRequest extends $dara.Model {
       pageSize: 'string',
       pluginId: 'string',
       region: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

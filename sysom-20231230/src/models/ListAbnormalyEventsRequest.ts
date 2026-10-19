@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAbnormalyEventsRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -14,7 +13,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * The current page number. This parameter is present during paginated queries.
+   * The current page number. This field exists when pagination is used.
    * 
    * @example
    * 1
@@ -33,7 +32,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
    * The name of the anomaly event.
    * 
    * @example
-   * 节点根文件系统使用检测
+   * Node root filesystem usage check
    */
   event?: string;
   /**
@@ -78,7 +77,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * Specifies whether to display pod anomaly events.
+   * Specifies whether to display anomaly events of the pod.
    * 
    * @example
    * 1
@@ -92,10 +91,8 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
    * 1725797727754
    */
   start?: number;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       current: 'current',
       end: 'end',
@@ -107,13 +104,11 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       pod: 'pod',
       showPod: 'showPod',
       start: 'start',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       cluster: 'string',
       current: 'number',
       end: 'number',
@@ -125,7 +120,6 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       pod: 'string',
       showPod: 'number',
       start: 'number',
-      xSysomInvokeSource: 'string',
     };
   }
 

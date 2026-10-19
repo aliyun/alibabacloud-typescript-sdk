@@ -43,9 +43,9 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * The status code. Valid values:
+   * - Success: The authorization is successful.
+   * - Other values indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,14 +53,14 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: UpgradeAgentResponseBodyData;
   /**
    * @remarks
    * The error message.
-   * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - If code is Success, this field is empty.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

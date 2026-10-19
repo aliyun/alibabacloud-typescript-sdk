@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVmcoreDiagnosisTaskRequest extends $dara.Model {
-  xDebugId?: string;
   /**
    * @remarks
    * The download URL of the debuginfo-common file. This parameter is optional when the diagnosis type is vmcore.
@@ -36,8 +35,8 @@ export class CreateVmcoreDiagnosisTaskRequest extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * - vmcore: vmcore file diagnostic task.
-   * - dmesg: dmesg log diagnostic task.
+   * - vmcore: a vmcore file diagnostic task.
+   * - dmesg: a dmesg log diagnostic task.
    * 
    * This parameter is required.
    * 
@@ -53,28 +52,23 @@ export class CreateVmcoreDiagnosisTaskRequest extends $dara.Model {
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/vmcore/file/path
    */
   vmcoreUrl?: string;
-  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
-      xDebugId: 'X-Debug-Id',
       debuginfoCommonUrl: 'debuginfoCommonUrl',
       debuginfoUrl: 'debuginfoUrl',
       dmesgUrl: 'dmesgUrl',
       taskType: 'taskType',
       vmcoreUrl: 'vmcoreUrl',
-      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xDebugId: 'string',
       debuginfoCommonUrl: 'string',
       debuginfoUrl: 'string',
       dmesgUrl: 'string',
       taskType: 'string',
       vmcoreUrl: 'string',
-      xSysomInvokeSource: 'string',
     };
   }
 

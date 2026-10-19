@@ -8,12 +8,12 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
    * The chat content text.
    * 
    * @example
-   * Specific content replied by Copilot
+   * The specific content replied by Copilot
    */
   content?: string;
   /**
    * @remarks
-   * The time of the chat record. The value is of the string type.
+   * The chat record time, of the string type.
    * 
    * @example
    * 2024-09-02 10:02:39
@@ -22,8 +22,8 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The role identifier. Valid values:
-   * - user: a user.
-   * - copilot: a bot.
+   * - user: the user.
+   * - copilot: the bot.
    * 
    * @example
    * user
@@ -66,7 +66,7 @@ export class GetCopilotHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of chat records. The length equals the requested count. If the actual chat records are fewer than the requested count, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}]
+   * The list of chat records. The length equals the requested number. If the actual chat records are fewer than the requested number, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}]
    */
   data?: GetCopilotHistoryResponseBodyData[];
   /**
