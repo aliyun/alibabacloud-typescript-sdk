@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubscriptionAttributesResponseBodyDataDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The target queue to which dead-letter messages are delivered.
+   * The destination queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterTargetQueue
@@ -43,7 +43,21 @@ export class GetSubscriptionAttributesResponseBodyDataDlqPolicy extends $dara.Mo
 }
 
 export class GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether throttling is enabled. Valid values: true or false.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of messages received per second.
+   * 
+   * @example
+   * 0
+   */
   maxReceivesPerSecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,7 +85,7 @@ export class GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy exte
 export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the subscription was created. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
+   * The time when the subscription was created. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1449554806
@@ -84,7 +98,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   dlqPolicy?: GetSubscriptionAttributesResponseBodyDataDlqPolicy;
   /**
    * @remarks
-   * The endpoint of the subscription.
+   * The endpoint address of the subscription.
    * 
    * @example
    * http://example.com
@@ -92,7 +106,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The tag used for message filtering. Only messages that have a matching tag are pushed.
+   * The tag used for message filtering in the subscription. Only messages with matching tags are pushed.
    * 
    * @example
    * important
@@ -100,7 +114,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   filterTag?: string;
   /**
    * @remarks
-   * The time when the subscription properties were last modified. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
+   * The time when the subscription attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1449554962
@@ -108,8 +122,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * The format of the message content that is pushed to an endpoint.
-   * Valid values:
+   * The format of the message content pushed to the endpoint. Valid values:
    * 
    * - XML
    * 
@@ -123,7 +136,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   notifyContentFormat?: string;
   /**
    * @remarks
-   * The retry policy that is used when a message fails to be pushed to an endpoint. Valid values:
+   * The retry strategy used when an error occurs while pushing messages to the endpoint. Valid values:
    * 
    * - BACKOFF_RETRY: backoff retry.
    * 
@@ -141,10 +154,14 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
    * MySubscription
    */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The throttling policy.
+   */
   tenantRateLimitPolicy?: GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy;
   /**
    * @remarks
-   * The name of the topic to which the subscription belongs.
+   * The name of the subscribed topic.
    * 
    * @example
    * MyTopic
@@ -152,7 +169,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The AccountId of the owner of the topic to which the subscription belongs.
+   * The account ID of the owner of the subscribed topic.
    * 
    * @example
    * 123456789098****
@@ -245,7 +262,7 @@ export class GetSubscriptionAttributesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

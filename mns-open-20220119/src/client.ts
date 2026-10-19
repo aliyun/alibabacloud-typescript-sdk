@@ -12,37 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "mns-open.us-west-1.aliyuncs.com",
-      'us-east-1': "mns-open.us-east-1.aliyuncs.com",
-      'me-east-1': "mns-open.me-east-1.aliyuncs.com",
-      'me-central-1': "mns-open.me-central-1.aliyuncs.com",
-      'eu-west-1': "mns-open.eu-west-1.aliyuncs.com",
-      'eu-central-1': "mns-open.eu-central-1.aliyuncs.com",
-      'cn-zhengzhou-jva': "mns-open.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "mns-open.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "mns-open.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen-finance-1': "mns-open.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "mns-open.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "mns-open.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "mns-open.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "mns-open.cn-qingdao.aliyuncs.com",
-      'cn-huhehaote': "mns-open.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "mns-open.cn-hongkong.aliyuncs.com",
-      'cn-heyuan-acdr-1': "mns-open.cn-heyuan-acdr-1.aliyuncs.com",
-      'cn-heyuan': "mns-open.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou-finance': "mns-open.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "mns-open.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "mns-open.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "mns-open.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "mns-open.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "mns-open.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-5': "mns-open.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "mns-open.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "mns-open.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "mns-open.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "mns-open.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("mns-open", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -205,7 +174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a queue.
+   * Calls the CreateQueue operation to create a queue.
    * 
    * @param tmpReq - CreateQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -302,7 +271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a queue.
+   * Calls the CreateQueue operation to create a queue.
    * 
    * @param request - CreateQueueRequest
    * @returns CreateQueueResponse
@@ -638,7 +607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an endpoint.
+   * Retrieves the attributes of an endpoint.
    * 
    * @param request - GetEndpointAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -669,7 +638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an endpoint.
+   * Retrieves the attributes of an endpoint.
    * 
    * @param request - GetEndpointAttributeRequest
    * @returns GetEndpointAttributeResponse
@@ -726,23 +695,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the attributes of a created queue.
+   * Retrieves the attributes of a specified queue.
    * 
    * @remarks
    * >Warning: 
-   * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+   * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
    *     - ActiveMessages
    *     - InactiveMessages
    *     - DelayMessages 
    *   </p>
-   *   <p>Use the following alternatives to obtain replacement solutions:</p>
+   *   <p>Use the following methods to obtain alternatives:</p>
    *   <ul>
-   *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
-   *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+   *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+   *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
    *       <ul>
-   *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
-   *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
-   *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+   *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+   *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+   *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
    *       </ul>
    *     </li>
    *   </ul>
@@ -781,23 +750,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the attributes of a created queue.
+   * Retrieves the attributes of a specified queue.
    * 
    * @remarks
    * >Warning: 
-   * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+   * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
    *     - ActiveMessages
    *     - InactiveMessages
    *     - DelayMessages 
    *   </p>
-   *   <p>Use the following alternatives to obtain replacement solutions:</p>
+   *   <p>Use the following methods to obtain alternatives:</p>
    *   <ul>
-   *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
-   *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+   *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+   *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
    *       <ul>
-   *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
-   *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
-   *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+   *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+   *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+   *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
    *       </ul>
    *     </li>
    *   </ul>
@@ -812,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the properties of a subscription.
+   * Retrieves the attributes of a subscription.
    * 
    * @param request - GetSubscriptionAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -847,7 +816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the properties of a subscription.
+   * Retrieves the attributes of a subscription.
    * 
    * @param request - GetSubscriptionAttributesRequest
    * @returns GetSubscriptionAttributesResponse
@@ -858,7 +827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a topic.
+   * Retrieves the attributes of a topic.
    * 
    * @param request - GetTopicAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -893,7 +862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a topic.
+   * Retrieves the attributes of a topic.
    * 
    * @param request - GetTopicAttributesRequest
    * @returns GetTopicAttributesResponse
@@ -1104,7 +1073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of topics under an Alibaba Cloud account with paginated results.
+   * Queries the topics under an Alibaba Cloud account. The query results can be paginated.
    * 
    * @param request - ListTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of topics under an Alibaba Cloud account with paginated results.
+   * Queries the topics under an Alibaba Cloud account. The query results can be paginated.
    * 
    * @param request - ListTopicRequest
    * @returns ListTopicResponse
@@ -1218,7 +1187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SetAccountAttributes
+   * Sets the user log configuration.
    * 
    * @param request - SetAccountAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1265,7 +1234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SetAccountAttributes
+   * Sets the user log configuration.
    * 
    * @param request - SetAccountAttributesRequest
    * @returns SetAccountAttributesResponse
@@ -1276,7 +1245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the SetQueueAttributes operation to modify queue attributes.
+   * Modifies the attributes of a queue by calling the SetQueueAttributes operation.
    * 
    * @param tmpReq - SetQueueAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1365,7 +1334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the SetQueueAttributes operation to modify queue attributes.
+   * Modifies the attributes of a queue by calling the SetQueueAttributes operation.
    * 
    * @param request - SetQueueAttributesRequest
    * @returns SetQueueAttributesResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * test
@@ -45,18 +45,39 @@ export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
 export class GetTopicAttributesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the topic was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the topic was created. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1449554277
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Indicates whether storage encryption is enabled. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   enableSSE?: boolean;
+  /**
+   * @remarks
+   * Indicates whether storage encryption is enabled.
+   * 
+   * @example
+   * true
+   */
   encryptionEnabled?: boolean;
+  /**
+   * @remarks
+   * The KMS key ID.
+   * 
+   * @example
+   * key-xxx
+   */
   kmsKeyId?: string;
   /**
    * @remarks
-   * The most recent time when the topic attributes were modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the topic attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1449554460
@@ -64,10 +85,8 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the Log Management feature is enabled. Valid values:
-   * 
+   * Indicates whether the log management feature is enabled. Valid values:
    * - True: Enabled.
-   * 
    * - False: Disabled.
    * 
    * @example
@@ -76,7 +95,7 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message body sent to the topic. Unit: bytes.
+   * The maximum size of a message body sent to the topic. Unit: bytes.
    * 
    * @example
    * 65536
@@ -92,13 +111,27 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   messageCount?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the topic. After the period of time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it is successfully pushed to the user. Unit: seconds.
+   * The maximum retention period of a message in the topic. After the specified period elapses from the time the message is sent to the topic, the message is deleted regardless of whether it was successfully pushed to users. Unit: seconds.
    * 
    * @example
    * 86400
    */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The storage encryption algorithm. Currently, only AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
+   * 
+   * @example
+   * AES-256-GCM
+   */
   sseAlgorithm?: string;
+  /**
+   * @remarks
+   * The storage encryption type. Valid values: SMQ and KMS.
+   * 
+   * @example
+   * KMS
+   */
   sseType?: string;
   /**
    * @remarks
@@ -106,8 +139,11 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    */
   tags?: GetTopicAttributesResponseBodyDataTags[];
   /**
+   * @remarks
+   * The internal access URL of the topic.
+   * 
    * @example
-   * http:// 111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
+   * http://111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
    */
   topicInnerUrl?: string;
   /**
@@ -120,17 +156,20 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The type of the topic. Valid values:
-   *    * normal: normal topic
-   *    * fifo: FIFO topic
+   * The topic type. Valid values:
+   * - normal: Normal topic.
+   * - fifo: FIFO topic.
    * 
    * @example
    * normal
    */
   topicType?: string;
   /**
+   * @remarks
+   * The public network access URL of the topic.
+   * 
    * @example
-   * http:// 111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
+   * http://111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
    */
   topicUrl?: string;
   static names(): { [key: string]: string } {
@@ -211,7 +250,7 @@ export class GetTopicAttributesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -219,7 +258,7 @@ export class GetTopicAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

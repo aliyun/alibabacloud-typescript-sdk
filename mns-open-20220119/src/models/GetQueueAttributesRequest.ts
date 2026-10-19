@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQueueAttributesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class GetQueueAttributesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * test

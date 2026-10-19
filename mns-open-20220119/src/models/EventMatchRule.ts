@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventMatchRule extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to match.
+   * Indicates whether the rule is matched.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class EventMatchRule extends $dara.Model {
   matchState?: boolean;
   /**
    * @remarks
-   * The full name to match.
+   * The full name matching rule.
    * 
    * @example
    * testBucket/folder1/file1
@@ -21,7 +21,7 @@ export class EventMatchRule extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The prefix to match.
+   * The prefix matching rule.
    * 
    * @example
    * testBucket/prefix1xxx
@@ -29,7 +29,7 @@ export class EventMatchRule extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The suffix to match.
+   * The suffix matching rule.
    * 
    * @example
    * suffix/xxxx.test

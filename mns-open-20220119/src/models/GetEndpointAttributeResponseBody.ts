@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   /**
    * @remarks
-   * The access control list (ACL) policy. Valid value:
+   * The ACL policy. Valid values:
    * 
-   * - **allow**: The endpoint allows access from the specified CIDR block. This is the only supported value.
+   * - **allow**: The endpoint allows access from the corresponding CIDR block. Currently, only allow is supported.
    * 
    * @example
    * allow
@@ -23,7 +23,7 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The time when the CIDR block was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1701951224000
@@ -126,7 +126,7 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the response.
+   * The response status.
    * 
    * @example
    * Success
@@ -134,7 +134,7 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

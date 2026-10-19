@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetEndpointAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The endpoint type. Valid values:
    * 
-   * - **public**: An endpoint accessible over the Internet. This is the only supported value.
+   * - **public**: Internet endpoint. Currently, only public is supported.
    * 
    * This parameter is required.
    * 

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetAccountAttributesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06273500-249F-5863-121D-74D51123E62C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

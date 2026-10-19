@@ -45,18 +45,39 @@ export class ListTopicResponseBodyDataPageDataTags extends $dara.Model {
 export class ListTopicResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The time when the subscription was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the topic was created. The value is a UTC UNIX timestamp in seconds.
    * 
    * @example
    * 1449554962
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Specifies whether server-side encryption is enabled. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   enableSSE?: boolean;
+  /**
+   * @remarks
+   * Indicates whether server-side encryption is enabled.
+   * 
+   * @example
+   * true
+   */
   encryptionEnabled?: boolean;
+  /**
+   * @remarks
+   * The KMS key ID.
+   * 
+   * @example
+   * key-xxx
+   */
   kmsKeyId?: string;
   /**
    * @remarks
-   * The time when the subscription attributes were last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the topic attributes were last modified. The value is a UTC UNIX timestamp in seconds.
    * 
    * @example
    * 1449554962
@@ -64,11 +85,9 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the Log Management feature is enabled. Valid values:
-   * 
-   * - True: Enabled.
-   * 
-   * - False: Disabled.
+   * Indicates whether the log management feature is enabled. Valid values:
+   * - True: enabled
+   * - False: disabled
    * 
    * @example
    * True
@@ -76,7 +95,7 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message body sent to the topic. Unit: bytes.
+   * The maximum length of the message body that can be sent to the topic. Unit: bytes.
    * 
    * @example
    * 65536
@@ -92,13 +111,27 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   messageCount?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the topic. After the time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it has been successfully pushed to the user. Unit: seconds.
+   * The maximum retention period of messages in the topic. After the specified period elapses from the time a message is sent to the topic, the message is deleted regardless of whether it is successfully pushed to users. Unit: seconds.
    * 
    * @example
    * 86400
    */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The server-side encryption algorithm. Currently, AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
+   * 
+   * @example
+   * AES-256-GCM
+   */
   sseAlgorithm?: string;
+  /**
+   * @remarks
+   * The server-side encryption method. Valid values: SMQ and KMS.
+   * 
+   * @example
+   * KMS
+   */
   sseType?: string;
   /**
    * @remarks
@@ -209,7 +242,7 @@ export class ListTopicResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of results returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 50
@@ -293,7 +326,7 @@ export class ListTopicResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

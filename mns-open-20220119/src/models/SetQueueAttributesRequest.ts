@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetQueueAttributesRequestDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The target queue for dead-letter message delivery.
+   * The target queue to which dead-letter messages are delivered.
    * 
    * @example
    * deadLetterTargetQueue
@@ -81,10 +81,8 @@ export class SetQueueAttributesRequestTenantRateLimitPolicy extends $dara.Model 
 export class SetQueueAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The delay time for all messages sent to this queue. Messages sent to the queue can be consumed only after the delay time specified by this parameter has elapsed.
-   * 
+   * The delay time for all messages sent to the queue. Messages sent to the queue become consumable only after the delay time specified by this parameter elapses.
    * Valid values: 0 to 604800. Unit: seconds.
-   * 
    * Default value: 0.
    * 
    * @example
@@ -98,12 +96,11 @@ export class SetQueueAttributesRequest extends $dara.Model {
   dlqPolicy?: SetQueueAttributesRequestDlqPolicy;
   /**
    * @remarks
-   * Specifies whether to enable the log management feature. Valid values:
+   * Specifies whether to enable the Log Management feature. Valid values:
    * 
    * - true: Enabled.
    * 
    * - false: Disabled.
-   * 
    * Default value: false.
    * 
    * @example
@@ -114,10 +111,8 @@ export class SetQueueAttributesRequest extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @remarks
-   * The maximum length of the message body sent to this queue.
-   * 
+   * The maximum length of the message body sent to the queue.
    * Valid values: 1024 to 65536. Unit: bytes.
-   * 
    * Default value: 65536.
    * 
    * @example
@@ -126,10 +121,8 @@ export class SetQueueAttributesRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in this queue. After the time specified by this parameter has elapsed since the message was sent to the queue, the message is deleted regardless of whether it has been consumed.
-   * 
+   * The maximum lifetime of a message in the queue. After the time specified by this parameter elapses since the message is sent to the queue, the message is deleted regardless of whether it has been consumed.
    * Valid values: 60 to 604800. Unit: seconds.
-   * 
    * Default value: 345600.
    * 
    * @example
@@ -138,10 +131,8 @@ export class SetQueueAttributesRequest extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum wait time for a ReceiveMessage request on this queue when no messages are available in the queue.
-   * 
+   * The maximum wait time for a ReceiveMessage request on the queue when no messages are available in the queue.
    * Valid values: 0 to 30. Unit: seconds.
-   * 
    * Default value: 0.
    * 
    * @example
@@ -164,9 +155,7 @@ export class SetQueueAttributesRequest extends $dara.Model {
   /**
    * @remarks
    * The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
-   * 
    * Valid values: 1 to 43200. Unit: seconds.
-   * 
    * Default value: 30.
    * 
    * @example

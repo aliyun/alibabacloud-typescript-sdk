@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The target queue for dead-letter message delivery.
+   * The destination queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterTargetQueue
@@ -13,7 +13,7 @@ export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
   deadLetterTargetQueue?: string;
   /**
    * @remarks
-   * Indicates whether dead-letter message delivery is enabled.
+   * Specifies whether dead-letter message delivery is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of times a message can be delivered.
+   * The maximum number of delivery attempts for a message.
    * 
    * @example
    * 3
@@ -55,7 +55,7 @@ export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
 export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * tag1
@@ -63,7 +63,7 @@ export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * test
@@ -95,7 +95,7 @@ export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
 export class GetQueueAttributesResponseBodyDataTenantRateLimitPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether rate limiting is enabled. Valid values:
+   * Specifies whether throttling is enabled. Valid values:
    * - true
    * - false
    * 
@@ -139,7 +139,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * @remarks
    * The approximate total number of messages in the Active state in the queue.
    * 
-   * <warning>This field will be deprecated and defaults to 0. Use the CloudMonitor API to retrieve this metric instead.</warning>
+   * <warning>This field will be deprecated and default to 0. We recommend that you use the CloudMonitor API to obtain metrics.</warning>
    * 
    * @example
    * 0
@@ -147,7 +147,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   activeMessages?: number;
   /**
    * @remarks
-   * The time when the queue was created.
+   * The time when the queue was created. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1250700999
@@ -157,7 +157,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * @remarks
    * The approximate total number of messages in the Delayed state in the queue.
    * 
-   * <warning>This field will be deprecated and defaults to 0. Use the CloudMonitor API to retrieve this metric instead.</warning>
+   * <warning>This field will be deprecated and default to 0. We recommend that you use the CloudMonitor API to obtain metrics.</warning>
    * 
    * @example
    * 0
@@ -165,7 +165,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   delayMessages?: number;
   /**
    * @remarks
-   * The delay period for all messages sent to the queue. Messages sent to the queue can be consumed only after the delay period specified by this parameter elapses. Unit: seconds.
+   * The delay time for all messages sent to the queue. Messages sent to the queue can be consumed only after the delay time specified by this parameter elapses. Unit: seconds.
    * 
    * @example
    * 30
@@ -176,22 +176,43 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * The dead-letter queue policy.
    */
   dlqPolicy?: GetQueueAttributesResponseBodyDataDlqPolicy;
+  /**
+   * @remarks
+   * Specifies whether server-side encryption is enabled. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   enableSSE?: boolean;
+  /**
+   * @remarks
+   * Specifies whether server-side encryption is enabled.
+   * 
+   * @example
+   * true
+   */
   encryptionEnabled?: boolean;
   /**
    * @remarks
    * The approximate total number of messages in the Inactive state in the queue.
    * 
-   * <warning>This field will be deprecated and defaults to 0. Use the CloudMonitor API to retrieve this metric instead.</warning>
+   * <warning>This field will be deprecated and default to 0. We recommend that you use the CloudMonitor API to obtain metrics.</warning>
    * 
    * @example
    * 0
    */
   inactiveMessages?: number;
+  /**
+   * @remarks
+   * The KMS key ID.
+   * 
+   * @example
+   * key-xxx
+   */
   kmsKeyId?: string;
   /**
    * @remarks
-   * The most recent time when the queue attributes were modified. The value is a UNIX timestamp representing the number of seconds elapsed since 1970-01-01 00:00:00.
+   * The time when the queue attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
    * 
    * @example
    * 1250700999
@@ -199,7 +220,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the log management feature is enabled.
+   * Specifies whether the log management feature is enabled.
    * 
    * - True: Enabled.
    * 
@@ -211,7 +232,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message body sent to the queue. Unit: bytes.
+   * The maximum length of the message body that can be sent to the queue. Unit: bytes.
    * 
    * @example
    * 65536
@@ -219,7 +240,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the period specified by this parameter elapses since the message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
+   * The maximum retention period of messages in the queue. After the time specified by this parameter elapses from the time when a message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
    * 
    * @example
    * 65536
@@ -227,7 +248,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum wait time for a ReceiveMessage request on the queue when the queue has no messages. Unit: seconds.
+   * The maximum waiting time for a ReceiveMessage request when the queue is empty. Unit: seconds.
    * 
    * @example
    * 0
@@ -243,15 +264,29 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The type of the queue. Valid values:
-   *    * normal: standard queue
-   *    * fifo: FIFO queue
+   * The queue type. Valid values:
+   * - normal: Standard queue.
+   * - fifo: FIFO queue.
    * 
    * @example
    * normal
    */
   queueType?: string;
+  /**
+   * @remarks
+   * The server-side encryption algorithm. Currently, only AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
+   * 
+   * @example
+   * AES-256-GCM
+   */
   sseAlgorithm?: string;
+  /**
+   * @remarks
+   * The server-side encryption method. Valid values: SMQ and KMS.
+   * 
+   * @example
+   * KMS
+   */
   sseType?: string;
   /**
    * @remarks
@@ -260,12 +295,12 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
   tags?: GetQueueAttributesResponseBodyDataTags[];
   /**
    * @remarks
-   * The rate limiting policy.
+   * The throttling policy.
    */
   tenantRateLimitPolicy?: GetQueueAttributesResponseBodyDataTenantRateLimitPolicy;
   /**
    * @remarks
-   * The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
+   * The duration for which a message remains in the Inactive state after it is consumed from the queue.
    * Valid values: 1 to 43200. Unit: seconds.
    * Default value: 30.
    * 
@@ -375,7 +410,7 @@ export class GetQueueAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the response.
+   * The response status.
    * 
    * @example
    * Success
@@ -383,7 +418,7 @@ export class GetQueueAttributesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
