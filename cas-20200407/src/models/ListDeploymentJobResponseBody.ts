@@ -13,8 +13,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   certDomain?: string;
   /**
    * @remarks
-   * The certificate type. Valid values:
-   * 
+   * The certificate type.
    * - **upload**: uploaded certificate
    * - **buy**: purchased certificate
    * - **free**: personal test certificate (supported only on the China site)
@@ -25,10 +24,17 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The deletion flag. This parameter has no practical significance. Valid values:
+   * The list of SSL certificates.
    * 
-   * - **0**: not deleted.
-   * - **1**: deleted.
+   * @example
+   * [{\\"Type\\": \\"Server\\", \\"Id\\": \\"22803164-cn-hangzhou\\"}]
+   */
+  certificates?: any;
+  /**
+   * @remarks
+   * The deletion flag. This field has no practical meaning.
+   * - **0**: not deleted
+   * - **1**: deleted
    * 
    * @example
    * 1
@@ -36,7 +42,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   del?: number;
   /**
    * @remarks
-   * The end time of the deployment task execution, in UNIX timestamp format (seconds).
+   * The end time of the deployment task execution. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1606482979000
@@ -44,7 +50,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time when the deployment task was created, in UNIX timestamp format (seconds).
+   * The creation time of the deployment task. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1624343180000
@@ -52,7 +58,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the deployment task was last modified, in UNIX timestamp format (seconds).
+   * The last modification time of the deployment task. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1606482979000
@@ -60,7 +66,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The deployment task ID. You can use this ID to query the deployment task details and status.
+   * The deployment task ID. You can use this ID to query the details and status of the deployment task.
    * 
    * @example
    * 19975
@@ -76,10 +82,9 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The task type. Valid values:
-   * 
-   * - **cloud**: multi-cloud deployment task.
-   * - **user**: cloud service deployment task (excluding ECS instances).
+   * The task type.
+   * - **cloud**: multi-cloud deployment task
+   * - **user**: cloud service deployment task (excluding ECS instances)
    * 
    * @example
    * user
@@ -103,10 +108,9 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned. Valid values:
-   * 
-   * - **0**: does not contain a rollback worker.
-   * - **1**: contains a rollback worker.
+   * Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned.
+   * - **0**: The task does not contain a rollback worker.
+   * - **1**: The task contains a rollback worker.
    * 
    * @example
    * 1
@@ -114,7 +118,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   rollback?: number;
   /**
    * @remarks
-   * The scheduled time of the task, in UNIX timestamp format (seconds).
+   * The scheduling time of the task. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1606482979000
@@ -122,7 +126,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The start time of the deployment task execution, in UNIX timestamp format (seconds).
+   * The start time of the deployment task execution. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1606482979000
@@ -130,14 +134,13 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The deployment task status. Valid values:
-   * 
-   * - **pending**: pending execution.
-   * - **editing**: being edited.
-   * - **scheduling**: being scheduled.
-   * - **processing**: being deployed.
-   * - **error**: deployment failed.
-   * - **success**: deployment succeeded.
+   * The deployment task status.
+   * - **pending**: pending
+   * - **editing**: editing
+   * - **scheduling**: scheduling
+   * - **processing**: deploying
+   * - **error**: deployment failed
+   * - **success**: deployment successful
    * 
    * @example
    * scheduling
@@ -155,6 +158,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
     return {
       certDomain: 'CertDomain',
       certType: 'CertType',
+      certificates: 'Certificates',
       del: 'Del',
       endTime: 'EndTime',
       gmtCreate: 'GmtCreate',
@@ -176,6 +180,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
     return {
       certDomain: 'string',
       certType: 'string',
+      certificates: 'any',
       del: 'number',
       endTime: 'string',
       gmtCreate: 'string',
@@ -213,12 +218,12 @@ export class ListDeploymentJobResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data returned by the API.
+   * The data returned in the response.
    */
   data?: ListDeploymentJobResponseBodyData[];
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+   * The request ID. This ID is generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789ABC
@@ -226,7 +231,7 @@ export class ListDeploymentJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of deployment tasks per page. Default value: **50**.
+   * The number of deployment tasks returned on each page. Default value: **50**.
    * 
    * @example
    * 50
@@ -234,7 +239,7 @@ export class ListDeploymentJobResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of deployment tasks returned.
+   * The total number of deployment tasks queried.
    * 
    * @example
    * 7

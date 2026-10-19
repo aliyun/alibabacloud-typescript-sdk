@@ -2194,9 +2194,9 @@ export default class Client extends OpenApi {
    * Retrieves the number of certificate resource plans.
    * 
    * @remarks
-   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
+   * This operation queries the number of CA certificates that you have created, including root CA certificates and subordinate CA certificates.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
    * 
    * @param request - GetCertificatePackageCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2223,9 +2223,9 @@ export default class Client extends OpenApi {
    * Retrieves the number of certificate resource plans.
    * 
    * @remarks
-   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
+   * This operation queries the number of CA certificates that you have created, including root CA certificates and subordinate CA certificates.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
    * 
    * @param request - GetCertificatePackageCountRequest
    * @returns GetCertificatePackageCountResponse
@@ -3229,7 +3229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of deployment tasks after you create a deployment task.
+   * Queries the list of deployment tasks.
+   * 
+   * @remarks
+   * After a task is created, it is in the editing state. You must call the UpdateDeploymentJobStatus operation to change the state to pending. Otherwise, the task will not be executed.
    * 
    * @param request - ListDeploymentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3238,8 +3241,16 @@ export default class Client extends OpenApi {
   async listDeploymentJobWithOptions(request: $_model.ListDeploymentJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.jobType)) {
@@ -3272,7 +3283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of deployment tasks after you create a deployment task.
+   * Queries the list of deployment tasks.
+   * 
+   * @remarks
+   * After a task is created, it is in the editing state. You must call the UpdateDeploymentJobStatus operation to change the state to pending. Otherwise, the task will not be executed.
    * 
    * @param request - ListDeploymentJobRequest
    * @returns ListDeploymentJobResponse

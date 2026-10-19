@@ -5,12 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeploymentJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The certificate ID.
+   * > You can obtain this ID by calling the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation.
+   * 
+   * @example
+   * 23982365
+   */
+  certId?: number;
+  /**
+   * @remarks
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * cas-ivauto-hqito6
+   */
+  instanceId?: string;
   /**
    * @remarks
    * The task type.
@@ -21,7 +38,7 @@ export class ListDeploymentJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The number of certificates to display per page in a paged query. Default value: **50**.
+   * The paging Settings for the number of certificates to return on each page during a paged query. Default value: **50**.
    * 
    * @example
    * 50
@@ -37,7 +54,9 @@ export class ListDeploymentJobRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      certId: 'CertId',
       currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
       jobType: 'JobType',
       showSize: 'ShowSize',
       status: 'Status',
@@ -46,7 +65,9 @@ export class ListDeploymentJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certId: 'number',
       currentPage: 'number',
+      instanceId: 'string',
       jobType: 'string',
       showSize: 'number',
       status: 'string',

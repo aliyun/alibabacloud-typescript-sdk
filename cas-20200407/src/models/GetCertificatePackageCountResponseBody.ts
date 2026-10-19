@@ -13,7 +13,7 @@ export class GetCertificatePackageCountResponseBody extends $dara.Model {
   noticeCountDetail?: string;
   /**
    * @remarks
-   * The details of certificate brand products.
+   * The product details of certificate brands.
    * 
    * @example
    * [
@@ -32,7 +32,7 @@ export class GetCertificatePackageCountResponseBody extends $dara.Model {
   productCountList?: string;
   /**
    * @remarks
-   * The acceleration gateway forwarding quota.
+   * The forwarding quota of the acceleration gateway.
    * 
    * @example
    * {TotalCount=116900, RemainCount=90448, AutoPay=0, AutoPayCount=5000, UsedCount=26452}
@@ -40,7 +40,7 @@ export class GetCertificatePackageCountResponseBody extends $dara.Model {
   proxyCountDetail?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 08F45EA0-66A7-4504-9B31-3589F5CE308D
@@ -48,7 +48,7 @@ export class GetCertificatePackageCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of domain names bound to certificates.
+   * The total number of domain names bound to the certificates.
    * 
    * @example
    * {TotalCount=573, RemainCount=243, FreeQuota=10, UsedCount=330}
