@@ -708,7 +708,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls, such as "The content contains sensitive data. Try other input."
+   * The error message. "Success" is returned if the call is successful. A specific error message is returned if the call fails, such as "The content contains sensitive data. Try other input."
    * 
    * @example
    * Success
@@ -724,7 +724,9 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

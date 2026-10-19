@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoTranslationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID, used for subsequent queries.
+   * The ID of the asynchronous task, which is used for subsequent queries.
    * 
    * @example
    * 0ea3b66e88a543658520c994f08896a0
@@ -43,12 +43,12 @@ export class VideoTranslationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit status of the asynchronous task.
+   * The submission result of the asynchronous task.
    */
   data?: VideoTranslationResponseBodyData;
   /**
    * @remarks
-   * The description.
+   * The description message.
    * 
    * @example
    * Translation processing
@@ -56,7 +56,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request tracking ID.
    * 
    * @example
    * req_20260608_jkl012
@@ -64,7 +64,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
+   * Indicates whether the call is successful. Valid values: true (successful) and false (failed).
    * 
    * @example
    * True

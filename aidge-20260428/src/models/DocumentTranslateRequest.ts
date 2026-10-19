@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentTranslateRequest extends $dara.Model {
   /**
    * @remarks
-   * The supported document types: PDF/Word.  
+   * The type of the document. Valid values: PDF and word.  
    * Supported capacity limits:  
-   * - word: 200 MB/100 pages 
-   * - PDF: 200 MB/100 pages  
+   * - Word: 200 MB or 100 pages 
+   * - PDF: 200 MB or 100 pages  
    * - Maximum size per file: 200 MB
    * 
    * This parameter is required.
@@ -19,7 +19,7 @@ export class DocumentTranslateRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The intervention glossary ID. Specify this parameter when you need the intervention feature. Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios.
+   * The glossary ID. Specify this parameter when you need the glossary feature. Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios.
    * 
    * @example
    * glossary_1

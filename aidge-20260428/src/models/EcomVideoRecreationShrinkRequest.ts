@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class EcomVideoRecreationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input parameters for video multiplication.
+   * The input parameters for video variation generation.
    * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The output specifications for the final video.
+   * The output specifications for the generated video.
    */
   outputShrink?: string;
   static names(): { [key: string]: string } {

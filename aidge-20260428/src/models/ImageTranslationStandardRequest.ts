@@ -13,10 +13,10 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * - Image URL: The URL must be publicly accessible.
+   * - Image URL: Must be publicly accessible.
    * - Format: png, jpeg, jpg, bmp, or webp.
-   * - Pixels: The width and height must not exceed 4000 pixels each.
-   * - File size: The original file must be 10 MB or smaller.
+   * - Pixels: Both width and height must not exceed 4000.
+   * - File size: The original file must be ≤ 10 MB.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate text on the product area of the image. This parameter is optional. Default value: false. This helps protect information by preventing translation of embedded content such as product names.
+   * Specifies whether to translate text on the image subject. This parameter is optional. Default value: false. This helps protect information and avoids translating embedded information such as product names.
    * 
    * @example
    * false
@@ -34,7 +34,9 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * The source language code. This parameter is required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * The source language code. This parameter is required.   
+   * <props="china">For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).      
+   * <props="intl">For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/zh/aidge/language-direction-mapping).
    * 
    * This parameter is required.
    * 
@@ -44,7 +46,9 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The target language code. This parameter is required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * The target language code. This parameter is required.   
+   * <props="china">For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).      
+   * <props="intl">For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/zh/aidge/language-direction-mapping).
    * 
    * This parameter is required.
    * 
@@ -62,7 +66,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layer information such as text position, font, and color. If you set this parameter to true, layer information is returned for secondary editing through an image editor. Default value: false.
+   * Specifies whether to return layer information such as text position, font, and color. If this parameter is set to true, layer information is returned, which can be used to connect to an image editor for secondary editing. Default value: false.
    * 
    * @example
    * false

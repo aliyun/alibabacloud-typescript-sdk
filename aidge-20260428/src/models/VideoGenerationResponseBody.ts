@@ -13,7 +13,7 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The metering usage information.
+   * The metering and usage information.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
 export class VideoGenerationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of success indicates a successful call, and a value of failed indicates a failed call.
+   * The response code. A value of success indicates that the call is successful, and a value of failed indicates that the call fails.
    * 
    * @example
    * success
@@ -53,12 +53,12 @@ export class VideoGenerationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response struct.
+   * The struct information of the returned result.
    */
   data?: VideoGenerationResponseBodyData;
   /**
    * @remarks
-   * The response message. An error message is returned if the call fails.
+   * The returned message. An error message is returned when the call fails.
    * 
    * @example
    * Success
@@ -66,7 +66,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies a single API call.
+   * The request ID, which is used to identify a unique request call.
    * 
    * @example
    * 70CBEFDF-BB17-1EB3-8A21-569F3124738F

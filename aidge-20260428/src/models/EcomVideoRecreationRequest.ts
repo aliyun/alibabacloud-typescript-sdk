@@ -6,7 +6,7 @@ export class EcomVideoRecreationRequestInputProductInfo extends $dara.Model {
   /**
    * @remarks
    * The product category.  
-   * Example: Womenswear/Sun-protective clothing
+   * Example value: Women\\"s clothing/Sun protection clothing.
    * 
    * @example
    * Women\\"s clothing/sun protection clothing
@@ -14,8 +14,8 @@ export class EcomVideoRecreationRequestInputProductInfo extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The actual product information (SKU, brand, color, material, size, specifications, logo, and usage), used to constrain voiceover facts.  
-   * Example: Light yellow, cooling fabric, sun protection to the back of the hand, UPF50+
+   * The actual product information, such as SKU, brand, color, material, size, specifications, logo, and usage instructions. This information is used to constrain the facts in the voiceover.  
+   * Example value: Pale moon yellow, cool-touch fabric, sun protection down to the back of the hand, UPF50+
    * 
    * @example
    * Light moon yellow, cool-touch fabric, sun protection extending to the back of the hand, UPF50+
@@ -23,8 +23,8 @@ export class EcomVideoRecreationRequestInputProductInfo extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The name of the target product. This parameter is required for product replacement mode. Maximum length: 200 characters.  
-   * Example: Light yellow cooling sun-protective jacket
+   * The name of the target product. This parameter is required for product replacement. The maximum length is 200 characters.  
+   * Example value: Pale moon yellow cool-touch sun protection clothing.
    * 
    * @example
    * Light moon yellow cool-touch sun protection clothing
@@ -58,8 +58,8 @@ export class EcomVideoRecreationRequestInputProductInfo extends $dara.Model {
 export class EcomVideoRecreationRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The description or supplementary constraints for the target person in person replacement mode. The value must be 1 to 500 characters in length. This parameter is required if PersonReferenceImageUrls is not provided.   
-   * Example: The target person is an adult male. Retain the original clothing and actions.
+   * The description or supplementary constraints for the target person in person replacement. The length is 1 to 500 characters. This parameter is required when PersonReferenceImageUrls is not provided.   
+   * Example value: The target person is an adult male, retaining the original clothing and actions.
    * 
    * @example
    * The target character is an adult male, with the original costume and movements preserved.
@@ -75,24 +75,32 @@ export class EcomVideoRecreationRequestInput extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The URLs of reference images for the target person in person replacement mode. You can specify 1 to 5 images, which must be of the same person. Arrange the images in the following order: facial close-up, front view, 45-degree view, side view, and back view.  
-   * Example: ["https://example.com/person.jpg"]
+   * The URLs of the reference images for the target person in person replacement. You can provide 1 to 5 images, which must be of the same person. We recommend that you arrange the images in the order of facial close-up, front, 45-degree angle, side, and back.  
+   * Example value: ["https://example.com/person.jpg"]
    */
   personReferenceImageUrls?: string[];
   /**
    * @remarks
-   * The URLs of target product images. This parameter is required for product replacement mode. You can upload 1 to 8 images for the same SKU. Use images with a clear subject, no occlusion, and a clean background.   
-   * Example: ["https://example.com/product.png"]
+   * The URLs of the target product images. This parameter is required for product replacement. You can upload 1 to 8 images for the same SKU. We recommend that the main subject is clear, unobstructed, and has a clean background.   
+   * Example value: ["https://example.com/product.png"]
    */
   productImageUrls?: string[];
   /**
    * @remarks
-   * The target product information. Specify this parameter to improve voiceover accuracy.
+   * The target product information. We recommend that you specify this parameter to improve the accuracy of the voiceover.
    */
   productInfo?: EcomVideoRecreationRequestInputProductInfo;
   /**
    * @remarks
-   * The HTTP(S) URL of the reference video. The video duration must be 2 to 360 seconds. The URL must remain accessible during task execution. A validity period of at least 24 hours is recommended.
+   * The generation mode. Default value: `reference`. Valid values: `reference` (directly references the original video) and `rebuild` (breaks down the original video before regenerating it).
+   * 
+   * @example
+   * reference
+   */
+  recreateMode?: string;
+  /**
+   * @remarks
+   * The HTTP(S) URL of the reference video. The duration ranges from 2 to 360 seconds. The URL must remain accessible during task execution. We recommend that the validity period is no less than 24 hours.
    * 
    * This parameter is required.
    * 
@@ -107,6 +115,7 @@ export class EcomVideoRecreationRequestInput extends $dara.Model {
       personReferenceImageUrls: 'PersonReferenceImageUrls',
       productImageUrls: 'ProductImageUrls',
       productInfo: 'ProductInfo',
+      recreateMode: 'RecreateMode',
       sourceVideoUrl: 'SourceVideoUrl',
     };
   }
@@ -118,6 +127,7 @@ export class EcomVideoRecreationRequestInput extends $dara.Model {
       personReferenceImageUrls: { 'type': 'array', 'itemType': 'string' },
       productImageUrls: { 'type': 'array', 'itemType': 'string' },
       productInfo: EcomVideoRecreationRequestInputProductInfo,
+      recreateMode: 'string',
       sourceVideoUrl: 'string',
     };
   }
@@ -143,7 +153,7 @@ export class EcomVideoRecreationRequestInput extends $dara.Model {
 export class EcomVideoRecreationRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The target duration in seconds. Set to ``"auto"`` (default) to let the system decide. For product replacement, specify an integer from 5 to 60. For person replacement, only `"auto"` is supported.
+   * The target duration in seconds. In `reference` mode, the input value is ignored and forced to -1, which follows the duration of the original video. In `rebuild` mode, you can pass an integer from 5 to 60, or pass -1 to indicate an automatic duration.
    * 
    * @example
    * -1
@@ -193,14 +203,14 @@ export class EcomVideoRecreationRequestOutput extends $dara.Model {
 export class EcomVideoRecreationRequest extends $dara.Model {
   /**
    * @remarks
-   * The input parameters for video multiplication.
+   * The input parameters for video variation generation.
    * 
    * This parameter is required.
    */
   input?: EcomVideoRecreationRequestInput;
   /**
    * @remarks
-   * The output specifications for the final video.
+   * The output specifications for the generated video.
    */
   output?: EcomVideoRecreationRequestOutput;
   static names(): { [key: string]: string } {

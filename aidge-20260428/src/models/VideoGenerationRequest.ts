@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoGenerationRequestInputAssetBindings extends $dara.Model {
   /**
    * @remarks
-   * The asset index.
+   * The asset index, such as 0, 1, 2, or 3, which must be consistent with the number of the image URL.
    * 
    * @example
    * 0
@@ -13,7 +13,13 @@ export class VideoGenerationRequestInputAssetBindings extends $dara.Model {
   assetIndex?: number;
   /**
    * @remarks
-   * The asset description.
+   * The description of the image. Examples:   
+   * 1. Description for look_reference: Front full-body outfit reference image of the person.   
+   * 2. Description for scene_reference: Specified clothing display scene.   
+   * 3. Description for garment_reference:   
+   * ● Front of the top;   
+   * ● Back of the bottom;   
+   * ● Side of the shoes.
    * 
    * @example
    * -
@@ -21,7 +27,10 @@ export class VideoGenerationRequestInputAssetBindings extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The asset usage.
+   * Specifies the asset usage. Valid values:   
+   * - look_reference: Corresponds to the full outfit effect image of the person wearing the clothes (overall visual).   
+   * - scene_reference: Corresponds to the scene reference image (usually the cover main image).   
+   * - garment_reference: Corresponds to all product detail images (including front, back, and side of clothes, shoes, skirts, and other partial close-ups).
    * 
    * @example
    * -
@@ -65,14 +74,14 @@ export class VideoGenerationRequestInput extends $dara.Model {
   extra?: { [key: string]: any };
   /**
    * @remarks
-   * The list of product image URLs (1 to 6 images). The URLs must be publicly accessible.
+   * The list of product image URLs (1 to 8 images), which must be accessible over the Internet.
    * 
    * This parameter is required.
    */
   images?: string[];
   /**
    * @remarks
-   * The product title. A maximum of the first 60 characters are used.
+   * The product title. Only the first 60 characters are used.
    * 
    * This parameter is required.
    * 
@@ -119,7 +128,7 @@ export class VideoGenerationRequestInput extends $dara.Model {
 export class VideoGenerationRequestIntent extends $dara.Model {
   /**
    * @remarks
-   * The distribution channel.
+   * The delivery channel.
    * 
    * @example
    * -
@@ -127,13 +136,13 @@ export class VideoGenerationRequestIntent extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The business goal. Valid values:
+   * Specifies the business goal. Valid values:
    * 
-   * camera_motion: Camera movement mode. Generates video based on fixed 360° camera movement logic.
+   * - camera_motion: Camera movement mode. Generates videos based on a fixed 360-degree camera movement logic.
    * 
-   * scripted_video: Scripted mode. Provides a script or prompt, and the system generates video based on the script.
+   * - scripted_video: Scripted mode. Provides a script or prompt, and the system generates the video according to the script.
    * 
-   * auto_video: Unscripted mode. No script is provided. The system automatically plans the script and then generates the video.
+   * - auto_video: Unscripted mode. Does not provide a script, and the system automatically plans the script and generates the video.
    * 
    * @example
    * auto_video
@@ -199,7 +208,7 @@ export class VideoGenerationRequestIntent extends $dara.Model {
 export class VideoGenerationRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The video duration in seconds. Currently supports integers between 5 and 15. More options will be available in the future.
+   * The video duration varies by Intent.goal: auto_video supports 5 to 15 seconds, scripted_video supports 5 to 30 seconds, and camera_motion generates a fixed 10-second video and returns two 5-second videos.
    * 
    * This parameter is required.
    * 
@@ -219,7 +228,7 @@ export class VideoGenerationRequestOutput extends $dara.Model {
   quality?: string;
   /**
    * @remarks
-   * The video aspect ratio.
+   * The aspect ratio varies by Intent.goal: auto_video and scripted_video only support 9:16, and camera_motion only supports 3:4.
    * 
    * @example
    * 9:16

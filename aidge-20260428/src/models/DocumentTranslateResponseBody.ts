@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentTranslateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the asynchronous task. Use this ID to query the task status and results.
+   * The unique identifier of the asynchronous task. Use this ID to query the task status and result.
    * 
    * @example
    * 6071a030-5c92-9df1-96d0-44952343439a
@@ -49,7 +49,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message, such as "The parameters contain sensitive information. Try other input."
-   * This parameter is not returned for successful calls.
+   * This parameter is not returned if the call is successful.
    * 
    * @example
    * Success
@@ -57,7 +57,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request identity. Use this ID for troubleshooting and Tracing Analysis.
+   * The unique identity of the request. Use this ID for troubleshooting and Tracing Analysis.
    * 
    * @example
    * 39E8A74B-F99E-1195-A5FF-3ECC5F94F304

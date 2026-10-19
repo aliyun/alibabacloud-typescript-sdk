@@ -119,7 +119,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies a single request.
+   * The request ID, which uniquely identifies a single API call.
    * 
    * @example
    * 922E43BB-EE0E-1A29-B143-BB91BB3EA6AB

@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class PetHealthAnalysisResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The asynchronous task ID used for QueryAsyncTaskResult queries.
-   * 
    * @example
    * task_778fa8bd21804828a5d147050e30edac
    */
@@ -34,38 +31,22 @@ export class PetHealthAnalysisResponseBodyData extends $dara.Model {
 
 export class PetHealthAnalysisResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The error code.
-   * 
    * @example
    * success
    */
   code?: string;
-  /**
-   * @remarks
-   * The asynchronous task submit status.
-   */
   data?: PetHealthAnalysisResponseBodyData;
   /**
-   * @remarks
-   * The response message or failure description.
-   * 
    * @example
    * Task submitted
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 70CBEFDF-BB17-1EB3-8A21-569F3124738F
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
    * @example
    * True
    */
