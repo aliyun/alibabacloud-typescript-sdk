@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnInstallClusterAddonsRequestAddons extends $dara.Model {
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * edge-csi-lite
    */
@@ -30,9 +33,17 @@ export class UnInstallClusterAddonsRequestAddons extends $dara.Model {
 }
 
 export class UnInstallClusterAddonsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add-on information.
+   */
   addons?: UnInstallClusterAddonsRequestAddons[];
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
+   * The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state.
+   * 
    * This parameter is required.
    * 
    * @example

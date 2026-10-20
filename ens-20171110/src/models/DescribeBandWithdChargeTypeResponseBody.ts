@@ -8,15 +8,16 @@ export class DescribeBandWithdChargeTypeResponseBody extends $dara.Model {
    * The information about the metering method.
    * 
    * @example
-   * { "BandWidthName": "Monthly peak bandwidth of 95", 			"BandWidthType": "95BandwidthByMonth" 		}
+   * { "BandWidthName": "Monthly 95th percentile bandwidth", "BandWidthType": "95BandwidthByMonth" }
    */
   bandWithTypeInfo?: string;
   /**
    * @remarks
    * The metering type.
    * 
-   * *   ChargeByUnified: unified metering.
-   * *   ChargeByGrade: differential metering.
+   * - ChargeByUnified: unified metering.
+   * 
+   * - ChargeByGrade: differential metering.
    * 
    * @example
    * ChargeByGrade

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkPeerConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the network peer connection to delete.
+   * 
    * This parameter is required.
    * 
    * @example

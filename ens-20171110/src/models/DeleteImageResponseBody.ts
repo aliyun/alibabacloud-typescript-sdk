@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. A value of 0 indicates that the operation was successful.
+   * The business code. The value 0 is returned for success.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0D94920B-0349-5097-A57F-31876405F2E5

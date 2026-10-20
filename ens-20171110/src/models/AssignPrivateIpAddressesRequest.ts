@@ -10,7 +10,7 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * eni-uf6533jbifugr5fo2j1w
+   * eni-uf6533jbifugr5f*****
    */
   networkInterfaceId?: string;
   /**
@@ -18,7 +18,7 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
    * The ID of the vSwitch.
    * 
    * @example
-   * vsw-5rllcjb3ol6duzjdnbm1ombn7
+   * vsw-5rllcjb3ol6duzjdnbm1o*****
    */
   vSwitchId?: string;
   static names(): { [key: string]: string } {

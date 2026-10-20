@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -13,7 +13,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * c50f8*****
@@ -21,7 +21,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The path of the mount target.
+   * The mount target path.
    * 
    * @example
    * LB:/fileSystemName/mountTargetName
@@ -29,7 +29,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The name of the mount target.
+   * The mount target name.
    * 
    * @example
    * TestMountPath
@@ -37,7 +37,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   mountTargetName?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-***
@@ -45,12 +45,12 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   netWorkId?: string;
   /**
    * @remarks
-   * The state of the mount target. Valid values:
+   * The mount target status. Valid values:
    * 
-   * *   active: The mount target is available.
-   * *   inactive: The mount target is unavailable.
-   * *   pending: A task is being queued for the mount target.
-   * *   deleting: The mount target is being deleted.
+   * - active: Active.
+   * - inactive: Inactive.
+   * - pending: Queued.
+   * - deleting: Being deleted.
    * 
    * @example
    * active
@@ -90,7 +90,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
 export class DescribeMountTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about mount targets.
+   * The collection of mount target information.
    */
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets[];
   /**
@@ -103,7 +103,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of rows per page.
    * 
    * @example
    * 2
@@ -111,7 +111,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 762DD527-358B-1E48-8005-CCE3ED4EB9E0
@@ -119,7 +119,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of mount targets.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -79,9 +79,11 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
    * @remarks
    * The type of the service. Valid values:
    * 
-   * *   1: subscription instance.
-   * *   2: edge service instance.
-   * *   3: pay-as-you-go instance.
+   * - 1: subscription instance.
+   * 
+   * - 2: edge service instance.
+   * 
+   * - 3: pay-as-you-go instance.
    * 
    * @example
    * 1
@@ -147,7 +149,7 @@ export class DescribeEnsResourceUsageResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E	 Request ID.
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   static names(): { [key: string]: string } {

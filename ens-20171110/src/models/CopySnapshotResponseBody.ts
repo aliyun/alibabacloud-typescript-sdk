@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CopySnapshotResponseBodyAllocationId extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the edge zone where the snapshot resides.
    * 
    * @example
-   * cn-chengdu-telecom-4
+   * cn-hangzhou-27
    */
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of the instances.
+   * The array of instance IDs.
    */
   instanceId?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CopySnapshotResponseBodyAllocationId extends $dara.Model {
 export class CopySnapshotResponseBodyUnAllocationId extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the edge zone where the snapshot resides.
    * 
    * @example
    * cn-chengdu-26
@@ -75,18 +75,18 @@ export class CopySnapshotResponseBodyUnAllocationId extends $dara.Model {
 export class CopySnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of created snapshots.
+   * The list of successfully created snapshots.
    */
   allocationId?: CopySnapshotResponseBodyAllocationId[];
   /**
    * @remarks
-   * The success status code.
+   * The status code indicating success. Valid values:
    * 
-   * *   **PartSuccess**: partially succeeded.
-   * *   **AllSuccess**: all succeeded.
+   * - **PartSuccess**: Partially successful.
+   * - **AllSuccess**: All successful.
    * 
    * @example
-   * AllSuccess
+   * PartSuccess
    */
   bizStatusCode?: string;
   /**
@@ -99,7 +99,7 @@ export class CopySnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of nodes that are not created.
+   * The list of edge zones where snapshot creation failed.
    */
   unAllocationId?: CopySnapshotResponseBodyUnAllocationId[];
   static names(): { [key: string]: string } {

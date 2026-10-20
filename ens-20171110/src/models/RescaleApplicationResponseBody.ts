@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74

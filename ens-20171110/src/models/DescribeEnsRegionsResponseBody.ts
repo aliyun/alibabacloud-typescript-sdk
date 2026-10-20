@@ -66,7 +66,7 @@ export class DescribeEnsRegionsResponseBodyEnsRegions extends $dara.Model {
 export class DescribeEnsRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+   * The status code. A value of 0 indicates that the call was successful. If the call failed, an error code is returned.
    * 
    * @example
    * 0

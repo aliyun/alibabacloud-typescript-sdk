@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutBucketRequest extends $dara.Model {
   /**
    * @remarks
-   * The access control list (ACL) of the bucket. private public-read-write public-read
+   * Bucket permission type: private (default). public-read-write: Allows public read and write access. public-read: Allows public read access.
    * 
    * @example
    * private
@@ -13,44 +13,47 @@ export class PutBucketRequest extends $dara.Model {
   bucketAcl?: string;
   /**
    * @remarks
-   * The name of the bucket. This parameter can contain 3 to 50 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot start or end with a hyphen (-).
+   * Bucket name. Must be 3 to 50 characters long. Use only lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen.
    * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * my-bucket
    */
   bucketName?: string;
   /**
    * @remarks
-   * The description. The description can be 0 to 128 characters in length, and can contain Chinese characters and emoticons.
+   * Comment. Up to 128 characters, including letters, digits, Chinese characters, and emojis.
    * 
    * @example
-   * numb
+   * this is comment
    */
   comment?: string;
   /**
    * @remarks
-   * The scheduling scope. This parameter takes effect only when the value of the LogicalBucketType parameter is standard. Valid values:
+   * Scheduling scope. Valid values:
    * 
-   * *   **domestic**: Chinese mainland.
-   * *   **oversea**: outside the Chinese mainland.
+   * - domestic (within China)
+   * 
+   * - outside China
+   * 
+   * > You must specify this parameter when creating a global bucket.
    * 
    * @example
-   * domestic
+   * sink
    */
   dispatchScope?: string;
   /**
    * @remarks
-   * The ID of the region where the node is located. If this parameter is not specified, the node is the global default node.
+   * Edge zone ID. If not specified, the global default edge zone is used.
    * 
    * @example
-   * cn-beijing-15
+   * xx-xx-xx
    */
   ensRegionId?: string;
   /**
    * @remarks
-   * The type of the logical bucket. Valid values: sink standard (default)
+   * The logical type of the bucket. Valid values: sink: A sink bucket on a specified node. standard: A standard global bucket. This is the default value.
    * 
    * @example
    * sink

@@ -163,7 +163,7 @@ export class DescribeDisksResponseBodyDisks extends $dara.Model {
 export class DescribeDisksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The returned business code. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -172,7 +172,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   disks?: DescribeDisksResponseBodyDisks;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -180,7 +180,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 50
@@ -196,7 +196,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages for a paged query.
    * 
    * @example
    * 13

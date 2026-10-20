@@ -5,14 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The collection of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the order. Multiple IDs are separated by commas (,).
-   * 
-   * >  This parameter is not returned for the pay-as-you-go billing method.
+   * The order ID. Multiple IDs are separated by commas (,).
    * 
    * @example
    * 21127020370****

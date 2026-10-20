@@ -10,7 +10,7 @@ export class DescribeEnsRegionIdIpv6InfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-chengdu-xxxx-4
+   * cn-chengdu-****-4
    */
   ensRegionId?: string;
   static names(): { [key: string]: string } {

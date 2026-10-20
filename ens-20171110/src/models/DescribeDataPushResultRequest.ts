@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataPushResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDataPushResultRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the data file. Separate multiple names with commas (,). By default, all data files are queried.
+   * The names of the data files. This is a filter condition for the query. Multiple values are supported and separated by commas (,). By default, all data files are queried.
    * 
    * @example
    * 159828628258496/mirror_file/game-2553efe7-7bf8-40fb-a6e7-09c9c00a992a.tar
@@ -23,7 +23,7 @@ export class DescribeDataPushResultRequest extends $dara.Model {
   dataNames?: string;
   /**
    * @remarks
-   * The version number of the data file. Separate multiple numbers with commas (,). By default, all versions of data files are queried.
+   * The version numbers of the data files. This is a filter condition for the query. Multiple values are supported and separated by commas (,). By default, all versions are queried.
    * 
    * @example
    * 90396
@@ -31,7 +31,7 @@ export class DescribeDataPushResultRequest extends $dara.Model {
   dataVersions?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The end time of the query. Format: YYYY-MM-DD. By default, there is no time limit.
    * 
    * @example
    * 2022-02-20
@@ -39,20 +39,23 @@ export class DescribeDataPushResultRequest extends $dara.Model {
   maxDate?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The start time of the query. Format: YYYY-MM-DD. By default, there is no time limit.
    * 
    * @example
    * 2022-02-15
    */
   minDate?: string;
   /**
+   * @remarks
+   * The page number. Pages start from 1. This parameter is not required when you export all information.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. This parameter is optional if you want to return the push status of all data files.
+   * The number of entries per page set in Settings for paging during a paged query. This parameter is not required when you export all entries.
    * 
    * @example
    * 10
@@ -60,7 +63,7 @@ export class DescribeDataPushResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of ENS nodes. Separate multiple IDs with commas (,). By default, all ENS nodes are queried.
+   * The IDs of the edge nodes. This is a filter condition for the query. Multiple values are supported and separated by commas (,). By default, all edge nodes are queried.
    * 
    * @example
    * cn-wuhan-telecom_unicom_cmcc-2,cn-jiaozuo-2

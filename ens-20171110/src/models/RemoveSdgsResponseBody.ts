@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSDGsResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message.
    * 
    * @example
    * sdg not found
@@ -45,7 +45,7 @@ export class RemoveSDGsResponseBodyDataResultFailedItems extends $dara.Model {
 export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed tasks.
+   * The number of failures.
    * 
    * @example
    * 0
@@ -53,12 +53,12 @@ export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about failed tasks.
+   * The list of failure details.
    */
   failedItems?: RemoveSDGsResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
 export class RemoveSDGsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. The value success is returned for a successful request.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class RemoveSDGsResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: RemoveSDGsResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests succeeded. Valid values:
    * 
-   * *   **true**: All tasks are successful.
-   * *   **false**: Failed tasks exist.
+   * - **true**: All succeeded.
+   * - **false**: Some tasks failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class RemoveSDGsResponseBodyData extends $dara.Model {
 export class RemoveSDGsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned Data object.
    */
   data?: RemoveSDGsResponseBodyData;
   /**

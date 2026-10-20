@@ -7,8 +7,9 @@ export class StopInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcibly stop the instance.
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**
+   * 
+   * - **false** (default)
    * 
    * @example
    * true

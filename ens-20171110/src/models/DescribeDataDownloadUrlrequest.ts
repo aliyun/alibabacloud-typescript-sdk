@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataDownloadURLRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
+   * 
+   * You can call ListApplications to obtain the AppId. The call chain is as follows: call CreateApplication to create an application, call PushApplicationData or DistApplicationData to upload data, and then call this operation to query the download URL.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class DescribeDataDownloadURLRequest extends $dara.Model {
   dataName?: string;
   /**
    * @remarks
-   * The version number of the data file.
+   * The version number of the data.
    * 
    * This parameter is required.
    * 
@@ -35,7 +37,7 @@ export class DescribeDataDownloadURLRequest extends $dara.Model {
   dataVersion?: string;
   /**
    * @remarks
-   * This parameter is reserved.
+   * A reserved parameter.
    * 
    * @example
    * 600
@@ -43,7 +45,7 @@ export class DescribeDataDownloadURLRequest extends $dara.Model {
   expireTimeout?: number;
   /**
    * @remarks
-   * The condition that you want to use to filter file servers. You can specify multiple canary release policies. By default, all resources are queried.
+   * The filter condition for file servers. Multiple canary release strategies are supported. By default, all file servers are queried.
    * 
    * @example
    * {\\"name\\": \\"ScheduleToRegionId\\",\\"parameters\\":{\\"operator\\": \\"In\\",\\"values\\": [\\"cn-shijiazhuang-telecom_unicom_cmcc\\"]}}

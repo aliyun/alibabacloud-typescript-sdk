@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeasurementDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMeasurementDataRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * This parameter is required.
    * 

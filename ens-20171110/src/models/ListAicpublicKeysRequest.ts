@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAICPublicKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * Public key grouping
+   * The group of the public key.
    * 
    * @example
    * g-test
@@ -13,7 +13,7 @@ export class ListAICPublicKeysRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Public key name
+   * The name of the public key.
    * 
    * @example
    * mykey
@@ -21,7 +21,7 @@ export class ListAICPublicKeysRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Public key type
+   * The type of the public key.
    * 
    * @example
    * adb
@@ -29,7 +29,7 @@ export class ListAICPublicKeysRequest extends $dara.Model {
   keyType?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListAICPublicKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display per page.
    * 
    * @example
    * 10

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterNodesRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The information about the nodes to be removed.
+   * 
    * This parameter is required.
    */
   nodes?: string[];
@@ -35,17 +37,25 @@ export class DeleteClusterNodesRequestBody extends $dara.Model {
 export class DeleteClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
+   * The request body parameters.
+   * 
    * This parameter is required.
    */
   body?: DeleteClusterNodesRequestBody;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to release the ENS instance where the node resides. Default value: true.
+   */
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {

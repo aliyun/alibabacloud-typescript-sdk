@@ -3,13 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the writable layer for the block device. Unit: GiB. A value of 0 indicates that this feature is disabled.
+   * 
+   * @example
+   * 20
+   */
   blockRwSplitSize?: number;
+  /**
+   * @remarks
+   * The cache size. Unit: GiB. A value of 0 indicates that this feature is disabled.
+   * 
+   * @example
+   * 20
+   */
   cacheSize?: number;
+  /**
+   * @remarks
+   * The disk access protocol type of the mounted shared cloud disk.
+   * 
+   * @example
+   * iscsi
+   */
   diskAccessProtocol?: string;
+  /**
+   * @remarks
+   * The disk type of the mounted shared cloud disk.
+   * 
+   * @example
+   * standard
+   */
   diskType?: string;
   /**
    * @remarks
-   * The ID of the AIC instance.
+   * The AIC instance ID.
    * 
    * @example
    * aic-xxxx
@@ -19,18 +47,13 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $da
    * @remarks
    * The deployment type.
    * 
-   * Valid values:
-   * 
-   * *   overlay: read/write splitting.
-   * *   common: common deployment.
-   * 
    * @example
    * overlay
    */
   mountType?: string;
   /**
    * @remarks
-   * The deployment phase of the SDG.
+   * The SDG deployment phase.
    * 
    * @example
    * attach
@@ -38,7 +61,7 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $da
   phase?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -48,19 +71,13 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $da
    * @remarks
    * The deployment status of the SDG.
    * 
-   * Valid values:
-   * 
-   * *   sdg_deploying
-   * *   success
-   * *   failed
-   * 
    * @example
    * success
    */
   status?: string;
   /**
    * @remarks
-   * The time when the status was last updated.
+   * The time when the status was last updated. The time is displayed in the ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2023-02-17T02:44:31Z
@@ -113,7 +130,7 @@ export class DescribeSDGDeploymentStatusResponseBody extends $dara.Model {
   deploymentStatus?: DescribeSDGDeploymentStatusResponseBodyDeploymentStatus[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -121,7 +138,7 @@ export class DescribeSDGDeploymentStatusResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paging query. Default value: **10**.
    * 
    * @example
    * 10
@@ -137,7 +154,7 @@ export class DescribeSDGDeploymentStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried deployment records.
+   * The total number of deployment records returned.
    * 
    * @example
    * 100

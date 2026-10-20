@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeClusterUserKubeconfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The KubeConfig of the cluster.
+   * 
    * @example
    * apiVersion: v1
    * clusters:

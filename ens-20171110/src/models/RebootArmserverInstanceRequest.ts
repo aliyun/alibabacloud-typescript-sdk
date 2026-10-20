@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebootARMServerInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the server.
+   * The server instance ID.
    * 
    * @example
    * yourInstance ID

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The levels of the event-triggered alerts.
+   * The list of event levels.
    */
   eventLevelsShrink?: string;
   /**
    * @remarks
-   * Event status list.
+   * The list of event statuses.
    */
   eventStatusShrink?: string;
   /**
@@ -22,7 +22,7 @@ export class DescribeHistoryEventsShrinkRequest extends $dara.Model {
   eventTypesShrink?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class DescribeHistoryEventsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -38,7 +38,7 @@ export class DescribeHistoryEventsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of resources.
+   * The list of resource IDs.
    */
   resourceIdsShrink?: string;
   static names(): { [key: string]: string } {

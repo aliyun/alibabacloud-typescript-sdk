@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SetBackendServersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of backend servers that you added. You can modify the weights of up to 20 backend servers in each request.
+   * The list of backend servers to add. You can modify up to 20 backend servers in each call.
    * 
    * This parameter is required.
    */
   backendServersShrink?: string;
   /**
    * @remarks
-   * The ID of the Edge Load Balancer (ELB) instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 

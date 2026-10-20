@@ -7,7 +7,7 @@ export class CreateNetworkAclRequest extends $dara.Model {
    * @remarks
    * The description of the network ACL.
    * 
-   * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * This is my NetworkAcl.
@@ -17,7 +17,7 @@ export class CreateNetworkAclRequest extends $dara.Model {
    * @remarks
    * Enter a name for the network ACL.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+   * The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * acl-1

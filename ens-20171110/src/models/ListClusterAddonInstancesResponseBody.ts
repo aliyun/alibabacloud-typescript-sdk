@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterAddonInstancesResponseBodyAddonsConfigSchema extends $dara.Model {
   /**
    * @remarks
-   * Application version.
+   * The application version.
    * 
    * @example
    * 7380581386597434629002
@@ -13,7 +13,7 @@ export class ListClusterAddonInstancesResponseBodyAddonsConfigSchema extends $da
   appVersion?: string;
   /**
    * @remarks
-   * Configuration version.
+   * The configuration version.
    * 
    * @example
    * 4572581386436834662215
@@ -21,7 +21,7 @@ export class ListClusterAddonInstancesResponseBodyAddonsConfigSchema extends $da
   configVersion?: string;
   /**
    * @remarks
-   * Component name.
+   * The add-on name.
    * 
    * @example
    * edge-csi-lite
@@ -29,7 +29,7 @@ export class ListClusterAddonInstancesResponseBodyAddonsConfigSchema extends $da
   name?: string;
   /**
    * @remarks
-   * Custom parameters.
+   * The custom add-on parameters.
    * 
    * @example
    * {"key1": "val1"}
@@ -65,7 +65,7 @@ export class ListClusterAddonInstancesResponseBodyAddonsConfigSchema extends $da
 export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
-   * Whether to automatically clean up associated cloud resources.
+   * Specifies whether to automatically clean up associated cloud resources.
    * 
    * @example
    * true
@@ -73,12 +73,12 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   cleanupCloudResources?: boolean;
   /**
    * @remarks
-   * List of custom parameter schemas for the addon.
+   * The list of schemas for custom add-on parameters.
    */
   configSchema?: ListClusterAddonInstancesResponseBodyAddonsConfigSchema[];
   /**
    * @remarks
-   * Addon name.
+   * The plug-in name.
    * 
    * @example
    * test1
@@ -86,7 +86,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Current addon status. Values:
+   * The current add-on status. Valid values:
    * 
    * - **enabling**: Enabling.
    * - **enabled**: Enabled.
@@ -100,7 +100,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * v1
@@ -141,12 +141,12 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
 export class ListClusterAddonInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of addon information.
+   * The list of add-on information.
    */
   addons?: ListClusterAddonInstancesResponseBodyAddons[];
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
@@ -13,11 +13,10 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The level of the specific event. Valid values:
-   * 
-   * *   CRITICAL
-   * *   WARN
-   * *   INFO
+   * The event level. Valid values:
+   * - CRITICAL: Critical.
+   * - WARN: Warning.
+   * - INFO: Information.
    * 
    * @example
    * WARN
@@ -25,15 +24,14 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   eventLevel?: string;
   /**
    * @remarks
-   * The status of the event. Valid values:
-   * 
-   * *   Inquiring
-   * *   Scheduled
-   * *   Executing
-   * *   Executed
-   * *   Failed
-   * *   Canceled
-   * *   Avoided
+   * The event status. Valid values:
+   * - Inquiring: Inquiring.
+   * - Scheduled: Scheduled.
+   * - Executing: Executing.
+   * - Executed: Executed.
+   * - Failed: Failed.
+   * - Canceled: Canceled.
+   * - Avoided: Avoided.
    * 
    * @example
    * Inquiring
@@ -41,17 +39,16 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * The type of the event. Description:
-   * 
-   * *   Instance:SystemFailure.Redeploy: The instance is redeployed due to system issues.
-   * *   Instance:SystemFailure.Reboot: The instance is restarted due to a system error.
-   * *   Instance:RegionNetworkDown: The node network is interrupted.
-   * *   Disk:Stalled: The disk performance is impaired.
-   * *   EnsRegion:NetworkMigration: The instance is migrated due to a system error.
-   * *   IP:SafeRisk: IP alerts.
-   * *   IP:SafeBan: IP blocking.
-   * *   Instance:SystemUpgrade.Migrate: The instance needs to be migrated due to underlying upgrades.
-   * *   Instance:SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+   * The event type. Valid values:
+   * - Instance:SystemFailure.Redeploy: The instance deployment due to a system fault.
+   * - Instance:SystemFailure.Reboot: The instance is restarted due to a system fault.
+   * - Instance:RegionNetworkDown: The edge zone network break.
+   * - Disk:Stalled: The disk performance is degraded.
+   * - EnsRegion:NetworkMigration: Instance migration due to a system fault.
+   * - IP:SafeRisk: IP alerting.
+   * - IP:SafeBan: The IP address is blocked.
+   * - Instance:SystemUpgrade.Migrate: The instance needs to be migrated due to an underlying upgrade.
+   * - Instance:SystemMaintenance.Redeploy: The instance deployment due to system maintenance.
    * 
    * @example
    * Instance:SystemFailure.Reboot
@@ -59,7 +56,7 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The extended attributes.
+   * The extended attribute.
    * 
    * @example
    * {}
@@ -67,7 +64,7 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   extendedAttribute?: string;
   /**
    * @remarks
-   * The scheduled execution time of the event in milliseconds.
+   * The scheduled execution time of the event, in milliseconds.
    * 
    * @example
    * 1715578245000
@@ -76,7 +73,7 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   notBeforeUtcTime?: string;
   /**
    * @remarks
-   * The release time in milliseconds.
+   * The publish time, in milliseconds.
    * 
    * @example
    * 1715578245000
@@ -85,12 +82,15 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
   publishUtcTime?: string;
   /**
    * @remarks
-   * The event cause.
+   * The reason for the event.
+   * 
+   * @example
+   * The current system policy quota is insufficient
    */
   reason?: string;
   /**
    * @remarks
-   * The ID of the associated resources.
+   * The ID of the associated resource.
    * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
@@ -140,12 +140,12 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
 export class DescribeHistoryEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried events.
+   * The list of events.
    */
   events?: DescribeHistoryEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number.
    * 
    * @example
    * 1
@@ -153,7 +153,7 @@ export class DescribeHistoryEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -161,7 +161,7 @@ export class DescribeHistoryEventsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5359599C-F656-57BD-8A0D-329A2FD511A6
@@ -169,7 +169,7 @@ export class DescribeHistoryEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30

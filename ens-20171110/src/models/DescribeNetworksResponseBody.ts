@@ -2,6 +2,73 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocksIpv6CidrBlock extends $dara.Model {
+  /**
+   * @example
+   * 2408:XXXX:0:a600::/110
+   */
+  ipv6CidrBlock?: string;
+  /**
+   * @example
+   * telecom
+   */
+  ipv6Isp?: string;
+  /**
+   * @example
+   * system
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6Isp: 'Ipv6Isp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: 'string',
+      ipv6Isp: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocks extends $dara.Model {
+  ipv6CidrBlock?: DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocksIpv6CidrBlock[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: { 'type': 'array', 'itemType': DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocksIpv6CidrBlock },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6CidrBlock)) {
+      $dara.Model.validateArray(this.ipv6CidrBlock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworksResponseBodyNetworksNetworkRouteTableIds extends $dara.Model {
   routeTableId?: string[];
   static names(): { [key: string]: string } {
@@ -150,6 +217,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
   description?: string;
   ensRegionId?: string;
   gatewayRouteTableId?: string;
+  ipv6CidrBlocks?: DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocks;
   networkAclId?: string;
   networkId?: string;
   networkName?: string;
@@ -167,6 +235,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       description: 'Description',
       ensRegionId: 'EnsRegionId',
       gatewayRouteTableId: 'GatewayRouteTableId',
+      ipv6CidrBlocks: 'Ipv6CidrBlocks',
       networkAclId: 'NetworkAclId',
       networkId: 'NetworkId',
       networkName: 'NetworkName',
@@ -187,6 +256,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       description: 'string',
       ensRegionId: 'string',
       gatewayRouteTableId: 'string',
+      ipv6CidrBlocks: DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocks,
       networkAclId: 'string',
       networkId: 'string',
       networkName: 'string',
@@ -201,6 +271,9 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
   }
 
   validate() {
+    if(this.ipv6CidrBlocks && typeof (this.ipv6CidrBlocks as any).validate === 'function') {
+      (this.ipv6CidrBlocks as any).validate();
+    }
     if(this.routeTableIds && typeof (this.routeTableIds as any).validate === 'function') {
       (this.routeTableIds as any).validate();
     }
@@ -251,7 +324,7 @@ export class DescribeNetworksResponseBody extends $dara.Model {
   networks?: DescribeNetworksResponseBodyNetworks;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current query.
    * 
    * @example
    * 1
@@ -259,7 +332,7 @@ export class DescribeNetworksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page in the current query.
    * 
    * @example
    * 2

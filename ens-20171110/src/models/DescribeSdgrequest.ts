@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDGRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number for paging.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSDGRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of rows per page in a paging query.
    * 
    * Default value: 10.
    * 
@@ -23,7 +23,7 @@ export class DescribeSDGRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of SDGs that you want to query. By default, all SDGs are queried.
+   * The IDs of the SDGs to query. By default, all SDGs are queried.
    */
   SDGIds?: string[];
   sameDiskId?: boolean;

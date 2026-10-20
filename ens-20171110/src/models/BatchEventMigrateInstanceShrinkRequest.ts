@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEventMigrateInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The details of events.
+   * The list of events.
    */
   eventInfosShrink?: string;
   static names(): { [key: string]: string } {

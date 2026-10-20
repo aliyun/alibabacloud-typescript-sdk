@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEventRedeployInstanceResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchEventRedeployInstanceResponseBodyResults extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * System event ID.
+   * The system event ID.
    * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
@@ -21,7 +21,7 @@ export class BatchEventRedeployInstanceResponseBodyResults extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * Operational message, when code=200, the message is \\"successful\\".
+   * The operation message. When code is 200, the message is successful.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class BatchEventRedeployInstanceResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
@@ -65,7 +65,7 @@ export class BatchEventRedeployInstanceResponseBodyResults extends $dara.Model {
 export class BatchEventRedeployInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06
@@ -73,7 +73,7 @@ export class BatchEventRedeployInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of results.
+   * The list of results.
    */
   results?: BatchEventRedeployInstanceResponseBodyResults[];
   static names(): { [key: string]: string } {

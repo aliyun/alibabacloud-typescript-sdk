@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 760bad53276431c499e30dc36f6b26be
@@ -13,7 +13,7 @@ export class CreateSecurityGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The ID of the newly created security group.
    * 
    * @example
    * sg-bp1fg655nh68xyz9i***

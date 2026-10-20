@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileSystemShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the orders.
+   * The list of orders. Each element in the list contains the details of an order.
    * 
    * This parameter is required.
    */

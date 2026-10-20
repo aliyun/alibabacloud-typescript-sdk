@@ -13,7 +13,7 @@ export class MountInstanceSDGResponseBodyDataResultFailedItems extends $dara.Mod
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * aic-xxxxx-0
@@ -45,7 +45,7 @@ export class MountInstanceSDGResponseBodyDataResultFailedItems extends $dara.Mod
 export class MountInstanceSDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed tasks.
+   * The number of failures.
    * 
    * @example
    * 0
@@ -53,12 +53,12 @@ export class MountInstanceSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about failed tasks.
+   * The list of failure details.
    */
   failedItems?: MountInstanceSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class MountInstanceSDGResponseBodyDataResult extends $dara.Model {
 export class MountInstanceSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. The value success is returned if the request is successful.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class MountInstanceSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: MountInstanceSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * *   **true**: All tasks are successful.
-   * *   **false**: Failed tasks exist.
+   * - **true**: All successful.
+   * - **false**: Some tasks failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class MountInstanceSDGResponseBodyData extends $dara.Model {
 export class MountInstanceSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: MountInstanceSDGResponseBodyData;
   /**

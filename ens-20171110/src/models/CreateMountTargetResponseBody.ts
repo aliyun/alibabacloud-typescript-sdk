@@ -15,10 +15,13 @@ export class CreateMountTargetResponseBody extends $dara.Model {
    * @remarks
    * The state of the mount target. Valid values:
    * 
-   * *   active
-   * *   inactive
-   * *   pending
-   * *   deleting
+   * - active
+   * 
+   * - inactive
+   * 
+   * - pending
+   * 
+   * - deleting
    * 
    * @example
    * pending

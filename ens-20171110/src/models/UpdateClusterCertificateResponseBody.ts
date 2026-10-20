@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateClusterCertificateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The response message. The value is success if the request is successful.
+   * 
    * @example
    * Success
    */

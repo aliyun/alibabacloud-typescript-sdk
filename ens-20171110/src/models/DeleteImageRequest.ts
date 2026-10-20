@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image. You can specify only one image ID.
+   * The image ID. Only a single ID is supported.
    * 
-   * You can delete only custom images that you created.
+   * Only custom images are supported.
    * 
    * This parameter is required.
    * 

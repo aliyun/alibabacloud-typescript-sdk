@@ -72,6 +72,11 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
   description?: string;
   ensRegionId?: string;
   freeIpCount?: number;
+  /**
+   * @example
+   * 2408:XXXX:0:a600::/110
+   */
+  ipv6CidrBlock?: string;
   networkId?: string;
   status?: string;
   tags?: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags;
@@ -84,6 +89,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       description: 'Description',
       ensRegionId: 'EnsRegionId',
       freeIpCount: 'FreeIpCount',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
       networkId: 'NetworkId',
       status: 'Status',
       tags: 'Tags',
@@ -99,6 +105,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       description: 'string',
       ensRegionId: 'string',
       freeIpCount: 'number',
+      ipv6CidrBlock: 'string',
       networkId: 'string',
       status: 'string',
       tags: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags,
@@ -148,7 +155,7 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $dara.Model {
 export class DescribeVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current query.
    * 
    * @example
    * 1
@@ -156,7 +163,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page in the current query.
    * 
    * @example
    * 2
@@ -172,7 +179,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 3

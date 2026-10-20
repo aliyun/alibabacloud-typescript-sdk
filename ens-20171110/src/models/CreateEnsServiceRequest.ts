@@ -17,8 +17,9 @@ export class CreateEnsServiceRequest extends $dara.Model {
    * @remarks
    * The operation to perform after you preview the created edge service. Valid values:
    * 
-   * *   **Buy**: create
-   * *   **Upgrade**: change
+   * - **Buy**: create
+   * 
+   * - **Upgrade**: change
    * 
    * This parameter is required.
    * 

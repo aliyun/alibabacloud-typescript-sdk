@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteFileSystemRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the file system that you want to delete.
+   * The ID of the file system to delete.
    * 
    * This parameter is required.
    * 

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleClusterNodePoolRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The expected number of instances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,9 +35,15 @@ export class ScaleClusterNodePoolRequestBody extends $dara.Model {
 }
 
 export class ScaleClusterNodePoolRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP request body.
+   */
   body?: ScaleClusterNodePoolRequestBody;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +52,8 @@ export class ScaleClusterNodePoolRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The node pool ID.
+   * 
    * This parameter is required.
    * 
    * @example

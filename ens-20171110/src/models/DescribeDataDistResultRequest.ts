@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataDistResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the data file. Separate multiple names with commas (,). By default, all data files are queried.
+   * The data file names. This parameter is a filter condition. You can specify multiple names separated by commas (,). By default, all data files are queried.
    * 
    * @example
    * cloudgame-shanghai/deploy_app/20220215/1644895216305ACG_M21B-ota-1.1.2-D-0215.0628_V1_0002-pre-weiduan.zip
@@ -23,7 +23,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   dataNames?: string;
   /**
    * @remarks
-   * The version number of the data file. Separate multiple numbers with commas (,). By default, all versions of data files are queried.
+   * The data file version numbers. This parameter is a filter condition. You can specify multiple versions separated by commas (,). By default, all versions are queried.
    * 
    * @example
    * 4885
@@ -31,12 +31,12 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   dataVersions?: string;
   /**
    * @remarks
-   * The IDs of the ENS nodes.
+   * The list of ENS edge zone IDs.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The IDs of ENS instances. Separate multiple IDs with commas (,). By default, all instances are queried.
+   * The list of edge instance IDs. This parameter is a filter condition. You can specify multiple IDs separated by commas (,). By default, all instances are queried.
    * 
    * @example
    * i-7ecpqvkicnchxccozrp,i-6ecpqvkicnchxccozrp
@@ -44,7 +44,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The end date of the query in the format "2006-01-02". By default, no time limit is applied.
    * 
    * @example
    * 2022-02-01
@@ -52,7 +52,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   maxDate?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The start date of the query in the format "2006-01-02". By default, no time limit is applied.
    * 
    * @example
    * 2022-01-02
@@ -60,7 +60,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   minDate?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. This parameter is optional if you want to return the push status of all data files.
+   * The page number, starting from 1. You do not need to specify this parameter when exporting all data.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class DescribeDataDistResultRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. This parameter is optional if you want to return the distribution status of all data files.
+   * The number of entries per page for paging queries. This parameter is not required when exporting all data.
    * 
    * @example
    * 10

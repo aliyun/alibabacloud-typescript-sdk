@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * F3B261DD-3858-4D3C-877D-303ADF374600

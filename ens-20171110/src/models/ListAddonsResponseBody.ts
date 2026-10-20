@@ -13,7 +13,7 @@ export class ListAddonsResponseBodyAddonsConfigSchema extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The version of the configuration file.
+   * The configuration version.
    * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
@@ -29,7 +29,7 @@ export class ListAddonsResponseBodyAddonsConfigSchema extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The custom configurations of the component.
+   * The custom parameters of the component.
    * 
    * @example
    * {"key1":"val1"}
@@ -68,7 +68,7 @@ export class ListAddonsResponseBodyAddonsConfigSchema extends $dara.Model {
 export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to clear resources.
+   * Indicates whether associated cloud resources are automatically cleaned up.
    * 
    * @example
    * true
@@ -76,7 +76,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   cleanupCloudResources?: boolean;
   /**
    * @remarks
-   * The schema of the custom parameters of the component.
+   * The list of schemas for custom parameters of the component.
    */
   configSchema?: ListAddonsResponseBodyAddonsConfigSchema[];
   /**
@@ -133,7 +133,7 @@ export class ListAddonsResponseBody extends $dara.Model {
   addons?: ListAddonsResponseBodyAddons[];
   /**
    * @remarks
-   * Id of the request.
+   * Id of the request
    * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8

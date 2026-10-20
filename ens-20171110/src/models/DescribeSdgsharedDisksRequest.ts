@@ -13,7 +13,7 @@ export class DescribeSDGSharedDisksRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number, which is used for paged query
+   * The page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSDGSharedDisksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeSDGSharedDisksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * sdg ID
+   * The ID of the SDG. You can call the DescribeSDGs operation to query the IDs of existing SDGs. To create an SDG, call the CreateSDG and SaveSDG operations in sequence after the AIC instance is running.
    * 
    * This parameter is required.
    * 

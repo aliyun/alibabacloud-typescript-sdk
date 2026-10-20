@@ -15,10 +15,13 @@ export class DescribeBandwitdhByInternetChargeTypeResponseBody extends $dara.Mod
    * @remarks
    * The metering method. Valid values:
    * 
-   * *   BandwidthByDay: Pay by daily peak bandwidth
-   * *   95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
-   * *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
-   * *   PayByBandwidth: Pay by fixed bandwidth
+   * - BandwidthByDay: Pay by daily peak bandwidth
+   * 
+   * - 95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
+   * 
+   * - PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
+   * 
+   * - PayByBandwidth: Pay by fixed bandwidth
    * 
    * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
    * 

@@ -39,8 +39,9 @@ export class DescribeStorageVolumeResponseBodyStorageVolumes extends $dara.Model
    * @remarks
    * Indicates whether authentication is enabled. Valid values:
    * 
-   * *   **1**: Authentication is enabled.
-   * *   **0** (default): Authentication is disabled.
+   * - **1**: Authentication is enabled.
+   * 
+   * - **0** (default): Authentication is disabled.
    * 
    * @example
    * 0
@@ -50,8 +51,9 @@ export class DescribeStorageVolumeResponseBodyStorageVolumes extends $dara.Model
    * @remarks
    * Indicates whether the volume is enabled. Valid values:
    * 
-   * *   **1** (default): The volume is enabled.
-   * *   **0**: The volume is disabled.
+   * - **1** (default): The volume is enabled.
+   * 
+   * - **0**: The volume is disabled.
    * 
    * @example
    * 1
@@ -61,10 +63,13 @@ export class DescribeStorageVolumeResponseBodyStorageVolumes extends $dara.Model
    * @remarks
    * The status of the volume. Valid values:
    * 
-   * *   creating
-   * *   available
-   * *   deleting
-   * *   deleted
+   * - creating
+   * 
+   * - available
+   * 
+   * - deleting
+   * 
+   * - deleted
    * 
    * @example
    * available

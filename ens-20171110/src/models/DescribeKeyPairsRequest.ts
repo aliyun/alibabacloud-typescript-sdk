@@ -15,10 +15,13 @@ export class DescribeKeyPairsRequest extends $dara.Model {
    * @remarks
    * The name of the key pair that you want to bind to the simple application server. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain the following characters:
    * 
-   * *   Numbers.
-   * *   :
-   * *   _
-   * *   .
+   * - Numbers.
+   * 
+   * - :
+   * 
+   * - _
+   * 
+   * - .
    * 
    * You can specify only one name. By default, all key pairs are queried.
    * 

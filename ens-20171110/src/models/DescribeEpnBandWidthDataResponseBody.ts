@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData extends $dara.Model {
   /**
    * @remarks
-   * The outbound bandwidth. Unit: bit/s.
+   * The downstream bandwidth. Unit: bit/s.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData
   downBandWidth?: number;
   /**
    * @remarks
-   * The Internet traffic to the instance. Unit: bytes.
+   * The inbound public network traffic of the instance. Unit: bits.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData
   internetRX?: number;
   /**
    * @remarks
-   * The Internet traffic from the instance. Unit: bytes.
+   * The outbound public network traffic of the instance. Unit: bits.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData
   internetTX?: number;
   /**
    * @remarks
-   * The timestamp when the monitoring data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The timestamp of the monitoring data. The time is in UTC and in the format of yyyy-MM-DDThh:mm:ssZ.
    * 
    * @example
    * 2019-10-12T05:45:00Z
@@ -37,7 +37,7 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData
   timeStamp?: string;
   /**
    * @remarks
-   * The inbound bandwidth. Unit: bit/s.
+   * The upstream bandwidth. Unit: bit/s.
    * 
    * @example
    * 0
@@ -75,12 +75,12 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData
 export class DescribeEpnBandWidthDataResponseBodyMonitorData extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth data.
+   * The bandwidth monitoring data.
    */
   bandWidthMonitorData?: DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData[];
   /**
    * @remarks
-   * The maximum outbound bandwidth within the queried time range. Unit: bit/s.
+   * The maximum downstream bandwidth within the queried time range. Unit: bit/s.
    * 
    * @example
    * 16817468
@@ -88,7 +88,7 @@ export class DescribeEpnBandWidthDataResponseBodyMonitorData extends $dara.Model
   maxDownBandWidth?: number;
   /**
    * @remarks
-   * The maximum inbound bandwidth within the queried time range. Unit: bit/s.
+   * The maximum upstream bandwidth within the queried time range. Unit: bit/s.
    * 
    * @example
    * 231008

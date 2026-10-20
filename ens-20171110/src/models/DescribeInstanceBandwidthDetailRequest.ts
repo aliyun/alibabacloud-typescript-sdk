@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The maximum interval between the beginning time and the end time is 86400 seconds. The interval is left-closed and right-open. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The end time. The maximum difference from the start time is 86400 seconds. The query range is left-closed and right-open. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ENS node ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -23,7 +23,7 @@ export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The plan ID.
+   * The instance ID.
    * 
    * @example
    * i-6ecpqvkicnchxccozrpxxxx
@@ -31,7 +31,7 @@ export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance, such as vm, eip, single_tenant, and nc. You can leave this parameter empty. The type of the instance, such as vm, eip, single_tenant, and nc.
+   * The instance type, such as vm, eip, single_tenant, or nc. You can leave this parameter empty if no special query is required.
    * 
    * @example
    * vm
@@ -55,7 +55,7 @@ export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the service, such as vm, eip, esk, and meta.
+   * The service type, such as vm, eip, esk, or meta.
    * 
    * @example
    * vm
@@ -63,7 +63,7 @@ export class DescribeInstanceBandwidthDetailRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The start time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * This parameter is required.
    * 

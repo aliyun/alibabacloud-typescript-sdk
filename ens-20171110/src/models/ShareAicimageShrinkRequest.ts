@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShareAICImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The image name.
+   * The ID of the AIC image. You can call DescribeAICImages to obtain the ID.
    * 
    * This parameter is required.
    * 

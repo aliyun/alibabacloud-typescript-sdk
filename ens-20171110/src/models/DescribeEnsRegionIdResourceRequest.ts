@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsRegionIdResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss format. The time must be in UTC+0.
    * 
    * This parameter is required.
    * 
@@ -16,11 +16,10 @@ export class DescribeEnsRegionIdResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The Internet service provider (ISP). Valid values:
-   * 
-   * *   cmcc: China Mobile
-   * *   telecom: China Telecom
-   * *   unicom: China Unicom
-   * *   multiCarrier: multi-line ISP
+   * - cmcc: China Mobile.
+   * - telecom: China Telecom.
+   * - unicom: China Unicom.
+   * - multiCarrier: multi-ISP.
    * 
    * @example
    * cmcc
@@ -28,19 +27,18 @@ export class DescribeEnsRegionIdResourceRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The order in which the resources to return are sorted. Valid values:
-   * 
-   * *   InstanceCount: desc
-   * *   Area: asc
-   * *   InternetBandwidth: asc
+   * The sort order. Valid values: asc (ascending) and desc (descending). Only the following three parameters are supported:
+   * - InstanceCount: desc.
+   * - Area: asc.
+   * - InternetBandwidth: asc.
    * 
    * @example
-   * InstanceCount: desc
+   * InstanceCount：desc
    */
   orderByParams?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number of the instance status list. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -48,7 +46,7 @@ export class DescribeEnsRegionIdResourceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **100**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -56,7 +54,7 @@ export class DescribeEnsRegionIdResourceRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBucketLifecycleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C6583E8B-B930-4F59-ADC0-0E209A45E860

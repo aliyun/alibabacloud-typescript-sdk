@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEipInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP.
+   * The ID of the EIP instance.
    * 
    * @example
    * eip-25877c70gddh****
@@ -13,7 +13,7 @@ export class CreateEipInstanceResponseBody extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9DB6123F-470D-510A-A9EB-EBA799340452

@@ -13,7 +13,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   aliUid?: number;
   /**
    * @remarks
-   * The bandwidth service time. The data granularity is 5 minutes.
+   * The bandwidth business time. The bandwidth calculation granularity is 5 minutes.
    * 
    * @example
    * 2024-01-11 00:00:00
@@ -29,7 +29,9 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   ensRegionId?: string;
   /**
    * @remarks
-   * The type of the bandwidth. Valid values: 1, which indicates public network bandwidth. 2, which indicates internal network bandwidth.
+   * The bandwidth type. Valid values:
+   * - 1: public network.
+   * - 2: internal network.
    * 
    * @example
    * 1
@@ -37,7 +39,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   flowType?: number;
   /**
    * @remarks
-   * The plan ID.
+   * The instance ID.
    * 
    * @example
    * i-6ecpqvkicnchxccozrpxxxx
@@ -45,7 +47,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance, such as vm, eip, single_tenant, and nc.
+   * The instance type, such as vm, eip, single_tenant, or nc.
    * 
    * @example
    * vm
@@ -53,7 +55,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   instanceType?: string;
   /**
    * @remarks
-   * null
+   * The IP address of the instance.
    * 
    * @example
    * 203.107.***
@@ -61,7 +63,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   ip?: string;
   /**
    * @remarks
-   * The Internet service provider to which the IP address belongs.
+   * The Internet service provider (ISP) of the IP address.
    * 
    * @example
    * cmcc
@@ -69,7 +71,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   isp?: string;
   /**
    * @remarks
-   * null
+   * The inbound bandwidth. Unit: bit/s.
    * 
    * @example
    * 43795230
@@ -77,7 +79,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   rxBw?: number;
   /**
    * @remarks
-   * The type of the service, such as vm, eip, esk, and meta.
+   * The service type, such as vm, eip, esk, or meta.
    * 
    * @example
    * vm
@@ -85,7 +87,7 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
   serviceType?: string;
   /**
    * @remarks
-   * null
+   * The outbound bandwidth. Unit: bit/s.
    * 
    * @example
    * 25415638
@@ -135,12 +137,12 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
 export class DescribeInstanceBandwidthDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the maximum public bandwidth.
+   * The collection of Internet bandwidth cap information.
    */
   bandwidths?: DescribeInstanceBandwidthDetailResponseBodyBandwidths[];
   /**
    * @remarks
-   * The page number of the current page.
+   * The page number.
    * 
    * @example
    * 1
@@ -148,7 +150,7 @@ export class DescribeInstanceBandwidthDetailResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -164,7 +166,7 @@ export class DescribeInstanceBandwidthDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1

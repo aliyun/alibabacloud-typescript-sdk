@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachInstancesToNodePoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class AttachInstancesToNodePoolRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The array of instances, including the instance information.
+   * 
    * This parameter is required.
    */
   instances?: string[];
   /**
    * @remarks
+   * The node pool ID.
+   * 
    * This parameter is required.
    * 
    * @example

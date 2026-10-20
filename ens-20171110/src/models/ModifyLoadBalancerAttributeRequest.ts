@@ -17,7 +17,7 @@ export class ModifyLoadBalancerAttributeRequest extends $dara.Model {
    * @remarks
    * The name of the ELB instance. The name must be **2** to **128** characters in length.
    * 
-   * >  The value cannot start with `http://` or `https://`.
+   * > The value cannot start with `http://` or `https://`.
    * 
    * This parameter is required.
    * 

@@ -20,7 +20,7 @@ export class ModifyImageAttributeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Image Name
+   * Image name
    */
   imageName?: string;
   static names(): { [key: string]: string } {

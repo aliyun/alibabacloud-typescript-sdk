@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   /**
    * @remarks
-   * The time when the shared disk was created.
+   * The time when the shared disk was created. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2025-10-09T15:13:21+08:00
@@ -13,7 +13,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * shared disk id
+   * The ID of the shared disk.
    * 
    * @example
    * d-57kvvpuj1rk2ghumlgs6
@@ -21,7 +21,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Shared disk type
+   * The type of the shared disk.
    * 
    * @example
    * standard
@@ -29,7 +29,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The namespace of the service.
+   * The namespace.
    * 
    * @example
    * default
@@ -37,7 +37,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The node ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou-1
@@ -45,7 +45,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * SdgId of the shared disk
+   * The ID of the SDG.
    * 
    * @example
    * sdg-fqehhfdjv
@@ -53,7 +53,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   sdgId?: string;
   /**
    * @remarks
-   * Number of shared mounts
+   * The number of shared mounts.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   sharedNum?: number;
   /**
    * @remarks
-   * Shared disk status
+   * The status of the shared disk.
    * 
    * @example
    * avaliable
@@ -105,7 +105,7 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
 export class DescribeSDGSharedDisksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number when paging
+   * The current page number.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class DescribeSDGSharedDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -121,7 +121,7 @@ export class DescribeSDGSharedDisksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * xxxsxxxxx
@@ -129,12 +129,12 @@ export class DescribeSDGSharedDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Shared disk list
+   * The list of shared disks.
    */
   sharedDisks?: DescribeSDGSharedDisksResponseBodySharedDisks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

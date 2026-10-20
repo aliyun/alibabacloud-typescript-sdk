@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveInstanceSDGResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * sdg not found
@@ -13,7 +13,7 @@ export class RemoveInstanceSDGResponseBodyDataResultFailedItems extends $dara.Mo
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * aic-xxxxx-0
@@ -53,7 +53,7 @@ export class RemoveInstanceSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about the failed tasks.
+   * The list of failure details.
    */
   failedItems?: RemoveInstanceSDGResponseBodyDataResultFailedItems[];
   /**
@@ -95,7 +95,7 @@ export class RemoveInstanceSDGResponseBodyDataResult extends $dara.Model {
 export class RemoveInstanceSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. A value of success indicates a successful request.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class RemoveInstanceSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: RemoveInstanceSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * *   **true**: All tasks are successful.
-   * *   **false**: Failed tasks exist.
+   * - **true**: All requests are successful.
+   * - **false**: Some tasks failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class RemoveInstanceSDGResponseBodyData extends $dara.Model {
 export class RemoveInstanceSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The business code returned. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -156,7 +156,7 @@ export class RemoveInstanceSDGResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: RemoveInstanceSDGResponseBodyData;
   /**

@@ -64,7 +64,7 @@ export class DescribeImagesRequest extends $dara.Model {
    * This parameter is unavailable.
    * 
    * @example
-   * This parameter is not currently in use.
+   * This parameter is not in use.
    */
   status?: string;
   static names(): { [key: string]: string } {

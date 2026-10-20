@@ -179,7 +179,7 @@ export class DescribeDataPushResultResponseBodyPushResults extends $dara.Model {
 export class DescribeDataPushResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number for paging during a paged query.
    * 
    * @example
    * 1
@@ -187,7 +187,7 @@ export class DescribeDataPushResultResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page set in Settings for paging during a paged query.
    * 
    * @example
    * 10
@@ -196,7 +196,7 @@ export class DescribeDataPushResultResponseBody extends $dara.Model {
   pushResults?: DescribeDataPushResultResponseBodyPushResults;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
@@ -204,7 +204,7 @@ export class DescribeDataPushResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 6

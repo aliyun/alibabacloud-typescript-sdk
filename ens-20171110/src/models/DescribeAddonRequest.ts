@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAddonRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the add-on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribeAddonRequest extends $dara.Model {
    */
   addonName?: string;
   /**
+   * @remarks
+   * The version of the add-on. If you do not specify a version, all available versions are returned by default.
+   * 
    * @example
    * v1
    */

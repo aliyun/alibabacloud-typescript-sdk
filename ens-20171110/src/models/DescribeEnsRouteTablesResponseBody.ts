@@ -7,8 +7,9 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
    * @remarks
    * The type of the resource with which the route table is associated. Valid values:
    * 
-   * *   **VSwitch**
-   * *   **Gateway**
+   * - **VSwitch**
+   * 
+   * - **Gateway**
    * 
    * @example
    * VSwitch
@@ -76,7 +77,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * *   Available: The route table is available.
+   * - Available: The route table is available.
    * 
    * @example
    * Available
@@ -86,8 +87,9 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
    * @remarks
    * The type of the route table. Examples:
    * 
-   * *   Custom: custom route table.
-   * *   System: system route table.
+   * - Custom: custom route table.
+   * 
+   * - System: system route table.
    * 
    * @example
    * System

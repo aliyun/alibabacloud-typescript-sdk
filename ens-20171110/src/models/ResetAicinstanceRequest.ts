@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAICInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AIC instance.
+   * The AIC instance ID.
    * 
    * @example
    * aic-instance****
@@ -13,7 +13,7 @@ export class ResetAICInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the server.
+   * The server instance ID.
    * 
    * @example
    * cas-instance****

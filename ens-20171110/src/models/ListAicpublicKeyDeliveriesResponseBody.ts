@@ -21,7 +21,7 @@ export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends 
   instanceId?: string;
   /**
    * @remarks
-   * Public Key Grouping
+   * The group of the public key.
    * 
    * @example
    * test-group
@@ -29,7 +29,7 @@ export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends 
   keyGroup?: string;
   /**
    * @remarks
-   * Public Key Name
+   * The name of the public key.
    * 
    * @example
    * mykey
@@ -37,7 +37,7 @@ export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends 
   keyName?: string;
   /**
    * @remarks
-   * Public key type
+   * The type of the public key.
    * 
    * @example
    * adb
@@ -75,7 +75,7 @@ export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends 
 export class ListAICPublicKeyDeliveriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number when paging
+   * The current page number in the paginated query.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class ListAICPublicKeyDeliveriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display per page.
    * 
    * @example
    * 10
@@ -91,12 +91,12 @@ export class ListAICPublicKeyDeliveriesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Public Key List
+   * The list of public keys.
    */
   publicKeyDeliverInfo?: ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo[];
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * xxxsxxxxx
@@ -104,7 +104,7 @@ export class ListAICPublicKeyDeliveriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 10

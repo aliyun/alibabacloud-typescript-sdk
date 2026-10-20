@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddresses extends $dara.Model {
   /**
    * @remarks
-   * The subnet mask of the CIDR block.
+   * The CIDR mask of the IP address.
    * 
    * @example
    * 24
@@ -13,7 +13,7 @@ export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddr
   cidrMask?: number;
   /**
    * @remarks
-   * The time when the secondary public IP address was created. The time is displayed in UTC.
+   * The creation time in UTC format.
    * 
    * @example
    * 2023-07-25T09:43:49Z
@@ -21,7 +21,7 @@ export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddr
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-beijing-15
@@ -37,10 +37,11 @@ export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddr
   gateway?: string;
   /**
    * @remarks
-   * The version of the IP address. Valid values:
+   * The IP address version. Valid values:
    * 
-   * *   **ipv4**
-   * *   **ipv6**
+   * - **ipv4**: IPv4 address.
+   * 
+   * - **ipv6**: IPv6 address.
    * 
    * @example
    * ipv4
@@ -48,11 +49,10 @@ export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddr
   ipVersion?: string;
   /**
    * @remarks
-   * The Internet service provider. Valid values:
-   * 
-   * *   cmcc: China Mobile.
-   * *   unicom: China Unicom.
-   * *   telecom: China Telecom.
+   * The Internet service provider (ISP). Valid values:
+   * - cmcc: China Mobile.
+   * - unicom: China Unicom.
+   * - telecom: China Telecom.
    * 
    * @example
    * telecom
@@ -112,7 +112,7 @@ export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddr
 export class DescribeSecondaryPublicIpAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class DescribeSecondaryPublicIpAddressesResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 50
@@ -136,12 +136,12 @@ export class DescribeSecondaryPublicIpAddressesResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The array of returned secondary IP addresses.
+   * The list of secondary public IP addresses.
    */
   secondaryPublicIpAddresses?: DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddresses[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 13

@@ -31,10 +31,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dar
    * @remarks
    * The status of the mount target. Valid values:
    * 
-   * *   active: The mount target is available.
-   * *   inactive: The mount target is unavailable.
-   * *   pending: The task is running.
-   * *   deleting: The mount target is being deleted.
+   * - active: The mount target is available.
+   * 
+   * - inactive: The mount target is unavailable.
+   * 
+   * - pending: The task is running.
+   * 
+   * - deleting: The mount target is being deleted.
    * 
    * @example
    * active
@@ -84,6 +87,13 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
    * 2022-08-31 12:00:00
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @remarks
@@ -134,8 +144,9 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
    * @remarks
    * The protocol type of the file system. Valid values:
    * 
-   * *   NFS: Network File System (NFS)
-   * *   SMB: Server Message Block (SMB)
+   * - NFS: Network File System (NFS)
+   * 
+   * - SMB: Server Message Block (SMB)
    * 
    * @example
    * NFS
@@ -145,12 +156,17 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
    * @remarks
    * The status of the file system. Valid values:
    * 
-   * *   pending: The file system is being created or modified.
-   * *   running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
-   * *   stopped: The file system is unavailable.
-   * *   extending: The file system is being scaled out.
-   * *   stopping: The file system is being disabled.
-   * *   deleting: The file system is being deleted.
+   * - pending: The file system is being created or modified.
+   * 
+   * - running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
+   * 
+   * - stopped: The file system is unavailable.
+   * 
+   * - extending: The file system is being scaled out.
+   * 
+   * - stopping: The file system is being disabled.
+   * 
+   * - deleting: The file system is being deleted.
    * 
    * @example
    * running
@@ -160,8 +176,9 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * 
-   * *   capacity: Capacity NAS file systems
-   * *   performance: Performance NAS file systems
+   * - capacity: Capacity NAS file systems
+   * 
+   * - performance: Performance NAS file systems
    * 
    * @example
    * capacity

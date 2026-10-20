@@ -7,8 +7,9 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
    * @remarks
    * The type of the resource with which the route table is associated. Valid values:
    * 
-   * *   **VSwitch**
-   * *   **Gateway**
+   * - **VSwitch**
+   * 
+   * - **Gateway**
    * 
    * @example
    * Gateway
@@ -71,7 +72,7 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
    * @remarks
    * The SNAT type.
    * 
-   * *   FullCone: full cone NAT.
+   * - FullCone: full cone NAT.
    * 
    * @example
    * FullCone

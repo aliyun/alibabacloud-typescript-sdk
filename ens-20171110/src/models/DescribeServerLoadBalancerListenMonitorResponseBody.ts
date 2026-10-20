@@ -13,7 +13,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   acc?: number;
   /**
    * @remarks
-   * The business time of the log. Logs are collected every minute.
+   * The log business time. The log collection granularity is 1 minute.
    * 
    * @example
    * 2024-05-16 15:00:00
@@ -21,7 +21,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   bizTime?: string;
   /**
    * @remarks
-   * The ID of the node to which the ELB instance belongs.
+   * The ID of the edge node.
    * 
    * @example
    * cn-fuzhou-7
@@ -29,7 +29,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancing instance ID.
    * 
    * @example
    * lb-5rcvo1n1t3hykfhhjwjgqp****
@@ -37,7 +37,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ELB instance.
+   * The load balancing instance name.
    * 
    * @example
    * esk-edge-service-lb-8377****
@@ -45,7 +45,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   loadBalancerName?: string;
   /**
    * @remarks
-   * The specification of the ELB instance.
+   * The load balancing instance specification.
    * 
    * @example
    * elb.s2.medium
@@ -53,7 +53,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   loadBalancerSpec?: string;
   /**
    * @remarks
-   * The request protocol, such as http, https, or tcp.
+   * The request protocol, such as http, https, and tcp.
    * 
    * @example
    * tcp
@@ -61,7 +61,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   proto?: string;
   /**
    * @remarks
-   * The number of requests with HTTP 2xx status code returned.
+   * The number of 2xx status code responses.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   reqs2xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 3xx status code returned.
+   * The number of 3xx status code responses.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   reqs3xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 4xx status code returned.
+   * The number of 4xx status code responses.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   reqs4xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 5xx status code returned.
+   * The number of 5xx status code responses.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   reqs5xx?: number;
   /**
    * @remarks
-   * The average response time. Unit: milliseconds.
+   * The average request latency in milliseconds.
    * 
    * @example
    * 1037
@@ -109,7 +109,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   vip?: string;
   /**
    * @remarks
-   * The ID of the tunnel.
+   * The tunnel ID.
    * 
    * @example
    * 52497
@@ -117,7 +117,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
   vni?: number;
   /**
    * @remarks
-   * The VIP port, such as 80, 8080, or 443.
+   * The VIP port, such as 80, 8080, and 443.
    * 
    * @example
    * 80
@@ -175,7 +175,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
 export class DescribeServerLoadBalancerListenMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request。
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06
@@ -183,7 +183,7 @@ export class DescribeServerLoadBalancerListenMonitorResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The array of the monitoring data.
+   * The array of objects.
    */
   serverLoadBalancerMonitorData?: DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData[];
   static names(): { [key: string]: string } {

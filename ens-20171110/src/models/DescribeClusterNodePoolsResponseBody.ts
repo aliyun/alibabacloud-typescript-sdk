@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeClusterNodePoolsResponseBodyNodePoolsKubernetesConfig extends $dara.Model {
   /**
+   * @remarks
+   * The script to execute after the instance is created and before it is added to the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
   preUserData?: string;
   /**
+   * @remarks
+   * The script to execute after the instance is created and added to the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
@@ -38,16 +44,25 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsKubernetesConfig exten
 
 export class DescribeClusterNodePoolsResponseBodyNodePoolsNodepoolInfo extends $dara.Model {
   /**
+   * @remarks
+   * The ENS edge zone ID.
+   * 
    * @example
    * cn-fuzhou-23
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The name of the node pool.
+   * 
    * @example
    * eck-node-pool-1
    */
   name?: string;
   /**
+   * @remarks
+   * The node pool ID.
+   * 
    * @example
    * np68mi5y1dd748ky37ojo2kqdrz
    */
@@ -79,11 +94,17 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsNodepoolInfo extends $
 
 export class DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroupDataDisks extends $dara.Model {
   /**
+   * @remarks
+   * The cloud disk category.
+   * 
    * @example
    * cloud_efficiency
    */
   category?: string;
   /**
+   * @remarks
+   * The cloud disk size. Unit: GB.
+   * 
    * @example
    * 80
    */
@@ -112,38 +133,68 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroupDataDisks 
 }
 
 export class DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data cloud disks. The parameter limits are the same as those of the system cloud disk.
+   */
   dataDisks?: DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroupDataDisks[];
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * m-673f5z4h69ibwtallg6zmcaxr
    */
   imageId?: string;
   /**
+   * @remarks
+   * The billing method of the instance.
+   * 
    * @example
    * PrePaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The list of instance types.
+   */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The name of the key pair.
+   * 
    * @example
    * key-pair-name
    */
   keyPairName?: string;
   /**
+   * @remarks
+   * The password of the instance.
+   * 
    * @example
    * ************
    */
   password?: string;
   /**
+   * @remarks
+   * The system cloud disk category of the node. Valid values: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
+   * 
    * @example
    * cloud_efficiency
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * The size of the system cloud disk for the node.
+   * 
    * @example
    * 80
    */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -193,36 +244,61 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroup extends $
 
 export class DescribeClusterNodePoolsResponseBodyNodePoolsStatus extends $dara.Model {
   /**
+   * @remarks
+   * The expected number of instances.
+   * 
    * @example
    * 10
    */
   desiredNodes?: number;
   /**
+   * @remarks
+   * The number of nodes that failed to be created in the node pool.
+   * 
    * @example
    * 0
    */
   failedNodes?: number;
   /**
+   * @remarks
+   * The number of instances that are being created.
+   * 
    * @example
    * 0
    */
   initialNodes?: number;
   /**
+   * @remarks
+   * The number of instances that are being deleted.
+   * 
    * @example
    * 0
    */
   removingNodes?: number;
   /**
+   * @remarks
+   * The number of instances in use.
+   * 
    * @example
    * 10
    */
   servingNodes?: number;
   /**
+   * @remarks
+   * The state of the node pool.
+   * 
+   * - active: The desired state is reached.
+   * - scaling: Scaling out.
+   * - removing_nodes: Scaling in.
+   * 
    * @example
    * active
    */
   state?: string;
   /**
+   * @remarks
+   * The total number of instances, including those that are being created, in use, and being deleted.
+   * 
    * @example
    * 10
    */
@@ -262,17 +338,45 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsStatus extends $dara.M
 
 export class DescribeClusterNodePoolsResponseBodyNodePools extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2026-09-01T00:00:00+08:00
+   */
+  created?: string;
+  /**
+   * @remarks
+   * The Kubernetes-related configurations.
+   */
   kubernetesConfig?: DescribeClusterNodePoolsResponseBodyNodePoolsKubernetesConfig;
+  /**
+   * @remarks
+   * The node pool information.
+   */
   nodepoolInfo?: DescribeClusterNodePoolsResponseBodyNodePoolsNodepoolInfo;
+  /**
+   * @remarks
+   * The scaling group.
+   */
   scalingGroup?: DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroup;
+  /**
+   * @remarks
+   * The status of the node pool.
+   */
   status?: DescribeClusterNodePoolsResponseBodyNodePoolsStatus;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      created: 'Created',
       kubernetesConfig: 'KubernetesConfig',
       nodepoolInfo: 'NodepoolInfo',
       scalingGroup: 'ScalingGroup',
@@ -283,6 +387,7 @@ export class DescribeClusterNodePoolsResponseBodyNodePools extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      created: 'string',
       kubernetesConfig: DescribeClusterNodePoolsResponseBodyNodePoolsKubernetesConfig,
       nodepoolInfo: DescribeClusterNodePoolsResponseBodyNodePoolsNodepoolInfo,
       scalingGroup: DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroup,
@@ -313,16 +418,25 @@ export class DescribeClusterNodePoolsResponseBodyNodePools extends $dara.Model {
 
 export class DescribeClusterNodePoolsResponseBodyPage extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page specified in the request.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
@@ -353,9 +467,20 @@ export class DescribeClusterNodePoolsResponseBodyPage extends $dara.Model {
 }
 
 export class DescribeClusterNodePoolsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of node pools.
+   */
   nodePools?: DescribeClusterNodePoolsResponseBodyNodePools[];
+  /**
+   * @remarks
+   * The current page number.
+   */
   page?: DescribeClusterNodePoolsResponseBodyPage;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F3B261DD-3858-4D3C-877D-303ADF374600
    */

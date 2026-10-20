@@ -65,6 +65,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $dara.Model {
   description?: string;
   diskDeviceMappings?: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings;
   imageId?: string;
+  imageOwnerAlias?: string;
   imageSize?: string;
   imageVersion?: string;
   OSName?: string;
@@ -76,6 +77,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $dara.Model {
       description: 'Description',
       diskDeviceMappings: 'DiskDeviceMappings',
       imageId: 'ImageId',
+      imageOwnerAlias: 'ImageOwnerAlias',
       imageSize: 'ImageSize',
       imageVersion: 'ImageVersion',
       OSName: 'OSName',
@@ -90,6 +92,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $dara.Model {
       description: 'string',
       diskDeviceMappings: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings,
       imageId: 'string',
+      imageOwnerAlias: 'string',
       imageSize: 'string',
       imageVersion: 'string',
       OSName: 'string',
@@ -139,7 +142,7 @@ export class DescribeImageInfosResponseBodyImages extends $dara.Model {
 export class DescribeImageInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The return code.
    * 
    * @example
    * 0

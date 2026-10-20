@@ -5,35 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateEnsEipAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP that you want to associate.
+   * The ID of the EIP to be associated.
    * 
    * This parameter is required.
    * 
    * @example
-   * eip-5sc1sgcrsrwgwdvx44hru3p63
+   * eip-5sc1sgcrsrwgwdvx44hru****
    */
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the cloud service with which the EIP is associated.
-   * 
-   * >  You can specify the ID of an Edge Load Balancer (ELB) instance ID.
+   * The ID of the cloud product instance to attach the EIP to.
+   * >Load balancing (ELB) instance IDs are supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * lb-5saivuir6b1mupxjfbhmk1xkb
+   * lb-5saivuir6b1mupxjfbhmk****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance with which you want to associate the EIP. Valid values:
+   * The type of the EIP instance. Valid values:
    * 
-   * *   **Nat**: NAT gateway.
-   * *   **SlbInstance**: Edge Load Balancer (ELB) instance.
-   * *   **NetworkInterface**: secondary elastic network interface (ENI).
-   * *   **NatSlbInstance**: If you want to associate multiple EIPs with an ELB instance, you need to set the parameter to this value.
-   * *   **EnsInstance** (default): ENS instance.
+   * - **Nat**: NAT gateway.
+   * - **SlbInstance**: load balancing (ELB).
+   * - **NetworkInterface**: secondary network interface controller (NIC).
+   * - **NatSlbInstance**: select this value when attaching multiple EIPs to an ELB.
+   * - **EnsInstance** (default): ENS instance.
    * 
    * @example
    * SlbInstance
@@ -41,10 +40,11 @@ export class AssociateEnsEipAddressRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether the EIP is a secondary EIP. Valid values:
+   * Specifies whether the EIP is a standby EIP. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: standby.
+   * 
+   * - false: not standby.
    * 
    * @example
    * true

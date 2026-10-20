@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Model {
   /**
    * @remarks
-   * The number of times that the bucket is accessed.
+   * The number of access requests.
    * 
    * @example
    * 1000
@@ -13,7 +13,7 @@ export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Mo
   acc?: number;
   /**
    * @remarks
-   * The name of the bucket.
+   * The OSS bucket name.
    * 
    * @example
    * my-bucket
@@ -21,7 +21,7 @@ export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Mo
   bucket?: string;
   /**
    * @remarks
-   * The storage usage of the bucket. Unit: bytes.
+   * The storage usage, in bytes.
    * 
    * @example
    * 1024
@@ -55,7 +55,7 @@ export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Mo
 export class GetOssStorageAndAccByBucketsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the bucket.
+   * The bucket information.
    */
   bucketList?: GetOssStorageAndAccByBucketsResponseBodyBucketList[];
   /**

@@ -242,7 +242,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   networkInterfaceSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number of the instance status list. Pages start from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -250,7 +250,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 50
@@ -258,7 +258,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 708AF9CE-FF92-5DF9-93F8-B7754AB1061A
@@ -266,7 +266,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 49

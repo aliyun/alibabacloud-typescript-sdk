@@ -15,7 +15,7 @@ export class GetBucketLifecycleRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The ID of the rule that you want to query. If this parameter is not specified, all rules are returned.
+   * The ID of the rule to retrieve. If this parameter is not specified, information about all rules is retrieved.
    * 
    * @example
    * 1

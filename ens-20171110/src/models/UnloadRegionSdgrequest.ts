@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UnloadRegionSDGRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination nodes.
+   * The list of destination edge zones.
    * 
    * This parameter is required.
    */
   destinationRegionIds?: string[];
   /**
    * @remarks
-   * An array that consists of queried namespaces.
+   * The list of namespaces.
    */
   namespaces?: string[];
   /**
    * @remarks
-   * Deletes the shared data group (SDG) ID of the preloaded data.
+   * The ID of the SDG from which to delete preloaded data.
    * 
    * This parameter is required.
    * 

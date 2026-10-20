@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKeyPairShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs.
+   * An array of instance IDs from which to detach the key pair.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DetachKeyPairShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The key pair ID.
+   * The ID of the key pair.
    * 
    * @example
    * ssh-xxx
@@ -26,7 +26,7 @@ export class DetachKeyPairShrinkRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The name of the SSH key pair.
+   * The name of the key pair.
    * 
    * @example
    * test-kp

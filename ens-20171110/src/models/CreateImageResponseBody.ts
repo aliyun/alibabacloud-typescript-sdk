@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The business return code. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CreateImageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-5xxgg

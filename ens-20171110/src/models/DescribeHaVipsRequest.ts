@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHaVipsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -13,12 +13,12 @@ export class DescribeHaVipsRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. You can specify 1 to 100 IDs.
+   * The IDs of ENS nodes. Array length: 1 to 100.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The IP address of the HAVIP.
+   * The IP address of the HaVip instance.
    * 
    * @example
    * 10.5.XX.XX
@@ -26,7 +26,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   haVipAddress?: string;
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The HaVip instance ID.
    * 
    * @example
    * havip-5p14t****
@@ -34,7 +34,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The name of the HAVIP.
+   * The name of the HaVip instance.
    * 
    * @example
    * test
@@ -42,7 +42,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-57gqcdfvx6n****
@@ -50,7 +50,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. Settings for paging.
    * 
    * @example
    * 10
@@ -66,12 +66,11 @@ export class DescribeHaVipsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The status of the HAVIP. Valid values:
-   * 
-   * *   Creating
-   * *   Available
-   * *   InUse
-   * *   Deleting
+   * The HaVip status. Valid values:
+   * - Creating: The HaVip is being created.
+   * - Available: The HaVip is available.
+   * - InUse: The HaVip is in use.
+   * - Deleting: The HaVip is being deleted.
    * 
    * @example
    * Available
@@ -79,7 +78,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5****

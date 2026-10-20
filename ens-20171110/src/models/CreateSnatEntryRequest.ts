@@ -7,10 +7,11 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable IP affinity. If you do not specify this parameter, IP affinity is enabled by default. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**
    * 
-   * >  After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
+   * - **true**
+   * 
+   * > After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
    * 
    * @example
    * false
@@ -29,6 +30,7 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * Whether to enable operator affinity. Value taking:
    * 
    * - false:Do not open.
+   * 
    * - true:Open.
    * 
    * @example
@@ -67,7 +69,7 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * @remarks
    * The CIDR block. You can specify the CIDR block of a network, a vSwitch, or an instance. You can also specify a custom CIDR block. All instances within the CIDR block can access the Internet or external networks by using SNAT.
    * 
-   * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
+   * > If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
    * 
    * @example
    * 10.0.0.0/24
@@ -77,7 +79,7 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * @remarks
    * The ID of the network. This parameter specifies that all ENS instances in the network can use the SNAT entry to access the Internet.
    * 
-   * >  If you specify **SourceNetworkId** and **SourceVSwitchId** or **SourceCIDR**, **SourceNetworkId** does not take effect. The value that you specified for **SourceCIDR** takes precedence. Priority: **SourceCIDR** > **SourceVSwitchId** > **SourceNetworkId**.
+   * > If you specify **SourceNetworkId** and **SourceVSwitchId** or **SourceCIDR**, **SourceNetworkId** does not take effect. The value that you specified for **SourceCIDR** takes precedence. Priority: **SourceCIDR** > **SourceVSwitchId** > **SourceNetworkId**.
    * 
    * @example
    * n-2zeuphj08tt7q3brd****
@@ -87,7 +89,7 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * @remarks
    * The ID of the vSwitch that you need to access over the Internet. This parameter specifies that Edge Node Service (ENS) instances in the vSwitch can use the SNAT entry to access the Internet.
    * 
-   * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
+   * > If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
    * 
    * @example
    * vsw-bp1hwx7gi495q260p****

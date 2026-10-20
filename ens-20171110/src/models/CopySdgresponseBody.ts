@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopySDGResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination node.
+   * The ID of the destination edge zone.
    * 
    * @example
    * cn-hangzhou-xxx
@@ -45,7 +45,7 @@ export class CopySDGResponseBodyDataResultFailedItems extends $dara.Model {
 export class CopySDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed nodes.
+   * The number of failed edge zones.
    * 
    * @example
    * 0
@@ -53,12 +53,12 @@ export class CopySDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details of failed nodes.
+   * The list of failed edge zone details.
    */
   failedItems?: CopySDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful nodes.
+   * The number of successful operations.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class CopySDGResponseBodyDataResult extends $dara.Model {
 export class CopySDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. The value success indicates a successful request.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class CopySDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: CopySDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests were successful. Valid values:
    * 
-   * *   **true**: All tasks are successful.
-   * *   **false**: Failed tasks exist.
+   * - **true**: All requests were successful.
+   * - **false**: Some tasks failed.
    * 
    * @example
    * true
@@ -148,12 +148,12 @@ export class CopySDGResponseBodyData extends $dara.Model {
 export class CopySDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: CopySDGResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * XXX-XXX-XXX

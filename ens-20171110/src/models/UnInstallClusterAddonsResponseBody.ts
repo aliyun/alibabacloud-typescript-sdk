@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnInstallClusterAddonsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * eck-xxxxxxxx
    */

@@ -11,15 +11,19 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
    * shared
    */
   deploymentType?: string;
+  /**
+   * @remarks
+   * The list of disk IDs.
+   */
   diskIdsShrink?: string;
   /**
    * @remarks
-   * IDs of Android in Container (AIC) instances.
+   * The list of AIC instance IDs.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number. Pages start from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -27,7 +31,7 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -35,7 +39,7 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the nodes.
+   * The list of region IDs.
    */
   regionIdsShrink?: string;
   /**

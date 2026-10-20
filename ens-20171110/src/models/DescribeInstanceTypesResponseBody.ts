@@ -4,12 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends $dara.Model {
   cpuCoreCount?: number;
+  instanceBandwidthRx?: number;
+  instanceBandwidthTx?: number;
+  instanceType?: string;
   instanceTypeId?: string;
   instanceTypeName?: string;
   memorySize?: number;
   static names(): { [key: string]: string } {
     return {
       cpuCoreCount: 'CpuCoreCount',
+      instanceBandwidthRx: 'InstanceBandwidthRx',
+      instanceBandwidthTx: 'InstanceBandwidthTx',
+      instanceType: 'InstanceType',
       instanceTypeId: 'InstanceTypeId',
       instanceTypeName: 'InstanceTypeName',
       memorySize: 'MemorySize',
@@ -19,6 +25,9 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   static types(): { [key: string]: any } {
     return {
       cpuCoreCount: 'number',
+      instanceBandwidthRx: 'number',
+      instanceBandwidthTx: 'number',
+      instanceType: 'string',
       instanceTypeId: 'string',
       instanceTypeName: 'string',
       memorySize: 'number',
@@ -63,7 +72,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypes extends $dara.Model 
 export class DescribeInstanceTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. If the request is successful, 0 is returned. If the request fails, a non-zero error code is returned.
+   * The business code. A value of 0 indicates success. An error code is returned upon failure.
    * 
    * @example
    * 0

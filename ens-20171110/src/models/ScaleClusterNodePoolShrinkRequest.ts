@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ScaleClusterNodePoolShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP request body.
+   */
   bodyShrink?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ScaleClusterNodePoolShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The node pool ID.
+   * 
    * This parameter is required.
    * 
    * @example

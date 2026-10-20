@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionIspsResponseBodyIsps extends $dara.Model {
   /**
    * @remarks
-   * The code of the ISP.
+   * The ISP code.
    * 
    * @example
    * cmcc
@@ -13,10 +13,10 @@ export class DescribeRegionIspsResponseBodyIsps extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The name of the ISP.
+   * The ISP name.
    * 
    * @example
-   * move
+   * China Mobile
    */
   name?: string;
   static names(): { [key: string]: string } {

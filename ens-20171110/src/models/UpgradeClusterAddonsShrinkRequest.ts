@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpgradeClusterAddonsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add-on information.
+   */
   addonsShrink?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

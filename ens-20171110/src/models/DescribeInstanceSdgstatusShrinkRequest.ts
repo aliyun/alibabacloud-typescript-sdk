@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSDGStatusShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AIC instance.
+   * The AIC instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeInstanceSDGStatusShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeInstanceSDGStatusShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class DescribeInstanceSDGStatusShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of SDGs that you want to query. By default, all SDGs are queried.
+   * The IDs of the SDGs to query. By default, all SDGs are queried.
    */
   SDGIdsShrink?: string;
   /**

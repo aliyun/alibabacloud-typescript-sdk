@@ -13,7 +13,7 @@ export class DescribeClusterResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The version of the cluster.
+   * The version information of the current cluster.
    * 
    * @example
    * 1.18.8
@@ -29,7 +29,7 @@ export class DescribeClusterResponseBodyClusters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next version of the cluster.
+   * The next version information of the cluster.
    * 
    * @example
    * 1.20.8
@@ -37,12 +37,7 @@ export class DescribeClusterResponseBodyClusters extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The health status of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   healthy
-   * *   unhealthy
+   * The health status of the cluster.
    * 
    * @example
    * healthy
@@ -80,12 +75,12 @@ export class DescribeClusterResponseBodyClusters extends $dara.Model {
 export class DescribeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about clusters.
+   * The list of cluster information.
    */
   clusters?: DescribeClusterResponseBodyClusters[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

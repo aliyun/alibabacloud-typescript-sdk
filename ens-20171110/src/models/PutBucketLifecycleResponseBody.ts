@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutBucketLifecycleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62373E71-5521-4620-8AAB-133CCE49357A
@@ -13,7 +13,7 @@ export class PutBucketLifecycleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * b8f93xxxxx4881xxxxxc71d991

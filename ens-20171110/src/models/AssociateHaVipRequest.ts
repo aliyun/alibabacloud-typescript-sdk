@@ -27,8 +27,9 @@ export class AssociateHaVipRequest extends $dara.Model {
    * @remarks
    * The type of the instance to be associated with the HAVIP. Valid values:
    * 
-   * *   EnsInstance (default): ENS instance
-   * *   NetworkInterface: elastic network interface (ENI)
+   * - EnsInstance (default): ENS instance
+   * 
+   * - NetworkInterface: elastic network interface (ENI)
    * 
    * @example
    * EnsInstance

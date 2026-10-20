@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNetworkPeerConnectionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ENS node.
+   * 
    * @example
    * cn-xian-unicom
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the network peer connection.
+   * 
    * @example
    * pcc-5inkeimcipxk26yqtzm4q****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the network peer connection.
+   * 
    * @example
    * test0
    */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of the networks involved in the connection. The query does not distinguish between the requester and accepter.
+   */
   networkIds?: string[];
   /**
+   * @remarks
+   * The page number for the returned results. Default: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default: **10**. Valid values: **10** to **100**.
+   * 
    * @example
    * 10
    */

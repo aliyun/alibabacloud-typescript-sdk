@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   /**
    * @remarks
-   * The ACL of the bucket.
+   * Bucket access control list type:
    * 
-   * *   **public-read-write**
-   * *   **public-read**
-   * *   **private** (default)
+   * - **public-read-write**: public-read-write
+   * 
+   * - **public-read**: public-read
+   * 
+   * - **private**: private (default)
    * 
    * @example
    * private
@@ -17,7 +19,7 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   bucketAcl?: string;
   /**
    * @remarks
-   * The name of the bucket.
+   * Bucket name.
    * 
    * @example
    * test
@@ -25,7 +27,7 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The remarks.
+   * Comments.
    * 
    * @example
    * das
@@ -33,7 +35,7 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the bucket was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * Bucket creation time. Represented in ISO8601 standard, using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-10-12T05:45:00Z
@@ -41,7 +43,7 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Single-node storage. Set the value to sink.
+   * Single node storage. Value: sink.
    * 
    * @example
    * sink
@@ -49,7 +51,7 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
   logicalBucketType?: string;
   /**
    * @remarks
-   * The time when the bucket was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * Bucket modification time. Represented in ISO8601 standard, using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-10-12T06:45:00Z
@@ -89,12 +91,12 @@ export class GetBucketInfoResponseBodyBucketInfo extends $dara.Model {
 export class GetBucketInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of bucket information.
+   * Bucket information list.
    */
   bucketInfo?: GetBucketInfoResponseBodyBucketInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * C5831388-2D4B-46F4-A96B-D4E6BD06E7521

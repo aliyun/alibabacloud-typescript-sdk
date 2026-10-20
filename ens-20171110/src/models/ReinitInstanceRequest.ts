@@ -10,7 +10,7 @@ export class ReinitInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * m-5wn1dhz5syoo9b48f440ntvad
+   * m-5wn1dh*******b48f440ntvad
    */
   imageId?: string;
   /**
@@ -20,7 +20,7 @@ export class ReinitInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * i-5vn4n3y4laeb2ii9zxxltlvzi
+   * i-5vn4n3y4laeb*******ltlvzi
    * 
    * **if can be null:**
    * false
@@ -33,7 +33,7 @@ export class ReinitInstanceRequest extends $dara.Model {
    * It must be 8 to 30 characters in length. It must include at least three of the following characters types: uppercase letters, lowercase letters, digits, and special characters. The following special character are supported: `()\\"~! @#$%^&*-_+={}[]:;\\"<>,.?/`
    * 
    * @example
-   * ***
+   * Example123@
    */
   password?: string;
   static names(): { [key: string]: string } {

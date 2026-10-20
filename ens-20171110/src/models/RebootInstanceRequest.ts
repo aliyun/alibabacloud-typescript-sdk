@@ -7,8 +7,9 @@ export class RebootInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcefully stop the instance before you restart it.
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**
+   * 
+   * - **false** (default)
    * 
    * @example
    * true

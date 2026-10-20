@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceMonitorDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+   * The end time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the seconds are not 00, the time is automatically rounded up to the next minute.
    * 
    * @example
    * 2019-10-30T08:00:00Z
@@ -15,7 +13,7 @@ export class DescribeInstanceMonitorDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the instance. You can specify only one instance ID.
+   * The instance ID. Only a single instance ID is supported.
    * 
    * @example
    * yourInstance ID
@@ -23,7 +21,7 @@ export class DescribeInstanceMonitorDataRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The precision of the monitoring data that you want to obtain. Valid values: 60, 300, 1200, 3600, and 14400. Default value: 60. Unit: seconds.
+   * The precision of the monitoring data to retrieve. Unit: seconds. Valid values: 60 (default), 300, 1200, 3600, and 14400. This parameter is actually required. If this parameter is not specified, the service returns a MissingParameter error.
    * 
    * @example
    * 60
@@ -31,9 +29,7 @@ export class DescribeInstanceMonitorDataRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+   * The start time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the seconds are not 00, the time is automatically rounded up to the next minute.
    * 
    * @example
    * 2019-10-29T23:00:00Z

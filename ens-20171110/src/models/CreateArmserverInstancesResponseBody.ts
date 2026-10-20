@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateARMServerInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of instances.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 212630314490***
@@ -18,7 +18,7 @@ export class CreateARMServerInstancesResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

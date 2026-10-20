@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6666C5A5-75ED-422E-A022-7121FA18C968

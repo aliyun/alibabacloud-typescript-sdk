@@ -7,8 +7,9 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * @remarks
    * The type of currency.
    * 
-   * *   USD: US dollar
-   * *   JPY: Japanese Yen
+   * - USD: US dollar
+   * 
+   * - JPY: Japanese Yen
    * 
    * @example
    * USD

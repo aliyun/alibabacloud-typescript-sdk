@@ -6,7 +6,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   ability?: string[];
   /**
    * @remarks
-   * The ID of the region.
+   * The area.
    * 
    * @example
    * SouthEast
@@ -14,7 +14,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   area?: string;
   /**
    * @remarks
-   * The number of resources that you can purchase.
+   * The quantity available for purchase.
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   canBuyCount?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The English name of the edge zone.
    * 
    * @example
    * cn-guangdong-10
@@ -30,7 +30,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   enName?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-guangdong-10
@@ -38,12 +38,12 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   ensRegionId?: string;
   /**
    * @remarks
-   * The specifications of the ELB instances.
+   * The specification of the load balancing instance.
    */
   loadBalancerSpec?: string[];
   /**
    * @remarks
-   * The Chinese name of the node.
+   * The name of the edge zone.
    * 
    * @example
    * test
@@ -51,7 +51,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   name?: string;
   /**
    * @remarks
-   * The province where the node is deployed.
+   * The province.
    * 
    * @example
    * Shanghai
@@ -101,12 +101,12 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
 export class DescribeElbAvailableResourceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about resources.
+   * The collection of resource information.
    */
   elbAvailableResourceInfo?: DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInfo[];
   /**
    * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+   * The common parameter. The ID of the request. Each request has a unique ID, which is active for troubleshooting.
    * 
    * @example
    * 25AAD194-4A37-51CF-B1CA-1E86FDAC23A6

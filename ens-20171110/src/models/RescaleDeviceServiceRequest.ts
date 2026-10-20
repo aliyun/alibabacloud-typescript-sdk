@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleDeviceServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
+   * 
+   * This parameter is required. If you do not specify this parameter, the service returns error code 100001. You can call ListApplications to obtain the application ID. To create an application, call CreateApplication first.
    * 
    * @example
    * 7aedc50b-b1cb-4a7c-9e3d-4cf3c9ee55a4
@@ -13,7 +15,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-5rynw9g1ow1e928lb83bqmbnf
@@ -21,10 +23,11 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the network. The value must be of the enumerated data type. Valid values:
+   * The network type. Valid values:
    * 
-   * *   **1** (default): Internet
-   * *   **2**: internal network
+   * - **1** (default): Internet
+   * 
+   * - **2**: internal network
    * 
    * @example
    * 1
@@ -32,7 +35,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   ipType?: number;
   /**
    * @remarks
-   * The region level of the scale-out. Set the value to RegionId. RegionId specifies that resource scale-out is performed based on the ID of the edge node.
+   * The region level for scaling out resources. Valid values: RegionId (specifies an edge node ID).
    * 
    * This parameter is required.
    * 
@@ -42,7 +45,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   rescaleLevel?: string;
   /**
    * @remarks
-   * The scaling operation. Set the value to Add to add new resources.
+   * The resource scaling method. Valid values: Add (provisions new resources).
    * 
    * This parameter is required.
    * 
@@ -52,7 +55,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   rescaleType?: string;
   /**
    * @remarks
-   * The information about the resource specification template. The value must be a JSON string.
+   * The resource specification template information. The value is a string in JSON format.
    * 
    * @example
    * {\\"imageId\\":\\"m-5s4z4c10avgwvwtn33gl2vgob\\",\\"ipType\\":2,\\"specName\\":\\"ens.pfb-c3m7.medium\\"}
@@ -60,7 +63,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   resourceInfo?: string;
   /**
    * @remarks
-   * The required resources. The value must be a JSON string.
+   * The region requirements for scaling out resources. The value is a string in JSON array format.
    * 
    * This parameter is required.
    * 
@@ -70,7 +73,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   resourceSelector?: string;
   /**
    * @remarks
-   * The resource specification.
+   * The resource specification name.
    * 
    * @example
    * ens.a6e.large
@@ -78,7 +81,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   resourceSpec?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * service-01c6dd6e93f040698566
@@ -86,7 +89,7 @@ export class RescaleDeviceServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The timeout period for asynchronous scale-out. Unit: seconds. Default value: 300.
+   * The timeout period for asynchronous resource scaling, in seconds. Default value: 300.
    * 
    * @example
    * 1800

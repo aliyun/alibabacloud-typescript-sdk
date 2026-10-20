@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsAcceptingNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR blocks of the accepter network.
+   */
   ipv4Cidrs?: string[];
   /**
+   * @remarks
+   * The network ID of the accepter.
+   * 
    * @example
    * n-5q28114****
    */
@@ -36,8 +43,15 @@ export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsAccept
 }
 
 export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR blocks of the requester network.
+   */
   ipv4Cidrs?: string[];
   /**
+   * @remarks
+   * The network ID of the requester.
+   * 
    * @example
    * n-5q73bm****
    */
@@ -69,44 +83,82 @@ export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsNetwor
 }
 
 export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnects extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the accepter network.
+   */
   acceptingNetwork?: DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsAcceptingNetwork;
   /**
+   * @remarks
+   * The network ID of the accepter.
+   * 
    * @example
    * n-5q28114****
    */
   acceptingNetworkId?: string;
   /**
+   * @remarks
+   * The creation time in UTC.
+   * 
    * @example
    * 2024-05-31T06:43:29Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the network peering connection.
+   * 
    * @example
    * desc
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the ENS node.
+   * 
    * @example
    * cn-dongguan-9
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the network peering connection.
+   * 
    * @example
    * pcc-521pzxdg****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the network peering connection.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * Details of the requester network.
+   */
   network?: DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsNetwork;
   /**
+   * @remarks
+   * The network ID of the requester.
+   * 
    * @example
    * n-5q73bm****
    */
   networkId?: string;
   /**
+   * @remarks
+   * The status of the network peering connection. Valid values:
+   * 
+   * - `Creating`: The connection is being created.
+   * 
+   * - `Activated`: The connection is active.
+   * 
+   * - `Deleting`: The connection is being deleted.
+   * 
    * @example
    * Activated
    */
@@ -157,23 +209,39 @@ export class DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnects exten
 }
 
 export class DescribeNetworkPeerConnectionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of the network peering connections.
+   */
   networkPeerConnects?: DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnects[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */

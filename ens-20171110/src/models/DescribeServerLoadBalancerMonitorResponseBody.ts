@@ -13,7 +13,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   acc?: number;
   /**
    * @remarks
-   * The business time of the log. Logs are collected every minute.
+   * The log business time. The log collection granularity is 1 minute.
    * 
    * @example
    * 2024-09-15 16:00:00
@@ -21,7 +21,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   bizTime?: string;
   /**
    * @remarks
-   * The ID of the node to which the ELB instance belongs.
+   * The ID of the edge zone.
    * 
    * @example
    * cn-wuxi-10
@@ -29,7 +29,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancing instance ID.
    * 
    * @example
    * lb-5sc1s9zrui8lpb8u7cl4f****
@@ -37,7 +37,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ELB instance.
+   * The load balancing instance name.
    * 
    * @example
    * esk-edge-service-lb-a34****
@@ -45,7 +45,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   loadBalancerName?: string;
   /**
    * @remarks
-   * The specification of the ELB instance.
+   * The load balancing instance specification.
    * 
    * @example
    * elb.s2.medium
@@ -53,7 +53,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   loadBalancerSpec?: string;
   /**
    * @remarks
-   * The number of requests with HTTP 2xx status code returned.
+   * The number of requests with 2xx HTTP status codes.
    * 
    * @example
    * 25
@@ -61,7 +61,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   reqs2xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 3xx status code returned.
+   * The number of requests with 3xx HTTP status codes.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   reqs3xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 4xx status code returned.
+   * The number of requests with 4xx HTTP status codes.
    * 
    * @example
    * 5
@@ -77,7 +77,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   reqs4xx?: number;
   /**
    * @remarks
-   * The number of requests with HTTP 5xx status code returned.
+   * The number of requests with 5xx HTTP status codes.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   reqs5xx?: number;
   /**
    * @remarks
-   * The average response time. Unit: milliseconds.
+   * The average request latency. Unit: milliseconds.
    * 
    * @example
    * 1404
@@ -101,7 +101,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
   vip?: string;
   /**
    * @remarks
-   * The ID of the tunnel.
+   * The tunnel ID.
    * 
    * @example
    * 3018
@@ -155,7 +155,7 @@ export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMoni
 export class DescribeServerLoadBalancerMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request。
    * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74
@@ -163,7 +163,7 @@ export class DescribeServerLoadBalancerMonitorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the monitoring data.
+   * The array of objects.
    */
   serverLoadBalancerMonitorData?: DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData[];
   static names(): { [key: string]: string } {

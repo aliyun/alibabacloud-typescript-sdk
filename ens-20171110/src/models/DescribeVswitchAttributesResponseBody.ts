@@ -135,7 +135,7 @@ export class DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds extends $d
 export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of available IP addresses in the VSwitch.
+   * The number of available IP addresses in the vSwitch.
    * 
    * @example
    * 253
@@ -151,7 +151,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The creation time, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+   * The creation time. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2019-06-01T00:00:00Z
@@ -159,7 +159,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The description of the VSwitch.
+   * The description of the vSwitch.
    * 
    * @example
    * This is my vswitch.
@@ -167,7 +167,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ENS node ID.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-xian-unicom
@@ -175,6 +175,14 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   ensRegionId?: string;
   haVipIds?: DescribeVSwitchAttributesResponseBodyHaVipIds;
   instanceIds?: DescribeVSwitchAttributesResponseBodyInstanceIds;
+  /**
+   * @remarks
+   * The IPv6 CIDR block of the vSwitch.
+   * 
+   * @example
+   * 2408:XXXX:0:a600::/110
+   */
+  ipv6CidrBlock?: string;
   loadBalancerIds?: DescribeVSwitchAttributesResponseBodyLoadBalancerIds;
   natGatewayIds?: DescribeVSwitchAttributesResponseBodyNatGatewayIds;
   /**
@@ -196,11 +204,11 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the VSwitch, as follows:
+   * The status of the vSwitch. Valid values:
    * 
-   * - Pending
-   * - Available
-   * - Releasing
+   * - Pending: The vSwitch is being configured.
+   * - Available: The vSwitch is available.
+   * - Releasing: The vSwitch is being released.
    * 
    * @example
    * Available
@@ -208,7 +216,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5****
@@ -216,7 +224,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The name of the VSwitch.
+   * The vSwitch name.
    * 
    * @example
    * Test-switch
@@ -231,6 +239,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       ensRegionId: 'EnsRegionId',
       haVipIds: 'HaVipIds',
       instanceIds: 'InstanceIds',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
       loadBalancerIds: 'LoadBalancerIds',
       natGatewayIds: 'NatGatewayIds',
       networkId: 'NetworkId',
@@ -251,6 +260,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       ensRegionId: 'string',
       haVipIds: DescribeVSwitchAttributesResponseBodyHaVipIds,
       instanceIds: DescribeVSwitchAttributesResponseBodyInstanceIds,
+      ipv6CidrBlock: 'string',
       loadBalancerIds: DescribeVSwitchAttributesResponseBodyLoadBalancerIds,
       natGatewayIds: DescribeVSwitchAttributesResponseBodyNatGatewayIds,
       networkId: 'string',

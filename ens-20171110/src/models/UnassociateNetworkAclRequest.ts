@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassociateNetworkAclRequestResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource that you want to disassociate.
+   * The ID of the associated resource to disassociate.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class UnassociateNetworkAclRequestResource extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource that you want to disassociate. Valid values:
-   * 
-   * *   Network
+   * The type of the associated resource to disassociate. Valid values:
+   * * Network: network.
    * 
    * This parameter is required.
    * 
@@ -51,7 +50,7 @@ export class UnassociateNetworkAclRequestResource extends $dara.Model {
 export class UnassociateNetworkAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network ACL that you want to disassociate from a resource.
+   * The ID of the network ACL.
    * 
    * This parameter is required.
    * 
@@ -61,7 +60,7 @@ export class UnassociateNetworkAclRequest extends $dara.Model {
   networkAclId?: string;
   /**
    * @remarks
-   * Resources that you want to disassociate. Valid values of **N**: 0 to 29. A maximum of 30 resources can be unbound.
+   * The list of resources to disassociate. Valid values of N: 1 to 30. The resources must be associated with the network ACL by calling the AssociateNetworkAcl operation, and the current association status must be BINDED.
    * 
    * This parameter is required.
    */

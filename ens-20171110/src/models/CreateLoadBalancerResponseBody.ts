@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The ID of the load balancing instance.
    * 
    * @example
    * lb-5s7crik3yo3bp03gqrbp5****
@@ -13,7 +13,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ELB instance.
+   * The name of the load balancing instance.
    * 
    * @example
    * gcs-pre-websocket-****
@@ -21,7 +21,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5sax03dh2eyagujgsn7z9****
@@ -29,7 +29,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
@@ -37,7 +37,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the ELB instance belongs.
+   * The ID of the vSwitch to which the load balancing instance belongs.
    * 
    * @example
    * vsw-5savh5ngxh8sbj14bu7n****

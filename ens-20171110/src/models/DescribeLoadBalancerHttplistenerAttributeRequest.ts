@@ -10,7 +10,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $dara.Mode
    * This parameter is required.
    * 
    * @example
-   * 8080
+   * 80
    */
   listenerPort?: number;
   /**

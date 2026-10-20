@@ -13,7 +13,7 @@ export class DeploySDGResponseBodyDataResultFailedItems extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * aic-xxxxx-0
@@ -53,7 +53,7 @@ export class DeploySDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details of failed tasks.
+   * The list of failed task details.
    */
   failedItems?: DeploySDGResponseBodyDataResultFailedItems[];
   /**
@@ -95,7 +95,7 @@ export class DeploySDGResponseBodyDataResult extends $dara.Model {
 export class DeploySDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. A value of success indicates a successful request.
    * 
    * @example
    * success
@@ -108,10 +108,10 @@ export class DeploySDGResponseBodyData extends $dara.Model {
   result?: DeploySDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * *   true: All tasks are successful.
-   * *   false: Failed tasks exist.
+   * - true: All successful.
+   * - false: Some tasks failed.
    * 
    * @example
    * true
@@ -148,12 +148,12 @@ export class DeploySDGResponseBodyData extends $dara.Model {
 export class DeploySDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: DeploySDGResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A331CA96-3948-4BD2-B067-F6174F5C17EA

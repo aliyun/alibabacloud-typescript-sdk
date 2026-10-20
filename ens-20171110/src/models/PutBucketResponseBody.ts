@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutBucketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 85123E71-7710-4620-8AAB-133CCE49EC83

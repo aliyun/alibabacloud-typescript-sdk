@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation. 200 indicates that the operation succeeded.
+   * The status code for the operation. A value of `200` indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+   * The response message. If the `Code` is `200`, this message is `successful`.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates if the operation succeeded for the instance.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances from which the SSH key pair failed to be unbound.
+   * The number of instances where the attachment failed.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The ID of the SSH key pair.
+   * The key pair ID.
    * 
    * @example
    * ssh-xxx
@@ -81,7 +81,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The name of the SSH key pair.
+   * The key pair name.
    * 
    * @example
    * ssh-xxx
@@ -97,12 +97,12 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result set of the unbind operation.
+   * The attachment results for each instance.
    */
   results?: AttachKeyPairResponseBodyResults[];
   /**
    * @remarks
-   * The total number of instances from which the SSH key pair is unbound.
+   * The total number of instances in the request.
    * 
    * @example
    * 3

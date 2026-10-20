@@ -71,9 +71,11 @@ export class DescribeEpnInstanceAttributeResponseBodyInstances extends $dara.Mod
    * @remarks
    * The ISP. Valid values:
    * 
-   * *   cmcc: China Mobile
-   * *   unicom: China Unicom
-   * *   telecom: China Telecom
+   * - cmcc: China Mobile
+   * 
+   * - unicom: China Unicom
+   * 
+   * - telecom: China Telecom
    * 
    * @example
    * cmcc
@@ -99,9 +101,11 @@ export class DescribeEpnInstanceAttributeResponseBodyInstances extends $dara.Mod
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   Running
-   * *   Stopped
-   * *   Expired
+   * - Running
+   * 
+   * - Stopped
+   * 
+   * - Expired
    * 
    * @example
    * Running
@@ -231,9 +235,11 @@ export class DescribeEpnInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The networking mode. Valid values:
    * 
-   * *   SpeedUp: intelligent acceleration network (Internet)
-   * *   Connection: internal network
-   * *   SpeedUpAndConnection: intelligent acceleration network and internal network
+   * - SpeedUp: intelligent acceleration network (Internet)
+   * 
+   * - Connection: internal network
+   * 
+   * - SpeedUpAndConnection: intelligent acceleration network and internal network
    * 
    * @example
    * SpeedUp

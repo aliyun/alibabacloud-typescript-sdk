@@ -16,18 +16,22 @@ export class DescribeSnatAttributeResponseBodySnatIps extends $dara.Model {
    * The IP address.
    * 
    * @example
-   * 203.132.XX.XX
+   * 203. XXX. XXX.139
    */
   ip?: string;
   /**
    * @remarks
    * The status of the IP address.
    * 
-   * *   Running
-   * *   Stopping
-   * *   Stopped
-   * *   Starting
-   * *   Releasing
+   * - Running
+   * 
+   * - Stopping
+   * 
+   * - Stopped
+   * 
+   * - Starting
+   * 
+   * - Releasing
    * 
    * @example
    * Running
@@ -72,17 +76,18 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * The destination CIDR block. The rule takes effect only on requests that access the destination CIDR block.
    * 
    * @example
-   * 101.10. XX.XX/24
+   * 101. XXX. XXX.0/24
    */
   destCIDR?: string;
   /**
    * @remarks
    * Specifies whether to enable IP affinity. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**
    * 
-   * >  After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
+   * - **true**
+   * 
+   * > After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
    * 
    * @example
    * false
@@ -99,7 +104,9 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Whether to enable operator affinity. Value taking:
+   * 
    * - false:Do not open.
+   * 
    * - true:Open.
    * 
    * @example
@@ -143,7 +150,7 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * The EIP specified in the SNAT entry. Multiple EIPs are separated by commas (,).
    * 
    * @example
-   * 120.72.XX.XX
+   * 120. XXX. XXX.71
    */
   snatIp?: string;
   /**
@@ -156,7 +163,7 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * The source CIDR block specified in the SNAT entry.
    * 
    * @example
-   * 10.0.XX.XX/24
+   * 10. XXX. XXX.0/24
    */
   sourceCIDR?: string;
   /**
@@ -164,17 +171,20 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * The secondary EIP specified in the SNAT entry. Multiple secondary EIPs are separated by commas (,).
    * 
    * @example
-   * 101.23. XX.XX
+   * 101. XXX. XXX.4
    */
   standbySnatIp?: string;
   /**
    * @remarks
    * The status of the secondary EIP.
    * 
-   * *   Running
-   * *   Stopping
-   * *   Stopped
-   * *   Starting
+   * - Running
+   * 
+   * - Stopping
+   * 
+   * - Stopped
+   * 
+   * - Starting
    * 
    * @example
    * Stopped
@@ -184,9 +194,11 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the SNAT entry.
    * 
-   * *   Pending: The SNAT entry is being created or modified.
-   * *   Available: The SNAT entry is available.
-   * *   Deleting: The SNAT entry is being deleted.
+   * - Pending: The SNAT entry is being created or modified.
+   * 
+   * - Available: The SNAT entry is available.
+   * 
+   * - Deleting: The SNAT entry is being deleted.
    * 
    * @example
    * Available
@@ -196,8 +208,9 @@ export class DescribeSnatAttributeResponseBody extends $dara.Model {
    * @remarks
    * The type of the NAT.
    * 
-   * *   Empty: symmetric NAT.
-   * *   FullCone: full cone NAT.
+   * - Empty: symmetric NAT.
+   * 
+   * - FullCone: full cone NAT.
    * 
    * @example
    * FullCone

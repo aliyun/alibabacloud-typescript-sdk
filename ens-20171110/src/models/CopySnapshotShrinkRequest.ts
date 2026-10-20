@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopySnapshotShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of destination nodes.
+   * The list of destination edge zone IDs.
    * 
    * This parameter is required.
    */
@@ -20,12 +20,23 @@ export class CopySnapshotShrinkRequest extends $dara.Model {
   destinationSnapshotDescription?: string;
   /**
    * @remarks
-   * The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The display name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * testSnapshotName
    */
   destinationSnapshotName?: string;
+  /**
+   * @remarks
+   * The billing cycle of the instance. Valid values:
+   * 
+   * - Hour
+   * - Day
+   * - Month
+   * 
+   * @example
+   * Hour
+   */
   instanceBillingCycle?: string;
   /**
    * @remarks

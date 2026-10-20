@@ -17,19 +17,27 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * @remarks
    * The description of the network ACL.
    * 
-   * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * This is my NetworkAcl.
    */
   description?: string;
+  /**
+   * @remarks
+   * The destination network.
+   * 
+   * @example
+   * 10.130.220.0/24
+   */
   destinationCidrBlock?: string;
   /**
    * @remarks
    * The direction in which the rule is applied. Valid values:
    * 
-   * *   **ingress**
-   * *   **egress**
+   * - **ingress**
+   * 
+   * - **egress**
    * 
    * This parameter is required.
    * 
@@ -41,7 +49,7 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * @remarks
    * The name of the rule.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+   * The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * acl-1
@@ -61,8 +69,9 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * @remarks
    * The action that is performed on network traffic that matches the rule. Valid values:
    * 
-   * *   **accept**: allows network traffic.
-   * *   **drop**: blocks network traffic.
+   * - **accept**: allows network traffic.
+   * 
+   * - **drop**: blocks network traffic.
    * 
    * This parameter is required.
    * 
@@ -74,8 +83,9 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * @remarks
    * The port range.
    * 
-   * *   If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
-   * *   If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
+   * - If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
+   * 
+   * - If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
    * 
    * This parameter is required.
    * 
@@ -97,10 +107,13 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * @remarks
    * The type of the protocol. Valid values:
    * 
-   * *   **icmp**: ICMP
-   * *   **tcp**: TCP
-   * *   **udp**: UDP
-   * *   **all**: all protocols
+   * - **icmp**: ICMP
+   * 
+   * - **tcp**: TCP
+   * 
+   * - **udp**: UDP
+   * 
+   * - **all**: all protocols
    * 
    * This parameter is required.
    * 

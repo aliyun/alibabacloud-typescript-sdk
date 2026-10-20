@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiskRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. Valid values of N: **1** to **20**.
-   * 
-   * *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-   * *   The key must be up to 64 characters in length.
-   * *   The tag key cannot be an empty string.
+   * The tag key of the instance. Valid values of N: **1** to **20**.
    * 
    * @example
    * pro
@@ -17,11 +13,7 @@ export class CreateDiskRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag that is attached to the topics you want to query. This parameter is not required. If you configure this parameter, you must also configure the **Key** parameter.**** If you include the Key and Value parameters in a request, this operation queries only the topics that use the specified tags. If you do not include these parameters in a request, this operation queries all topics that you can access.
-   * 
-   * *   Valid values: 1 to 20.
-   * *   The value of this parameter can be an empty string.
-   * *   The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag value of the topic. **Key** and **Value** must be specified or left empty at the same time. If both are specified, topics are filtered by the tag. If neither is specified, all topics are queried.
    * 
    * @example
    * tagValue
@@ -53,10 +45,7 @@ export class CreateDiskRequestTag extends $dara.Model {
 export class CreateDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the disk. Valid values:
-   * 
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: all-flash disk.
+   * The type of the cloud disk. Valid values:
    * 
    * This parameter is required.
    * 
@@ -66,7 +55,7 @@ export class CreateDiskRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The name of the disk.
+   * The name of the cloud disk.
    * 
    * @example
    * yourDiskName
@@ -74,10 +63,7 @@ export class CreateDiskRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the new system disk. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default): no
+   * Specifies whether to encrypt the cloud disk. Valid values:
    * 
    * @example
    * false
@@ -85,7 +71,7 @@ export class CreateDiskRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID.
    * 
    * This parameter is required.
    * 
@@ -93,10 +79,17 @@ export class CreateDiskRequest extends $dara.Model {
    * cn-chengdu-telecom
    */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * The billing cycle of the instance. Valid values: Hour, Day, Month.
+   * 
+   * @example
+   * Hour
+   */
   instanceBillingCycle?: string;
   /**
    * @remarks
-   * The billing method of the instance. Set the value to **PostPaid**.
+   * The billing method of the instance. Currently, only **PostPaid** (pay-as-you-go) is supported.
    * 
    * This parameter is required.
    * 
@@ -106,9 +99,7 @@ export class CreateDiskRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key that is used by the cloud disk.
-   * 
-   * >  If you set the **Encrypted** parameter to **true**, the default service key is used when the **KMSKeyId** parameter is empty.
+   * The ID of the KMS key used by the cloud disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fxxxxx
@@ -116,7 +107,7 @@ export class CreateDiskRequest extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The size of the disk. Unit: GiB.
+   * The size of the cloud disk. Unit: GiB.
    * 
    * @example
    * 20
@@ -124,12 +115,7 @@ export class CreateDiskRequest extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * The ID of the snapshot that you want to use to create the disk.
-   * 
-   * The following limits apply to the **SnapshotId** and **Size** parameters:
-   * 
-   * *   If the size of the snapshot specified by **SnapshotId** is greater than the specified **Size** value, the size of the created disk is equal to the specified snapshot size.
-   * *   If the size of the snapshot specified by **SnapshotId** is smaller than the specified **Size** value, the size of the created disk is equal to the specified **Size** value.
+   * The snapshot used to create the cloud disk.
    * 
    * @example
    * s-897654321****
@@ -137,7 +123,7 @@ export class CreateDiskRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The tags of the instance. You can specify at most 20 tags in each call.
+   * The list of tags. You can add up to 20 tags in a single call.
    */
   tag?: CreateDiskRequestTag[];
   static names(): { [key: string]: string } {

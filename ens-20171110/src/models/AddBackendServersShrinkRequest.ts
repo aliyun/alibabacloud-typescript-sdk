@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class AddBackendServersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of backend servers that you want to add to the Edge Load Balancer (ELB) instance. You can add up to 20 backend servers at a time.
+   * The list of backend servers to add. You can add up to 20 backend servers per invoke.
    * 
-   * >  Only Edge Node Service (ENS) instances that are in the running state can be added to the ELB instance as backend servers.
+   * > Backend servers (ENS instances) must be in the Running state before they can be added to a load balancing instance.
    * 
    * This parameter is required.
    */
   backendServersShrink?: string;
   /**
    * @remarks
-   * The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+   * The frontend port used by the load balancing instance. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 

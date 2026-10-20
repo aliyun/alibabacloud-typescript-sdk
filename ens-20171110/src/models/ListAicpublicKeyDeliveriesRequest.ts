@@ -13,7 +13,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Public Key Grouping
+   * The group of the public key.
    * 
    * @example
    * g-test
@@ -21,7 +21,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Public Key Name
+   * The name of the public key.
    * 
    * @example
    * mykey
@@ -29,7 +29,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Public key type
+   * The type of the public key.
    * 
    * @example
    * adb
@@ -37,7 +37,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   keyType?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display per page.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The instance ID of the created NAT gateway.
    * 
    * @example
    * nat-5t7nh1cfm6kxiszlttr38****
@@ -13,7 +13,7 @@ export class CreateNatGatewayResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

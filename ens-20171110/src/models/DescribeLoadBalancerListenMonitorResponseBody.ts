@@ -160,7 +160,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
    * The virtual IP address (VIP) of the instance.
    * 
    * @example
-   * 10.8.*.*
+   * 10.8.****
    */
   vip?: string;
   /**

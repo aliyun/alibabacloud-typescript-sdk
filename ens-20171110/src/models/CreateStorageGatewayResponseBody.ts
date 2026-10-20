@@ -92,8 +92,9 @@ export class CreateStorageGatewayResponseBody extends $dara.Model {
    * @remarks
    * The success status code.
    * 
-   * *   **PartSuccess**: partially succeeded.
-   * *   **AllSuccess**: all succeeded.
+   * - **PartSuccess**: partially succeeded.
+   * 
+   * - **AllSuccess**: all succeeded.
    * 
    * @example
    * AllSuccess

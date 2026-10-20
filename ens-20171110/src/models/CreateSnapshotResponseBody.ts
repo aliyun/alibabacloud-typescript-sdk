@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21969183547****
@@ -21,7 +21,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IDs of the snapshots.
+   * The snapshot ID.
    * 
    * @example
    * s-bp17441ohwka0yuh****

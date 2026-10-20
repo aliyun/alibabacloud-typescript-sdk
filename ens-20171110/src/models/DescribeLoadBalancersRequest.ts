@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address that the ELB instance uses to provide services.
+   * The service address of the load balancing instance.
    * 
    * @example
    * 10.0.XX.XX
@@ -13,7 +13,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-guangzhou-10
@@ -21,12 +21,12 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of the Edge Node Service (ENS) nodes.
+   * The list of ENS edge zone IDs.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The ID of the load balancing instance.
    * 
    * @example
    * lb-5q73cv04zeyh43lh74lp4****
@@ -34,7 +34,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ELB instance.
+   * The name of the load balancing instance.
    * 
    * @example
    * example
@@ -42,19 +42,25 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The status of the listener for the ELB instance. Valid values:
-   * 
-   * *   **Active**: The listener for the instance can forward the received traffic based on forwarding rules.
-   * *   **InActive**: The listener for the instance does not forward the received traffic.
+   * The listener status of the load balancing instance. Valid values:
+   * - **Active**: The listeners in the instance can forward accepted traffic based on rules.
+   * - **InActive**: The listeners in the instance no longer forward accepted traffic.
    * 
    * @example
    * InActive
    */
   loadBalancerStatus?: string;
+  /**
+   * @remarks
+   * The type of the load balancing instance.
+   * 
+   * @example
+   * CLB
+   */
   loadBalancerType?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5s9ayrxsd9hszrlt5fgv2****
@@ -62,7 +68,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the list. Default value: 1.
    * 
    * @example
    * 1
@@ -70,7 +76,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Valid values: **10** to **100**.
+   * The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
    * 
    * @example
    * 100
@@ -78,7 +84,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the backend server.
+   * The backend server instance ID.
    * 
    * @example
    * i-5f67ffjc004wwz0t****
@@ -86,7 +92,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5sy773iy25rulsmgskmba****

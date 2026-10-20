@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the NAS file system. Valid values:
-   * 
-   * *   PrePaid: subscription. This billing method is not supported.
-   * *   PostPaid: pay-as-you-go.
+   * The billable methods of NAS. Valid values:  
+   * - PrePaid: subscription (currently not supported).  
+   * - PostPaid: pay-as-you-go billing method.
    * 
    * This parameter is required.
    * 
@@ -18,7 +17,7 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,8 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The name of the file system. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The file system name.
+   * The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The name of the mount target. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The mount target name. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The type of the order. Set the value to BUY.
+   * The order type. Valid values: BUY.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The storage protocol. Set the value to nfs.
+   * The storage protocol. Valid values: nfs.
    * 
    * This parameter is required.
    * 
@@ -80,8 +80,9 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * 
-   * *   Capacity.
-   * *   Performance.
+   * - capacity: storage-optimized.
+   * 
+   * - Performance: ultra-fast.
    * 
    * This parameter is required.
    * 
@@ -127,7 +128,7 @@ export class CreateFileSystemRequestOrderDetails extends $dara.Model {
 export class CreateFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the orders.
+   * The list of orders. Each element in the list contains the details of an order.
    * 
    * This parameter is required.
    */

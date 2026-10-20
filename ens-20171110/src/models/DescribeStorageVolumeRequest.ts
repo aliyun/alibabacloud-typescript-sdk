@@ -23,8 +23,9 @@ export class DescribeStorageVolumeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the volume. Valid values:
    * 
-   * *   **1** (default): enables the volume.
-   * *   **0**: disables the volume.
+   * - **1** (default): enables the volume.
+   * 
+   * - **0**: disables the volume.
    * 
    * @example
    * 1

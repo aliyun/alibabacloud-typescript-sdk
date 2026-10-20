@@ -16,7 +16,7 @@ export class ModifyInstanceAutoRenewAttributeResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 4DD66F05-3116-4BAA-B588-52EB2E7F431D
+   * EA3758E0-8899-17D3-9526-5F62CF33A586
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The container specifications.
+   * The list of container specifications.
    */
   AICSpecsShrink?: string;
   /**
    * @remarks
-   * Spcifies whether the result contains the container information. Valid values:
+   * Specifies whether the query results include container information. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Included.
+   * 
+   * - **false**: Not included.
    * 
    * @example
    * true
@@ -21,12 +22,12 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   describeAICInstances?: boolean;
   /**
    * @remarks
-   * The IDs of the Edge Node Service (ENS) nodes.
+   * The list of ENS edge zone IDs.
    */
   ensRegionIdsShrink?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The end time of the query. Format: "2006-01-02". By default, no time limit is applied.
    * 
    * @example
    * 2006-01-03
@@ -34,7 +35,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   maxDate?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+   * The start time of the query. Format: "2006-01-02". By default, no time limit is applied.
    * 
    * @example
    * 2006-01-02
@@ -42,7 +43,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   minDate?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The server name.
    * 
    * @example
    * Server-Name
@@ -58,17 +59,17 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The sorting order of the results to return. Valid values: ServerIdSort, ServerNameSort, ExpireTimeSort, CreationTimeSort, and EnsRegionIdSort.
+   * The sorting method for query results. You can sort results by one or more of the following fields: ServerIdSort (server ID), ServerNameSort (server name), ExpireTimeSort (expiration time), CreationTimeSort (creation time), and EnsRegionIdSort (edge zone ID).
    * 
-   * asc: ascending order. desc: descending order.
+   * Valid values: asc (ascending order) and desc (descending order).
    * 
    * @example
-   * {"ServerIdSort":"desc","ServerNameSort":"desc","ExpireTimeSort":"asc","CreationTimeSort":"asc","EnsRegionIdSort":"asc"}
+   * {"ServerIdSort":"desc","ServerNameSort":"desc","ExpireTimeSort":"asc"}
    */
   orderByParams?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**.
+   * The page number of the query list. Minimum value: **1**.
    * 
    * Default value: **1**.
    * 
@@ -78,7 +79,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **100**.
+   * The number of entries per page for a paged query. Maximum value: **100**.
    * 
    * Default value: **10**.
    * 
@@ -88,19 +89,23 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the ARM servers.
+   * The list of server instance IDs.
    */
   serverIdsShrink?: string;
   /**
    * @remarks
-   * The server specifications.
+   * The list of server specifications.
    */
   serverSpecsShrink?: string;
   /**
    * @remarks
-   * The operation statuses.
+   * The list of operation states.
    */
   statesShrink?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {

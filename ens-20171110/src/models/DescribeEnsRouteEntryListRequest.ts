@@ -23,9 +23,11 @@ export class DescribeEnsRouteEntryListRequest extends $dara.Model {
    * @remarks
    * The type of next hop of the custom route entry. Valid values:
    * 
-   * *   Instance (default): an ENS instance.
-   * *   HaVip: a high-availability virtual IP address (HAVIP).
-   * *   NetworkPeer: VPC peering connection.
+   * - Instance (default): an ENS instance.
+   * 
+   * - HaVip: a high-availability virtual IP address (HAVIP).
+   * 
+   * - NetworkPeer: VPC peering connection.
    * 
    * @example
    * Instance
@@ -67,8 +69,9 @@ export class DescribeEnsRouteEntryListRequest extends $dara.Model {
    * @remarks
    * The route type. Valid values:
    * 
-   * *   Custom: custom route
-   * *   System: system route
+   * - Custom: custom route
+   * 
+   * - System: system route
    * 
    * @example
    * Custom

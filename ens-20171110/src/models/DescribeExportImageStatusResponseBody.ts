@@ -7,10 +7,13 @@ export class DescribeExportImageStatusResponseBody extends $dara.Model {
    * @remarks
    * The export status of the image. Valid values:
    * 
-   * *   Exporting
-   * *   Exported
-   * *   ExportError
-   * *   Unexported
+   * - Exporting
+   * 
+   * - Exported
+   * 
+   * - ExportError
+   * 
+   * - Unexported
    * 
    * @example
    * Exporting

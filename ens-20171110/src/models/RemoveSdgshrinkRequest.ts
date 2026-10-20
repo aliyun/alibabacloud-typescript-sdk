@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * IDs of Android in Container (AIC) instances.
+   * The list of AIC instance IDs.
    * 
    * This parameter is required.
    */

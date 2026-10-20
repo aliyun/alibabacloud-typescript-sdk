@@ -180,7 +180,7 @@ export class DescribeDataDistResultResponseBody extends $dara.Model {
   distResults?: DescribeDataDistResultResponseBodyDistResults;
   /**
    * @remarks
-   * The page number.
+   * The page number for the paged query.
    * 
    * @example
    * 1
@@ -188,7 +188,7 @@ export class DescribeDataDistResultResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for the paged query.
    * 
    * @example
    * 10
@@ -196,7 +196,7 @@ export class DescribeDataDistResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 50373E71-7710-4620-8AAB-133CCE49451C
@@ -204,7 +204,7 @@ export class DescribeDataDistResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the dataset.
    * 
    * @example
    * 49

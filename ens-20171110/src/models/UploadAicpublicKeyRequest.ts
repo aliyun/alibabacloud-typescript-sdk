@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadAICPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Public Key
+   * The content of the public key.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class UploadAICPublicKeyRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The description of the document.
+   * The description of the public key.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Public Key Grouping
+   * The group of the public key.
    * 
    * @example
    * g-test
@@ -31,7 +31,7 @@ export class UploadAICPublicKeyRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Public Key Name
+   * The name of the public key.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UploadAICPublicKeyRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Public key type
+   * The type of the public key.
    * 
    * This parameter is required.
    * 

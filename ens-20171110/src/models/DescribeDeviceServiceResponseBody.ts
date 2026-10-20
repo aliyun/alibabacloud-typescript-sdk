@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 97a32f2a-aa2c-436a-b19c-05b20d258618
@@ -13,7 +13,7 @@ export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * iotx-api-admin
@@ -29,10 +29,10 @@ export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
   appStableVersion?: string;
   /**
    * @remarks
-   * The type of the application. The value is of the enumeration type. Valid values:
+   * The application type. Valid values:
    * 
-   * *   Common
-   * *   Scheduler
+   * - Common: common.
+   * - Scheduler: schedule resource.
    * 
    * @example
    * Common
@@ -40,7 +40,7 @@ export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The name of the application cluster.
+   * The application cluster name.
    * 
    * @example
    * poc
@@ -59,7 +59,7 @@ export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * test application
+   * Test application
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -98,20 +98,19 @@ export class DescribeDeviceServiceResponseBodyAppMetaData extends $dara.Model {
 export class DescribeDeviceServiceResponseBodyAppStatus extends $dara.Model {
   /**
    * @remarks
-   * The status of the application. The value is of the enumeration type. Valid values:
+   * The application status. Valid values:
    * 
    * Three intermediate states:
-   * 
-   * *   CREATING
-   * *   UPDATING
-   * *   DELETING
+   * -   CREATING
+   * -   UPDATING
+   * -   DELETING
    * 
    * Four final states:
-   * 
-   * *   CREATE_FAILED
-   * *   UPDATE_FAILED
-   * *   DELETE_FAILED
-   * *   RUNNING
+   *   
+   * - CREATE_FAILED
+   * -   UPDATE_FAILED
+   * -   DELETE_FAILED
+   * -   RUNNING
    * 
    * @example
    * CREATING
@@ -122,12 +121,12 @@ export class DescribeDeviceServiceResponseBodyAppStatus extends $dara.Model {
    * The description of the application status.
    * 
    * @example
-   * Creating in progress
+   * Creating
    */
   statusDescrip?: string;
   /**
    * @remarks
-   * The time when the status was last updated.
+   * The most recent status update time.
    * 
    * @example
    * 2021-01-26T05:04Z
@@ -161,7 +160,7 @@ export class DescribeDeviceServiceResponseBodyAppStatus extends $dara.Model {
 export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the device.
+   * The device name.
    * 
    * @example
    * 5JhF100NEgdBcpNren32
@@ -169,7 +168,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   deviceName?: string;
   /**
    * @remarks
-   * The ID of the cloud device.
+   * The cloud device ID.
    * 
    * @example
    * h-uf6009zoaexs5pefypbo
@@ -185,7 +184,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   IP?: string;
   /**
    * @remarks
-   * The Internet service provider (ISP).
+   * The Internet service provider (ISP) information.
    * 
    * @example
    * cmcc
@@ -193,7 +192,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   ISP?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-2ze40oyhjorpyw61k7be
@@ -201,7 +200,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   imageID?: string;
   /**
    * @remarks
-   * The media access control (MAC) address of the device.
+   * The MAC address of the device.
    * 
    * @example
    * AA:BB:77:88:99:03
@@ -209,7 +208,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   mac?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ID of the ENS edge node.
    * 
    * @example
    * cn-jiaozuo-2
@@ -217,7 +216,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   regionID?: string;
   /**
    * @remarks
-   * The server name of the ENS node.
+   * The server NC name of the ENS edge node.
    * 
    * @example
    * ens-nc2
@@ -225,7 +224,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   server?: string;
   /**
    * @remarks
-   * The status of the device.
+   * The device status.
    * 
    * @example
    * Running
@@ -233,7 +232,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
   status?: string;
   /**
    * @remarks
-   * The type of the device.
+   * The device type.
    * 
    * @example
    * ens.ac6.large
@@ -281,7 +280,7 @@ export class DescribeDeviceServiceResponseBodyResourceDetailInfos extends $dara.
 export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfosNetwork extends $dara.Model {
   /**
    * @remarks
-   * The port of the container.
+   * The container port.
    * 
    * @example
    * 10000-10010
@@ -297,7 +296,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfosNetwork ex
   externalIp?: string;
   /**
    * @remarks
-   * The port range.
+   * The host port range.
    * 
    * @example
    * 80-8080
@@ -305,10 +304,10 @@ export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfosNetwork ex
   hostPorts?: string;
   /**
    * @remarks
-   * The protocol of the gateway. The value is of the enumeration type. Valid values:
+   * The gateway protocol. Valid values:
    * 
-   * *   TCP
-   * *   UDP
+   * - TCP
+   * - UDP
    * 
    * @example
    * TCP
@@ -344,7 +343,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfosNetwork ex
 export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the device.
+   * The device name.
    * 
    * @example
    * test-api
@@ -352,7 +351,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfos extends $
   name?: string;
   /**
    * @remarks
-   * The network information.
+   * The list of network information.
    */
   network?: DescribeDeviceServiceResponseBodyResourceInfosDeviceInfosNetwork[];
   /**
@@ -394,7 +393,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosDeviceInfos extends $
 export class DescribeDeviceServiceResponseBodyResourceInfosInternalIps extends $dara.Model {
   /**
    * @remarks
-   * The internal IP address.
+   * The IP address.
    * 
    * @example
    * 10.0.2.3
@@ -424,7 +423,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosInternalIps extends $
 export class DescribeDeviceServiceResponseBodyResourceInfosPublicIps extends $dara.Model {
   /**
    * @remarks
-   * The public IP address.
+   * The IP address.
    * 
    * @example
    * 122.13.173.137
@@ -454,7 +453,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfosPublicIps extends $da
 export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model {
   /**
    * @remarks
-   * The version of the application.
+   * The application version number.
    * 
    * @example
    * v1
@@ -470,15 +469,15 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   areaCode?: string;
   /**
    * @remarks
-   * The region name.
+   * The area name.
    * 
    * @example
-   * Jiaozuo City, Henan Province, Central China
+   * Central China, Henan Province, Jiaozuo City
    */
   areaName?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The time when the resource was created.
    * 
    * @example
    * 2019-10-02T08:26Z
@@ -486,12 +485,12 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The information about the devices.
+   * The list of device information.
    */
   deviceInfos?: DescribeDeviceServiceResponseBodyResourceInfosDeviceInfos[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-5s9boobrmh5000kv4jmi0oeai
@@ -499,7 +498,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * Running
@@ -507,7 +506,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   instanceStatus?: string;
   /**
    * @remarks
-   * The internal IP addresses.
+   * The list of internal IP addresses.
    */
   internalIps?: DescribeDeviceServiceResponseBodyResourceInfosInternalIps[];
   /**
@@ -517,7 +516,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   publicIps?: DescribeDeviceServiceResponseBodyResourceInfosPublicIps[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region code.
    * 
    * @example
    * cn-jiaozuo-2
@@ -525,7 +524,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   regionCode?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ID of the ENS edge node.
    * 
    * @example
    * cn-jiaozuo-2
@@ -533,7 +532,7 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The area name.
    * 
    * @example
    * China Jiaozuo-2
@@ -599,12 +598,12 @@ export class DescribeDeviceServiceResponseBody extends $dara.Model {
   appMetaData?: DescribeDeviceServiceResponseBodyAppMetaData;
   /**
    * @remarks
-   * The status information of the application.
+   * The application status information.
    */
   appStatus?: DescribeDeviceServiceResponseBodyAppStatus;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3A535110-3EE3-5EC5-B1ED-10B7067A1FC8
@@ -612,12 +611,12 @@ export class DescribeDeviceServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the devices.
+   * The device list.
    */
   resourceDetailInfos?: DescribeDeviceServiceResponseBodyResourceDetailInfos[];
   /**
    * @remarks
-   * The information about the instances.
+   * The list of resource instance information.
    */
   resourceInfos?: DescribeDeviceServiceResponseBodyResourceInfos[];
   static names(): { [key: string]: string } {

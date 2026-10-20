@@ -47,10 +47,13 @@ export class DescribeStorageGatewayResponseBodyStorageGateways extends $dara.Mod
    * @remarks
    * The status of the storage gateway. Valid values:
    * 
-   * *   creating
-   * *   available
-   * *   deleting
-   * *   deleted
+   * - creating
+   * 
+   * - available
+   * 
+   * - deleting
+   * 
+   * - deleted
    * 
    * @example
    * available

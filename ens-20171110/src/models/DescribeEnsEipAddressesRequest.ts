@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsEipAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP that you want to query. You can specify up to 50 EIP IDs. Separate multiple IDs with commas (,).
+   * The ID of the EIP instance to query. You can specify up to 50 EIP instance IDs separated by commas (,).
    * 
    * @example
    * eip-5q9uwkd9bznjpxz8hr6cirnjk
@@ -13,7 +13,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the instance with which you want to associate the EIP.
+   * The instance ID of the cloud service.
    * 
    * @example
    * lb-5t18quoohsrc3xkf86spmnu77
@@ -21,10 +21,11 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   associatedInstanceId?: string;
   /**
    * @remarks
-   * The type of the instance that is associated with the EIP. Valid values:
+   * The type of the cloud service instance to associate. Valid values: 
    * 
-   * *   **EnsInstance**: ENS instance in a VPC
-   * *   **SlbInstance**: SLB instance
+   * - **EnsInstance**: a VPC-type ENS instance.
+   * 
+   * - **SlbInstance**: a load balancing instance.
    * 
    * @example
    * SlbInstance
@@ -32,10 +33,10 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   associatedInstanceType?: string;
   /**
    * @remarks
-   * The EIP that you want to query. You can specify up to 50 EIPs. Separate multiple EIPs with commas (,).
+   * The IP address of the EIP to query. You can specify up to 50 EIP addresses separated by commas (,).
    * 
    * @example
-   * 192.168.0.1
+   * 120.XXX.XXX.4
    */
   eipAddress?: string;
   /**
@@ -48,7 +49,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   eipName?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-chengdu-telecom
@@ -56,18 +57,32 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. You can specify 1 to 100 IDs.
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
    */
   ensRegionIds?: string[];
+  /**
+   * @remarks
+   * Specifies whether ICMP echo reply is enabled. Valid values:
+   * 
+   * - **true** (default): enabled.
+   * - **false**: disabled.
+   * 
+   * @example
+   * false
+   */
   icmpReplyEnabled?: boolean;
   /**
+   * @remarks
+   * The lock type.
+   * - financial: locked due to overdue payment.
+   * 
    * @example
    * financial
    */
   lockReason?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the list. Default value: 1.
    * 
    * @example
    * 1
@@ -75,7 +90,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 50
@@ -83,15 +98,23 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether the EIP is a secondary EIP. Valid values:
+   * Specifies whether the EIP is a standby EIP. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: standby.
+   * 
+   * - **false**: not standby.
    * 
    * @example
    * true
    */
   standby?: string;
+  /**
+   * @remarks
+   * The status of the EIP. Valid values: Associating: being associated. Unassociating: being disassociated. InUse: allocated. Available: available.
+   * 
+   * @example
+   * InUse
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

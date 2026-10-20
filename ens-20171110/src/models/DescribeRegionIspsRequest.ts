@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionIspsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node. You can specify only one node ID in a call.
+   * The edge node ID. Only a single query is supported.
    * 
    * @example
    * cn-dalian-unicom

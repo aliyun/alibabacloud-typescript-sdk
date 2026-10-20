@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSDGResponseBodyDataResultFailedItemsItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared data group (SDG).
+   * The specific ID.
    * 
    * @example
    * sdg-dfet5vvvgy
@@ -43,7 +43,7 @@ export class DeleteSDGResponseBodyDataResultFailedItems extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Description
+   * The specific information.
    */
   item?: DeleteSDGResponseBodyDataResultFailedItemsItem;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DeleteSDGResponseBodyDataResultFailedItems extends $dara.Model {
 export class DeleteSDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed tasks.
+   * The number of failures.
    * 
    * @example
    * 0
@@ -83,12 +83,12 @@ export class DeleteSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about the failed tasks.
+   * The details of failed tasks.
    */
   failedItems?: DeleteSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DeleteSDGResponseBodyDataResult extends $dara.Model {
 export class DeleteSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. A value of success indicates a successful request.
    * 
    * @example
    * success
@@ -133,15 +133,15 @@ export class DeleteSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: DeleteSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests succeeded. Valid values:
    * 
-   * *   true: All tasks are successful.
-   * *   false: Failed tasks exist.
+   * - true: All succeeded.
+   * - false: Some tasks failed.
    * 
    * @example
    * true
@@ -178,7 +178,7 @@ export class DeleteSDGResponseBodyData extends $dara.Model {
 export class DeleteSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: DeleteSDGResponseBodyData;
   /**

@@ -7,10 +7,13 @@ export class DescribeCreatePrePaidInstanceResultResponseBodyInstanceCreateResult
    * @remarks
    * The status of the instance creation.
    * 
-   * *   Accepted
-   * *   Creating
-   * *   Failed
-   * *   Successed
+   * - Accepted
+   * 
+   * - Creating
+   * 
+   * - Failed
+   * 
+   * - Successed
    * 
    * @example
    * Successed

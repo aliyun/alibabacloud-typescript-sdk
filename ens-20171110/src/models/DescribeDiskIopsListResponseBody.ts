@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   /**
    * @remarks
-   * The business time . The time is displayed in the yyyy-MM-dd HH:mm:ss.
+   * The business time in the format of yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2023-12-14 00:00:00
@@ -13,7 +13,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   bizTime?: string;
   /**
    * @remarks
-   * The ID of the disk.
+   * The disk ID.
    * 
    * @example
    * d-5tzm9wnhzlhjzcbtxo465****
@@ -21,7 +21,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The read throughput. Unit: bytes.
+   * The read throughput (in bytes).
    * 
    * @example
    * 10054
@@ -29,7 +29,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   readBytes?: number;
   /**
    * @remarks
-   * The read latency. Unit: ms.
+   * The read latency (in microseconds).
    * 
    * @example
    * 15646532
@@ -45,7 +45,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   readOps?: number;
   /**
    * @remarks
-   * The ID of the node.
+   * The edge zone ID.
    * 
    * @example
    * cn-hangzhou-3
@@ -53,7 +53,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The write throughput. Unit: bytes.
+   * The write throughput (in bytes).
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   writeBytes?: number;
   /**
    * @remarks
-   * The write latency. Unit: microseconds.
+   * The write latency (in microseconds).
    * 
    * @example
    * 0
@@ -115,7 +115,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
 export class DescribeDiskIopsListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IOPS monitoring data of the cloud disk.
+   * The list of cloud disk I/O monitoring data.
    */
   diskIopsList?: DescribeDiskIopsListResponseBodyDiskIopsList[];
   /**

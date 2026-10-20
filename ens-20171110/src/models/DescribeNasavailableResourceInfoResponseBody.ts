@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The product supported by the edge node.
+   * Edge zone product capabilities.
    */
   ability?: string[];
   /**
    * @remarks
-   * The region to which the ENS node belongs.
+   * Area to which the ENS edge zone belongs.
    * 
    * @example
    * SouthWestChina
@@ -18,7 +18,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   area?: string;
   /**
    * @remarks
-   * The English name.
+   * English name.
    * 
    * @example
    * cn-chenzhou-telecom_unicom_cmcc
@@ -26,7 +26,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   enName?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * ENS edge zone ID.
    * 
    * @example
    * cn-chenzhou-telecom_unicom_cmcc
@@ -34,12 +34,15 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   ensRegionId?: string;
   /**
    * @remarks
-   * The name of the ENS node.
+   * ENS edge zone name.
+   * 
+   * @example
+   * China Hangzhou36
    */
   ensRegionName?: string;
   /**
    * @remarks
-   * the number of available NAS resources.
+   * Available NAS resource count.
    * 
    * @example
    * 1
@@ -47,7 +50,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   nasAvailableAmount?: number;
   /**
    * @remarks
-   * The types of available NAS resources.
+   * Available NAS resource type.
    * 
    * @example
    * capacity
@@ -55,7 +58,10 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   nasAvailableStorgeType?: string;
   /**
    * @remarks
-   * The province to which the ENS node belongs.
+   * Province to which the ENS edge zone belongs.
+   * 
+   * @example
+   * 湖北省
    */
   province?: string;
   static names(): { [key: string]: string } {
@@ -99,7 +105,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
 export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. A value of 0 indicates that the operation was successful.
+   * Business status code. Returns 0 on success.
    * 
    * @example
    * 0
@@ -107,7 +113,7 @@ export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * you are not authorized to this workspace, or workspace not exists.
@@ -115,7 +121,7 @@ export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The information of available NAS resources.
+   * Available NAS resource information.
    */
   nasAvailableResourceInfo?: DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInfo[];
   /**

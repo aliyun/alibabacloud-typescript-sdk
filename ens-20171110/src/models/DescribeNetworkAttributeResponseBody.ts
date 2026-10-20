@@ -106,6 +106,73 @@ export class DescribeNetworkAttributeResponseBodyInstanceIds extends $dara.Model
   }
 }
 
+export class DescribeNetworkAttributeResponseBodyIpv6CidrBlocksIpv6CidrBlock extends $dara.Model {
+  /**
+   * @example
+   * 2408:XXXX:0:a600::/110
+   */
+  ipv6CidrBlock?: string;
+  /**
+   * @example
+   * telecom
+   */
+  ipv6Isp?: string;
+  /**
+   * @example
+   * system
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6Isp: 'Ipv6Isp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: 'string',
+      ipv6Isp: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAttributeResponseBodyIpv6CidrBlocks extends $dara.Model {
+  ipv6CidrBlock?: DescribeNetworkAttributeResponseBodyIpv6CidrBlocksIpv6CidrBlock[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: { 'type': 'array', 'itemType': DescribeNetworkAttributeResponseBodyIpv6CidrBlocksIpv6CidrBlock },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6CidrBlock)) {
+      $dara.Model.validateArray(this.ipv6CidrBlock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAttributeResponseBodyLoadBalancerIds extends $dara.Model {
   loadBalancerId?: string[];
   static names(): { [key: string]: string } {
@@ -274,7 +341,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   cloudResources?: DescribeNetworkAttributeResponseBodyCloudResources;
   /**
    * @remarks
-   * The time when the network was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2019-06-01T00:00:00Z
@@ -290,7 +357,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-beijing
@@ -298,7 +365,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the gateway route table.
+   * The gateway route table ID.
    * 
    * @example
    * rt-539***tbs
@@ -306,11 +373,12 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   gatewayRouteTableId?: string;
   haVipIds?: DescribeNetworkAttributeResponseBodyHaVipIds;
   instanceIds?: DescribeNetworkAttributeResponseBodyInstanceIds;
+  ipv6CidrBlocks?: DescribeNetworkAttributeResponseBodyIpv6CidrBlocks;
   loadBalancerIds?: DescribeNetworkAttributeResponseBodyLoadBalancerIds;
   natGatewayIds?: DescribeNetworkAttributeResponseBodyNatGatewayIds;
   /**
    * @remarks
-   * The ID of the network access control list (ACL).
+   * The ID of the network ACL.
    * 
    * @example
    * nacl-a2do9e413e0sp****
@@ -318,7 +386,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   networkAclId?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5***
@@ -327,7 +395,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   networkInterfaceIds?: DescribeNetworkAttributeResponseBodyNetworkInterfaceIds;
   /**
    * @remarks
-   * The name of the network.
+   * The network name.
    * 
    * @example
    * abc
@@ -343,7 +411,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * rt-539***fpu
@@ -352,7 +420,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
   routeTableIds?: DescribeNetworkAttributeResponseBodyRouteTableIds;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * rtb-5***
@@ -363,8 +431,8 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the network. Valid values:
    * 
-   * *   Pending
-   * *   Available
+   * - Pending: Configuring.
+   * - Available: Available.
    * 
    * @example
    * Available
@@ -381,6 +449,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
       gatewayRouteTableId: 'GatewayRouteTableId',
       haVipIds: 'HaVipIds',
       instanceIds: 'InstanceIds',
+      ipv6CidrBlocks: 'Ipv6CidrBlocks',
       loadBalancerIds: 'LoadBalancerIds',
       natGatewayIds: 'NatGatewayIds',
       networkAclId: 'NetworkAclId',
@@ -407,6 +476,7 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
       gatewayRouteTableId: 'string',
       haVipIds: DescribeNetworkAttributeResponseBodyHaVipIds,
       instanceIds: DescribeNetworkAttributeResponseBodyInstanceIds,
+      ipv6CidrBlocks: DescribeNetworkAttributeResponseBodyIpv6CidrBlocks,
       loadBalancerIds: DescribeNetworkAttributeResponseBodyLoadBalancerIds,
       natGatewayIds: DescribeNetworkAttributeResponseBodyNatGatewayIds,
       networkAclId: 'string',
@@ -432,6 +502,9 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
     }
     if(this.instanceIds && typeof (this.instanceIds as any).validate === 'function') {
       (this.instanceIds as any).validate();
+    }
+    if(this.ipv6CidrBlocks && typeof (this.ipv6CidrBlocks as any).validate === 'function') {
+      (this.ipv6CidrBlocks as any).validate();
     }
     if(this.loadBalancerIds && typeof (this.loadBalancerIds as any).validate === 'function') {
       (this.loadBalancerIds as any).validate();

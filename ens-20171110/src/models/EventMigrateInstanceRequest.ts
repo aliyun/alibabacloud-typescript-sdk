@@ -7,9 +7,11 @@ export class EventMigrateInstanceRequest extends $dara.Model {
    * @remarks
    * The data migration policy. Valid values:
    * 
-   * *   abandon: does not migrate data. This is the default value.
-   * *   force_transfer: forcibly migrates data.
-   * *   try_transfer: Migrate data as much as possible.
+   * - `abandon`: Does not migrate data. This is the default value.
+   * 
+   * - `force_transfer`: Forces data migration.
+   * 
+   * - `try_transfer`: Attempts to migrate data.
    * 
    * @example
    * abandon
@@ -29,8 +31,9 @@ export class EventMigrateInstanceRequest extends $dara.Model {
    * @remarks
    * The type of the O\\&M task. Valid values:
    * 
-   * *   immediate
-   * *   scheduled
+   * - `immediate`: Executes the task immediately.
+   * 
+   * - `scheduled`: Executes the task at the specified time.
    * 
    * This parameter is required.
    * 
@@ -40,11 +43,11 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * The password of the instance. This parameter is optional. If you do not specify this parameter, a random password is used.
+   * The instance password. This parameter is optional. If you do not specify a password, the system generates a random one.
    * 
-   * The password must be 8 to 30 characters in length. The password must contain uppercase letters, lowercase letters, digits, and special characters.
+   * The password must be 8 to 30 characters long and contain uppercase letters, lowercase letters, and digits.
    * 
-   * Note that you cannot enter a password for scheduled execution.
+   * Note: This parameter is not supported for scheduled execution.
    * 
    * @example
    * AAaa1234
@@ -52,7 +55,7 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+   * The scheduled execution time. This must be a Unix timestamp in milliseconds. This parameter is required when `OpsType` is set to `scheduled`.
    * 
    * @example
    * 1742452232000

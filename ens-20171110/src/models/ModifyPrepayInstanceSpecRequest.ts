@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that you want to upgrade or downgrade.
+   * The instance ID of the instance for which you want to perform an Upgrade/Downgrade.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -13,7 +13,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The updated configuration.
+   * The new instance type.
    * 
    * @example
    * ens.sn1.tiny

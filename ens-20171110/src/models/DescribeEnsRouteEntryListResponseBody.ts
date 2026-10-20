@@ -66,7 +66,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
    * Enter a description for the route.
    * 
    * @example
-   * test
+   * Test
    */
   description?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBucketLifecycleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteBucketLifecycleRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The ID of the rule. If this parameter is not specified, all rules are removed.
+   * The rule ID. If this parameter is not specified, all rules are deleted.
    * 
    * @example
    * 1

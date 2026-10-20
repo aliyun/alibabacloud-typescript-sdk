@@ -781,7 +781,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The business code returned. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -790,7 +790,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance list.
    * 
    * @example
    * 1
@@ -798,7 +798,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page that was specified in the request.
    * 
    * @example
    * 60
@@ -814,7 +814,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of instances returned.
    * 
    * @example
    * 2

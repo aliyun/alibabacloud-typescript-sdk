@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallClusterAddonsRequestAddonsConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * 859e9d595b2974ed79c444658d1dea89
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The configuration version.
+   * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom parameters of the component.
+   * 
    * @example
    * {"k1":"v1"}
    */
@@ -54,13 +66,23 @@ export class InstallClusterAddonsRequestAddonsConfigSchema extends $dara.Model {
 }
 
 export class InstallClusterAddonsRequestAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The schema for the custom parameters of the component.
+   */
   configSchema?: InstallClusterAddonsRequestAddonsConfigSchema[];
   /**
+   * @remarks
+   * The add-on name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * v1
    */
@@ -96,11 +118,15 @@ export class InstallClusterAddonsRequestAddons extends $dara.Model {
 export class InstallClusterAddonsRequest extends $dara.Model {
   /**
    * @remarks
+   * The add-on information.
+   * 
    * This parameter is required.
    */
   addons?: InstallClusterAddonsRequestAddons[];
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

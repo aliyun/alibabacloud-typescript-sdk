@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination node.
+   * The ID of the destination edge zone.
    * 
    * @example
    * cn-hangzhou-xxx
@@ -13,7 +13,7 @@ export class PreloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Mod
   destinationRegionId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * region not found
@@ -45,7 +45,7 @@ export class PreloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Mod
 export class PreloadRegionSDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed tasks.
+   * The number of failures.
    * 
    * @example
    * 0
@@ -53,12 +53,12 @@ export class PreloadRegionSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about the failed tasks.
+   * The list of failure details.
    */
   failedItems?: PreloadRegionSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class PreloadRegionSDGResponseBodyDataResult extends $dara.Model {
 export class PreloadRegionSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class PreloadRegionSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: PreloadRegionSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * *   true: All tasks are successful.
-   * *   false: Failed tasks exist.
+   * - true: All requests are successful.
+   * - false: Some tasks failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class PreloadRegionSDGResponseBodyData extends $dara.Model {
 export class PreloadRegionSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The Data object.
    */
   data?: PreloadRegionSDGResponseBodyData;
   /**

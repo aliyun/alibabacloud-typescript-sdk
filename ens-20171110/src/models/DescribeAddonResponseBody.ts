@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAddonResponseBodyAddonsConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * 859e9d595b2974ed79c444658d1dea89
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The configuration version.
+   * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom parameters of the add-on.
+   * 
    * @example
    * {"key1":"val1"}
    */
@@ -52,17 +64,30 @@ export class DescribeAddonResponseBodyAddonsConfigSchema extends $dara.Model {
 
 export class DescribeAddonResponseBodyAddons extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether associated cloud resources are automatically cleaned up.
+   * 
    * @example
    * true
    */
   cleanupCloudResources?: string;
+  /**
+   * @remarks
+   * The schema of custom parameters for the add-on.
+   */
   configSchema?: DescribeAddonResponseBodyAddonsConfigSchema[];
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The add-on version.
+   * 
    * @example
    * v1
    */
@@ -99,6 +124,9 @@ export class DescribeAddonResponseBodyAddons extends $dara.Model {
 
 export class DescribeAddonResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The add-on information.
+   * 
    * **if can be null:**
    * false
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetClusterAddonInstanceResponseBodyConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * d0ead1f4e28de0f9e3c86588409a88a4
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The configuration version.
+   * 
    * @example
    * d0ead1f4e28de0f9e3c86588409a88a4
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The add-on name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom parameters of the add-on.
+   * 
    * @example
    * {"k1":"v1"}
    */
@@ -51,9 +63,20 @@ export class GetClusterAddonInstanceResponseBodyConfigSchema extends $dara.Model
 }
 
 export class GetClusterAddonInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether associated cloud resources are automatically cleaned up.
+   */
   cleanupCloudResources?: boolean;
+  /**
+   * @remarks
+   * The schema of custom parameters for the add-on.
+   */
   configSchema?: GetClusterAddonInstanceResponseBodyConfigSchema[];
   /**
+   * @remarks
+   * The add-on name.
+   * 
    * @example
    * edge-csi-lite
    */
@@ -67,11 +90,22 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The current component instance status. Valid values:
+   * 
+   * - **enabled**: Running normally.
+   * - **deleting**: Stopping.
+   * - **enabling**: Starting.
+   * - **upgrading**: In upgrade or configuration.
+   * 
    * @example
    * enabled
    */
   status?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * v1
    */

@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-hangzhou-44
    */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
+   */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The Internet service provider. Valid values:
-   * 
-   * *   cmcc: China Mobile.
-   * *   unicom: China Unicom.
-   * *   telecom: China Telecom.
+   * The Internet service provider (ISP). Valid values:
+   * - cmcc: China Mobile.
+   * - unicom: China Unicom.
+   * - telecom: China Telecom.
    * 
    * @example
    * unicom
@@ -26,7 +29,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -34,7 +37,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 50
@@ -42,7 +45,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The secondary IP address.
+   * The secondary public IP address.
    * 
    * @example
    * 12.XXX.XXX.4

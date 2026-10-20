@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
   /**
    * @remarks
-   * Public key content
+   * The content of the public key.
    * 
    * @example
    * fvsvshbvjfksvj
@@ -13,7 +13,7 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The creation time of the voiceprint.
+   * The time when the public key was created.
    * 
    * @example
    * 2025-10-09T15:13:21+08:00
@@ -21,15 +21,15 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Public key description
+   * The description of the public key.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Public key grouping
+   * The group of the public key.
    * 
    * @example
    * test-group
@@ -37,7 +37,7 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Public key name
+   * The name of the public key.
    * 
    * @example
    * mykey
@@ -45,7 +45,7 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Public key type
+   * The type of the public key.
    * 
    * @example
    * adb
@@ -85,7 +85,7 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
 export class ListAICPublicKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number when paging
+   * The current page number in the paginated query.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListAICPublicKeysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display per page.
    * 
    * @example
    * 10
@@ -101,12 +101,12 @@ export class ListAICPublicKeysResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Public key list
+   * The list of public keys.
    */
   publicKeys?: ListAICPublicKeysResponseBodyPublicKeys[];
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * xxxsxxxxx
@@ -114,7 +114,7 @@ export class ListAICPublicKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 10

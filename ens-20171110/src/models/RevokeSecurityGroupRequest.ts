@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeSecurityGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
-   * 
-   * *   tcp
-   * *   udp
-   * *   icmp
-   * *   gre
-   * *   all: all protocols.
+   * The transport layer protocol. The value is case-sensitive. Valid values:
+   * - tcp: TCP.
+   * - udp: UDP.
+   * - icmp: ICMP.
+   * - gre: GRE.
+   * - all: All protocols are supported.
    * 
    * This parameter is required.
    * 
@@ -21,10 +20,9 @@ export class RevokeSecurityGroupRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy. Valid values:
-   * 
-   * *   accept: allows access. This is the default value.
-   * *   drop: denies access and does not return responses.
+   * Settings for access permissions. Valid values:
+   * - accept (default): Accepts access.
+   * - drop: Deny access without returning a deny message.
    * 
    * @example
    * accept
@@ -32,12 +30,11 @@ export class RevokeSecurityGroupRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
-   * 
-   * *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-   * *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-   * *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+   * The range of destination port numbers relevant to the transport layer protocol for the security group. Valid values:
+   * - TCP/UDP: Valid values are **1** to **65535**. Separate the start port and end port with a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+   * - ICMP: **-1/-1**.
+   * - GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * This parameter is required.
    * 
@@ -55,7 +52,7 @@ export class RevokeSecurityGroupRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +62,7 @@ export class RevokeSecurityGroupRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The source CIDR block. CIDR blocks and IPv4 addresses are supported. Default value: 0.0.XX.XX/0.
+   * The source IP address range. CIDR format and IPv4 format are supported. Default value: 0.0.XX.XX/0.
    * 
    * This parameter is required.
    * 
@@ -75,12 +72,11 @@ export class RevokeSecurityGroupRequest extends $dara.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
-   * 
-   * *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-   * *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-   * *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+   * The range of source port numbers relevant to the transport layer protocol for the security group. Valid values:
+   * - TCP/UDP: Valid values are **1** to **65535**. Separate the start port and end port with a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+   * - ICMP: **-1/-1**.
+   * - GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * @example
    * 22/22

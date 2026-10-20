@@ -7,9 +7,11 @@ export class ListBucketsResponseBodyBucketInfos extends $dara.Model {
    * @remarks
    * The access control list (ACL) of the bucket.
    * 
-   * *   **public-read-write**
-   * *   **public-read**
-   * *   **private** (default)
+   * - **public-read-write**
+   * 
+   * - **public-read**
+   * 
+   * - **private** (default)
    * 
    * @example
    * private

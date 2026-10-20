@@ -110,8 +110,9 @@ export class DetachInstanceSDGResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether all tasks are successful. Valid values:
    * 
-   * *   true: All tasks are successful.
-   * *   false: Failed tasks exist.
+   * - true: All tasks are successful.
+   * 
+   * - false: Failed tasks exist.
    * 
    * @example
    * true

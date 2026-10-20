@@ -20,7 +20,7 @@ export class StartSnatIpForSnatEntryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 219.152.82.143
+   * 219.152.XX.XX
    */
   snatIp?: string;
   static names(): { [key: string]: string } {

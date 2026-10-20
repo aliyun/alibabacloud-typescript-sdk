@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterAddonInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID. The target cluster must be in the running state. You can verify the state by checking the State field in the response of DescribeClustersV1 or DescribeClusterDetail.
    * 
    * This parameter is required.
    * 

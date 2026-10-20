@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the ECK cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the node pool to which the node will be added.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
    */
   nodepoolId?: string;
   /**
+   * @remarks
+   * Optional parameters for the script, provided as a JSON string.
+   * 
    * @example
    * {\\"key1\\":\\"val1\\"}
    */

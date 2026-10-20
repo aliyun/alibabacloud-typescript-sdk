@@ -5,20 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterNodePoolShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The cluster-related configurations.
+   */
   kubernetesConfigShrink?: string;
   /**
    * @remarks
+   * The node pool configurations.
+   * 
    * This parameter is required.
    */
   nodepoolInfoShrink?: string;
   /**
    * @remarks
+   * The scaling group configurations.
+   * 
    * This parameter is required.
    */
   scalingGroupShrink?: string;

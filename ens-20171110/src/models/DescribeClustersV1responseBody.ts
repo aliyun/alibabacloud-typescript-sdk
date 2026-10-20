@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
-   * The runtime type used by the nodes.
+   * The type of the container runtime.
    * 
    * @example
    * containerd
@@ -13,7 +13,7 @@ export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $d
   containerRuntime?: string;
   /**
    * @remarks
-   * The ID of the custom image.
+   * The ID of the image.
    * 
    * @example
    * m-68be8cb9f71fhyvjekxa23qsf
@@ -29,7 +29,7 @@ export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $d
   instanceSpec?: string;
   /**
    * @remarks
-   * The node port range.
+   * The edge zone service port range.
    * 
    * @example
    * 30000-32767
@@ -45,7 +45,7 @@ export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $d
   size?: number;
   /**
    * @remarks
-   * The system disk type of the node. Valid value: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
+   * The category of the system cloud disk for nodes. Valid values: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
    * 
    * @example
    * cloud_ssd
@@ -53,7 +53,7 @@ export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $d
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GB.
+   * The size of the system cloud disk. Unit: GB.
    * 
    * @example
    * 100
@@ -95,7 +95,7 @@ export class DescribeClustersV1ResponseBodyClustersControlPlaneConfig extends $d
 export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
-   * The user IDs.
+   * The user ID.
    * 
    * @example
    * 1375383353108460
@@ -103,7 +103,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The cluster instance ID.
+   * The instance ID of the cluster.
    * 
    * @example
    * eck-xxxxxxx
@@ -111,7 +111,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The kubeconfig file of the cluster.
+   * The kubeconfig of the cluster.
    * 
    * @example
    * {
@@ -151,7 +151,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   config?: any;
   /**
    * @remarks
-   * The pod CIDR block. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the pod CIDR block. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
+   * The CIDR block for pods. It must be a valid private CIDR block, specifically one of the following CIDR blocks or their subnets: 10.0.0.0/8, 172.16.0.0/12 to 172.31.0.0/16, and 192.168.0.0/16. The CIDR block cannot overlap with the CIDR block of the VPC or the CIDR blocks used by existing Kubernetes clusters in the VPC. The CIDR block cannot be modified after the cluster is created.
    * 
    * @example
    * 10.0.0.0/8
@@ -159,12 +159,20 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   containerCidr?: string;
   /**
    * @remarks
-   * Control plane configuration.
+   * The configuration of the control plane.
    */
   controlPlaneConfig?: DescribeClustersV1ResponseBodyClustersControlPlaneConfig;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The time when the cluster was created.
+   * 
+   * @example
+   * 2025-04-07T09:57:26+08:00
+   */
+  created?: string;
+  /**
+   * @remarks
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-hangzhou-55
@@ -172,7 +180,15 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The cluster access authentication token.
+   * The ISP information.
+   * 
+   * @example
+   * unicom
+   */
+  isp?: string;
+  /**
+   * @remarks
+   * The authentication token for joining the cluster.
    * 
    * @example
    * xxxxxxxxxx.yyyyyyy
@@ -180,7 +196,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   joinToken?: string;
   /**
    * @remarks
-   * The Kubernetes version of the cluster. The Kubernetes versions supported are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
+   * The Kubernetes version of the cluster, which aligns with the Kubernetes community baseline version. Select the latest version. If this parameter is not specified, the latest version is used by default.
    * 
    * @example
    * 1.31.9-aliyunedge.1
@@ -188,7 +204,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   kubernetesVersion?: string;
   /**
    * @remarks
-   * The ID of the ALB instance.
+   * The load balancing instance ID.
    * 
    * @example
    * lb-58dngw0fyimzzvwljfec7hy0z
@@ -196,7 +212,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the monitoring object.
+   * The name of the cluster.
    * 
    * @example
    * test-eck-name
@@ -204,12 +220,14 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * For each vSwitch that allocates IP addresses to worker nodes, you must select a vSwitch in the same zone to allocate IP addresses to pods. If you do not specify this parameter, vswitch_ids is used by default.
+   * The IDs of the vSwitches for pods. Each pod vSwitch corresponds to a worker node vSwitch. The pod vSwitch and the worker node vSwitch must be in the same zone. If this parameter is not specified, the value of vswitch_ids is used by default.
    */
   podVswitchIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable Internet access for the application. You can use an elastic IP address (EIP) to expose the API server. This way, you can access the cluster over the Internet. Valid values: true: enables Internet access for the application. false: disables Internet access to the API server of the cluster. If you set the value to false, the API server cannot be accessed over the Internet.
+   * Specifies whether to enable public network access. An elastic IP address (EIP) is used to expose the API server to enable public access to the cluster. Valid values:
+   * - true: enables public network access.
+   * - false: disables public network access. If you set this parameter to false, you cannot access the API server of the cluster over the Internet.
    * 
    * @example
    * true
@@ -217,16 +235,23 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   publicAccess?: boolean;
   /**
    * @remarks
-   * Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The Service CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks of existing ACK clusters in the VPC. You cannot change the Service CIDR block after you create the cluster.
+   * The CIDR block for services. Valid CIDR blocks: 10.0.0.0/16 to 10.0.0.0/24, 172.16.0.0/16 to 172.31.0.0/24, and 192.168.0.0/16 to 192.168.0.0/24. The CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks used by existing Kubernetes clusters in the VPC. The CIDR block cannot be modified after the cluster is created.
    * 
    * @example
    * 192.168.0.0/16
    */
   serviceCidr?: string;
+  /**
+   * @remarks
+   * The status of the cluster.
+   * 
+   * @example
+   * running
+   */
   state?: string;
   /**
    * @remarks
-   * The VPC of the cluster.
+   * The VPC used by the cluster.
    * 
    * @example
    * n-5wsgr3xeolb2ist303wp3cscp
@@ -234,7 +259,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * the id of the vswitch to which the cluster node belongs. The ENS region of the vswitch_ids service must be the same as that of the ens_region_id.
+   * The IDs of the vSwitches where the cluster nodes reside. The ENS region of the vSwitches must be the same as the value of ens_region_id.
    */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -244,7 +269,9 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
       config: 'Config',
       containerCidr: 'ContainerCidr',
       controlPlaneConfig: 'ControlPlaneConfig',
+      created: 'Created',
       ensRegionId: 'EnsRegionId',
+      isp: 'Isp',
       joinToken: 'JoinToken',
       kubernetesVersion: 'KubernetesVersion',
       loadBalancerId: 'LoadBalancerId',
@@ -265,7 +292,9 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
       config: 'any',
       containerCidr: 'string',
       controlPlaneConfig: DescribeClustersV1ResponseBodyClustersControlPlaneConfig,
+      created: 'string',
       ensRegionId: 'string',
+      isp: 'string',
       joinToken: 'string',
       kubernetesVersion: 'string',
       loadBalancerId: 'string',
@@ -300,7 +329,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
 export class DescribeClustersV1ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about clusters.
+   * The list of clusters.
    */
   clusters?: DescribeClustersV1ResponseBodyClusters[];
   /**

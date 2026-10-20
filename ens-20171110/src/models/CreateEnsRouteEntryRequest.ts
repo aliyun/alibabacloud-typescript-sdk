@@ -15,14 +15,16 @@ export class CreateEnsRouteEntryRequest extends $dara.Model {
    * @remarks
    * The destination CIDR block of the custom route entry. Make sure that the following requirements are met:
    * 
-   * *   The destination CIDR block cannot point or belong to 100.64.0.0/10.
-   * *   The destination CIDR blocks of the custom route entries in the same route table cannot overlap.
-   * *   0.0.0.0/0 indicates the default CIDR block.
+   * - The destination CIDR block cannot point or belong to 100.64.0.0/10.
+   * 
+   * - The destination CIDR blocks of the custom route entries in the same route table cannot overlap.
+   * 
+   * - 0.0.0.0/0 indicates the default CIDR block.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0.0.0.0/0
+   * 120.XXX.XXX.0/24
    */
   destinationCidrBlock?: string;
   /**
@@ -39,9 +41,11 @@ export class CreateEnsRouteEntryRequest extends $dara.Model {
    * @remarks
    * The next hop type of the custom route. Valid values:
    * 
-   * *   Instance: an ENS instance.
-   * *   HaVip: a high-availability virtual IP address (HAVIP).
-   * *   NetworkPeer: VPC peering connection.
+   * - Instance: an ENS instance.
+   * 
+   * - HaVip: a high-availability virtual IP address (HAVIP).
+   * 
+   * - NetworkPeer: VPC peering connection.
    * 
    * @example
    * Instance
@@ -49,7 +53,7 @@ export class CreateEnsRouteEntryRequest extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The name of the custom route entry that you want to add. The name must be 1 to 128 characters in length. It cannot start with http:// or https://.
+   * The name of the custom route entry that you want to add. The name must be 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * test

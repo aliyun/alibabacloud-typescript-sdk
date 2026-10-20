@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of instances.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**

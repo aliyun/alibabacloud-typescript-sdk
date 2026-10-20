@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The port used by the backend ELB server of the ELB instance. Valid values: **1** to **65535**.
+   * The port used by backend servers. Valid values: **1** to **65535**.
    * 
    * @example
    * 8080
@@ -13,9 +13,9 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   backendServerPort?: number;
   /**
    * @remarks
-   * The name of the listener. The value must be **1** to **80** characters in length.
+   * The description of the listener. The description must be **1** to **80** characters in length.
    * 
-   * >  The value cannot start with `http://` or `https://`.
+   * > The description cannot start with `http://` or `https://`.
    * 
    * @example
    * example
@@ -23,10 +23,11 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable elastic IP address (EIP) pass-through. Valid values:
+   * Specifies whether to enable EIP passthrough. Valid values:
    * 
-   * *   **on**
-   * *   **off** (default)
+   * - **on**: Enables EIP passthrough.
+   * 
+   * - **off** (default): Disables EIP passthrough.
    * 
    * @example
    * on
@@ -34,7 +35,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   eipTransmit?: string;
   /**
    * @remarks
-   * The timeout period of a connection. Valid values: **10** to **900**. Default value: **900**. Unit: seconds.
+   * The timeout period for established connections, in seconds. Valid values: **10** to **900**. Default value: **900**.
    * 
    * @example
    * 500
@@ -42,7 +43,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   establishedTimeout?: number;
   /**
    * @remarks
-   * The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified for BackendServerPort is used for health checks.
+   * The port used for health checks. Valid values: **1** to **65535**. If you do not specify this parameter, the port specified by `BackendServerPort` is used by default.
    * 
    * @example
    * 8080
@@ -50,13 +51,15 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
+   * The maximum time to wait for a health check response. If a backend ENS instance does not respond within this timeout period, the health check fails.
    * 
-   * *   Default value: 5.
-   * *   Valid values: **1** to **300**.
-   * *   Unit: seconds.
+   * - Default value: 5.
    * 
-   * >  If the value of the HealthCheckConnectTimeout parameter is smaller than that of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckConnectTimeout parameter is ignored and the period of time specified by the HealthCheckInterval parameter is used as the timeout period.
+   * - Valid values: **1** to **300**.
+   * 
+   * - Unit: seconds.
+   * 
+   * > If the value of this parameter is less than the value of `HealthCheckInterval`, this parameter is ignored and the value of `HealthCheckInterval` is used as the timeout period.
    * 
    * @example
    * 100
@@ -64,7 +67,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckConnectTimeout?: number;
   /**
    * @remarks
-   * The domain name that you want to use for health checks.
+   * The domain name used for health checks.
    * 
    * @example
    * www.aliyundoc.com
@@ -72,12 +75,15 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckDomain?: string;
   /**
    * @remarks
-   * The HTTP status codes for a successful health check. Valid values:
+   * The HTTP status codes that indicate a successful health check. Valid values:
    * 
-   * *   **http_2xx** (default)
-   * *   **http_3xx**.
-   * *   **http_4xx**
-   * *   **http_5xx**
+   * - **http_2xx** (default)
+   * 
+   * - **http_3xx**
+   * 
+   * - **http_4xx**
+   * 
+   * - **http_5xx**
    * 
    * @example
    * http_2xx
@@ -85,7 +91,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckHttpCode?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Valid values: **1** to **50**. Default value: **2**. Unit: seconds.
+   * The interval between health checks, in seconds. Valid values: **1** to **50**. Default value: **2**.
    * 
    * @example
    * 3
@@ -93,10 +99,11 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The type of health checks. Valid values:
+   * The health check type. Valid values:
    * 
-   * *   **tcp** (default)
-   * *   **http**
+   * - **tcp** (default)
+   * 
+   * - **http**
    * 
    * @example
    * tcp
@@ -104,9 +111,9 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckType?: string;
   /**
    * @remarks
-   * The Uniform Resource Identifier (URI) that you want to use for health checks. The URI must be **1** to **80** characters in length.
+   * The URI for health checks. The URI must be **1** to **80** characters in length.
    * 
-   * >  The URL must start with `/` and contain characters other than `/`.
+   * > The URI must start with a forward slash (/) but cannot be only a forward slash (/).
    * 
    * @example
    * /checkpreload.htm
@@ -114,7 +121,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthCheckURI?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**. Default value: **3**.
+   * The number of consecutive successful health checks required for a backend server to be considered healthy (from a `fail` to `success` state). Valid values: **2** to **10**. Default value: **3**.
    * 
    * @example
    * 4
@@ -122,7 +129,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The listener port that is used by Edge Load Balancer (ELB) to receive requests and forward the requests to backend servers. Valid values: **1** to **65535**.
+   * The listener port that receives and forwards requests to backend servers. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -132,7 +139,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   listenerPort?: number;
   /**
    * @remarks
-   * The ID of the Edge Load Balancer (ELB) instance.
+   * The ID of the load balancer instance.
    * 
    * This parameter is required.
    * 
@@ -142,11 +149,13 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The timeout period of session persistence.
+   * The timeout period for session persistence.
    * 
-   * *   Default value: 0. If the default value is used, the system disables session persistence.
-   * *   Valid values: **0** to **3600**.
-   * *   Unit: seconds.
+   * - Default value: **0**, which indicates that session persistence is disabled.
+   * 
+   * - Valid values: **0** to **3600**.
+   * 
+   * - Unit: seconds.
    * 
    * @example
    * 0
@@ -156,12 +165,15 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
    * @remarks
    * The scheduling algorithm. Valid values:
    * 
-   * *   **wrr** (default): Backend servers with higher weights receive more requests than backend servers with lower weights.
-   * *   **wlc**: Requests are distributed based on the weights and number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
-   * *   **rr**: Requests are distributed to backend servers in sequence.
-   * *   **sch**: consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
-   * *   **qch**: consistent hashing based on QUIC connection IDs (CIDs). Requests that contain the same QUIC CID are distributed to the same backend server.
-   * *   **iqch**: consistent hashing based on three specific bytes of iQUIC CIDs. Requests with the same second, third, and fourth bytes are distributed to the same backend server.
+   * - **wrr** (default): Weighted Round Robin. Requests are distributed to backend servers based on their weights. Backend servers with higher weights receive more requests.
+   * 
+   * - **wlc**: Weighted Least Connections. Requests are distributed to backend servers based on both their weights and the number of connections. If multiple backend servers have the same weight, the one with the fewest connections receives more requests.
+   * 
+   * - **rr**: Round Robin. Requests are distributed to backend servers in sequential order.
+   * 
+   * - **sch**: Source IP Hash. Requests are routed based on a consistent hash of the source IP address, ensuring that requests from the same source IP address are sent to the same backend server.
+   * 
+   * - **tch**: Four-tuple Hash. Requests are routed based on a consistent hash of a four-tuple (source IP address, destination IP address, source port, and destination port), ensuring that requests from the same flow are sent to the same backend server.
    * 
    * @example
    * wrr
@@ -169,7 +181,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**. Default value: **3**.
+   * The number of consecutive failed health checks required for a backend server to be considered unhealthy (from a `success` to `fail` state). Valid values: **2** to **10**. Default value: **3**.
    * 
    * @example
    * 4

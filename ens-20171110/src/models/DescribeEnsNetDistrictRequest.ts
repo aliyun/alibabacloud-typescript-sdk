@@ -15,14 +15,20 @@ export class DescribeEnsNetDistrictRequest extends $dara.Model {
    * 100106
    */
   netDistrictCode?: string;
+  /**
+   * @remarks
+   * Region code
+   */
   netDistrictCodeNode?: boolean;
   /**
    * @remarks
    * The level of the region.
    * 
-   * *   **Big**: area
-   * *   **Middle**: province
-   * *   **Small**: city
+   * - **Big**: area
+   * 
+   * - **Middle**: province
+   * 
+   * - **Small**: city
    * 
    * This parameter is required.
    * 

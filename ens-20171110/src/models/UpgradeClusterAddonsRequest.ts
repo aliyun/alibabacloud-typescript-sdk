@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeClusterAddonsRequestAddonsConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The configuration version.
+   * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The add-on name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom parameters of the add-on.
+   * 
    * @example
    * {"k1":"v1"}
    */
@@ -54,13 +66,23 @@ export class UpgradeClusterAddonsRequestAddonsConfigSchema extends $dara.Model {
 }
 
 export class UpgradeClusterAddonsRequestAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The schema of the custom parameters for the add-on.
+   */
   configSchema?: UpgradeClusterAddonsRequestAddonsConfigSchema[];
   /**
+   * @remarks
+   * The add-on name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The target version for the upgrade.
+   * 
    * @example
    * v2
    */
@@ -94,9 +116,15 @@ export class UpgradeClusterAddonsRequestAddons extends $dara.Model {
 }
 
 export class UpgradeClusterAddonsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add-on information.
+   */
   addons?: UpgradeClusterAddonsRequestAddons[];
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

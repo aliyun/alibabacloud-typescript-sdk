@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeviceServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * a2bac6f4-75dc-455e-8389-2dc8e47526d3
@@ -13,7 +13,7 @@ export class DescribeDeviceServiceRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * This parameter does not take effect.
+   * Invalid parameter.
    * 
    * @example
    * cn-chongqing-10
@@ -21,7 +21,7 @@ export class DescribeDeviceServiceRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-5sg1owx0g4ojy66ab2tez77r2
@@ -29,7 +29,7 @@ export class DescribeDeviceServiceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2661b1dd-3453-418d-8182-bb34f79e8d3c
@@ -37,7 +37,7 @@ export class DescribeDeviceServiceRequest extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ID of the ENS edge node.
    * 
    * @example
    * cn-chongqing-11

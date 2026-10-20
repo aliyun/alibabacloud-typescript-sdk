@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   /**
    * @remarks
-   * The OSS Bucket where the image is stored.
+   * The OSS bucket that stores the image.
    * 
    * @example
    * www-cn
@@ -13,7 +13,7 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The filename (key) of the image file after it is uploaded to the OSS Bucket.
+   * The file name (key) of the image file stored in the OSS bucket after the image is uploaded.
    * 
    * @example
    * image-bucket
@@ -21,7 +21,7 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   OSSObject?: string;
   /**
    * @remarks
-   * The Region where the image is located.
+   * The region where the image resides.
    * 
    * @example
    * cn-beijing
@@ -55,9 +55,9 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
 export class ImportImageRequest extends $dara.Model {
   /**
    * @remarks
-   * System architecture. Allowed values:</br>
+   * The system architecture. Valid values:</br>
    * 
-   * - x86_64.</br>
+   * - x86_64
    * 
    * Currently, only x86_64 is supported.
    * 
@@ -69,8 +69,9 @@ export class ImportImageRequest extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * `Image Type`
-   * ens_vm: ens virtual machine image (default)
+   * The image type. Valid values:
+   * 
+   * ens_vm: ENS virtual machine image (default).
    * 
    * This parameter is required.
    * 
@@ -80,12 +81,12 @@ export class ImportImageRequest extends $dara.Model {
   computeType?: string;
   /**
    * @remarks
-   * List of custom image information being created.
+   * The list of custom image information.
    */
   diskDeviceMapping?: ImportImageRequestDiskDeviceMapping[];
   /**
    * @remarks
-   * Image format. Allowed values:</br>
+   * The image format. Valid values:</br>
    * qcow2.</br>
    * Currently, only qcow2 is supported.
    * 
@@ -97,18 +98,25 @@ export class ImportImageRequest extends $dara.Model {
   imageFormat?: string;
   /**
    * @remarks
-   * Image name. The length should be [2, 128] English or Chinese characters. It must start with a letter (uppercase or lowercase) or a Chinese character, and cannot start with http:// or https://. It can contain numbers, colons (:), underscores (_), or hyphens (-).
+   * The image name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
    * 
    * This parameter is required.
    * 
    * @example
-   * 镜像名称
+   * ImageName
    */
   imageName?: string;
+  /**
+   * @remarks
+   * The image license type. Valid values: Aliyun (Alibaba Cloud license) and BYOL (Bring Your Own Key).
+   * 
+   * @example
+   * Aliyun
+   */
   licenseType?: string;
   /**
    * @remarks
-   * The OSS Bucket where the image file is located.
+   * The OSS bucket that stores the image file.
    * 
    * @example
    * tmp-hybrid
@@ -124,7 +132,7 @@ export class ImportImageRequest extends $dara.Model {
   OSSObject?: string;
   /**
    * @remarks
-   * The Region where the image is located. Currently, only cn-beijing is supported.
+   * The region where the image resides. Currently, only cn-beijing is supported.
    * 
    * @example
    * cn-beijing
@@ -132,10 +140,10 @@ export class ImportImageRequest extends $dara.Model {
   OSSRegion?: string;
   /**
    * @remarks
-   * Operating system platform type. Allowed values:
+   * The type of the operating system platform. Valid values:
    * 
-   * - windows.
-   * - linux.
+   * - windows
+   * - linux
    * 
    * Currently, only linux is supported.
    * 
@@ -147,7 +155,7 @@ export class ImportImageRequest extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * Operating system distribution version
+   * The version of the operating system distribution.
    * 
    * @example
    * 6.8
@@ -155,7 +163,7 @@ export class ImportImageRequest extends $dara.Model {
   OSVersion?: string;
   /**
    * @remarks
-   * Operating system distribution. Allowed values:
+   * The operating system distribution. Valid values:
    * * centos
    * * ubuntu
    * 
@@ -165,7 +173,7 @@ export class ImportImageRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The target OSS region where the image will be stored.</br>
+   * The region of the destination OSS bucket where the image is stored.</br>
    * 
    * > Currently, only cn-beijing and ap-southeast-1 are supported.
    * 

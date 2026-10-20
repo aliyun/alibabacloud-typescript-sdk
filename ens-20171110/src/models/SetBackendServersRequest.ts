@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SetBackendServersRequestBackendServers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that you use as the backend server.
+   * The IP address.
+   * 
+   * @example
+   * 192.168.0.10
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The instance ID of the backend server.
    * 
    * This parameter is required.
    * 
@@ -15,10 +23,9 @@ export class SetBackendServersRequestBackendServers extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The type of the backend server. Valid values:
-   * 
-   * *   **ens**: ENS instance
-   * *   **eni**: elastic network interface (ENI)
+   * The server type of the backend server. Valid values:
+   * - **ens**: ENS instance.
+   * - **eni**: elastic network interfaces (ENIs) instance. The backend server is a network interface controller (NIC).
    * 
    * @example
    * ens
@@ -28,7 +35,7 @@ export class SetBackendServersRequestBackendServers extends $dara.Model {
    * @remarks
    * The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
    * 
-   * >  The value 0 indicates that requests are not forwarded to the backend server.
+   * > A value of 0 indicates that no requests are forwarded to the backend server.
    * 
    * This parameter is required.
    * 
@@ -38,6 +45,7 @@ export class SetBackendServersRequestBackendServers extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      ip: 'Ip',
       serverId: 'ServerId',
       type: 'Type',
       weight: 'Weight',
@@ -46,6 +54,7 @@ export class SetBackendServersRequestBackendServers extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ip: 'string',
       serverId: 'string',
       type: 'string',
       weight: 'number',
@@ -64,14 +73,14 @@ export class SetBackendServersRequestBackendServers extends $dara.Model {
 export class SetBackendServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of backend servers that you added. You can modify the weights of up to 20 backend servers in each request.
+   * The list of backend servers to add. You can modify up to 20 backend servers in each call.
    * 
    * This parameter is required.
    */
   backendServers?: SetBackendServersRequestBackendServers[];
   /**
    * @remarks
-   * The ID of the Edge Load Balancer (ELB) instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 

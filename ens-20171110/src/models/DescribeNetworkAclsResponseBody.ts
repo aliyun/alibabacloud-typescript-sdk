@@ -39,8 +39,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The action that is performed on network traffic that matches the rule. Valid values:
    * 
-   * *   **accept**: allows the network traffic.
-   * *   **drop**: blocks the network traffic.
+   * - **accept**: allows the network traffic.
+   * 
+   * - **drop**: blocks the network traffic.
    * 
    * @example
    * accept
@@ -50,8 +51,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The destination port range of the outbound rule.
    * 
-   * *   If **Protocol** of the outbound rule is set to **all** or **icmp** the port range is **-1/-1**, which indicates all ports.
-   * *   If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+   * - If **Protocol** of the outbound rule is set to **all** or **icmp** the port range is **-1/-1**, which indicates all ports.
+   * 
+   * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
    * 
    * @example
    * -1/-1
@@ -69,10 +71,13 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   **icmp**: ICMP.
-   * *   **tcp**: TCP.
-   * *   **udp**: UDP.
-   * *   **all**: all protocols.
+   * - **icmp**: ICMP.
+   * 
+   * - **tcp**: TCP.
+   * 
+   * - **udp**: UDP.
+   * 
+   * - **all**: all protocols.
    * 
    * @example
    * all
@@ -82,8 +87,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   **system**: The rule is created by the system.
-   * *   **custom**: The rule is created by a user.
+   * - **system**: The rule is created by the system.
+   * 
+   * - **custom**: The rule is created by a user.
    * 
    * @example
    * system
@@ -143,6 +149,13 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * This is IngressAclEntries.
    */
   description?: string;
+  /**
+   * @remarks
+   * The destination network.
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
   destinationCidrBlock?: string;
   /**
    * @remarks
@@ -164,8 +177,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The action that is performed on network traffic that matches the rule. Valid values:
    * 
-   * *   **accept**: allows the network traffic.
-   * *   **drop**: blocks the network traffic.
+   * - **accept**: allows the network traffic.
+   * 
+   * - **drop**: blocks the network traffic.
    * 
    * @example
    * accept
@@ -175,8 +189,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The destination port range of the inbound rule.
    * 
-   * *   If **Protocol** of the inbound rule is set to **all** or **icmp**, the port range is **-1/-1**, which indicates all ports.
-   * *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+   * - If **Protocol** of the inbound rule is set to **all** or **icmp**, the port range is **-1/-1**, which indicates all ports.
+   * 
+   * - If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
    * 
    * @example
    * -1/-1
@@ -194,10 +209,13 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   **icmp**: ICMP.
-   * *   **tcp**: TCP.
-   * *   **udp**: UDP.
-   * *   **all**: all protocols.
+   * - **icmp**: ICMP.
+   * 
+   * - **tcp**: TCP.
+   * 
+   * - **udp**: UDP.
+   * 
+   * - **all**: all protocols.
    * 
    * @example
    * all
@@ -207,8 +225,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   **system**: The rule is created by the system.
-   * *   **custom**: The rule is created by a user.
+   * - **system**: The rule is created by the system.
+   * 
+   * - **custom**: The rule is created by a user.
    * 
    * @example
    * system
@@ -282,9 +301,11 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsResources extends $dara.M
    * @remarks
    * The association status of the resource. Valid values:
    * 
-   * *   **BINDED**: The resource is associated with the network ACL.
-   * *   **BINDING**: The resource is being associated with the network ACL.
-   * *   **UNBINDING**: The resource is being disassociated from the network ACL.
+   * - **BINDED**: The resource is associated with the network ACL.
+   * 
+   * - **BINDING**: The resource is being associated with the network ACL.
+   * 
+   * - **UNBINDING**: The resource is being disassociated from the network ACL.
    * 
    * @example
    * BINDING
@@ -369,8 +390,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAcls extends $dara.Model {
    * @remarks
    * The status of the network ACL. Valid values:
    * 
-   * *   **Available**: The network ACL is available.
-   * *   **Modifying**: The network ACL is being configured.
+   * - **Available**: The network ACL is available.
+   * 
+   * - **Modifying**: The network ACL is being configured.
    * 
    * @example
    * Available

@@ -118,7 +118,7 @@ export class DescribeAvailableResourceResponseBodySupportResources extends $dara
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The business return code. The value 0 indicates success.
    * 
    * @example
    * 0
@@ -127,7 +127,7 @@ export class DescribeAvailableResourceResponseBody extends $dara.Model {
   images?: DescribeAvailableResourceResponseBodyImages;
   /**
    * @remarks
-   * The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The common parameter. Each request ID is unique and active for troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

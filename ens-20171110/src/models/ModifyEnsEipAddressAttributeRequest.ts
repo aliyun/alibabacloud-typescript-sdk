@@ -23,7 +23,7 @@ export class ModifyEnsEipAddressAttributeRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The new description of the EIP. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The new description of the EIP. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * abc
@@ -31,7 +31,7 @@ export class ModifyEnsEipAddressAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new name of the EIP. The name must be 2 to 128 characters in length and cannot start with http:// or https://.
+   * The new name of the EIP. The name must be 2 to 128 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * test-api-modify

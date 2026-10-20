@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The node pool ID.
    * 
    * @example
    * np751e9d5464cf4ef081087137f33e4528
@@ -21,7 +23,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -29,7 +31,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * This parameter is required.
+   * The number of entries per page.
    * 
    * @example
    * 10

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CopySDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination nodes.
+   * The list of destination edge zones.
    * 
    * This parameter is required.
    */
   destinationRegionIdsShrink?: string;
   /**
    * @remarks
-   * The ID of the SDG that you want to copy.
+   * The ID of the SDG to copy.
    * 
    * This parameter is required.
    * 

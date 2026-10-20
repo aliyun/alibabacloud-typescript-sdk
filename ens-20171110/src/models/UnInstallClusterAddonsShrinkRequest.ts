@@ -3,9 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnInstallClusterAddonsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add-on information.
+   */
   addonsShrink?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
+   * The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -10,15 +10,16 @@ export class SetLoadBalancerStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * lb-5t18quoohsrc3xkf86spmnu77
+   * lb-5t18quoohsrc3xkf86sp*****
    */
   loadBalancerId?: string;
   /**
    * @remarks
    * The new instance status. Valid values:
    * 
-   * *   **Active**
-   * *   **InActive**
+   * - **Active**
+   * 
+   * - **InActive**
    * 
    * This parameter is required.
    * 

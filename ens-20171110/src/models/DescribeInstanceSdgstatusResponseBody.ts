@@ -3,13 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the writable layer of the block device. Unit: GiB. A value of 0 indicates that this feature is disabled.
+   * 
+   * @example
+   * 20
+   */
   blockRwSplitSize?: number;
+  /**
+   * @remarks
+   * The cache size. Unit: GiB. A value of 0 indicates that this feature is disabled.
+   * 
+   * @example
+   * 20
+   */
   cacheSize?: number;
+  /**
+   * @remarks
+   * The disk access protocol type of the mounted shared cloud disk.
+   * 
+   * @example
+   * iscsi
+   */
   diskAccessProtocol?: string;
+  /**
+   * @remarks
+   * The disk type of the mounted shared cloud disk.
+   * 
+   * @example
+   * standard
+   */
   diskType?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID.
    * 
    * @example
    * cn-guangzhou-26
@@ -17,7 +45,7 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the AIC instance.
+   * The AIC instance ID.
    * 
    * @example
    * aic-xxxx
@@ -33,7 +61,7 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
   mountType?: string;
   /**
    * @remarks
-   * Deployment Phase
+   * The deployment phase of the SDG.
    * 
    * @example
    * attach
@@ -57,7 +85,7 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
   status?: string;
   /**
    * @remarks
-   * The time when the status was last updated.
+   * The latest status update time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-02-17T02:44:31Z
@@ -107,12 +135,12 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
 export class DescribeInstanceSDGStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment information of the SDGs.
+   * The list of SDG deployment information.
    */
   deploymentStatus?: DescribeInstanceSDGStatusResponseBodyDeploymentStatus[];
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -120,7 +148,7 @@ export class DescribeInstanceSDGStatusResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The Settings for the number of entries per page for paging in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -136,7 +164,7 @@ export class DescribeInstanceSDGStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried deployment records.
+   * The total number of deployment records returned.
    * 
    * @example
    * 1

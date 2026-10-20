@@ -65,9 +65,11 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstancesSdgDeployI
    * @remarks
    * The deployment status of the SDG. Valid values:
    * 
-   * *   **sdg_deploying**
-   * *   **failed**
-   * *   **success**
+   * - **sdg_deploying**: Being deployed.
+   * 
+   * - **failed**: Deployment failed.
+   * 
+   * - **success**: Deployment succeeded.
    * 
    * @example
    * success
@@ -107,7 +109,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   frequency?: number;
   /**
    * @remarks
-   * The ID of the AIC image.
+   * The AIC image ID.
    * 
    * @example
    * m-****
@@ -115,7 +117,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   imageId?: string;
   /**
    * @remarks
-   * The ID of the AIC instance.
+   * The AIC instance ID.
    * 
    * @example
    * aic-instance****
@@ -123,7 +125,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   instanceId?: string;
   /**
    * @remarks
-   * The operation that was most recently performed.
+   * The most recent operation.
    * 
    * @example
    * ServerCreate
@@ -131,7 +133,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   latestAction?: string;
   /**
    * @remarks
-   * The name of the container.
+   * The container name.
    * 
    * @example
    * AIC-Name
@@ -139,7 +141,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   name?: string;
   /**
    * @remarks
-   * The network attributes of the AIC instance.
+   * The network attributes.
    */
   networkAttributes?: DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes;
   /**
@@ -152,7 +154,7 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   resolution?: string;
   /**
    * @remarks
-   * The information about the shared data group (SDG) that is deployed on the AIC instance.
+   * The shared data group (SDG) information deployed on the instance.
    */
   sdgDeployInfo?: DescribeARMServerInstancesResponseBodyServersAICInstancesSdgDeployInfo;
   /**
@@ -165,14 +167,13 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   spec?: string;
   /**
    * @remarks
-   * The operation status of the AIC instance. Valid values:
-   * 
-   * *   **success**
-   * *   **failed**
-   * *   **creating**
-   * *   **releasing**
-   * *   **rebooting**
-   * *   **reseting**
+   * The operation state of the AIC instance. Valid values:
+   * - **success**: Succeeded.
+   * - **failed**: Failed.
+   * - **creating**: Being created.
+   * - **releasing**: Being released.
+   * - **rebooting**: Being restarted.
+   * - **reseting**: Being reset.
    * 
    * @example
    * success
@@ -181,10 +182,9 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   /**
    * @remarks
    * The running status of the AIC instance. Valid values:
-   * 
-   * *   **running**
-   * *   **pending**
-   * *   **terminating**
+   * - **running**: Running.
+   * - **pending**: Pending.
+   * - **terminating**: Being terminated.
    * 
    * @example
    * running
@@ -238,7 +238,21 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
 }
 
 export class DescribeARMServerInstancesResponseBodyServersTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,7 +280,7 @@ export class DescribeARMServerInstancesResponseBodyServersTags extends $dara.Mod
 export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   /**
    * @remarks
-   * The information about the AIC instances.
+   * The array of AIC instance information.
    */
   AICInstances?: DescribeARMServerInstancesResponseBodyServersAICInstances[];
   /**
@@ -279,7 +293,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-hanghzou-27
@@ -295,7 +309,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The operation that was most recently performed.
+   * The most recent operation.
    * 
    * @example
    * ServerCreate
@@ -303,7 +317,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   latestAction?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The server name.
    * 
    * @example
    * Server-Name
@@ -311,7 +325,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the cluster to which the server belongs.
+   * The namespace of the cluster to which the card belongs.
    * 
    * @example
    * default
@@ -327,7 +341,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The ID of the server.
+   * The server ID.
    * 
    * @example
    * cas-******
@@ -343,14 +357,13 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The operation status of the server. Valid values:
-   * 
-   * *   **success**
-   * *   **failed**
-   * *   **creating**
-   * *   **releasing**
-   * *   **rebooting**
-   * *   **upgrading**
+   * The operation state of the server. Valid values:
+   * - **success**: Succeeded.
+   * - **failed**: Failed.
+   * - **creating**: Being created.
+   * - **releasing**: Being released.
+   * - **rebooting**: Being restarted.
+   * - **upgrading**: Being upgraded.
    * 
    * @example
    * success
@@ -359,16 +372,19 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
   /**
    * @remarks
    * The running status of the server. Valid values:
-   * 
-   * *   **running**
-   * *   **stopping**
-   * *   **down**
-   * *   **starting**
+   * - **running**: Running.
+   * - **stopping**: Being stopped.
+   * - **down**: Shut down.
+   * - **starting**: Being started.
    * 
    * @example
    * running
    */
   status?: string;
+  /**
+   * @remarks
+   * The collection of tags.
+   */
   tags?: DescribeARMServerInstancesResponseBodyServersTags[];
   static names(): { [key: string]: string } {
     return {
@@ -424,7 +440,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $dara.Model {
 export class DescribeARMServerInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance list.
    * 
    * @example
    * 1
@@ -432,7 +448,7 @@ export class DescribeARMServerInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page that was specified in the request.
    * 
    * @example
    * 10
@@ -440,7 +456,7 @@ export class DescribeARMServerInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -448,12 +464,12 @@ export class DescribeARMServerInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the servers and the AIC instances.
+   * The array of ARM server and AIC instance information.
    */
   servers?: DescribeARMServerInstancesResponseBodyServers[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of instances returned.
    * 
    * @example
    * 2

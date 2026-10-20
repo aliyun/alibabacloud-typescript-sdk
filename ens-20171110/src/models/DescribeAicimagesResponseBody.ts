@@ -4,16 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAICImagesResponseBodyImages extends $dara.Model {
   /**
+   * @remarks
+   * The Android version of the image.
+   * 
    * @example
    * 10
    */
   androidVersion?: string;
   /**
    * @remarks
-   * The time when the image was created.
+   * The time when the image was created, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
-   * 2022-09-22 10:54:34
+   * 2022-01-22 10:54:34
    */
   creationTime?: string;
   /**
@@ -21,12 +24,12 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
    * The description of the image.
    * 
    * @example
-   * Test operation of console
+   * Console test operation
    */
   description?: string;
   /**
    * @remarks
-   * The image ID of the AIC instance.
+   * The ID of the Android in Container (AIC) image.
    * 
    * @example
    * m-ad0ddaddc2d54adeaa09b7c0f1e****
@@ -42,7 +45,7 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The status of the image. **Available** is returned for this parameter. Available indicates that the image is available.
+   * The image status. Valid values: **available**.
    * 
    * @example
    * available
@@ -50,7 +53,7 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The username of the image repository.
+   * The repository username of the image.
    * 
    * @example
    * user
@@ -92,7 +95,7 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
 export class DescribeAICImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the images.
+   * The array of image information.
    */
   images?: DescribeAICImagesResponseBodyImages[];
   /**
@@ -105,7 +108,7 @@ export class DescribeAICImagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging.
    * 
    * Default value: 10.
    * 
@@ -115,7 +118,7 @@ export class DescribeAICImagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 72DC6C0A-D9A8-5345-A2BE-FE354CC728A0
@@ -123,7 +126,7 @@ export class DescribeAICImagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

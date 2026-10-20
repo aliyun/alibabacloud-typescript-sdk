@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the SDGs that you want to delete.
+   * The list of SDGs to delete.
    * 
    * This parameter is required.
    */

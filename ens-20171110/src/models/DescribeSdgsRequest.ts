@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDGsRequest extends $dara.Model {
   /**
    * @remarks
-   * The AIC instance ID to be queried.
+   * The list of AIC instance IDs to query.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The IDs of SDGs that you want to query. By default, all SDGs are queried.
+   * The list of SDG IDs to query.
    */
   SDGIds?: string[];
   static names(): { [key: string]: string } {

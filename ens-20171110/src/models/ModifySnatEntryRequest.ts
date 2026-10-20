@@ -7,22 +7,28 @@ export class ModifySnatEntryRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable IP affinity. Default value: true. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**
    * 
-   * >  Description After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
+   * - **true**
+   * 
+   * > Description After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
    * 
    * @example
    * false
    */
   eipAffinity?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable carrier affinity.
+   * 
    * @example
    * true
    */
   ispAffinity?: boolean;
   /**
    * @remarks
+   * The ID of the SNAT entry.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,9 @@ export class ModifySnatEntryRequest extends $dara.Model {
    */
   snatEntryId?: string;
   /**
+   * @remarks
+   * The name of the SNAT entry. The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test0
    */

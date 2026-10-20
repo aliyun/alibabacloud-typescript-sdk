@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBucketInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * Bucket name.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENS node.
+   * Specifies whether to query vSwitches with IPv6 CIDR blocks enabled. Valid values:
+   * - true: Queries vSwitches with IPv6 CIDR blocks enabled in the specified region.
+   * - false: Does not query vSwitches with IPv6 CIDR blocks enabled in the specified region.
+   * 
+   * If you do not specify this parameter, the system queries all vSwitches by default.
+   * 
+   * @example
+   * false
+   */
+  enableIpv6?: boolean;
+  /**
+   * @remarks
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-xian-unicom
@@ -13,12 +25,12 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. You can specify 1 to 100 IDs.
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the vSwitch belongs.
+   * The ID of the VPC to which the vSwitch to be queried belongs.
    * 
    * @example
    * vpc-25cdvfeq58pl****
@@ -26,7 +38,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -34,7 +46,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -42,7 +54,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5m9xhlq8oh***
@@ -50,12 +62,12 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The IDs of vSwitches. You can specify 1 to 100 IDs.
+   * The array of vSwitch IDs. Array length: 1 to 100.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The name of the vSwitch.
+   * The vSwitch name.
    * 
    * @example
    * testVSwitchName
@@ -63,6 +75,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vSwitchName?: string;
   static names(): { [key: string]: string } {
     return {
+      enableIpv6: 'EnableIpv6',
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
       networkId: 'NetworkId',
@@ -76,6 +89,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableIpv6: 'boolean',
       ensRegionId: 'string',
       ensRegionIds: { 'type': 'array', 'itemType': 'string' },
       networkId: 'string',

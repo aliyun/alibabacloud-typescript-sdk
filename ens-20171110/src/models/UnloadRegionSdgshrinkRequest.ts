@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UnloadRegionSDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination nodes.
+   * The list of destination edge zones.
    * 
    * This parameter is required.
    */
   destinationRegionIdsShrink?: string;
   /**
    * @remarks
-   * An array that consists of queried namespaces.
+   * The list of namespaces.
    */
   namespacesShrink?: string;
   /**
    * @remarks
-   * Deletes the shared data group (SDG) ID of the preloaded data.
+   * The ID of the SDG from which to delete preloaded data.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the device.
+   * The device ID.
    * 
    * @example
    * h-uf6009zoa6hdbjyqxcn1
@@ -13,7 +13,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   ID?: string;
   /**
    * @remarks
-   * The IP address of the device.
+   * The device IP address.
    * 
    * @example
    * 10.152.196.36
@@ -21,7 +21,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   IP?: string;
   /**
    * @remarks
-   * The Internet service provider (ISP) to which the device belongs.
+   * The ISP of the device.
    * 
    * @example
    * telecom
@@ -29,7 +29,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   ISP?: string;
   /**
    * @remarks
-   * The media access control (MAC) address of the device.
+   * The MAC address of the device.
    * 
    * @example
    * 24:0B:88:04:71:E0
@@ -37,7 +37,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   mac?: string;
   /**
    * @remarks
-   * The ID of the edge node to which the device belongs.
+   * The ID of the edge node where the device is located.
    * 
    * @example
    * cn-chongqing-1
@@ -45,7 +45,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   regionID?: string;
   /**
    * @remarks
-   * The name of the server on which the device is deployed.
+   * The name of the server NC where the device is located.
    * 
    * @example
    * ens-nc2
@@ -53,7 +53,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   server?: string;
   /**
    * @remarks
-   * The status of the device.
+   * The device status.
    * 
    * @example
    * Running
@@ -61,7 +61,7 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The type of the instance.
+   * The device type.
    * 
    * @example
    * ens.ac6.large
@@ -105,12 +105,12 @@ export class RescaleDeviceServiceResponseBodyResourceDetailInfos extends $dara.M
 export class RescaleDeviceServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the devices.
+   * The list of device IDs.
    */
   deviceIds?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * b3b5bb9a-4e0b-4cac-8ebf-e5e015726723
@@ -118,7 +118,7 @@ export class RescaleDeviceServiceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3F3F3570-E721-53F6-853F-37B7725AC6CB
@@ -126,7 +126,7 @@ export class RescaleDeviceServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The key properties of the device.
+   * The list of primary device attributes.
    */
   resourceDetailInfos?: RescaleDeviceServiceResponseBodyResourceDetailInfos[];
   static names(): { [key: string]: string } {

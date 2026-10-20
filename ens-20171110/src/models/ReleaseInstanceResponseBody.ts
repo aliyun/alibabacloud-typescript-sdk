@@ -17,12 +17,17 @@ export class ReleaseInstanceResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   instance
-   * *   eip
-   * *   disk
-   * *   network
-   * *   natgateway
-   * *   vswitch
+   * - instance
+   * 
+   * - eip
+   * 
+   * - disk
+   * 
+   * - network
+   * 
+   * - natgateway
+   * 
+   * - vswitch
    * 
    * @example
    * eip

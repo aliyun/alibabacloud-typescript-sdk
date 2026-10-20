@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventRebootInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the Request.
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06

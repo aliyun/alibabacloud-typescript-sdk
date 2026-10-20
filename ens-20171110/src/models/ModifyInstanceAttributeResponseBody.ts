@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. 0 indicates that the request was successful.
+   * The business return code. A value of 0 indicates success.
    * 
    * @example
    * 200

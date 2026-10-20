@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveVSwitchesFromEpnInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of theEPN instance.
+   * The Edge Private Network (EPN) instance ID. The NetworkingModel of the EPN instance must be Connection or SpeedUpAndConnection. The SpeedUp pattern does not support vSwitch operations.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class RemoveVSwitchesFromEpnInstanceRequest extends $dara.Model {
   EPNInstanceId?: string;
   /**
    * @remarks
-   * The internal networking information that you want to delete.
+   * The internal network configuration information to remove.
    * 
    * This parameter is required.
    * 
    * @example
-   * VSwitchesInfo=[{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
+   * [{"VSwitchId":"vs-ixxxx"}]
    */
   vSwitchesInfo?: string;
   static names(): { [key: string]: string } {

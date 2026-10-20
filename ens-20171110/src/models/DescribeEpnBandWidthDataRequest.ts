@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EPN instance.
+   * The instance ID of the edge-to-edge network.
    * 
    * @example
    * epn-20200825134537VyK81T
@@ -15,8 +15,9 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query.
    * 
-   * *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+   * - The time must be in UTC and in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
+   * - If the seconds value is not 00, the end time is automatically set to the beginning of the next minute.
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -34,7 +35,7 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-5sg1owx0g4ojy66ab2tez77r2
@@ -43,11 +44,10 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   /**
    * @remarks
    * The Internet service provider (ISP). Valid values:
-   * 
-   * *   cmcc: China Mobile
-   * *   telecom: China Telecom
-   * *   unicom: China Unicom
-   * *   multiCarrier: multi-line ISP
+   * - cmcc: China Mobile.
+   * - telecom: China Telecom.
+   * - unicom: China Unicom.
+   * - multiCarrier: multi-ISP.
    * 
    * @example
    * cmcc
@@ -56,10 +56,9 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   /**
    * @remarks
    * The networking mode. Valid values:
-   * 
-   * *   **SpeedUp**: intelligent acceleration network (Internet)
-   * *   **Connection**: internal network
-   * *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
+   * - **SpeedUp**: intelligent acceleration (public network).
+   * - **Connection**: internal network connectivity (internal network mode).
+   * - **SpeedUpAndConnection**: intelligent acceleration and internal network connectivity (internal network mode).
    * 
    * @example
    * SpeedUp
@@ -67,7 +66,7 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   networkingModel?: string;
   /**
    * @remarks
-   * The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
+   * The precision of the monitoring data. Valid values: 300 (default), 1200, 3600, and 14400. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -77,10 +76,11 @@ export class DescribeEpnBandWidthDataRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start of the time range to query.
    * 
-   * *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+   * - The time must be in UTC and in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
+   * - If the seconds value is not 00, the start time is automatically set to the beginning of the next minute.
    * 
    * This parameter is required.
    * 

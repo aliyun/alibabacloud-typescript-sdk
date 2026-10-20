@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ss format. The time is displayed in UTC.
    * 
    * @example
-   * 2020-08-20T14:52:28Z
+   * 2020-08-20 14:52:28
    */
   creationTime?: string;
   /**
    * @remarks
-   * The description of the snapshot.
+   * The description.
    * 
    * @example
    * testDescription
@@ -21,7 +21,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-beijing-15
@@ -29,7 +29,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The capacity of the disk. Unit: MiB.
+   * The disk capacity. Unit: MiB.
    * 
    * @example
    * 40
@@ -37,7 +37,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * The ID of the snapshot.
+   * The snapshot ID.
    * 
    * @example
    * s-bp67acfmxazb4p****
@@ -45,7 +45,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
+   * The display name of the snapshot. This field is returned if a display name was specified when the snapshot was created.
    * 
    * @example
    * testSnapshotName
@@ -53,12 +53,20 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The type of the disk. Valid value:
+   * The snapshot type.
    * 
-   * *   cloud_efficiency: ultra disk
-   * *   cloud_ssd: all-flash disk
-   * *   local_hdd: local HDD
-   * *   local_ssd: local SSD
+   * @example
+   * manual
+   */
+  snapshotType?: string;
+  /**
+   * @remarks
+   * The disk type. Valid values:
+   * 
+   * - cloud_efficiency: ultra cloud disk.
+   * - cloud_ssd: all-flash cloud disk.
+   * - local_hdd: local HDD.
+   * - local_ssd: local SSD.
    * 
    * @example
    * cloud_efficiency
@@ -66,7 +74,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskCategory?: string;
   /**
    * @remarks
-   * The ID of the source disk. This parameter is retained even after the source disk for which the snapshot was created is released.
+   * The ID of the source cloud disk. This field is retained even if the source cloud disk of the snapshot has been released.
    * 
    * @example
    * d-bp67acfmxazb4ph****
@@ -74,10 +82,10 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskId?: string;
   /**
    * @remarks
-   * The type of the disk. Valid value:
+   * The disk property. Valid values:
    * 
-   * *   1: system disk
-   * *   2: data disk
+   * - 1: system cloud disk.
+   * - 2: data cloud disk.
    * 
    * @example
    * 1
@@ -85,7 +93,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The ID of the source edge node.
+   * The ID of the source ENS edge zone.
    * 
    * @example
    * cn-hangzhou-27
@@ -101,12 +109,12 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceSnapshotId?: string;
   /**
    * @remarks
-   * The status of the snapshot. Valid value:
+   * The snapshot status. Valid values:
    * 
-   * *   creating: The snapshot is being created.
-   * *   Available: The snapshot is available.
-   * *   deleting: The snapshot is being deleted.
-   * *   error: An error occurred on the snapshot.
+   * - creating: The snapshot is being created.
+   * - available: The snapshot is available.
+   * - deleting: The snapshot is being deleted.
+   * - error: An error occurred.
    * 
    * @example
    * available
@@ -120,6 +128,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       size: 'Size',
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
+      snapshotType: 'SnapshotType',
       sourceDiskCategory: 'SourceDiskCategory',
       sourceDiskId: 'SourceDiskId',
       sourceDiskType: 'SourceDiskType',
@@ -137,6 +146,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       size: 'string',
       snapshotId: 'string',
       snapshotName: 'string',
+      snapshotType: 'string',
       sourceDiskCategory: 'string',
       sourceDiskId: 'string',
       sourceDiskType: 'string',
@@ -158,7 +168,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current query.
    * 
    * @example
    * 1
@@ -166,7 +176,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -182,7 +192,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the snapshots.
+   * The collection of snapshot details.
    */
   snapshots?: DescribeSnapshotsResponseBodySnapshots[];
   /**

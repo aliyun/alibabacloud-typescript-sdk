@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyClusterAddonRequestAddonConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * d0ead1f4e28de0f9e3c86588409a88a4
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The configuration version.
+   * 
    * @example
    * d0ead1f4e28de0f9e3c86588409a88a4
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom parameters.
+   * 
    * @example
    * {"k1":"v1"}
    */
@@ -54,13 +66,23 @@ export class ModifyClusterAddonRequestAddonConfigSchema extends $dara.Model {
 }
 
 export class ModifyClusterAddonRequestAddon extends $dara.Model {
+  /**
+   * @remarks
+   * The schema of the custom parameters for the add-on.
+   */
   configSchema?: ModifyClusterAddonRequestAddonConfigSchema[];
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * v1
    */
@@ -94,9 +116,15 @@ export class ModifyClusterAddonRequestAddon extends $dara.Model {
 }
 
 export class ModifyClusterAddonRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter settings of the add-on.
+   */
   addon?: ModifyClusterAddonRequestAddon;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -105,6 +133,8 @@ export class ModifyClusterAddonRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The name of the add-on. It must reference an installed add-on in the target cluster.
+   * 
    * This parameter is required.
    * 
    * @example

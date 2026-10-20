@@ -8,15 +8,16 @@ export class DescribeEnsRegionIdIpv6InfoResponseBodySupportIpv6Info extends $dar
    * The ID of the node.
    * 
    * @example
-   * cn-chengdu-xxxx-4
+   * cn-chengdu-****-4
    */
   ensRegionId?: string;
   /**
    * @remarks
    * Specifies whether IPv6 is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

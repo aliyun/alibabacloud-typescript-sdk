@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the system event.
+   * The system event ID.
    * 
    * @example
    * e-4452cec5a8f8eb9b2879a054207687d6
@@ -13,10 +13,11 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The type of the O\\&M task.
+   * The O&M task type. Valid values:
    * 
-   * *   immediate
-   * *   scheduled
+   * - immediate: immediate execution.
+   * 
+   * - scheduled: scheduled execution.
    * 
    * @example
    * immediate
@@ -24,7 +25,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+   * The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
    * 
    * @example
    * 1742452232000
@@ -33,7 +34,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
   planUtcTime?: string;
   /**
    * @remarks
-   * A client ID.
+   * The resource ID.
    * 
    * @example
    * n-54hi3ffi63zrjt4wzx9mepeyh
@@ -71,7 +72,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
 export class BatchEventRebootInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The details of events.
+   * The list of events.
    */
   eventInfos?: BatchEventRebootInstanceRequestEventInfos[];
   static names(): { [key: string]: string } {

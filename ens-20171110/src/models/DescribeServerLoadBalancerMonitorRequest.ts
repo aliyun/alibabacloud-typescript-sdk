@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServerLoadBalancerMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
+   * The end time. The maximum interval between StartTime and EndTime cannot exceed 24 hours.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeServerLoadBalancerMonitorRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancing instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeServerLoadBalancerMonitorRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The start time in the format of yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseARMServerInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DCAE84DF-4187-5CC5-B819-37BCD2B83BD3

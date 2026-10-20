@@ -4,17 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAICInstanceTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * One or more environment variables to set during instance initialization.
+   * 
    * @example
    * [object Object]
    */
   environmentVar?: string;
   /**
+   * @remarks
+   * The refresh rate. Unit: Hz. Valid values:
+   * - 30
+   * - 60
+   * - 120
+   * 
    * @example
    * 30
    */
   frequency?: number;
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +34,8 @@ export class ModifyAICInstanceTypeRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
+   * The ID of the instance whose specifications you want to modify.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +44,8 @@ export class ModifyAICInstanceTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The target AIC container instance specifications.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +53,17 @@ export class ModifyAICInstanceTypeRequest extends $dara.Model {
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The resolution. Valid values:
+   * - 1920*1080
+   * - 1080*1920
+   * - 1280*720
+   * - 720*1280
+   * - 2400*1080
+   * - 1080*2400
+   * - 1920*864
+   * - 864*1920
+   * 
    * @example
    * 720*1280
    */

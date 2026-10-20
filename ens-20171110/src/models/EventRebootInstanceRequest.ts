@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventRebootInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the system event.
+   * The ID of the system Event.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class EventRebootInstanceRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The type of the O\\&M task. Valid values:
+   * The type of the operation. Valid values:
    * 
-   * *   immediate
-   * *   scheduled
+   * - immediate: Executes the operation immediately.
+   * 
+   * - scheduled: Executes the operation at the specified time.
    * 
    * This parameter is required.
    * 
@@ -28,16 +29,20 @@ export class EventRebootInstanceRequest extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+   * The scheduled execution time, as a Timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
    * 
    * @example
    * 1742452232000
    */
   planTime?: number;
+  /**
+   * @remarks
+   * Reserved parameter.
+   */
   planUtcTime?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The ID of the Resource.
    * 
    * This parameter is required.
    * 

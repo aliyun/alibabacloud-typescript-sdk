@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PushApplicationDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
+   * 
+   * Before calling this operation, activate the Edge Application Hosting service and create an application by calling CreateApplication. Obtain the AppId from the response of the CreateApplication operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class PushApplicationDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The data files that you want to push. The value must be a JSON string.
+   * The list of data files to be pre-pushed, in the string format of a JSON array.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class PushApplicationDataRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The push policy in the canary release environment. The value must be a JSON string. You can specify multiple push policies. By default, all data files are pushed.
+   * The canary pre-push policy in JSON string format. Multiple distribution policies are supported. By default, all data is pre-pushed.
    * 
    * @example
    * {\\"name\\": \\"ScheduleToRegionId\\",  \\"parameters\\":{      \\"operator\\": \\"In\\",       \\"values\\": [\\"cn-chegndu-telecom-4\\", \\"cn-shanghai-cmcc-4\\"]  }}
@@ -33,7 +35,7 @@ export class PushApplicationDataRequest extends $dara.Model {
   pushStrategy?: string;
   /**
    * @remarks
-   * This parameter does not take effect.
+   * This parameter is invalid.
    * 
    * @example
    * 1800

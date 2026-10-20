@@ -95,6 +95,11 @@ export { DescribeCloudDiskTypesResponseBodySupportResourcesSupportResource } fro
 export { DescribeCloudDiskTypesResponseBodySupportResources } from './DescribeCloudDiskTypesResponseBody';
 export { DescribeClusterResponseBodyClusters } from './DescribeClusterResponseBody';
 export { DescribeClusterDetailResponseBodyControlPlaneConfig } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneMetaMasterInstances } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneMetaMasterUrl } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneMeta } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyNodeCount } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyPodStatus } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodePoolsKubernetesConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodePoolsNodepoolInfo } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroupDataDisks } from './DescribeClusterNodePoolsResponseBody';
@@ -102,6 +107,7 @@ export { DescribeClusterNodePoolsResponseBodyNodePoolsScalingGroup } from './Des
 export { DescribeClusterNodePoolsResponseBodyNodePoolsStatus } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodePools } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyPage } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodesResponseBodyNodesNodeInfo } from './DescribeClusterNodesResponseBody';
 export { DescribeClusterNodesResponseBodyNodes } from './DescribeClusterNodesResponseBody';
 export { DescribeClusterNodesResponseBodyPage } from './DescribeClusterNodesResponseBody';
 export { DescribeClustersV1ResponseBodyClustersControlPlaneConfig } from './DescribeClustersV1responseBody';
@@ -285,6 +291,8 @@ export { DescribeNetworkAttributeResponseBodyCloudResourcesCloudResourceSetType 
 export { DescribeNetworkAttributeResponseBodyCloudResources } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyHaVipIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyInstanceIds } from './DescribeNetworkAttributeResponseBody';
+export { DescribeNetworkAttributeResponseBodyIpv6CidrBlocksIpv6CidrBlock } from './DescribeNetworkAttributeResponseBody';
+export { DescribeNetworkAttributeResponseBodyIpv6CidrBlocks } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyLoadBalancerIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyNatGatewayIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyNetworkInterfaceIds } from './DescribeNetworkAttributeResponseBody';
@@ -301,6 +309,8 @@ export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets } from './Des
 export { DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsAcceptingNetwork } from './DescribeNetworkPeerConnectionsResponseBody';
 export { DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnectsNetwork } from './DescribeNetworkPeerConnectionsResponseBody';
 export { DescribeNetworkPeerConnectionsResponseBodyNetworkPeerConnects } from './DescribeNetworkPeerConnectionsResponseBody';
+export { DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocksIpv6CidrBlock } from './DescribeNetworksResponseBody';
+export { DescribeNetworksResponseBodyNetworksNetworkIpv6CidrBlocks } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkRouteTableIds } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkTagsTag } from './DescribeNetworksResponseBody';
@@ -494,6 +504,9 @@ export { AssociateEnsEipAddressResponse } from './AssociateEnsEipAddressResponse
 export { AssociateHaVipRequest } from './AssociateHaVipRequest';
 export { AssociateHaVipResponseBody } from './AssociateHaVipResponseBody';
 export { AssociateHaVipResponse } from './AssociateHaVipResponse';
+export { AssociateNetworkCidrBlockRequest } from './AssociateNetworkCidrBlockRequest';
+export { AssociateNetworkCidrBlockResponseBody } from './AssociateNetworkCidrBlockResponseBody';
+export { AssociateNetworkCidrBlockResponse } from './AssociateNetworkCidrBlockResponse';
 export { AttachDiskRequest } from './AttachDiskRequest';
 export { AttachDiskResponseBody } from './AttachDiskResponseBody';
 export { AttachDiskResponse } from './AttachDiskResponse';
@@ -971,6 +984,7 @@ export { DescribeInstanceSDGStatusResponseBody } from './DescribeInstanceSdgstat
 export { DescribeInstanceSDGStatusResponse } from './DescribeInstanceSdgstatusResponse';
 export { DescribeInstanceSpecResponseBody } from './DescribeInstanceSpecResponseBody';
 export { DescribeInstanceSpecResponse } from './DescribeInstanceSpecResponse';
+export { DescribeInstanceTypesRequest } from './DescribeInstanceTypesRequest';
 export { DescribeInstanceTypesResponseBody } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponse } from './DescribeInstanceTypesResponse';
 export { DescribeInstanceVncUrlRequest } from './DescribeInstanceVncUrlRequest';
@@ -1503,6 +1517,9 @@ export { UnassociateHaVipResponse } from './UnassociateHaVipResponse';
 export { UnassociateNetworkAclRequest } from './UnassociateNetworkAclRequest';
 export { UnassociateNetworkAclResponseBody } from './UnassociateNetworkAclResponseBody';
 export { UnassociateNetworkAclResponse } from './UnassociateNetworkAclResponse';
+export { UnassociateNetworkCidrBlockRequest } from './UnassociateNetworkCidrBlockRequest';
+export { UnassociateNetworkCidrBlockResponseBody } from './UnassociateNetworkCidrBlockResponseBody';
+export { UnassociateNetworkCidrBlockResponse } from './UnassociateNetworkCidrBlockResponse';
 export { UnloadRegionSDGRequest } from './UnloadRegionSdgrequest';
 export { UnloadRegionSDGShrinkRequest } from './UnloadRegionSdgshrinkRequest';
 export { UnloadRegionSDGResponseBody } from './UnloadRegionSdgresponseBody';

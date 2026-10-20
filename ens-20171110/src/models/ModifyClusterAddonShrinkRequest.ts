@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyClusterAddonShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter settings of the add-on.
+   */
   addonShrink?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ModifyClusterAddonShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The name of the add-on. It must reference an installed add-on in the target cluster.
+   * 
    * This parameter is required.
    * 
    * @example

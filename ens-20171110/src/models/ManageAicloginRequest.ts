@@ -5,12 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ManageAICLoginRequest extends $dara.Model {
   /**
    * @remarks
-   * Manage actions
-   * 
-   * Valid value:
-   * 
-   * *   open
-   * *   close
+   * The management action.
+   * When this parameter is set to open, the AIC instance must be in the running state. You can call DescribeAICInstances to query the state.
    * 
    * This parameter is required.
    * 
@@ -20,7 +16,7 @@ export class ManageAICLoginRequest extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -30,7 +26,8 @@ export class ManageAICLoginRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Public Key Grouping
+   * The group of the public key.
+   * When you set ActionName to open and use the public key to log on, you must first upload the public key by calling UploadAICPublicKey and provide the corresponding KeyName and KeyGroup.
    * 
    * @example
    * g-test
@@ -38,7 +35,8 @@ export class ManageAICLoginRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Public Key Name
+   * The name of the public key.
+   * When you set ActionName to open and use the public key to log on, you must first upload the public key by calling UploadAICPublicKey and provide the corresponding KeyName and KeyGroup.
    * 
    * @example
    * mykey

@@ -66,7 +66,7 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
   containerStatuses?: DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses;
   /**
    * @remarks
-   * The name of the pod.
+   * The pod name.
    * 
    * @example
    * gcs-prod-websocket-eip-telecom
@@ -74,7 +74,7 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
   name?: boolean;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * default-aliyun
@@ -82,7 +82,7 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
   namespace?: boolean;
   /**
    * @remarks
-   * The pod scope.
+   * The scope where the pod is located.
    * 
    * @example
    * FDN
@@ -90,7 +90,7 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
   resourceScope?: boolean;
   /**
    * @remarks
-   * The status of the pod.
+   * The pod status.
    * 
    * @example
    * RUNNING
@@ -133,7 +133,7 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
 export class DescribeServcieScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The index number of the scheduled virtual device (pod).
+   * The index number of the scheduled target virtual device (container pod).
    * 
    * @example
    * 2
@@ -141,7 +141,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The ID of the scheduled instance.
+   * The target instance ID for scheduling.
    * 
    * @example
    * i-5myukg7hnpbto7m024002****
@@ -149,7 +149,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the scheduled instance.
+   * The IP address of the scheduled target instance.
    * 
    * @example
    * 120.26.XX.XX
@@ -157,7 +157,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   instanceIp?: string;
   /**
    * @remarks
-   * The start port of the scheduled instance.
+   * The start port of the scheduled target instance.
    * 
    * @example
    * 3306
@@ -165,12 +165,12 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   instancePort?: number;
   /**
    * @remarks
-   * The summary information about the scheduled virtual device.
+   * The summary information of the scheduled virtual device pod.
    */
   podAbstractInfo?: DescribeServcieScheduleResponseBodyPodAbstractInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
@@ -178,7 +178,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is repeated.
+   * Indicates whether the resource has been created.
    * 
    * @example
    * false
@@ -186,7 +186,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   requestRepeated?: boolean;
   /**
    * @remarks
-   * The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+   * The TCP service port range of the scheduled target virtual machine instance or container. Valid values are in the ${from}-${to} format, such as 80-88.
    * 
    * @example
    * 80-88

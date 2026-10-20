@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   /**
+   * @remarks
+   * The script to be executed after the instance is created and before it joins the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
   preUserData?: string;
   /**
+   * @remarks
+   * The script to be executed after the instance is created and after it joins the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
@@ -39,6 +45,16 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
 export class ModifyClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   /**
    * @remarks
+   * The name of the node pool.
+   * 
+   * @example
+   * test1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the node pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,12 +63,14 @@ export class ModifyClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   nodepoolId?: string;
   static names(): { [key: string]: string } {
     return {
+      name: 'Name',
       nodepoolId: 'NodepoolId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      name: 'string',
       nodepoolId: 'string',
     };
   }
@@ -68,11 +86,17 @@ export class ModifyClusterNodePoolRequestNodepoolInfo extends $dara.Model {
 
 export class ModifyClusterNodePoolRequestScalingGroupDataDisks extends $dara.Model {
   /**
+   * @remarks
+   * The category of the data cloud disk.
+   * 
    * @example
    * cloud_efficiency
    */
   category?: string;
   /**
+   * @remarks
+   * The size of the data cloud disk.
+   * 
    * @example
    * 40
    */
@@ -101,38 +125,68 @@ export class ModifyClusterNodePoolRequestScalingGroupDataDisks extends $dara.Mod
 }
 
 export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The data cloud disk information.
+   */
   dataDisks?: ModifyClusterNodePoolRequestScalingGroupDataDisks[];
   /**
+   * @remarks
+   * The ID of the instance image.
+   * 
    * @example
    * m-68bysm5a8gkm7oik7ngacf0in
    */
   imageId?: string;
   /**
+   * @remarks
+   * The billing method of the instance.
+   * 
    * @example
    * PostPaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance types.
+   */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The name of the instance key pair. This parameter and Password are mutually exclusive.
+   * 
    * @example
    * tf-testAcc
    */
   keyPairName?: string;
   /**
+   * @remarks
+   * The instance password. This parameter and key_pair_name are mutually exclusive.
+   * 
    * @example
    * @AN5Ejx1YyzzK
    */
   password?: string;
   /**
+   * @remarks
+   * The category of the system cloud disk.
+   * 
    * @example
    * cloud_efficiency
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * The size of the system cloud disk.
+   * 
    * @example
    * 80
    */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The vSwitches used by the instances.
+   */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -183,18 +237,32 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
 export class ModifyClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * Only ECK cluster IDs with the eck- prefix are supported. You can obtain the ID by calling the DescribeClustersV1 operation. Serverless cluster IDs returned by the DescribeCluster operation are not supported. The cluster must be in the running state. After creation, it usually takes 10 to 20 minutes to complete initialization.
+   * 
    * This parameter is required.
    * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The Kubernetes configuration.
+   */
   kubernetesConfig?: ModifyClusterNodePoolRequestKubernetesConfig;
   /**
    * @remarks
+   * The node pool information.
+   * 
    * This parameter is required.
    */
   nodepoolInfo?: ModifyClusterNodePoolRequestNodepoolInfo;
+  /**
+   * @remarks
+   * The scaling group configuration.
+   */
   scalingGroup?: ModifyClusterNodePoolRequestScalingGroup;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEventRedeployInstanceRequestEventInfos extends $dara.Model {
   /**
    * @remarks
-   * System event ID.
+   * The system event ID.
    * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
@@ -13,9 +13,9 @@ export class BatchEventRedeployInstanceRequestEventInfos extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * Operation type, value range:
+   * The O&M task type. Valid values:
    * 
-   * - immediate: Execute immediately.
+   * - immediate: Immediate execution.
    * - scheduled: Scheduled execution.
    * 
    * @example
@@ -24,7 +24,7 @@ export class BatchEventRedeployInstanceRequestEventInfos extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * Scheduled execution time, in timestamp, unit is milliseconds. This field is required when OpsType=scheduled.
+   * The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
    * 
    * @example
    * immediate
@@ -33,7 +33,7 @@ export class BatchEventRedeployInstanceRequestEventInfos extends $dara.Model {
   planUtcTime?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
@@ -71,7 +71,7 @@ export class BatchEventRedeployInstanceRequestEventInfos extends $dara.Model {
 export class BatchEventRedeployInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * List of events.
+   * The list of events.
    */
   eventInfos?: BatchEventRedeployInstanceRequestEventInfos[];
   static names(): { [key: string]: string } {

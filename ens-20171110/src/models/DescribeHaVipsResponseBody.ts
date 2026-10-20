@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses extends $dara.Model {
   /**
    * @remarks
-   * The EIP.
+   * The IP address of the EIP.
    * 
    * @example
    * 47.XX.XX.40
@@ -45,7 +45,7 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses extends $dar
 export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the association was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2023-01-05T07:09:28Z
@@ -53,7 +53,7 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-51p****
@@ -61,10 +61,10 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance that is associated with the HAVIP. Valid values:
+   * The type of the instance to attach to the HaVip. Valid values:
    * 
-   * *   EnsInstance: ENS instance
-   * *   NetworkInterface: elastic network interface (ENI)
+   * - EnsInstance: An ENS cloud server instance.
+   * - NetworkInterface: An elastic network interfaces (ENIs) instance, which is a network interface controller (NIC).
    * 
    * @example
    * EnsInstance
@@ -72,7 +72,7 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   instanceType?: string;
   /**
    * @remarks
-   * The private IP address of the instance that is associated with the HAVIP. Valid values:
+   * The private IP address of the associated instance.
    * 
    * @example
    * 192.XX.XX.9
@@ -80,11 +80,10 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   ipAddress?: string;
   /**
    * @remarks
-   * The association status of the HAVIP. Valid values:
-   * 
-   * *   Associating
-   * *   InUse
-   * *   Unassociating
+   * The association status of the HaVip instance. Valid values:
+   * - Associating: The HaVip is being associated.
+   * - InUse: The HaVip is available.
+   * - Unassociating: The HaVip is being disassociated.
    * 
    * @example
    * InUse
@@ -122,17 +121,17 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
 export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   /**
    * @remarks
-   * The elastic IP addresses (EIPs) that are associated with the HAVIP.
+   * The elastic IP addresses (EIPs) associated with the HaVip.
    */
   associatedEipAddresses?: DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses[];
   /**
    * @remarks
-   * The information about instances that are associated with the HAVIP.
+   * The instances associated with the HaVip.
    */
   associatedInstances?: DescribeHaVipsResponseBodyHaVipsAssociatedInstances[];
   /**
    * @remarks
-   * The time when the HAVIP was created.
+   * The time when the HaVip was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2023-03-29T11:17:38Z
@@ -140,7 +139,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the HAVIP.
+   * The description of the HaVip instance.
    * 
    * @example
    * test
@@ -148,7 +147,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the ENS node.
    * 
    * @example
    * cn-guiyang-14
@@ -156,7 +155,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The HaVip instance ID.
    * 
    * @example
    * havip-52y28****
@@ -164,7 +163,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The IP address of the HAVIP.
+   * The IP address of the HaVip.
    * 
    * @example
    * 192.XX.XX.5
@@ -172,7 +171,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   ipAddress?: string;
   /**
    * @remarks
-   * The name of the HAVIP.
+   * The name of the HaVip instance.
    * 
    * @example
    * test
@@ -180,7 +179,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5wtkyrk****
@@ -188,12 +187,11 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The status of the HAVIP. Valid values:
-   * 
-   * *   Creating
-   * *   Available
-   * *   InUse
-   * *   Deleting
+   * The HaVip status. Valid values:
+   * - Creating: The HaVip is being created.
+   * - Available: The HaVip is available.
+   * - InUse: The HaVip is in use.
+   * - Deleting: The HaVip is being deleted.
    * 
    * @example
    * Available
@@ -201,7 +199,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5yc8d****
@@ -257,12 +255,12 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
 export class DescribeHaVipsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the HAVIPs.
+   * The details of the HaVips.
    */
   haVips?: DescribeHaVipsResponseBodyHaVips[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

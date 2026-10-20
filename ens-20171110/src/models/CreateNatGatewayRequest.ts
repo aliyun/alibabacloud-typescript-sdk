@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatGatewayRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the instance. Valid values of N: **1** to **20**.
+   * The tag key of the instance. Valid values of N: **1** to **20**.
    * 
-   * *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-   * *   The key must be up to 64 characters in length.
-   * *   The tag key cannot be an empty string.
+   * - Cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * - Can be up to 64 characters in length.
+   * - Cannot be an empty string.
    * 
    * @example
    * team
@@ -17,7 +17,7 @@ export class CreateNatGatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that is added to the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs: or contain http:// or https://.
+   * The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length, cannot start with acs:, and cannot contain http:// or https://.
    * 
    * @example
    * Deep
@@ -49,7 +49,7 @@ export class CreateNatGatewayRequestTag extends $dara.Model {
 export class CreateNatGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ID of the ENS edge zone.
    * 
    * This parameter is required.
    * 
@@ -57,10 +57,17 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * cn-suzhou-telecom
    */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * The billing cycle of the instance. Valid values: Hour and Month.
+   * 
+   * @example
+   * Hour
+   */
   instanceBillingCycle?: string;
   /**
    * @remarks
-   * The instance type of the NAT gateway. Set the value to **enat.default**.
+   * The NAT gateway specification. Valid value: **enat.default**.
    * 
    * @example
    * enat.default
@@ -68,7 +75,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of the NAT gateway. The name must be 1 to 128 characters in length. The name cannot start with `http://` or `https://`.
+   * The name of the NAT gateway. The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * name
@@ -76,7 +83,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * This parameter is required.
    * 
@@ -86,12 +93,12 @@ export class CreateNatGatewayRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The tags.
+   * The resource tags.
    */
   tag?: CreateNatGatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the new vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5savh5ngxh8sbj14bu7n****

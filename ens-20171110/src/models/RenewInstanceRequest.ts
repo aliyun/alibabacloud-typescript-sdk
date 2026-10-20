@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the instance that you want to renew.
+   * 
+   * Only subscription instances whose InstanceResourceType is EnsInstance are supported. Pay-as-you-go instances cannot be renewed.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class RenewInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The renewal duration of the subscription instance.
+   * The subscription renewal duration.
    * 
    * This parameter is required.
    * 

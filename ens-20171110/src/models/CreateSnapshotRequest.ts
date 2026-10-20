@@ -7,7 +7,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * @remarks
    * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * By default, this parameter is left empty.
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -15,7 +15,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The cloud disk ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ENS edge zone ID.
    * 
    * This parameter is required.
    * 
@@ -33,10 +33,21 @@ export class CreateSnapshotRequest extends $dara.Model {
    * cn-shenzhen-3
    */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * The billing cycle of the instance. Valid values:
+   * 
+   * - Hour
+   * - Day
+   * - Month
+   * 
+   * @example
+   * Hour
+   */
   instanceBillingCycle?: string;
   /**
    * @remarks
-   * The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The display name of the snapshot. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * testSnapshotName

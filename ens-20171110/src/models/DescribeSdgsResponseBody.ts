@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDGsResponseBodySDGsAvaliableRegionIds extends $dara.Model {
   /**
    * @remarks
-   * The time when the SDG was created on the node.
+   * The creation time of the SDG in the edge zone.
    * 
    * @example
    * 2023-02-27 15:13:26
@@ -13,7 +13,7 @@ export class DescribeSDGsResponseBodySDGsAvaliableRegionIds extends $dara.Model 
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID.
    * 
    * @example
    * cn-hangzhou-26
@@ -21,7 +21,7 @@ export class DescribeSDGsResponseBodySDGsAvaliableRegionIds extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The ID of the snapshot.
+   * The snapshot ID.
    * 
    * @example
    * mock-clone_snapshot_id
@@ -29,13 +29,13 @@ export class DescribeSDGsResponseBodySDGsAvaliableRegionIds extends $dara.Model 
   snapshotId?: string;
   /**
    * @remarks
-   * The status of the SDG on the node. Valid values:
+   * The status of the SDG in the edge zone. Valid values:
    * 
-   * *   **sdg_making**
-   * *   **sdg_saving**
-   * *   **sdg_copying**
-   * *   **failed**
-   * *   **success**
+   * - **sdg_making**: Being created.
+   * - **sdg_saving**: Being saved.
+   * - **sdg_copying**: Being synchronized across edge zones.
+   * - **failed**: Creation failed.
+   * - **success**: Creation succeeded.
    * 
    * @example
    * success
@@ -79,10 +79,10 @@ export class DescribeSDGsResponseBodySDGsDeployedInstanceIds extends $dara.Model
   creationTime?: string;
   /**
    * @remarks
-   * The deployment type of the SDG. Valid values:
+   * The SDG deployment type. Valid values:
    * 
-   * *   common: common deployment.
-   * *   overlay: read/write splitting deployment.
+   * - common: standard deployment
+   * - overlay: read/write splitting deployment
    * 
    * @example
    * overlay
@@ -90,7 +90,7 @@ export class DescribeSDGsResponseBodySDGsDeployedInstanceIds extends $dara.Model
   deploymentType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The AIC instance ID.
    * 
    * @example
    * aic-5x20dyeos****
@@ -100,9 +100,9 @@ export class DescribeSDGsResponseBodySDGsDeployedInstanceIds extends $dara.Model
    * @remarks
    * The deployment status. Valid values:
    * 
-   * *   **sdg_deploying**
-   * *   **failed**
-   * *   **success**
+   * - **sdg_deploying**: Being deployed.
+   * - **failed**: Deployment failed.
+   * - **success**: Deployment succeeded.
    * 
    * @example
    * sdg_deploying
@@ -138,19 +138,36 @@ export class DescribeSDGsResponseBodySDGsDeployedInstanceIds extends $dara.Model
 export class DescribeSDGsResponseBodySDGs extends $dara.Model {
   /**
    * @remarks
-   * The IDs of available edge nodes.
+   * The list of available edge zones.
    */
   avaliableRegionIds?: DescribeSDGsResponseBodySDGsAvaliableRegionIds[];
+  /**
+   * @remarks
+   * The billing cycle of the shared disk.
+   * 
+   * @example
+   * Hour
+   */
   billingCycle?: string;
   /**
+   * @remarks
+   * The billing type.
+   * 
    * @example
    * Open
    */
   billingType?: string;
+  /**
+   * @remarks
+   * The disk type of the source disk used to create the SDG.
+   * 
+   * @example
+   * standard
+   */
   creationDiskType?: string;
   /**
    * @remarks
-   * The ID of the instance on which the SDG is created.
+   * The instance ID of the instance used to create the SDG.
    * 
    * @example
    * aic-5x20dyeos****
@@ -158,7 +175,7 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
   creationInstanceId?: string;
   /**
    * @remarks
-   * The ID of the node on which the SDG is created.
+   * The edge zone ID where the SDG was created.
    * 
    * @example
    * cn-hangzhou-26
@@ -174,7 +191,7 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The deployment information.
+   * The list of deployment status information.
    */
   deployedInstanceIds?: DescribeSDGsResponseBodySDGsDeployedInstanceIds[];
   /**
@@ -182,25 +199,28 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
    * The description of the SDG.
    * 
    * @example
-   * Testing SDGs
+   * Test SDG
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
+   * The ID of the source SDG used for incremental creation. This is the **FromSDGId** parameter passed when calling [CreateSDG](https://help.aliyun.com/document_detail/608128.html).
    * 
    * @example
    * sdg-xxxxx
    */
   parentSDGId?: string;
   /**
+   * @remarks
+   * The sharing ratio of the SDG.
+   * 
    * @example
    * 100
    */
   performanceLevel?: number;
   /**
    * @remarks
-   * The ID of the SDG.
+   * The SDG ID.
    * 
    * @example
    * sdg-30e1fdba7196bc****
@@ -216,12 +236,12 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The status of the SDG creation. Valid values:
+   * The creation status of the SDG. Valid values:
    * 
-   * *   **sdg_making**
-   * *   **sdg_saving**
-   * *   **failed**
-   * *   **success**
+   * - **sdg_making**: Being created.
+   * - **sdg_saving**: Being saved.
+   * - **failed**: Creation failed.
+   * - **success**: Creation succeeded.
    * 
    * @example
    * success
@@ -301,7 +321,7 @@ export class DescribeSDGsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the SDGs.
+   * The list of SDG information.
    */
   SDGs?: DescribeSDGsResponseBodySDGs[];
   static names(): { [key: string]: string } {

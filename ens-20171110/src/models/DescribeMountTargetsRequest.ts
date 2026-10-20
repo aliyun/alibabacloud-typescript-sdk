@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMountTargetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The name of the mount target.
+   * The mount target name.
    * 
    * @example
    * TestMountPath
@@ -33,7 +33,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   mountTargetName?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: 100. Default value: 10.
+   * The number of rows per page, with a maximum value of 100. Default value: 10.
    * 
    * @example
    * 10

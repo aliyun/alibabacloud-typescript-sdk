@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   /**
+   * @remarks
+   * The script to be executed after the machine is created and before it is added to the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
   preUserData?: string;
   /**
+   * @remarks
+   * The script to be executed after the machine is created and added to the cluster. The content must be Base64-encoded.
+   * 
    * @example
    * ZWNobyBvawo=
    */
@@ -39,6 +45,8 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
 export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   /**
    * @remarks
+   * The name of the node pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,11 +76,17 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
 
 export class CreateClusterNodePoolRequestScalingGroupDataDisks extends $dara.Model {
   /**
+   * @remarks
+   * The disk category.
+   * 
    * @example
    * cloud_efficiency
    */
   category?: string;
   /**
+   * @remarks
+   * The size of the data cloud disk. Unit: GB. Minimum value: 20. The value must be a multiple of 10.
+   * 
    * @example
    * 80
    */
@@ -101,14 +115,23 @@ export class CreateClusterNodePoolRequestScalingGroupDataDisks extends $dara.Mod
 }
 
 export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the data cloud disk. Unit: GB.
+   */
   dataDisks?: CreateClusterNodePoolRequestScalingGroupDataDisks[];
   /**
+   * @remarks
+   * The expected number of instances.
+   * 
    * @example
    * 3
    */
   desiredSize?: number;
   /**
    * @remarks
+   * The image ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -116,37 +139,56 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    */
   imageId?: string;
   /**
+   * @remarks
+   * The billing method of the instance.
+   * 
    * @example
    * PostPaid
    */
   instanceChargeType?: string;
   /**
    * @remarks
+   * The list of instance types for the nodes in the node pool.
+   * 
    * This parameter is required.
    */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The key pair of the instance. This parameter and Password are mutually exclusive.
+   * 
    * @example
    * key-pair-name
    */
   keyPairName?: string;
   /**
+   * @remarks
+   * The password used when creating instances in the node pool. This parameter and KeyPairName are mutually exclusive.
+   * 
    * @example
    * some-test-password
    */
   password?: string;
   /**
+   * @remarks
+   * The category of the system cloud disk. Valid values: local_ssd, local_hdd, cloud_efficiency, and cloud_ssd.
+   * 
    * @example
    * cloud_efficiency
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * The size of the system cloud disk. Unit: GB. Minimum value: 20. The value must be a multiple of 10.
+   * 
    * @example
    * 80
    */
   systemDiskSize?: number;
   /**
    * @remarks
+   * The vSwitches used by the instances.
+   * 
    * This parameter is required.
    */
   vswitchIds?: string[];
@@ -201,20 +243,30 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
 export class CreateClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The cluster-related configurations.
+   */
   kubernetesConfig?: CreateClusterNodePoolRequestKubernetesConfig;
   /**
    * @remarks
+   * The node pool configurations.
+   * 
    * This parameter is required.
    */
   nodepoolInfo?: CreateClusterNodePoolRequestNodepoolInfo;
   /**
    * @remarks
+   * The scaling group configurations.
+   * 
    * This parameter is required.
    */
   scalingGroup?: CreateClusterNodePoolRequestScalingGroup;

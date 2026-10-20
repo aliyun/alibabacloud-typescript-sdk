@@ -13,7 +13,7 @@ export class DescribeInstanceVncUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The URL of the VNC management terminal.
+   * The management terminal URL.
    * 
    * @example
    * wss%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * This parameter is required.
    * 

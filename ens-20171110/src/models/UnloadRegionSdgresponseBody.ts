@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination node.
+   * The ID of the destination edge zone.
    * 
    * @example
    * cn-hangzhou-xxx
@@ -13,7 +13,7 @@ export class UnloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Mode
   destinationRegionId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * region not found
@@ -45,7 +45,7 @@ export class UnloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Mode
 export class UnloadRegionSDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed tasks.
+   * The total number of failed requests.
    * 
    * @example
    * 0
@@ -53,12 +53,12 @@ export class UnloadRegionSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about the failed tasks.
+   * The list of failure details.
    */
   failedItems?: UnloadRegionSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class UnloadRegionSDGResponseBodyDataResult extends $dara.Model {
 export class UnloadRegionSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. A value of success indicates a successful request.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class UnloadRegionSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: UnloadRegionSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all tasks are successful. Valid values:
+   * Indicates whether all requests were successful. Valid values:
    * 
-   * *   true: All tasks are successful.
-   * *   false: Failed tasks exist.
+   * - true: All requests were successful.
+   * - false: Some requests failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class UnloadRegionSDGResponseBodyData extends $dara.Model {
 export class UnloadRegionSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: UnloadRegionSDGResponseBodyData;
   /**

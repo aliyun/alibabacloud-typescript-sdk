@@ -39,9 +39,11 @@ export class DescribeForwardTableEntriesRequest extends $dara.Model {
    * @remarks
    * The protocol. Valid values:
    * 
-   * *   **TCP**: forwards TCP packets.
-   * *   **UDP**: forwards UDP packets.
-   * *   **Any**: forwards all packets.
+   * - **TCP**: forwards TCP packets.
+   * 
+   * - **UDP**: forwards UDP packets.
+   * 
+   * - **Any**: forwards all packets.
    * 
    * @example
    * TCP

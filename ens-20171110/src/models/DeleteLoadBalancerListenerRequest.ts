@@ -17,7 +17,7 @@ export class DeleteLoadBalancerListenerRequest extends $dara.Model {
    * @remarks
    * The frontend protocol that is used by the ELB instance.
    * 
-   * >  This parameter is required if the same port is used by listeners that use different protocols.
+   * > This parameter is required if the same port is used by listeners that use different protocols.
    * 
    * @example
    * tcp

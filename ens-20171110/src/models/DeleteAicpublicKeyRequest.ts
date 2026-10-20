@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAICPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Public Key Name
+   * The name of the public key.
    * 
    * This parameter is required.
    * 

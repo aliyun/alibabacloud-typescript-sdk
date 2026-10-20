@@ -7,8 +7,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1
+   * - Pages start from page 1.
+   * 
+   * - Default value: 1
    * 
    * @example
    * 1
@@ -18,8 +19,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Maximum value: 50.
-   * *   Default value: 10
+   * - Maximum value: 50.
+   * 
+   * - Default value: 10
    * 
    * @example
    * 10

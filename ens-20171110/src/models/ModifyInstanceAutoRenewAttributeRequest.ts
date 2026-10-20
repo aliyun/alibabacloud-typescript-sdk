@@ -10,7 +10,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * false
+   * True
    */
   autoRenew?: string;
   /**
@@ -18,7 +18,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
    * The auto-renewal period of the instance. Unit: months. Valid values: 1 to 9 and 12. This parameter is required if the AutoRenew parameter is set to true.
    * 
    * @example
-   * 12
+   * 1
    */
   duration?: string;
   /**
@@ -28,7 +28,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * instance-test
+   * i-5ci7l7k1m9m2zmhp4iw3o****
    */
   instanceIds?: string;
   ownerId?: string;
@@ -36,14 +36,16 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to renew the instance. The **RenewalStatus** parameter has a higher priority than the **AutoRenew** parameter. If you do not specify **RenewalStatus**, the **AutoRenew** parameter is used by default.
    * 
-   * *   AutoRenewal: Auto-renewal is enabled for the instance.
-   * *   Normal: Auto-renewal is disabled for the instance.
-   * *   NotRenewal: The instance is not renewed.
+   * - AutoRenewal: Auto-renewal is enabled for the instance.
+   * 
+   * - Normal: Auto-renewal is disabled for the instance.
+   * 
+   * - NotRenewal: The instance is not renewed.
    * 
    * The system no longer sends an expiration notification but sends only a renewal notification three days before the instance expires. To renew the instance, you can change the value of this parameter from NotRenewal to Normal and then manually renew the instance, or change the value of this parameter from NotRenewal to AutoRenewal.
    * 
    * @example
-   * Normal
+   * AutoRenewal
    */
   renewalStatus?: string;
   static names(): { [key: string]: string } {

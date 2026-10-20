@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBucketLifecycleResponseBodyRuleExpiration extends $dara.Model {
   /**
    * @remarks
-   * The expiration date.
+   * The expiration date in ISO 8601 UTC format, which is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * yyy-MM-DDThh:mm:ssZ
@@ -13,7 +13,7 @@ export class GetBucketLifecycleResponseBodyRuleExpiration extends $dara.Model {
   createdBeforeDate?: string;
   /**
    * @remarks
-   * The validity period, in days.
+   * The number of days before expiration.
    * 
    * @example
    * 5
@@ -58,7 +58,7 @@ export class GetBucketLifecycleResponseBodyRule extends $dara.Model {
   ID?: string;
   /**
    * @remarks
-   * The prefix that is applied to the rule.
+   * The prefix to which the rule applies.
    * 
    * @example
    * image
@@ -68,8 +68,9 @@ export class GetBucketLifecycleResponseBodyRule extends $dara.Model {
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **Enabled**: The rule is periodically executed.
-   * *   **Disabled**: The rule is ignored.
+   * - **Enabled**: The rule is executed periodically.
+   * 
+   * - **Disabled**: The rule is ignored.
    * 
    * @example
    * Enabled
@@ -116,7 +117,7 @@ export class GetBucketLifecycleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The detailed information about the rule.
+   * The rule details.
    */
   rule?: GetBucketLifecycleResponseBodyRule[];
   static names(): { [key: string]: string } {

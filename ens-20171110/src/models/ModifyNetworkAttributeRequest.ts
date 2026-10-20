@@ -7,7 +7,7 @@ export class ModifyNetworkAttributeRequest extends $dara.Model {
    * @remarks
    * The description of the network.
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http\\:// or https\\://.
    * 
    * @example
    * this is my first network
@@ -27,9 +27,11 @@ export class ModifyNetworkAttributeRequest extends $dara.Model {
    * @remarks
    * The name of the network. The name must meet the following requirements:
    * 
-   * *   The name must be 2 to 128 characters in length
-   * *   It must start with a letter but cannot start with http:// or https://.
-   * *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * - The name must be 2 to 128 characters in length
+   * 
+   * - It must start with a letter but cannot start with http\\:// or https\\://.
+   * 
+   * - The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * abc

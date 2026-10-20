@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-tianjin-cmcc
@@ -13,12 +13,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. N indicates the number of edge node IDs that you can specify at the same time. Valid values of N: 1 to 100.
+   * The IDs of the ENS edge zones. N indicates the sequence number of the edge zone ID. Valid values of N: 1 to 100.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-5t7z99n32gplriv
@@ -26,7 +26,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+   * The IPv6 addresses of the elastic network interfaces (ENIs). N indicates the settings for multiple IPv6 addresses. Valid values of N: 1 to 100.
    */
   ipv6Address?: string[];
   /**
@@ -39,7 +39,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the elastic network interfaces (ENIs).
    * 
    * @example
    * eni-58z57orgmt6d1****
@@ -47,12 +47,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The IDs of the elastic network interfaces (ENIs). N indicates the number of ENI IDs that you can specify at the same time. Valid values of N: 1 to 100.
+   * The list of IDs of the elastic network interfaces (ENIs). N indicates the settings for multiple elastic network interfaces (ENIs) IDs. Valid values of N: 1 to 100.
    */
   networkInterfaceIds?: string[];
   /**
    * @remarks
-   * The name of the ENI.
+   * The name of the elastic network interfaces (ENIs).
    * 
    * @example
    * test-01
@@ -60,7 +60,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page 1. Default value: 1.
+   * The page number of the instance status list. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 50.
+   * The number of entries per page for paging queries. Maximum value: 100. Default value: 50.
    * 
    * @example
    * 50
@@ -76,15 +76,15 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The primary IP address of the ENI.
+   * The primary IP address of the elastic network interfaces (ENIs).
    * 
    * @example
-   * ***
+   * 10.XXX.XXX.5
    */
   primaryIpAddress?: string;
   /**
    * @remarks
-   * The ID of the security group to which the secondary ENI belongs. To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
+   * The ID of the security group to which the secondary ENI belongs. Specify this parameter if you want to query the information about secondary ENIs by security group ID.
    * 
    * @example
    * sg-5p1fg655nh68xyz9i***
@@ -92,15 +92,15 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the ENI. Valid values:
+   * The stateful status of the elastic network interfaces (ENIs). Valid values:
    * 
-   * *   Available: The ENI is available.
-   * *   Attaching: The ENI is being attached to an instance.
-   * *   InUse: The ENI is attached to an instance.
-   * *   Detaching: The ENI is being detached from an instance.
-   * *   Deleting: The ENI is being deleted.
+   * - Available: available.
+   * - Attaching: attaching.
+   * - InUse: in use.
+   * - Detaching: detaching.
+   * - Deleting: the delete operation is in progress.
    * 
-   * This parameter is empty by default, which indicates that ENIs in all states are queried.
+   * Default value: empty, which indicates that all statuses are queried.
    * 
    * @example
    * Available
@@ -108,12 +108,11 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the ENI. Valid values:
+   * The type of the elastic network interfaces (ENIs). Valid values:
+   * - Primary: primary network interface controller (NIC).
+   * - Secondary: secondary network interface controller (NIC).
    * 
-   * *   Primary: the primary ENI.
-   * *   Secondary: the secondary ENI.
-   * 
-   * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
+   * Default value: empty, which indicates that all types are queried.
    * 
    * @example
    * Secondary

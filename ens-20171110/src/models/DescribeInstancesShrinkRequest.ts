@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of EIP addresses used to filter instances.
+   */
   eipAddressesShrink?: string;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of the regions. The value is a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
+   * The list of edge zone IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
    * 
    * @example
    * ["cn-suzhou-telecom","cn-chengdu-telecom"]
@@ -22,7 +26,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   ensRegionIds?: string;
   /**
    * @remarks
-   * The ID of the edge service. You can use the ID to query information about the instances that are created in the edge service.
+   * The Edge Node Service ID. You can use this ID to query the instances created under the edge service.
    * 
    * @example
    * ens-20190730202316s****
@@ -30,7 +34,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   ensServiceId?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * centos_6_08_64_20G_alibase_****
@@ -38,7 +42,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-5iqczfxps7csjrxeca****
@@ -46,15 +50,15 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of the instances. The value is a JSON array that consists of up to 100 IDs. Separate IDs with commas (,).
+   * The list of instance IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
    * 
    * @example
-   * ["i-5iqczfxps7csjrxeca07****", "i-5iqczfxps7csjrxeca07****"]]
+   * ["i-5iqczfxps7csjrxeca07****", "i-5iqczfxps7csjrxeca07****"]
    */
   instanceIds?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * TestName
@@ -62,12 +66,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The condition that you want to use to filter instances by category. Valid values:
-   * 
-   * *   EnsInstance: ENS instances that you purchase.
-   * *   EnsService: ENS instances that belong to edge services.
-   * *   BuildMachine: ENS instances that are configured with image builders.
-   * *   EnsPostPaidInstance: Pay-as-you-go ENS instances that you purchase.
+   * The filter type. Valid values:
    * 
    * @example
    * EnsService
@@ -83,7 +82,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The internal IP address of the instance.
+   * The internal IP address.
    * 
    * @example
    * 47.100.XX.XX
@@ -91,7 +90,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-2zeuphj08tt7q3brd****
@@ -99,19 +98,20 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The method that you want to use to sort instances. The value of this parameter is in the JSON format.
-   * 
-   * You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
+   * The sorting parameter in JSON format.
    * 
    * @example
-   * {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
+   * {
+   *     "InstanceNameSort": "asc",
+   *     "ExpireTimeSort": "asc",
+   *     "CreationTimeSort": "desc",
+   *     "EnsRegionId": "desc"
+   * }
    */
   orderByParams?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**.
-   * 
-   * Default value: **1**.
+   * The page number of the instance status list. The value starts from **1**.
    * 
    * @example
    * 1
@@ -119,9 +119,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The maximum value is **100**.
-   * 
-   * Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **100**.
    * 
    * @example
    * 10
@@ -129,7 +127,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The keyword that you use to query the logs of the service. You can specify the values of parameters such as **ip**, **InstanceName**, and **InstanceId** as the keyword.
+   * The search keyword. Supports parameters such as **ip**, **InstanceName**, and **InstanceId**.
    * 
    * @example
    * Joshua
@@ -137,7 +135,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-5kyicq2kfcapxrdds6tar7jqb
@@ -145,16 +143,16 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the service. Valid values.
+   * The business status of the instance, which does not represent the actual running status of the instance.
    */
   serviceStatusShrink?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
+   * The instance status. Valid values:
    * 
-   * *   Running
-   * *   Stopped
-   * *   Expired
+   * - Running: Running.
+   * - Stopped: Stopped.
+   * - Expired: Expired.
    * 
    * @example
    * Running
@@ -162,18 +160,32 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are added to the resource. This operation does not return tag information. You can call this operation in combination with the tag-related operations.
+   * The resource tags. This operation does not return tag information. Use this parameter in combination with the APIs in the tag category.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2zeh0r1pabwtg6wcs****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPD network ID.
+   * 
+   * @example
+   * vpd-5s7xxxxxxx
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * The VPD vSwitch ID.
+   * 
+   * @example
+   * vsw-5s7xxxxxxx
+   */
   vpdVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {

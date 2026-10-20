@@ -13,7 +13,7 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $da
   ip?: string;
   /**
    * @remarks
-   * The port that is used by the backend server.
+   * The port used by the backend server.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $da
   port?: string;
   /**
    * @remarks
-   * The ID of the backend server.
+   * The instance ID of the backend server.
    * 
    * @example
    * i-5vb5h5njxiuhn48a****
@@ -29,7 +29,7 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $da
   serverId?: string;
   /**
    * @remarks
-   * The type of backend server.
+   * The server type of the backend server.
    * 
    * @example
    * ens
@@ -75,7 +75,7 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $da
 export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols extends $dara.Model {
   /**
    * @remarks
-   * The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
+   * The backend port used by the load balancing instance. Valid values: **1** to **65535**.
    * 
    * @example
    * 6000
@@ -83,7 +83,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   backendServerPort?: number;
   /**
    * @remarks
-   * The description of the listener.
+   * The description.
    * 
    * @example
    * test
@@ -91,7 +91,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   description?: string;
   /**
    * @remarks
-   * The destination listening port to which requests are forwarded.
+   * The destination listener port to which traffic is forwarded.
    * 
    * @example
    * 0
@@ -99,7 +99,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   forwardPort?: number;
   /**
    * @remarks
-   * Indicates whether the listener is enabled.
+   * Indicates whether listener forwarding is enabled.
    * 
    * @example
    * off
@@ -107,7 +107,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   listenerForward?: string;
   /**
    * @remarks
-   * The listener port of the instance.
+   * The listener port.
    * 
    * @example
    * 8080
@@ -115,7 +115,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   listenerPort?: number;
   /**
    * @remarks
-   * The listener protocol of the instance.
+   * The listener protocol.
    * 
    * @example
    * tcp
@@ -155,20 +155,27 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
 export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP address that the Edge Load Balancer (ELB) instance uses to provide services.
+   * The service address of the load balancing instance.
    * 
    * @example
-   * 192.168XX.XX
+   * 192.168.XX.XX
    */
   address?: string;
   /**
    * @remarks
-   * The IP version of the ELB instance. Valid values: ipv4 and ipv6.
+   * The IP version of the load balancing instance. Valid values: ipv4 or ipv6.
    * 
    * @example
    * ipv4
    */
   addressIPVersion?: string;
+  /**
+   * @remarks
+   * The address type of the load balancing instance.
+   * 
+   * @example
+   * internet
+   */
   addressType?: string;
   /**
    * @remarks
@@ -177,7 +184,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers[];
   /**
    * @remarks
-   * The peak bandwidth of the ELB. The default value is -1, which indicates that the bandwidth is unlimited.
+   * The peak bandwidth of the load balancing instance. The default value is -1, which indicates that bandwidth is not throttled.
    * 
    * @example
    * -1
@@ -185,7 +192,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The time when the ELB instance was created. The time is displayed in UTC.
+   * The creation time of the load balancing instance (UTC).
    * 
    * @example
    * 2019-05-21T12:22:00Z
@@ -193,7 +200,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the ELB instance was disabled.
+   * The end time of the load balancing instance in ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-05-21T12:22:00Z
@@ -201,7 +208,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ENS node ID.
    * 
    * @example
    * cn-chengdu-telecom
@@ -209,17 +216,17 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The frontend ports that are used by the ELB instance.
+   * The frontend ports used by the load balancing instance.
    */
   listenerPorts?: string[];
   /**
    * @remarks
-   * The frontend ports and protocols that are used by the ELB instance.
+   * The frontend ports and protocols used by the load balancing instance.
    */
   listenerPortsAndProtocols?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols[];
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The ID of the load balancing instance.
    * 
    * @example
    * lb-5rcvo1n1t3hykfhhjwjgqp****
@@ -227,7 +234,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ELB instance.
+   * The name of the load balancing instance.
    * 
    * @example
    * example
@@ -235,7 +242,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The specifications of the ELB instance.
+   * The specification of the load balancing instance.
    * 
    * @example
    * elb.s2.medium
@@ -243,19 +250,25 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   loadBalancerSpec?: string;
   /**
    * @remarks
-   * The status of the ELB instance. Valid values:
-   * 
-   * *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
-   * *   **InActive**: The listener for the instance does not forward the received traffic.
+   * The listener status of the load balancing instance. Valid values:
+   * - **Active**: The listeners of the instance can forward received traffic based on rules.
+   * - **InActive**: The listeners of the instance no longer forward received traffic.
    * 
    * @example
    * Active
    */
   loadBalancerStatus?: string;
+  /**
+   * @remarks
+   * The type of the load balancing instance.
+   * 
+   * @example
+   * CLB
+   */
   loadBalancerType?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5rwbi3g9zvgxcsiufwhw8****
@@ -264,9 +277,8 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
-   * *   **PrePaid**: subscription.
-   * *   **PostPaid**: pay-as-you-go. Only this billing method is supported.
+   * - **PrePaid**: subscription.
+   * - **PostPaid** (currently the only supported billing method): pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -274,7 +286,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -282,7 +294,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-5s78m2pdr9osa0j64bn78****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKeyPairResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation. 200 indicates that the operation succeeded.
+   * The status code for the operation on a specific instance. A value of `200` indicates a successful operation.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DetachKeyPairResponseBodyResults extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+   * The response message for the operation. If the `Code` is `200`, the message is `successful`.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class DetachKeyPairResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation on the instance succeeded. Valid values: `true` and `false`.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class DetachKeyPairResponseBodyResults extends $dara.Model {
 export class DetachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances to which the SSH key pair failed to be bound.
+   * The number of instances for which the detach operation failed.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class DetachKeyPairResponseBody extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The ID of the SSH key pair.
+   * The ID of the key pair.
    * 
    * @example
    * ssh-xxx
@@ -81,7 +81,7 @@ export class DetachKeyPairResponseBody extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The name of the SSH key pair.
+   * The name of the key pair.
    * 
    * @example
    * test-kp
@@ -97,12 +97,12 @@ export class DetachKeyPairResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The operation results.
+   * The results of the operation for each instance.
    */
   results?: DetachKeyPairResponseBodyResults[];
   /**
    * @remarks
-   * The total number of instances to which the SSH key pair is bound.
+   * The total number of instances specified in the request.
    * 
    * @example
    * 3

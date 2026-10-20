@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

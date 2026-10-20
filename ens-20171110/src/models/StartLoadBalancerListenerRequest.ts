@@ -17,12 +17,15 @@ export class StartLoadBalancerListenerRequest extends $dara.Model {
    * @remarks
    * The frontend protocol that is used by the ELB instance. Valid values:
    * 
-   * *   tcp
-   * *   udp
-   * *   http
-   * *   https
+   * - tcp
    * 
-   * >  This parameter is required if the same port is used by listeners that use different protocols.
+   * - udp
+   * 
+   * - http
+   * 
+   * - https
+   * 
+   * > This parameter is required if the same port is used by listeners that use different protocols.
    * 
    * @example
    * tcp

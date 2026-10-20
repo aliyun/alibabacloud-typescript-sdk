@@ -12,7 +12,7 @@ export class CreateSecurityGroupPermissionsShrinkRequest extends $dara.Model {
   permissionsShrink?: string;
   /**
    * @remarks
-   * The IDs of the security groups.
+   * The security group ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated resources.
+   * The ID of the associated resource.
    * 
    * @example
    * i-5zy93g7z1hnkdmav84joxyzgn
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * instance
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * CLUSTER
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token of the first page to query.
+   * The token for the next query.
    * 
    * @example
    * abcfeg368547ccdef
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C78D9B61-69D8-5655-A312-A15DA5EA5D5E
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags that are added to specified one or more resources.
+   * The collection of tagged resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

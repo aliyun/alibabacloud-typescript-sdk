@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDGsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The AIC instance ID to be queried.
+   * The list of AIC instance IDs to query.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The IDs of SDGs that you want to query. By default, all SDGs are queried.
+   * The list of SDG IDs to query.
    */
   SDGIdsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The description. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description. The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testDescription
@@ -23,7 +23,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http:// or https://.
+   * The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http\\:// or https\\://.
    * 
    * @example
    * test-01

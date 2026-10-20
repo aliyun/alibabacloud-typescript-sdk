@@ -7,10 +7,11 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $dara.
    * @remarks
    * Specifies whether to enable EIP affinity. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: no
    * 
-   * **
+   * - **1**: yes
+   * 
+   * \\*\\*
    * 
    * **Description** After you enable EIP affinity, if multiple EIPs are associated with an SNAT entry, each client uses one EIP to access the Internet. If EIP affinity is disabled, each client uses a random EIP to access the Internet.
    * 
@@ -90,10 +91,13 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $dara.
    * @remarks
    * The status of the secondary EIP. Valid values:
    * 
-   * *   Running
-   * *   Stopping
-   * *   Stopped
-   * *   Starting
+   * - Running
+   * 
+   * - Stopping
+   * 
+   * - Stopped
+   * 
+   * - Starting
    * 
    * @example
    * Stopped
@@ -103,9 +107,11 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $dara.
    * @remarks
    * The status of the SNAT entry. Valid values:
    * 
-   * *   Pending: The SNAT entry is being created or modified.
-   * *   Available: The SNAT entry is available.
-   * *   Deleting: The SNAT entry is being deleted.
+   * - Pending: The SNAT entry is being created or modified.
+   * 
+   * - Available: The SNAT entry is available.
+   * 
+   * - Deleting: The SNAT entry is being deleted.
    * 
    * @example
    * Available

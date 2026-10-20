@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs.
+   * A list of instance IDs.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class AttachKeyPairRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The key pair ID.
+   * The unique ID of the key pair.
    * 
    * @example
    * ssh-xxx
@@ -29,7 +29,7 @@ export class AttachKeyPairRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The name of the SSH key pair.
+   * The key pair name.
    * 
    * @example
    * test-kp

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disk.
+   * The ID of the specified cloud disk.
    * 
    * @example
    * d-bp67acfmxazb4p****
@@ -13,7 +13,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the ENS node. You can query the node ID by calling the [DescribeEnsRegions](https://help.aliyun.com/document_detail/2637662.html) operation.
+   * The ID of the ENS edge zone. You can call [DescribeEnsRegions](https://help.aliyun.com/document_detail/2637662.html) to query edge zone IDs.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The node information.
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
    * 
    * @example
    * ["cn-suzhou-telecom","cn-chengdu-telecom"]
@@ -29,7 +29,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   ensRegionIds?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -37,7 +37,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current query.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the snapshot. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+   * The snapshot ID. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * sp-bp67acfmxazb4p****
@@ -61,7 +61,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The display name of the snapshot. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * testSnapshotName

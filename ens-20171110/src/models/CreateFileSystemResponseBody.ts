@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateFileSystemResponseBodyAllocationIds extends $dara.Model {
+  /**
+   * @remarks
+   * The ENS edge zone ID.
+   * 
+   * @example
+   * cn-hangzhou-cm
+   */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * i-5s7xxxxxxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,16 +45,19 @@ export class CreateFileSystemResponseBodyAllocationIds extends $dara.Model {
 export class CreateFileSystemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the file system that was created.
+   * The file systems that are created.
    */
   allocationId?: string[];
+  /**
+   * @remarks
+   * The list of instance allocation information for the file system across ENS edge zones.
+   */
   allocationIds?: CreateFileSystemResponseBodyAllocationIds[];
   /**
    * @remarks
-   * The status code for successful operations. Valid values:
-   * 
-   * *   PartSuccess: The operation is partially successful.
-   * *   AllSuccess: The operation is successful.
+   * The status code that indicates the result. Valid values:  
+   * - PartSuccess: partially successful.
+   * - AllSuccess: all successful.
    * 
    * @example
    * PartSuccess
@@ -48,7 +65,7 @@ export class CreateFileSystemResponseBody extends $dara.Model {
   bizStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -56,7 +73,7 @@ export class CreateFileSystemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the file system that failed to be created.
+   * The file systems that failed to be created.
    */
   unAllocationId?: string[];
   static names(): { [key: string]: string } {

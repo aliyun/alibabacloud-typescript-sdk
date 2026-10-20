@@ -13,7 +13,7 @@ export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the system event.
+   * The system event ID.
    * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
@@ -21,7 +21,7 @@ export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+   * The operation message. When code is 200, the message is successful.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The resource ID.
    * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
@@ -65,7 +65,7 @@ export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
 export class BatchEventRebootInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request。
    * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8
@@ -73,7 +73,7 @@ export class BatchEventRebootInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The results.
    */
   results?: BatchEventRebootInstanceResponseBodyResults[];
   static names(): { [key: string]: string } {

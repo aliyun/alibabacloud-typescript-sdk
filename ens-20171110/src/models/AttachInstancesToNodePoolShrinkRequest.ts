@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachInstancesToNodePoolShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class AttachInstancesToNodePoolShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The array of instances, including the instance information.
+   * 
    * This parameter is required.
    */
   instancesShrink?: string;
   /**
    * @remarks
+   * The node pool ID.
+   * 
    * This parameter is required.
    * 
    * @example

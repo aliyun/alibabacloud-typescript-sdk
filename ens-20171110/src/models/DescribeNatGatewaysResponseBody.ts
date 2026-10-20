@@ -23,9 +23,11 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysIpLists extends $dara.Mod
    * @remarks
    * The association between the EIP and the Internet NAT gateway. Valid values:
    * 
-   * *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
-   * *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
-   * *   **Idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
+   * - **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+   * 
+   * - **UsedBySnatTable**: The EIP is specified in an SNAT entry.
+   * 
+   * - **Idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
    * 
    * @example
    * Idle
@@ -58,11 +60,17 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysIpLists extends $dara.Mod
 
 export class DescribeNatGatewaysResponseBodyNatGatewaysTags extends $dara.Model {
   /**
+   * @remarks
+   * Tag key.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * Tag key.
+   * 
    * @example
    * TestKey
    * 
@@ -70,6 +78,9 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysTags extends $dara.Model 
    */
   tagKey?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * TestValue
    * 
@@ -77,6 +88,9 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysTags extends $dara.Model 
    */
   tagValue?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * TestValue
    */
@@ -166,14 +180,20 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
    * @remarks
    * The status of the NAT gateway. Valid values:
    * 
-   * *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
-   * *   **Available**: The NAT gateway is in the Available state after the creation is complete.
-   * *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
+   * - **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
+   * 
+   * - **Available**: The NAT gateway is in the Available state after the creation is complete.
+   * 
+   * - **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
    * 
    * @example
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The collection of tags.
+   */
   tags?: DescribeNatGatewaysResponseBodyNatGatewaysTags[];
   /**
    * @remarks

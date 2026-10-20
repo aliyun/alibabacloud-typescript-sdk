@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
@@ -21,7 +21,7 @@ export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * When Code!=200, it indicates the specific error message.
+   * The error message returned when Code is not 200.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The resource ID.
    * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
@@ -65,7 +65,7 @@ export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
 export class BatchEventMigrateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * FF53E96D-3F1A-42F0-8373-1C2B39D72D44
@@ -73,7 +73,7 @@ export class BatchEventMigrateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results.
+   * The list of results.
    */
   results?: BatchEventMigrateInstanceResponseBodyResults[];
   static names(): { [key: string]: string } {

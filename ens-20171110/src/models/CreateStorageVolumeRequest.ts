@@ -59,8 +59,9 @@ export class CreateStorageVolumeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable authentication. Valid values:
    * 
-   * *   **1**: Authentication is enabled.
-   * *   **0** (default): Authentication is disabled.
+   * - **1**: Authentication is enabled.
+   * 
+   * - **0** (default): Authentication is disabled.
    * 
    * @example
    * 0
@@ -70,8 +71,9 @@ export class CreateStorageVolumeRequest extends $dara.Model {
    * @remarks
    * Indicates whether the volume is enabled. Valid values:
    * 
-   * *   **1** (default): The volume is enabled.
-   * *   **0**: The volume is disabled.
+   * - **1** (default): The volume is enabled.
+   * 
+   * - **0**: The volume is disabled.
    * 
    * @example
    * 1

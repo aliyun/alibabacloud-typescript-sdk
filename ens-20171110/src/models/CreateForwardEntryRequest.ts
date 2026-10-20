@@ -5,21 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CreateForwardEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The elastic IP address (EIP) that is used to access the Internet.
+   * The Elastic IP Address (EIP) that provides public network access.
+   * 
+   * The EIP must not be occupied by an SNAT rule of the same NAT gateway. You can check the IpLists.UsingStatus field returned by DescribeNatGateways to confirm that the EIP is in the Idle state.
    * 
    * This parameter is required.
    * 
    * @example
-   * 121.11.36.28
+   * 121.XXX.XXX.28
    */
   externalIp?: string;
   /**
    * @remarks
-   * The external port or port range that is used for port forwarding.
-   * 
-   * *   Valid values: 1 to 65535.
-   * *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
-   * *   If you set ExternalPort to a port range, you must also set InternalPort to a port range. The number of ports in the port ranges must be the same. For example, if you set ExternalPort to 10/20, you can set InternalPort to 80/90.
+   * The external port or port range for port forwarding.
+   * - The port range must be within 1 to 65535.
+   * - To forward traffic within a port range, separate the start and end ports with a forward slash (/), such as 10/20.
+   * - If ExternalPort is set to a port range, InternalPort must also be set to a port range with the same number of ports. For example, if ExternalPort is set to 10/20, InternalPort must be set to 80/90.
    * 
    * This parameter is required.
    * 
@@ -29,7 +30,7 @@ export class CreateForwardEntryRequest extends $dara.Model {
   externalPort?: string;
   /**
    * @remarks
-   * The name of the DNAT entry. The name must be 2 to 128 characters in length. The name cannot start with `http://` or `https://`.
+   * The name of the DNAT rule. The name must be 2 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test0
@@ -37,7 +38,7 @@ export class CreateForwardEntryRequest extends $dara.Model {
   forwardEntryName?: string;
   /**
    * @remarks
-   * The probe port. The port must be within the internal port range. By default, this parameter is left empty.
+   * The health check port for DNAT. The port must be within the internal port range. Default value: empty.
    * 
    * @example
    * 80
@@ -45,20 +46,20 @@ export class CreateForwardEntryRequest extends $dara.Model {
   healthCheckPort?: number;
   /**
    * @remarks
-   * The private IP address of the instance that uses the DNAT entry for Internet communication.
+   * The private IP address of the instance that communicates with the Internet through the DNAT entry.
    * 
    * This parameter is required.
    * 
    * @example
-   * 10.0.0.13
+   * 10.0.XXX.XXX
    */
   internalIp?: string;
   /**
    * @remarks
-   * The internal port or port range that is used for port forwarding.
+   * The internal port or port range for port forwarding.
    * 
-   * *   Valid values: 1 to 65535.
-   * *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
+   * - The port range must be within 1 to 65535.
+   * - To forward traffic within a port range, separate the start and end ports with a forward slash (/), such as 10/20.
    * 
    * This parameter is required.
    * 
@@ -68,11 +69,13 @@ export class CreateForwardEntryRequest extends $dara.Model {
   internalPort?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The protocol type. Valid values: 
    * 
-   * *   **TCP**: forwards TCP packets.
-   * *   **UDP**: forwards UDP packets.
-   * *   **Any** (default): forwards all packets.
+   * - **TCP**: forwards TCP packets.   
+   * 
+   * - **UDP**: forwards UDP packets.   
+   * 
+   * - **Any** (default): forwards all packets.
    * 
    * @example
    * Any
@@ -80,17 +83,17 @@ export class CreateForwardEntryRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The ID of the Network Address Translation (NAT) gateway.
+   * The ID of the NAT gateway.
    * 
    * This parameter is required.
    * 
    * @example
-   * nat-5t7nh1cfm6kxiszlttr383xpo
+   * nat-5t7nh1cfm6kxiszlttr38****
    */
   natGatewayId?: string;
   /**
    * @remarks
-   * The secondary EIP that is used to access the Internet. You need to select a secondary EIP that is bound to NAT. After the DNAT entry is created, the secondary EIP takes effect.
+   * The standby EIP that provides public network access. The standby EIP must be bound to the NAT gateway. After the DNAT entry is created, the standby EIP takes effect.
    * 
    * @example
    * 101.XXX.XXX.4

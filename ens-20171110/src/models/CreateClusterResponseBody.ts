@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * c34b69b095f8241c5a91cc2252dceb976

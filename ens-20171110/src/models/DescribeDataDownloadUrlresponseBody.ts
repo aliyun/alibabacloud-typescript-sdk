@@ -13,7 +13,7 @@ export class DescribeDataDownloadURLResponseBodyDataServerList extends $dara.Mod
   host?: string;
   /**
    * @remarks
-   * The ID of the Edge Node Service (ENS) node.
+   * The ID of the ENS edge node.
    * 
    * @example
    * cn-chenzhou-5
@@ -45,7 +45,7 @@ export class DescribeDataDownloadURLResponseBodyDataServerList extends $dara.Mod
 export class DescribeDataDownloadURLResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the data file expires. The time is displayed in UTC.
+   * The expiration time of the download URL in UTC.
    * 
    * @example
    * 2021-12-10T03:36:27Z
@@ -53,12 +53,12 @@ export class DescribeDataDownloadURLResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The file servers.
+   * The list of file servers.
    */
   serverList?: DescribeDataDownloadURLResponseBodyDataServerList[];
   /**
    * @remarks
-   * The download URL of the data file.
+   * The download URL of the file.
    * 
    * @example
    * /file/1450088842124331/97a32f2a-aa2c-436a-b19c-05b20d258618/f0313053530fc727f81b7d03fad93cd2/e4c2e8edac362acab7123654b9e73432?ak=edgepaas-innerapi-daily&ts=1611229454&sign=Yycbax%2F4OsTgm6BLoxR6lPs5gKE%3D
@@ -95,7 +95,7 @@ export class DescribeDataDownloadURLResponseBodyData extends $dara.Model {
 export class DescribeDataDownloadURLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 0
@@ -103,12 +103,12 @@ export class DescribeDataDownloadURLResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The download URLs of data files.
+   * The list of download URLs for data files.
    */
   data?: DescribeDataDownloadURLResponseBodyData;
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. A value of success indicates that the request was successful.
    * 
    * @example
    * Success
@@ -116,7 +116,7 @@ export class DescribeDataDownloadURLResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

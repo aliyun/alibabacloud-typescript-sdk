@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-beijing-telecom
@@ -13,12 +13,12 @@ export class DescribeNetworksRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. You can specify 1 to 100 IDs.
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5***
@@ -26,12 +26,12 @@ export class DescribeNetworksRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The IDs of VPCs You can specify 1 to 100 IDs.
+   * The array of network IDs. Array length: 1 to 100.
    */
   networkIds?: string[];
   /**
    * @remarks
-   * The name of the network.
+   * The network name.
    * 
    * @example
    * example
@@ -39,7 +39,7 @@ export class DescribeNetworksRequest extends $dara.Model {
   networkName?: string;
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeNetworksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10

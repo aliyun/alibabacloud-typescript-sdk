@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServerLoadBalancerListenMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
+   * The end time. The maximum interval between StartTime and EndTime cannot exceed 24 hours.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancing instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $dara.Model 
   loadBalancerId?: string;
   /**
    * @remarks
-   * The request protocol, such as http, https, or tcp.
+   * The request protocol, such as http, https, and tcp.
    * 
    * @example
    * tcp
@@ -33,7 +33,7 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $dara.Model 
   proto?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The start time in the format of yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $dara.Model 
   startTime?: string;
   /**
    * @remarks
-   * The virtual IP address (VIP) port, such as 80, 8080, or 443.
+   * The VIP port, such as 80, 8080, and 443.
    * 
    * @example
    * 80

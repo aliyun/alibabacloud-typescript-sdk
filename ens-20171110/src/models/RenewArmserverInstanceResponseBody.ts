@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewARMServerInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 370E61E0-6E6E-50FE-9259-EE706C55ABF1

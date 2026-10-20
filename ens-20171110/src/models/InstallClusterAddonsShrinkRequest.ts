@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class InstallClusterAddonsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The add-on information.
+   * 
    * This parameter is required.
    */
   addonsShrink?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

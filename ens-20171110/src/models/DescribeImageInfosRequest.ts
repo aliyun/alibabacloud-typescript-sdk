@@ -5,10 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The operating system (OS). You can specify only one OS in a request. If you do not specify a value for this parameter, images for all supported OSs are queried. Valid values:
+   * The operating system type. Only a single type can be specified. If this parameter is not specified, all types are queried.
    * 
-   * *   linux
-   * *   windows
+   * Valid values:
+   * 
+   * - Linux
+   * 
+   * - windows
+   * 
+   * In practice, passing linux or Linux may return an empty list, whereas omitting this parameter can return images with an OSType of linux. Verify the actual results before relying on this filter.
    * 
    * @example
    * linux

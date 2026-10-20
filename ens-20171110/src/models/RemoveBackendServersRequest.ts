@@ -8,12 +8,12 @@ export class RemoveBackendServersRequestBackendServers extends $dara.Model {
    * The IP address of the backend server.
    * 
    * @example
-   * 192.XXX.X.X
+   * 192.168.0.1
    */
   ip?: string;
   /**
    * @remarks
-   * The backend port that is used by the Edge Load Balancer (ELB) instance.
+   * The port used by the backend servers of the load balancing instance.
    * 
    * @example
    * 0
@@ -31,10 +31,9 @@ export class RemoveBackendServersRequestBackendServers extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The type of backend server. Valid values:
-   * 
-   * *   **ens**: an Edge Node Service (ENS) instance.
-   * *   **eni**: an Elastic Network Interface (ENI).
+   * The backend server type. Valid values:
+   * - **ens**: ENS instance.
+   * - **eni**: network interface controller (NIC).
    * 
    * @example
    * ens
@@ -80,14 +79,14 @@ export class RemoveBackendServersRequestBackendServers extends $dara.Model {
 export class RemoveBackendServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of backend servers that you want to remove. You can remove up to 20 backend servers at a time.
+   * The list of backend servers to remove. You can remove up to 20 backend servers per call.
    * 
    * This parameter is required.
    */
   backendServers?: RemoveBackendServersRequestBackendServers[];
   /**
    * @remarks
-   * The ID of the Edge Load Balancer (ELB) instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 

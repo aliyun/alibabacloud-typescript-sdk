@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MountInstanceSDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */

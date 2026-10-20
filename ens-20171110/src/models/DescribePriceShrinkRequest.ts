@@ -96,10 +96,13 @@ export class DescribePriceShrinkRequest extends $dara.Model {
    * @remarks
    * The bandwidth metering method of the instance. Valid values:
    * 
-   * *   BandwidthByDay: Pay by daily peak bandwidth
-   * *   95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
-   * *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
-   * *   PayByBandwidth: Pay by fixed bandwidth
+   * - BandwidthByDay: Pay by daily peak bandwidth
+   * 
+   * - 95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
+   * 
+   * - PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
+   * 
+   * - PayByBandwidth: Pay by fixed bandwidth
    * 
    * This parameter is required.
    * 
@@ -111,9 +114,11 @@ export class DescribePriceShrinkRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the instance.
    * 
-   * *   If you leave the PeriodUnit parameter empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
-   * *   If you set PeriodUnit to Day, you can set Period only to 3.
-   * *   If you set PeriodUnit to Month, you can set Period to a number from 1 to 9, or set Period to 12.
+   * - If you leave the PeriodUnit parameter empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
+   * 
+   * - If you set PeriodUnit to Day, you can set Period only to 3.
+   * 
+   * - If you set PeriodUnit to Month, you can set Period to a number from 1 to 9, or set Period to 12.
    * 
    * This parameter is required.
    * 
@@ -125,8 +130,9 @@ export class DescribePriceShrinkRequest extends $dara.Model {
    * @remarks
    * The billing cycle of the ENS instance. Valid values:
    * 
-   * *   Month (default):
-   * *   Day
+   * - Month (default):
+   * 
+   * - Day
    * 
    * @example
    * Month
