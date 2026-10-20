@@ -7,7 +7,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * @remarks
    * The unique ID of the alert event.
    * 
-   * > To query the exception information of a single alert event, provide the unique ID of the alert event. You can obtain this ID by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
+   * > To query the exception event information of a single alert event, you must provide the unique ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID.
    * 
    * @example
    * 8df914418f4211fb****
@@ -15,12 +15,12 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   alarmUniqueInfo?: string;
   /**
    * @remarks
-   * The collection of asset types.
+   * The list of asset types.
    */
   assetsTypeList?: string[];
   /**
    * @remarks
-   * The cluster ID for which you want to query alert events.
+   * The ID of the cluster for which you want to query alert events.
    * 
    * @example
    * c4af4fdf38a98496a9b63c2be5dae****
@@ -30,18 +30,18 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * @remarks
    * The container search field. Valid values:
    * 
-   * - **instanceId**: instance ID
-   * - **appName**: application name
-   * - **clusterId**: cluster ID
-   * - **regionId**: region
-   * - **nodeName**: node name
-   * - **namespace**: namespace
-   * - **clusterName**: cluster name
-   * - **image**: image name
-   * - **imageRepoName**: image repository name
-   * - **imageRepoNamespace**: image repository namespace
-   * - **imageRepoTag**: image tag
-   * - **imageDigest**: image digest
+   * - **instanceId**: Instance ID.
+   * - **appName**: Application name.
+   * - **clusterId**: Cluster ID.
+   * - **regionId**: Region ID.
+   * - **nodeName**: Node name.
+   * - **namespace**: Namespace.
+   * - **clusterName**: Cluster name.
+   * - **image**: Image name.
+   * - **imageRepoName**: Image repository name.
+   * - **imageRepoNamespace**: Image repository namespace.
+   * - **imageRepoTag**: Image tag.
+   * - **imageDigest**: Image digest.
    * 
    * @example
    * instanceId
@@ -57,7 +57,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paged query. Default value: **1**, which indicates that the results start from page 1.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -65,8 +65,8 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Specifies whether the alert events to query have been handled. Valid values:
-   * - **N**: Unhandled.
+   * Specifies whether the alert events to query are handled. Valid values:
+   * - **N**: Pending.
    * - **Y**: Handled.
    * 
    * @example
@@ -75,7 +75,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The discovery source. This is an invalid field.
+   * The detection source. This field is invalid.
    * 
    * @example
    * linux
@@ -91,7 +91,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   eventNames?: string;
   /**
    * @remarks
-   * The data source identifier of the alert event. The value is fixed as sas.
+   * The identifier of the data source to which the alert event belongs. Set the value to sas.
    * 
    * @example
    * sas
@@ -99,7 +99,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The group ID of the asset affected by the alert event.
+   * The ID of the asset group affected by the alert event.
    * 
    * @example
    * 18768
@@ -107,7 +107,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The unique ID that identifies the alert event record.
+   * The unique ID of the alert event record.
    * 
    * @example
    * 123
@@ -125,7 +125,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity levels of the alert events to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
+   * The urgency levels of the alert events to query. Separate multiple urgency levels with commas (,). The urgency levels are listed in descending order. Valid values:
    * - **serious**: Urgent.
    * - **suspicious**: Suspicious.
    * - **remind**: Reminder.
@@ -154,7 +154,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The collection of alert event handling result codes.
+   * The list of alert event handling result codes.
    */
   operateErrorCodeList?: string[];
   /**
@@ -175,7 +175,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   operateTimeStart?: string;
   /**
    * @remarks
-   * The number of alert events to display on each page in a paged query. Default value: **20**, which indicates that 20 alert events are displayed on each page. Maximum value: 100.
+   * The settings for the paged query, specifying the number of alert events to return on each page. Default value: **20**, which indicates that 20 alert events are returned on each page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -183,31 +183,31 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The alerting type of the alert events to query. Valid values:
+   * The Alarm Metric of the alert events to query. Valid values:
    * 
    * - **Abnormal process behavior**
    * - **Web shell**
    * - **Unusual logon**
-   * - **Abnormal event**
+   * - **Abnormal events**
    * - **Sensitive file tampering**
    * - **Malicious process (cloud scan)**
-   * - **Suspicious network connectivity**
-   * - **Abnormal account**
-   * - **Application intrusion event**
+   * - **Suspicious network connection**
+   * - **Abnormal accounts**
+   * - **Application intrusion events**
    * - **Cloud service threat detection**
    * - **Precise defense**
    * - **Application whitelist**
    * - **Persistent backdoor**
    * - **Web application threat detection**
-   * - **Malicious script**
+   * - **Malicious scripts**
    * - **Threat intelligence**
    * - **Malicious network behavior**
-   * - **Container cluster exception**
+   * - **Container cluster anomalies**
    * - **Web shell (local scan)**
    * - **Vulnerability exploits**
    * - **Malicious process (local scan)**
-   * - **Trusted exception**
-   * - **Other**
+   * - **Trusted exceptions**
+   * - **Others**
    * 
    * @example
    * other
@@ -217,7 +217,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * @remarks
    * The alert name or asset information to query.
    * 
-   * > Fuzzy match is supported. Asset information includes the asset name, public IP address, and private IP address.
+   * > Fuzzy match is supported. Asset information includes the asset name, public IP address, and internal IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -225,8 +225,8 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member accounts in the resource directory.
-   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the Alibaba Cloud account to which the resource folder member accounts belong.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -260,7 +260,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * The alert source.
+   * The source of the alert.
    * 
    * @example
    * aegis_suspicious_file_v2
@@ -273,7 +273,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   sourceAliUids?: number[];
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -283,16 +283,16 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * @remarks
    * The status of the alert events to query. Valid values:
    * - **0**: All.
-   * - **1**: Unhandled.
+   * - **1**: Pending.
    * - **2**: Ignored.
    * - **4**: Confirmed.
    * - **8**: Marked as false positive.
-   * - **16**: Handling.
+   * - **16**: Processing.
    * - **32**: Handled.
    * - **64**: Expired.
    * - **128**: Deleted.
-   * - **512**: Automatic blocking in progress.
-   * - **513**: Automatic blocking completed.
+   * - **512**: Automatically blocking.
+   * - **513**: Automatically blocked.
    * 
    * @example
    * 1
@@ -323,10 +323,10 @@ export class DescribeSuspEventsRequest extends $dara.Model {
   tacticId?: string;
   /**
    * @remarks
-   * The target type for container search. Valid values:
-   * - **containerId**: container ID
-   * - **uuid**: server UUID
-   * - **imageUuid**: image UUID
+   * The container search target type. Valid values:
+   * - **containerId**: Container ID.
+   * - **uuid**: Server UUID.
+   * - **imageUuid**: Image UUID.
    * 
    * @example
    * containerId

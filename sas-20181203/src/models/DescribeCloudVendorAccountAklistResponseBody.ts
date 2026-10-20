@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAuthModules extends $dara.Model {
   /**
    * @remarks
-   * The error message of the module.
+   * The exception message of the module.
    * 
    * @example
    * ak_domain_error
@@ -14,11 +14,10 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   /**
    * @remarks
    * The code of the module. Valid values:
-   * 
-   * *   **HOST**: host
-   * *   **CSPM**: configuration assessment
-   * *   **SIEM**: CloudSiem
-   * *   **TRIAL**: log audit
+   * - **HOST**: Host.
+   * - **CSPM**: Cloud product configuration check.
+   * - **SIEM**: Cloud SIEM.
+   * - **TRIAL**: Log audit.
    * 
    * @example
    * HOST
@@ -26,7 +25,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   module?: string;
   /**
    * @remarks
-   * The cloud asset that is associated with the module.
+   * The description of the cloud assets associated with the module.
    * 
    * @example
    * Cloud server or virtual machine
@@ -42,12 +41,11 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   moduleDisp?: string;
   /**
    * @remarks
-   * The service status of the module. Valid values:
-   * 
-   * *   **0**: being used
-   * *   **1**: exception occurred
-   * *   **2**: being validated
-   * *   **3**: validation timed out
+   * The status of the module. Valid values:
+   * - **0**: In use.
+   * - **1**: Abnormal.
+   * - **2**: Validating.
+   * - **3**: Validation timed out.
    * 
    * @example
    * 0
@@ -55,7 +53,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   moduleServiceStatus?: number;
   /**
    * @remarks
-   * The permission description of the module.
+   * The description of the permissions associated with the module.
    * 
    * @example
    * Read permission of the cloud server or virtual machine
@@ -63,7 +61,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   moduleStatement?: string;
   /**
    * @remarks
-   * The error message of the log audit service.
+   * The error message for log audit access.
    * 
    * @example
    * timeout
@@ -71,14 +69,13 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
   trailMessage?: string;
   /**
    * @remarks
-   * The status of the log audit service. Valid values:
-   * 
-   * *   **init**: being initialized
-   * *   **verify**: being validated
-   * *   **enable**: enabled
-   * *   **disable**: disabled
-   * *   **error**: exception occurred
-   * *   **timeout**: validation timed out
+   * The accessed state of log audit. Valid values:
+   * - **init**: Initialization.
+   * - **verify**: Authenticate.
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
+   * - **error**: Error.
+   * - **timeout**: Timed out.
    * 
    * @example
    * enable
@@ -122,10 +119,10 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAu
 export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs extends $dara.Model {
   /**
    * @remarks
-   * The type of the account to which the AccessKey pair belongs. Valid values:
+   * The type of the AK. Valid values:
    * 
-   * *   **primary**: a primary account
-   * *   **sub**: a sub-account
+   * - **primary**: Primary account.
+   * - **sub**: Sub-account.
    * 
    * @example
    * primary
@@ -133,7 +130,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   akType?: string;
   /**
    * @remarks
-   * The unique ID of the AccessKey pair.
+   * The unique ID of the AK.
    * 
    * @example
    * 2345
@@ -141,12 +138,14 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   authId?: number;
   /**
    * @remarks
-   * The modules that are associated with the AccessKey pair.
+   * The list of modules associated with the AK.
    */
   authModules?: DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAuthModules[];
   /**
    * @remarks
-   * The Account ID.
+   * The account ID.
+   * 
+   * > The account ID of the connected cloud service provider.
    * 
    * @example
    * azure_demo_1
@@ -154,15 +153,18 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   ctdrCloudUserId?: string;
   /**
    * @remarks
-   * The extended information of the module.
+   * The extended information.
+   * 
+   * > Used to record the extended information of different vendors.
+   * > Google Cloud is connected through a service account. ExtendInfo stores the service key file in JSON format, excluding the private_key_id and zprivate_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain. When the vendor is **OracleCloud**, this parameter contains the following keys: **fingerprint**, which indicates the fingerprint; **tenancy**, which indicates the tenant; and **domain**, which indicates the region to which the connected account belongs.
    * 
    * @example
-   * {\\"product\\":\\"webFirewall\\",\\"remark\\":\\"remark\\"}
+   * {"domain":"global","fingerprint":"c0:f4:******","tenancy":"ocid1.tenancy.*****"}
    */
   extendInfo?: string;
   /**
    * @remarks
-   * The error message of the AccessKey pair.
+   * The exception message of the AK.
    * 
    * @example
    * The IAM user is forbidden in the currently selected region
@@ -170,7 +172,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   message?: string;
   /**
    * @remarks
-   * The AccessKey ID.
+   * The ID of the AK parameter.
    * 
    * @example
    * S3D6c4O***
@@ -178,12 +180,11 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   secretId?: string;
   /**
    * @remarks
-   * The service status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: being used
-   * *   **1**: exception occurred
-   * *   **2**: being validated
-   * *   **3**: validation timed out
+   * The usage status of the AK. Valid values:
+   * - **0**: In use.
+   * - **1**: Abnormal.
+   * - **2**: Validating.
+   * - **3**: Validation timed out.
    * 
    * @example
    * 0
@@ -191,10 +192,9 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   serviceStatus?: number;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: enabled
-   * *   **1**: disabled
+   * The status of the AK. Valid values:
+   * - **0**: Enabled.
+   * - **1**: Disabled.
    * 
    * @example
    * 0
@@ -203,11 +203,21 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   /**
    * @remarks
    * The cloud service provider. Valid values:
-   * 
-   * *   **Tencent**: Tencent Cloud
-   * *   **HUAWEICLOUD**: Huawei Cloud
-   * *   **Azure**: Microsoft Azure
-   * *   **AWS**: Amazon Web Services (AWS)
+   * - **Tencent**: Tencent Cloud.
+   * - **HUAWEICLOUD**: Huawei Cloud.
+   * - **Azure**: Azure.
+   * - **AWS**: AWS.
+   * - **VOLCENGINE**: Volcengine.
+   * - **google**: Google Cloud.
+   * - **CHAITIN**: Chaitin Tech.
+   * - **FORTINET**: Fortinet.
+   * - **THREATBOOK**: ThreatBook.
+   * - **KingsoftCloud**: Kingsoft Cloud.
+   * - **UCloud**: UCloud.
+   * - **BaiduCloud**: Baidu AI Cloud.
+   * - **WIZ**: Wiz.
+   * - **OracleCloud**: Oracle Cloud.
+   * - **StateCloud**: CTYun.
    * 
    * @example
    * Tencent
@@ -215,7 +225,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   vendor?: string;
   /**
    * @remarks
-   * The name of the AccessKey pair.
+   * The name of the AK account.
    * 
    * @example
    * test
@@ -223,7 +233,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   vendorAuthAlias?: string;
   /**
    * @remarks
-   * Account ID of the multi-cloud instance.
+   * The account ID of the multi-cloud instance.
    * 
    * @example
    * 123
@@ -231,10 +241,10 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
   vendorUid?: string;
   /**
    * @remarks
-   * Account name of the multi-cloud instance.
+   * The account name of the multi-cloud instance.
    * 
    * @example
-   * VendorUserName
+   * test
    */
   vendorUserName?: string;
   static names(): { [key: string]: string } {
@@ -296,7 +306,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyPageInfo extends $dara.
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page during paging.
    * 
    * @example
    * 1
@@ -304,7 +314,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page during paging.
    * 
    * @example
    * 20
@@ -312,7 +322,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyPageInfo extends $dara.
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 55
@@ -348,7 +358,7 @@ export class DescribeCloudVendorAccountAKListResponseBodyPageInfo extends $dara.
 export class DescribeCloudVendorAccountAKListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AccessKey pairs.
+   * The list of AK information.
    */
   cloudVendorAccountAKs?: DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs[];
   /**
@@ -358,7 +368,7 @@ export class DescribeCloudVendorAccountAKListResponseBody extends $dara.Model {
   pageInfo?: DescribeCloudVendorAccountAKListResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 1383B0DB-D5D6-4B0C-9E6B-75939C8****

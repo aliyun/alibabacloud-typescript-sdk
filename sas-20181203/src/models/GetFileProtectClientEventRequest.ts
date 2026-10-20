@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileProtectClientEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the alert event.
+   * The unique ID of the alert event. This parameter is required. If it is not provided, the API returns an HTTP 400 error.
    * 
    * @example
    * 131231

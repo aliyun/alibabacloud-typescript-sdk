@@ -13,7 +13,7 @@ export class GetHoneypotProbeResponseBodyDataControlNode extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the management node.
+   * The management node ID.
    * 
    * @example
    * 37a15ff1-3475-4897-aa6c-f7fd9122****
@@ -21,7 +21,7 @@ export class GetHoneypotProbeResponseBodyDataControlNode extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the management node.
+   * The management node name.
    * 
    * @example
    * online-honeypot
@@ -55,7 +55,7 @@ export class GetHoneypotProbeResponseBodyDataControlNode extends $dara.Model {
 export class GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the service that is monitored.
+   * The unique ID of the listening service.
    * 
    * @example
    * 15389
@@ -63,7 +63,7 @@ export class GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort extends $dara
   id?: number;
   /**
    * @remarks
-   * The ports that are monitored.
+   * The listening ports.
    * 
    * @example
    * {
@@ -74,7 +74,7 @@ export class GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort extends $dara
   ports?: string;
   /**
    * @remarks
-   * The ID of the probe.
+   * The unique ID of the probe.
    * 
    * @example
    * a46f5162-c70d-4e26-8ddf-7435feca****
@@ -82,15 +82,14 @@ export class GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort extends $dara
   probeId?: string;
   /**
    * @remarks
-   * The IP addresses that are monitored.
+   * The list of listening IP addresses.
    */
   serviceIpList?: string[];
   /**
    * @remarks
-   * The monitoring status. Valid values:
-   * 
-   * *   **1**: abnormal
-   * *   **3**: normal
+   * The status of the listening service. Valid values:
+   * - **1**: Service exception.
+   * - **3**: Normal.
    * 
    * @example
    * 3
@@ -131,7 +130,7 @@ export class GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort extends $dara
 export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the port is bound.
+   * Specifies whether the port is bound.
    * 
    * @example
    * false
@@ -139,7 +138,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   bindPort?: boolean;
   /**
    * @remarks
-   * The end port on which the probe monitors.
+   * The ending listening port of the probe.
    * 
    * @example
    * 80
@@ -147,7 +146,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   endPort?: number;
   /**
    * @remarks
-   * The error that is returned if an error occurred in the port of the honeypot that is bound to the probe.
+   * The bound service port error.
    * 
    * @example
    * portmap failed
@@ -155,7 +154,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   err?: string;
   /**
    * @remarks
-   * Indicates whether the port is a fixed port.
+   * Specifies whether the port is fixed.
    * 
    * @example
    * false
@@ -163,7 +162,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   fixed?: boolean;
   /**
    * @remarks
-   * The unique ID of the port binding record.
+   * The unique ID of the bound port record.
    * 
    * @example
    * 2512
@@ -171,7 +170,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   id?: number;
   /**
    * @remarks
-   * The error message that is returned if an error occurred in the port of the honeypot that is bound to the probe.
+   * The error details of the bound service port.
    * 
    * @example
    * listen 22 tcp4 failed
@@ -179,7 +178,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   msg?: string;
   /**
    * @remarks
-   * The type of the protocol.
+   * The protocol type.
    * 
    * @example
    * tcp
@@ -187,7 +186,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   proto?: string;
   /**
    * @remarks
-   * The start port on which the probe monitors.
+   * The starting listening port of the probe.
    * 
    * @example
    * 22
@@ -195,10 +194,9 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
   startPort?: number;
   /**
    * @remarks
-   * The status of the port of the honeypot that is bound to the probe. Valid values:
-   * 
-   * *   **1**: abnormal
-   * *   **3**: normal
+   * The status of the bound service port. Valid values:
+   * - **1**: Service exception.
+   * - **3**: Normal.
    * 
    * @example
    * 3
@@ -254,7 +252,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList e
 export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindList extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the honeypot that is bound to the probe.
+   * The unique ID of the bound service.
    * 
    * @example
    * 45378f64-d7b4-4a53-9c48-4303eb4b****
@@ -262,7 +260,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindList extends $dara
   bindId?: string;
   /**
    * @remarks
-   * The ports that are bound to the probe.
+   * The list of bound ports.
    */
   bindPortList?: GetHoneypotProbeResponseBodyDataHoneypotProbeBindListBindPortList[];
   /**
@@ -275,15 +273,14 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindList extends $dara
   honeypotId?: string;
   /**
    * @remarks
-   * The IP addresses that are monitored.
+   * The list of listening IP addresses.
    */
   serviceIpList?: string[];
   /**
    * @remarks
-   * The status of the honeypot that is bound to the probe. Valid values:
-   * 
-   * *   **1**: abnormal
-   * *   **3**: normal
+   * The status of the bound honeypot service. Valid values:
+   * - **1**: Service exception.
+   * - **3**: Normal.
    * 
    * @example
    * 3
@@ -327,7 +324,7 @@ export class GetHoneypotProbeResponseBodyDataHoneypotProbeBindList extends $dara
 export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether address resolution protocol (ARP) is enabled for the check type.
+   * The ARP check item.
    * 
    * @example
    * true
@@ -335,22 +332,22 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   arp?: boolean;
   /**
    * @remarks
-   * An array consisting of the IP addresses that can be monitored.
+   * The list of listenable IP addresses.
    */
   canListenIpList?: string[];
   /**
    * @remarks
-   * The CIDR blocks of the probe deployed in a virtual private cloud (VPC).
+   * The list of CIDR blocks covered by the VPC probe.
    */
   cidrList?: string[];
   /**
    * @remarks
-   * The information about the management node.
+   * The management node.
    */
   controlNode?: GetHoneypotProbeResponseBodyDataControlNode;
   /**
    * @remarks
-   * The CPU utilization.
+   * The CPU usage.
    * 
    * @example
    * 0.51
@@ -358,7 +355,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   cpuLoad?: number;
   /**
    * @remarks
-   * The time when the probe was deployed.
+   * The deployment time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1669363825000
@@ -366,7 +363,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   deployTime?: number;
   /**
    * @remarks
-   * The name of the probe.
+   * The probe name.
    * 
    * @example
    * test-probe
@@ -374,17 +371,17 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ports that the honeypot monitors.
+   * The list of honeypot listening port scanning services.
    */
   honeyPotProbeScanPort?: GetHoneypotProbeResponseBodyDataHoneyPotProbeScanPort;
   /**
    * @remarks
-   * The honeypots that are bound to the probe.
+   * The list of honeypot services bound to the probe.
    */
   honeypotProbeBindList?: GetHoneypotProbeResponseBodyDataHoneypotProbeBindList[];
   /**
    * @remarks
-   * The IP address of the server on which the probe is deployed.
+   * The local address bound to the probe.
    * 
    * @example
    * 33.53.XX.XX
@@ -392,7 +389,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   hostIp?: string;
   /**
    * @remarks
-   * An array consisting of the IP addresses that can be monitored.
+   * The list of listenable IP addresses.
    */
   listenIpList?: string[];
   /**
@@ -405,10 +402,9 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   memoryLoad?: number;
   /**
    * @remarks
-   * The operating system of the server on which the probe is deployed. Valid values:
-   * 
-   * *   windows
-   * *   linux
+   * The operating system type of the probe instance. Valid values:
+   * - windows: Windows.
+   * - linux: Linux.
    * 
    * @example
    * windows
@@ -416,7 +412,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * Indicates whether ping is enabled for the check type.
+   * The ping check item.
    * 
    * @example
    * false
@@ -424,7 +420,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   ping?: boolean;
   /**
    * @remarks
-   * The ID of the probe.
+   * The probe ID.
    * 
    * @example
    * 40f6501d-45ec-4bf0-b813-0072ceb4****
@@ -432,10 +428,9 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   probeId?: string;
   /**
    * @remarks
-   * The type of the probe. Valid values:
-   * 
-   * *   **host_probe**: host probe
-   * *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+   * The probe type. Valid values:
+   * - **host_probe**: Host probe.
+   * - **vpc_black_hole_probe**: VPC blackhole probe.
    * 
    * @example
    * host_probe
@@ -443,7 +438,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   probeType?: string;
   /**
    * @remarks
-   * The version of the probe.
+   * The probe version.
    * 
    * @example
    * 18060096
@@ -451,7 +446,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   probeVersion?: string;
   /**
    * @remarks
-   * The IP address of the proxy server.
+   * The proxy IP address deployed in the IDC.
    * 
    * @example
    * 47.108.XX.XX
@@ -459,18 +454,17 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   proxyIp?: string;
   /**
    * @remarks
-   * The status of the probe. Valid values:
-   * 
-   * *   **installed**: installed
-   * *   **install_failed**: installation failed
-   * *   **online**: online
-   * *   **offline**: offline
-   * *   **unnormal**: abnormal
-   * *   **unprobe**: unauthorized
-   * *   **uninstalling**: being uninstalled
-   * *   **uninstalled**: uninstalled
-   * *   **uninstall_failed**: uninstallation failed
-   * *   **not_exist**: not installed
+   * The probe status. Valid values:
+   * - **installed**: Installed successfully.
+   * - **install_failed**: Installation failed.
+   * - **online**: Normal.
+   * - **offline**: Offline.
+   * - **unnormal**: Service exception.
+   * - **unprobe**: Unauthorized.
+   * - **uninstalling**: Uninstalling.
+   * - **uninstalled**: Uninstalled successfully.
+   * - **uninstall_failed**: Uninstallation failed.
+   * - **not_exist**: Not installed.
    * 
    * @example
    * online
@@ -478,7 +472,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The UUID of the asset on which the host probe is deployed.
+   * The UUID of the asset instance where the host probe is located.
    * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
@@ -486,7 +480,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the probe is deployed.
+   * The ID of the VPC-connected instance where the VPC probe is located.
    * 
    * @example
    * vpc-2vchkxmf2j9yjt3x2****
@@ -574,7 +568,7 @@ export class GetHoneypotProbeResponseBodyData extends $dara.Model {
 export class GetHoneypotProbeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to identify the cause of the failure.
    * 
    * @example
    * 200
@@ -582,12 +576,12 @@ export class GetHoneypotProbeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the probe.
+   * The probe data.
    */
   data?: GetHoneypotProbeResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code of the response.
    * 
    * @example
    * 200
@@ -595,7 +589,7 @@ export class GetHoneypotProbeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message returned by the API request.
    * 
    * @example
    * successful
@@ -603,7 +597,7 @@ export class GetHoneypotProbeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 6550E0E6-FD6C-5F39-AB5E-35B30DCA97B5
@@ -611,10 +605,9 @@ export class GetHoneypotProbeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: The API call is successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

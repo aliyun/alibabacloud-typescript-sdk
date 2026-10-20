@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSoarStrategyTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy ID.
-   * >Call the [DescribeSoarSubscribedStrategy](~~DescribeSoarSubscribedStrategy~~) operation to obtain this parameter.
+   * The ID of the policy.
+   * >You can call the [DescribeSoarSubscribedStrategy](~~DescribeSoarSubscribedStrategy~~) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,12 +16,12 @@ export class CreateSoarStrategyTaskRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The policy name. Set the value to: Automated Batch Vulnerability Fix Policy.
+   * The Policy Name. Set the value to Automated Batch Vulnerability Fix Policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * 漏洞自动化批量修复策略
+   * Automated Batch Vulnerability Fix Policy
    */
   strategyName?: string;
   /**
@@ -36,22 +36,24 @@ export class CreateSoarStrategyTaskRequest extends $dara.Model {
   strategyTaskName?: string;
   /**
    * @remarks
-   * The parameter information of the policy. The value is a string in JSONArray format. The following items are included:
+   * The parameter settings of the policy. The value is a character string in JSON array format. Details:
    * 
-   * Vulnerability configuration item. Valid values:
+   * Vulnerability configuration item. Values:
    * - name: vluList
    * - associationProperty: sasAllVul
-   * - value: the basic information of the vulnerability.
+   * - value: the basic information about the vulnerability
    * 
-   * Snapshot configuration item. Valid values:
+   * Snapshot configuration item. Values:
    * - name: snapshotConfig
    * - associationProperty: snapshotConfig
-   * - value: the storage time information.
+   * - value: the storage duration information
    * 
-   * Notification configuration. Valid values:
+   * Notification configuration:
    * - name: notifyConfig
    * - associationProperty: notifyConfig
-   * - value: the configuration information of email or DingTalk notifications.
+   * - value: the configuration information about email or DingTalk
+   * 
+   * The vulList child configuration item is required, and the JSON array must contain an entry whose name is vulList. The snapshotConfig and notifyConfig child configuration items are optional.
    * 
    * This parameter is required.
    * 
@@ -99,7 +101,7 @@ export class CreateSoarStrategyTaskRequest extends $dara.Model {
   strategyTaskParams?: string;
   /**
    * @remarks
-   * The planned execution timestamp of the policy task. Unit: milliseconds.
+   * The scheduled execution timestamp of the policy task. Unit: milliseconds.
    * 
    * @example
    * 1586739841000

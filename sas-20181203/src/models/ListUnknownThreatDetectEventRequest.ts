@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectEventRequest extends $dara.Model {
+  /**
+   * @example
+   * white
+   */
   analyzeResult?: string;
   /**
    * @remarks
@@ -20,6 +24,10 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
    * 0a212417e65c26ff133cfff28f6c****
    */
   hashKey?: string;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
   /**
    * @remarks

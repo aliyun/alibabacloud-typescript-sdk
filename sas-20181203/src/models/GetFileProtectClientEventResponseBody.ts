@@ -7,10 +7,13 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
    * @remarks
    * The alert notification level. Valid values:
    * 
-   * - 0: no alert
-   * - 1: reminder
-   * - 2: suspicious
-   * - 3: high-risk.
+   * - 0: No alert.
+   * 
+   * - 1: Reminder.
+   * 
+   * - 2: Suspicious.
+   * 
+   * - 3: High-risk.
    * 
    * @example
    * 0
@@ -34,7 +37,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The file path.
+   * The path of the file.
    * 
    * @example
    * /usr/local
@@ -42,7 +45,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The process permissions.
+   * The permissions of the process.
    * 
    * @example
    * rwxr-xr-x
@@ -58,7 +61,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * The time when the event was handled.
+   * The time when the event was handled. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1694576692000
@@ -66,7 +69,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   handleTime?: number;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 3454
@@ -74,7 +77,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * i-wz92q7m5hsbgfhdss***
@@ -98,7 +101,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The time when the event most recently occurred.
+   * The time when the event last occurred. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1694576692000
@@ -114,7 +117,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The operating system type.
+   * The type of the operating system.
    * 
    * @example
    * linux
@@ -122,7 +125,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The process path.
+   * The path of the process.
    * 
    * @example
    * /bin/bash33
@@ -146,7 +149,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The action of the blocking rule.
+   * The action of the interception rule.
    * 
    * @example
    * block
@@ -154,7 +157,7 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
    * test-000
@@ -162,11 +165,11 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The event status. Valid values:
+   * The status of the event. Valid values:
    * 
-   * - 0: unhandled 
-   * - 1: handled
-   * - 2: whitelisted.
+   * - 0: Unhandled. 
+   * - 1: Handled.
+   * - 2: Whitelisted.
    * 
    * @example
    * 1

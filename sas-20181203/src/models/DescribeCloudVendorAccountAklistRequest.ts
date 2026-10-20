@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the AccessKey pair.
+   * The unique ID of the AK.
    * 
    * @example
    * 2624
@@ -13,7 +13,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   authIds?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page during paging. Default value: 1.
    * 
    * @example
    * 1
@@ -21,10 +21,10 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,7 +32,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries to return on each page during paging. Default value: 20.
    * 
    * @example
    * 20
@@ -40,10 +40,10 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values:
+   * The status of the AK. Valid values:
    * 
-   * *   **0**: enabled
-   * *   **1**: disabled
+   * - **0**: Enabled.
+   * - **1**: Disabled.
    * 
    * @example
    * 1
@@ -51,7 +51,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The username of the sub-account of the cloud service provider to which the AccessKey pair belongs.
+   * The username of the sub-account of the cloud service provider to which the AK belongs.
    * 
    * @example
    * AlibabaCloud_***
@@ -59,9 +59,22 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   subAccountName?: string;
   /**
    * @remarks
-   * Cloud asset vendor. Values:
-   *  - **Tencent**: Tencent Cloud 
-   * - **AWS**: Amazon Web Services
+   * The cloud service provider. Valid values:
+   * - **Tencent**: Tencent Cloud.
+   * - **HUAWEICLOUD**: Huawei Cloud.
+   * - **Azure**: Azure.
+   * - **AWS**: AWS.
+   * - **VOLCENGINE**: Volcengine.
+   * - **google**: Google Cloud.
+   * - **CHAITIN**: Chaitin Tech.
+   * - **FORTINET**: Fortinet.
+   * - **THREATBOOK**: ThreatBook.
+   * - **KingsoftCloud**: Kingsoft Cloud.
+   * - **UCloud**: UCloud.
+   * - **BaiduCloud**: Baidu AI Cloud.
+   * - **WIZ**: Wiz.
+   * - **OracleCloud**: Oracle Cloud.
+   * - **StateCloud**: CTYun.
    * 
    * @example
    * VOLCENGINE
@@ -69,7 +82,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
   vendor?: string;
   /**
    * @remarks
-   * The name of the AccessKey pair.
+   * The name of the AK account.
    * 
    * @example
    * test

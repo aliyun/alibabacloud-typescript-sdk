@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The handling status for the exception. Valid values:
-   * 
-   * *   **exporting**: in progress
-   * *   **success**: successful
-   * *   **failed**: failed
-   * *   **pending**: pending
+   * The processing status of anomalous events. Valid values:
+   * - **exporting**: Processing.
+   * - **success**: Succeeded.
+   * - **failed**: Failed.
+   * - **pending**: Pending.
    * 
    * @example
    * success
@@ -26,7 +25,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The time when the export task was created.
+   * The creation time.
    * 
    * @example
    * 2022-12-20T15:18Z
@@ -34,7 +33,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the export task was modified.
+   * The modification time.
    * 
    * @example
    * 2022-12-20T15:18Z
@@ -42,7 +41,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the export task.
+   * The ID of the export task for anomalous events.
    * 
    * @example
    * 11
@@ -50,7 +49,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The URL at which you can download the exported Excel file.
+   * The download URL of the exported Excel file.
    * 
    * @example
    * http://suspicious-xxxxxxx.oss-cn-shanghai.aliyuncs.com/xxxxxxxxxxx/suspicious_event_20221221_1671590525269.zip?Expires=1671594125&OSSAccessKeyId=yourAccessKeyID&Signature=xxxxxxxxxxxxxxxxxx
@@ -58,7 +57,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   link?: string;
   /**
    * @remarks
-   * The progress percentage of the export task.
+   * The export progress of anomalous events, in percentage.
    * 
    * @example
    * 100
@@ -66,7 +65,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The exported parameters of exceptions.
+   * The export parameters for anomalous events.
    * 
    * @example
    * id,eventSubType,eventDetail,level,status,ip,instanceName,desc,lastTime,operateTime,note
@@ -82,7 +81,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of exceptions exported.
+   * The total number of anomalous events.
    * 
    * @example
    * 1
@@ -90,7 +89,7 @@ export class DescribeSuspEventExportInfoResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The type of the export task. The value is fixed as suspiciousEvent.
+   * The type of the export task. The value is fixed to suspiciousEvent.
    * 
    * @example
    * suspiciousEvent

@@ -162,6 +162,9 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
    * The estimated number of instances affected by the check item.
+   * 
+   * @example
+   * 0
    */
   instanceEstimatedCount?: number;
   /**

@@ -14,7 +14,9 @@ export class CreateContainerScanTaskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The container ID.
+   * The container IDs.
+   * 
+   * This parameter is required. A scan task cannot be created if no container ID is provided.
    * 
    * @example
    * c927cf190e886696db53cda0efb57145394ccf0bf9f525353fa5c22a26e4****
@@ -22,7 +24,7 @@ export class CreateContainerScanTaskRequest extends $dara.Model {
   containerIds?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSasContainerWebDefenseRuleApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule ID. This parameter is required. If this parameter is not specified, the API returns HTTP 400 with error code -101. You can call ListSasContainerWebDefenseRule to obtain valid RuleId values.
+   * The rule ID. This parameter is required. If it is not provided, the API returns an HTTP 400 error with the error code -101. You can call the ListSasContainerWebDefenseRule operation to obtain a valid RuleId.
    * 
    * @example
    * 400599

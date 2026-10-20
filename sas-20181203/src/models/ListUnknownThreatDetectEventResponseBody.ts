@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 检测结果为正常进程
+   */
   analyzeDesc?: string;
+  /**
+   * @example
+   * white
+   */
   analyzeResult?: string;
   /**
    * @remarks
@@ -37,6 +45,10 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
    * 1694576692000
    */
   firstTime?: number;
+  /**
+   * @example
+   * 确认处理
+   */
   handleRemark?: string;
   handleType?: string;
   /**

@@ -126,6 +126,9 @@ export class GetValidDeductInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The trial version.
+   * 
+   * @example
+   * 0
    */
   trialVersion?: number;
   static names(): { [key: string]: string } {

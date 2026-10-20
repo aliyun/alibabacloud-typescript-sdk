@@ -433,7 +433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds multi-cloud asset configuration information.
+   * Creates multi-cloud asset configuration information.
    * 
    * @param request - AddCloudVendorAccountAKRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -512,7 +512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds multi-cloud asset configuration information.
+   * Creates multi-cloud asset configuration information.
    * 
    * @param request - AddCloudVendorAccountAKRequest
    * @returns AddCloudVendorAccountAKResponse
@@ -1039,7 +1039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a self-managed image repository.
+   * Connects to a self-managed image registry.
+   * 
+   * @remarks
+   * When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
    * 
    * @param request - AddPrivateRegistryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1118,7 +1121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a self-managed image repository.
+   * Connects to a self-managed image registry.
+   * 
+   * @remarks
+   * When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
    * 
    * @param request - AddPrivateRegistryRequest
    * @returns AddPrivateRegistryResponse
@@ -3677,6 +3683,167 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates deep analysis for a malicious file.
+   * 
+   * @remarks
+   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * - accepted: The request is accepted.
+   * - authorized: The purchase verification for the source is passed.
+   * - alertResolved: The file hash is parsed from the alert or input parameters.
+   * - fileReady: The file download link is ready.
+   * - dispatched: The file is delivered to the detection engine, including the requestId.
+   * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+   * - done: The current analysis process is completed.
+   * - error: A processing exception occurs, including the error code and message.
+   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * 
+   * @param request - CreateFileDeepAnalyzeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileDeepAnalyzeResponse
+   */
+  async *createFileDeepAnalyzeWithSSE(request: $_model.CreateFileDeepAnalyzeRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CreateFileDeepAnalyzeResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.hash)) {
+      query["Hash"] = request.hash;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFileDeepAnalyze",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.CreateFileDeepAnalyzeResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CreateFileDeepAnalyzeResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Initiates deep analysis for a malicious file.
+   * 
+   * @remarks
+   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * - accepted: The request is accepted.
+   * - authorized: The purchase verification for the source is passed.
+   * - alertResolved: The file hash is parsed from the alert or input parameters.
+   * - fileReady: The file download link is ready.
+   * - dispatched: The file is delivered to the detection engine, including the requestId.
+   * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+   * - done: The current analysis process is completed.
+   * - error: A processing exception occurs, including the error code and message.
+   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * 
+   * @param request - CreateFileDeepAnalyzeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileDeepAnalyzeResponse
+   */
+  async createFileDeepAnalyzeWithOptions(request: $_model.CreateFileDeepAnalyzeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFileDeepAnalyzeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.hash)) {
+      query["Hash"] = request.hash;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFileDeepAnalyze",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFileDeepAnalyzeResponse>(await this.callApi(params, req, runtime), new $_model.CreateFileDeepAnalyzeResponse({}));
+  }
+
+  /**
+   * Initiates deep analysis for a malicious file.
+   * 
+   * @remarks
+   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * - accepted: The request is accepted.
+   * - authorized: The purchase verification for the source is passed.
+   * - alertResolved: The file hash is parsed from the alert or input parameters.
+   * - fileReady: The file download link is ready.
+   * - dispatched: The file is delivered to the detection engine, including the requestId.
+   * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+   * - done: The current analysis process is completed.
+   * - error: A processing exception occurs, including the error code and message.
+   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * 
+   * @param request - CreateFileDeepAnalyzeRequest
+   * @returns CreateFileDeepAnalyzeResponse
+   */
+  async createFileDeepAnalyze(request: $_model.CreateFileDeepAnalyzeRequest): Promise<$_model.CreateFileDeepAnalyzeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFileDeepAnalyzeWithOptions(request, runtime);
+  }
+
+  /**
    * Pushes a file to the cloud for detection.
    * 
    * @remarks
@@ -5851,10 +6018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task under My Policies in the task center.
+   * Creates a task under My Policies in Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - CreateSoarStrategyTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5901,10 +6068,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task under My Policies in the task center.
+   * Creates a task under My Policies in Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - CreateSoarStrategyTaskRequest
    * @returns CreateSoarStrategyTaskResponse
@@ -11776,10 +11943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
+   * Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
+   * You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
    * 
    * @param request - DescribeCloudCenterInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11858,10 +12025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
+   * Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
+   * You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
    * 
    * @param request - DescribeCloudCenterInstancesRequest
    * @returns DescribeCloudCenterInstancesResponse
@@ -11909,7 +12076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-cloud assets added to Security Center.
+   * Queries the list of multi-cloud asset configurations.
    * 
    * @param request - DescribeCloudVendorAccountAKListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11968,7 +12135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-cloud assets added to Security Center.
+   * Queries the list of multi-cloud asset configurations.
    * 
    * @param request - DescribeCloudVendorAccountAKListRequest
    * @returns DescribeCloudVendorAccountAKListResponse
@@ -12345,7 +12512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scanner status information of a Kubernetes cluster.
+   * Queries the status information of Kubernetes cluster scanners.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12384,7 +12551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scanner status information of a Kubernetes cluster.
+   * Queries the status information of Kubernetes cluster scanners.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @returns DescribeClusterScannerListResponse
@@ -15113,7 +15280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics information of servers in your assets.
+   * Queries the statistics information of servers in assets.
    * 
    * @param request - DescribeFieldStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15152,7 +15319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics information of servers in your assets.
+   * Queries the statistics information of servers in assets.
    * 
    * @param request - DescribeFieldStatisticsRequest
    * @returns DescribeFieldStatisticsResponse
@@ -15750,7 +15917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a baseline risk export, such as the file name and download link.
+   * Queries the file name, download URL, and other information about a baseline export.
    * 
    * @param request - DescribeHcExportInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15781,7 +15948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a baseline risk export, such as the file name and download link.
+   * Queries the file name, download URL, and other information about a baseline export.
    * 
    * @param request - DescribeHcExportInfoRequest
    * @returns DescribeHcExportInfoResponse
@@ -17347,7 +17514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about images affected by sensitive files.
+   * Queries the information about images affected by sensitive files.
    * 
    * @param tmpReq - DescribeImageListBySensitiveFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17424,7 +17591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about images affected by sensitive files.
+   * Queries the information about images affected by sensitive files.
    * 
    * @param request - DescribeImageListBySensitiveFileRequest
    * @returns DescribeImageListBySensitiveFileResponse
@@ -17855,7 +18022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the sensitive files of an image.
+   * Queries sensitive files in an image.
    * 
    * @param tmpReq - DescribeImageSensitiveFileByKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17912,7 +18079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the sensitive files of an image.
+   * Queries sensitive files in an image.
    * 
    * @param request - DescribeImageSensitiveFileByKeyRequest
    * @returns DescribeImageSensitiveFileByKeyResponse
@@ -22930,7 +23097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an export task of exceptions.
+   * Queries the export information of security alert events.
    * 
    * @param request - DescribeSuspEventExportInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22961,7 +23128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an export task of exceptions.
+   * Queries the export information of security alert events.
    * 
    * @param request - DescribeSuspEventExportInfoRequest
    * @returns DescribeSuspEventExportInfoResponse
@@ -22972,7 +23139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quarantined files in the file quarantine box by paging.
+   * Performs a paged query of quarantined files in the file quarantine box by using paging.
    * 
    * @param request - DescribeSuspEventQuaraFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23031,7 +23198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quarantined files in the file quarantine box by paging.
+   * Performs a paged query of quarantined files in the file quarantine box by using paging.
    * 
    * @param request - DescribeSuspEventQuaraFilesRequest
    * @returns DescribeSuspEventQuaraFilesResponse
@@ -23092,7 +23259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of security alert events that have not been aggregated.
+   * Queries a list of unaggregated security alert events.
    * 
    * @param tmpReq - DescribeSuspEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23275,7 +23442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of security alert events that have not been aggregated.
+   * Queries a list of unaggregated security alert events.
    * 
    * @param request - DescribeSuspEventsRequest
    * @returns DescribeSuspEventsResponse
@@ -23463,7 +23630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of IDC scan tasks for asset synchronization.
+   * Queries the details of an IDC scan task for an asset synchronization task.
    * 
    * @param request - DescribeSyncAssetTaskLogDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23514,7 +23681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of IDC scan tasks for asset synchronization.
+   * Queries the details of an IDC scan task for an asset synchronization task.
    * 
    * @param request - DescribeSyncAssetTaskLogDetailRequest
    * @returns DescribeSyncAssetTaskLogDetailResponse
@@ -24371,7 +24538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version details of a purchased Security Center instance.
+   * Queries the edition details of a purchased Security Center instance.
    * 
    * @param request - DescribeVersionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24406,7 +24573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version details of a purchased Security Center instance.
+   * Queries the edition details of a purchased Security Center instance.
    * 
    * @param request - DescribeVersionConfigRequest
    * @returns DescribeVersionConfigResponse
@@ -26897,10 +27064,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+   * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
    * 
    * @remarks
-   * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+   * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
    * 
    * @param request - ExportRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26947,10 +27114,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+   * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
    * 
    * @remarks
-   * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+   * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
    * 
    * @param request - ExportRecordRequest
    * @returns ExportRecordResponse
@@ -27225,7 +27392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports baseline check results.
+   * Exports the list of baseline check results. This operation is deprecated.
+   * 
+   * @remarks
+   * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
    * 
    * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
    * 
@@ -27318,7 +27488,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports baseline check results.
+   * Exports the list of baseline check results. This operation is deprecated.
+   * 
+   * @remarks
+   * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
    * 
    * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
    * 
@@ -28830,7 +29003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the current user is qualified for the trial use of Security Center.
+   * Queries whether you have trial permissions for Security Center.
    * 
    * @param request - GetCanTrySasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28865,7 +29038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the current user is qualified for the trial use of Security Center.
+   * Queries whether you have trial permissions for Security Center.
    * 
    * @param request - GetCanTrySasRequest
    * @returns GetCanTrySasResponse
@@ -29973,7 +30146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a non-image process defense rule.
+   * Retrieves the details of a non-image program defense rule.
    * 
    * @param request - GetContainerDefenseRuleDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30008,7 +30181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a non-image process defense rule.
+   * Retrieves the details of a non-image program defense rule.
    * 
    * @param request - GetContainerDefenseRuleDetailRequest
    * @returns GetContainerDefenseRuleDetailResponse
@@ -30386,7 +30559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a file protection event.
+   * Retrieves file tamper-proofing events.
    * 
    * @param request - GetFileProtectClientEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30413,7 +30586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a file protection event.
+   * Retrieves file tamper-proofing events.
    * 
    * @param request - GetFileProtectClientEventRequest
    * @returns GetFileProtectClientEventResponse
@@ -31001,7 +31174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+   * Queries the monitoring data of cloud honeypot management nodes.
    * 
    * @param request - GetHoneypotNodeMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31060,7 +31233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+   * Queries the monitoring data of cloud honeypot management nodes.
    * 
    * @param request - GetHoneypotNodeMetricListRequest
    * @returns GetHoneypotNodeMetricListResponse
@@ -31117,7 +31290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a specified probe.
+   * Queries the details of a specified honeypot probe.
+   * 
+   * @remarks
+   * Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
    * 
    * @param request - GetHoneypotProbeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31152,7 +31328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a specified probe.
+   * Queries the details of a specified honeypot probe.
+   * 
+   * @remarks
+   * Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
    * 
    * @param request - GetHoneypotProbeRequest
    * @returns GetHoneypotProbeResponse
@@ -31385,7 +31564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the valid value ranges for instance authorization.
+   * Retrieves the valid value ranges for instance authorizations.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceAuthRangeResponse
@@ -31407,7 +31586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the valid value ranges for instance authorization.
+   * Retrieves the valid value ranges for instance authorizations.
    * @returns GetInstanceAuthRangeResponse
    */
   async getInstanceAuthRange(): Promise<$_model.GetInstanceAuthRangeResponse> {
@@ -32201,7 +32380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the rule that is used to block at-risk images.
+   * Queries the details of a risky image blocking policy.
    * 
    * @param request - GetOpaStrategyDetailNewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32232,7 +32411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the rule that is used to block at-risk images.
+   * Queries the details of a risky image blocking policy.
    * 
    * @param request - GetOpaStrategyDetailNewRequest
    * @returns GetOpaStrategyDetailNewResponse
@@ -32584,7 +32763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the application list for container file defense configurations.
+   * Retrieves the list of applications for container file defense configurations.
    * 
    * @param request - GetSasContainerWebDefenseRuleApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32615,7 +32794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the application list for container file defense configurations.
+   * Retrieves the list of applications for container file defense configurations.
    * 
    * @param request - GetSasContainerWebDefenseRuleApplicationRequest
    * @returns GetSasContainerWebDefenseRuleApplicationResponse
@@ -34520,10 +34699,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries agentless detection assets.
+   * Queries agentless scan assets.
    * 
    * @remarks
-   * Queries the list of assets for agentless detection.
+   * Queries the list of assets for agentless scanning.
    * 
    * @param request - ListAgentlessAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34586,10 +34765,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries agentless detection assets.
+   * Queries agentless scan assets.
    * 
    * @remarks
-   * Queries the list of assets for agentless detection.
+   * Queries the list of assets for agentless scanning.
    * 
    * @param request - ListAgentlessAssetRequest
    * @returns ListAgentlessAssetResponse
@@ -36511,7 +36690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the asset list of cloud products.
+   * Retrieves the list of cloud product assets.
    * 
    * @param request - ListCloudAssetInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36574,7 +36753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the asset list of cloud products.
+   * Retrieves the list of cloud product assets.
    * 
    * @param request - ListCloudAssetInstancesRequest
    * @returns ListCloudAssetInstancesResponse
@@ -39052,10 +39231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-account authorization assignment list under multi-account authorization management.
+   * Queries the list of multi-account authorization assignments under multi-account authorization management.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+   * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
    * 
    * @param request - ListMultiUserInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39090,10 +39269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-account authorization assignment list under multi-account authorization management.
+   * Queries the list of multi-account authorization assignments under multi-account authorization management.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+   * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
    * 
    * @param request - ListMultiUserInstancesRequest
    * @returns ListMultiUserInstancesResponse
@@ -40716,7 +40895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the process list of intelligent behavior analytics.
+   * Queries the process list for intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40791,7 +40970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the process list of intelligent behavior analytics.
+   * Queries the process list for intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectProcessRequest
    * @returns ListUnknownThreatDetectProcessResponse
@@ -40902,7 +41081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Serverless instance UUIDs by application ID.
+   * Queries the UUIDs of Serverless instances by application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40953,7 +41132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Serverless instance UUIDs by application ID.
+   * Queries the UUIDs of Serverless instances by application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @returns ListUuidsByAppIdResponse
@@ -42340,7 +42519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authorization and authentication configuration of multi-cloud assets.
+   * Modifies the authorization and authentication configuration information of multi-cloud assets.
    * 
    * @param request - ModifyCloudVendorAccountAKRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42419,7 +42598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authorization and authentication configuration of multi-cloud assets.
+   * Modifies the authorization and authentication configuration information of multi-cloud assets.
    * 
    * @param request - ModifyCloudVendorAccountAKRequest
    * @returns ModifyCloudVendorAccountAKResponse
@@ -44058,7 +44237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables pay-as-you-go billing for a specified feature.
+   * Enables or disables the pay-as-you-go billing method for specified features.
    * 
    * @param tmpReq - ModifyPostPayModuleSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44127,7 +44306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables pay-as-you-go billing for a specified feature.
+   * Enables or disables the pay-as-you-go billing method for specified features.
    * 
    * @param request - ModifyPostPayModuleSwitchRequest
    * @returns ModifyPostPayModuleSwitchResponse
@@ -44581,7 +44760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manages Serverless asset authorization.
+   * Manages Serverless asset authorizations.
    * 
    * @param request - ModifyServerlessAuthToMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44676,7 +44855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manages Serverless asset authorization.
+   * Manages Serverless asset authorizations.
    * 
    * @param request - ModifyServerlessAuthToMachineRequest
    * @returns ModifyServerlessAuthToMachineResponse
@@ -50456,7 +50635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of a file protection event.
+   * Updates the status of file tamper-proofing events.
    * 
    * @param request - UpdateFileProtectClientEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50555,7 +50734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of a file protection event.
+   * Updates the status of file tamper-proofing events.
    * 
    * @param request - UpdateFileProtectClientEventRequest
    * @returns UpdateFileProtectClientEventResponse
@@ -51908,7 +52087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+   * Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
    * 
    * @param request - UpdatePostPaidBindRelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51963,7 +52142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+   * Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
    * 
    * @param request - UpdatePostPaidBindRelRequest
    * @returns UpdatePostPaidBindRelResponse

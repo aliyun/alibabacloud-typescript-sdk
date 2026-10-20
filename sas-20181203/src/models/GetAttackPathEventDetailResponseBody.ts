@@ -29,7 +29,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the cloud service asset instance.
+   * The ID of the region where the cloud service asset instance resides.
    * 
    * @example
    * cn-shanghai
@@ -45,9 +45,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   regionId?: string;
   /**
    * @remarks
-   * The sensitive asset flag. Valid values:
-   * - **0**: Not a sensitive asset.
-   * - **1**: A sensitive asset.
+   * Specifies whether the asset is a sensitive asset. Valid values:
+   * - **0**: The asset is not sensitive.
+   * - **1**: The asset is sensitive.
    * 
    * @example
    * 0
@@ -97,7 +97,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeList extends $dara.Model {
   /**
    * @remarks
-   * The edge ID.
+   * The ID of the edge.
    * 
    * @example
    * 123
@@ -105,7 +105,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   edgeId?: number;
   /**
    * @remarks
-   * The edge type.
+   * The type of the edge.
    * 
    * @example
    * role_trust_user
@@ -177,9 +177,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList extends $dara.Model {
   /**
    * @remarks
-   * The AI asset flag. Valid values:
-   * - **0**: Not an AI asset.
-   * - **1**: An AI asset.
+   * Indicates whether the asset is an AI asset. Valid values:
+   * - **0**: The asset is not an AI asset.
+   * - **1**: The asset is an AI asset.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   elementType?: string;
   /**
    * @remarks
-   * The node details.
+   * The details of the node.
    * 
    * @example
    * {"assetId":0}
@@ -203,7 +203,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeDetail?: string;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
    * hypermatch_uploader
@@ -211,7 +211,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeName?: string;
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * @example
    * user
@@ -219,7 +219,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeType?: string;
   /**
    * @remarks
-   * The node UUID.
+   * The UUID of the node.
    * 
    * @example
    * 52d59cca9d1768bab5fe081317637990
@@ -227,9 +227,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeUuid?: string;
   /**
    * @remarks
-   * The sensitive asset flag. Valid values:
-   * - **0**: Not a sensitive asset.
-   * - **1**: A sensitive asset.
+   * Specifies whether the asset is a sensitive asset. Valid values:
+   * - **0**: The asset is not sensitive.
+   * - **1**: The asset is sensitive.
    * 
    * @example
    * 0
@@ -295,7 +295,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * test
@@ -303,7 +303,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the cloud service asset instance.
+   * The ID of the region where the cloud service asset instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -311,9 +311,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   regionId?: string;
   /**
    * @remarks
-   * The sensitive asset flag. Valid values:
-   * - **0**: Not a sensitive asset.
-   * - **1**: A sensitive asset.
+   * Specifies whether the asset is a sensitive asset. Valid values:
+   * - **0**: The asset is not sensitive.
+   * - **1**: The asset is sensitive.
    * 
    * @example
    * 0
@@ -400,11 +400,19 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
    * The list of path nodes.
    */
   pathEventNodeList?: GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList[];
+  /**
+   * @remarks
+   * The generation status of the attack path interpretation result.
+   */
   pathInterpretationStatus?: string;
+  /**
+   * @remarks
+   * The URL of the attack path interpretation result.
+   */
   pathInterpretationUrl?: string;
   /**
    * @remarks
-   * The path name.
+   * The name of the path.
    * 
    * @example
    * ecs_get_credential_by_create_login_profile
@@ -420,7 +428,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathNameDesc?: string;
   /**
    * @remarks
-   * The path type.
+   * The type of the path.
    * 
    * @example
    * role_escalation
@@ -514,7 +522,7 @@ export class GetAttackPathEventDetailResponseBody extends $dara.Model {
   attackPathEvent?: GetAttackPathEventDetailResponseBodyAttackPathEvent;
   /**
    * @remarks
-   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+   * The ID of the request. This is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * 7BC55C8F-226E-5AF5-9A2C-2EC43864****

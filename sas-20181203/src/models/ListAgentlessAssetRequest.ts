@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number in a paged query.
+   * The page number of the current page for paging in a paged query.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of asset instance IDs to query.
+   * The IDs of the asset instances to query.
    */
   instanceIds?: string[];
   /**
@@ -46,7 +46,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query.
+   * The maximum number of entries to return on each page for paging in a paged query.
    * 
    * @example
    * 10
@@ -70,11 +70,11 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   scanRegionId?: string;
   /**
    * @remarks
-   * The object type of the detection target. Valid values:
+   * The object type to scan. Valid values:
    * 
    * - **3**: user snapshot
    * 
-   * - **4**: user-defined image
+   * - **4**: custom image
    * 
    * @example
    * 1

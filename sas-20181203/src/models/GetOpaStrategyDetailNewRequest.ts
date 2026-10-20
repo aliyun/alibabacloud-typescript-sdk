@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetOpaStrategyDetailNewRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
-   * 
-   * > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+   * The policy ID.
+   * > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
    * 
    * @example
    * 1349

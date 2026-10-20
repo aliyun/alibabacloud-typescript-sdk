@@ -13,11 +13,11 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   message?: string;
   /**
    * @remarks
-   * The module code. Valid values:
+   * The code of the module. Valid values:
    * - **HOST**: host
    * - **CSPM**: cloud product configuration check
-   * - **SIEM**: Cloud Threat Detection and Response (CTDR)
-   * - **TRIAL**: log audit.
+   * - **SIEM**: threat analysis and response
+   * - **TRIAL**: log audit
    * 
    * @example
    * HOST
@@ -25,7 +25,7 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   module?: string;
   /**
    * @remarks
-   * The description of cloud assets associated with the module.
+   * The description of the cloud assets associated with the module.
    * 
    * @example
    * Cloud server or virtual machine
@@ -41,11 +41,11 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   moduleDisp?: string;
   /**
    * @remarks
-   * The module status. Valid values:
+   * The status of the module. Valid values:
    * - **0**: in use
-   * - **1**: abnormal
+   * - **1**: usage exception
    * - **2**: validity verification in progress
-   * - **3**: validity verification timed out.
+   * - **3**: validity verification timed out
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   moduleServiceStatus?: number;
   /**
    * @remarks
-   * The description of permissions associated with the module.
+   * The description of the associate permissions for the module.
    * 
    * @example
    * Read permission of the cloud server or virtual machine
@@ -93,10 +93,9 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
 export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the AccessKey account. Valid values:
-   * 
+   * The type of the AK account. Valid values:
    * - **primary**: primary account
-   * - **sub**: RAM user.
+   * - **sub**: sub-account
    * 
    * @example
    * sub
@@ -104,7 +103,7 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   akType?: string;
   /**
    * @remarks
-   * The unique ID of the AccessKey pair.
+   * The unique ID of the AK.
    * 
    * @example
    * 2158
@@ -112,7 +111,7 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * The list of modules associated with the AccessKey pair.
+   * The list of information about the modules associated with the AK.
    */
   authModules?: ModifyCloudVendorAccountAKResponseBodyDataAuthModules[];
   /**
@@ -126,7 +125,7 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   ctdrCloudUserId?: string;
   /**
    * @remarks
-   * The exception information of the AccessKey pair.
+   * The exception information of the AK.
    * 
    * @example
    * The IAM user is forbidden in the currently selected region
@@ -134,8 +133,8 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The AccessKey parameter ID.
-   * > If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the RAM user on the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information.
+   * The ID of the AK parameter.
+   * >If AkType is set to **primary**, this value is the SecretID of the primary account of the third-party cloud. If AkType is set to **sub**, this value is the AccessKey ID of the sub-account of the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information.
    * 
    * @example
    * AE6SLd****
@@ -143,11 +142,11 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The availability status of the AccessKey pair. Valid values:
+   * The availability status of the AK. Valid values:
    * - **0**: in use
-   * - **1**: abnormal
+   * - **1**: usage exception
    * - **2**: validity verification in progress
-   * - **3**: validity verification timed out.
+   * - **3**: validity verification timed out
    * 
    * @example
    * 0
@@ -155,9 +154,9 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   serviceStatus?: number;
   /**
    * @remarks
-   * The usage status of the AccessKey pair. Valid values:
+   * The usage status of the AK. Valid values:
    * - **0**: enabled
-   * - **1**: disabled.
+   * - **1**: disabled
    * 
    * @example
    * 0
@@ -167,14 +166,20 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
    * @remarks
    * The cloud asset vendor. Valid values:
    * - **Tencent**: Tencent Cloud
-   * - **HUAWEICLOUD**: Huawei Cloud
+   * - **HUAWEICLOUD**: HUAWEI CLOUD
    * - **Azure**: Azure
    * - **AWS**: AWS
    * - **VOLCENGINE**: Volcengine
    * - **google**: Google Cloud
-   * - **CHAITIN**: Chaitin Tech
+   * - **CHAITIN**: Chaitin Technology
    * - **FORTINET**: Fortinet
-   * - **THREATBOOK**: ThreatBook.
+   * - **THREATBOOK**: ThreatBook
+   * - **KingsoftCloud**: Kingsoft Cloud
+   * - **UCloud**: UCloud
+   * - **BaiduCloud**: Baidu AI Cloud
+   * - **WIZ**: Wiz
+   * - **OracleCloud**: Oracle Cloud
+   * - **StateCloud**: CTYun
    * 
    * @example
    * Tencent
@@ -182,8 +187,8 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   vendor?: string;
   /**
    * @remarks
-   * The name of the AccessKey account.
-   * >Used to identify the account to which third-party host assets belong.
+   * The name of the AK account.
+   * >This parameter is used to identify the account information to which the third-party host assets belong.
    * 
    * @example
    * test
@@ -234,12 +239,12 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
 export class ModifyCloudVendorAccountAKResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorization and authentication information that is added.
+   * The currently added authorization and authentication information.
    */
   data?: ModifyCloudVendorAccountAKResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
+   * The ID of the request. This ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 6635CED5-4B20-5D2D-94EC-A1C8F9C****

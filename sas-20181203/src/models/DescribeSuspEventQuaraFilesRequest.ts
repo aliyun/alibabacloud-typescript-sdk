@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the file list to view.
+   * The page number of the file list to return.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The identifier of the request source. Set the value to **sas**.
+   * The source identifier of the request. Set the value to **sas**.
    * 
    * @example
    * sas
@@ -31,7 +31,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the server group where the quarantined file is located.
+   * The ID of the server group to which the quarantined file belongs.
    * 
    * @example
    * 11472451
@@ -39,7 +39,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   groupingId?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query.
+   * The maximum number of entries to return on each page during paging in a paged query.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   quaraTag?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 59.82.XX.XX
@@ -63,13 +63,13 @@ export class DescribeSuspEventQuaraFilesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The status of the quarantined files to query. Valid values:  
+   * The status of the quarantined files that you want to query. Valid values:  
    * - **quaraFailed**: Quarantine failed.
    * - **quaraDone**: Quarantine succeeded.
-   * - **quaraing**: Quarantine in progress.
-   * - **rollbackFailed**: Quarantine rollback failed.
-   * - **rollbackDone**: Quarantine rollback succeeded.
-   * - **rollbacking**: Quarantine rollback in progress.
+   * - **quaraing**: Quarantining.
+   * - **rollbackFailed**: Restore failed.
+   * - **rollbackDone**: Restore succeeded.
+   * - **rollbacking**: Restoring.
    * 
    * @example
    * quaraDone

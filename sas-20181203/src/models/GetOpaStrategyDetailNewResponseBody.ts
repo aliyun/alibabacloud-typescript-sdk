@@ -45,12 +45,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaselineItem exte
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline extends $dara.Model {
   /**
    * @remarks
-   * The information about the baseline check item.
+   * The baseline item information.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaselineItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -85,9 +85,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline extends 
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image build risk.
-   * 
-   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * The ID of the risky image build command type.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
    * 
    * @example
    * key
@@ -95,9 +94,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem ext
   id?: string;
   /**
    * @remarks
-   * The name of the image build risk.
-   * 
-   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * The name of the risky image build command type.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
    * 
    * @example
    * name
@@ -129,12 +127,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem ext
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk extends $dara.Model {
   /**
    * @remarks
-   * The configuration of image build risk.
+   * The list of risk items.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -209,12 +207,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile extends $dara.Model {
   /**
    * @remarks
-   * The information about the malicious sample.
+   * The malicious sample item information.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -249,9 +247,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile ext
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the sensitive files.
-   * 
-   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * The ID of the sensitive file type.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
    * 
    * @example
    * key
@@ -259,9 +256,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem
   id?: string;
   /**
    * @remarks
-   * The name of the sensitive files.
-   * 
-   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * The name of the sensitive file type.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
    * 
    * @example
    * name
@@ -293,12 +289,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile extends $dara.Model {
   /**
    * @remarks
-   * The configuration of sensitive file.
+   * The list of sensitive file check items.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -333,7 +329,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile ext
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vulnerability.
+   * The vulnerability ID.
    * 
    * @example
    * AVD-2023-1680169
@@ -341,7 +337,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $
   id?: string;
   /**
    * @remarks
-   * The name of the vulnerability.
+   * The vulnerability name.
    * 
    * @example
    * ezOffice evoInterfaceServlet Info Leak
@@ -373,10 +369,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vulnerability types. Valid values:
-   * 
+   * The ID of the vulnerability type. Valid values:
    * - **cve**: system vulnerability
-   * 
    * - **app**: application vulnerability
    * 
    * @example
@@ -385,14 +379,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
   id?: string;
   /**
    * @remarks
-   * The name of the vulnerability. Valid values:
-   * 
-   * - **system vulnerability**
-   * 
-   * - **application vulnerability**
+   * The name of the vulnerability type. Valid values:
+   * - **System vulnerability**
+   * - **Application vulnerability**
    * 
    * @example
-   * 系统漏洞
+   * System vulnerability
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -421,17 +413,17 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $dara.Model {
   /**
    * @remarks
-   * The information about the vulnerability.
+   * The vulnerability item information.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem[];
   /**
    * @remarks
-   * Risk type of vulnerability.
+   * The list of vulnerability types.
    */
   riskClass?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -471,27 +463,27 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $dara
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $dara.Model {
   /**
    * @remarks
-   * The baseline check configuration.
+   * The baseline configuration information.
    */
   baseline?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline;
   /**
    * @remarks
-   * The configuration of image build risk.
+   * The risky image build command information.
    */
   buildRisk?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk;
   /**
    * @remarks
-   * The configuration of malicious samples.
+   * The malicious sample configuration information.
    */
   maliciousFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile;
   /**
    * @remarks
-   * The configuration of sensitive file.
+   * The sensitive file information.
    */
   sensitiveFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile;
   /**
    * @remarks
-   * The vulnerability configuration.
+   * The vulnerability configuration information.
    */
   vul?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul;
   static names(): { [key: string]: string } {
@@ -541,7 +533,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $dara.Mo
 export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
   /**
    * @remarks
-   * The rule instance ID of the cluster.
+   * The instance ID of the policy in the cluster.
    * 
    * @example
    * ack-0
@@ -549,10 +541,9 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
   ackPolicyInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether all namespaces are included. Valid values:
+   * Specifies whether all namespaces are included. Valid values:
    * 
    * - **1**: yes
-   * 
    * - **0**: no
    * 
    * @example
@@ -561,7 +552,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
   allNamespace?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * c1fdb5fd8d**7163
@@ -569,7 +560,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   namespaceList?: string[];
   static names(): { [key: string]: string } {
@@ -605,7 +596,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
 export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The rule configuration.
+   * The policy configuration information.
    */
   alarmDetail?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetail;
   /**
@@ -626,7 +617,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**. Pages start from page 1.
+   * The page number from which to display the query results. Default value: **1**.
    * 
    * @example
    * 4
@@ -642,20 +633,18 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image names.
+   * The image name.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The image tags.
+   * The image tag.
    */
   label?: string[];
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -664,11 +653,10 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Indicates whether the rule supports malicious Internet images. Valid values:
+   * Specifies whether the policy supports malicious images from the Internet. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: supported
+   * - **false**: not supported
    * 
    * @example
    * true
@@ -676,7 +664,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return per page during paging in a paged query.
    * 
    * @example
    * 20
@@ -684,12 +672,9 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The action that is performed when the rule is hit. Valid values:
-   * 
-   * - **1**: trigger alerts
-   * 
+   * The action to perform when the policy is matched. Valid values:
+   * - **1**: alert
    * - **2**: block
-   * 
    * - **3**: allow
    * 
    * @example
@@ -698,12 +683,12 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The application scope.
+   * The scope.
    */
   scopes?: GetOpaStrategyDetailNewResponseBodyDataScopes[];
   /**
    * @remarks
-   * The rule ID.
+   * The policy ID.
    * 
    * @example
    * 1005
@@ -711,7 +696,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The rule name.
+   * The policy name.
    * 
    * @example
    * test001
@@ -719,7 +704,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   strategyName?: string;
   /**
    * @remarks
-   * The ID of the rule template.
+   * The ID of the policy template.
    * 
    * @example
    * 1204
@@ -727,11 +712,10 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   strategyTemplateId?: number;
   /**
    * @remarks
-   * Indicates whether the rule supports unscanned images. Valid values:
+   * Specifies whether the policy supports unscanned images. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: supported
+   * - **false**: not supported
    * 
    * @example
    * true
@@ -739,7 +723,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   unScanedImage?: boolean;
   /**
    * @remarks
-   * The image tags that are added to the whitelist.
+   * The whitelist of image tags.
    */
   whiteList?: string[];
   static names(): { [key: string]: string } {
@@ -813,7 +797,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
 export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to identify the cause of the failure.
    * 
    * @example
    * 200
@@ -821,12 +805,12 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetOpaStrategyDetailNewResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -834,7 +818,7 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the request.
    * 
    * @example
    * success
@@ -842,7 +826,7 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * E819FD71-D240-5E54-AA7F-20FED2ECBEB6
@@ -850,11 +834,10 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

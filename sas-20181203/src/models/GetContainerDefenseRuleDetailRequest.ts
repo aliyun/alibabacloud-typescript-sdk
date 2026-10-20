@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetContainerDefenseRuleDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -17,7 +17,7 @@ export class GetContainerDefenseRuleDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The rule ID.
-   * > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to obtain this parameter.
+   * > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) API operation to obtain this parameter.
    * 
    * @example
    * 156

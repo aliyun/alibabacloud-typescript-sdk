@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ExportWarningRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the baseline risks are handled. Valid values:
+   * Specifies whether the baseline issues are handled. Valid values:
    * 
-   * *   **Y**: yes
-   * *   **N**: no
+   * - **Y**: handled
+   * - **N**: unhandled
    * 
    * @example
    * N
@@ -16,7 +16,7 @@ export class ExportWarningRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The type of the export task. Set the value to **hc_check_warning**, which indicates tasks to export baseline check results.
+   * The type of the export task. Set the value to **hc_check_warning**, which indicates that baseline check results are exported.
    * 
    * @example
    * hc_check_warning
@@ -25,8 +25,7 @@ export class ExportWarningRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the server group.
-   * 
-   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the ID of the server group.
    * 
    * @example
    * 13007754
@@ -34,10 +33,10 @@ export class ExportWarningRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The export method of the results for the weak password baseline check. Valid values:
+   * The export method for weak password baseline check results. Valid values:
    * 
-   * *   **0**: exports the check results after it is masked.
-   * *   **1**: exports the check results in plaintext.
+   * - **0**: Export weak passwords after masking.
+   * - **1**: Export weak passwords in plaintext.
    * 
    * @example
    * 0
@@ -45,10 +44,10 @@ export class ExportWarningRequest extends $dara.Model {
   isCleartextPwd?: number;
   /**
    * @remarks
-   * Specifies whether the baseline check results are aggregated and exported. Valid values:
+   * Specifies whether to export a summary of the baseline check results. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: no
+   * - **1**: yes
    * 
    * @example
    * 1
@@ -56,10 +55,10 @@ export class ExportWarningRequest extends $dara.Model {
   isSummaryExport?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -67,7 +66,7 @@ export class ExportWarningRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the risk item in the baseline check results. Separate multiple IDs with commas (,).
+   * The IDs of the risk items in the baseline check results. Separate multiple risk item IDs with commas (,).
    * 
    * @example
    * 123,124
@@ -75,11 +74,11 @@ export class ExportWarningRequest extends $dara.Model {
   riskIds?: string;
   /**
    * @remarks
-   * The severity of the baseline check item. Separate multiple severities with commas (,). Valid values:
+   * The risk levels of the baselines. Separate multiple risk levels with commas (,). Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high-risk
+   * - **medium**: medium-risk
+   * - **low**: low-risk
    * 
    * @example
    * high,medium
@@ -95,7 +94,7 @@ export class ExportWarningRequest extends $dara.Model {
   riskName?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 192.0.XX.XX
@@ -103,10 +102,10 @@ export class ExportWarningRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The status of the check item in the baseline check results. Separate multiple statuses with commas (,). Valid values:
+   * The statuses of the risk items in the baseline check results. Separate multiple status values with commas (,). Valid values:
    * 
-   * *   **3**: passed
-   * *   **1**: failed
+   * - **3**: passed
+   * - **1**: failed
    * 
    * @example
    * 1,3
@@ -122,9 +121,9 @@ export class ExportWarningRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The subtypes of the baselines based on which baseline checks are performed. Separate multiple subtypes with commas (,).
+   * Specifies the baseline subtypes to which the baseline check results to be exported belong. Separate multiple subtypes with commas (,).
    * 
-   * > You must set the value of this parameter to the value of the **TypeName** parameter that is contained in the **SubTypes** parameter. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the value of the TypeName parameter.
+   * > The value is the **TypeName** field under the **SubTypes** field returned by the [DescribeRiskType](~~DescribeRiskType~~) operation.
    * 
    * @example
    * hc_middleware_ack_master
@@ -132,9 +131,8 @@ export class ExportWarningRequest extends $dara.Model {
   subTypeNames?: string;
   /**
    * @remarks
-   * The type of the baseline based on which baseline checks are performed.
-   * 
-   * > You must set the value of this parameter to the value of the **TypeName** parameter that is returned by calling the [DescribeRiskType](~~DescribeRiskType~~) operation. If both the **TypeName** and **TypeNames** parameters are specified, only the **TypeName** parameter takes effect.
+   * Specifies the baseline type to which the baseline check results to be exported belong.
+   * > The value is the **TypeName** field returned by the [DescribeRiskType](~~DescribeRiskType~~) operation. If both **TypeName** and **TypeNames** are specified, only **TypeName** takes effect.
    * 
    * @example
    * hc_container
@@ -142,9 +140,9 @@ export class ExportWarningRequest extends $dara.Model {
   typeName?: string;
   /**
    * @remarks
-   * The types of the baselines based on which baseline checks are performed. Separate multiple types with commas (,).
+   * Specifies the baseline types to which the baseline check results to be exported belong. Separate multiple types with commas (,).
    * 
-   * > You must set the value of this parameter to the value of the **TypeName** parameter that is returned by calling the [DescribeRiskType](~~DescribeRiskType~~) operation. If both the **TypeName** and **TypeNames** parameters are specified, only the **TypeName** parameter takes effect.
+   * > The value is the **TypeName** field returned by the [DescribeRiskType](~~DescribeRiskType~~) operation. If both **TypeName** and **TypeNames** are specified, only **TypeName** takes effect.
    * 
    * @example
    * hc_container,cis
@@ -152,7 +150,7 @@ export class ExportWarningRequest extends $dara.Model {
   typeNames?: string;
   /**
    * @remarks
-   * The UUID of the server whose baseline check results you want to export. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers for which you want to export the baseline check results. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * inet-7c676676-06fa-442e-90fb-b802e****,inet-7c676676-06fa-442e-90fb-b****

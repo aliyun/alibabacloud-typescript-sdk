@@ -11,6 +11,15 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
    * true
    */
   allKeyPrefix?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically add new buckets to the scan policy. Valid values:
+   * - **0**: Disabled.
+   * - **1**: Enabled.
+   * 
+   * @example
+   * 0
+   */
   autoAdd?: number;
   /**
    * @remarks
@@ -19,7 +28,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   bucketNameList?: string[];
   /**
    * @remarks
-   * The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+   * The maximum number of files to decompress. Valid values: 1 to 1000. If the number of files exceeds the maximum value, the decompression stops. The scan of the decompressed files is not affected.
    * 
    * @example
    * 100
@@ -27,7 +36,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression layers when multiple levels of nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+   * The maximum number of decompression layers for nested compressed files. Valid values: 1 to 5. If the number of layers exceeds the maximum value, the decompression stops. The scan of the decompressed files is not affected.
    * 
    * @example
    * 1
@@ -40,7 +49,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   decryptionList?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the policy. Valid values:
+   * Specifies whether to enable the feature. Valid values:
    * - **1**: Enabled.
    * - **0**: Disabled.
    * 
@@ -50,7 +59,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The scan stop time in the HH:mm:ss format.
+   * The end time of the scan. Format: HH:mm:ss.
    * 
    * @example
    * 00:00:01
@@ -58,7 +67,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The scan policy ID.
+   * The ID of the scan policy.
    * 
    * @example
    * 1141****
@@ -66,17 +75,17 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The prefix list of files.
+   * The file prefix list.
    */
   keyPrefixList?: string[];
   /**
    * @remarks
-   * The list of file suffixes.
+   * The list of file name extensions.
    */
   keySuffixList?: string[];
   /**
    * @remarks
-   * Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
+   * The start timestamp for the last modification time of the files to be scanned. Unit: milliseconds.
    * 
    * @example
    * 1724301769834
@@ -84,7 +93,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   lastModifiedStartTime?: number;
   /**
    * @remarks
-   * The scan policy name.
+   * The configuration policy name.
    * 
    * @example
    * testStrategy
@@ -92,7 +101,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable real-time incremental detection. When this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+   * Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
    * 
    * @example
    * true
@@ -100,14 +109,14 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   realTimeIncr?: boolean;
   /**
    * @remarks
-   * The scan days. The number indicates the day of the week.
+   * The days of the week when scans are performed. A number represents a day of the week.
    */
   scanDayList?: number[];
   /**
    * @remarks
-   * The business source. Valid values:
-   * - **OSS**: OSS
-   * - **NAS**: NAS
+   * The service source. Valid values:
+   * - **OSS**: OSS.
+   * - **NAS**: NAS.
    * 
    * @example
    * OSS
@@ -115,7 +124,7 @@ export class UpdateOssScanConfigRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The scan start time in the HH:mm:ss format.
+   * The start time of the scan. Format: HH:mm:ss.
    * 
    * @example
    * 00:00:00

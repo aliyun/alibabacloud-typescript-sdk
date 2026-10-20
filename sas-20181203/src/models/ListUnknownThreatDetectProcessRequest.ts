@@ -16,7 +16,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   analyzeResult?: string;
   /**
    * @remarks
-   * The page number of the current page when using paged query. This is used for paging.
+   * The page number of the current page returned during paging for a paged query.
    * 
    * @example
    * 1
@@ -24,7 +24,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range during which the process was first detected. The value is a timestamp in milliseconds.
+   * The end time of the time range during which the process was first detected. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966345
@@ -32,7 +32,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   firstTimeEnd?: number;
   /**
    * @remarks
-   * The start of the time range during which the process was first detected. The value is a timestamp in milliseconds.
+   * The start time of the time range during which the process was first detected. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966344
@@ -48,7 +48,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when using paged query. This is used for paging.
+   * The maximum number of entries to return on each page during paging for a paged query.
    * 
    * @example
    * 20
@@ -88,7 +88,7 @@ export class ListUnknownThreatDetectProcessRequest extends $dara.Model {
   sha256?: string;
   /**
    * @remarks
-   * The label.
+   * The tag.
    * 
    * @example
    * Process Tag

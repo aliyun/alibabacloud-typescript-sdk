@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyPostPayModuleSwitchRequestEdrModuleSwitch extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic binding of new assets to the EDR module. A value of 0 indicates that the feature is disabled. A value of 1 indicates that the feature is enabled.
+   */
   autoBind?: number;
+  /**
+   * @remarks
+   * The authorized quota for EDR hosts.
+   */
   EDR_HOST_USAGE?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +40,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The agentless detection module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -41,7 +49,7 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   agentless?: number;
   /**
    * @remarks
-   * The AI digital human module.
+   * The AI digitalization feature.
    * 
    * @example
    * 1
@@ -50,8 +58,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The anti-ransomware module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -60,10 +68,10 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The basic service module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
-   * >Notice: The basic service module switch cannot be manually modified. This module is in the enabling status when any other module is enabled, and is in the shutdown status only when all other modules are disabled.</notice>
+   * >Notice: You cannot manually change the switch of the basic service module. If any other module is enabled, the enabling status of this module is enabled. If all other modules are shutdown, this module is not in the shutdown state.</notice>
    * 
    * @example
    * 1
@@ -71,9 +79,9 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   basicService?: number;
   /**
    * @remarks
-   * The cloud security configuration check module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * The Cloud Security Posture Management (CSPM) module. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -81,9 +89,9 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   cspm?: number;
   /**
    * @remarks
-   * The threat detection and response module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * The Cloud Threat Detection and Response (CTDR) module. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -92,8 +100,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The log management module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -102,8 +110,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The host and container security module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -112,8 +120,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The application protection module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -122,8 +130,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The malicious file detection SDK module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -131,9 +139,9 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   sdk?: number;
   /**
    * @remarks
-   * The serverless security module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * The Serverless security module. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -141,9 +149,9 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   serverless?: number;
   /**
    * @remarks
-   * The vulnerability management module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * The vulnerability fixing module. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -152,8 +160,8 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   /**
    * @remarks
    * The file tamper-proofing module. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -207,7 +215,7 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
 export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -215,16 +223,23 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values: true: performs a check without executing the operation. false: executes the operation. Default value: false.
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * - true: Performs a dry run. The system checks the request but does not perform the actual operation.
+   * - false: Performs the request normally.
+   * Default value: false.
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The switch configuration of the EDR module.
+   */
   edrModuleSwitch?: ModifyPostPayModuleSwitchRequestEdrModuleSwitch;
   /**
    * @remarks
-   * Specifies whether to automatically bind new assets for host and container protection. Valid values:
+   * Specifies whether to automatically bind new assets to the host and container protection feature. Valid values:
    * 
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -233,11 +248,11 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   /**
    * @remarks
    * The edition to which new assets are automatically bound for host and container protection. Valid values:
-   * - **1**: Free Edition. 
-   * - **3**: Enterprise Edition.
-   * - **5**: Advanced Edition.
-   * - **6**: Anti-virus Edition.    
-   * - **7**: Ultimate Edition.
+   * - **1**: Free Edition 
+   * - **3**: Enterprise Edition
+   * - **5**: Advanced Edition
+   * - **6**: Anti-virus Edition    
+   * - **7**: Ultimate Edition
    * 
    * @example
    * 3
@@ -247,7 +262,7 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
    * @remarks
    * The pay-as-you-go instance ID. This parameter is required.
    * 
-   * > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain this parameter.
+   * > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain the value of this parameter.
    * 
    * @example
    * postpay-sas-**
@@ -255,23 +270,23 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   postPayInstanceId?: string;
   /**
    * @remarks
-   * The switch status of pay-as-you-go modules in JSON string format. Valid values:
+   * The switch status of pay-as-you-go modules. The value is a JSON string. Valid values:
    * - Key:
-   *   - **VUL**: vulnerability management module
-   *   - **CSPM**: Cloud Security Posture Management (CSPM) module
-   *   - **AGENTLESS**: agentless detection module
-   *   - **SERVERLESS**: serverless security module
-   *   - **CTDR**: threat detection and response module
-   *   - **POST_HOST**: host and container security module
-   *   - **SDK**: malicious file detection SDK module
-   *   - **RASP**: application protection module
-   *   - **CTDR_STORAGE**: log management module
-   *   - **ANTI_RANSOMWARE**: anti-ransomware management
+   *   - **VUL**: Vulnerability fixing module
+   *   - **CSPM**: Cloud Security Posture Management module
+   *   - **AGENTLESS**: Agentless detection module
+   *   - **SERVERLESS**: Serverless security module
+   *   - **CTDR**: Cloud Threat Detection and Response module
+   *   - **POST_HOST**: Host and container security module
+   *   - **SDK**: Malicious file detection SDK module
+   *   - **RASP**: Application protection module
+   *   - **CTDR_STORAGE**: Log management module
+   *   - **ANTI_RANSOMWARE**: Anti-ransomware management
    * - Value: 0 indicates disabled. 1 indicates enabled.
    * 
-   * > Modules for which no value is specified remain unchanged.
+   * > The values of modules that are not specified remain unchanged.
    * 
-   * <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+   * <notice>This parameter has the same meaning as the PostPayModuleSwitchObj parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
    * 
    * @example
    * {"VUL":1,"CSPM":0}
@@ -279,8 +294,8 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
   postPayModuleSwitch?: string;
   /**
    * @remarks
-   * The pay-as-you-go module switch.
-   * >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+   * The switches of pay-as-you-go modules.
+   * >Notice:  This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
    */
   postPayModuleSwitchObj?: ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Mod
   data?: string;
   /**
    * @remarks
-   * The query operator. Only INCLUDE is supported.
+   * The query operator. Currently, only INCLUDE is supported.
    * 
    * @example
    * INCLUDE
@@ -47,7 +47,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * @remarks
    * The subtype of the cloud product.
    * 
-   * > For more information, see the AssetSubType field in [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~).
+   * > For more information, refer to the AssetSubType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 0
@@ -57,7 +57,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * @remarks
    * The type of the cloud asset.
    * 
-   * > For more information, see the AssetType field in [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~).
+   * > For more information, refer to the AssetType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 18
@@ -65,12 +65,12 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
   assetType?: number;
   /**
    * @remarks
-   * The server vendor. Valid values:
+   * The asset vendor. Valid values:
    * 
    * - **0**: Alibaba Cloud asset
-   * - **1**: off-cloud asset
+   * - **1**: non-Alibaba Cloud asset
    * - **2**: IDC asset
-   * - **3**, **4**, **5**, **7**: other cloud assets
+   * - **3**, **4**, **5**, and **7**: other cloud asset
    * - **8**: lightweight asset
    * 
    * @example
@@ -105,23 +105,23 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
 export class ListCloudAssetInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The data list to query by keyword.
+   * The data list queried based on keywords.
    */
   cloudAssetQueryData?: ListCloudAssetInstancesRequestCloudAssetQueryData[];
   /**
    * @remarks
-   * The asset list of cloud asset instances.
+   * The list of cloud assets.
    */
   cloudAssetTypes?: ListCloudAssetInstancesRequestCloudAssetTypes[];
   /**
    * @remarks
-   * The search criteria for assets. This parameter is in JSON format and contains the following fields:
-   * - **name**: The search field.
-   * - **value**: The value of the search field.
-   * - **logicalExp**: The logical relationship between multiple search field values. Valid values:
-   *     - **OR**: Multiple search field values are evaluated using an OR relationship.
-   *     - **AND**: Multiple search field values are evaluated using an AND relationship.
-   * > You can call [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) to query the supported search criteria.
+   * Specifies the conditions for searching assets. This parameter is in JSON format and contains the following fields:
+   * - **name**: the search field.
+   * - **value**: the value of the search field.
+   * - **logicalExp**: the logical relationship among multiple search field values. Valid values:
+   *     - **OR**: specifies an **OR** logical relationship among multiple search field values.
+   *     - **AND**: specifies an **AND** logical relationship among multiple search field values.
+   * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{\\"name\\":\\"internetIp\\",\\"value\\":\\"192.168\\",\\"logicalExp\\":\\"OR\\"}]
@@ -129,7 +129,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The page number to return in a paged query.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 2
@@ -137,17 +137,17 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether to return sale-related data. Valid values:
-   * - **true**: Returns sale-related data.
-   * - **false**: Does not return sale-related data.
+   * Specifies whether to return sales-related data. Valid values:
+   * - **true**: returns sales-related data.
+   * - **false**: does not return sales-related data.
    */
   isSaleData?: boolean;
   /**
    * @remarks
-   * The logical relationship between multiple search criteria. Valid values:
+   * Specifies the logical relationship among multiple search conditions. Valid values:
    * 
-   * - **OR**: Multiple search criteria are evaluated using an OR relationship.
-   * - **AND**: Multiple search criteria are evaluated using an AND relationship.
+   * - **OR**: specifies an **OR** logical relationship among multiple search conditions.
+   * - **AND**: specifies an **AND** logical relationship among multiple search conditions.
    * 
    * @example
    * OR
@@ -155,7 +155,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The maximum number of rows per page. Maximum value: 100. Default value: 20.
+   * The maximum number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -171,8 +171,8 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the main account of the resource folder member accounts.
-   * > Call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+   * The ID of the Alibaba Cloud account for the member account in the resource directory.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

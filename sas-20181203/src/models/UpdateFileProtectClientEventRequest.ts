@@ -10,7 +10,7 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
   alertLevels?: number[];
   /**
    * @remarks
-   * The timestamp of the end time.
+   * The end time. The value is a UNIX timestamp.
    * 
    * @example
    * 1650470399999
@@ -82,7 +82,7 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
   newStatus?: number;
   /**
    * @remarks
-   * The type of the operation.
+   * The type of the current operation.
    * 
    * @example
    * READ
@@ -98,12 +98,12 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
   procPath?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark. This parameter is required when SelectAll is set to true. If this parameter is not provided, the service returns HTTP 500 with the error code -100.
    */
   remark?: string[];
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
    * tetsRule
@@ -111,7 +111,7 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Specifies whether to select all.
+   * Specifies whether to select all events.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
   selectAll?: boolean;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649260800000

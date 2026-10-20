@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * The application query conditions.
+   * The query conditions for applications.
    * 
    * @example
    * **7ad7e3a
@@ -14,7 +14,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * - **SERVERLESS**: Serverless asset.
+   * - **SERVERLESS**: Serverless assets.
    * 
    * @example
    * SERVERLESS
@@ -24,8 +24,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic binding. Valid values:
    * 
-   * - **0**: Disable automatic binding.
-   * - **1**: Enable automatic binding.
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -35,8 +35,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to bind all assets. Default value: **false**. Valid values:
    * 
-   * - **true**: Bind all assets.
-   * - **false**: Do not bind all assets.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -46,14 +46,16 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * The list of application IDs to bind.
    * 
-   * > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+   * > You can obtain the application IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   bindAppList?: string[];
   /**
    * @remarks
-   * The Asset Type for the operation. Valid values:
+   * The Asset Type to operate. Valid values:
    * - **INSTANCE**: Instance.
    * - **APP**: Application.
+   * 
+   * This parameter is required when you manage Serverless asset authorizations.
    * 
    * @example
    * APP
@@ -66,7 +68,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindUuidList?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -74,8 +76,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
-   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+   * Specifies the conditions for searching assets. The value must be in JSON format and is case-sensitive.
+   * > You can search for assets by using conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
@@ -83,14 +85,14 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. true: performs only a check without executing the actual operation. false: performs the actual operation. Default value: false.
+   * Specifies whether to only precheck the request. A value of true indicates that only the request is prechecked and no actual operation is performed. A value of false indicates that the request is executed. Default value: false.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The logical relationship among multiple search conditions. Valid values:
-   * - **OR**: Multiple conditions are evaluated using a logical OR.
-   * - **AND**: Multiple conditions are evaluated using a logical AND.
+   * Specifies the logical relationship among multiple search conditions. Valid values:
+   * - **OR**: The conditions have an OR relationship.
+   * - **AND**: The conditions have an AND relationship.
    * 
    * @example
    * OR
@@ -98,7 +100,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The NTM version code for pre-binding.
+   * The NTM version code used for pre-binding.
    * 
    * @example
    * level2
@@ -112,7 +114,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * - **1**: Yes.
    * 
    * 
-   * > After pre-binding is enabled, the corresponding number of authorization licenses are automatically bound to the specified servers after the purchase is completed.
+   * > After you enable pre-binding, the system automatically binds the corresponding version of authorizations to the specified server after the purchase is completed.
    * 
    * @example
    * 1
@@ -120,7 +122,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   preBind?: number;
   /**
    * @remarks
-   * The pre-binding order ID.
+   * The ID of the pre-binding order.
    * 
    * @example
    * 233016**0482
@@ -128,7 +130,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   preBindOrderId?: number;
   /**
    * @remarks
-   * The UID of the resource directory.
+   * The UID of the associated resource directory.
    * 
    * @example
    * 123456
@@ -138,7 +140,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * The list of application IDs to unbind.
    * 
-   * > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+   * > You can obtain the application IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   unBindAppList?: string[];
   /**

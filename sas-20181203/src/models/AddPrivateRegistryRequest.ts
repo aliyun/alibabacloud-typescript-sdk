@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPrivateRegistryRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the image repository.
+   * The domain name of the registry.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The additional parameter of the image repository. This parameter is required when you set the RegistryType parameter to **quay**. Valid values:
+   * The additional parameters for the image registry. This parameter is required when you use **quay**. The parameters include:
    * 
-   * *   **namespace**
-   * *   **authToken**
+   * - **namespace**: The namespace.
+   * - **authToken**: The authorization token.
    * 
    * @example
    * [{"namespace":"aa","authToken":"aa"}]
@@ -27,9 +27,8 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   /**
    * @remarks
    * The network type. Valid values:
-   * 
-   * *   **1**: Internet
-   * *   **2**: virtual private cloud (VPC)
+   * - **1**: Internet.
+   * - **2**: VPC.
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   netType?: number;
   /**
    * @remarks
-   * The password that is used to log on to the image repository.
+   * The password.
    * 
    * This parameter is required.
    * 
@@ -57,10 +56,9 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   **1**: HTTP
-   * *   **2**: HTTPS
+   * The protocol type. Valid values:
+   * - **1**: HTTP.
+   * - **2**: HTTPS.
    * 
    * This parameter is required.
    * 
@@ -70,7 +68,9 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   protocolType?: number;
   /**
    * @remarks
-   * The IP address of the image repository.
+   * The IP address of the registry.
+   * 
+   * Enter a valid IPv4 address that can be used to connect to the image registry. To specify a domain name for the image registry, use the DomainName parameter.
    * 
    * This parameter is required.
    * 
@@ -81,8 +81,7 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
+   * >You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the supported region IDs.
    * 
    * This parameter is required.
    * 
@@ -92,10 +91,9 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   registryRegionId?: string;
   /**
    * @remarks
-   * The type of the private image repository. Valid values:
-   * 
-   * *   **harbor**
-   * *   **quay**
+   * The type of the private image registry. Valid values:
+   * - **harbor**: Harbor environment.
+   * - **quay**: Quay environment.
    * 
    * This parameter is required.
    * 
@@ -105,10 +103,11 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   registryType?: string;
   /**
    * @remarks
-   * The version of the image repository. Valid values:
+   * The version of the image registry. Valid values:
    * 
-   * *   **V1**
-   * *   **V2**
+   * 
+   * - **V1**: Version 1.0.
+   * - **V2**: Version 2.0.
    * 
    * This parameter is required.
    * 
@@ -118,7 +117,7 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   registryVersion?: string;
   /**
    * @remarks
-   * The number of images that are scanned per hour.
+   * The number of images scanned per hour.
    * 
    * @example
    * 10
@@ -126,7 +125,7 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   transPerHour?: number;
   /**
    * @remarks
-   * The username that is used to log on to the image repository.
+   * The username of the image registry.
    * 
    * This parameter is required.
    * 
@@ -136,7 +135,7 @@ export class AddPrivateRegistryRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-wz9hs3e5*******908kd

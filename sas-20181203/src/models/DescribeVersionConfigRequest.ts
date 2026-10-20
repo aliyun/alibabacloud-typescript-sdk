@@ -14,7 +14,7 @@ export class DescribeVersionConfigRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 192.0.XX.XX

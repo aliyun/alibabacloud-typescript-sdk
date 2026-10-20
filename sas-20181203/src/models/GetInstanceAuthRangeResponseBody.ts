@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Model {
   /**
    * @remarks
-   * The number of instances for the Advanced Edition. Valid values:
+   * The number of servers for Advanced Edition. Valid values:
    * 
-   * - **1-2000000000**: range
-   * - **1**: step
+   * - **1-2000000000**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 1-2000000000:1
@@ -18,8 +18,8 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
    * @remarks
    * The anti-ransomware capacity. Valid values:
    * 
-   * - **1-9000000000**: range
-   * - **10**: step
+   * - **1-9000000000**: The value range.
+   * - **10**: The step size.
    * 
    * @example
    * 0-9000000000:10
@@ -27,7 +27,7 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   antiRansomwareCapacity?: string;
   /**
    * @remarks
-   * The anti-ransomware managed service. Valid values:
+   * The Anti-ransomware service. Valid values:
    * - **0**: Not activated.
    * - **1**: Activated.
    * 
@@ -39,8 +39,8 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
    * @remarks
    * The number of cores for Anti-virus Edition. Valid values:
    * 
-   * - **1-2000000000**: range
-   * - **1**: step
+   * - **1-2000000000**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 1-2000000000:1
@@ -48,10 +48,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   antiVirusCore?: string;
   /**
    * @remarks
-   * The number of cores for the Ultimate Edition. Valid values:
+   * The number of cores for Ultimate Edition. Valid values:
    * 
-   * - **1-2000000000**: range
-   * - **1**: step
+   * - **1-2000000000**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 1-2000000000:1
@@ -59,10 +59,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   containerCore?: string;
   /**
    * @remarks
-   * The number of instances for the Ultimate Edition. Valid values:
+   * The number of servers for Ultimate Edition. Valid values:
    * 
-   * - **1-2000000000**: range
-   * - **1**: step
+   * - **1-2000000000**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 1-2000000000:1
@@ -70,21 +70,28 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   containerCount?: string;
   /**
    * @remarks
-   * The number of cloud platform configuration check scans. Valid values:
+   * The Cloud Security Posture Management (CSPM) scan quota. Valid values:
    * 
-   * - **15000-9999999999**: range
-   * - **55000**: step
+   * - **15000-9999999999**: The value range.
+   * - **55000**: The step size.
    * 
    * @example
    * 15000-9999999999:55000
    */
   cspmCapacity?: string;
+  /**
+   * @remarks
+   * The Cloud Security Posture Management (CSPM) instance authorization capacity.
+   * 
+   * @example
+   * 100
+   */
   cspmInstanceCapacity?: string;
   /**
    * @remarks
-   * The number of instances for the Enterprise Edition. Valid values:
+   * The value range for the number of servers for Enterprise Edition. Valid values:
    * - **Value**: 1-2000000000
-   * - **Step**: 1
+   * - **Step size**: 1
    * 
    * @example
    * 1-2000000000:1
@@ -92,10 +99,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   enterpriseCount?: string;
   /**
    * @remarks
-   * The number of honeypot authorizations. Valid values:
+   * The cloud honeypot quota. Valid values:
    * 
-   * - **20-500**: range
-   * - **1**: step
+   * - **20-500**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 20-500:1
@@ -103,10 +110,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   honeypotCapacity?: string;
   /**
    * @remarks
-   * The number of image scan authorizations. Valid values:
+   * The image scan quota. Valid values:
    * 
-   * - **1-200000**: range
-   * - **20**: step
+   * - **1-200000**: The value range.
+   * - **20**: The step size.
    * 
    * @example
    * 0-200000:20
@@ -114,10 +121,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   imageScanCapacity?: string;
   /**
    * @remarks
-   * The number of application protection authorizations. Valid values:
+   * The Application Protection quota. Valid values:
    * 
-   * - **1-100000000**: range
-   * - **1**: step
+   * - **1-100000000**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 0-100000000:1
@@ -125,10 +132,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   raspCapacity?: string;
   /**
    * @remarks
-   * The number of malicious file detection SDK authorizations. Valid values:
+   * The malicious file detection SDK quota. Valid values:
    * 
-   * - **10-9999999999**: range
-   * - **10**: step
+   * - **10-9999999999**: The value range.
+   * - **10**: The step size.
    * 
    * @example
    * 10-9999999999:10
@@ -138,8 +145,8 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
    * @remarks
    * The log storage capacity. Valid values:
    * 
-   * - **1-600000000**: range
-   * - **10**: step
+   * - **1-600000000**: The value range.
+   * - **10**: The step size.
    * 
    * @example
    * 0-600000000:10
@@ -149,8 +156,8 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
    * @remarks
    * The threat analysis capacity. Valid values:
    * 
-   * - **1-9999999999**: range
-   * - **1000**: step
+   * - **1-9999999999**: The value range.
+   * - **1000**: The step size.
    * 
    * @example
    * 0-9999999999:1000
@@ -158,10 +165,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   threatAnalysisCapacity?: string;
   /**
    * @remarks
-   * The log ingestion traffic for threat detection and response. Valid values:
+   * The log ingestion traffic for Cloud Threat Detection and Response (CTDR). Valid values:
    * 
-   * - **1-9999999999**: range
-   * - **100**: step
+   * - **1-9999999999**: The value range.
+   * - **100**: The step size.
    * 
    * @example
    * 0-9999999999:100
@@ -169,10 +176,10 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
   threatAnalysisFlow?: string;
   /**
    * @remarks
-   * The number of web tamper-proofing authorizations. Valid values:
+   * The web tamper-proofing authorization quota. Valid values:
    * 
-   * - **1-9999**: range
-   * - **1**: step
+   * - **1-9999**: The value range.
+   * - **1**: The step size.
    * 
    * @example
    * 0-9999:1
@@ -234,12 +241,12 @@ export class GetInstanceAuthRangeResponseBodyInstanceAuthRange extends $dara.Mod
 export class GetInstanceAuthRangeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance authorization range validation.
+   * The instance authorization ranges.
    */
   instanceAuthRange?: GetInstanceAuthRangeResponseBodyInstanceAuthRange;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request. This ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****

@@ -6,6 +6,9 @@ export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model
   /**
    * @remarks
    * The number of servers that have blocking events.
+   * 
+   * @example
+   * 0
    */
   blockEventMachineCount?: number;
   /**
