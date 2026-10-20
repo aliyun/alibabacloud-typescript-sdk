@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ColumnMask extends $dara.Model {
+  /**
+   * @remarks
+   * The column masking expression.
+   * 
+   * @example
+   * CONCAT(\\"***-**-****\\")
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The column masking transform method.
+   * 
+   * @example
+   * {"name":"CONCAT","inputs":["***-",{"index":1,"name":"phone","type":"STRING"}]}
+   */
   transform?: string;
   static names(): { [key: string]: string } {
     return {

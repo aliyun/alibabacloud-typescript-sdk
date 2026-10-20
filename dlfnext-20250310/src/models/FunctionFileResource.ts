@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FunctionFileResource extends $dara.Model {
   /**
    * @remarks
-   * Resource type
+   * The resource type.
    * 
    * @example
    * JAR
@@ -13,7 +13,7 @@ export class FunctionFileResource extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Resource path
+   * The resource path.
    * 
    * @example
    * oss://tmp/SimpleUdf.jar

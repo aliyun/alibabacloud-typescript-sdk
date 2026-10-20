@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResource extends $dara.Model {
   /**
    * @remarks
-   * The resource ID, which is the data catalog ID.
+   * The resource ID, which is the catalog ID.
    * 
    * @example
    * clg-paimon-0424965be0c240acb4159688c9e2c4b6

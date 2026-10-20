@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPartitionSummariesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ListPartitionSummariesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If the response does not include this token, pass an empty string ("").
+   * The pagination token used to retrieve the next page of data. If it is not provided in the response, pass an empty string ("") or an empty character (\\"\\").
    * 
    * @example
    * ""

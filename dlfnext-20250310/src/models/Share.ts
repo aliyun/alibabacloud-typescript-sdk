@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Share extends $dara.Model {
   /**
    * @remarks
-   * The comment for the share.
+   * The comment information of the share.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class Share extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the share was created.
+   * The creation time of the share.
    * 
    * @example
    * 1744970111419
@@ -21,16 +21,23 @@ export class Share extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The user who created the share.
+   * The creator.
    * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
+  /**
+   * @remarks
+   * Specifies whether write operations are allowed on shared resources.
+   * 
+   * @example
+   * false
+   */
   enableWrite?: boolean;
   /**
    * @remarks
-   * The resource descriptor of the share owner.
+   * The owner of the share.
    * 
    * @example
    * acs:ram::[accountId]:root
@@ -38,7 +45,7 @@ export class Share extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The provider\\"s account ID.
+   * The account ID of the provider.
    * 
    * @example
    * 1111
@@ -62,7 +69,7 @@ export class Share extends $dara.Model {
   shareName?: string;
   /**
    * @remarks
-   * The time when the share was last updated.
+   * The update time.
    * 
    * @example
    * 1744970111419
@@ -70,7 +77,7 @@ export class Share extends $dara.Model {
   updatedAt?: number;
   /**
    * @remarks
-   * The user who last updated the share.
+   * The updater.
    * 
    * @example
    * acs:ram::[accountId]:root

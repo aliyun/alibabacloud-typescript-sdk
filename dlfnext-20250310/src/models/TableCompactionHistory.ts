@@ -5,57 +5,90 @@ import * as $dara from '@darabonba/typescript';
 export class TableCompactionHistory extends $dara.Model {
   /**
    * @remarks
-   * The number of files after compaction.
+   * The total number of files after the merge.
+   * 
+   * @example
+   * 2
    */
   afterFilesCount?: number;
   /**
    * @remarks
-   * The total size of files after compaction.
+   * The total size of the files after the merge.
+   * 
+   * @example
+   * 512
    */
   afterFilesSize?: number;
   /**
    * @remarks
-   * The number of files before compaction.
+   * The total number of files before the merge.
+   * 
+   * @example
+   * 150
    */
   beforeFilesCount?: number;
   /**
    * @remarks
-   * The creation time of the last file before compaction.
+   * The latest creation time of the files before the merge.
+   * 
+   * @example
+   * 1744969200000
    */
   beforeFilesLastCreationTime?: number;
   /**
    * @remarks
-   * The total size of files before compaction.
+   * The total size of the files before the merge.
+   * 
+   * @example
+   * 1024
    */
   beforeFilesSize?: number;
   /**
    * @remarks
-   * The catalog ID.
+   * The ID of the data catalog.
+   * 
+   * @example
+   * clg-paimon-d13*****
    */
   catalogId?: string;
   /**
    * @remarks
-   * The compaction commit time.
+   * The commit time.
+   * 
+   * @example
+   * 1765890111419
    */
   commitTime?: number;
   /**
    * @remarks
-   * The snapshot ID.
+   * The ID of the snapshot.
+   * 
+   * @example
+   * 1
    */
   snapshotId?: number;
   /**
    * @remarks
-   * The table ID.
+   * The ID of the table.
+   * 
+   * @example
+   * tbl-*****
    */
   tableId?: string;
   /**
    * @remarks
-   * The time when the record was last updated.
+   * The time when the record was updated.
+   * 
+   * @example
+   * 1744970111419
    */
   updatedAt?: number;
   /**
    * @remarks
    * The user who updated the record.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
    */
   updatedBy?: string;
   static names(): { [key: string]: string } {

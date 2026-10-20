@@ -4,10 +4,20 @@ import { FunctionDefinition } from "./FunctionDefinition";
 
 
 export class FunctionChange extends $dara.Model {
+  /**
+   * @remarks
+   * The change type.
+   * 
+   * @example
+   * setOption
+   */
   action?: string;
   /**
    * @remarks
    * required in UpdateFunctionComment
+   * 
+   * @example
+   * Function configuration update
    */
   comment?: string;
   /**
@@ -18,16 +28,25 @@ export class FunctionChange extends $dara.Model {
   /**
    * @remarks
    * required in SetFunctionOption/RemoveFunctionOption
+   * 
+   * @example
+   * namespaceSchema
    */
   key?: string;
   /**
    * @remarks
    * required in AddDefinition/UpdateDefinition/DropDefinition
+   * 
+   * @example
+   * my_function
    */
   name?: string;
   /**
    * @remarks
    * required in SetFunctionOption
+   * 
+   * @example
+   * IDC_MOVE
    */
   value?: string;
   static names(): { [key: string]: string } {

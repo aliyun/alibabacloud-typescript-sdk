@@ -6,9 +6,28 @@ import { TransformInput } from "./TransformInput";
 
 
 export class Transform extends $dara.Model {
+  /**
+   * @remarks
+   * The target data type.
+   */
   castType?: FullDataType;
+  /**
+   * @remarks
+   * The field reference object.
+   */
   fieldRef?: FieldRef;
+  /**
+   * @remarks
+   * The input parameters.
+   */
   inputs?: TransformInput[];
+  /**
+   * @remarks
+   * The name of the transformation function.
+   * 
+   * @example
+   * transform_name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

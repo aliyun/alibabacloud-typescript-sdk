@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatabaseSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The date of the storage overview.
+   * The date of the storage overview, in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-10-26

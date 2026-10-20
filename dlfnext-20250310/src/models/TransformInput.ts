@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TransformInput extends $dara.Model {
+  /**
+   * @remarks
+   * The input content.
+   * 
+   * @example
+   * INPUT
+   */
   input?: any;
+  /**
+   * @remarks
+   * The input type.
+   * 
+   * @example
+   * LITERAL
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,10 +4,36 @@ import { Transform } from "./Transform";
 
 
 export class Predicate extends $dara.Model {
+  /**
+   * @remarks
+   * The list of child nodes.
+   */
   children?: Predicate[];
+  /**
+   * @remarks
+   * The assertion function.
+   * 
+   * @example
+   * {}
+   */
   function?: string;
+  /**
+   * @remarks
+   * The assertion type.
+   * 
+   * @example
+   * EXPRESSION
+   */
   kind?: string;
+  /**
+   * @remarks
+   * The list of literal values.
+   */
   literals?: any[];
+  /**
+   * @remarks
+   * The transform rule.
+   */
   transform?: Transform;
   static names(): { [key: string]: string } {
     return {

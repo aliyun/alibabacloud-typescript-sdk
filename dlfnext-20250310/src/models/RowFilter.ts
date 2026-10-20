@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RowFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The expression.
+   * 
+   * @example
+   * {}
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The predicate.
+   * 
+   * @example
+   * {}
+   */
   predicate?: string;
   static names(): { [key: string]: string } {
     return {

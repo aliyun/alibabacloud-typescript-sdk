@@ -56,7 +56,21 @@ export class Database extends $dara.Model {
    * acs:ram::[accountId]:root
    */
   owner?: string;
+  /**
+   * @remarks
+   * The status of the database.
+   * 
+   * @example
+   * active
+   */
   status?: string;
+  /**
+   * @remarks
+   * The number of tables in the database.
+   * 
+   * @example
+   * 0
+   */
   tableCount?: number;
   /**
    * @remarks

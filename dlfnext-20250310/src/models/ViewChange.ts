@@ -3,30 +3,52 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ViewChange extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the view change operation.
+   * 
+   * @example
+   * updateComment
+   */
   action?: string;
   /**
    * @remarks
-   * required in UpdateComment
+   * The view comment. Required when you perform the updateComment operation.
+   * 
+   * @example
+   * View update description
    */
   comment?: string;
   /**
    * @remarks
-   * required in AddDialect/UpdateDialect/DropDialect
+   * The dialect used in the view query statement. Required when you perform the addDialect, updateDialect, or dropDialect operation.
+   * 
+   * @example
+   * flink
    */
   dialect?: string;
   /**
    * @remarks
-   * required in SetOption/RemoveOption
+   * The key of the view property. Required when you perform the setOption or removeOption operation.
+   * 
+   * @example
+   * view_option
    */
   key?: string;
   /**
    * @remarks
-   * required in AddDialect/UpdateDialect
+   * The view query statement. Required when you perform the addDialect or updateDialect operation.
+   * 
+   * @example
+   * SELECT region, SUM(amount) AS total_amount FROM sales GROUP BY region
    */
   query?: string;
   /**
    * @remarks
-   * required in SetOption
+   * The value of the view property. Required when you perform the setOption operation.
+   * 
+   * @example
+   * enabled
    */
   value?: string;
   static names(): { [key: string]: string } {

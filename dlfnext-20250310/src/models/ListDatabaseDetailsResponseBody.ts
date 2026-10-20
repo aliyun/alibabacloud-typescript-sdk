@@ -11,7 +11,7 @@ export class ListDatabaseDetailsResponseBody extends $dara.Model {
   databaseDetails?: Database[];
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. A value of null indicates that the current page is the last page.
+   * The pagination token used to retrieve the next page of results. A null value indicates that the current query returns the last page of results.
    * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57

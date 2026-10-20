@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatabaseDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The SQL-style right fuzzy match pattern for database names. The percent sign (%) wildcard is supported.
+   * The SQL-style right fuzzy match pattern for database names. The percent sign (%) is supported.
    * 
    * @example
    * database%
@@ -14,10 +14,10 @@ export class ListDatabaseDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The page size.
-   * 
-   * Default value: 1000.
-   * 
-   * Maximum value: 1000.
+   * Default value:
+   * 	1000
+   * Maximum value:
+   * 	1000
    * 
    * @example
    * 1000
@@ -25,12 +25,19 @@ export class ListDatabaseDetailsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. If the response does not include this token, pass an empty string ("") or an empty character (\\"\\").
+   * The pagination token used to retrieve the next page of results. If no token is provided in the response, pass an empty string ("") or an empty character (\\"\\").
    * 
    * @example
    * ""
    */
   pageToken?: string;
+  /**
+   * @remarks
+   * The filter for the database deletion status. active indicates a normal database, and retained indicates a soft-deleted database that is still retained in the recycle bin.
+   * 
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,7 +6,7 @@ import { FullDataType } from "./FullDataType";
 export class FieldRef extends $dara.Model {
   /**
    * @remarks
-   * Text sequence
+   * The data sequence of the field.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class FieldRef extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Table name
+   * The field name.
    * 
    * @example
    * name
@@ -22,7 +22,7 @@ export class FieldRef extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * File type
+   * The data type of the field.
    */
   type?: FullDataType;
   static names(): { [key: string]: string } {

@@ -5,18 +5,97 @@ import { DataField } from "./DataField";
 
 
 export class Function extends $dara.Model {
+  /**
+   * @remarks
+   * The comment information.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1741266704867
+   */
   createdAt?: number;
+  /**
+   * @remarks
+   * The creator.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The function metadata definitions.
+   */
   definitions?: { [key: string]: FunctionDefinition };
+  /**
+   * @remarks
+   * Specifies whether the same input always returns the same output.
+   * 
+   * @example
+   * true
+   */
   deterministic?: boolean;
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * db-xxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The field input parameters.
+   */
   inputParams?: DataField[];
+  /**
+   * @remarks
+   * The function name.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The extension options.
+   */
   options?: { [key: string]: string };
+  /**
+   * @remarks
+   * The owner.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The return fields of the function.
+   */
   returnParams?: DataField[];
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1764556033696
+   */
   updatedAt?: number;
+  /**
+   * @remarks
+   * The updater.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class ReceivedShare extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
-   * The comment of the share.
+   * The comment on the share.
    * 
    * @example
    * demo
@@ -29,12 +29,19 @@ export class ReceivedShare extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The creator of the share.
+   * The creator.
    * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
+  /**
+   * @remarks
+   * Specifies whether write operations are allowed on the shared resources.
+   * 
+   * @example
+   * false
+   */
   enableWrite?: boolean;
   /**
    * @remarks
@@ -46,7 +53,7 @@ export class ReceivedShare extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The provider\\"s account ID.
+   * The account ID of the provider.
    * 
    * @example
    * 1111
@@ -78,7 +85,7 @@ export class ReceivedShare extends $dara.Model {
   updatedAt?: number;
   /**
    * @remarks
-   * The user who last updated the share.
+   * The updater.
    * 
    * @example
    * acs:ram::[accountId]:root

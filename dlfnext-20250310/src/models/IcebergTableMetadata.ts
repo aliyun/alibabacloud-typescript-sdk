@@ -8,18 +8,22 @@ import { IcebergPartitionField } from "./IcebergPartitionField";
 export class IcebergTableMetadata extends $dara.Model {
   /**
    * @remarks
-   * The latest snapshot of the Iceberg table.
+   * The latest Iceberg snapshot.
    */
   currentSnapshot?: IcebergSnapshot;
   /**
    * @remarks
-   * The fields.
+   * The column fields.
    */
   fields?: IcebergNestedField[];
+  /**
+   * @remarks
+   * The list of field IDs for the Iceberg identifier fields. The array elements are the integer IDs of the identifier fields in the Iceberg schema.
+   */
   identifierFieldIds?: number[];
   /**
    * @remarks
-   * The partition fields.
+   * The list of partition fields.
    */
   partitionFields?: IcebergPartitionField[];
   /**

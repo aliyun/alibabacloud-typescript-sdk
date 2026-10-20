@@ -14,7 +14,7 @@ export class GetQueryResponseBody extends $dara.Model {
   completedAt?: number;
   /**
    * @remarks
-   * The creation time of the task.
+   * The creation time of the task, which is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1744970111419
@@ -22,7 +22,7 @@ export class GetQueryResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The query ID, used for subsequent polling of results.
+   * The query ID used to poll for subsequent results.
    * 
    * @example
    * d7b21d1ec4f441e79d5ba917c3283200
@@ -30,12 +30,12 @@ export class GetQueryResponseBody extends $dara.Model {
   queryId?: string;
   /**
    * @remarks
-   * The result list.
+   * The list of results.
    */
   results?: StatementResult[];
   /**
    * @remarks
-   * The SQL text. Multiple statements separated by semicolons are supported and executed sequentially within the same session.
+   * The SQL text, which supports multiple statements separated by semicolons that are executed sequentially within the same session.
    * 
    * @example
    * select * from table_name;
@@ -43,7 +43,7 @@ export class GetQueryResponseBody extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The task running status.
+   * The running status of the task.
    * 
    * @example
    * COMPLETED
@@ -51,7 +51,7 @@ export class GetQueryResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The execution specifications. Default value: standard.
+   * The execution tier. Default value: standard.
    * 
    * @example
    * standard

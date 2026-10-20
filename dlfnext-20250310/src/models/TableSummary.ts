@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TableSummary extends $dara.Model {
   /**
    * @remarks
-   * The timestamp, in milliseconds, indicating when the table was created.
+   * The table creation time.
    * 
    * @example
    * 1744970111419
@@ -13,7 +13,7 @@ export class TableSummary extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * default
@@ -21,7 +21,7 @@ export class TableSummary extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The generation date of the storage summary.
+   * The update date of the storage overview data.
    * 
    * @example
    * 2025-06-01
@@ -29,16 +29,31 @@ export class TableSummary extends $dara.Model {
   generatedDate?: string;
   /**
    * @remarks
-   * The timestamp, in milliseconds, indicating when the table data was last accessed.
+   * The last data access time of the table.
    * 
    * @example
    * 1744970111419
    */
   lastAccessTime?: number;
+  /**
+   * @remarks
+   * The last requester.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   lastRequester?: string;
   /**
    * @remarks
-   * The total size of data files in the Archive storage class, in bytes.
+   * The storage size of the latest snapshot, in bytes.
+   * 
+   * @example
+   * 1024
+   */
+  latestSnapshotDataSizeInBytes?: number;
+  /**
+   * @remarks
+   * The storage size of archive data files.
    * 
    * @example
    * 10240
@@ -46,7 +61,7 @@ export class TableSummary extends $dara.Model {
   objTypeArchiveSize?: number;
   /**
    * @remarks
-   * The total size of data files in the Cold Archive storage class, in bytes.
+   * The storage size of cold archive data files.
    * 
    * @example
    * 10240
@@ -54,7 +69,7 @@ export class TableSummary extends $dara.Model {
   objTypeColdArchiveSize?: number;
   /**
    * @remarks
-   * The total size of data files in the Infrequent Access storage class, in bytes.
+   * The storage size of infrequent access data files.
    * 
    * @example
    * 10240
@@ -62,7 +77,7 @@ export class TableSummary extends $dara.Model {
   objTypeIaSize?: number;
   /**
    * @remarks
-   * The total size of data files in the Standard storage class, in bytes.
+   * The storage size of standard data files.
    * 
    * @example
    * 10240
@@ -70,7 +85,7 @@ export class TableSummary extends $dara.Model {
   objTypeStandardSize?: number;
   /**
    * @remarks
-   * The total number of partitions in the table.
+   * The total number of partitions.
    * 
    * @example
    * 10
@@ -78,7 +93,7 @@ export class TableSummary extends $dara.Model {
   partitionCount?: number;
   /**
    * @remarks
-   * The storage location of the table.
+   * The storage location.
    * 
    * @example
    * oss://clg-xxxx/db-xxxx/tbl-xxxx
@@ -89,39 +104,65 @@ export class TableSummary extends $dara.Model {
    * The storage action parameters.
    */
   storageActionParams?: { [key: string]: string };
+  /**
+   * @remarks
+   * The storage class transition time.
+   * 
+   * @example
+   * 1767491579459
+   */
   storageActionTimestamp?: number;
   /**
    * @remarks
    * The storage class.
+   * 
+   * @example
+   * STANDARD
    */
   storageClass?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * table1
    */
   tableName?: string;
+  /**
+   * @remarks
+   * The top requester of the day.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   topRequester?: string;
   /**
    * @remarks
-   * Total file access count.
+   * The total number of file accesses.
+   * 
+   * @example
+   * 10
    */
   totalFileAccessNum?: number;
   /**
    * @remarks
-   * Total file access count over the last 30 days.
+   * The total number of file accesses in the last 7 days.
+   * 
+   * @example
+   * 100
    */
   totalFileAccessNum30d?: number;
   /**
    * @remarks
-   * Total file access count over the last 7 days.
+   * The total number of file accesses in the last 30 days.
+   * 
+   * @example
+   * 30
    */
   totalFileAccessNum7d?: number;
   /**
    * @remarks
-   * The total number of files in the table.
+   * The total number of table files.
    * 
    * @example
    * 100
@@ -129,7 +170,7 @@ export class TableSummary extends $dara.Model {
   totalFileCount?: number;
   /**
    * @remarks
-   * The total storage capacity of the table, in bytes.
+   * The table storage capacity, in bytes.
    * 
    * @example
    * 1024
@@ -137,7 +178,7 @@ export class TableSummary extends $dara.Model {
   totalFileSizeInBytes?: number;
   /**
    * @remarks
-   * The total number of metadata files.
+   * The number of metadata files.
    * 
    * @example
    * 10
@@ -145,7 +186,7 @@ export class TableSummary extends $dara.Model {
   totalMetaFileCount?: number;
   /**
    * @remarks
-   * The total size of metadata files, in bytes.
+   * The storage size of metadata files.
    * 
    * @example
    * 10240
@@ -153,7 +194,7 @@ export class TableSummary extends $dara.Model {
   totalMetaSizeInBytes?: number;
   /**
    * @remarks
-   * The number of Standard or Infrequent Access partitions unaccessed in the last 180 days.
+   * The number of standard or infrequent access partitions that have not been accessed in the last 180 days.
    * 
    * @example
    * 0
@@ -161,7 +202,7 @@ export class TableSummary extends $dara.Model {
   unaccessedStdIaPartitionCount180d?: number;
   /**
    * @remarks
-   * The number of Standard partitions unaccessed in the last 30 days.
+   * The number of standard storage partitions that have not been accessed in the last 30 days.
    * 
    * @example
    * 1
@@ -170,6 +211,9 @@ export class TableSummary extends $dara.Model {
   /**
    * @remarks
    * The update time.
+   * 
+   * @example
+   * 1764555981383
    */
   updatedAt?: number;
   static names(): { [key: string]: string } {
@@ -179,6 +223,7 @@ export class TableSummary extends $dara.Model {
       generatedDate: 'generatedDate',
       lastAccessTime: 'lastAccessTime',
       lastRequester: 'lastRequester',
+      latestSnapshotDataSizeInBytes: 'latestSnapshotDataSizeInBytes',
       objTypeArchiveSize: 'objTypeArchiveSize',
       objTypeColdArchiveSize: 'objTypeColdArchiveSize',
       objTypeIaSize: 'objTypeIaSize',
@@ -210,6 +255,7 @@ export class TableSummary extends $dara.Model {
       generatedDate: 'string',
       lastAccessTime: 'number',
       lastRequester: 'string',
+      latestSnapshotDataSizeInBytes: 'number',
       objTypeArchiveSize: 'number',
       objTypeColdArchiveSize: 'number',
       objTypeIaSize: 'number',

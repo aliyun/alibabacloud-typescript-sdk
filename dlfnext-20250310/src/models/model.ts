@@ -5,6 +5,7 @@ export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBod
 export { GetVpcConfigResponseBodyTrustedVpcs } from './GetVpcConfigResponseBody';
 export { UpdateVpcConfigRequestUpdates } from './UpdateVpcConfigRequest';
 export { CacheCluster } from './CacheCluster';
+export { CacheLoadTaskInfo } from './CacheLoadTaskInfo';
 export { Catalog } from './Catalog';
 export { CatalogSummary } from './CatalogSummary';
 export { CatalogSummaryTrend } from './CatalogSummaryTrend';
@@ -52,6 +53,7 @@ export { StatementResult } from './StatementResult';
 export { Table } from './Table';
 export { TableCompaction } from './TableCompaction';
 export { TableCompactionHistory } from './TableCompactionHistory';
+export { TableConsumer } from './TableConsumer';
 export { TableSnapshot } from './TableSnapshot';
 export { TableSummary } from './TableSummary';
 export { TagResource } from './TagResource';

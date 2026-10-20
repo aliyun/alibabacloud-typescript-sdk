@@ -6,29 +6,48 @@ import { FunctionFileResource } from "./FunctionFileResource";
 export class FunctionDefinition extends $dara.Model {
   /**
    * @remarks
-   * Required in FileFunctionDefinition.
+   * required in FileFunctionDefinition
+   * 
+   * @example
+   * com.aliyun.pai.flinkjob.udf.CtrKV
    */
   className?: string;
   /**
    * @remarks
-   * Required in SQLFunctionDefinition and LambdaFunctionDefinition.
+   * required in SQLFunctionDefinition/LambdaFunctionDefinition
+   * 
+   * @example
+   * {}
    */
   definition?: string;
   /**
    * @remarks
-   * Required in FileFunctionDefinition.
+   * required in FileFunctionDefinition
    */
   fileResources?: FunctionFileResource[];
   /**
    * @remarks
-   * Required in FileFunctionDefinition.
+   * required in FileFunctionDefinition
+   * 
+   * @example
+   * function_name
    */
   functionName?: string;
   /**
    * @remarks
-   * Required in LambdaFunctionDefinition and FileFunctionDefinition.
+   * required in LambdaFunctionDefinition/FileFunctionDefinition
+   * 
+   * @example
+   * zh-CN
    */
   language?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * PAIMON
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

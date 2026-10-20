@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
-   * The creation timestamp for the partition.
+   * The partition creation time.
    * 
    * @example
    * 1744970111419
@@ -13,7 +13,7 @@ export class PartitionSummary extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * default
@@ -21,7 +21,7 @@ export class PartitionSummary extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The last access timestamp for the partition\\"s data.
+   * The last data access time.
    * 
    * @example
    * 1744970111419
@@ -30,11 +30,14 @@ export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
    * The last requester.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
    */
   lastRequester?: string;
   /**
    * @remarks
-   * The name of the partition.
+   * The partition name.
    * 
    * @example
    * hh=18
@@ -47,45 +50,63 @@ export class PartitionSummary extends $dara.Model {
   storageActionParams?: { [key: string]: string };
   /**
    * @remarks
-   * The storage action timestamp.
+   * The storage class transition time.
+   * 
+   * @example
+   * 1764556155852
    */
   storageActionTimestamp?: number;
   /**
    * @remarks
    * The storage class.
+   * 
+   * @example
+   * STANDARD
    */
   storageClass?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
-   * table1
+   * table_name
    */
   tableName?: string;
   /**
    * @remarks
-   * The top requester.
+   * The top requester of the day.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
    */
   topRequester?: string;
   /**
    * @remarks
-   * Total file access count.
+   * The total number of file accesses.
+   * 
+   * @example
+   * 10
    */
   totalFileAccessNum?: number;
   /**
    * @remarks
-   * Total file access count over the last 30 days.
+   * The total number of file accesses in the last 30 days.
+   * 
+   * @example
+   * 100
    */
   totalFileAccessNum30d?: number;
   /**
    * @remarks
-   * Total file access count over the last 7 days.
+   * The total number of file accesses in the last 7 days.
+   * 
+   * @example
+   * 70
    */
   totalFileAccessNum7d?: number;
   /**
    * @remarks
-   * The total number of files in the partition.
+   * The total number of files.
    * 
    * @example
    * 2
@@ -93,7 +114,7 @@ export class PartitionSummary extends $dara.Model {
   totalFileCount?: number;
   /**
    * @remarks
-   * The total size, in bytes, of all files in the partition.
+   * The storage capacity in bytes.
    * 
    * @example
    * 2048
@@ -101,7 +122,7 @@ export class PartitionSummary extends $dara.Model {
   totalFileSizeInBytes?: number;
   /**
    * @remarks
-   * The last update timestamp for the partition.
+   * The last update time.
    * 
    * @example
    * 1744970111419

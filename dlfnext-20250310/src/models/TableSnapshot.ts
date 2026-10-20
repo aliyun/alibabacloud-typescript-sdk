@@ -6,37 +6,55 @@ import { Snapshot } from "./Snapshot";
 export class TableSnapshot extends $dara.Model {
   /**
    * @remarks
-   * The total number of files in the snapshot.
+   * The number of files.
+   * 
+   * @example
+   * 63
    */
   fileCount?: number;
   /**
    * @remarks
-   * The total size of all files in the snapshot, in bytes.
+   * The file size.
+   * 
+   * @example
+   * 645631581
    */
   fileSizeInBytes?: number;
   /**
    * @remarks
-   * The creation time of the most recent file in the snapshot, as a Unix timestamp in milliseconds.
+   * The creation time of the latest file.
+   * 
+   * @example
+   * 1761704112024
    */
   lastFileCreationTime?: number;
   /**
    * @remarks
-   * The total number of partitions in the table.
+   * The number of partitions.
+   * 
+   * @example
+   * 10
    */
   partitionCount?: number;
   /**
    * @remarks
-   * The total number of records in the snapshot.
+   * The number of records.
+   * 
+   * @example
+   * 16627
    */
   recordCount?: number;
   /**
    * @remarks
-   * Contains detailed information about the snapshot.
+   * The name of the snapshot.
    */
   snapshot?: Snapshot;
   /**
    * @remarks
-   * The total number of buckets in the table.
+   * The total number of buckets.
+   * 
+   * @example
+   * 64
    */
   totalBuckets?: number;
   static names(): { [key: string]: string } {

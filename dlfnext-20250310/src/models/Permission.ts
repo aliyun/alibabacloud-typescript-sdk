@@ -5,7 +5,15 @@ import { RowFilter } from "./RowFilter";
 
 
 export class PermissionColumns extends $dara.Model {
+  /**
+   * @remarks
+   * The list of included column names.
+   */
   columnNames?: string[];
+  /**
+   * @remarks
+   * The list of excluded column names.
+   */
   excludedColumnNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -45,7 +53,15 @@ export class Permission extends $dara.Model {
    * DROP
    */
   access?: string;
+  /**
+   * @remarks
+   * The column masking transformation rules mapped by column name. The key is the column name, and the value is the corresponding masking transformation configuration.
+   */
   columnMasking?: { [key: string]: ColumnMask };
+  /**
+   * @remarks
+   * The custom columns.
+   */
   columns?: PermissionColumns;
   /**
    * @remarks
@@ -55,7 +71,21 @@ export class Permission extends $dara.Model {
    * database_name
    */
   database?: string;
+  /**
+   * @remarks
+   * The expiration time.
+   * 
+   * @example
+   * 1762398431157
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The function name.
+   * 
+   * @example
+   * function_name
+   */
   function?: string;
   /**
    * @remarks
@@ -73,6 +103,10 @@ export class Permission extends $dara.Model {
    * CATALOG
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The row filter.
+   */
   rowFilter?: RowFilter;
   /**
    * @remarks
@@ -82,6 +116,13 @@ export class Permission extends $dara.Model {
    * table_name
    */
   table?: string;
+  /**
+   * @remarks
+   * The view name.
+   * 
+   * @example
+   * view_name
+   */
   view?: string;
   static names(): { [key: string]: string } {
     return {

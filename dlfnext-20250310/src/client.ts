@@ -906,7 +906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+   * Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -931,7 +931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+   * Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
    * @returns DropCatalogResponse
    */
   async dropCatalog(catalog: string): Promise<$_model.DropCatalogResponse> {
@@ -1081,7 +1081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data catalog.
+   * Retrieves the details of a catalog.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1106,7 +1106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data catalog.
+   * Retrieves the details of a catalog.
    * @returns GetCatalogResponse
    */
   async getCatalog(catalog: string): Promise<$_model.GetCatalogResponse> {
@@ -1116,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data catalog.
+   * Retrieves the details of a catalog.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1141,7 +1141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data catalog.
+   * Retrieves the details of a catalog.
    * @returns GetCatalogByIdResponse
    */
   async getCatalogById(id: string): Promise<$_model.GetCatalogByIdResponse> {
@@ -1241,7 +1241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview trend for a catalog.
+   * Retrieves the storage overview trends of the data catalog.
    * 
    * @param request - GetCatalogSummaryTrendRequest
    * @param headers - map
@@ -1278,7 +1278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview trend for a catalog.
+   * Retrieves the storage overview trends of the data catalog.
    * 
    * @param request - GetCatalogSummaryTrendRequest
    * @returns GetCatalogSummaryTrendResponse
@@ -1360,7 +1360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can view an inventory overview.
+   * Retrieves the database storage overview.
    * 
    * @param request - GetDatabaseSummaryRequest
    * @param headers - map
@@ -1393,7 +1393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can view an inventory overview.
+   * Retrieves the database storage overview.
    * 
    * @param request - GetDatabaseSummaryRequest
    * @returns GetDatabaseSummaryResponse
@@ -1769,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage summary for a table.
+   * Retrieves the table storage overview.
    * 
    * @param request - GetTableSummaryRequest
    * @param headers - map
@@ -1802,7 +1802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage summary for a table.
+   * Retrieves the table storage overview.
    * 
    * @param request - GetTableSummaryRequest
    * @returns GetTableSummaryResponse
@@ -1988,7 +1988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data catalogs.
+   * Queries the list of catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @param headers - map
@@ -2029,7 +2029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data catalogs.
+   * Queries the list of catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -2041,7 +2041,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists databases in a data lake with paged query support.
+   * Queries the list of databases in the data lake by using a paged query with paging.
+   * 
+   * @remarks
+   * This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
    * 
    * @param request - ListDatabaseDetailsRequest
    * @param headers - map
@@ -2086,7 +2089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists databases in a data lake with paged query support.
+   * Queries the list of databases in the data lake by using a paged query with paging.
+   * 
+   * @remarks
+   * This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
    * 
    * @param request - ListDatabaseDetailsRequest
    * @returns ListDatabaseDetailsResponse
@@ -2359,7 +2365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves storage overview for partitions.
+   * Retrieves the partition storage overview list.
    * 
    * @param request - ListPartitionSummariesRequest
    * @param headers - map
@@ -2400,7 +2406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves storage overview for partitions.
+   * Retrieves the partition storage overview list.
    * 
    * @param request - ListPartitionSummariesRequest
    * @returns ListPartitionSummariesResponse

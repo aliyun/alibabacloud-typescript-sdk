@@ -7,7 +7,7 @@ import { Schema } from "./Schema";
 export class Table extends $dara.Model {
   /**
    * @remarks
-   * The time when the table was created.
+   * The creation time.
    * 
    * @example
    * 1741266704867
@@ -15,16 +15,20 @@ export class Table extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The creator of the table.
+   * The creator.
    * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
+  /**
+   * @remarks
+   * The Iceberg table metadata.
+   */
   icebergTableMetadata?: IcebergTableMetadata;
   /**
    * @remarks
-   * The UUID of the table.
+   * The table UUID.
    * 
    * @example
    * 1
@@ -32,7 +36,7 @@ export class Table extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the table is an external table.
+   * Specifies whether the table is an external table.
    * 
    * @example
    * true
@@ -40,7 +44,7 @@ export class Table extends $dara.Model {
   isExternal?: boolean;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * table_test
@@ -48,7 +52,7 @@ export class Table extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner of the table.
+   * The table owner.
    * 
    * @example
    * acs:ram::[accountId]:root
@@ -56,7 +60,7 @@ export class Table extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The path of the table.
+   * The table path.
    * 
    * @example
    * oss://clg-paimon-xxx/db-xxx/tbl-xxxx
@@ -69,20 +73,55 @@ export class Table extends $dara.Model {
   schema?: Schema;
   /**
    * @remarks
-   * The ID of the table schema.
+   * The table schema ID.
    * 
    * @example
    * 1
    */
   schemaId?: number;
+  /**
+   * @remarks
+   * The table status. A value of active indicates that the table is normal. A value of retained indicates that the table is soft-deleted but still retained in the recycle bin. A value of releasing indicates that the table is about to be permanently purged.
+   * 
+   * @example
+   * active
+   */
   status?: string;
+  /**
+   * @remarks
+   * The storage class transition status.
+   * 
+   * @example
+   * None
+   */
   storageAction?: string;
+  /**
+   * @remarks
+   * The storage class transition time.
+   * 
+   * @example
+   * 1764556155852
+   */
   storageActionTimestamp?: number;
+  /**
+   * @remarks
+   * The storage class.
+   * 
+   * @example
+   * STANDARD
+   */
   storageClass?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * PAIMON
+   */
   type?: string;
   /**
    * @remarks
-   * The time when the table was last updated.
+   * The update time.
    * 
    * @example
    * 1741266704867
@@ -90,7 +129,7 @@ export class Table extends $dara.Model {
   updatedAt?: number;
   /**
    * @remarks
-   * The user who last updated the table.
+   * The updater.
    * 
    * @example
    * acs:ram::[accountId]:root
