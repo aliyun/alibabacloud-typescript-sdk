@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The certificate domain name.
+   * The domain name of the certificate.
    * 
    * @example
    * *.example.com
@@ -63,7 +63,7 @@ export class ApplyCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of free certificate application details.
+   * The list of details for the free certificate applications.
    */
   result?: ApplyCertificateResponseBodyResult[];
   /**
@@ -76,7 +76,7 @@ export class ApplyCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The number of certificates applied for, which is the same as the number of input domain names.
+   * The number of certificates applied for, which is the same as the number of specified domain names.
    * 
    * @example
    * 2

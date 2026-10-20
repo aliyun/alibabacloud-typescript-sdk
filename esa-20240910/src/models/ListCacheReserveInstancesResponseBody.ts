@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The capacity of the cache reserve instance. Unit: GB.
+   * The cache reservation capacity. Unit: GB.
    * 
    * @example
    * 512000
@@ -13,7 +13,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   cacheReserveCapacity?: number;
   /**
    * @remarks
-   * The region where the cache reserve instance is deployed.
+   * The region where the cache reservation is used.
    * 
    * @example
    * HK
@@ -21,9 +21,9 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   cacheReserveRegion?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
+   * The billing method. Valid values:
+   * - PREPAY: Prepaid.
+   * - POSTPAY: Pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -31,7 +31,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   chargeType?: string;
   /**
    * @remarks
-   * The creation time of the instance.
+   * The creation time of the instance. The time is in UTC and formatted in accordance with the ISO 8601 standard, for example, 2024-04-12T05:41:51Z.
    * 
    * @example
    * 2024-04-12T05:41:51Z
@@ -47,7 +47,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The time when the instance expires. The time is in UTC and formatted in accordance with the ISO 8601 standard, for example, 2024-10-05T16:00:00Z.
    * 
    * @example
    * 2024-10-05T16:00:00Z
@@ -64,10 +64,10 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The instance is running normally.
-   * - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
-   * - **disable**: The instance has been released.
-   * - **overdue**: The instance is stopped due to an overdue payment.
+   * - **online**: Normal service status.
+   * - **offline**: Expired but not overdue, and in an inactive state.
+   * - **disable**: Released.
+   * - **overdue**: Stopped due to an overdue payment.
    * 
    * @example
    * online
@@ -111,7 +111,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cache reserve instances.
+   * The list of cache reservation instances.
    */
   instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
   /**
@@ -124,7 +124,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**. Valid values: **1** to **500**.
+   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
    * 
    * @example
    * 500

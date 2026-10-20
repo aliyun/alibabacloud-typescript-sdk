@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetHttpDDoSAttackRuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * List of rule IDs to be operated on, separated by English commas (,).
-   * > You can call the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) interface to get this parameter.
+   * The list of rule IDs to be operated on. Separate multiple IDs with commas (,).
+   * > You can obtain this parameter by calling the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) operation.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SetHttpDDoSAttackRuleStatusRequest extends $dara.Model {
   ruleIds?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class SetHttpDDoSAttackRuleStatusRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Rule status
+   * The rule status. Valid values:
    * 
-   * - **on**: Enable.
-   * - **off**: Disable.
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * This parameter is required.
    * 

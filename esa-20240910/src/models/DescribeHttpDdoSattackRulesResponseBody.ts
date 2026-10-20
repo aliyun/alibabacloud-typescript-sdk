@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Model {
   /**
    * @remarks
-   * The action to perform.
+   * The action.
    * 
    * @example
    * deny
@@ -21,7 +21,7 @@ export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Mode
   defaultAction?: string;
   /**
    * @remarks
-   * The ID of the protection rule used for log records.
+   * The attack prevention rule ID for log records.
    * 
    * @example
    * 100010
@@ -29,7 +29,7 @@ export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Mode
   logRuleId?: number;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * The HTTP request\\"s Accept header contains invalid features#1
@@ -37,7 +37,7 @@ export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Mode
   ruleDesc?: string;
   /**
    * @remarks
-   * The ID of the HTTP DDoS protection rule.
+   * The HTTP DDoS rule ID.
    * 
    * @example
    * 20203578
@@ -53,7 +53,7 @@ export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Mode
   ruleIdInfo?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * Illegal request。
@@ -61,10 +61,9 @@ export class DescribeHttpDDoSAttackRulesResponseBodyRuleInfos extends $dara.Mode
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The rule status. Valid values:
    * 
    * - **on**: The rule is enabled.
-   * 
    * - **off**: The rule is disabled.
    * 
    * @example
@@ -125,7 +124,7 @@ export class DescribeHttpDDoSAttackRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * D4030CD2-0D9D-5E92-B358-421AE58307C6
@@ -133,7 +132,7 @@ export class DescribeHttpDDoSAttackRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of rule details.
+   * The list of rule information.
    */
   ruleInfos?: DescribeHttpDDoSAttackRulesResponseBodyRuleInfos[];
   /**

@@ -13,7 +13,7 @@ export class SetRoutineEnvironmentVariablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of environment variable keys that were set successfully.
+   * The list of keys for the successfully set environment variables.
    * 
    * @example
    * ["key1","key2"]

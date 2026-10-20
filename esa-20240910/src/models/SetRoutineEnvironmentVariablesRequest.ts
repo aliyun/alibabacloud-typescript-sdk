@@ -6,9 +6,9 @@ import { EnvironmentVariablesValue } from "./EnvironmentVariablesValue";
 export class SetRoutineEnvironmentVariablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name. Valid values:
-   * - `staging`: staging environment.
-   * - `production`: production environment.
+   * The name of the environment. Valid values:
+   * - `staging`: staging environment
+   * - `production`: production environment
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class SetRoutineEnvironmentVariablesRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The dictionary of environment variables. The key is the environment variable name, and the value is the environment variable value.
+   * The environment variable dictionary. The key is the environment variable name, and the value is the environment variable value.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class SetRoutineEnvironmentVariablesRequest extends $dara.Model {
   environmentVariables?: { [key: string]: EnvironmentVariablesValue };
   /**
    * @remarks
-   * The function name.
+   * The name of the function.
    * 
    * This parameter is required.
    * 

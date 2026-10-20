@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The peak bits per second (Bps) of a volumetric attack.
+   * The peak BPS of volumetric traffic attacks.
    * 
    * @example
    * 800
@@ -15,11 +15,9 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
    * @remarks
    * The attack region. Valid values:
    * 
-   * - **domestic**: Chinese mainland.
-   * 
-   * - **global**: Global.
-   * 
-   * - **overseas**: global (excluding Chinese mainland).
+   * - **domestic**: the Chinese mainland only.
+   * - **global**: global.
+   * - **overseas**: global (excluding the Chinese mainland).
    * 
    * @example
    * domestic
@@ -27,7 +25,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The peak connections per second (Cps) of a connection-based attack.
+   * The peak CPS of the connection flood attack.
    * 
    * @example
    * 50
@@ -35,9 +33,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * The end time of the DDoS attack event.
-   * 
-   * The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+   * The end time of the DDoS attack event. The time is displayed in UTC and must be in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-02-12T15:59:59Z
@@ -55,11 +51,9 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
    * @remarks
    * The event result. Valid values:
    * 
-   * - **clean**: The attack was successfully cleaned.
-   * 
-   * - **ratelimit**: Rate limiting was applied.
-   * 
-   * - **blackhole**: Blackhole filtering was triggered.
+   * - **clean**: traffic scrubbed.
+   * - **ratelimit**: rate limited.
+   * - **blackhole**: blackhole filtering.
    * 
    * @example
    * clean
@@ -68,12 +62,9 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The type of the DDoS attack event. Valid values:
-   * 
-   * - **web-cc**: A web resource exhaustion attack.
-   * 
-   * - **cc**: A connection-based attack.
-   * 
-   * - **traffic**: A volumetric attack.
+   * - **web-cc**: web resource exhaustion attacks.
+   * - **cc**: connection flood attacks.
+   * - **traffic**: volumetric traffic attacks.
    * 
    * @example
    * web-cc
@@ -81,7 +72,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The peak packets per second (Pps) of a volumetric attack.
+   * The peak PPS of volumetric traffic attacks.
    * 
    * @example
    * 12000
@@ -89,7 +80,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The peak queries per second (Qps) of a web resource exhaustion attack.
+   * The peak QPS of the web resource exhaustion attack.
    * 
    * @example
    * 7692
@@ -97,9 +88,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   qps?: number;
   /**
    * @remarks
-   * The start time of the DDoS attack event.
-   * 
-   * The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+   * The start time of the DDoS attack event. The time is displayed in UTC and must be in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-02-12T15:00:00Z
@@ -115,7 +104,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The ID of the attack target.
+   * The ID of the attack target for web resource exhaustion.
    * 
    * @example
    * 000000000155****
@@ -167,7 +156,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $dara.Model {
 export class DescribeDDoSAllEventListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of DDoS attack event details.
+   * The list of DDoS attack events.
    */
   dataList?: DescribeDDoSAllEventListResponseBodyDataList[];
   /**
@@ -180,7 +169,7 @@ export class DescribeDDoSAllEventListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

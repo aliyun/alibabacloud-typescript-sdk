@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule content. A conditional expression is used to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
-   * - Match all incoming requests: set the value to true.
-   * - Match specified requests: set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
+   * The rule content. A conditional expression is used to match user requests. You do not need to specify this parameter when adding global Settings. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * For the complete syntax of rule expressions, refer to
    * <props="china">https://www.alibabacloud.com/help/en/edge-security-acceleration/esa/user-guide/work-with-rules-engine/
@@ -21,9 +21,9 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. You do not need to specify this parameter when adding a global configuration. Valid values:
+   * - on: enables the rule.
+   * - off: disables the rule.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you add a global configuration.
+   * The rule name. You do not need to specify this parameter when adding a global configuration.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the waiting room bypass rule to update. You can obtain this ID after creating a rule by calling CreateWaitingRoomRule, or by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * The ID of the waiting room bypass rule to be updated. You can obtain the rule ID after creating a rule by using CreateWaitingRoomRule or by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) operation.
    * 
    * This parameter is required.
    * 

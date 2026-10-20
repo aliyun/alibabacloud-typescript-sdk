@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos extends $dara.Model {
   /**
    * @remarks
-   * The action to perform.
+   * The action to be performed.
    * 
    * @example
    * js
@@ -13,7 +13,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
   action?: string;
   /**
    * @remarks
-   * The conditions that trigger the rule.
+   * The trigger condition of the rule.
    * 
    * @example
    * {"$and":[{"key":"URI","opValue":"prefix-match","values":"/"}]}
@@ -21,7 +21,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
   condition?: string;
   /**
    * @remarks
-   * The ID of the protection rule for log records.
+   * The ID of the protection rule (used for log records).
    * 
    * @example
    * 100030
@@ -29,7 +29,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
   logRuleId?: number;
   /**
    * @remarks
-   * The duration of the penalty in seconds.
+   * The block duration. Unit: seconds.
    * 
    * @example
    * 86400
@@ -37,7 +37,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
   punishTime?: number;
   /**
    * @remarks
-   * The frequency information.
+   * The rate limit information.
    * 
    * @example
    * {"threshold":2000,"interval":5,"target":"ip","ttl":600}
@@ -69,7 +69,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
   ruleName?: string;
   /**
    * @remarks
-   * The statistics.
+   * The statistics information.
    * 
    * @example
    * {"field":"ip","mode":"count"}
@@ -131,7 +131,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBody extends $dara
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -139,7 +139,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * The list of rules.
+   * The list of rule information.
    */
   ruleInfos?: DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos[];
   /**

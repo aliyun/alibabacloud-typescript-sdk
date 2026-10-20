@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request header modifications. Three operation types are supported: add, delete, and modify.
+   * The request header modifications. Supports adding, deleting, and modifying headers.
    * 
    * This parameter is required.
    */
   requestHeaderModificationShrink?: string;
   /**
    * @remarks
-   * The rule content, which uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * The rule content. Uses a conditional expression to match user requests. You do not need to specify this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -22,9 +22,9 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. You do not need to specify this parameter when adding a global configuration. Valid values:
+   * - on: Enables the rule.
+   * - off: Disables the rule.
    * 
    * @example
    * on
@@ -32,7 +32,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you add a global configuration.
+   * The name of the rule. You do not need to specify this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -40,7 +40,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

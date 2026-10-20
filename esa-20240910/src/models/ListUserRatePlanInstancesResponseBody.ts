@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dara.Model {
   /**
    * @remarks
-   * The site ID.
+   * The ID of the site.
    * 
    * @example
    * 123456****
@@ -13,7 +13,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dar
   siteId?: number;
   /**
    * @remarks
-   * The site name.
+   * The name of the site.
    * 
    * @example
    * example.com
@@ -21,12 +21,12 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dar
   siteName?: string;
   /**
    * @remarks
-   * The site status. Valid values:
+   * The status of the site. Valid values:
    * 
    * - **pending**: The site is pending configuration.
    * - **active**: The site is activated.
    * - **offline**: The site is offline.
-   * - **moved**: The site has been superseded.
+   * - **moved**: The site is replaced.
    * 
    * @example
    * pending
@@ -71,7 +71,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   billingMode?: string;
   /**
    * @remarks
-   * If empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
+   * If this parameter is empty, no bot protection instance is purchased for the plan. If a value is returned, a bot protection instance is purchased for the plan. Valid values:
    * 
    * - enterprise_bot: Web edition.
    * 
@@ -83,7 +83,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   botInstanceLevel?: string;
   /**
    * @remarks
-   * The prepaid bot protection requests included in the plan (in units of 10,000).
+   * The prepaid number of bot requests in the plan. Unit: 10,000 requests.
    * 
    * @example
    * 100
@@ -91,11 +91,11 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   botRequest?: string;
   /**
    * @remarks
-   * The acceleration coverage areas for sites that can be bound to this plan instance. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions where the site can be bound. Multiple regions are separated by commas (,). Valid values:
    * 
-   * - **domestic**: China or the Chinese mainland.
-   * - **overseas**: Global (excluding China or the Chinese mainland).
-   * - **global**: Global (including China or the Chinese mainland).
+   * - **domestic**: Chinese mainland.
+   * - **overseas**: Global (excluding the Chinese mainland).
+   * - **global**: Global (including the Chinese mainland).
    * 
    * @example
    * domestic,overseas
@@ -103,7 +103,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   coverages?: string;
   /**
    * @remarks
-   * The purchase time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -111,7 +111,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The prepaid China network acceleration traffic (GB) included in the plan.
+   * The prepaid China network acceleration traffic in the plan. Unit: GB.
    * 
    * @example
    * 100
@@ -119,7 +119,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   crossborderTraffic?: string;
   /**
    * @remarks
-   * The Anti-DDoS instance specification for the Chinese mainland included in the plan.
+   * The specifications of the Anti-DDoS instance in the plan for the Chinese mainland.
    * 
    * @example
    * cn_300
@@ -127,7 +127,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   ddosBurstableDomesticProtection?: string;
   /**
    * @remarks
-   * The Anti-DDoS instance specification outside the Chinese mainland included in the plan.
+   * The specifications of the Anti-DDoS instance in the plan for regions outside the Chinese mainland.
    * 
    * @example
    * overseas_300
@@ -135,7 +135,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   ddosBurstableOverseasProtection?: string;
   /**
    * @remarks
-   * If empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
+   * If this parameter is empty, no Anti-DDoS instance is purchased for the plan. If a value is returned, an Anti-DDoS instance is purchased for the plan, and the value is `esa_ddos_instance`.
    * 
    * @example
    * esa_ddos_instance
@@ -151,7 +151,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * The prepaid Edge Routine (ER) requests included in the plan (in units of 10,000).
+   * The prepaid number of Edge Routine (ER) requests in the plan. Unit: 10,000 requests.
    * 
    * @example
    * 100
@@ -159,7 +159,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   edgeRoutineRquest?: string;
   /**
    * @remarks
-   * The prepaid WAF requests included in the plan (in units of 10,000).
+   * The prepaid number of Web Application Firewall (WAF) requests in the plan. Unit: 10,000 requests.
    * 
    * @example
    * 100
@@ -167,7 +167,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   edgeWafRequest?: string;
   /**
    * @remarks
-   * The expiration time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The expiration time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -175,7 +175,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   expireTime?: string;
   /**
    * @remarks
-   * The plan instance ID.
+   * The instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -183,7 +183,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The prepaid Layer 4 proxy traffic (GB) included in the plan - Chinese mainland.
+   * The prepaid Layer 4 proxy traffic in the plan for the Chinese mainland. Unit: GB.
    * 
    * @example
    * 100
@@ -191,7 +191,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   layer4Traffic?: string;
   /**
    * @remarks
-   * The prepaid Layer 4 proxy traffic (GB) included in the plan - outside the Chinese mainland.
+   * The prepaid Layer 4 proxy traffic in the plan for regions outside the Chinese mainland. Unit: GB.
    * 
    * @example
    * 100
@@ -200,7 +200,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   ownerId?: string;
   /**
    * @remarks
-   * The plan name associated with the plan instance.
+   * The name of the plan corresponding to the plan instance.
    * 
    * @example
    * basic
@@ -208,7 +208,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   planName?: string;
   /**
    * @remarks
-   * The prepaid Layer 7 acceleration traffic (GB) included in the plan.
+   * The prepaid Layer 7 acceleration traffic in the plan. Unit: GB.
    * 
    * @example
    * 100
@@ -216,9 +216,9 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   planTraffic?: string;
   /**
    * @remarks
-   * The plan type associated with the plan instance. Valid values:
-   * - **normal**: Fixed edition plan.
-   * - **enterprise**: Enterprise edition plan.
+   * The type of the plan corresponding to the plan instance. Valid values:
+   * - **normal**: Fixed plan.
+   * - **enterprise**: Enterprise plan.
    * 
    * @example
    * normal
@@ -237,8 +237,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * The auto-renewal status. Valid values:
    * 
    * - nomal: Normal.
-   * - auto_renewal: Auto-renewal enabled.
-   * - not_renewal: Auto-renewal disabled.
+   * - auto_renewal: Auto-renewal.
+   * - not_renewal: Non-renewal.
    * 
    * @example
    * nomal
@@ -248,7 +248,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   shareType?: string;
   /**
    * @remarks
-   * The site quota for the plan instance.
+   * The quota for the number of sites under the plan instance.
    * 
    * @example
    * 1
@@ -261,7 +261,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
   /**
    * @remarks
-   * The prepaid smart routing requests included in the plan (in units of 10,000).
+   * The prepaid number of smart routing requests in the plan. Unit: 10,000 requests.
    * 
    * @example
    * 100
@@ -269,7 +269,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   smartRoutingRequest?: string;
   /**
    * @remarks
-   * The prepaid HTTP requests included in the plan (in units of 10,000).
+   * The prepaid number of HTTP requests in the plan. Unit: 10,000 requests.
    * 
    * @example
    * 100
@@ -278,9 +278,9 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: Normal service status.
-   * - **offline**: Expired but not overdue, in an inactive state.
-   * - **disable**: Released.
+   * - **online**: The instance is in normal service status.
+   * - **offline**: The instance has expired but is not overdue, and is in an inactive state.
+   * - **disable**: The instance is released.
    * 
    * @example
    * online
@@ -288,14 +288,14 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The plan subscription type. Valid values:
+   * The subscription type of the plan. Valid values:
    * 
-   * - Free Edition (Chinese mainland): entranceplan
-   * - Free Edition (International): entranceplan_intl
-   * - Basic Edition: basicplan
-   * - Standard Edition: standardplan
-   * - Premium Edition: advancedplan
-   * - Enterprise Edition: enterpriseplan
+   * - entranceplan: Free Edition (Chinese mainland).
+   * - entranceplan_intl: Free Edition (International).
+   * - basicplan: Basic Edition.
+   * - standardplan: Standard Edition.
+   * - advancedplan: Advanced Edition.
+   * - enterpriseplan: Enterprise Edition.
    * 
    * @example
    * basicplan
@@ -386,12 +386,12 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plan instances that match the specified conditions under the user.
+   * The plan instances that meet the query conditions under the user.
    */
   instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * The current page number, same as the PageNumber request parameter.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1

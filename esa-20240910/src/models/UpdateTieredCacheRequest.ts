@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTieredCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The multi-level cache architecture mode. Valid values:
-   * - edge: edge cache layer.
-   * - edge_smart: edge cache layer + smart cache layer.
-   * - edge_regional: edge cache layer + regional cache layer.
-   * - edge_regional_smart: edge cache layer + regional cache layer + smart cache layer.
+   * The multi-tier cache architecture mode. Valid values:
+   * - edge: the edge cache layer
+   * - edge_smart: the edge cache layer and the intelligent cache layer
+   * - edge_regional: the edge cache layer and the regional cache layer
+   * - edge_regional_smart: the edge cache layer, the regional cache layer, and the intelligent cache layer
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class UpdateTieredCacheRequest extends $dara.Model {
   cacheArchitectureMode?: string;
   /**
    * @remarks
-   * The site ID. You can call [ListSites](https://help.aliyun.com/document_detail/2850189.html) to obtain the site ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
    * 
    * This parameter is required.
    * 

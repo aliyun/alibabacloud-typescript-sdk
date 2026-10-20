@@ -14,6 +14,10 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   /**
    * @remarks
    * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
+   * - global: Queries global configurations.
+   * - rule: Queries rule configurations.
+   * 
+   * This parameter is optional. If you do not specify this parameter, global and rule configurations are not distinguished. This parameter takes effect only when the FunctionName parameter is specified.
    * 
    * @example
    * rule
@@ -21,7 +25,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The function name of the feature.
+   * The name of the feature function.
    * 
    * @example
    * CacheRules
@@ -45,7 +49,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name. Filters the rule that matches the specified name. This parameter takes effect only when FunctionName is specified.
+   * The rule name. You can use this parameter to query the rule whose name matches the specified value. This parameter takes effect only when the FunctionName parameter is specified.
    * 
    * @example
    * test
@@ -53,7 +57,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -63,7 +67,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
+   * The version number of the site. For a site with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 1

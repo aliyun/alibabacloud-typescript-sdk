@@ -13,7 +13,7 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
   codeVersion?: string;
   /**
    * @remarks
-   * The canary release percentage for the code version.
+   * The traffic percentage for the canary release of the code version.
    * 
    * @example
    * 100
@@ -45,12 +45,12 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
 export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of percentage-based canary release code version configurations.
+   * The list of code version configurations for the percentage-based canary release.
    */
   codeVersions?: CreateRoutineCodeDeploymentResponseBodyCodeVersions[];
   /**
    * @remarks
-   * The deployment record ID.
+   * The ID of the deployment record.
    * 
    * @example
    * 234
@@ -58,7 +58,7 @@ export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -66,7 +66,7 @@ export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The canary release strategy. Fixed value: percentage.
+   * The canary release strategy. The value is fixed as `percentage`.
    * 
    * @example
    * percentage

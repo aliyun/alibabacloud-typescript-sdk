@@ -13,7 +13,7 @@ export class CreateWaitingRoomResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting room ID.
+   * The ID of the waiting room.
    * 
    * @example
    * 8527e8405ac25bfb7fb7ca0d12b0ed83

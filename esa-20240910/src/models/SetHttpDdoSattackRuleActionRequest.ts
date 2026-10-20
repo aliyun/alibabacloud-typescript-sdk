@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class SetHttpDDoSAttackRuleActionRequest extends $dara.Model {
   /**
    * @remarks
-   * Rule action, with values:
+   * The action of the rule. Valid values:
    * 
-   * - **deny**: Block.
+   * - **deny**: Blocks the request.
    * 
-   * - **js**: JS Verification.
+   * - **js**: Performs a JavaScript challenge.
    * 
-   * - **observe**: Observe.
+   * - **observe**: Monitors the request.
    * 
    * This parameter is required.
    * 
@@ -21,8 +21,8 @@ export class SetHttpDDoSAttackRuleActionRequest extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * List of rule IDs to be operated on, separated by English commas (,).
-   * > You can call the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) API to get this parameter.
+   * The IDs of the rules to be managed. Separate multiple IDs with commas (,).
+   * > You can call the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) operation to query the IDs.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class SetHttpDDoSAttackRuleActionRequest extends $dara.Model {
   ruleIds?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the ID.
    * 
    * This parameter is required.
    * 

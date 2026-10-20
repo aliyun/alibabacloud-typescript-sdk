@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineBuildsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for a paged query. The value must be greater than or equal to 1.
+   * The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRoutineBuildsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: 1 to 500.
+   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class ListRoutineBuildsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ER name.
+   * The name of the Edge Routine (ER).
    * 
    * @example
    * test-routine
@@ -29,10 +29,10 @@ export class ListRoutineBuildsRequest extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The field used for sorting. By default, results are sorted by purchase time. Valid values:
+   * The field used for sorting. By default, tasks are sorted by creation time. Valid values:
    * 
-   * - CreateTime: purchase time.
-   * - ExpireTime: expiration time.
+   * - CreateTime: Creation time.
+   * - ExpireTime: Expiration time.
    * 
    * @example
    * CreateTime
@@ -42,8 +42,8 @@ export class ListRoutineBuildsRequest extends $dara.Model {
    * @remarks
    * The sort order. Default value: desc. Valid values:
    * 
-   * - asc: ascending order.
-   * - desc: descending order.
+   * - asc: Ascending order.
+   * - desc: Descending order.
    * 
    * @example
    * asc
@@ -53,12 +53,12 @@ export class ListRoutineBuildsRequest extends $dara.Model {
    * @remarks
    * The status of the build task. Valid values:
    * 
-   * - int: initialization
-   * - pending: preparing
-   * - building: building
-   * - succeed: build succeeded
-   * - failed: build failed
-   * - canceled: canceled
+   * - int: Initialized.
+   * - pending: Preparing.
+   * - building: Building.
+   * - succeed: Succeeded.
+   * - failed: Failed.
+   * - canceled: Canceled.
    * 
    * @example
    * canceled

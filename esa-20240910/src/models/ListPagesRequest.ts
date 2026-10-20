@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPagesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type field in the HTTP header. Example values:
+   * Specifies the Content-Type field in the HTTP header, such as:
    * * text/html
    * * application/json
    * 
@@ -15,7 +15,7 @@ export class ListPagesRequestQueryArgs extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The fuzzy match string for the name or description of a custom page.
+   * Performs a fuzzy match on the name or description of the custom page.
    * 
    * @example
    * example
@@ -55,7 +55,7 @@ export class ListPagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The page size. Default value: 20.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class ListPagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameters passed in JSON format, which contain various filter conditions.
+   * The query parameters passed in JSON format, which include various filter conditions.
    */
   queryArgs?: ListPagesRequestQueryArgs;
   static names(): { [key: string]: string } {

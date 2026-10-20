@@ -31,7 +31,7 @@ export class DescribeHttpDDoSIntelligentAclRulesRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The site ID. To obtain the site ID, call the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 

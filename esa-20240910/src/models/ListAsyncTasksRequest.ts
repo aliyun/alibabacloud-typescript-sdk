@@ -13,7 +13,7 @@ export class ListAsyncTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tasks to display per page.
+   * The number of tasks to return on each page.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListAsyncTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource ID to which the task belongs, such as a site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+   * The IDs of the resources to which the tasks belong, such as site IDs. You can obtain site IDs by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 4080****3752512
@@ -39,9 +39,9 @@ export class ListAsyncTasksRequest extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * - in_progress: in progress.
-   * - success: completed.
-   * - fail: failed.
+   * - in_progress: The task is in progress.
+   * - success: The task is completed.
+   * - fail: The task failed.
    * 
    * @example
    * success
@@ -49,7 +49,7 @@ export class ListAsyncTasksRequest extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The task type. For example, the task type for applying for a free certificate is free_cert.
+   * The task type. For example, the value for a free certificate application is free_cert.
    * 
    * @example
    * free_cert

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetHttpDDoSAttackProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The level of HTTP DDoS attack protection.
+   * The mode of the HTTP DDoS Attack prevention mitigation policies.
    * 
    * @example
    * default
@@ -21,7 +21,7 @@ export class SetHttpDDoSAttackProtectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****

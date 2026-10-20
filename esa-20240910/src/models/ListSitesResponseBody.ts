@@ -7,8 +7,8 @@ export class ListSitesResponseBodySites extends $dara.Model {
    * @remarks
    * The site access type. Valid values:
    * 
-   * - **NS**: NS-based access.
-   * - **CNAME**: CNAME-based access.
+   * - **NS**: NS access
+   * - **CNAME**: CNAME access
    * 
    * @example
    * NS
@@ -16,7 +16,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The CNAME suffix of the site. For sites that use CNAME-based access, this is the CNAME suffix that needs to be configured for records.
+   * The CNAME suffix of the site. For sites accessed through CNAME, this records the CNAME suffix that needs to be configured.
    * 
    * @example
    * example.cname.com
@@ -24,11 +24,11 @@ export class ListSitesResponseBodySites extends $dara.Model {
   cnameZone?: string;
   /**
    * @remarks
-   * The acceleration region of the site. Valid values:
+   * The site acceleration region. Valid values:
    * 
-   * - **domestic**: the Chinese mainland only.
-   * - **global**: global.
-   * - **overseas**: global (excluding the Chinese mainland).
+   * - **domestic**: the Chinese mainland
+   * - **global**: global
+   * - **overseas**: global (excluding the Chinese mainland)
    * 
    * @example
    * domestic
@@ -36,7 +36,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The creation time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the site. The time is displayed in UTC and formatted in accordance with ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -44,7 +44,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The instance ID of the plan attached to the site.
+   * The instance ID of the plan that you attach to the site.
    * 
    * @example
    * onBvtlmIyeXLbiDw81F9
@@ -52,7 +52,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of name servers assigned to the site. Multiple values are separated by commas (,).
+   * The list of name servers assigned to the site. Multiple name servers are separated by commas (,).
    * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
@@ -62,11 +62,11 @@ export class ListSitesResponseBodySites extends $dara.Model {
    * @remarks
    * The reason why the site is disabled. Valid values:
    * 
-   * - **expiration_ arrears**: The subscription plan has expired or the account has an overdue payment.
+   * - **expiration_ arrears**: The plan you subscribe to has expired or the account has an overdue payment.
    * - **internally_disabled**: The site is disabled by the system.
-   * - **missing_icp**: The domain name does not have an ICP filing.
-   * - **content_violation**: Content violation.
-   * - **proactively_disabled**: You proactively disabled the site or the site is disabled because the usage cap you configured is reached.
+   * - **missing_icp**: The domain name lacks an ICP filing.
+   * - **content_violation**: The site is disabled due to a content violation.
+   * - **proactively_disabled**: You proactively disabled the site or the site is disabled because it reached the usage cap Settings.
    * 
    * @example
    * expiration_ arrears
@@ -115,10 +115,10 @@ export class ListSitesResponseBodySites extends $dara.Model {
   /**
    * @remarks
    * The site status. Valid values:
-   * - **pending**: the site is pending configuration.
-   * - **active**: the site is activated.
-   * - **offline**: the site is offline.
-   * - **moved**: the site has been superseded.
+   * - **pending**: The site is pending configuration.
+   * - **active**: The site is activated.
+   * - **offline**: The site is offline.
+   * - **moved**: The site has been replaced.
    * 
    * @example
    * pending
@@ -134,7 +134,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The update time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The update time of the site. The time is displayed in UTC and formatted in accordance with ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -142,7 +142,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The site ownership verification code. When a site uses CNAME-based access, this TXT verification code must be configured.
+   * The site ownership verification code. When a site is accessed through CNAME, this is the TXT verification code that needs to be configured.
    * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
@@ -150,7 +150,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   verifyCode?: string;
   /**
    * @remarks
-   * The access time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The access time of the site. The time is displayed in UTC and formatted in accordance with ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -239,7 +239,7 @@ export class ListSitesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of queried site information.
+   * The list of queried sites.
    */
   sites?: ListSitesResponseBodySites[];
   /**

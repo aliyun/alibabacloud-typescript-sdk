@@ -76,7 +76,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom response page. You can obtain the ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * The ID of the custom response page. You can obtain it by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
    * 
    * @example
    * 50000001
@@ -92,7 +92,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The content moderation result.
+   * The content security moderation result.
    * 
    * @example
    * {}
@@ -110,7 +110,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
    * @remarks
    * The last modification time of the custom response page.
    * 
-   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * Format: RFC 3339/ISO 8601, UTC standard time zone (ending with Z).
    * 
    * Example: 2026-06-10T14:23:45Z
    * 
@@ -167,7 +167,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -175,7 +175,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The array of custom response pages. Each object in the array contains the details of a page.
+   * The array of custom response pages. Each object in the array contains the specific information of a page.
    */
   pages?: ListPagesResponseBodyPages[];
   /**
@@ -188,7 +188,7 @@ export class ListPagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of custom response pages after filtering.
+   * The total number of custom response pages after filtering.
    * 
    * @example
    * 10

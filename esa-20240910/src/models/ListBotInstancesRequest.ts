@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBotInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -13,7 +13,7 @@ export class ListBotInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number for the paged query. Settings this parameter for paging. Default value: 1. Valid values: 1 to 100000.
+   * The page number Settings for paging in a paged query. Default value: 1. Valid values: 1 to 100000.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListBotInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for the paged query. This parameter is used for paging. Valid values: 1 to 500.
+   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -29,9 +29,9 @@ export class ListBotInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which to sort the results. By default, the results are sorted by purchase time. Valid values:
+   * The sort field. By default, instances are sorted by creation time. Valid values:
    * 
-   * - **CreateTime**: purchase time.
+   * - **CreateTime**: creation time.
    * - **ExpireTime**: expiration time.
    * 
    * @example
@@ -52,10 +52,10 @@ export class ListBotInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The instance is running normally.
-   * - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
-   * - **disable**: The instance has been released.
-   * - **overdue**: The instance has an overdue payment.
+   * - **online**: normal.
+   * - **offline**: expired but not overdue, and unavailable.
+   * - **disable**: released.
+   * - **overdue**: overdue payment.
    * 
    * @example
    * online

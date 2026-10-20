@@ -7,9 +7,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
    * @remarks
    * The access type. Valid values:
    * 
-   * - **NS**: NS-based access.
+   * - **NS**: NS hosting access
    * 
-   * - **CNAME**: CNAME-based access.
+   * - **CNAME**: CNAME access
    * 
    * @example
    * NS
@@ -18,9 +18,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The acceleration region. Valid values:
-   * - **domestic**: the Chinese mainland only.
-   * - **global**: global.
-   * - **overseas**: global (excluding the Chinese mainland).
+   * - **domestic**: the Chinese mainland
+   * - **global**: global
+   * - **overseas**: global (excluding the Chinese mainland)
    * 
    * @example
    * global
@@ -28,7 +28,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Specifies whether to query only Enterprise Edition sites. Set this parameter to **true** to query only Enterprise Edition sites.
+   * Specifies whether to query only Enterprise Edition sites. If you set this parameter to **true**, only Enterprise Edition sites are queried.
    * 
    * @example
    * false
@@ -36,9 +36,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
   onlyEnterprise?: boolean;
   /**
    * @remarks
-   * The sort field. By default, results are sorted by creation time. Valid values:
-   * - gmtCreate: site creation time.
-   * - visitTime: site access time.
+   * The sort field. By default, sites are sorted by creation time. Valid values:
+   * - gmtCreate: site creation time
+   * - visitTime: site access time
    * 
    * @example
    * visitTime
@@ -46,7 +46,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number for paging. The value must be greater than or equal to 1.
+   * The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Valid values: 1 to 500.
+   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -62,11 +62,11 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plan subscription type. Valid values:
-   * - **basicplan**: Basic Edition.
-   * - **standardplan**: Standard Edition.
-   * - **advancedplan**: Premium Edition.
-   * - **enterpriseplan**: Enterprise Edition.
+   * The subscription plan type. Valid values:
+   * - **basicplan**: basic edition
+   * - **standardplan**: standard edition
+   * - **advancedplan**: advanced edition
+   * - **enterpriseplan**: enterprise edition
    * 
    * @example
    * basicplan
@@ -90,12 +90,12 @@ export class ListSitesShrinkRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The search matching mode for the site name. Default is exact match. Valid values:
+   * The search match mode for the site name. Default value: exact. Valid values:
    * 
-   * - **prefix**: prefix match.
-   * - **suffix**: suffix match.
-   * - **exact**: exact match.
-   * - **fuzzy**: fuzzy match.
+   * - **prefix**: prefix match
+   * - **suffix**: suffix match
+   * - **exact**: exact match
+   * - **fuzzy**: fuzzy match
    * 
    * @example
    * fuzzy

@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDoSL7QpsListRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query.
-   * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ. The maximum span between the start and end times is 31 days.
-   * 
-   * If this parameter is not set, the current time will be used as the end time of the query.
+   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time span between the start time and the end time cannot exceed 31 days. If you do not specify this parameter, the current time is used as the end time.
    * 
    * @example
    * 2023-04-19T19:00:00Z
@@ -17,9 +13,7 @@ export class DescribeDDoSL7QpsListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity of the queried data, in seconds.
-   * 
-   * Depending on the maximum time span of a single query, this parameter supports values of 60 (1 minute), 300 (5 minutes), 1800 (half an hour), and 3600 (1 hour).
+   * The time granularity of the queried data. Unit: seconds. Valid values: 60 (1 minute), 300 (5 minutes), 1800 (30 minutes), and 3600 (1 hour). The supported values vary based on the maximum time span of a single query.
    * 
    * This parameter is required.
    * 
@@ -29,7 +23,7 @@ export class DescribeDDoSL7QpsListRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * Record ID, which can be obtained by calling the [ListRecords](~~ListRecords~~) interface.
+   * The record ID. You can call the [ListRecords](~~ListRecords~~) operation to obtain the record ID.
    * 
    * @example
    * 86510927836942****
@@ -37,7 +31,7 @@ export class DescribeDDoSL7QpsListRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -47,9 +41,7 @@ export class DescribeDDoSL7QpsListRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time of the query.
-   * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

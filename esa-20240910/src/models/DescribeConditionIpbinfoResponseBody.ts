@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConditionIPBInfoResponseBodyDatas extends $dara.Model {
   /**
    * @remarks
-   * The returned data details, including the name of the country, ISP, or region and the corresponding identifier code.
+   * The returned data details, including the name of the country, ISP, or region, and its corresponding identifier.
    * 
    * @example
-   * [{\\"text\\":\\"安徽\\",\\"value\\":\\"340000\\"},{\\"text\\":\\"北京\\",\\"value\\":\\"110000\\"},{\\"text\\":\\"重庆\\",\\"value\\":\\"500000\\"}]
+   * [{"text":"Anhui","value":"340000"},{"text":"Beijing","value":"110000"},{"text":"Chongqing","value":"500000"}]
    */
   value?: string;
   static names(): { [key: string]: string } {

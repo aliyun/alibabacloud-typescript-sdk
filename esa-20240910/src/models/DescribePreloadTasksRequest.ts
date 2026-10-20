@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreloadTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The query content. Exact match is used.
+   * The query content for exact matching.
    * 
    * @example
    * http://a.com/1.jpg?b=2
@@ -13,7 +13,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The end time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * > The end time must be later than the start time.
    * 
    * @example
@@ -22,7 +22,8 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Valid values: **1** to **100000**. Default value: **1**.
+   * The page number. Valid values: **1** to **100000**.
+   * Default value: **1**.
    * 
    * @example
    * 1
@@ -30,7 +31,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
+   * The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
    * 
    * @example
    * 20
@@ -38,7 +39,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 123456789****
@@ -46,7 +47,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-03-22T17:00:00Z
@@ -56,9 +57,9 @@ export class DescribePreloadTasksRequest extends $dara.Model {
    * @remarks
    * The task execution status. Valid values:
    * 
-   * - **Complte**: Complete.
-   * - **Refreshing**: Prefetching.
-   * - **Failed**: Prefetch failed.
+   * - **Complte**: Completed.
+   * - **Refreshing**: Refreshing.
+   * - **Failed**: Failed.
    * 
    * @example
    * Complete

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserMaxPlanQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plan instance ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The plan instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * esa-site-b09z4sk9pbls
@@ -17,9 +17,9 @@ export class GetUserMaxPlanQuotaResponseBody extends $dara.Model {
    * 
    * <props="china">
    * - Free Edition: entranceplan
-   * - Basic: basic
-   * - Standard: medium
-   * - Premium Edition: high
+   * - Basic Edition: basic
+   * - Standard Edition: medium
+   * - Advanced Edition: high
    * 
    * 
    * <props="intl">

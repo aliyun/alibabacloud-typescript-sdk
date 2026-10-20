@@ -5,17 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineCodeDeploymentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of percentage-based canary release version configurations. A maximum of two versions are supported, and the total percentage must equal 100.
+   * The list of code version configurations for the percentage-based canary release. You can specify up to two code versions, and the sum of the percentages must be equal to 100.
    * 
    * This parameter is required.
    */
   codeVersionsShrink?: string;
   /**
    * @remarks
-   * The environment name.  
-   * Valid values:
-   * - `staging`: staging environment 
-   * - `production`: production environment
+   * The environment name. Valid values:
+   * - `staging`: the staging environment.
+   * - `production`: the production environment.
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class CreateRoutineCodeDeploymentShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The name of the Edge Function Routine.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 
@@ -35,9 +34,8 @@ export class CreateRoutineCodeDeploymentShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The deployment strategy.  
-   * Valid values:
-   * - `percentage`: percentage mode
+   * The deployment strategy. Valid values:
+   * - `percentage`: percentage mode.
    * 
    * This parameter is required.
    * 

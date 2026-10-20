@@ -1975,7 +1975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-level custom scene policy. After you associate the policy with one or more sites, the policy applies to those sites.
+   * Creates a user-level scenario-specific policy and executes the corresponding policy after the policy is associated with sites.
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2026,7 +2026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-level custom scene policy. After you associate the policy with one or more sites, the policy applies to those sites.
+   * Creates a user-level scenario-specific policy and executes the corresponding policy after the policy is associated with sites.
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @returns CreateCustomScenePolicyResponse
@@ -4023,12 +4023,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
+   * Deploys code versions of an Edge Routine to a specified environment by percentage for a canary release.
    * 
    * @remarks
-   * ## Usage notes
-   * - When creating a Routine code version deployment, the `Env` parameter only supports `staging` for the staging environment or `production` for the production environment.
-   * - The `CodeVersions` parameter supports a maximum of two versions for canary release, and the total percentage of these versions must equal 100%.
+   * ## Request description
+   * - When you create an Edge Routine code version deployment, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+   * - The `CodeVersions` parameter supports publishing up to two versions in grayscale, and the sum of the percentages for these versions must be equal to 100%.
    * 
    * @param tmpReq - CreateRoutineCodeDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4077,12 +4077,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
+   * Deploys code versions of an Edge Routine to a specified environment by percentage for a canary release.
    * 
    * @remarks
-   * ## Usage notes
-   * - When creating a Routine code version deployment, the `Env` parameter only supports `staging` for the staging environment or `production` for the production environment.
-   * - The `CodeVersions` parameter supports a maximum of two versions for canary release, and the total percentage of these versions must equal 100%.
+   * ## Request description
+   * - When you create an Edge Routine code version deployment, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+   * - The `CodeVersions` parameter supports publishing up to two versions in grayscale, and the sum of the percentages for these versions must be equal to 100%.
    * 
    * @param request - CreateRoutineCodeDeploymentRequest
    * @returns CreateRoutineCodeDeploymentResponse
@@ -4339,7 +4339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a scheduled prefetch task.
+   * Creates a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4386,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a scheduled prefetch task.
+   * Creates a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @returns CreateScheduledPreloadJobResponse
@@ -4400,9 +4400,9 @@ export default class Client extends OpenApi {
    * Creates a site.
    * 
    * @remarks
-   * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
-   * - Each user can invoke this operation up to 100 times per hour.
+   * - Before you create a site, you must have an available plan instance.
+   * - If the acceleration region is set to the Chinese mainland or global, the domain name of the site must have an ICP filing.
+   * - Each user can call this API operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4456,9 +4456,9 @@ export default class Client extends OpenApi {
    * Creates a site.
    * 
    * @remarks
-   * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
-   * - Each user can invoke this operation up to 100 times per hour.
+   * - Before you create a site, you must have an available plan instance.
+   * - If the acceleration region is set to the Chinese mainland or global, the domain name of the site must have an ICP filing.
+   * - Each user can call this API operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
    * @returns CreateSiteResponse
@@ -4662,6 +4662,74 @@ export default class Client extends OpenApi {
   async createSiteDeliveryTask(request: $_model.CreateSiteDeliveryTaskRequest): Promise<$_model.CreateSiteDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSiteDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a slider CAPTCHA page.
+   * 
+   * @param tmpReq - CreateSliderCaptchaPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSliderCaptchaPageResponse
+   */
+  async createSliderCaptchaPageWithOptions(tmpReq: $_model.CreateSliderCaptchaPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSliderCaptchaPageResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSliderCaptchaPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configs)) {
+      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.siteIds)) {
+      request.siteIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteIds, "SiteIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!$dara.isNull(request.customContent)) {
+      body["CustomContent"] = request.customContent;
+    }
+
+    if (!$dara.isNull(request.forceLanguage)) {
+      body["ForceLanguage"] = request.forceLanguage;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.siteIdsShrink)) {
+      body["SiteIds"] = request.siteIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSliderCaptchaPage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSliderCaptchaPageResponse>(await this.callApi(params, req, runtime), new $_model.CreateSliderCaptchaPageResponse({}));
+  }
+
+  /**
+   * Creates a slider CAPTCHA page.
+   * 
+   * @param request - CreateSliderCaptchaPageRequest
+   * @returns CreateSliderCaptchaPageResponse
+   */
+  async createSliderCaptchaPage(request: $_model.CreateSliderCaptchaPageRequest): Promise<$_model.CreateSliderCaptchaPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSliderCaptchaPageWithOptions(request, runtime);
   }
 
   /**
@@ -5274,7 +5342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room for a website.
+   * Creates a waiting room for a site.
    * 
    * @param tmpReq - CreateWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5375,7 +5443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room for a website.
+   * Creates a waiting room for a site.
    * 
    * @param request - CreateWaitingRoomRequest
    * @returns CreateWaitingRoomResponse
@@ -5386,10 +5454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room event. You can specify the queuing method and type.
+   * Creates a waiting room event and allows you to configure the queuing method and type.
    * 
    * @remarks
-   * Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+   * To use this feature, the site plan must be the Premium Edition or higher. The number of configurations for this feature cannot exceed the quota allowed by your site plan.
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5496,10 +5564,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room event. You can specify the queuing method and type.
+   * Creates a waiting room event and allows you to configure the queuing method and type.
    * 
    * @remarks
-   * Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+   * To use this feature, the site plan must be the Premium Edition or higher. The number of configurations for this feature cannot exceed the quota allowed by your site plan.
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @returns CreateWaitingRoomEventResponse
@@ -5513,7 +5581,7 @@ export default class Client extends OpenApi {
    * Creates a waiting room bypass rule.
    * 
    * @remarks
-   * Your site plan must be Enterprise Edition or higher to use this feature, and the site plan must support this feature.
+   * This feature is available only if your site is on the Enterprise plan and the plan supports this feature.
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5563,7 +5631,7 @@ export default class Client extends OpenApi {
    * Creates a waiting room bypass rule.
    * 
    * @remarks
-   * Your site plan must be Enterprise Edition or higher to use this feature, and the site plan must support this feature.
+   * This feature is available only if your site is on the Enterprise plan and the plan supports this feature.
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @returns CreateWaitingRoomRuleResponse
@@ -7734,6 +7802,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the slider CAPTCHA page.
+   * 
+   * @param request - DeleteSliderCaptchaPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSliderCaptchaPageResponse
+   */
+  async deleteSliderCaptchaPageWithOptions(request: $_model.DeleteSliderCaptchaPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSliderCaptchaPageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSliderCaptchaPage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSliderCaptchaPageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSliderCaptchaPageResponse({}));
+  }
+
+  /**
+   * Deletes the slider CAPTCHA page.
+   * 
+   * @param request - DeleteSliderCaptchaPageRequest
+   * @returns DeleteSliderCaptchaPageResponse
+   */
+  async deleteSliderCaptchaPage(request: $_model.DeleteSliderCaptchaPageRequest): Promise<$_model.DeleteSliderCaptchaPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSliderCaptchaPageWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Transport Layer Application
    * 
    * @param request - DeleteTransportLayerApplicationRequest
@@ -8410,7 +8520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+   * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
    * 
    * @param request - DescribeConditionIPBInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8437,7 +8547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+   * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
    * 
    * @param request - DescribeConditionIPBInfoRequest
    * @returns DescribeConditionIPBInfoResponse
@@ -8448,7 +8558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configurations of custom scene policies.
+   * Queries the configurations of scenario-specific policies.
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8487,7 +8597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configurations of custom scene policies.
+   * Queries the configurations of scenario-specific policies.
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @returns DescribeCustomScenePoliciesResponse
@@ -8498,7 +8608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of DDoS attack events.
+   * Queries a list of DDoS attack events.
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8549,7 +8659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of DDoS attack events.
+   * Queries a list of DDoS attack events.
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @returns DescribeDDoSAllEventListResponse
@@ -8686,7 +8796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DDoS Analysis Layer 7 QPS Trend Chart API
+   * Invokes the DescribeDdosL7QpsList operation to query the DDoS application-layer time dimension aggregation statistics information.
    * 
    * @param request - DescribeDDoSL7QpsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8733,7 +8843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DDoS Analysis Layer 7 QPS Trend Chart API
+   * Invokes the DescribeDdosL7QpsList operation to query the DDoS application-layer time dimension aggregation statistics information.
    * 
    * @param request - DescribeDDoSL7QpsListRequest
    * @returns DescribeDDoSL7QpsListResponse
@@ -8992,7 +9102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries HTTP DDoS attack protection rules.
+   * Queries HTTP DDoS attack prevention rules.
    * 
    * @param request - DescribeHttpDDoSAttackRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9031,7 +9141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries HTTP DDoS attack protection rules.
+   * Queries HTTP DDoS attack prevention rules.
    * 
    * @param request - DescribeHttpDDoSAttackRulesRequest
    * @returns DescribeHttpDDoSAttackRulesResponse
@@ -9042,7 +9152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the accurate access control rules created by Deep Learning and Protection.
+   * Queries the accurate access control rules delivered by deep learning and mitigation.
    * 
    * @param request - DescribeHttpDDoSIntelligentAclRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9085,7 +9195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the accurate access control rules created by Deep Learning and Protection.
+   * Queries the accurate access control rules delivered by deep learning and mitigation.
    * 
    * @param request - DescribeHttpDDoSIntelligentAclRulesRequest
    * @returns DescribeHttpDDoSIntelligentAclRulesResponse
@@ -9096,7 +9206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the frequency control rules generated by Deep Learning and Protection.
+   * Queries the frequency control rules delivered by deep learning and protection.
    * 
    * @param request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9139,7 +9249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the frequency control rules generated by Deep Learning and Protection.
+   * Queries the frequency control rules delivered by deep learning and protection.
    * 
    * @param request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
    * @returns DescribeHttpDDoSIntelligentRateLimitRulesResponse
@@ -9181,7 +9291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
+   * Queries the details of prefetch tasks and supports paginated queries by time, task status, and prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9208,7 +9318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
+   * Queries the details of prefetch tasks and supports paginated queries by time, task status, and prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @returns DescribePreloadTasksResponse
@@ -13981,6 +14091,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the slider CAPTCHA page.
+   * 
+   * @param request - GetSliderCaptchaPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSliderCaptchaPageResponse
+   */
+  async getSliderCaptchaPageWithOptions(request: $_model.GetSliderCaptchaPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSliderCaptchaPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSliderCaptchaPage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSliderCaptchaPageResponse>(await this.callApi(params, req, runtime), new $_model.GetSliderCaptchaPageResponse({}));
+  }
+
+  /**
+   * Retrieves the slider CAPTCHA page.
+   * 
+   * @param request - GetSliderCaptchaPageRequest
+   * @returns GetSliderCaptchaPageResponse
+   */
+  async getSliderCaptchaPage(request: $_model.GetSliderCaptchaPageRequest): Promise<$_model.GetSliderCaptchaPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSliderCaptchaPageWithOptions(request, runtime);
+  }
+
+  /**
    * Query Multi-level Cache Configuration for Site
    * 
    * @param request - GetTieredCacheRequest
@@ -14185,10 +14337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum value of a numeric quota across all plans under a user account.
+   * Queries the maximum value of a numeric quota across all plans under a user.
    * 
    * @remarks
-   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType) of interest. The system returns the remaining quota for the specified business type to help you understand the current quota usage.
    * 
    * @param request - GetUserMaxPlanQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14219,10 +14371,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum value of a numeric quota across all plans under a user account.
+   * Queries the maximum value of a numeric quota across all plans under a user.
    * 
    * @remarks
-   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType) of interest. The system returns the remaining quota for the specified business type to help you understand the current quota usage.
    * 
    * @param request - GetUserMaxPlanQuotaRequest
    * @returns GetUserMaxPlanQuotaResponse
@@ -14632,7 +14784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
+   * Queries a list of asynchronous tasks. You can use this operation to query the status of user-triggered asynchronous tasks, such as free certificate applications.
    * 
    * @param request - ListAsyncTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14659,7 +14811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
+   * Queries a list of asynchronous tasks. You can use this operation to query the status of user-triggered asynchronous tasks, such as free certificate applications.
    * 
    * @param request - ListAsyncTasksRequest
    * @returns ListAsyncTasksResponse
@@ -14670,7 +14822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Bot security instances.
+   * Queries bot security instances.
    * 
    * @param request - ListBotInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14721,7 +14873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Bot security instances.
+   * Queries bot security instances.
    * 
    * @param request - ListBotInstancesRequest
    * @returns ListBotInstancesResponse
@@ -14732,7 +14884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cache reserve instances for the current user.
+   * Queries the cache reservation instances of the current user.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14759,7 +14911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cache reserve instances for the current user.
+   * Queries the cache reservation instances of the current user.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @returns ListCacheReserveInstancesResponse
@@ -14862,7 +15014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate list for a specific site.
+   * Queries a list of certificates for a specific site.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14913,7 +15065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate list for a specific site.
+   * Queries a list of certificates for a specific site.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -15262,7 +15414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of additionally purchased DDoS security instances.
+   * Queries the list of add-on DDoS security instances.
    * 
    * @param request - ListDDoSInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15317,7 +15469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of additionally purchased DDoS security instances.
+   * Queries the list of add-on DDoS security instances.
    * 
    * @param request - ListDDoSInstancesRequest
    * @returns ListDDoSInstancesResponse
@@ -15665,7 +15817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of environments for a site.
+   * Queries the list of site environments.
    * 
    * @param request - ListEnvironmentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15692,7 +15844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of environments for a site.
+   * Queries the list of site environments.
    * 
    * @param request - ListEnvironmentsRequest
    * @returns ListEnvironmentsResponse
@@ -16607,7 +16759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
    * 
    * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16652,7 +16804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -16663,10 +16815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of pay-as-you-go plan instances.
+   * Queries pay-as-you-go plan instances.
    * 
    * @remarks
-   * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
+   * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16693,10 +16845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of pay-as-you-go plan instances.
+   * Queries pay-as-you-go plan instances.
    * 
    * @remarks
-   * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
+   * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @returns ListPostpaidRatePlanInstancesResponse
@@ -16948,7 +17100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of ER build tasks.
+   * Queries the list of Edge Routine (ER) build tasks.
    * 
    * @param request - ListRoutineBuildsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16999,7 +17151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of ER build tasks.
+   * Queries the list of Edge Routine (ER) build tasks.
    * 
    * @param request - ListRoutineBuildsRequest
    * @returns ListRoutineBuildsResponse
@@ -17391,7 +17543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify the FunctionName parameter to query a specific feature configuration.
    * 
    * @param request - ListSiteFunctionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17418,7 +17570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify the FunctionName parameter to query a specific feature configuration.
    * 
    * @param request - ListSiteFunctionsRequest
    * @returns ListSiteFunctionsResponse
@@ -17529,7 +17681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sites under the current user, including site names, statuses, and configurations.
+   * Queries a list of sites for the current user, including information such as the site name, status, and configuration.
    * 
    * @param tmpReq - ListSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17562,7 +17714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sites under the current user, including site names, statuses, and configurations.
+   * Queries a list of sites for the current user, including information such as the site name, status, and configuration.
    * 
    * @param request - ListSitesRequest
    * @returns ListSitesResponse
@@ -17570,6 +17722,62 @@ export default class Client extends OpenApi {
   async listSites(request: $_model.ListSitesRequest): Promise<$_model.ListSitesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSitesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists slider CAPTCHA pages.
+   * 
+   * @param tmpReq - ListSliderCaptchaPagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSliderCaptchaPagesResponse
+   */
+  async listSliderCaptchaPagesWithOptions(tmpReq: $_model.ListSliderCaptchaPagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSliderCaptchaPagesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSliderCaptchaPagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSliderCaptchaPages",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSliderCaptchaPagesResponse>(await this.callApi(params, req, runtime), new $_model.ListSliderCaptchaPagesResponse({}));
+  }
+
+  /**
+   * Lists slider CAPTCHA pages.
+   * 
+   * @param request - ListSliderCaptchaPagesRequest
+   * @returns ListSliderCaptchaPagesResponse
+   */
+  async listSliderCaptchaPages(request: $_model.ListSliderCaptchaPagesRequest): Promise<$_model.ListSliderCaptchaPagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSliderCaptchaPagesWithOptions(request, runtime);
   }
 
   /**
@@ -17713,7 +17921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of Layer 4 applications for a site.
+   * Queries the Layer 4 applications associated with a site.
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17740,7 +17948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of Layer 4 applications for a site.
+   * Queries the Layer 4 applications associated with a site.
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @returns ListTransportLayerApplicationsResponse
@@ -17881,7 +18089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plan instances purchased by the user and their details.
+   * Queries the details of the plan instances purchased by the user.
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17908,7 +18116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plan instances purchased by the user and their details.
+   * Queries the details of the plan instances purchased by the user.
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @returns ListUserRatePlanInstancesResponse
@@ -18055,7 +18263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version list of a site.
+   * Queries the list of versions for a site.
    * 
    * @param request - ListVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18082,7 +18290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version list of a site.
+   * Queries the list of versions for a site.
    * 
    * @param request - ListVersionsRequest
    * @returns ListVersionsResponse
@@ -19825,8 +20033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-   * Before calling this operation, you must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation for resetting.
+   * Resets the progress of a scheduled prefetch task to restart prefetching from the beginning. Prerequisite: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19857,8 +20064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-   * Before calling this operation, you must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation for resetting.
+   * Resets the progress of a scheduled prefetch task to restart prefetching from the beginning. Prerequisite: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @returns ResetScheduledPreloadJobResponse
@@ -20013,7 +20219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the automatic frequency control threshold for a site.
+   * Sets the intelligent rate limiting threshold for a site.
    * 
    * @param request - SetAutomaticFrequencyControlConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20060,7 +20266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the automatic frequency control threshold for a site.
+   * Sets the intelligent rate limiting threshold for a site.
    * 
    * @param request - SetAutomaticFrequencyControlConfigRequest
    * @returns SetAutomaticFrequencyControlConfigResponse
@@ -20313,7 +20519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation configures the intelligent HTTP DDoS protection settings for a site.
+   * Configures HTTP DDoS deep learning and protection settings.
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20352,7 +20558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation configures the intelligent HTTP DDoS protection settings for a site.
+   * Configures HTTP DDoS deep learning and protection settings.
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @returns SetHttpDDoSAttackIntelligentProtectionResponse
@@ -20363,7 +20569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures HTTP DDoS attack protection for a website.
+   * Configures the mode of the HTTP DDoS Attack prevention mitigation policies.
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20398,7 +20604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures HTTP DDoS attack protection for a website.
+   * Configures the mode of the HTTP DDoS Attack prevention mitigation policies.
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @returns SetHttpDDoSAttackProtectionResponse
@@ -20409,7 +20615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Action for Specified HTTP DDoS Attack Rules
+   * Modifies the protection action Settings for a specified HTTP DDoS attack prevention rule.
    * 
    * @param request - SetHttpDDoSAttackRuleActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20448,7 +20654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Action for Specified HTTP DDoS Attack Rules
+   * Modifies the protection action Settings for a specified HTTP DDoS attack prevention rule.
    * 
    * @param request - SetHttpDDoSAttackRuleActionRequest
    * @returns SetHttpDDoSAttackRuleActionResponse
@@ -20459,7 +20665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Status of Specified HTTP DDoS Attack Rules
+   * Configures the settings for the protection status of specified rules for HTTP DDoS attack prevention.
    * 
    * @param request - SetHttpDDoSAttackRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20498,7 +20704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Status of Specified HTTP DDoS Attack Rules
+   * Configures the settings for the protection status of specified rules for HTTP DDoS attack prevention.
    * 
    * @param request - SetHttpDDoSAttackRuleStatusRequest
    * @returns SetHttpDDoSAttackRuleStatusResponse
@@ -20641,15 +20847,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets environment variables for a Routine.
+   * Sets the environment variables for a routine.
    * 
    * @remarks
-   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-   * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
-   *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
-   *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
-   *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
-   *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+   * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity varies based on the time span between StartTime and EndTime:
+   *   * If the time span is 3 hours or less, data is returned at 1-minute granularity.
+   *   * If the time span is greater than 3 hours and less than or equal to 1 day, data is returned at 5-minute granularity.
+   *   * If the time span is greater than 1 day and less than or equal to 10 days, data is returned at 1-hour granularity.
+   *   * If the time span is greater than 10 days and less than or equal to 31 days, data is returned at 1-day granularity.
    * 
    * @param tmpReq - SetRoutineEnvironmentVariablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20694,15 +20900,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets environment variables for a Routine.
+   * Sets the environment variables for a routine.
    * 
    * @remarks
-   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-   * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
-   *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
-   *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
-   *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
-   *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+   * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity varies based on the time span between StartTime and EndTime:
+   *   * If the time span is 3 hours or less, data is returned at 1-minute granularity.
+   *   * If the time span is greater than 3 hours and less than or equal to 1 day, data is returned at 5-minute granularity.
+   *   * If the time span is greater than 1 day and less than or equal to 10 days, data is returned at 1-hour granularity.
+   *   * If the time span is greater than 10 days and less than or equal to 31 days, data is returned at 1-day granularity.
    * 
    * @param request - SetRoutineEnvironmentVariablesRequest
    * @returns SetRoutineEnvironmentVariablesResponse
@@ -21493,7 +21699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a site.
+   * Modifies the CNAME flattening configuration for a site.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21528,7 +21734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a site.
+   * Modifies the CNAME flattening configuration for a site.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @returns UpdateCnameFlatteningResponse
@@ -21861,7 +22067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified custom scene policy.
+   * Modifies the configuration of the specified scenario-specific policy.
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21916,7 +22122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified custom scene policy.
+   * Modifies the configuration of the specified scenario-specific policy.
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @returns UpdateCustomScenePolicyResponse
@@ -24229,7 +24435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the search engine crawler allowlisting configuration for a site.
+   * Modifies the configuration for allowing search engine crawlers on a site.
    * 
    * @param request - UpdateSeoBypassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24264,7 +24470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the search engine crawler allowlisting configuration for a site.
+   * Modifies the configuration for allowing search engine crawlers on a site.
    * 
    * @param request - UpdateSeoBypassRequest
    * @returns UpdateSeoBypassResponse
@@ -24331,7 +24537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
+   * Modifies the acceleration region for a single site. Updates the acceleration configuration of the site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24366,7 +24572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
+   * Modifies the acceleration region for a single site. Updates the acceleration configuration of the site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @returns UpdateSiteCoverageResponse
@@ -24595,7 +24801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
+   * Modifies the exclusive configuration of a site name. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24630,7 +24836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
+   * Modifies the exclusive configuration of a site name. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @returns UpdateSiteNameExclusiveResponse
@@ -24745,7 +24951,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the multi-level cache configuration of a site.
+   * Updates a slider CAPTCHA page.
+   * 
+   * @param tmpReq - UpdateSliderCaptchaPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSliderCaptchaPageResponse
+   */
+  async updateSliderCaptchaPageWithOptions(tmpReq: $_model.UpdateSliderCaptchaPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSliderCaptchaPageResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSliderCaptchaPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configs)) {
+      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.siteIds)) {
+      request.siteIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteIds, "SiteIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!$dara.isNull(request.customContent)) {
+      body["CustomContent"] = request.customContent;
+    }
+
+    if (!$dara.isNull(request.forceLanguage)) {
+      body["ForceLanguage"] = request.forceLanguage;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.siteIdsShrink)) {
+      body["SiteIds"] = request.siteIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSliderCaptchaPage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSliderCaptchaPageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSliderCaptchaPageResponse({}));
+  }
+
+  /**
+   * Updates a slider CAPTCHA page.
+   * 
+   * @param request - UpdateSliderCaptchaPageRequest
+   * @returns UpdateSliderCaptchaPageResponse
+   */
+  async updateSliderCaptchaPage(request: $_model.UpdateSliderCaptchaPageRequest): Promise<$_model.UpdateSliderCaptchaPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSliderCaptchaPageWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the multi-tier cache configuration for a site.
    * 
    * @param request - UpdateTieredCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24780,7 +25058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the multi-level cache configuration of a site.
+   * Modifies the multi-tier cache configuration for a site.
    * 
    * @param request - UpdateTieredCacheRequest
    * @returns UpdateTieredCacheResponse
@@ -25515,7 +25793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a waiting room event.
+   * Updates the configurations of a waiting room event.
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25622,7 +25900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a waiting room event.
+   * Updates the configurations of a waiting room event.
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @returns UpdateWaitingRoomEventResponse
@@ -25636,7 +25914,7 @@ export default class Client extends OpenApi {
    * Updates the waiting room bypass rule configuration for a specified site.
    * 
    * @remarks
-   * Modifies the rule settings of a specific waiting room for a site, including the rule name, enabled status, and rule content.
+   * You can call this operation to update the rule settings of a specific waiting room on a site, including the rule name, status, and rule content.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25686,7 +25964,7 @@ export default class Client extends OpenApi {
    * Updates the waiting room bypass rule configuration for a specified site.
    * 
    * @remarks
-   * Modifies the rule settings of a specific waiting room for a site, including the rule name, enabled status, and rule content.
+   * You can call this operation to update the rule settings of a specific waiting room on a site, including the rule name, status, and rule content.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @returns UpdateWaitingRoomRuleResponse

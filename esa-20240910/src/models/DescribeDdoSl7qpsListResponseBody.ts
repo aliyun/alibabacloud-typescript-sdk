@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
   /**
    * @remarks
-   * Attack QPS.
+   * The attack QPS.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
   attack?: number;
   /**
    * @remarks
-   * Normal QPS.
+   * The normal QPS.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
   normal?: number;
   /**
    * @remarks
-   * Data time, following ISO8601 notation and using UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The data timestamp. The time is displayed in UTC and formatted based on ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-04-19T16:00:00Z
@@ -29,7 +29,7 @@ export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
   timeStamp?: string;
   /**
    * @remarks
-   * Total QPS.
+   * The total QPS.
    * 
    * @example
    * 9
@@ -65,7 +65,7 @@ export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
 export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of the queried data, in seconds.
+   * The time granularity of the queried data. Unit: seconds.
    * 
    * @example
    * 300
@@ -73,14 +73,12 @@ export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   dataInterval?: number;
   /**
    * @remarks
-   * Application layer time trend data list.
+   * The list of application-layer time-series data.
    */
   dataModule?: DescribeDDoSL7QpsListResponseBodyDataModule[];
   /**
    * @remarks
-   * The end time of the query.
-   * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The end time of the query. The time is displayed in UTC and formatted based on ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-04-19T19:00:00Z
@@ -88,7 +86,7 @@ export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Record ID.
+   * The record ID.
    * 
    * @example
    * 86510927836942****
@@ -96,7 +94,7 @@ export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 156A6B-677B1A-4297B7-9187B7-2B44792
@@ -104,7 +102,7 @@ export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 123456****
@@ -112,9 +110,7 @@ export class DescribeDDoSL7QpsListResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time of the query.
-   * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-19T16:00:00Z

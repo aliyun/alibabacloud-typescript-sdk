@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The response header modifications. Three operation types are supported: add, delete, and modify.
+   * The response header modifications. Add, delete, and modify operations are supported.
    * 
    * This parameter is required.
    */
   responseHeaderModificationShrink?: string;
   /**
    * @remarks
-   * The rule content, which uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -22,9 +22,9 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -40,7 +40,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

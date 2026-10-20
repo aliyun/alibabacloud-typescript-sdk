@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   /**
    * @remarks
-   * DCV ID。
+   * The DCV ID.
    * 
    * @example
    * bababf7cdd1546a2ad04c0def1f4****
@@ -29,7 +29,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The DCV type. Valid values: DNS, HTTP.
+   * The DCV type. Valid values: DNS and HTTP.
    * 
    * @example
    * HTTP
@@ -107,7 +107,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The creation time. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
    * 
    * @example
    * 2022-06-24 07:48:51
@@ -115,7 +115,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The Domain Control Validation (DCV) information.
+   * The domain control validation (DCV) information.
    */
   DCV?: ListCertificatesResponseBodyResultDCV[];
   /**
@@ -152,7 +152,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   issuerCN?: string;
   /**
    * @remarks
-   * The Keyless server ID. This parameter is valid only when Type is set to keyless.
+   * The Keyless server ID. This parameter is valid only when the Type parameter is set to keyless.
    * 
    * @example
    * baba39055622c008b90285a8838e****
@@ -168,7 +168,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -176,7 +176,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -200,7 +200,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -228,10 +228,10 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
    * - OK: Normal.
    * - Expired: The certificate has expired.
    * - Expiring: The certificate is about to expire (within 30 days).
-   * - Issued: Free certificate - Issued.
-   * - Applying: Free certificate - Applying.
-   * - ApplyFailed: Free certificate - Application failed.
-   * - Canceled: Free certificate - Canceled.
+   * - Issued: The free certificate is issued.
+   * - Applying: The free certificate is being applied for.
+   * - ApplyFailed: The application for the free certificate failed.
+   * - Canceled: The free certificate is canceled.
    * 
    * @example
    * OK
@@ -240,7 +240,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The certificate type. Valid values:
-   * - cas: Alibaba Cloud SSL certificate.
+   * - cas: SSL Certificates Service certificate.
    * - upload: Custom uploaded certificate.
    * - free: Free certificate.
    * - keyless: Keyless certificate.
@@ -251,7 +251,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The update time. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
    * 
    * @example
    * 2023-04-20 06:18:42
@@ -326,7 +326,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
 export class ListCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the data to return.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -334,7 +334,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -371,7 +371,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10

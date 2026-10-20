@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The purchase time of the instance. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-07-01T07:59:07Z
@@ -37,7 +37,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scheduled release time. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The scheduled release time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-25T16:00:00Z
@@ -45,7 +45,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   reserveReleaseTime?: string;
   /**
    * @remarks
-   * The ID of the associated site plan instance.
+   * The ID of the associated website plan instance.
    * 
    * @example
    * esa-site-b0s6kmx0r0n4
@@ -54,10 +54,10 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The instance is running normally.
-   * - **offline**: The instance has expired but is not overdue, and is unavailable.
-   * - **disable**: The instance has been released.
-   * - **overdue**: The instance is suspended due to overdue payment.
+   * - **online**: the instance is in normal service status.
+   * - **offline**: the instance has expired but is not overdue, and is in an unavailable state.
+   * - **disable**: the instance is released.
+   * - **overdue**: the instance is stopped due to an overdue payment.
    * 
    * @example
    * online
@@ -128,7 +128,7 @@ export class ListDDoSInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

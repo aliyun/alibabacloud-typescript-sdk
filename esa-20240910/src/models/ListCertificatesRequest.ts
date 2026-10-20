@@ -13,7 +13,7 @@ export class ListCertificatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number of the data to return.
+   * The page number of the returned data.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -37,6 +37,13 @@ export class ListCertificatesRequest extends $dara.Model {
    * 1234567890123
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The certificate type.
+   * 
+   * @example
+   * free
+   */
   type?: string;
   /**
    * @remarks

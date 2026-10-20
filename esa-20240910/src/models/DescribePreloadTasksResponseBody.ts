@@ -13,7 +13,7 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-28 14:28:57
@@ -21,11 +21,11 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error description returned when the prefetch fails. Valid values:
+   * The error description returned when a prefetch task fails. Valid values:
    * 
    * - **Internal Error**: An internal error occurred.
    * - **Origin Timeout**: The origin server response timed out.
-   * - **Origin Return StatusCode 5XX**: The origin server returned a 5xx error code.
+   * - **Origin Return StatusCode 5XX**: The origin server returned a 5xx status code.
    * 
    * @example
    * Internal Error
@@ -33,7 +33,7 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The task completion progress percentage.
+   * The task completion progress in percentage.
    * 
    * @example
    * 100%
@@ -42,9 +42,9 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **Complete**: Complete.
-   * - **Refreshing**: Prefetching.
-   * - **Failed**: Prefetch failed.
+   * - **Complete**: Completed.
+   * - **Refreshing**: Refreshing.
+   * - **Failed**: Failed.
    * 
    * @example
    * Complete
@@ -100,7 +100,7 @@ export class DescribePreloadTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

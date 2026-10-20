@@ -31,7 +31,7 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesRequest extends $dara.Mode
   ruleType?: string;
   /**
    * @remarks
-   * The site ID. Obtain this by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

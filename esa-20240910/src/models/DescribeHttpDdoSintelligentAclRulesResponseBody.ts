@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $dara.Model {
   /**
    * @remarks
-   * The protection action.
+   * The mitigation action.
    * 
    * @example
    * deny
@@ -13,7 +13,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   action?: string;
   /**
    * @remarks
-   * The rule trigger condition.
+   * The trigger condition of the rule.
    * 
    * @example
    * {"$and":[{"key":"URI","opValue":"prefix-match","values":"/"}]}
@@ -21,7 +21,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   condition?: string;
   /**
    * @remarks
-   * The ID of the protection rule for log records.
+   * The ID of the mitigation rule used for log records.
    * 
    * @example
    * 1000030
@@ -29,7 +29,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   logRuleId?: number;
   /**
    * @remarks
-   * The action duration. Unit: seconds.
+   * The punishment duration. Unit: seconds.
    * 
    * @example
    * 1800
@@ -37,7 +37,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   punishTime?: number;
   /**
    * @remarks
-   * The record name.
+   * The name of the record.
    * 
    * @example
    * test.example.com
@@ -45,7 +45,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   recordName?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 20569929
@@ -53,7 +53,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos extends $d
   ruleId?: number;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
    * smart_cc_***
@@ -119,7 +119,7 @@ export class DescribeHttpDDoSIntelligentAclRulesResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The list of rules.
+   * The list of rule information.
    */
   ruleInfos?: DescribeHttpDDoSIntelligentAclRulesResponseBodyRuleInfos[];
   /**

@@ -55,7 +55,7 @@ export class UpdateWaitingRoomRequestHostNameAndPath extends $dara.Model {
 export class UpdateWaitingRoomRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom cookie name.
+   * The name of the custom cookie.
    * 
    * @example
    * __aliwaitingroom_example
@@ -63,7 +63,7 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   cookieName?: string;
   /**
    * @remarks
-   * The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must be in Base64 encoding.
+   * The custom content of the waiting room page. This parameter is required when the waiting room type is custom. The content requires Base64 encoding.
    * 
    * @example
    * SGVsbG8gd29ybGQ=
@@ -81,8 +81,8 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: Disables session renewal.
+   * - **off**: Enables session renewal.
    * 
    * @example
    * on
@@ -92,8 +92,8 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
    * @remarks
    * The status of the waiting room. Valid values:
    * 
-   *  - **on**: Enabled.
-   *  - **off**: Disabled.
+   *  - **on**: Enables the waiting room.
+   *  - **off**: Disables the waiting room.
    * 
    * @example
    * on
@@ -101,15 +101,15 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The hostname and path configurations.
+   * The hostnames and paths.
    */
   hostNameAndPath?: UpdateWaitingRoomRequestHostNameAndPath[];
   /**
    * @remarks
-   * Specifies whether to enable JSON response. If enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
+   * Specifies whether to enable JSON responses. If this feature is enabled and the Accept request header contains "application/json", JSON data is returned. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: Enables the feature.
+   * - **off**: Disables the feature.
    * 
    * @example
    * on
@@ -117,11 +117,11 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   jsonResponseEnable?: string;
   /**
    * @remarks
-   * The language of the waiting room page. This parameter is required when the waiting room type is set to default. Valid values:
+   * The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
    * 
-   * - **enus**: English.
-   * - **zhcn**: Simplified Chinese.
-   * - **zhhk**: Traditional Chinese.
+   * - **enus**: English
+   * - **zhcn**: Simplified Chinese
+   * - **zhhk**: Traditional Chinese
    * 
    * @example
    * zhcn
@@ -145,10 +145,10 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   newUsersPerMinute?: string;
   /**
    * @remarks
-   * Specifies whether to queue all visitors. Valid values:
+   * Specifies whether to queue all users. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: Enables the feature.
+   * - **off**: Disables the feature.
    * 
    * @example
    * on
@@ -158,10 +158,10 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * - **random**: random.
-   * - **fifo**: first-in, first-out.
-   * - **passthrough**: passthrough.
-   * - **reject-all**: reject all.
+   * - **random**: random
+   * - **fifo**: first in, first out (FIFO)
+   * - **passthrough**: passthrough
+   * - **reject-all**: reject all
    * 
    * @example
    * random
@@ -169,7 +169,7 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   queuingMethod?: string;
   /**
    * @remarks
-   * The status code returned by the waiting room. Valid values:
+   * The HTTP status code of the waiting room. Valid values:
    * 
    * - **200**
    * - **202**
@@ -181,7 +181,7 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   queuingStatusCode?: string;
   /**
    * @remarks
-   * The session duration in minutes.
+   * The duration of a user session, in minutes.
    * 
    * @example
    * 5
@@ -189,7 +189,7 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   sessionDuration?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -207,7 +207,7 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
-   * The waiting room ID, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * The ID of the waiting room. You can call the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation to query the waiting room ID.
    * 
    * This parameter is required.
    * 
@@ -219,8 +219,8 @@ export class UpdateWaitingRoomRequest extends $dara.Model {
    * @remarks
    * The type of the waiting room. Valid values:
    * 
-   * - **default**: default type.
-   * - **custom**: custom type.
+   * - **default**: default type
+   * - **custom**: custom type
    * 
    * @example
    * default

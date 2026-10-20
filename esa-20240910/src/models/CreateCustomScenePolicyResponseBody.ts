@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomScenePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy end time.
+   * The end time of the policy.
    * 
-   * The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-11-07T18:00:00Z
@@ -23,14 +23,14 @@ export class CreateCustomScenePolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A list of associated site IDs.
+   * The list of IDs of the associated websites.
    * 
-   * > This field is deprecated. Read the value from the `SiteIds` field instead.
+   * > **[Deprecated]** This parameter is deprecated. Use the SiteIds parameter instead.
    */
   objects?: string[];
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * 1
@@ -46,7 +46,7 @@ export class CreateCustomScenePolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The associated site IDs, separated by commas.
+   * The IDs of the associated websites. Separate multiple IDs with commas (,).
    * 
    * @example
    * 7096621098****, 7096621099****
@@ -54,9 +54,9 @@ export class CreateCustomScenePolicyResponseBody extends $dara.Model {
   siteIds?: string;
   /**
    * @remarks
-   * The policy start time.
+   * The start time of the policy.
    * 
-   * The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-11-07T17:00:00Z
@@ -64,7 +64,7 @@ export class CreateCustomScenePolicyResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * promotion

@@ -13,7 +13,7 @@ export class ListAsyncTasksResponseBodyAsyncTasks extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * 2024-09-19 09:37:04
@@ -58,7 +58,7 @@ export class ListAsyncTasksResponseBodyAsyncTasks extends $dara.Model {
   taskDescription?: { [key: string]: string };
   /**
    * @remarks
-   * The custom identifier that is set to associate with this task.
+   * The custom identifier set to associate with the task.
    * 
    * @example
    * linke-quality-sign
@@ -68,9 +68,9 @@ export class ListAsyncTasksResponseBodyAsyncTasks extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * - in_progress: in progress.
-   * - success: completed.
-   * - fail: failed.
+   * - in_progress: The task is in progress.
+   * - success: The task is completed.
+   * - fail: The task failed.
    * 
    * @example
    * success
@@ -139,7 +139,7 @@ export class ListAsyncTasksResponseBodyAsyncTasks extends $dara.Model {
 export class ListAsyncTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task list.
+   * The list of tasks.
    */
   asyncTasks?: ListAsyncTasksResponseBodyAsyncTasks[];
   /**

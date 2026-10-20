@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The Bot protection instance level. If this parameter is empty, the plan does not include a Bot protection instance. If a value is returned, the plan includes a Bot protection instance. Valid values:
+   * The bot protection edition. If this parameter is empty, no bot protection instance is purchased in the plan. If a value is returned, a bot protection instance is purchased in the plan. Valid values:
    * 
-   * - enterprise_bot: web edition.
+   * - enterprise_bot: Web edition.
    * 
-   * - enterprise_bot_with_app: app edition.
+   * - enterprise_bot_with_app: App edition.
    * 
    * @example
    * enterprise_bot
@@ -17,7 +17,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   botInstanceLevel?: string;
   /**
    * @remarks
-   * The time when the instance was purchased. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time of the instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2024-04-12T05:41:51Z
@@ -33,7 +33,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scheduled release time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The scheduled release time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-25T16:00:00Z
@@ -50,10 +50,10 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The instance is running normally.
-   * - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
-   * - **disable**: The instance has been released.
-   * - **overdue**: The instance has been stopped due to an overdue payment.
+   * - **online**: normal.
+   * - **offline**: expired but not overdue, and unavailable.
+   * - **disable**: released.
+   * - **overdue**: suspended due to overdue payment.
    * 
    * @example
    * online
@@ -93,7 +93,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
 export class ListBotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances that match the specified conditions under the current account.
+   * The instances that meet the query conditions for the user.
    */
   instanceInfo?: ListBotInstancesResponseBodyInstanceInfo[];
   /**

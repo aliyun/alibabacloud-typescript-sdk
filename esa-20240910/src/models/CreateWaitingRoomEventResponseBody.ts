@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWaitingRoomEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
@@ -13,7 +13,7 @@ export class CreateWaitingRoomEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting room event ID. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the waiting room event ID.
+   * The ID of the waiting room event. You can obtain the waiting room event ID by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
    * 
    * @example
    * 433277746085888

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWaitingRoomRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule content. Use a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * The rule content. It uses a conditional expression to match user requests. You do not need to specify this parameter when you add a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
-   * For the complete syntax of rule expressions, refer to <props="china">https://www.alibabacloud.com/help/en/edge-security-acceleration/esa/user-guide/work-with-rules-engine/<props="intl">https://www.alibabacloud.com/help/edge-security-acceleration/esa/user-guide/work-with-rules-engine/
+   * For the complete syntax of rule expressions, refer to <props="china">https://www.alibabacloud.com/help/en/edge-security-acceleration/esa/user-guide/work-with-rules-engine/<props="intl">https://www.alibabacloud.com/help/edge-security-acceleration/esa/user-guide/work-with-rules-engine/.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * The rule switch. You do not need to specify this parameter when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you add a global configuration.
+   * The rule name. You do not need to specify this parameter when you add a global configuration.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

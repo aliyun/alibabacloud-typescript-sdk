@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetHttpDDoSAttackProtectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The level of HTTP DDoS attack protection. Valid values:
-   * 
-   * *   **very weak**: very loose.
-   * *   **weak**: loose.
-   * *   **default**: normal.
-   * *   **hard**: strict.
+   * The mode of the HTTP DDoS Attack prevention mitigation policies. Valid values:
+   * - **very weak**: Extremely loose.
+   * - **weak**: Loose.
+   * - **default**: Normal.
+   * - **hard**: Strict.
    * 
    * This parameter is required.
    * 
@@ -20,7 +19,7 @@ export class SetHttpDDoSAttackProtectionRequest extends $dara.Model {
   globalMode?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

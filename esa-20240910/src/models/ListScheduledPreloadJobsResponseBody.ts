@@ -13,7 +13,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The task creation time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+   * The time when the task was created. The time follows the ISO 8601 standard, such as 2024-01-01T00:00:00Z.
    * 
    * @example
    * 2024-06-01T08:53:13Z
@@ -21,7 +21,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of domain names for prefetch.
+   * The list of domain names to prefetch.
    * 
    * @example
    * testurl.com
@@ -29,7 +29,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The fault error message.
+   * The error message.
    * 
    * @example
    * invalid domain:test.com
@@ -37,7 +37,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   errorInfo?: string;
   /**
    * @remarks
-   * The number of prefetch schedules.
+   * The number of prefetch plans.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The URL list file ID, which is used for download.
+   * The ID of the URL list file, which is used for downloading.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -69,9 +69,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The URL insertion method. Valid values:
-   * - oss: URLs are imported in bulk from an OSS file.
-   * - testBox: URLs are entered one by one in a text box.
+   * The method used to insert URLs.
    * 
    * @example
    * oss
@@ -95,7 +93,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of URLs that have been submitted to the system for prefetch.
+   * The number of URLs submitted to the system for prefetch tasks.
    * 
    * @example
    * 1
@@ -103,10 +101,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type (refresh or prefetch). Valid values:
-   * - path: Directory refresh.
-   * - refresh: URL refresh.
-   * - preload: URL prefetch.
+   * The task type, such as refresh or prefetch.
    * 
    * @example
    * preload
@@ -180,7 +175,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
 export class ListScheduledPreloadJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of prefetch task information.
+   * The list of prefetch tasks.
    */
   jobs?: ListScheduledPreloadJobsResponseBodyJobs[];
   /**
@@ -193,7 +188,7 @@ export class ListScheduledPreloadJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records after filtering.
+   * The total number of filtered records.
    * 
    * @example
    * 5

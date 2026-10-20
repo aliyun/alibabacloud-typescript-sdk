@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The action to take on requests that trigger the control. Valid values:
-   * 
-   * - **observe**: Monitors the requests.
-   * 
-   * - **deny**: Blocks the requests.
-   * 
-   * - **js**: Issues a JS challenge.
+   * The action to perform. Valid values:
+   * - **observe**: Monitor.
+   * - **deny**: Block.
+   * - **js**: JavaScript Challenge.
    * 
    * This parameter is required.
    * 
@@ -21,11 +18,11 @@ export class SetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   actionType?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic frequency control. Valid values:
+   * Specifies whether to enable the feature. Valid values:
    * 
-   * - **on**: Enables automatic frequency control.
+   *  - **on**: Enabled.
    * 
-   * - **off**: Disables automatic frequency control.
+   *  - **off**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -36,12 +33,9 @@ export class SetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The protection level. Valid values:
-   * 
-   * - **loose**: Loose protection.
-   * 
-   * - **normal**: Normal protection.
-   * 
-   * - **strict**: Strict protection.
+   * - **loose**: Loose.
+   * - **normal**: Medium.
+   * - **strict**: Strict.
    * 
    * This parameter is required.
    * 
@@ -51,7 +45,7 @@ export class SetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+   * The ID of the site. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -61,7 +55,7 @@ export class SetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the site. For a site with version management enabled, this parameter specifies the version to which the configuration applies. The default value is 0.
+   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

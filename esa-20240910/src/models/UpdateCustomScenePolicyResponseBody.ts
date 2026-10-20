@@ -7,7 +7,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
    * @remarks
    * The end time of the policy.
    * 
-   * The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-03T19:00:00Z
@@ -15,7 +15,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * test
@@ -23,9 +23,9 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A list of associated site IDs.
+   * The list of associated website IDs.
    * 
-   * > This parameter is deprecated. We recommend that you use the `SiteIds` parameter instead.
+   * > **[Deprecated]** We recommend that you read the value of SiteIds instead.
    */
   objects?: string[];
   /**
@@ -38,7 +38,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   policyId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -46,7 +46,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The associated site IDs. Multiple IDs are separated by a comma (,).
+   * The IDs of the websites to associate. Separate multiple IDs with commas (,).
    * 
    * @example
    * 123456****,123457****
@@ -56,7 +56,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
    * @remarks
    * The start time of the policy.
    * 
-   * The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-03T16:00:00Z
@@ -64,9 +64,8 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the template. Valid value:
-   * 
-   * - **promotion**: major promotion
+   * The name of the template. Valid values:
+   * - **promotion**: Important Activity.
    * 
    * @example
    * promotion

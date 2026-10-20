@@ -6,11 +6,14 @@ export class ApplyCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The algorithm type.
+   * 
+   * @example
+   * RSA
    */
   algType?: string;
   /**
    * @remarks
-   * The list of domain names, separated by commas.
+   * The list of domain names. Separate multiple domain names with commas.
    * 
    * This parameter is required.
    * 
@@ -31,9 +34,9 @@ export class ApplyCertificateRequest extends $dara.Model {
   /**
    * @remarks
    * The certificate type. Valid values:
-   * - lets_encrypt: Let\\"s Encrypt certificate.
-   * - digicert_single: DigiCert single-domain certificate.
-   * - digicert_wildcard: DigiCert wildcard domain certificate.
+   * - lets_encrypt: Let\\"s Encrypt certificate
+   * - digicert_single: DigiCert single-domain certificate
+   * - digicert_wildcard: DigiCert wildcard certificate
    * 
    * @example
    * lets_encrypt

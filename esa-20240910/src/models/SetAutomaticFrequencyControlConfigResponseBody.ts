@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetAutomaticFrequencyControlConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action taken on requests that trigger the control. Valid values:
-   * 
-   * - **observe**: Requests are monitored.
-   * 
-   * - **deny**: Requests are blocked.
-   * 
-   * - **js**: JS challenges are issued.
+   * The action to perform. Valid values:
+   * - **observe**: Monitor.
+   * - **deny**: Block.
+   * - **js**: JavaScript Challenge.
    * 
    * @example
    * js
@@ -19,11 +16,11 @@ export class SetAutomaticFrequencyControlConfigResponseBody extends $dara.Model 
   actionType?: string;
   /**
    * @remarks
-   * Indicates whether automatic frequency control is enabled. Valid values:
+   * Specifies whether to enable the feature. Valid values:
    * 
-   * - **on**: Enabled.
+   *  - **on**: Enabled.
    * 
-   * - **off**: Disabled.
+   *  - **off**: Disabled.
    * 
    * @example
    * on
@@ -32,12 +29,9 @@ export class SetAutomaticFrequencyControlConfigResponseBody extends $dara.Model 
   /**
    * @remarks
    * The protection level. Valid values:
-   * 
-   * - **loose**: Loose protection.
-   * 
-   * - **normal**: Normal protection.
-   * 
-   * - **strict**: Strict protection.
+   * - **loose**: Loose.
+   * - **normal**: Medium.
+   * - **strict**: Strict.
    * 
    * @example
    * normal
@@ -45,7 +39,7 @@ export class SetAutomaticFrequencyControlConfigResponseBody extends $dara.Model 
   level?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19

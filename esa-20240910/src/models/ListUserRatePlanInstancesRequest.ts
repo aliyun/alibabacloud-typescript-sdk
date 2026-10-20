@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserRatePlanInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to filter plan instances that have remaining site quota. Valid values:
+   * Specifies whether to filter plan instances that have remaining site quotas. Valid values:
    * 
-   * - **true**: Filters plan instances that have remaining site quota.
+   * - **true**: Filters plan instances that have remaining site quotas.
    * - **false**: Queries all plan instances under the user.
    * 
    * @example
@@ -16,7 +16,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   checkRemainingSiteQuota?: string;
   /**
    * @remarks
-   * The plan instance ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Instance ID of the plan instance. You can obtain instance ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -25,7 +25,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The page number settings for paging. Default value: **1**. Valid values: **1 to 100000**.
+   * The page number Settings for a paging query. Default value: **1**. Valid values: **1** to **100000**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Valid values: 1 to 500.
+   * The number of entries per page for a paging query. Valid values: 1 to 500.
    * 
    * @example
    * 500
@@ -41,7 +41,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plan name (English).
+   * The name of the plan in English.
    * 
    * @example
    * entranceplan
@@ -49,10 +49,10 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   planNameEn?: string;
   /**
    * @remarks
-   * The plan type. Valid values:
+   * The type of the plan. Valid values:
    * 
-   * - normal: fixed edition plan
-   * - enterprise: enterprise edition plan
+   * - normal: Fixed plan.
+   * - enterprise: Enterprise plan.
    * 
    * @example
    * enterprise
@@ -60,7 +60,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   planType?: string;
   /**
    * @remarks
-   * Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
+   * Queries plan instances whose remaining validity period is less than or equal to the specified number of days. The value must be a positive integer. Unit: days.
    * 
    * @example
    * 30
@@ -69,10 +69,10 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   resourceOwner?: number;
   /**
    * @remarks
-   * The sort field. By default, results are sorted by purchase time. Valid values:
+   * The field by which to sort the results. By default, the results are sorted by creation time. Valid values:
    * 
-   * - **CreateTime**: Purchase time.
-   * - **ExpireTime**: Expiration time.
+   * - **CreateTime**: Sorts by creation time.
+   * - **ExpireTime**: Sorts by expiration time.
    * 
    * @example
    * CreateTime
@@ -80,7 +80,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort order. Default value: desc. Valid values:
+   * The sort order. By default, the results are sorted in descending order. Valid values:
    * 
    * - **asc**: Ascending order.
    * - **desc**: Descending order.
@@ -92,10 +92,10 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: Normal service status.
-   * - **offline**: Expired but not overdue, in an inactive state.
-   * - **disable**: Released.
-   * - **overdue**: Overdue payment.
+   * - **online**: The instance is in normal service status.
+   * - **offline**: The instance has expired but is not overdue, and is in an inactive state.
+   * - **disable**: The instance is released.
+   * - **overdue**: The instance has an overdue payment.
    * 
    * @example
    * online
@@ -106,14 +106,14 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The plan subscription type. Valid values:
+   * The subscription type of the plan. Valid values:
    * 
-   * - Free Edition (Chinese mainland): entranceplan
-   * - Free Edition (International): entranceplan_intl
-   * - Basic Edition: basicplan
-   * - Standard Edition: standardplan
-   * - Premium Edition: advancedplan
-   * - Enterprise Edition: enterpriseplan
+   * - entranceplan: Free Edition (Chinese mainland)
+   * - entranceplan_intl: Free Edition (International)
+   * - basicplan: Basic Edition
+   * - standardplan: Standard Edition
+   * - advancedplan: Advanced Edition
+   * - enterpriseplan: Enterprise Edition
    * 
    * @example
    * basicplan

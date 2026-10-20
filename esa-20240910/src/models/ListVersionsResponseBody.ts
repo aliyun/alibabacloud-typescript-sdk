@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVersionsResponseBodySiteVersionList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and includes a time zone offset. Example: 2024-06-15T17:41:27+08:00.
    * 
    * @example
    * 2024-06-15T17:41:27+08:00
@@ -16,12 +16,12 @@ export class ListVersionsResponseBodySiteVersionList extends $dara.Model {
    * The description.
    * 
    * @example
-   * 站点A使用多个环境。
+   * Site A uses multiple environments
    */
   description?: string;
   /**
    * @remarks
-   * The environment list of the site version. The version may have no environment or one or more environments configured, such as the default environment or environment 2.
+   * The list of environments for the site version. No environment is configured, or one or more environments are configured, such as the default environment and Environment 2.
    */
   environmentNameList?: string[];
   /**
@@ -34,7 +34,7 @@ export class ListVersionsResponseBodySiteVersionList extends $dara.Model {
   parentSiteVersion?: number;
   /**
    * @remarks
-   * Indicates whether the version is read-only. Default value: false.
+   * Specifies whether the version is read-only. Default value: false.
    * 
    * @example
    * false
@@ -52,11 +52,11 @@ export class ListVersionsResponseBodySiteVersionList extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - **online**: active.
+   * - **online**: Available.
    * 
-   * - **configuring**: being configured.
+   * - **configuring**: Configuring.
    * 
-   * - **configure_faild**: configuration failed.
+   * - **configure_faild**: Configuration failed.
    * 
    * @example
    * online
@@ -64,7 +64,7 @@ export class ListVersionsResponseBodySiteVersionList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time follows the ISO 8601 standard and includes a time zone offset. Example: 2024-06-15T17:41:27+08:00.
    * 
    * @example
    * 2024-06-15T17:41:27+08:00
@@ -119,7 +119,7 @@ export class ListVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version list of the site.
+   * The list of versions for the site.
    */
   siteVersionList?: ListVersionsResponseBodySiteVersionList[];
   static names(): { [key: string]: string } {

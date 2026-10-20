@@ -13,7 +13,7 @@ export class ListPagesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The page size. Default value: 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListPagesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameters passed in JSON format, which contain various filter conditions.
+   * The query parameters passed in JSON format, which include various filter conditions.
    */
   queryArgsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWaitingRoomResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 0195619f-eab3-4a66-ac00-ed53d913e72e
