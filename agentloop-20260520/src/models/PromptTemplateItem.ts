@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PromptTemplateItem extends $dara.Model {
+  /**
+   * @remarks
+   * The content, which supports {{variable name}} placeholders.
+   * 
+   * @example
+   * Please answer: {{question}}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The role: system/user/assistant.
+   * 
+   * @example
+   * user
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {

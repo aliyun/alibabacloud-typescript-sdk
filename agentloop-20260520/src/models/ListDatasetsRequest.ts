@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * product_faq_dataset
    */
   datasetName?: string;
+  /**
+   * @remarks
+   * Filters datasets by labels.
+   */
   labels?: { [key: string]: string[] };
   /**
    * @remarks
@@ -22,7 +26,7 @@ export class ListDatasetsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. You do not need to set this parameter for the first request. For subsequent requests, set this parameter to the nextToken value returned in the previous response.
+   * The next token. You do not need to set this parameter for the first request. For subsequent requests, pass the nextToken value returned in the previous response.
    * 
    * @example
    * RsfoUqpOJd5nd0F1e4OquY/7dKNGp1JMgsKtvCagmtY=

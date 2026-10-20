@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   /**
    * @remarks
-   * The agent space name.
+   * The name of the agent workspace.
    * 
    * @example
    * sop-agent
@@ -23,7 +23,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * product_faq_dataset
@@ -31,13 +31,21 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The dataset description.
+   * The description of the dataset.
    * 
    * @example
    * Product FAQ dataset for semantic search
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the dataset is added to favorites.
+   */
   isFavorite?: boolean;
+  /**
+   * @remarks
+   * The labels of the dataset.
+   */
   labels?: { [key: string]: string[] };
   /**
    * @remarks
@@ -103,7 +111,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   datasets?: ListDatasetsResponseBodyDatasets[];
   /**
    * @remarks
-   * The maximum number of results specified in this request.
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 100
@@ -111,9 +119,9 @@ export class ListDatasetsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token for the next page of query results.
    * 
-   * If the total number of results exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of returned results exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
    * 
    * @example
    * umaQfI7x758Ns4TgWrj8yA3fYlnk7dJgsfhMrSViRY8=

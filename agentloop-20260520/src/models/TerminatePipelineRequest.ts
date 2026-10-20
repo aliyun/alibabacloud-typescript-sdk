@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TerminatePipelineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The reason for termination.
+   * 
    * @example
    * project deprecated
    */

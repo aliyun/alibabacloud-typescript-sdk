@@ -42,12 +42,12 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
    * The description of the context store.
    * 
    * @example
-   * 我的上下文库
+   * My context store
    */
   description?: string;
   /**
    * @remarks
-   * The region ID of the context store.
+   * The ID of the region where the context store resides.
    * 
    * @example
    * cn-hangzhou
@@ -55,26 +55,32 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of service names. This parameter has a value only for context stores of the experience type. The service names are used together with the data source AgentSpace to locate trace data sources.
+   * The list of service names. This parameter has a value only for the experience type. It is used together with the data source AgentSpace to locate the trace data source.
    * 
    * @example
    * ["order-service","payment-service"]
    */
   serviceNames?: string[];
   /**
+   * @remarks
+   * The memory data source type, such as manual, trajectory, or dataset. This parameter has a value only for the memory type.
+   * 
    * @example
    * trajectory
    */
   sourceType?: string;
   /**
    * @remarks
-   * The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
+   * The status of the context store. Valid values include ACTIVE, INITIALIZING, and FAILED.
    * 
    * @example
    * ACTIVE
    */
   status?: string;
   /**
+   * @remarks
+   * The memory storage mode, such as event or upsert. This parameter has a value only for the memory type.
+   * 
    * @example
    * upsert
    */
@@ -136,7 +142,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
 export class ListContextStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page that was specified in the request. This value is echoed back.
+   * The maximum number of results per page specified in the request.
    * 
    * @example
    * 20
@@ -144,7 +150,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. An empty string indicates that the current page is the last page.
+   * The token for the next page. An empty string indicates that the last page is reached.
    * 
    * @example
    * MTIzNDU2Nzg5MA==
@@ -152,7 +158,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate and troubleshoot issues.
+   * The request ID, which can be used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -165,7 +171,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   results?: ListContextStoresResponseBodyResults[];
   /**
    * @remarks
-   * The total number of context stores that match the query conditions.
+   * The total number of context stores that meet the query conditions.
    * 
    * @example
    * 5

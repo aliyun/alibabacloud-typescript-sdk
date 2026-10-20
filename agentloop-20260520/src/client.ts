@@ -187,7 +187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a context store.
+   * Creates a context library.
    * 
    * @param request - CreateContextStoreRequest
    * @param headers - map
@@ -238,7 +238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a context store.
+   * Creates a context library.
    * 
    * @param request - CreateContextStoreRequest
    * @returns CreateContextStoreResponse
@@ -789,6 +789,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+   * 
+   * @param request - CreateOptimizeRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOptimizeRunResponse
+   */
+  async createOptimizeRunWithOptions(agentSpace: string, optimizeTaskName: string, request: $_model.CreateOptimizeRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOptimizeRunResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.preview)) {
+      body["preview"] = request.preview;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOptimizeRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}/runs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOptimizeRunResponse>(await this.callApi(params, req, runtime), new $_model.CreateOptimizeRunResponse({}));
+  }
+
+  /**
+   * Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+   * 
+   * @param request - CreateOptimizeRunRequest
+   * @returns CreateOptimizeRunResponse
+   */
+  async createOptimizeRun(agentSpace: string, optimizeTaskName: string, request: $_model.CreateOptimizeRunRequest): Promise<$_model.CreateOptimizeRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOptimizeRunWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+  }
+
+  /**
+   * Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+   * 
+   * @param request - CreateOptimizeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOptimizeTaskResponse
+   */
+  async createOptimizeTaskWithOptions(agentSpace: string, request: $_model.CreateOptimizeTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOptimizeTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.optimizeTaskName)) {
+      body["optimizeTaskName"] = request.optimizeTaskName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOptimizeTask",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOptimizeTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateOptimizeTaskResponse({}));
+  }
+
+  /**
+   * Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+   * 
+   * @param request - CreateOptimizeTaskRequest
+   * @returns CreateOptimizeTaskResponse
+   */
+  async createOptimizeTask(agentSpace: string, request: $_model.CreateOptimizeTaskRequest): Promise<$_model.CreateOptimizeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOptimizeTaskWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
    * Creates a pipeline.
    * 
    * @param request - CreatePipelineRequest
@@ -1294,6 +1412,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an optimization task in a specified AgentSpace.
+   * 
+   * @param request - DeleteOptimizeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOptimizeTaskResponse
+   */
+  async deleteOptimizeTaskWithOptions(agentSpace: string, optimizeTaskName: string, request: $_model.DeleteOptimizeTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOptimizeTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOptimizeTask",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOptimizeTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOptimizeTaskResponse({}));
+  }
+
+  /**
+   * Deletes an optimization task in a specified AgentSpace.
+   * 
+   * @param request - DeleteOptimizeTaskRequest
+   * @returns DeleteOptimizeTaskResponse
+   */
+  async deleteOptimizeTask(agentSpace: string, optimizeTaskName: string, request: $_model.DeleteOptimizeTaskRequest): Promise<$_model.DeleteOptimizeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+  }
+
+  /**
    * Deletes a pipeline.
    * 
    * @param request - DeletePipelineRequest
@@ -1510,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a context store.
+   * Queries the context store.
    * 
    * @param request - GetContextStoreRequest
    * @param headers - map
@@ -1537,7 +1700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a context store.
+   * Queries the context store.
    * 
    * @param request - GetContextStoreRequest
    * @returns GetContextStoreResponse
@@ -1889,6 +2052,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
+   * 
+   * @param request - GetOptimizeRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOptimizeRunResponse
+   */
+  async getOptimizeRunWithOptions(agentSpace: string, optimizeTaskName: string, optimizeRunId: string, request: $_model.GetOptimizeRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetOptimizeRunResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOptimizeRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}/runs/${$dara.URL.percentEncode(optimizeRunId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOptimizeRunResponse>(await this.callApi(params, req, runtime), new $_model.GetOptimizeRunResponse({}));
+  }
+
+  /**
+   * Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
+   * 
+   * @param request - GetOptimizeRunRequest
+   * @returns GetOptimizeRunResponse
+   */
+  async getOptimizeRun(agentSpace: string, optimizeTaskName: string, optimizeRunId: string, request: $_model.GetOptimizeRunRequest): Promise<$_model.GetOptimizeRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getOptimizeRunWithOptions(agentSpace, optimizeTaskName, optimizeRunId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
+   * 
+   * @param request - GetOptimizeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOptimizeTaskResponse
+   */
+  async getOptimizeTaskWithOptions(agentSpace: string, optimizeTaskName: string, request: $_model.GetOptimizeTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetOptimizeTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOptimizeTask",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOptimizeTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetOptimizeTaskResponse({}));
+  }
+
+  /**
+   * Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
+   * 
+   * @param request - GetOptimizeTaskRequest
+   * @returns GetOptimizeTaskResponse
+   */
+  async getOptimizeTask(agentSpace: string, optimizeTaskName: string, request: $_model.GetOptimizeTaskRequest): Promise<$_model.GetOptimizeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+  }
+
+  /**
    * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
@@ -1967,7 +2208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pipeline run statistics.
+   * Queries the pipeline run statistics.
    * 
    * @param request - GetPipelineStatsRequest
    * @param headers - map
@@ -2008,7 +2249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pipeline run statistics.
+   * Queries the pipeline run statistics.
    * 
    * @param request - GetPipelineStatsRequest
    * @returns GetPipelineStatsResponse
@@ -2132,7 +2373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of context stores.
+   * Queries the list of context stores.
    * 
    * @param request - ListContextStoresRequest
    * @param headers - map
@@ -2181,7 +2422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of context stores.
+   * Queries the list of context stores.
    * 
    * @param request - ListContextStoresRequest
    * @returns ListContextStoresResponse
@@ -2654,7 +2895,125 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution history list of a pipeline.
+   * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+   * 
+   * @param request - ListOptimizeRunsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOptimizeRunsResponse
+   */
+  async listOptimizeRunsWithOptions(agentSpace: string, optimizeTaskName: string, request: $_model.ListOptimizeRunsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOptimizeRunsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.windowStartTimeBegin)) {
+      query["windowStartTimeBegin"] = request.windowStartTimeBegin;
+    }
+
+    if (!$dara.isNull(request.windowStartTimeEnd)) {
+      query["windowStartTimeEnd"] = request.windowStartTimeEnd;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOptimizeRuns",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}/runs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOptimizeRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListOptimizeRunsResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+   * 
+   * @param request - ListOptimizeRunsRequest
+   * @returns ListOptimizeRunsResponse
+   */
+  async listOptimizeRuns(agentSpace: string, optimizeTaskName: string, request: $_model.ListOptimizeRunsRequest): Promise<$_model.ListOptimizeRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOptimizeRunsWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+  }
+
+  /**
+   * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+   * 
+   * @param request - ListOptimizeTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOptimizeTasksResponse
+   */
+  async listOptimizeTasksWithOptions(agentSpace: string, request: $_model.ListOptimizeTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOptimizeTasksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOptimizeTasks",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOptimizeTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListOptimizeTasksResponse({}));
+  }
+
+  /**
+   * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+   * 
+   * @param request - ListOptimizeTasksRequest
+   * @returns ListOptimizeTasksResponse
+   */
+  async listOptimizeTasks(agentSpace: string, request: $_model.ListOptimizeTasksRequest): Promise<$_model.ListOptimizeTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOptimizeTasksWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
+   * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
    * 
    * @param request - ListPipelineRunsRequest
    * @param headers - map
@@ -2707,7 +3066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution history list of a pipeline.
+   * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
    * 
    * @param request - ListPipelineRunsRequest
    * @returns ListPipelineRunsResponse
@@ -2719,7 +3078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @param headers - map
@@ -2772,7 +3131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -2994,7 +3353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches contexts.
+   * Searches the context.
    * 
    * @param request - SearchContextRequest
    * @param headers - map
@@ -3055,7 +3414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches contexts.
+   * Searches the context.
    * 
    * @param request - SearchContextRequest
    * @returns SearchContextResponse
@@ -3067,7 +3426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a pipeline.
+   * Terminates a pipeline.
    * 
    * @param request - TerminatePipelineRequest
    * @param headers - map
@@ -3100,7 +3459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a pipeline.
+   * Terminates a pipeline.
    * 
    * @param request - TerminatePipelineRequest
    * @returns TerminatePipelineResponse
@@ -3558,7 +3917,7 @@ export default class Client extends OpenApi {
    * Updates an experiment plan.
    * 
    * @remarks
-   * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+   * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
    * 
    * @param request - UpdateExperimentPlanRequest
    * @param headers - map
@@ -3634,7 +3993,7 @@ export default class Client extends OpenApi {
    * Updates an experiment plan.
    * 
    * @remarks
-   * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+   * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
    * 
    * @param request - UpdateExperimentPlanRequest
    * @returns UpdateExperimentPlanResponse
@@ -3724,6 +4083,116 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
+  }
+
+  /**
+   * Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+   * 
+   * @param request - UpdateOptimizeRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOptimizeRunResponse
+   */
+  async updateOptimizeRunWithOptions(agentSpace: string, optimizeTaskName: string, optimizeRunId: string, request: $_model.UpdateOptimizeRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOptimizeRunResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extra)) {
+      body["extra"] = request.extra;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOptimizeRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}/runs/${$dara.URL.percentEncode(optimizeRunId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOptimizeRunResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOptimizeRunResponse({}));
+  }
+
+  /**
+   * Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+   * 
+   * @param request - UpdateOptimizeRunRequest
+   * @returns UpdateOptimizeRunResponse
+   */
+  async updateOptimizeRun(agentSpace: string, optimizeTaskName: string, optimizeRunId: string, request: $_model.UpdateOptimizeRunRequest): Promise<$_model.UpdateOptimizeRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOptimizeRunWithOptions(agentSpace, optimizeTaskName, optimizeRunId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the status and type-related configurations of a specified optimization task.
+   * 
+   * @param request - UpdateOptimizeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOptimizeTaskResponse
+   */
+  async updateOptimizeTaskWithOptions(agentSpace: string, optimizeTaskName: string, request: $_model.UpdateOptimizeTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOptimizeTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOptimizeTask",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/optimizetasks/${$dara.URL.percentEncode(optimizeTaskName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOptimizeTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOptimizeTaskResponse({}));
+  }
+
+  /**
+   * Updates the status and type-related configurations of a specified optimization task.
+   * 
+   * @param request - UpdateOptimizeTaskRequest
+   * @returns UpdateOptimizeTaskResponse
+   */
+  async updateOptimizeTask(agentSpace: string, optimizeTaskName: string, request: $_model.UpdateOptimizeTaskRequest): Promise<$_model.UpdateOptimizeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
   }
 
   /**

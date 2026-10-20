@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicyContinuous extends $dara.Model {
   /**
+   * @remarks
+   * The bootstrap history start time as a UNIX timestamp in seconds. It has the same precision as runOnce or scheduled fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from the grid-aligned time and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and only processes incremental data.
+   * 
    * @example
    * 1735660800
    */
@@ -32,18 +35,18 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyContinuous extends $
 export class ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start of the time slice, in UNIX millisecond timestamp format.
+   * The start time of the time slice as a UNIX timestamp in seconds.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The end of the time slice, in UNIX millisecond timestamp format.
+   * The end time of the time slice as a UNIX timestamp in seconds.
    * 
    * @example
-   * 1735747200000
+   * 1735747200
    */
   toTime?: number;
   static names(): { [key: string]: string } {
@@ -72,15 +75,15 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce extends $dar
 export class ListPipelinesResponseBodyPipelinesExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The scheduling start time, in UNIX millisecond timestamp format.
+   * The scheduling start time as a UNIX timestamp in seconds.
    * 
    * @example
-   * 1735660800000
+   * 1735660800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The scheduling interval, such as 1h or 30m.
+   * The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
    * 
    * @example
    * 1h
@@ -111,15 +114,16 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicyScheduled extends $d
 
 export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The continuous execution configuration. This is used when the type is trace. The processing frequency is a fixed value managed by the server.
+   * 
    * @example
    * {"fromTime":1735660800}
    */
   continuous?: ListPipelinesResponseBodyPipelinesExecutePolicyContinuous;
   /**
    * @remarks
-   * The scheduling mode. Valid values:
-   * - RunOnce: one-time execution.
-   * - Scheduled: periodic scheduling.
+   * The scheduling mode. Valid values: RunOnce for single execution, Scheduled for periodic execution, and Continuous for continuous execution. Continuous mode is only for trace data sources. The processing frequency is a fixed value managed by the server, and data is automatically processed at minute intervals after the trace is completed.
    * 
    * @example
    * RunOnce
@@ -127,7 +131,7 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
   mode?: string;
   /**
    * @remarks
-   * The parameters for one-time execution. This parameter has a value only when mode is set to RunOnce.
+   * The parameters for single execution. This field has a value only when the mode is RunOnce.
    * 
    * @example
    * {"fromTime":1735660800,"toTime":1735664400}
@@ -135,7 +139,7 @@ export class ListPipelinesResponseBodyPipelinesExecutePolicy extends $dara.Model
   runOnce?: ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce;
   /**
    * @remarks
-   * The parameters for periodic scheduling. This parameter has a value only when mode is set to Scheduled.
+   * The parameters for periodic scheduling. This field has a value only when the mode is Scheduled.
    * 
    * @example
    * {"interval":"1h","fromTime":1735660800}
@@ -225,7 +229,7 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink extends 
   dataset?: ListPipelinesResponseBodyPipelinesSinkConditionDefaultSinkDataset;
   /**
    * @remarks
-   * The type of the default destination. Currently, only dataset is supported.
+   * The default destination type. Currently, only dataset is supported.
    * 
    * @example
    * dataset
@@ -305,7 +309,7 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSink extends $
   dataset?: ListPipelinesResponseBodyPipelinesSinkConditionRoutesSinkDataset;
   /**
    * @remarks
-   * The type of the route destination. Currently, only dataset is supported.
+   * The destination type of the route. Currently, only dataset is supported.
    * 
    * @example
    * dataset
@@ -340,7 +344,7 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutesSink extends $
 export class ListPipelinesResponseBodyPipelinesSinkConditionRoutes extends $dara.Model {
   /**
    * @remarks
-   * The route expression in SPL. Only where, project, and extend are supported.
+   * The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
    * 
    * @example
    * * | where intent = \\"refund\\"
@@ -348,7 +352,7 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutes extends $dara
   expression?: string;
   /**
    * @remarks
-   * The route ID.
+   * The ID of the route.
    * 
    * @example
    * refund
@@ -390,7 +394,7 @@ export class ListPipelinesResponseBodyPipelinesSinkConditionRoutes extends $dara
 export class ListPipelinesResponseBodyPipelinesSinkCondition extends $dara.Model {
   /**
    * @remarks
-   * The default write destination that is used when no condition route is matched.
+   * The default write destination used when no conditional route is matched.
    */
   defaultSink?: ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink;
   /**
@@ -403,7 +407,7 @@ export class ListPipelinesResponseBodyPipelinesSinkCondition extends $dara.Model
   matchMode?: string;
   /**
    * @remarks
-   * The list of condition routes.
+   * The list of conditional routes.
    */
   routes?: ListPipelinesResponseBodyPipelinesSinkConditionRoutes[];
   static names(): { [key: string]: string } {
@@ -480,17 +484,17 @@ export class ListPipelinesResponseBodyPipelinesSinkDataset extends $dara.Model {
 export class ListPipelinesResponseBodyPipelinesSink extends $dara.Model {
   /**
    * @remarks
-   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+   * The conditional routing configuration. This is used only when the sink type is condition.
    */
   condition?: ListPipelinesResponseBodyPipelinesSinkCondition;
   /**
    * @remarks
-   * The destination dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
+   * The destination dataset configuration for the dataset sink. This is used only when the sink type is dataset.
    */
   dataset?: ListPipelinesResponseBodyPipelinesSinkDataset;
   /**
    * @remarks
-   * The destination type. Valid values: dataset or condition.
+   * The destination type. Valid values: dataset, condition.
    * 
    * @example
    * condition
@@ -569,11 +573,17 @@ export class ListPipelinesResponseBodyPipelinesSourceDataset extends $dara.Model
 
 export class ListPipelinesResponseBodyPipelinesSourceInputFields extends $dara.Model {
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * question
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the field. Valid values: text, long, double, and json.
+   * 
    * @example
    * text
    */
@@ -620,7 +630,7 @@ export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Mode
   project?: string;
   /**
    * @remarks
-   * The data filtered query statement in SLS query/analysis syntax.
+   * The data filtered query statement, which uses the SLS query and analysis syntax.
    * 
    * @example
    * * | SELECT *
@@ -653,11 +663,17 @@ export class ListPipelinesResponseBodyPipelinesSourceLogstore extends $dara.Mode
 
 export class ListPipelinesResponseBodyPipelinesSourceTrajectoryEnrich extends $dara.Model {
   /**
+   * @remarks
+   * The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed column agent_trajectory, and this parameter no longer affects the output.
+   * 
    * @example
    * ["input","output","session_id"]
    */
   columns?: string[];
   /**
+   * @remarks
+   * Specifies whether to enable trajectory enrichment.
+   * 
    * @example
    * false
    */
@@ -690,6 +706,9 @@ export class ListPipelinesResponseBodyPipelinesSourceTrajectoryEnrich extends $d
 
 export class ListPipelinesResponseBodyPipelinesSourceTrajectory extends $dara.Model {
   /**
+   * @remarks
+   * The trajectory enrichment configuration. It mounts trajectory data into the scrubbing result based on the trace_id. When writing to the dataset, the data is stored in the fixed column agent_trajectory, and the column value is the trajectory JSON content.
+   * 
    * @example
    * {"enabled":true,"columns":["input","output"]}
    */
@@ -728,6 +747,9 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
    */
   dataset?: ListPipelinesResponseBodyPipelinesSourceDataset;
   /**
+   * @remarks
+   * The input fields and their types, applicable to all data source types.
+   * 
    * @example
    * [{"name":"question","type":"text"}]
    */
@@ -741,13 +763,16 @@ export class ListPipelinesResponseBodyPipelinesSource extends $dara.Model {
    */
   logstore?: ListPipelinesResponseBodyPipelinesSourceLogstore;
   /**
+   * @remarks
+   * The trajectory data configuration. This parameter is optional and takes effect only when the type is trace. It obtains ATIF standard trajectory data from the trajectory scrubbing service and extends it by feature.
+   * 
    * @example
    * {"enrich":{"enabled":true,"columns":["input","output"]}}
    */
   trajectory?: ListPipelinesResponseBodyPipelinesSourceTrajectory;
   /**
    * @remarks
-   * The data source type. Valid values: logstore or dataset.
+   * The data source type. Valid values: logstore, dataset, and trace. The trace value indicates a trajectory signal-driven processing mode. The validity of the enumerated values is verified by the server.
    * 
    * @example
    * dataset
@@ -839,11 +864,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scheduling status. Valid values:
-   * - None: no scheduling. This value is returned for RunOnce pipelines.
-   * - Active: active.
-   * - Paused: paused.
-   * - Terminated: terminated.
+   * The scheduling status. Valid values: None for no scheduling in RunOnce pipelines, Active, Paused, and Terminated.
    * 
    * @example
    * None
@@ -851,9 +872,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   scheduleStatus?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
-   * - RunOnce: one-time execution.
-   * - Scheduled: periodic scheduling.
+   * The scheduling type. Valid values: RunOnce for single execution, Scheduled for periodic scheduling, and Continuous for continuous execution driven by trace source signals.
    * 
    * @example
    * RunOnce
@@ -861,12 +880,12 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The pipeline sink (data write destination).
+   * The pipeline sink, which is the destination for data writing.
    */
   sink?: ListPipelinesResponseBodyPipelinesSink;
   /**
    * @remarks
-   * The pipeline data source.
+   * The data source of the pipeline.
    * 
    * @example
    * {"type":"logstore","logstore":{"project":"my-sls-project","logstore":"agent-logs"},"inputFields":[{"name":"question","type":"text"}]}
@@ -874,7 +893,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   source?: ListPipelinesResponseBodyPipelinesSource;
   /**
    * @remarks
-   * The time when the pipeline was last updated, in ISO 8601 UTC format.
+   * The time when the pipeline was last updated. The time is in the ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -943,7 +962,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page that was specified in the request. This value is echoed back.
+   * The maximum number of entries per page specified in the request.
    * 
    * @example
    * 20
@@ -964,7 +983,7 @@ export class ListPipelinesResponseBody extends $dara.Model {
   pipelines?: ListPipelinesResponseBodyPipelines[];
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID, which is used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -972,7 +991,7 @@ export class ListPipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of pipelines that match the filter conditions.
+   * The total number of pipelines that meet the filter conditions.
    * 
    * @example
    * 100

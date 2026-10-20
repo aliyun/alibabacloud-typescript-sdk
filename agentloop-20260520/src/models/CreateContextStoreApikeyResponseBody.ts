@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextStoreAPIKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The complete API key value.
+   * The full value of the API key.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

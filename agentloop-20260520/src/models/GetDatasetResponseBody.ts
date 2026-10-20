@@ -6,7 +6,7 @@ import { IndexKey } from "./IndexKey";
 export class GetDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent space name.
+   * The name of the agent space.
    * 
    * @example
    * sop-agent
@@ -24,7 +24,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * product_faq_dataset
@@ -32,13 +32,21 @@ export class GetDatasetResponseBody extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The dataset description.
+   * The description of the dataset.
    * 
    * @example
    * Product FAQ dataset for semantic search
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the dataset is added to favorites.
+   */
   isFavorite?: boolean;
+  /**
+   * @remarks
+   * The labels of the dataset.
+   */
   labels?: { [key: string]: string[] };
   /**
    * @remarks

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchContextRequestScope extends $dara.Model {
   /**
+   * @remarks
+   * Agent Id
+   * 
    * @example
    * sales-copilot
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * crm-service
    */
   appId?: string;
   /**
+   * @remarks
+   * The run ID.
+   * 
    * @example
    * run-001
    */
   runId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * u-10001
    */
@@ -61,20 +73,23 @@ export class SearchContextRequest extends $dara.Model {
   filter?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to apply structured formatting to the returned results.
+   * Specifies whether to structurally format the returned results.
    * 
    * @example
    * true
    */
   formatted?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include memories with sourceState=inactive. Default value: false.
+   * 
    * @example
    * false
    */
   includeInactive?: boolean;
   /**
    * @remarks
-   * The maximum number of returned results (similarity Top-N).
+   * The maximum number of returned results, which corresponds to the Top-N similarity.
    * 
    * @example
    * 10
@@ -87,17 +102,21 @@ export class SearchContextRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 用户最近的偏好设置
+   * Recent user preferences
    */
   query?: string;
   /**
    * @remarks
-   * The retrieval options that control the retrieval strategy.
+   * The retrieval options used to control the retrieval strategy.
    * 
    * @example
    * semantic
    */
   retrievalOption?: string;
+  /**
+   * @remarks
+   * The recall scope. If a field with the same name conflicts with the filter, a 400 ScopeFilterConflict error is returned.
+   */
   scope?: SearchContextRequestScope;
   /**
    * @remarks

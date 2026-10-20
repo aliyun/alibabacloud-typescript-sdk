@@ -13,7 +13,7 @@ export class UpdateContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The effective strategy version number after the update for the memory type. If the strategy remains unchanged, the version number is the same as before the update.
+   * The strategy version number that takes effect after the update for the memory type. If the strategy remains unchanged, the version number is the same as that before the update.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace where the pipeline is located.
+   * The name of the AgentSpace.
    * 
    * @example
    * my-agent-space
@@ -37,7 +37,7 @@ export class ResumePipelineResponseBody extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -45,7 +45,7 @@ export class ResumePipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduling status. The value is fixed to Active.
+   * The scheduling status, which is fixed to Active.
    * 
    * @example
    * Active

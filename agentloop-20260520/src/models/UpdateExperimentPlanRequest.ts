@@ -31,7 +31,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of evaluators. Omitting this field means no modification. Passing an empty array clears the list.
+   * The list of evaluators. If this parameter is omitted, the list remains unchanged. If an empty array is passed, the list is cleared.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_task_completion"}]
@@ -39,7 +39,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The experiment type.
+   * The experiment type. Valid values: OFFLINE (offline experiment) and ONLINE (online experiment).
    * 
    * @example
    * OFFLINE
@@ -47,7 +47,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   experimentType?: string;
   /**
    * @remarks
-   * The list of experiment configurations. When provided, the entire list is replaced. The number of configurations must be 1 to 5.
+   * The list of experiment configurations. When passed, the entire list is replaced. The number of items must be between 1 and 5.
    * 
    * @example
    * [{"label": "A", "name": "baseline", "modelName": "qwen-max"}]
@@ -58,12 +58,12 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
    * Optional.
    * 
    * @example
-   * {"question": "How do I request a refund?"}
+   * {"question": "How do I get a refund?"}
    */
   input?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the associated data processing pipeline. This parameter is optional. If not specified, the value is not updated. If an empty character string is specified, the association is dissociated. After association, when an experiment under this plan completes execution and writes results to the experiment result Logstore, the system filters by the traceId of the experiment trace and invokes PreviewPipeline. The pipeline-processed results are then written together.
+   * The name of the associated data processing pipeline. This parameter is optional. If it is not passed, the association is not updated. If an empty character string is passed, the pipeline is dissociated. After the association is configured, when an experiment under this plan executes and completes writing the experiment results to the Logstore, the system filters the results by the traceId of the current experiment trace and invokes PreviewPipeline to write the results processed by the pipeline.
    */
   pipelineName?: string;
   /**
@@ -84,7 +84,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   querySql?: string;
   /**
    * @remarks
-   * The list of selected data item IDs in partial dataset mode. Passing an empty array clears the list.
+   * The list of selected data item IDs in partial dataset mode. If an empty array is passed, the list is cleared.
    * 
    * @example
    * []

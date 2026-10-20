@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExperimentPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
-   * Experiment plan updated successfully
+   * The experiment plan is updated successfully
    */
   message?: string;
   /**
    * @remarks
-   * The experiment plan ID.
+   * The ID of the experiment plan.
    * 
    * @example
    * exp-plan-e95bff54685a4ae29ff3a834c1008a71

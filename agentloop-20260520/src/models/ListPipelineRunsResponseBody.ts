@@ -13,7 +13,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   agentSpaceName?: string;
   /**
    * @remarks
-   * The current retry count.
+   * The current number of retries.
    * 
    * @example
    * 0
@@ -41,7 +41,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The start of the data window, in UNIX seconds.
+   * The start time of the data window, in UNIX seconds.
    * 
    * @example
    * 1735660800
@@ -93,7 +93,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of tokens consumed).
+   * The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of consumed tokens).
    */
   stats?: { [key: string]: any };
   /**
@@ -106,7 +106,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The end of the data window, in UNIX seconds.
+   * The end time of the data window, in UNIX seconds.
    * 
    * @example
    * 1735747200
@@ -124,7 +124,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   triggerTime?: string;
   /**
    * @remarks
-   * The trigger type. Valid values: Scheduled, Manual, and RunOnce.
+   * The trigger type. Valid values: Scheduled, Manual, RunOnce, and Continuous (continuous micro-batch execution).
    * 
    * @example
    * Scheduled
@@ -187,7 +187,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
 export class ListPipelineRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page specified in the request. This value is echoed back.
+   * The maximum number of entries per page specified in the request, echoed in the response.
    * 
    * @example
    * 50
@@ -203,7 +203,7 @@ export class ListPipelineRunsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID, which is used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -211,12 +211,12 @@ export class ListPipelineRunsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of pipeline runs.
+   * The list of runs.
    */
   runs?: ListPipelineRunsResponseBodyRuns[];
   /**
    * @remarks
-   * The total number of pipeline runs that match the filter conditions.
+   * The total number of pipeline runs that meet the filter conditions.
    * 
    * @example
    * 100

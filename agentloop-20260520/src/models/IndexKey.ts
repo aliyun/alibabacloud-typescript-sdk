@@ -6,9 +6,9 @@ import { IndexJsonKey } from "./IndexJsonKey";
 export class IndexKey extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether Chinese is included. This parameter is required only when the **type** parameter is set to **text**. Valid values:
-   *   - true: Chinese is included.
-   *   - false: Chinese is not included.
+   * Specifies whether the field contains Chinese characters. This parameter is required only when the **type** parameter is set to **text**. Valid values:
+   * - true: The field contains Chinese characters.
+   * - false: The field does not contain Chinese characters.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class IndexKey extends $dara.Model {
   chn?: boolean;
   /**
    * @remarks
-   * The description.
+   * The field description.
    * 
    * @example
    * test
@@ -24,7 +24,7 @@ export class IndexKey extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The field embedding type.
+   * The embedding type of the field.
    * 
    * @example
    * agentloop-embedding-v4
@@ -32,12 +32,15 @@ export class IndexKey extends $dara.Model {
   embedding?: string;
   /**
    * @remarks
-   * The JSON subfields. This parameter takes effect only when type is set to json.
+   * The JSON subfields. This property takes effect only when the type is set to json.
+   * 
+   * @example
+   * {"content":{"type":"text","chn":true}}
    */
   jsonKeys?: { [key: string]: IndexJsonKey };
   /**
    * @remarks
-   * The type.
+   * The field type.
    * 
    * @example
    * text

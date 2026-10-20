@@ -13,7 +13,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The full value of the API key. The plaintext value is returned only when the API key is created. In list scenarios, the value is masked based on business rules.
+   * The full value of the API key. The plaintext value is returned only when the API key is created. In list scenarios, the value is masked based on business conventions.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -29,7 +29,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The time when the API key was created, in ISO 8601 UTC format.
+   * The time when the API key was created. The time is in the ISO 8601 standard in the UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -77,7 +77,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
 export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page that was specified in the request. This value is echoed back.
+   * The maximum number of results per page specified in the request.
    * 
    * @example
    * 20
@@ -93,7 +93,7 @@ export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID, which is used to locate the request for troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -106,7 +106,7 @@ export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   results?: ListContextStoreAPIKeysResponseBodyResults[];
   /**
    * @remarks
-   * The total number of API keys that match the query conditions.
+   * The total number of API keys that meet the query conditions.
    * 
    * @example
    * 3
