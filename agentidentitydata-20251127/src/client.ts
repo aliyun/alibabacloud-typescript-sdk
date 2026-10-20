@@ -149,6 +149,10 @@ export default class Client extends OpenApi {
       body["ResourceCredentialProviderName"] = request.resourceCredentialProviderName;
     }
 
+    if (!$dara.isNull(request.tokenVaultName)) {
+      body["TokenVaultName"] = request.tokenVaultName;
+    }
+
     if (!$dara.isNull(request.workloadAccessToken)) {
       body["WorkloadAccessToken"] = request.workloadAccessToken;
     }
@@ -201,6 +205,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audience)) {
+      body["Audience"] = request.audience;
+    }
+
     if (!$dara.isNull(request.customParametersShrink)) {
       body["CustomParameters"] = request.customParametersShrink;
     }
@@ -231,6 +239,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionURI)) {
       body["SessionURI"] = request.sessionURI;
+    }
+
+    if (!$dara.isNull(request.tokenVaultName)) {
+      body["TokenVaultName"] = request.tokenVaultName;
     }
 
     if (!$dara.isNull(request.workloadAccessToken)) {

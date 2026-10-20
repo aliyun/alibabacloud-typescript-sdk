@@ -4,6 +4,9 @@ export { AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContext
 export { AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContext } from './AssumeRoleForWorkloadIdentityResponseBody';
 export { AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfo } from './AssumeRoleForWorkloadIdentityResponseBody';
 export { CompleteResourceTokenAuthRequestUserIdentifier } from './CompleteResourceTokenAuthRequest';
+export { GetWorkloadAccessTokenForJWTResponseBodyUserContextJwtClaims } from './GetWorkloadAccessTokenForJwtresponseBody';
+export { GetWorkloadAccessTokenForJWTResponseBodyUserContext } from './GetWorkloadAccessTokenForJwtresponseBody';
+export { GetWorkloadAccessTokenForUserIdResponseBodyUserContext } from './GetWorkloadAccessTokenForUserIdResponseBody';
 export { AssumeRoleForWorkloadIdentityRequest } from './AssumeRoleForWorkloadIdentityRequest';
 export { AssumeRoleForWorkloadIdentityResponseBody } from './AssumeRoleForWorkloadIdentityResponseBody';
 export { AssumeRoleForWorkloadIdentityResponse } from './AssumeRoleForWorkloadIdentityResponse';

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkloadAccessTokenForJWTRequest extends $dara.Model {
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1NiIsI*******
-   */
   userToken?: string;
-  /**
-   * @example
-   * test-workload-identity
-   */
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CompleteResourceTokenAuthRequestUserIdentifier extends $dara.Model {
-  /**
-   * @example
-   * externalUser
-   */
   userId?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSU****
-   */
   userJWT?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,10 +29,6 @@ export class CompleteResourceTokenAuthRequestUserIdentifier extends $dara.Model 
 }
 
 export class CompleteResourceTokenAuthRequest extends $dara.Model {
-  /**
-   * @example
-   * urn:ietf:params:oauth:request_uri:3030cabc-****-****-****-d0054944102a
-   */
   sessionURI?: string;
   userIdentifier?: CompleteResourceTokenAuthRequestUserIdentifier;
   static names(): { [key: string]: string } {

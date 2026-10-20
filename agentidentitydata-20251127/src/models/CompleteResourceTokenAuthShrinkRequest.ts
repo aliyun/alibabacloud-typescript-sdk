@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CompleteResourceTokenAuthShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * urn:ietf:params:oauth:request_uri:3030cabc-****-****-****-d0054944102a
-   */
   sessionURI?: string;
   userIdentifierShrink?: string;
   static names(): { [key: string]: string } {

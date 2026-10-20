@@ -5,47 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceOAuth2TokenRequest extends $dara.Model {
   /**
    * @example
-   * {"param1": "test-param", "param2": "test-param2"}
+   * app
    */
+  audience?: string;
   customParameters?: { [key: string]: any };
-  /**
-   * @example
-   * user-defined-value
-   */
   customState?: string;
-  /**
-   * @example
-   * False
-   */
   forceAuthentication?: boolean;
-  /**
-   * @example
-   * USER_FEDERATION
-   */
   OAuth2Flow?: string;
-  /**
-   * @example
-   * oauth_credential_provider
-   */
   resourceCredentialProviderName?: string;
-  /**
-   * @example
-   * https://example.com
-   */
   resourceOAuth2ReturnURL?: string;
   scopes?: string[];
-  /**
-   * @example
-   * urn:ietf:params:oauth:request_uri:43b7df1a-****-****-****-709375a44d8a
-   */
   sessionURI?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1N****
-   */
+  tokenVaultName?: string;
   workloadAccessToken?: string;
   static names(): { [key: string]: string } {
     return {
+      audience: 'Audience',
       customParameters: 'CustomParameters',
       customState: 'CustomState',
       forceAuthentication: 'ForceAuthentication',
@@ -54,12 +29,14 @@ export class GetResourceOAuth2TokenRequest extends $dara.Model {
       resourceOAuth2ReturnURL: 'ResourceOAuth2ReturnURL',
       scopes: 'Scopes',
       sessionURI: 'SessionURI',
+      tokenVaultName: 'TokenVaultName',
       workloadAccessToken: 'WorkloadAccessToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audience: 'string',
       customParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       customState: 'string',
       forceAuthentication: 'boolean',
@@ -68,6 +45,7 @@ export class GetResourceOAuth2TokenRequest extends $dara.Model {
       resourceOAuth2ReturnURL: 'string',
       scopes: { 'type': 'array', 'itemType': 'string' },
       sessionURI: 'string',
+      tokenVaultName: 'string',
       workloadAccessToken: 'string',
     };
   }

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkloadAccessTokenForUserIdRequest extends $dara.Model {
-  /**
-   * @example
-   * externalUser1
-   */
   userId?: string;
-  /**
-   * @example
-   * test-workload-identity
-   */
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {

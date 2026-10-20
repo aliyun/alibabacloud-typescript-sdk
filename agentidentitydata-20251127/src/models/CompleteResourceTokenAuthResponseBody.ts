@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CompleteResourceTokenAuthResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 6A3344F3-BFA1-5BCB-B5F5-17572C0D5586
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

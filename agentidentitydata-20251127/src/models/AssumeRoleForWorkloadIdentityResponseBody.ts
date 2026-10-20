@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AssumeRoleForWorkloadIdentityResponseBodyAssumedRoleUser extends $dara.Model {
-  /**
-   * @example
-   * acs:ram::113511544585****:role/testoidc/TestOidcAssumedRoleSession
-   */
   arn?: string;
-  /**
-   * @example
-   * 33157794895460****
-   */
   assumedRoleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,25 +31,9 @@ export class AssumeRoleForWorkloadIdentityResponseBodyAssumedRoleUser extends $d
 }
 
 export class AssumeRoleForWorkloadIdentityResponseBodyCredentials extends $dara.Model {
-  /**
-   * @example
-   * STS.NTTcrF2UNgeshFRTj9i7hpkah
-   */
   accessKeyId?: string;
-  /**
-   * @example
-   * 3fNFJk4UA6KLEG2GXiBe9ZE43ejFRJsea1yT1rguTVY6
-   */
   accessKeySecret?: string;
-  /**
-   * @example
-   * 2025-04-28T03:06:19Z
-   */
   expiration?: string;
-  /**
-   * @example
-   * CAIShwJ1q6Ft5B2yfSjIr5bSEsj4g7BihPWGWHz****
-   */
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,25 +63,15 @@ export class AssumeRoleForWorkloadIdentityResponseBodyCredentials extends $dara.
 }
 
 export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContextJwtClaims extends $dara.Model {
-  /**
-   * @example
-   * ["test-aud","test-aud-2"]
-   */
   audiences?: string;
-  /**
-   * @example
-   * https://oauth.aliyun.com
-   */
   issuer?: string;
-  /**
-   * @example
-   * externalUser
-   */
+  JTI?: string;
   subject?: string;
   static names(): { [key: string]: string } {
     return {
       audiences: 'Audiences',
       issuer: 'Issuer',
+      JTI: 'JTI',
       subject: 'Subject',
     };
   }
@@ -114,6 +80,7 @@ export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserCon
     return {
       audiences: 'string',
       issuer: 'string',
+      JTI: 'string',
       subject: 'string',
     };
   }
@@ -129,10 +96,6 @@ export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserCon
 
 export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContext extends $dara.Model {
   jwtClaims?: AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContextJwtClaims;
-  /**
-   * @example
-   * externalUser
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,10 +125,6 @@ export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserCon
 
 export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfo extends $dara.Model {
   userContext?: AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContext;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:1778*****8462:workloadidentitydirectory/default/workloadidentity/workload-bc7***
-   */
   workloadIdentityArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -196,10 +155,6 @@ export class AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfo extend
 export class AssumeRoleForWorkloadIdentityResponseBody extends $dara.Model {
   assumedRoleUser?: AssumeRoleForWorkloadIdentityResponseBodyAssumedRoleUser;
   credentials?: AssumeRoleForWorkloadIdentityResponseBodyCredentials;
-  /**
-   * @example
-   * B7F68680-F3FE-5BF1-A824-4DE0B1AC9B23
-   */
   requestId?: string;
   workloadContextInfo?: AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfo;
   static names(): { [key: string]: string } {

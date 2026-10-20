@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AssumeRoleForWorkloadIdentityRequest extends $dara.Model {
-  /**
-   * @example
-   * 3600
-   */
   durationSeconds?: number;
-  /**
-   * @example
-   * {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
-   */
   policy?: string;
-  /**
-   * @example
-   * session-name
-   */
   roleSessionName?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1NiIsIC****
-   */
   workloadAccessToken?: string;
   static names(): { [key: string]: string } {
     return {

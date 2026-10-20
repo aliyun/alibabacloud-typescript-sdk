@@ -3,19 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourceAPIKeyRequest extends $dara.Model {
-  /**
-   * @example
-   * test-api-key-provider
-   */
   resourceCredentialProviderName?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1N****
-   */
+  tokenVaultName?: string;
   workloadAccessToken?: string;
   static names(): { [key: string]: string } {
     return {
       resourceCredentialProviderName: 'ResourceCredentialProviderName',
+      tokenVaultName: 'TokenVaultName',
       workloadAccessToken: 'WorkloadAccessToken',
     };
   }
@@ -23,6 +17,7 @@ export class GetResourceAPIKeyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       resourceCredentialProviderName: 'string',
+      tokenVaultName: 'string',
       workloadAccessToken: 'string',
     };
   }

@@ -2,32 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetWorkloadAccessTokenForUserIdResponseBodyUserContext extends $dara.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkloadAccessTokenForUserIdResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1E85BA86-0955-5841-9679-9C33867E460D
-   */
   requestId?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1N****
-   */
+  userContext?: GetWorkloadAccessTokenForUserIdResponseBodyUserContext;
   workloadAccessToken?: string;
+  workloadIdentityArn?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      userContext: 'UserContext',
       workloadAccessToken: 'WorkloadAccessToken',
+      workloadIdentityArn: 'WorkloadIdentityArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      userContext: GetWorkloadAccessTokenForUserIdResponseBodyUserContext,
       workloadAccessToken: 'string',
+      workloadIdentityArn: 'string',
     };
   }
 
   validate() {
+    if(this.userContext && typeof (this.userContext as any).validate === 'function') {
+      (this.userContext as any).validate();
+    }
     super.validate();
   }
 

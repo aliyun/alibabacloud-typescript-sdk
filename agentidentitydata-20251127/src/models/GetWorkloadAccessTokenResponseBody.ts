@@ -3,20 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkloadAccessTokenResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1E85BA86-0955-5841-9679-9C33867E460D
-   */
   requestId?: string;
-  /**
-   * @example
-   * eyAgImFsZyI6ICJSUzI1N****
-   */
   workloadAccessToken?: string;
+  workloadIdentityArn?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       workloadAccessToken: 'WorkloadAccessToken',
+      workloadIdentityArn: 'WorkloadIdentityArn',
     };
   }
 
@@ -24,6 +18,7 @@ export class GetWorkloadAccessTokenResponseBody extends $dara.Model {
     return {
       requestId: 'string',
       workloadAccessToken: 'string',
+      workloadIdentityArn: 'string',
     };
   }
 
