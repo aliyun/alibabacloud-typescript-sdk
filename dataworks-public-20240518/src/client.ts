@@ -1394,6 +1394,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a scheduling calendar.
+   * 
+   * @remarks
+   * You must purchase DataWorks Enterprise Edition to use this feature.
+   * 
+   * @param tmpReq - CreateCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCalendarResponse
+   */
+  async createCalendarWithOptions(tmpReq: $_model.CreateCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCalendarResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCalendarShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.projectIds)) {
+      request.projectIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.projectIds, "ProjectIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.schedulePolicy)) {
+      request.schedulePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedulePolicy, "SchedulePolicy", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allProjects)) {
+      body["AllProjects"] = request.allProjects;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.expirationReminder)) {
+      body["ExpirationReminder"] = request.expirationReminder;
+    }
+
+    if (!$dara.isNull(request.fallbackPolicy)) {
+      body["FallbackPolicy"] = request.fallbackPolicy;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.overduePolicy)) {
+      body["OverduePolicy"] = request.overduePolicy;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectIdsShrink)) {
+      body["ProjectIds"] = request.projectIdsShrink;
+    }
+
+    if (!$dara.isNull(request.schedulePolicyShrink)) {
+      body["SchedulePolicy"] = request.schedulePolicyShrink;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCalendar",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCalendarResponse>(await this.callApi(params, req, runtime), new $_model.CreateCalendarResponse({}));
+  }
+
+  /**
+   * Creates a scheduling calendar.
+   * 
+   * @remarks
+   * You must purchase DataWorks Enterprise Edition to use this feature.
+   * 
+   * @param request - CreateCalendarRequest
+   * @returns CreateCalendarResponse
+   */
+  async createCalendar(request: $_model.CreateCalendarRequest): Promise<$_model.CreateCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCalendarWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a component.
    * 
    * @remarks
@@ -5314,10 +5416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+   * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
    * 
    * @remarks
-   * DataWorks Basic Edition or later is required.
+   * You must purchase DataWorks Basic Edition or a later edition to use this feature.
    * 
    * @param tmpReq - CreateWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5410,10 +5512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+   * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
    * 
    * @remarks
-   * DataWorks Basic Edition or later is required.
+   * You must purchase DataWorks Basic Edition or a later edition to use this feature.
    * 
    * @param request - CreateWorkflowInstancesRequest
    * @returns CreateWorkflowInstancesResponse
@@ -5563,6 +5665,56 @@ export default class Client extends OpenApi {
   async deleteBusiness(request: $_model.DeleteBusinessRequest): Promise<$_model.DeleteBusinessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBusinessWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+   * 
+   * @param request - DeleteCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCalendarResponse
+   */
+  async deleteCalendarWithOptions(request: $_model.DeleteCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCalendar",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCalendarResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCalendarResponse({}));
+  }
+
+  /**
+   * Deletes a scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+   * 
+   * @param request - DeleteCalendarRequest
+   * @returns DeleteCalendarResponse
+   */
+  async deleteCalendar(request: $_model.DeleteCalendarRequest): Promise<$_model.DeleteCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCalendarWithOptions(request, runtime);
   }
 
   /**
@@ -8531,11 +8683,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find the security policy that best matches the given conditions.
+   * Queries the best-matching security policy based on specified conditions.
    * 
    * @remarks
-   * ## Request Description
-   * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+   * ## Operation description
+   * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
    * 
    * @param request - FindBestMatchSecurityStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8574,11 +8726,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find the security policy that best matches the given conditions.
+   * Queries the best-matching security policy based on specified conditions.
    * 
    * @remarks
-   * ## Request Description
-   * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+   * ## Operation description
+   * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
    * 
    * @param request - FindBestMatchSecurityStrategyRequest
    * @returns FindBestMatchSecurityStrategyResponse
@@ -8952,6 +9104,54 @@ export default class Client extends OpenApi {
   async getBusiness(request: $_model.GetBusinessRequest): Promise<$_model.GetBusinessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getBusinessWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the current configuration of a specified scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required to use this API.
+   * 
+   * @param request - GetCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCalendarResponse
+   */
+  async getCalendarWithOptions(request: $_model.GetCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCalendar",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCalendarResponse>(await this.callApi(params, req, runtime), new $_model.GetCalendarResponse({}));
+  }
+
+  /**
+   * Retrieves the current configuration of a specified scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required to use this API.
+   * 
+   * @param request - GetCalendarRequest
+   * @returns GetCalendarResponse
+   */
+  async getCalendar(request: $_model.GetCalendarRequest): Promise<$_model.GetCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCalendarWithOptions(request, runtime);
   }
 
   /**
@@ -11570,14 +11770,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+   * Retrieves the details of a security policy based on the provided security policy ID.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves the complete configuration information for a security policy by its ID.
-   * - The API returns an error message if the provided `Id` is invalid or does not exist.
-   * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-   * - Note: Some fields in a system default policy cannot be modified or deleted.
+   * ## Request description
+   * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+   * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+   * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+   * - Note: Some fields of system default policies may be protected from modification or deletion.
    * 
    * @param request - GetSecurityStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11608,14 +11808,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+   * Retrieves the details of a security policy based on the provided security policy ID.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves the complete configuration information for a security policy by its ID.
-   * - The API returns an error message if the provided `Id` is invalid or does not exist.
-   * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-   * - Note: Some fields in a system default policy cannot be modified or deleted.
+   * ## Request description
+   * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+   * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+   * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+   * - Note: Some fields of system default policies may be protected from modification or deletion.
    * 
    * @param request - GetSecurityStrategyRequest
    * @returns GetSecurityStrategyResponse
@@ -12929,6 +13129,130 @@ export default class Client extends OpenApi {
   async listBusiness(request: $_model.ListBusinessRequest): Promise<$_model.ListBusinessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBusinessWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the versions of a specified scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * 
+   * @param request - ListCalendarVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCalendarVersionsResponse
+   */
+  async listCalendarVersionsWithOptions(request: $_model.ListCalendarVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCalendarVersionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCalendarVersions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCalendarVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListCalendarVersionsResponse({}));
+  }
+
+  /**
+   * Queries the versions of a specified scheduling calendar.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * 
+   * @param request - ListCalendarVersionsRequest
+   * @returns ListCalendarVersionsResponse
+   */
+  async listCalendarVersions(request: $_model.ListCalendarVersionsRequest): Promise<$_model.ListCalendarVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCalendarVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of scheduling calendars.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * 
+   * @param request - ListCalendarsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCalendarsResponse
+   */
+  async listCalendarsWithOptions(request: $_model.ListCalendarsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCalendarsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCalendars",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCalendarsResponse>(await this.callApi(params, req, runtime), new $_model.ListCalendarsResponse({}));
+  }
+
+  /**
+   * Queries a list of scheduling calendars.
+   * 
+   * @remarks
+   * DataWorks Enterprise Edition is required.
+   * 
+   * @param request - ListCalendarsRequest
+   * @returns ListCalendarsResponse
+   */
+  async listCalendars(request: $_model.ListCalendarsRequest): Promise<$_model.ListCalendarsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCalendarsWithOptions(request, runtime);
   }
 
   /**
@@ -17088,10 +17412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of workspace roles with pagination.
+   * Queries the details of workspace roles by paging.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * You must purchase DataWorks Basic Edition or later to use this operation.
    * 
    * @param tmpReq - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17152,10 +17476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of workspace roles with pagination.
+   * Queries the details of workspace roles by paging.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * You must purchase DataWorks Basic Edition or later to use this operation.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -17584,14 +17908,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+   * Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves a paginated list of configured security policies.
-   * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-   * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-   * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+   * ## Request description
+   * - This operation retrieves the configured security policies in the system in pages.
+   * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+   * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+   * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
    * 
    * @param request - ListSecurityStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17634,14 +17958,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+   * Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves a paginated list of configured security policies.
-   * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-   * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-   * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+   * ## Request description
+   * - This operation retrieves the configured security policies in the system in pages.
+   * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+   * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+   * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
    * 
    * @param request - ListSecurityStrategiesRequest
    * @returns ListSecurityStrategiesResponse
@@ -18132,10 +18456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+   * Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 1. You must purchase DataWorks Basic Edition or later to use this API.
    * 
    * @param tmpReq - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18168,10 +18492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+   * Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 1. You must purchase DataWorks Basic Edition or later to use this API.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -21514,6 +21838,110 @@ export default class Client extends OpenApi {
   async updateBusiness(request: $_model.UpdateBusinessRequest): Promise<$_model.UpdateBusinessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBusinessWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+   * 
+   * @remarks
+   * You must purchase DataWorks Enterprise Edition to use this feature.
+   * The calendar name cannot be modified. Unsubmitted dates are not retained.
+   * 
+   * @param tmpReq - UpdateCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCalendarResponse
+   */
+  async updateCalendarWithOptions(tmpReq: $_model.UpdateCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCalendarResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCalendarShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.projectIds)) {
+      request.projectIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.projectIds, "ProjectIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.schedulePolicy)) {
+      request.schedulePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedulePolicy, "SchedulePolicy", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allProjects)) {
+      body["AllProjects"] = request.allProjects;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.expirationReminder)) {
+      body["ExpirationReminder"] = request.expirationReminder;
+    }
+
+    if (!$dara.isNull(request.fallbackPolicy)) {
+      body["FallbackPolicy"] = request.fallbackPolicy;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.overduePolicy)) {
+      body["OverduePolicy"] = request.overduePolicy;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectIdsShrink)) {
+      body["ProjectIds"] = request.projectIdsShrink;
+    }
+
+    if (!$dara.isNull(request.schedulePolicyShrink)) {
+      body["SchedulePolicy"] = request.schedulePolicyShrink;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCalendar",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCalendarResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCalendarResponse({}));
+  }
+
+  /**
+   * Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+   * 
+   * @remarks
+   * You must purchase DataWorks Enterprise Edition to use this feature.
+   * The calendar name cannot be modified. Unsubmitted dates are not retained.
+   * 
+   * @param request - UpdateCalendarRequest
+   * @returns UpdateCalendarResponse
+   */
+  async updateCalendar(request: $_model.UpdateCalendarRequest): Promise<$_model.UpdateCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCalendarWithOptions(request, runtime);
   }
 
   /**

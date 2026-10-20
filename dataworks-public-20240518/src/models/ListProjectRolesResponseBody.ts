@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the DataWorks module.
+   * 
    * @example
    * 2
    */
   moduleId?: number;
   /**
+   * @remarks
+   * The name of the DataWorks module.
+   * 
    * @example
    * HoloStudio
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The type of the permission.
+   * 
    * @example
    * Read
    */
@@ -46,16 +55,20 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions
 export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Model {
   /**
    * @remarks
-   * The role code of the workspace.
+   * The code of the workspace role.
    * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of DataWorks product module permissions granted to the role.
+   */
   modulePermissions?: ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions[];
   /**
    * @remarks
-   * The role name of the workspace.
+   * The name of the workspace role.
    * 
    * @example
    * Visitors
@@ -65,7 +78,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
    * @remarks
    * The ID of the DataWorks workspace.
    * 
-   * Note: For system default workspace roles, ProjectId returns a fixed value of -1.
+   * Note: For default system workspace roles, the value of ProjectId is fixed to -1.
    * 
    * @example
    * 21229
@@ -73,7 +86,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   projectId?: number;
   /**
    * @remarks
-   * The role type of the workspace.
+   * The type of the workspace role.
    * 
    * @example
    * System
@@ -114,7 +127,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
 export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The requested page number. Used for pagination.
+   * The page number of the requested data.
    * 
    * @example
    * 1
@@ -135,7 +148,7 @@ export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
   /**
    * @remarks
-   * The total number of entries that meet the filter conditions.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 42
@@ -179,7 +192,7 @@ export class ListProjectRolesResponseBody extends $dara.Model {
   pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. Used to locate logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 61649187-0BCF-5E75-8D4B-64FDBEBBB447

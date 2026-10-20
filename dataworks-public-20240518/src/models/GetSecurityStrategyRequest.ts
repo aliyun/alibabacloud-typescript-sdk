@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * **The ID of the security strategy.**
+   * **The security policy ID.**
    * 
    * This parameter is required.
    * 

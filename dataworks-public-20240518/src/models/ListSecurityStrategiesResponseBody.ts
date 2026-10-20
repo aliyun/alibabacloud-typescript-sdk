@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesContentControllers extends $dara.Model {
   /**
    * @remarks
-   * The default value for Basic Edition.
+   * **The default value for Basic Edition.**
    * 
    * @example
    * 10000
@@ -13,12 +13,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   basicEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value range for Basic Edition, specified as [min, max].
+   * The valid value range for Basic Edition [min, max].
    */
   basicEditionIntervalValue?: number[];
   /**
    * @remarks
-   * The identifier of the control item. For valid values, see the list of control items for each schema.
+   * The identifier of the control item. For valid values, see the control item list for each schema.
    * 
    * @example
    * viewCount
@@ -26,7 +26,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   controller?: string;
   /**
    * @remarks
-   * The data type of the value. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
+   * **The value type (Boolean/Integer/Long/String).**
    * 
    * @example
    * Integer
@@ -37,12 +37,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
    * The display name.
    * 
    * @example
-   * 查询结果-单次展示记录值上限
+   * Query results - Maximum number of records displayed at a time
    */
   displayName?: string;
   /**
    * @remarks
-   * The display name in English.
+   * **The English display name.**
    * 
    * @example
    * Query Results - Single Display Record Limit
@@ -50,7 +50,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   displayNameEn?: string;
   /**
    * @remarks
-   * Whether the control item is enabled.
+   * **Indicates whether the control item is enabled.**
    */
   enable?: boolean;
   /**
@@ -63,7 +63,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   enterpriseEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value range for Enterprise Edition, specified as [min, max].
+   * The valid value range for Enterprise Edition [min, max].
    */
   enterpriseEditionIntervalValue?: number[];
   /**
@@ -76,12 +76,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   professionalEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value range for Professional Edition, specified as [min, max].
+   * The valid value range for Professional Edition [min, max].
    */
   professionalEditionIntervalValue?: number[];
   /**
    * @remarks
-   * The default value for Standard Edition.
+   * **The default value for Standard Edition.**
    * 
    * @example
    * 10000
@@ -89,12 +89,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   standardEditionDefaultValue?: any;
   /**
    * @remarks
-   * The valid value range for Standard Edition, specified as [min, max].
+   * The valid value range for Standard Edition [min, max].
    */
   standardEditionIntervalValue?: number[];
   /**
    * @remarks
-   * The value set for the control item. The data type of this value is specified by `ControllerValueType`.
+   * **The user-configured value. The type depends on ControllerValueType.**
    * 
    * @example
    * 20
@@ -162,7 +162,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
 export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesContent extends $dara.Model {
   /**
    * @remarks
-   * The control scope.
+   * **The control scope.**
    * 
    * @example
    * Tenant
@@ -170,7 +170,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   controlDwScope?: string;
   /**
    * @remarks
-   * The control module. This value is from the `controlModule` property of the associated `SecurityStrategySchema`.
+   * The control module. The SecurityStrategySchema.controlModule associated with the current policy.
    * 
    * @example
    * DataQuery
@@ -178,7 +178,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   controlModule?: string;
   /**
    * @remarks
-   * The control submodule. This value is from the `controlSubModule` property of the associated `SecurityStrategySchema`.
+   * The control submodule. The SecurityStrategySchema.controlSubModule associated with the current policy.
    * 
    * @example
    * MyCatalog
@@ -186,20 +186,20 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   controlSubModule?: string;
   /**
    * @remarks
-   * A list of control items. The available items depend on the schema. For details, see the `Controller` definition and the list of control items for each schema.
+   * The list of control items. Valid control items depend on the selected schema. Refer to the controller definition and the control item list for each schema.
    */
   controllers?: ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesContentControllers[];
   /**
    * @remarks
-   * The `displayName` of the associated `SecurityStrategySchema`.
+   * The SecurityStrategySchema.displayName associated with the current policy.
    * 
    * @example
-   * 数据分析
+   * Data Analysis
    */
   displayName?: string;
   /**
    * @remarks
-   * The `displayNameEn` of the associated `SecurityStrategySchema`.
+   * The SecurityStrategySchema.displayNameEn associated with the current policy.
    * 
    * @example
    * Data Query
@@ -207,7 +207,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   displayNameEn?: string;
   /**
    * @remarks
-   * The `name` of the associated `SecurityStrategySchema`.
+   * The SecurityStrategySchema.name associated with the current policy.
    * 
    * @example
    * DataQuerySecurityStrategySchema
@@ -223,7 +223,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
   systemPolicyDisplayName?: string;
   /**
    * @remarks
-   * The name of the system policy. If this property is not empty, the system automatically creates a default policy.
+   * The system policy name. If this parameter is not empty, the system performs automatic creation of a default policy.
    * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
@@ -272,12 +272,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesConte
 export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies extends $dara.Model {
   /**
    * @remarks
-   * The policy content. The content is constrained by `SecurityStrategySchema`.
+   * The policy content. The content is constrained by SecurityStrategySchema.
    */
   content?: ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategiesContent;
   /**
    * @remarks
-   * The control scope. Valid values: `Workspace` and `Tenant`.
+   * **The control scope** (Workspace/Tenant).
    * 
    * @example
    * Tenant
@@ -285,7 +285,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   controlDwScope?: string;
   /**
    * @remarks
-   * The control module.
+   * **The control module.**
    * 
    * @example
    * DataQuery
@@ -293,7 +293,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   controlModule?: string;
   /**
    * @remarks
-   * The control submodule.
+   * **The control submodule.**
    * 
    * @example
    * MyCatalog
@@ -301,7 +301,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   controlSubModule?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DDTHH:mm:ss. The time zone is not specified in the current document.
    * 
    * @example
    * 2026-05-25T20:46:19
@@ -309,7 +309,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   createTime?: string;
   /**
    * @remarks
-   * The user ID of the creator.
+   * **The ID of the creator.**
    * 
    * @example
    * 203322746501002787
@@ -317,15 +317,15 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   creator?: string;
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
-   * 控制数据分析模块的查询结果安全行为
+   * Controls the security behavior of query results in the Data Analysis module
    */
   description?: string;
   /**
    * @remarks
-   * Whether the policy is enabled.
+   * **Indicates whether the policy is enabled.**
    * 
    * @example
    * false
@@ -333,7 +333,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   enabled?: boolean;
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * 12345
@@ -344,12 +344,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
    * The policy name.
    * 
    * @example
-   * 默认数据分析策略
+   * Default Data Analysis policy
    */
   name?: string;
   /**
    * @remarks
-   * The source ID of the system default policy.
+   * **The source ID of the system default policy.**
    * 
    * @example
    * 12
@@ -365,7 +365,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   schemaName?: string;
   /**
    * @remarks
-   * The time of the last update.
+   * The update time. The format is YYYY-MM-DDTHH:mm:ss. The time zone is not specified in the current document.
    * 
    * @example
    * 2026-05-25T20:46:19
@@ -373,7 +373,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user who last updated the policy.
+   * **The ID of the last updater.**
    * 
    * @example
    * 203322746501002787
@@ -381,7 +381,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies exte
   updater?: string;
   /**
    * @remarks
-   * The associated workspace IDs.
+   * **The list of associated workspace IDs.**
    */
   workspaces?: number[];
   static names(): { [key: string]: string } {
@@ -450,7 +450,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 10
@@ -463,7 +463,7 @@ export class ListSecurityStrategiesResponseBodyPagingInfo extends $dara.Model {
   securityStrategies?: ListSecurityStrategiesResponseBodyPagingInfoSecurityStrategies[];
   /**
    * @remarks
-   * The total count.
+   * The total number of records.
    * 
    * @example
    * 12
@@ -502,12 +502,12 @@ export class ListSecurityStrategiesResponseBodyPagingInfo extends $dara.Model {
 export class ListSecurityStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination result.
+   * The pagination information.
    */
   pagingInfo?: ListSecurityStrategiesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0bc5df3a17****903790e8e8a

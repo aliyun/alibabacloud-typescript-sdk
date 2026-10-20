@@ -14,7 +14,7 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -22,7 +22,7 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of data tables.
+   * The list of tables.
    */
   tables?: Table[];
   /**
@@ -66,7 +66,7 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
 export class ListTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination result.
+   * The paging information.
    */
   pagingInfo?: ListTablesResponseBodyPagingInfo;
   /**
@@ -79,7 +79,7 @@ export class ListTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

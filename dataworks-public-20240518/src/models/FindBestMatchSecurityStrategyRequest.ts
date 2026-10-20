@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FindBestMatchSecurityStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Control module, used to match the security policy type.
+   * The control module used to match the security policy type.
    * 
    * @example
    * DataQuery
@@ -13,7 +13,7 @@ export class FindBestMatchSecurityStrategyRequest extends $dara.Model {
   controlModule?: string;
   /**
    * @remarks
-   * Control sub-module, used to match the security policy type.
+   * The control submodule used to match the security policy type.
    * 
    * @example
    * MyCatalog
@@ -21,7 +21,7 @@ export class FindBestMatchSecurityStrategyRequest extends $dara.Model {
   controlSubModule?: string;
   /**
    * @remarks
-   * **Workspace ID**, used to precisely match workspace-level policies.
+   * The **workspace ID** used for exact match of the workspace-level policy.
    * 
    * @example
    * 12345

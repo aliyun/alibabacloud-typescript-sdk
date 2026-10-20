@@ -21,7 +21,7 @@ export class ListSecurityStrategiesRequest extends $dara.Model {
   controlSubModule?: string;
   /**
    * @remarks
-   * The page number. Starts from 1. Default: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSecurityStrategiesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 10

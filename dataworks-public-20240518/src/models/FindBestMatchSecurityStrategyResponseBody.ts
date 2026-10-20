@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContentControllers extends $dara.Model {
   /**
    * @remarks
-   * **Basic Edition default value**
+   * The **default value for Basic Edition**.
    * 
    * @example
    * 0
@@ -13,12 +13,12 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   basicEditionDefaultValue?: any;
   /**
    * @remarks
-   * Basic Edition valid value range [min, max].
+   * The valid value range [min, max] for Basic Edition.
    */
   basicEditionIntervalValue?: number[];
   /**
    * @remarks
-   * Controller identifier. For values, see the controller list of each Schema.
+   * The identifier of the control item. For valid values, see the control item list for each schema.
    * 
    * @example
    * viewCount
@@ -26,7 +26,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   controller?: string;
   /**
    * @remarks
-   * **Value type (Boolean/Integer/Long/String)**
+   * The **value type (Boolean/Integer/Long/String)**.
    * 
    * @example
    * Integer
@@ -34,15 +34,15 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   controllerValueType?: string;
   /**
    * @remarks
-   * Display name.
+   * The display name.
    * 
    * @example
-   * Query Results - Single Display Record Limit
+   * Query results - Maximum number of records displayed at a time
    */
   displayName?: string;
   /**
    * @remarks
-   * **English display name**
+   * The **English display name**.
    * 
    * @example
    * Query Results - Single Display Record Limit
@@ -50,7 +50,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   displayNameEn?: string;
   /**
    * @remarks
-   * **Whether this controller is enabled**
+   * Indicates whether the control item is **enabled**.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   enable?: boolean;
   /**
    * @remarks
-   * Enterprise Edition default value.
+   * The default value for Enterprise Edition.
    * 
    * @example
    * 500000
@@ -66,12 +66,12 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   enterpriseEditionDefaultValue?: any;
   /**
    * @remarks
-   * Enterprise Edition valid value range [min, max].
+   * The valid value range [min, max] for Enterprise Edition.
    */
   enterpriseEditionIntervalValue?: number[];
   /**
    * @remarks
-   * Professional Edition default value.
+   * The default value for Professional Edition.
    * 
    * @example
    * 200000
@@ -79,12 +79,12 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   professionalEditionDefaultValue?: any;
   /**
    * @remarks
-   * Professional Edition valid value range [min, max].
+   * The valid value range [min, max] for Professional Edition.
    */
   professionalEditionIntervalValue?: number[];
   /**
    * @remarks
-   * **Standard Edition default value**
+   * The **default value for Standard Edition**.
    * 
    * @example
    * 10000
@@ -92,12 +92,12 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   standardEditionDefaultValue?: any;
   /**
    * @remarks
-   * Standard Edition valid value range [min, max].
+   * The valid value range [min, max] for Standard Edition.
    */
   standardEditionIntervalValue?: number[];
   /**
    * @remarks
-   * **User-configured value. The type depends on ControllerValueType.**
+   * The **user-configured value. The data type depends on the ControllerValueType**.
    * 
    * @example
    * 20
@@ -165,7 +165,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContent extends $dara.Model {
   /**
    * @remarks
-   * **Control scope**
+   * The **control scope**.
    * 
    * @example
    * Tenant
@@ -173,7 +173,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   controlDwScope?: string;
   /**
    * @remarks
-   * **Control module**
+   * The **control module**.
    * 
    * @example
    * DataQuery
@@ -181,7 +181,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   controlModule?: string;
   /**
    * @remarks
-   * **Control sub-module**
+   * The **control submodule**.
    * 
    * @example
    * MyCatalog
@@ -189,14 +189,14 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   controlSubModule?: string;
   /**
    * @remarks
-   * Controller list.
+   * The list of control items.
    * 
-   * Note: Valid controllers depend on the selected Schema. Refer to the Controller definition and the controller list of each Schema.
+   * Note: Valid control items depend on the selected schema. For more information, see the Controller definition and the control item list for each schema.
    */
   controllers?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContentControllers[];
   /**
    * @remarks
-   * **Display name**
+   * The **display name**.
    * 
    * @example
    * Data Analysis
@@ -204,7 +204,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   displayName?: string;
   /**
    * @remarks
-   * **English display name**
+   * The **English display name**.
    * 
    * @example
    * Data Query
@@ -212,7 +212,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   displayNameEn?: string;
   /**
    * @remarks
-   * **Schema name**
+   * The **schema name**.
    * 
    * @example
    * DataQuerySecurityStrategySchema
@@ -220,7 +220,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   name?: string;
   /**
    * @remarks
-   * System policy display name.
+   * The display name of the system policy.
    * 
    * @example
    * Default system generate data query policy
@@ -228,7 +228,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
   systemPolicyDisplayName?: string;
   /**
    * @remarks
-   * System policy name (when not empty, the system automatically creates a default policy).
+   * The system policy name. If this parameter is not empty, automatic creation of a default policy is triggered.
    * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
@@ -277,12 +277,12 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy extends $dara.Model {
   /**
    * @remarks
-   * **Policy content**. Refer to the StrategyContent definition.
+   * The **policy content**. For more information, see the StrategyContent definition.
    */
   content?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContent;
   /**
    * @remarks
-   * **Control scope** (Workspace/Tenant).
+   * The **control scope** (Workspace/Tenant).
    * 
    * @example
    * Tenant
@@ -290,7 +290,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   controlDwScope?: string;
   /**
    * @remarks
-   * **Control module**
+   * The **control module**.
    * 
    * @example
    * DataQuery
@@ -298,7 +298,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   controlModule?: string;
   /**
    * @remarks
-   * **Control sub-module**
+   * The **control submodule**.
    * 
    * @example
    * MyCatalog
@@ -306,7 +306,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   controlSubModule?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time in the YYYY-MM-DDTHH:mm:ss format. The time zone is not specified in the current document.
    * 
    * @example
    * 2026-05-25T20:46:19
@@ -314,7 +314,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   createTime?: string;
   /**
    * @remarks
-   * Creator user ID.
+   * The user ID of the creator.
    * 
    * @example
    * 203322746501002787
@@ -322,15 +322,15 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   creator?: string;
   /**
    * @remarks
-   * **Policy description**
+   * The **policy description**.
    * 
    * @example
-   * Controls the security behavior of query results in the Data Analysis module.
+   * Controls the security behavior of query results in the Data Analysis module
    */
   description?: string;
   /**
    * @remarks
-   * **Whether enabled**
+   * Indicates whether the policy is **enabled**.
    * 
    * @example
    * true
@@ -338,7 +338,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   enabled?: boolean;
   /**
    * @remarks
-   * **Policy ID**
+   * The **policy ID**.
    * 
    * @example
    * 16
@@ -346,15 +346,15 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   id?: number;
   /**
    * @remarks
-   * **Policy name**
+   * The **policy name**.
    * 
    * @example
-   * Default Data Analysis Policy
+   * Default Data Analysis policy
    */
   name?: string;
   /**
    * @remarks
-   * System default policy source ID.
+   * The source ID of the system default policy.
    * 
    * @example
    * 12
@@ -362,7 +362,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   originPolicyId?: number;
   /**
    * @remarks
-   * **Schema template name**
+   * The **schema template name**.
    * 
    * @example
    * DataQuerySecurityStrategySchema
@@ -370,7 +370,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   schemaName?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time in the YYYY-MM-DDTHH:mm:ss format. The time zone is not specified in the current document.
    * 
    * @example
    * 2026-05-25T20:46:19
@@ -378,7 +378,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   updateTime?: string;
   /**
    * @remarks
-   * Last updater user ID.
+   * The user ID of the last updater.
    * 
    * @example
    * 207947397706614297
@@ -386,7 +386,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
   updater?: string;
   /**
    * @remarks
-   * **Associated workspace ID list**
+   * The **list of associated workspace IDs**.
    */
   workspaces?: number[];
   static names(): { [key: string]: string } {
@@ -447,7 +447,7 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
 export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Purchased DataWorks edition.
+   * The purchased DataWorks edition.
    * 
    * @example
    * STANDARD
@@ -455,7 +455,7 @@ export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * Purchased DataWorks edition name.
+   * The name of the purchased DataWorks edition.
    * 
    * @example
    * Standard Edition
@@ -463,7 +463,7 @@ export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
   editionDisplayName?: string;
   /**
    * @remarks
-   * Security policy.
+   * The security policy.
    */
   securityStrategy?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy;
   static names(): { [key: string]: string } {
@@ -497,12 +497,12 @@ export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
 export class FindBestMatchSecurityStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data object.
+   * The data object.
    */
   data?: FindBestMatchSecurityStrategyResponseBodyData;
   /**
    * @remarks
-   * **API request ID**
+   * The **API request ID**.
    * 
    * @example
    * 0bc5df3a17***903790e8e8a
