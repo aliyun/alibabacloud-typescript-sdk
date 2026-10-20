@@ -1616,6 +1616,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the hotfixes and compatible packages for a CVE.
+   * 
+   * @remarks
+   * Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+   * 
+   * @param request - GetCveHotfixRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCveHotfixResponse
+   */
+  async getCveHotfixWithOptions(request: $_model.GetCveHotfixRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCveHotfixResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cveIds)) {
+      body["cveIds"] = request.cveIds;
+    }
+
+    if (!$dara.isNull(request.kernelVersions)) {
+      body["kernelVersions"] = request.kernelVersions;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCveHotfix",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/hotfixManager/hotfixes/cve`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCveHotfixResponse>(await this.callApi(params, req, runtime), new $_model.GetCveHotfixResponse({}));
+  }
+
+  /**
+   * Queries the hotfixes and compatible packages for a CVE.
+   * 
+   * @remarks
+   * Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+   * 
+   * @param request - GetCveHotfixRequest
+   * @returns GetCveHotfixResponse
+   */
+  async getCveHotfix(request: $_model.GetCveHotfixRequest): Promise<$_model.GetCveHotfixResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCveHotfixWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves diagnostic results.
    * 
    * @remarks
@@ -3806,7 +3861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of managed and unmanaged instances along with their instance information.
+   * Queries a list of managed and unmanaged instances along with their details.
    * 
    * @param request - ListAllInstancesRequest
    * @param headers - map
@@ -3871,7 +3926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of managed and unmanaged instances along with their instance information.
+   * Queries a list of managed and unmanaged instances along with their details.
    * 
    * @param request - ListAllInstancesRequest
    * @returns ListAllInstancesResponse

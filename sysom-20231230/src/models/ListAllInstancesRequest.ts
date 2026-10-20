@@ -13,7 +13,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   current?: string;
   /**
    * @remarks
-   * The list of filter conditions.
+   * The list of filters.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   managedType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 100
@@ -45,8 +45,8 @@ export class ListAllInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
-   * > If this parameter is not empty, more data is available.
+   * The pagination cursor.
+   * > If this parameter is not empty, it indicates that more data is available.
    * 
    * @example
    * U+w1wv2R4ZWR5oZLXD0+Dp4dD+2BRJj42DLT6GrZysw=
@@ -54,7 +54,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
