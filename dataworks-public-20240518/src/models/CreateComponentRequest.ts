@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComponentRequest extends $dara.Model {
   /**
    * @remarks
-   * A reserved field.
+   * The reserved field.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
@@ -23,7 +23,7 @@ export class CreateComponentRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The FlowSpec information that describes the workflow. For more information about the specification, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * The FlowSpec information that describes the workflow. For more information about the specifications, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. You can use the ID to troubleshoot errors.
    * 
    * @example
    * F332BED4-DD73-5972-A9C2-642BA6CFXXXX
@@ -13,11 +13,11 @@ export class MoveResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * - true
+   * - true: The call is successful.
    * 
-   * - false
+   * - false: The call fails.
    * 
    * @example
    * true

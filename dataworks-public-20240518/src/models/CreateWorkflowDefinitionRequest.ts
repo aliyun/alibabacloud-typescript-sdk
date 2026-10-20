@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowDefinitionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace settings page to obtain the workspace ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Configuration page to obtain the workspace ID. You can also call the ListProjects operation to query the workspace ID of the current tenant.
    * 
    * This parameter is required.
    * 
@@ -15,22 +15,12 @@ export class CreateWorkflowDefinitionRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The FlowSpec information that describes the workflow. For more information about the specification, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+   * The FlowSpec information that describes the workflow. For more information about the specifications, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
    * 
+   * > How do I quickly obtain a FlowSpec template?
+   * > - Open a workflow in DataStudio and click Show Spec in the upper-right corner to obtain the FlowSpec description for the current workflow. You can quickly build a compliant template based on this FlowSpec description.
    * 
-   * 
-   * 
-   * > How to quickly obtain a FlowSpec template?
-   * > 
-   * > 
-   * > 
-   * > 
-   * > - Open a workflow in Data Studio, and then click "Show Spec" in the upper-right corner to obtain the FlowSpec description of the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
-   * 
-   * 
-   * 
-   * 
-   * > &lt;notice&gt;This operation only supports creating a workflow. Internal nodes described in FlowSpec are not created.&gt;&lt;/notice&gt;
+   * >Notice: This operation only supports creating workflows. Internal nodes described in the FlowSpec are not created.</notice>
    * 
    * This parameter is required.
    * 
