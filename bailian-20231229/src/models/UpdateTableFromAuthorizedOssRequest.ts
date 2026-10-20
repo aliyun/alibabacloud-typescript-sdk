@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   /**
    * @remarks
-   * Name of the OSS bucket. For details, see [bucket](https://help.aliyun.com/document_detail/177682.html).
+   * The name of the OSS bucket. For more information, see [Buckets](https://help.aliyun.com/document_detail/177682.html). The target bucket must have the tag key `bailian-datahub-access` and tag value `read` added.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * Object key of the file in the OSS bucket. For details, see [object naming](https://help.aliyun.com/document_detail/273129.html).
+   * The key of the file to import in the OSS bucket. For more information, see [Object naming](https://help.aliyun.com/document_detail/273129.html).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Region ID of the OSS bucket. For details, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+   * The region ID of the OSS bucket. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,9 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossRegionId?: string;
   /**
    * @remarks
-   * Update mode. Valid values: APPEND and OVERWRITE.
+   * The update mode. Valid values:
+   * - OVERWRITE: overwrites existing data.
+   * - APPEND: appends data to existing data.
    * 
    * This parameter is required.
    * 

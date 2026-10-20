@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableFromAuthorizedOssResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current table status. After upload, the status usually changes to TO_IMPORT. This means the system has accepted the uploaded file and is waiting to schedule it into the data table.
+   * The current table status. After upload, the status typically changes to TO_IMPORT, indicating the system has received the uploaded file and is waiting to schedule the write to the data table.
    * 
    * @example
    * TO_IMPORT
@@ -13,7 +13,7 @@ export class UpdateTableFromAuthorizedOssResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Same as the input TableId parameter.
+   * The table ID, which is the same as the input parameter TableId.
    * 
    * @example
    * table_df96ebd5da8640e5a0991b3d15f39d4d_12792097
@@ -45,7 +45,7 @@ export class UpdateTableFromAuthorizedOssResponseBodyData extends $dara.Model {
 export class UpdateTableFromAuthorizedOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error status code.
+   * The error status code.
    * 
    * @example
    * DataCenter.FileTooLarge
@@ -53,12 +53,12 @@ export class UpdateTableFromAuthorizedOssResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data field of the response.
+   * The data field returned by the operation.
    */
   data?: UpdateTableFromAuthorizedOssResponseBodyData;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
@@ -66,7 +66,7 @@ export class UpdateTableFromAuthorizedOssResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request.
+   * Id of the request
    * 
    * @example
    * 7BA8ADD9-53D6-53F0-918F-A1E776AD230E
@@ -74,7 +74,7 @@ export class UpdateTableFromAuthorizedOssResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code returned by the operation.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -82,7 +82,7 @@ export class UpdateTableFromAuthorizedOssResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

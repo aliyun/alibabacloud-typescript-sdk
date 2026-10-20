@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends $dara.Model {
   /**
    * @remarks
-   * The file ID. Keep this value safe because it is required for all subsequent API operations related to this file.
+   * The file ID. Keep this value secure because it is used for all subsequent API operations related to this file.
    * 
    * @example
    * file_809f469a59ac449586ec692576xxxxx_102248XXX
@@ -13,7 +13,7 @@ export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends 
   fileId?: string;
   /**
    * @remarks
-   * The error message returned when the file import fails.
+   * The error message returned when the file fails to be imported.
    * 
    * @example
    * size too large
@@ -31,10 +31,10 @@ export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends 
    * @remarks
    * The file import status. Valid values:
    * 
-   * - SUCCESS: The import to application data is complete.
-   * - FAILED: The import to application data failed.
+   * - SUCCESS: The application data is imported.
+   * - FAILED: The application data fails to be imported.
    * 
-   * > Only files with a SUCCESS status can be used to create or update a knowledge base.
+   * > Only files whose status is SUCCESS can be used to create or update knowledge bases.
    * >
    * 
    * @example
@@ -109,7 +109,7 @@ export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: AddFilesFromAuthorizedOssResponseBodyData;
   /**
@@ -138,9 +138,9 @@ export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true

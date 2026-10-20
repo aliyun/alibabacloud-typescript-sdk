@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeParseSettingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configuration was changed. Valid values:
+   * Indicates whether the configuration was changed.
    * - true: The configuration was updated.
    * - false: The configuration was not changed. The modification failed.
    * 
@@ -37,7 +37,7 @@ export class ChangeParseSettingResponseBodyData extends $dara.Model {
 export class ChangeParseSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error status code.
+   * The error code.
    * 
    * @example
    * InvalidParameter

@@ -23,7 +23,13 @@ export class AddTableRequestTableColumns extends $dara.Model {
   columnName?: string;
   /**
    * @remarks
-   * The data type.
+   * The data type. Valid values:
+   * 
+   * - datetime: datetime
+   * - string: string
+   * - double: double-precision floating point
+   * - image_url: image URL
+   * - long: long integer
    * 
    * This parameter is required.
    * 

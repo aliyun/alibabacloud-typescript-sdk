@@ -43,7 +43,7 @@ export class DeleteFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data field of the API response.
+   * The business data field of the operation.
    */
   data?: DeleteFileResponseBodyData;
   /**
@@ -56,7 +56,7 @@ export class DeleteFileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
@@ -64,7 +64,7 @@ export class DeleteFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned by the API.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,11 +72,9 @@ export class DeleteFileResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * 
-   * - true: Succeeded.
-   * 
-   * - false: Failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - true: The call succeeded.
+   * - false: The call failed.
    * 
    * @example
    * true

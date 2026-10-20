@@ -21,7 +21,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
@@ -29,15 +29,15 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
-   * XXX产品介绍.pdf
+   * XXX Product Introduction.pdf
    */
   fileName?: string;
   /**
    * @remarks
-   * The file type (extension). Possible values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
+   * The file type, which is the file extension. Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
    * 
    * @example
    * pdf
@@ -45,16 +45,31 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The reason for the parsing failure.
+   * The download URL of the source file.
+   * 
+   * @example
+   * https:xxxx.com/xxx.pdf?sign=xxxx&expiredAt=xxxx
+   */
+  originFileDownloadUrl?: string;
+  /**
+   * @remarks
+   * The cause of the parsing failure.
    * 
    * @example
    * Error Message
    */
   parseErrorMessage?: string;
+  /**
+   * @remarks
+   * The download URL of the file parsing result.
+   * 
+   * @example
+   * https://example.com/parse-result
+   */
   parseResultDownloadUrl?: string;
   /**
    * @remarks
-   * The parser type used to parse the file. Possible values:
+   * The type of the parser used to parse the file. Valid values:
    * - DASHSCOPE_DOCMIND: the default document parser.
    * 
    * @example
@@ -63,7 +78,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The size of the file, in bytes.
    * 
    * @example
    * 1234
@@ -73,43 +88,42 @@ export class DescribeFileResponseBodyData extends $dara.Model {
    * @remarks
    * <props="china">
    * 
-   * For files used in document-based knowledge bases (type: UNSTRUCTURED), possible values:
+   * The status of a file used for a document knowledge base (type: UNSTRUCTURED). Valid values:
    * 
    * 
    * 
    * <props="intl">
    * 
-   * For files used in unstructured knowledge bases (type: UNSTRUCTURED), possible values:
+   * The status of a file used for an unstructured knowledge base (type: UNSTRUCTURED). Valid values:
    * 
    * 
    * 
    * 
-   * - INIT: Pending parsing.
-   * - IN_PARSE_QUEUE: Queued for parsing.
-   * - PARSING: Being parsed.
-   * - PARSE_SUCCESS: Parsing completed.
-   * <note>The document can be imported into a knowledge base only after the status changes to PARSE_SUCCESS.</note>
-   * - PARSE_FAILED: Parsing failed.
+   * - INIT: to be parsed.
+   * - IN_PARSE_QUEUE: queuing for parsing.
+   * - PARSING: parsing.
+   * - PARSE_SUCCESS: parsed.
+   * <note>You can import a document into a knowledge base only after its status changes to PARSE_SUCCESS.</note>
+   * - PARSE_FAILED: parsing failed.
    * 
    * <props="china">
-   * For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), possible values:
+   * The status of a file used for [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) in an agent application (type: SESSION_FILE). Valid values:
    * 
-   * - INIT: Pending parsing.
-   * - IN_PARSE_QUEUE: Queued for parsing.
-   * - PARSING: Being parsed.
-   * - PARSE_SUCCESS: Parsing completed.
-   * - PARSE_FAILED: Parsing failed.
-   * - SAFE_CHECKING: Safety check in progress.
-   * - SAFE_CHECK_FAILED: Safety check failed.
-   * - INDEX_BUILDING: Index being built.
-   * - INDEX_BUILD_SUCCESS: Index built.
-   * - INDEX_BUILDING_FAILED: Index building failed.
-   * - INDEX_DELETED: File index deleted.
-   * - FILE_IS_READY: File is ready.
-   * <note>Q&A is available only after the status changes to FILE_IS_READY.</note>
-   * - FILE_EXPIRED: File expired.
-   * <note>The file is valid only for the current user session. After the user closes the session, the file expires (maximum validity period: 7 days). Long-term retention is not supported.</note>
-   * .
+   * - INIT: to be parsed.
+   * - IN_PARSE_QUEUE: queuing for parsing.
+   * - PARSING: parsing.
+   * - PARSE_SUCCESS: parsed.
+   * - PARSE_FAILED: parsing failed.
+   * - SAFE_CHECKING: undergoing security check.
+   * - SAFE_CHECK_FAILED: security check failed.
+   * - INDEX_BUILDING: building index.
+   * - INDEX_BUILD_SUCCESS: index built.
+   * - INDEX_BUILDING_FAILED: index building failed.
+   * - INDEX_DELETED: file index deleted.
+   * - FILE_IS_READY: file ready.
+   * <note>You can perform Q&A only after the status changes to FILE_IS_READY.</note>
+   * - FILE_EXPIRED: file expired.
+   * <note>The file is valid only for the current session of the user. After the user closes the session, the file expires. The maximum validity period is 7 days. Long-term storage is not supported.</note>
    * 
    * @example
    * PARSE_SUCCESS
@@ -127,6 +141,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       fileType: 'FileType',
+      originFileDownloadUrl: 'OriginFileDownloadUrl',
       parseErrorMessage: 'ParseErrorMessage',
       parseResultDownloadUrl: 'ParseResultDownloadUrl',
       parser: 'Parser',
@@ -143,6 +158,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'string',
       fileName: 'string',
       fileType: 'string',
+      originFileDownloadUrl: 'string',
       parseErrorMessage: 'string',
       parseResultDownloadUrl: 'string',
       parser: 'string',
@@ -167,7 +183,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
 export class DescribeFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error status code.
+   * The error code.
    * 
    * @example
    * Success
@@ -175,7 +191,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field.
    */
   data?: DescribeFileResponseBodyData;
   /**
@@ -188,7 +204,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
@@ -196,7 +212,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned by the operation.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -204,9 +220,9 @@ export class DescribeFileResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

@@ -7,25 +7,24 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
    * @remarks
    * <props="china">
    * 
-   * A map of metadata for the text chunk.
+   * The metadata map of the text chunk.
    * 
-   * > For document search knowledge bases, the `file_path` field in the metadata map is not applicable and should not be used in your application code.
+   * > The file_path field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
    * 
-   * > When you retrieve data from a document search knowledge base, if a text chunk contains an image, its URL is returned in the `image_url` field of the metadata map. This URL expires.
+   * > When you retrieve a document search knowledge base, if a chunk contains an image, the image is returned in the image_url field of the metadata map, along with an expiration time.
    * 
-   * > When you retrieve data from an audio/video search knowledge base, if a text chunk contains audio, its URL is returned in the `audio_url` field of the metadata map. This URL expires.
+   * > When you retrieve an audio and video search knowledge base, if a chunk contains audio, the audio is returned in the audio_url field of the metadata map, along with an expiration time.
    * 
-   * > When you retrieve data from an audio/video search knowledge base, if a text chunk contains video, its URL is returned in the `video_url` field of the metadata map. This URL expires.
-   * 
+   * > When you retrieve an audio and video search knowledge base, if a chunk contains a video, the video is returned in the video_url field of the metadata map, along with an expiration time.
    * 
    * 
    * <props="intl">
    * 
-   * A map of metadata for the text chunk.
+   * The metadata map of the text chunk.
    * 
-   * > For document search knowledge bases, the `file_path` field in the metadata map is not applicable and should not be used in your application code.
+   * > The file_path field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
    * 
-   * > When you retrieve data from a document search knowledge base, if a text chunk contains an image, its URL is returned in the `image_url` field of the metadata map. This URL expires.
+   * > When you retrieve a document search knowledge base, if a chunk contains an image, the image is returned in the image_url field of the metadata map, along with an expiration time.
    * 
    * @example
    * {
@@ -35,12 +34,12 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
    *     "http://***"
    *   ],
    *   "nid": "***",
-   *   "title": "阿里云百炼文档",
+   *   "title": "Alibaba Cloud Model Studio Documentation",
    *   "doc_id": "doc_***",
-   *   "content": "阿里云百炼是基于通义大模型、行业大模型以及三方大模型的一站式大模型开发平台。面向企业客户和个人开发者，提供完整的模型服务工具和全链路应用开发套件，预置丰富的能力插件，提供API及SDK等便捷的集成方式，高效完成大模型应用构建",
+   *   "content": "Alibaba Cloud Model Studio is a one-stop large model development platform based on Tongyi large models, industry large models, and third-party large models. It provides enterprise customers and individual developers with a complete set of model service tools and full-link application development kits, pre-installed with rich capability plugins, and offers convenient integration methods such as APIs and SDKs to efficiently build large model applications.",
    *   "workspace_id": "ws_***",
-   *   "hier_title": "阿里云百炼文档",
-   *   "doc_name": "阿里云百炼文档介绍.pdpf",
+   *   "hier_title": "Alibaba Cloud Model Studio Documentation",
+   *   "doc_name": "Introduction to Alibaba Cloud Model Studio Documentation.pdpf",
    *   "pipeline_id": "rhd***",
    *   "_id": "ws_***"
    * }
@@ -48,7 +47,7 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The similarity score of the text chunk, ranging from 0 to 1.
+   * The similarity score of the text chunk. Valid values: 0 to 1.
    * 
    * @example
    * 0.3
@@ -59,7 +58,7 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
    * The content of the text chunk.
    * 
    * @example
-   * 阿里云百炼是基于通义大模型、行业大模型以及三方大模型的一站式大模型开发平台。面向企业客户和个人开发者，提供完整的模型服务工具和全链路应用开发套件，预置丰富的能力插件，提供API及SDK等便捷的集成方式，高效完成大模型应用构建。
+   * Alibaba Cloud Model Studio is a one-stop large model development platform based on Tongyi large models, industry large models, and third-party large models. It provides enterprise customers and individual developers with a complete set of model service tools and full-link application development kits, pre-installed with rich capability plugins, and offers convenient integration methods such as APIs and SDKs to efficiently build large model applications
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -90,7 +89,7 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
 export class RetrieveResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * An array of retrieved text chunks.
+   * The list of matched text chunks.
    */
   nodes?: RetrieveResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
@@ -128,7 +127,7 @@ export class RetrieveResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned by the API.
+   * The business data field returned by the operation.
    */
   data?: RetrieveResponseBodyData;
   /**
@@ -149,7 +148,7 @@ export class RetrieveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code of the response.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -157,11 +156,9 @@ export class RetrieveResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
-   * 
-   * - true: The call succeeded.
-   * 
-   * - false: The call failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

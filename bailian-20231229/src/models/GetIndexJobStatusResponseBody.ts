@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The error status code.
+   * The error code.
    * 
    * @example
    * Index.Document.ChunkError
@@ -24,9 +24,16 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
    * The file name.
    * 
    * @example
-   * XXX产品介绍
+   * XXX Product Introduction
    */
   docName?: string;
+  /**
+   * @remarks
+   * The time when the file was last modified. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1782209511000
+   */
   gmtModified?: number;
   /**
    * @remarks
@@ -39,12 +46,12 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
    * The file import status. Valid values:
-   * - INSERT_ERROR: Failed to import into the index.
-   * - RUNNING: Index building in progress.
-   * - DELETED: Deleted.
-   * - FINISH: Index building succeeded.
-   * - PARSE_FAILED: Parsing failed.
-   * - DOC_PARSING: Parsing in progress.
+   * - INSERT_ERROR: The index import failed.
+   * - RUNNING: The index is being built.
+   * - DELETED: The file is deleted.
+   * - FINISH: The index is built successfully.
+   * - PARSE_FAILED: The parsing failed.
+   * - DOC_PARSING: The file is being parsed.
    * 
    * @example
    * RUNNING
@@ -84,12 +91,12 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
 export class GetIndexJobStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of files imported in this job.
+   * The list of files imported in this task.
    */
   documents?: GetIndexJobStatusResponseBodyDataDocuments[];
   /**
    * @remarks
-   * The job ID.
+   * The job task ID.
    * 
    * @example
    * 66122af12a4e45ddae6bd6c84555xxxx
@@ -97,11 +104,11 @@ export class GetIndexJobStatusResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The current status of the knowledge base job. Valid values:
-   * - COMPLETED: Execution succeeded.
-   * - FAILED: Execution failed.
-   * - RUNNING: Execution in progress.
-   * - PENDING: Waiting for execution.
+   * The current status of the knowledge base job task. Valid values:
+   * - COMPLETED: The task is executed successfully.
+   * - FAILED: The task failed to be executed.
+   * - RUNNING: The task is being executed.
+   * - PENDING: The task is pending execution.
    * 
    * @example
    * PENDING
@@ -138,7 +145,7 @@ export class GetIndexJobStatusResponseBodyData extends $dara.Model {
 export class GetIndexJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error status code.
+   * The error code.
    * 
    * @example
    * Index.Forbidden
@@ -146,7 +153,7 @@ export class GetIndexJobStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: GetIndexJobStatusResponseBodyData;
   /**
@@ -175,9 +182,9 @@ export class GetIndexJobStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

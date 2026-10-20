@@ -45,7 +45,7 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The reason for parsing failure.
+   * The reason for the parsing failure.
    * 
    * @example
    * Error Message
@@ -62,7 +62,7 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 512
@@ -71,9 +71,9 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
   /**
    * @remarks
    * The file parsing status. Valid values:
-   * - INIT: Initialization state. Waiting to be scheduled.
+   * - INIT: Initialization. The file is waiting to be scheduled.
    * - PARSING: Parsing in progress.
-   * - PARSE_SUCCESS: Parsing completed.
+   * - PARSE_SUCCESS: Parsing succeeded.
    * - PARSE_FAILED: Parsing failed.
    * 
    * @example
@@ -135,9 +135,9 @@ export class ListFileResponseBodyData extends $dara.Model {
   fileList?: ListFileResponseBodyDataFileList[];
   /**
    * @remarks
-   * Indicates whether there is a next page of category data that matches the query conditions. Valid values:
-   * - true: Yes.
-   * - false: No.
+   * Indicates whether a next page exists for the category data that matches the query conditions. Valid values:
+   * - true: A next page exists.
+   * - false: No next page exists.
    * 
    * @example
    * true
@@ -145,7 +145,7 @@ export class ListFileResponseBodyData extends $dara.Model {
   hasNext?: boolean;
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -161,7 +161,7 @@ export class ListFileResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries in the returned results.
+   * The total number of entries returned.
    * 
    * @example
    * 48
@@ -202,7 +202,7 @@ export class ListFileResponseBodyData extends $dara.Model {
 export class ListFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * success

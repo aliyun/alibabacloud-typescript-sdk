@@ -6,11 +6,14 @@ export class UpdateChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error status code.
+   * 
+   * @example
+   * Index.InvalidParameter
    */
   code?: string;
   /**
    * @remarks
-   * The business data returned upon a successful request.
+   * The business data returned when the request succeeds.
    * 
    * @example
    * true
@@ -19,6 +22,9 @@ export class UpdateChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Required parameter missing or invalid.
    */
   message?: string;
   /**
@@ -41,7 +47,7 @@ export class UpdateChunkResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Succeeded.
+   * - true: Successful.
    * - false: Failed.
    * 
    * @example

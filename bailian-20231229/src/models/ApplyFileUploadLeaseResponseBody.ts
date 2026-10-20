@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyFileUploadLeaseResponseBodyDataParam extends $dara.Model {
   /**
    * @remarks
-   * Key-value pairs that need to be included in the header. Both keys and values are strings.
+   * The key-value pairs to include in the request header. Both keys and values are strings.
    * 
-   * > The returned Content-Type may be empty. You can upload the file with the empty value.
+   * > The returned Content-Type may be empty. Use the empty value as-is when uploading.
    * 
    * @example
    * "X-bailian-extra":"MTAwNTQyNjQ5NTE2OTE3OA==",
@@ -26,9 +26,9 @@ export class ApplyFileUploadLeaseResponseBodyDataParam extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The upload URL of the file.
+   * The upload URL for the file.
    * 
-   * > This URL is a pre-signed URL. FormData upload is not supported. You must upload the file in binary mode.
+   * > This URL is a pre-signed URL. It does not support FormData uploads. Use binary upload instead.
    * 
    * @example
    * https://bailian-datahub-data-origin-prod.oss-cn-hangzhou.aliyuncs.com/1005426495169178/10024405/68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847.pdf?Expires=1716699536&OSSAccessKeyId=TestID&Signature=HfwPUZo4pR6DatSDym0zFKVh9Wg%3D
@@ -62,7 +62,7 @@ export class ApplyFileUploadLeaseResponseBodyDataParam extends $dara.Model {
 export class ApplyFileUploadLeaseResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the lease. You need to use this parameter when you call the **AddFile** API.
+   * The unique ID of the lease. This parameter is required when calling the **AddFile** operation.
    * 
    * @example
    * 1e6a159107384782be5e45ac4759b247.1719325231035
@@ -75,7 +75,7 @@ export class ApplyFileUploadLeaseResponseBodyData extends $dara.Model {
   param?: ApplyFileUploadLeaseResponseBodyDataParam;
   /**
    * @remarks
-   * The upload method of the file. Valid values:
+   * The upload method for the file. Valid values:
    * - OSS.PreSignedURL
    * - HTTP
    * 
@@ -114,7 +114,7 @@ export class ApplyFileUploadLeaseResponseBodyData extends $dara.Model {
 export class ApplyFileUploadLeaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * DataCenter.FileTooLarge
@@ -122,7 +122,7 @@ export class ApplyFileUploadLeaseResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The business data field of the operation.
    */
   data?: ApplyFileUploadLeaseResponseBodyData;
   /**
@@ -143,7 +143,7 @@ export class ApplyFileUploadLeaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -151,10 +151,10 @@ export class ApplyFileUploadLeaseResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true: The call is successful.
-   * - false: The call failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

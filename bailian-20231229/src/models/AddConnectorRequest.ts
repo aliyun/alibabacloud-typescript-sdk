@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddConnectorRequestFileConnectorConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The name of the storage bucket.
    * 
    * @example
    * zyb-docker-registry-jn
@@ -13,7 +13,7 @@ export class AddConnectorRequestFileConnectorConfig extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The region of the bucket.
+   * The region of the storage bucket.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,9 @@ export class AddConnectorRequestFileConnectorConfig extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The file storage location. Valid values:<br>`OSS_CUSTOM`: Use your own Object Storage Service (OSS) bucket.<br>`OSS_PLATFORM`: Use the platform-provided OSS bucket.<br><br>
+   * The file storage location. Valid values:
+   * - OSS_CUSTOM: Use your own OSS storage. 
+   * - OSS_PLATFORM: Use platform OSS storage.
    * 
    * @example
    * OSS_CUSTOM
@@ -75,17 +77,17 @@ export class AddConnectorRequest extends $dara.Model {
   connectorType?: string;
   /**
    * @remarks
-   * The description for the connector.
+   * The description of the connector.
    * 
    * This parameter is required.
    * 
    * @example
-   * 文件连接器
+   * File connector
    */
   description?: string;
   /**
    * @remarks
-   * The parameters for the file connector.
+   * The configuration parameters for the file connector.
    */
   fileConnectorConfig?: AddConnectorRequestFileConnectorConfig;
   static names(): { [key: string]: string } {

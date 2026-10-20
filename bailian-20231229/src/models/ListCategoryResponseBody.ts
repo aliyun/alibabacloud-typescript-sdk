@@ -16,14 +16,13 @@ export class ListCategoryResponseBodyDataCategoryList extends $dara.Model {
    * The category name.
    * 
    * @example
-   * 类目1
+   * Category1
    */
   categoryName?: string;
   /**
    * @remarks
-   * The category type. The only valid value is:
-   * 
-   * - `UNSTRUCTURED`: A standard category.
+   * The category type. Valid values:
+   * - UNSTRUCTURED: category.
    * 
    * @example
    * UNSTRUCTURED
@@ -31,13 +30,11 @@ export class ListCategoryResponseBodyDataCategoryList extends $dara.Model {
   categoryType?: string;
   /**
    * @remarks
-   * Indicates whether the category is the default. Valid values:
+   * Indicates whether the category is a default category. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
-   * - `true`: The category is the default.
-   * 
-   * - `false`: The category is not the default.
-   * 
-   * You cannot delete the default category.
+   * Default categories cannot be deleted.
    * 
    * @example
    * true
@@ -45,7 +42,7 @@ export class ListCategoryResponseBodyDataCategoryList extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The parent category ID.
+   * The category ID of the parent category.
    * 
    * @example
    * cate_addd11b1b79a74e8bbd675c356a91ee3xxxxxxxx
@@ -83,16 +80,15 @@ export class ListCategoryResponseBodyDataCategoryList extends $dara.Model {
 export class ListCategoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of categories.
+   * The category list.
    */
   categoryList?: ListCategoryResponseBodyDataCategoryList[];
   /**
    * @remarks
-   * Indicates whether more results are available for retrieval. Valid values:
+   * Indicates whether a next page of category data that matches the query conditions exists. Valid values:
    * 
-   * - `true`: More results are available.
-   * 
-   * - `false`: This is the last page of results.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -100,7 +96,7 @@ export class ListCategoryResponseBodyData extends $dara.Model {
   hasNext?: boolean;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The number of categories per page in a paged query.
    * 
    * @example
    * 20
@@ -108,7 +104,7 @@ export class ListCategoryResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. This parameter is omitted when no more results are available.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAALHWGpGoYCcYMxiFfmlhvh7Z4G8jiXR6IjHYd+M9WQVJ
@@ -116,7 +112,7 @@ export class ListCategoryResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of matching categories.
+   * The total number of categories in the returned results.
    * 
    * @example
    * 20
@@ -157,7 +153,7 @@ export class ListCategoryResponseBodyData extends $dara.Model {
 export class ListCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * success
@@ -165,7 +161,7 @@ export class ListCategoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The business data field of the operation.
    */
   data?: ListCategoryResponseBodyData;
   /**
@@ -186,7 +182,7 @@ export class ListCategoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code for the request.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -194,11 +190,9 @@ export class ListCategoryResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - `true`: The request succeeded.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

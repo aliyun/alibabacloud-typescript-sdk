@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChunkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of text chunks to delete. A maximum of 10 text chunk IDs can be specified in a single request.
+   * The list of text chunk IDs to delete. A maximum of 10 text chunk IDs can be passed in a single request.
    * 
    * This parameter is required.
    */

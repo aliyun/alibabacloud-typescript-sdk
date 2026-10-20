@@ -8,17 +8,16 @@ export class GetAvailableParserTypesResponseBodyDataParserList extends $dara.Mod
    * The display name of the parsing method.
    * 
    * @example
-   * 智能文档解析
+   * Intelligent Document Parsing
    */
   displayName?: string;
   /**
    * @remarks
    * The parser code. Valid values:
-   * 
-   * *   DOCMIND (Intelligent parsing)
-   * *   DOCMIND_DIGITAL (Digital parsing)
-   * *   DOCMIND_LLM_VERSION (LLM parsing)
-   * *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
+   * - DOCMIND: Intelligent Document Parsing.
+   * - DOCMIND_DIGITAL: Electronic Document Parsing.
+   * - DOCMIND_LLM_VERSION: LLM-based Document Parsing.
+   * - DASH_QWEN_VL_PARSER: Qwen-VL Parsing.
    * 
    * @example
    * DOCMIND
@@ -50,7 +49,7 @@ export class GetAvailableParserTypesResponseBodyDataParserList extends $dara.Mod
 export class GetAvailableParserTypesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The file type, which is the same as the FileType in the input parameter.
+   * The file type, which is the same as the FileType input parameter.
    * 
    * @example
    * pdf
@@ -58,7 +57,7 @@ export class GetAvailableParserTypesResponseBodyData extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The list of supported parsers
+   * The list of parsers supported for the specified file type.
    */
   parserList?: GetAvailableParserTypesResponseBodyDataParserList[];
   static names(): { [key: string]: string } {
@@ -98,12 +97,12 @@ export class GetAvailableParserTypesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The business data returned upon a successful request.
    */
   data?: GetAvailableParserTypesResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned if the request failed.
+   * The error message.
    * 
    * @example
    * User not authorized to operate on the specified resource
@@ -119,7 +118,7 @@ export class GetAvailableParserTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -127,10 +126,9 @@ export class GetAvailableParserTypesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

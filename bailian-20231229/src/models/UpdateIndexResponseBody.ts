@@ -43,7 +43,7 @@ export class UpdateIndexResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The data field returned by the operation.
    */
   data?: UpdateIndexResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class UpdateIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned by the API.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,11 +72,11 @@ export class UpdateIndexResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * true: The request was successful.
+   * true: The call was successful.
    * 
-   * false: The request failed.
+   * false: The call failed.
    * 
    * @example
    * true

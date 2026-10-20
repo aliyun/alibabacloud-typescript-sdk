@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMemoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the long-term memory. The description must be 1 to 50 characters in length and can contain letters, digits, and characters in the Unicode letter category (including Chinese characters). The description can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The description of the long-term memory. The description is empty by default. The value must be 1 to 50 characters in length and can contain characters in the letter category of Unicode, which includes letters, Chinese characters, and digits. The value can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
-   * 我的大模型应用$APP_ID关于A用户的长期记忆体
+   * Long-term memory of user A for my LLM application $APP_ID
    */
   description?: string;
   static names(): { [key: string]: string } {

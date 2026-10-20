@@ -25,17 +25,17 @@ export class AddConnectorShrinkRequest extends $dara.Model {
   connectorType?: string;
   /**
    * @remarks
-   * The description for the connector.
+   * The description of the connector.
    * 
    * This parameter is required.
    * 
    * @example
-   * 文件连接器
+   * File connector
    */
   description?: string;
   /**
    * @remarks
-   * The parameters for the file connector.
+   * The configuration parameters for the file connector.
    */
   fileConnectorConfigShrink?: string;
   static names(): { [key: string]: string } {

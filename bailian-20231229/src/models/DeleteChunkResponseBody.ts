@@ -6,11 +6,14 @@ export class DeleteChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error status code.
+   * 
+   * @example
+   * InvalidParameter
    */
   code?: string;
   /**
    * @remarks
-   * The business data returned upon a successful request.
+   * The business data returned when the request succeeds.
    * 
    * @example
    * true
@@ -19,6 +22,9 @@ export class DeleteChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
@@ -39,10 +45,10 @@ export class DeleteChunkResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The call was successful.
-   * - false: The call failed.
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

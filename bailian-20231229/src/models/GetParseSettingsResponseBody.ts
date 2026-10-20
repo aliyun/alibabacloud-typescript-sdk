@@ -13,13 +13,13 @@ export class GetParseSettingsResponseBodyDataParserConfig extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The prompt used for parsing.
+   * The prompt used when calling Qwen VL parsing.
    * 
    * @example
-   * #角色
-   * 你是一个专业的图片内容标注人员，擅长识别并描述出图片中的内容。
-   * # 任务目标
-   * 请结合输入图片，详细描述图片中的内容。
+   * # Role
+   * You are a professional image content annotator who excels at identifying and describing the content in images.
+   * # Task Objective
+   * Based on the input image, describe the content in the image in detail
    */
   modelPrompt?: string;
   static names(): { [key: string]: string } {
@@ -48,7 +48,7 @@ export class GetParseSettingsResponseBodyDataParserConfig extends $dara.Model {
 export class GetParseSettingsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The file type. Valid values are: pdf, docx, doc, etc. All supported file types in the category are listed here.
+   * The file type, specified as a file extension. Valid values include pdf, docx, and doc. All file types supported in the current category are listed.
    * 
    * @example
    * pdf
@@ -56,12 +56,11 @@ export class GetParseSettingsResponseBodyData extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The parser used for files of the current type. Valid values:
-   * 
-   * *   DOCMIND (Intelligent parsing)
-   * *   DOCMIND_DIGITAL (Digital parsing)
-   * *   DOCMIND_LLM_VERSION (LLM parsing)
-   * *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
+   * The parser used to parse files of the current type under this category. Valid values:
+   * - DOCMIND: Intelligent Document Parsing.
+   * - DOCMIND_DIGITAL: Electronic Document Parsing.
+   * - DOCMIND_LLM_VERSION: LLM-based Document Parsing.
+   * - DASH_QWEN_VL_PARSER: Qwen VL Parsing.
    * 
    * @example
    * DOCMIND
@@ -69,7 +68,7 @@ export class GetParseSettingsResponseBodyData extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * The parser configuration. Currently, this is available only for Qwen VL parsing.
+   * The parser configuration. This parameter is returned only when the type is set to Qwen VL parsing.
    */
   parserConfig?: GetParseSettingsResponseBodyDataParserConfig;
   /**
@@ -77,7 +76,7 @@ export class GetParseSettingsResponseBodyData extends $dara.Model {
    * The display name of the parsing method.
    * 
    * @example
-   * 电子文档解析
+   * Electronic Document Parsing
    */
   parserDisplayName?: string;
   static names(): { [key: string]: string } {
@@ -113,7 +112,7 @@ export class GetParseSettingsResponseBodyData extends $dara.Model {
 export class GetParseSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The error code.
    * 
    * @example
    * success
@@ -121,7 +120,7 @@ export class GetParseSettingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data fields.
+   * The business data returned when the request is successful.
    */
   data?: GetParseSettingsResponseBodyData[];
   /**
@@ -142,7 +141,7 @@ export class GetParseSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -150,10 +149,9 @@ export class GetParseSettingsResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

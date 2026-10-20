@@ -7,7 +7,7 @@ export class CreateMemoryResponseBody extends $dara.Model {
    * @remarks
    * The long-term memory ID.
    * > Store this value properly. It is required for all subsequent API operations related to this long-term memory.
-   * >.
+   * >
    * 
    * @example
    * 6bff4f317a14442fbc9f73d29dbxxxx

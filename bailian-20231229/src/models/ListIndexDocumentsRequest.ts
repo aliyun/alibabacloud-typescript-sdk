@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexDocumentsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the returned file list by file name (without the file extension). Default value: empty, which means no filtering by file name.
+   * Filters the returned file list by file name (excluding the file extension). Default value: empty, which means no filtering by file name.
    * 
    * @example
    * product-overview
@@ -14,12 +14,12 @@ export class ListIndexDocumentsRequest extends $dara.Model {
   /**
    * @remarks
    * Filters the returned file list by file import status. Valid values:
-   * - INSERT_ERROR: failed to import to the index.
-   * - RUNNING: index building in progress.
-   * - DELETED: deleted.
-   * - FINISH: index building succeeded.
-   * - PARSE_FAILED: parsing failed.
-   * - DOC_PARSING: parsing in progress.
+   * - INSERT_ERROR: Failed to import to the index.
+   * - RUNNING: Index building in progress.
+   * - DELETED: Deleted.
+   * - FINISH: Index building succeeded.
+   * - PARSE_FAILED: Parsing failed.
+   * - DOC_PARSING: Parsing in progress.
    * 
    * Default value: empty, which means no filtering by file import status.
    * 
@@ -31,7 +31,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable fuzzy matching for file names. This parameter is used together with the `DocumentName` parameter. Valid values:
    * - true: Performs fuzzy matching on the returned file list based on the file name.
-   * - false: Performs exact matching on the returned file list based on the file name.
+   * - false: Performs exact matching based on the file name.
    * 
    * Default value: false.
    * 
@@ -51,7 +51,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
   indexId?: string;
   /**
    * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
+   * The page number to query. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1

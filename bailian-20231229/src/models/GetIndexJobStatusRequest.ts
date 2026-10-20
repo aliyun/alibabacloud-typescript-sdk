@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIndexJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
+   * The knowledge base ID, which is the Data.Id returned by the CreateIndex operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIndexJobStatusRequest extends $dara.Model {
   indexId?: string;
   /**
    * @remarks
-   * The knowledge base job ID, which is the `Data.Id` returned by the **SubmitIndexJob** or **SubmitIndexAddDocumentsJob** operation.
+   * The knowledge base job task ID, which is the Data.Id returned by the SubmitIndexJob or SubmitIndexAddDocumentsJob operation.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetIndexJobStatusRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Both the **SubmitIndexJob** and **SubmitIndexAddDocumentsJob** operations support batch file import. This operation returns the overall status of the knowledge base job (`Status`) and the import status of each file (`Document.Status`). If there are many files, use the `PageNumber` parameter for paged query. Minimum value: 1. Default value: 1.
+   * Both the **SubmitIndexJob** and **SubmitIndexAddDocumentsJob** operations support batch file import. The fields returned by this operation include the overall status of the knowledge base job task (`Status`) and the import status of each file (`Document.Status`). If a large number of files are imported, you can use the `PageNumber` parameter for paging. The starting value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class GetIndexJobStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file import tasks to display per page in a paged query. No maximum limit. Default value: 10.
+   * The number of file import tasks to return on each page during paging. Maximum value: unlimited. Default value: 10.
    * 
    * @example
    * 10

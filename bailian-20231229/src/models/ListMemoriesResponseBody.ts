@@ -8,7 +8,7 @@ export class ListMemoriesResponseBodyMemories extends $dara.Model {
    * The description of the long-term memory.
    * 
    * @example
-   * 我的大模型应用$APP_ID关于A用户的长期记忆体
+   * Long-term memory of user A for my large model application $APP_ID
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class ListMemoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The long-term memory entity list.
+   * The list of long-term memory entities.
    */
   memories?: ListMemoriesResponseBodyMemories[];
   /**
@@ -82,7 +82,7 @@ export class ListMemoriesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The ID of the workspace to which the long-term memory entity list belongs.
+   * The workspace ID to which the long-term memory list belongs.
    * 
    * @example
    * llm-3z7uw7fwz0vexxxx

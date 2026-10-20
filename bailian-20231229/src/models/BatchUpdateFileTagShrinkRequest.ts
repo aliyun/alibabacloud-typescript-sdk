@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateFileTagShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of files to update.
+   * The list of documents to update.
    * 
    * This parameter is required.
    */
   fileInfosShrink?: string;
   /**
    * @remarks
-   * The update mode. Valid values are APPEND and OVERWRITE.
+   * The update mode. Valid values: APPEND (append) and OVERWRITE (overwrite).
    * 
    * @example
    * OVERWRITE

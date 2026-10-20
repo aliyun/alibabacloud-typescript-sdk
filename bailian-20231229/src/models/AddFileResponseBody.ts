@@ -13,7 +13,7 @@ export class AddFileResponseBodyData extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The parser type used to parse the file. Valid values:
+   * The parser type used to parse this file. Valid values:
    * - DASHSCOPE_DOCMIND: Alibaba Cloud intelligent document parsing.
    * 
    * @example
@@ -46,7 +46,7 @@ export class AddFileResponseBodyData extends $dara.Model {
 export class AddFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * DataCenter.FileTooLarge
@@ -54,7 +54,7 @@ export class AddFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: AddFileResponseBodyData;
   /**
@@ -83,9 +83,9 @@ export class AddFileResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

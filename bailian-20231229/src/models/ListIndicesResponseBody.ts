@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIndicesResponseBodyDataIndicesStructuredIndexConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether this field participates in model responses. A value of **true** indicates that the retrieval results of this column are used as input for the large language model to generate answers.
+   * 
+   * @example
+   * true
+   */
   isRecall?: boolean;
+  /**
+   * @remarks
+   * Specifies whether this field participates in knowledge base retrieval. A value of **true** indicates that the knowledge base can search within the data of this column.
+   * 
+   * @example
+   * true
+   */
   isSearch?: boolean;
+  /**
+   * @remarks
+   * The name of the index field.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the index field.
+   * 
+   * @example
+   * string
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +65,7 @@ export class ListIndicesResponseBodyDataIndicesStructuredIndexConfig extends $da
 export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   /**
    * @remarks
-   * The estimated chunk size. Valid values: 1 to 2048.
+   * The estimated chunk size. Valid value range: [1-2048].
    * 
    * @example
    * 5
@@ -55,10 +83,10 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   confgModel?: string;
   /**
    * @remarks
-   * The knowledge base description.
+   * The description of the knowledge base.
    * 
    * @example
-   * Products in this list are mainly for overseas customers
+   * Products in this catalog are mainly for overseas customers
    */
   description?: string;
   /**
@@ -68,7 +96,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   documentIds?: string[];
   /**
    * @remarks
-   * The embedding model name. Valid values:
+   * The name of the embedding model. Valid values:
    * 
    * <props="china">
    * 
@@ -106,15 +134,15 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The knowledge base name.
+   * The name of the knowledge base.
    * 
    * @example
-   * XXXX Product List
+   * Product Catalog
    */
   name?: string;
   /**
    * @remarks
-   * The chunk overlap size. Valid values: 0 to 1024.
+   * The chunk overlap size. Valid value range: [0-1024].
    * 
    * @example
    * 10
@@ -122,7 +150,31 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   overlapSize?: number;
   /**
    * @remarks
-   * The similarity threshold. Valid values: 0.01 to 1.00.
+   * The compute unit (CU) specification of the commercial knowledge base. This parameter is valid only for Enterprise Edition.
+   * 
+   * @example
+   * 1
+   */
+  pipelineCommercialCu?: number;
+  /**
+   * @remarks
+   * The commercial knowledge base edition.
+   * 
+   * @example
+   * standard
+   */
+  pipelineCommercialType?: string;
+  /**
+   * @remarks
+   * The storage usage of the knowledge base. Unit: GB.
+   * 
+   * @example
+   * 0.03
+   */
+  pipelineStorageUsage?: number;
+  /**
+   * @remarks
+   * The similarity threshold. Valid value range: [0.01-1.00].
    * 
    * @example
    * 0.01
@@ -130,7 +182,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   rerankMinScore?: string;
   /**
    * @remarks
-   * The rerank model name. Valid values:
+   * The name of the rerank model. Valid values:
    * 
    * <props="china">
    * 
@@ -215,7 +267,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The knowledge base type. Valid values:
+   * The type of the knowledge base. Valid values:
    * 
    * - UNSTRUCTURED: document search.
    * 
@@ -223,6 +275,10 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * UNSTRUCTURED
    */
   structureType?: string;
+  /**
+   * @remarks
+   * The index configuration for data query or image Q&A knowledge bases.
+   */
   structuredIndexConfig?: ListIndicesResponseBodyDataIndicesStructuredIndexConfig[];
   static names(): { [key: string]: string } {
     return {
@@ -235,6 +291,9 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
       id: 'Id',
       name: 'Name',
       overlapSize: 'OverlapSize',
+      pipelineCommercialCu: 'PipelineCommercialCu',
+      pipelineCommercialType: 'PipelineCommercialType',
+      pipelineStorageUsage: 'PipelineStorageUsage',
       rerankMinScore: 'RerankMinScore',
       rerankModelName: 'RerankModelName',
       separator: 'Separator',
@@ -258,6 +317,9 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
       id: 'string',
       name: 'string',
       overlapSize: 'number',
+      pipelineCommercialCu: 'number',
+      pipelineCommercialType: 'string',
+      pipelineStorageUsage: 'number',
       rerankMinScore: 'string',
       rerankModelName: 'string',
       separator: 'string',
@@ -293,7 +355,7 @@ export class ListIndicesResponseBodyData extends $dara.Model {
   indices?: ListIndicesResponseBodyDataIndices[];
   /**
    * @remarks
-   * The specified page number.
+   * The page number returned.
    * 
    * @example
    * 1
@@ -301,7 +363,7 @@ export class ListIndicesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The specified number of entries per page.
+   * The number of entries per page returned.
    * 
    * @example
    * 10
@@ -385,7 +447,7 @@ export class ListIndicesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * - true: Successful.
    * - false: Failed.
    * 

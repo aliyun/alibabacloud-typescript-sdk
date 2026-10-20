@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned only if Success is false.
+   * The error code. This parameter is returned only when Success is false.
    * 
    * @example
    * NoPermission
@@ -13,7 +13,7 @@ export class BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList extends $
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only if Success is false.
+   * The error message. This parameter is returned only when Success is false.
    * 
    * @example
    * FileId not exists.
@@ -29,11 +29,9 @@ export class BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList extends $
   fileId?: string;
   /**
    * @remarks
-   * Indicates whether the tags for the specific file were updated. Valid values:
-   * 
-   * - true: The tags were updated successfully.
-   * 
-   * - false: The tag update failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -69,7 +67,7 @@ export class BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList extends $
 export class BatchUpdateFileTagResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of the tag update results.
+   * The list of tag update results.
    */
   updateFileTagResultList?: BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList[];
   static names(): { [key: string]: string } {
@@ -99,7 +97,7 @@ export class BatchUpdateFileTagResponseBodyData extends $dara.Model {
 export class BatchUpdateFileTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates that the call was successful.
+   * The error status code.
    * 
    * @example
    * Success
@@ -107,12 +105,12 @@ export class BatchUpdateFileTagResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned by the operation.
+   * The business data returned by the operation.
    */
   data?: BatchUpdateFileTagResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * Required parameter(FileId) missing or invalid, please check the request parameters.
@@ -120,7 +118,7 @@ export class BatchUpdateFileTagResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
@@ -128,7 +126,7 @@ export class BatchUpdateFileTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned for the request.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -136,11 +134,9 @@ export class BatchUpdateFileTagResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was accepted. Check `UpdateFileTagResultList` for the status of each file. Valid values:
-   * 
-   * - true: The request was accepted.
-   * 
-   * - false: The request failed, for example, due to an invalid parameter.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

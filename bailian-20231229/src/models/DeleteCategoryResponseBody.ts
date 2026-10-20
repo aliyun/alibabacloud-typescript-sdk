@@ -43,7 +43,7 @@ export class DeleteCategoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: DeleteCategoryResponseBodyData;
   /**

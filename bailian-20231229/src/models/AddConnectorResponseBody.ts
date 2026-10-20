@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddConnectorResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connector.
+   * The connector ID.
    * 
    * @example
    * conn_file_e0c9db4030b2465a9478028f7d76cd92_1234
@@ -35,7 +35,7 @@ export class AddConnectorResponseBodyData extends $dara.Model {
 export class AddConnectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of `Success` indicates that the request succeeded.
+   * The error code.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class AddConnectorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned by the operation.
+   * The business data field returned by the operation.
    */
   data?: AddConnectorResponseBodyData;
   /**
@@ -56,7 +56,7 @@ export class AddConnectorResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 35A267BF-FBFA-54DB-8394-AA3B0742D833
@@ -64,7 +64,7 @@ export class AddConnectorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,11 +72,9 @@ export class AddConnectorResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

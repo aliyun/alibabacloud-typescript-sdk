@@ -13,7 +13,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, EXCEL.
    * 
    * @example
    * pdf
@@ -212,7 +212,7 @@ export class ListIndexDocumentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: ListIndexDocumentsResponseBodyData;
   /**

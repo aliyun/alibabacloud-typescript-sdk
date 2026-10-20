@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base ID, also known as `IndexId`. This is the unique identifier of the created knowledge base.
-   * > Store this value properly. It is required for all subsequent API operations related to this knowledge base.
+   * The knowledge base ID, also known as `IndexId`, which is the unique identifier of the created knowledge base.
+   * > Keep this value secure because it is required for all subsequent API operations related to this knowledge base.
    * >
    * 
    * @example
@@ -38,16 +38,22 @@ export class CreateIndexResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error status code.
+   * 
+   * @example
+   * Forbidden
    */
   code?: string;
   /**
    * @remarks
-   * The business data returned when the request succeeds.
+   * The business data returned when the request is successful.
    */
   data?: CreateIndexResponseBodyData;
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Invalid input, variable name is missing
    */
   message?: string;
   /**
@@ -60,7 +66,7 @@ export class CreateIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned by the operation.
+   * The status code returned by the API.
    * 
    * @example
    * "200"
@@ -68,9 +74,9 @@ export class CreateIndexResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Specifies whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true
