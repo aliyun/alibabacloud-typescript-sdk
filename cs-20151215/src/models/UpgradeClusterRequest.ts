@@ -39,7 +39,7 @@ export class UpgradeClusterRequestRollingPolicy extends $dara.Model {
 export class UpgradeClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * [This parameter is deprecated] No value is required.
+   * **[Deprecated]** You do not need to specify this parameter.
    * 
    * @example
    * null
@@ -49,9 +49,10 @@ export class UpgradeClusterRequest extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * Specifies whether to upgrade only the control plane. Valid values:
-   * - true: upgrades only the control plane.
-   * - false: upgrades both the control plane and worker nodes.
+   * Specifies whether to upgrade only the control plane.
+   * 
+   * - true: Upgrades only the control plane.
+   * - false: Upgrades both the control plane and worker nodes.
    * 
    * @example
    * true
@@ -59,7 +60,7 @@ export class UpgradeClusterRequest extends $dara.Model {
   masterOnly?: boolean;
   /**
    * @remarks
-   * The target version to which the cluster is upgraded.
+   * The target version for the cluster upgrade.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -74,7 +75,7 @@ export class UpgradeClusterRequest extends $dara.Model {
   rollingPolicy?: UpgradeClusterRequestRollingPolicy;
   /**
    * @remarks
-   * [This parameter is deprecated] Use the `next_version` parameter instead.
+   * **[Deprecated]** Use the `next_version` parameter instead.
    * 
    * @example
    * null

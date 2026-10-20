@@ -1,5 +1,6 @@
 export { KubeletConfigReservedMemory } from './KubeletConfig';
 export { KubeletConfigTracing } from './KubeletConfig';
+export { MaintenanceWindowExclusions } from './MaintenanceWindow';
 export { NodepoolAutoScaling } from './Nodepool';
 export { NodepoolInterconnectConfig } from './Nodepool';
 export { NodepoolKubernetesConfig } from './Nodepool';

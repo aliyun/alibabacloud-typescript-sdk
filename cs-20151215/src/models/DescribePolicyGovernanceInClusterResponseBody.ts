@@ -45,7 +45,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn extends $dara.Model {
   /**
    * @remarks
-   * The summary of severity levels.
+   * The severity level.
    * 
    * @example
    * high
@@ -53,7 +53,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
   severity?: string;
   /**
    * @remarks
-   * The total number of violations.
+   * The number of violations.
    * 
    * @example
    * 0
@@ -85,12 +85,12 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations extends $dara.Model {
   /**
    * @remarks
-   * The summary of block records.
+   * The aggregated interception records.
    */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny[];
   /**
    * @remarks
-   * The summary of alert records.
+   * The aggregated alert records.
    */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny extends $dara.Model {
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
    * Prevent specific namespaces from being deleted.
@@ -185,7 +185,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDen
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn extends $dara.Model {
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    */
   policyDescription?: string;
   /**
@@ -201,6 +201,9 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
   /**
    * @remarks
    * The number of violations.
+   * 
+   * @example
+   * 0
    */
   violations?: number;
   static names(): { [key: string]: string } {
@@ -233,12 +236,12 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations extends $dara.Model {
   /**
    * @remarks
-   * The summary of block records.
+   * The aggregated interception records.
    */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny[];
   /**
    * @remarks
-   * The summary of alert information.
+   * The aggregated alert information.
    */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn[];
   static names(): { [key: string]: string } {
@@ -273,7 +276,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations ex
 export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dara.Model {
   /**
    * @remarks
-   * The summary information.
+   * The aggregated information.
    */
   totalViolations?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations;
   /**
@@ -313,7 +316,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dar
 export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * hash code
@@ -321,9 +324,9 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   clusterId?: string;
   /**
    * @remarks
-   * The action taken by the policy, including alert (warn) and block (deny). Valid values:
-   * - warn: Only alerts on behaviors that violate the policy without actually blocking the request.
-   * - deny: Blocks requests that violate the policy.
+   * The action taken by the policy. Valid values:
+   * - warn: Alerts on policy violations but does not intercept the requests.
+   * - deny: Intercepts requests that violate the policy.
    * 
    * @example
    * deny
@@ -339,7 +342,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   constraintApiVersion?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * cis-k8s
@@ -355,7 +358,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   constraintGroup?: string;
   /**
    * @remarks
-   * The policy name in policy management.
+   * The policy kind that corresponds to the policy name in policy management.
    * 
    * @example
    * ACKNamespacesDeleteProtection
@@ -363,7 +366,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   constraintKind?: string;
   /**
    * @remarks
-   * The policy instance name.
+   * The name of the policy instance.
    * 
    * @example
    * namespace-delete-protection-jpjwv
@@ -379,7 +382,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   eventMsg?: string;
   /**
    * @remarks
-   * The type of event triggered by the policy, such as violation.
+   * The type of the event triggered by the policy, such as violation.
    * 
    * @example
    * violation
@@ -387,7 +390,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   eventType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * hash code
@@ -395,7 +398,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   requestUid?: string;
   /**
    * @remarks
-   * The information about the user whose request violated the policy.
+   * The user information of the request that violated the policy.
    * 
    * @example
    * account id
@@ -403,7 +406,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   requestUserinfo?: string;
   /**
    * @remarks
-   * The name of the user whose request violated the policy.
+   * The username of the request that violated the policy.
    * 
    * @example
    * account user name
@@ -411,7 +414,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   requestUsername?: string;
   /**
    * @remarks
-   * The type of resource that violated the policy. For example, if a request to operate on a Namespace is rejected, this field is set to Namespace.
+   * The type of the resource that violated the policy. For example, if a request to operate on a namespace is rejected, the value is Namespace.
    * 
    * @example
    * Namespace
@@ -427,7 +430,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   resourceName?: string;
   /**
    * @remarks
-   * The time when the policy violation occurred.
+   * The time when the policy violation occurred. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2025-10-27T11:31:40Z
@@ -485,7 +488,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
 export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara.Model {
   /**
    * @remarks
-   * The total number of logs returned by the current query.
+   * The total number of logs queried.
    * 
    * @example
    * 100
@@ -493,7 +496,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   count?: number;
   /**
    * @remarks
-   * The log project that stores policy action information.
+   * The Log Service project that stores the policy action information.
    * 
    * @example
    * k8s-log-clusterid
@@ -501,7 +504,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   logProject?: string;
   /**
    * @remarks
-   * The Logstore that stores policy action information.
+   * The Log Service Logstore that stores the policy action information.
    * 
    * @example
    * policyadmit-clusterid
@@ -515,8 +518,8 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   /**
    * @remarks
    * The status of the query result. Valid values:
-   * * `Complete`: The query is complete and the returned result is the complete result.
-   * * `Incomplete`: The query is complete but the returned result is incomplete. Repeat the request to obtain the complete result.
+   * * `Complete`: The query is complete and the returned result is complete.
+   * * `Incomplete`: The query is complete but the returned result is incomplete. You must repeat the request to obtain the complete result.
    * 
    * @example
    * Complete
@@ -565,7 +568,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
   enabledCount?: number;
   /**
    * @remarks
-   * The policy governance severity level.
+   * The severity level of the policy governance.
    * 
    * @example
    * high
@@ -573,7 +576,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
   severity?: string;
   /**
    * @remarks
-   * The total number of policy types at this severity level.
+   * The total number of policy types at the severity level.
    * 
    * @example
    * 8
@@ -612,12 +615,12 @@ export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
   violation?: DescribePolicyGovernanceInClusterResponseBodyViolation;
   /**
    * @remarks
-   * The policy governance audit logs of the current cluster.
+   * The policy governance audit logs of the cluster.
    */
   admitLog?: DescribePolicyGovernanceInClusterResponseBodyAdmitLog;
   /**
    * @remarks
-   * The count of enabled policies at different severity levels in the current cluster.
+   * The counts of enabled policies at different severity levels in the current cluster.
    */
   onState?: DescribePolicyGovernanceInClusterResponseBodyOnState[];
   static names(): { [key: string]: string } {

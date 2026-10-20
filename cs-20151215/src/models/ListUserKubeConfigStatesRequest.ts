@@ -17,7 +17,7 @@ export class ListUserKubeConfigStatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results returned per page.
+   * The number of results per page.
    * 
    * - Valid values: 1 to 100.
    * 

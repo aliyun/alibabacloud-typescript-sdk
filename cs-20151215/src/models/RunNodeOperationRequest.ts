@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class RunNodeOperationRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the O&M action to execute.
+   * 
    * This parameter is required.
    * 
    * @example
    * restart.kubelet
    */
   operationAction?: string;
+  /**
+   * @remarks
+   * The list of parameters accepted by the O&M action.
+   */
   operationArgs?: string[];
   static names(): { [key: string]: string } {
     return {

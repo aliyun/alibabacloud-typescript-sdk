@@ -7,7 +7,7 @@ export class DeployPolicyInstanceRequest extends $dara.Model {
    * @remarks
    * The governance action of the rule. Valid values:
    * 
-   * - `deny`: blocks non-compliant deployments.
+   * - `deny`: blocks deployments that violate the policy.
    * - `warn`: generates alerts.
    * 
    * @example
@@ -16,12 +16,12 @@ export class DeployPolicyInstanceRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The namespaces to which the policy is restricted. An empty value indicates all namespaces.
+   * The namespaces to which the policy applies. An empty value indicates all namespaces.
    */
   namespaces?: string[];
   /**
    * @remarks
-   * The parameter settings of the current rule instance. For the parameters supported by each policy governance rule and the corresponding metric description, see [Security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
+   * The parameter settings of the current rule instance. For the parameters supported by each policy governance rule and the corresponding metric description, see [Container security policy rules](https://www.alibabacloud.com/help/doc-detail/359819.html).
    * 
    * @example
    * {   "repos": [     "registry-vpc.cn-hangzhou.aliyuncs.com/acs/",     "registry.cn-hangzhou.aliyuncs.com/acs/"   ] }

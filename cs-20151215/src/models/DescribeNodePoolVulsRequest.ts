@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodePoolVulsRequest extends $dara.Model {
   /**
    * @remarks
-   * The vulnerability fix urgency levels to query. Separate multiple levels with commas (,). Valid values:
+   * The severity levels of vulnerabilities to query. Separate multiple levels with commas (,). Valid values:
    * 
    * - `asap`: high
    * - `later`: medium
-   * - `nntf`: low.
+   * - `nntf`: low
    * 
    * @example
    * asap

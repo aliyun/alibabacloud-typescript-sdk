@@ -11,7 +11,15 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
    * cf62854ac2130470897be7a27ed1f****
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return for a single request.
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The query token. The value is the next_token parameter value returned by the previous API call.
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -23,9 +31,9 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to return on each page.
+   * The maximum number of results to return per page.
    * 
-   * Valid values: [1,100].
+   * Valid values: 1 to 100.
    * 
    * Default value: 50.
    * 

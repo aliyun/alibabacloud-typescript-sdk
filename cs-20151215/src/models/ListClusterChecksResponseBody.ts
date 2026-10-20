@@ -13,7 +13,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in ISO 8601 format, including time zone information.
    * 
    * @example
    * 2025-04-11T02:56:02.565982623Z

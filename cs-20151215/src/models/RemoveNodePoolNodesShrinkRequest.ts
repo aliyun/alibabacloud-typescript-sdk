@@ -34,11 +34,11 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * [This parameter is deprecated]
+   * **[Deprecated]**
    * 
    * The list of nodes to remove.
    * 
-   * >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>.
+   * >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>
    * 
    * @deprecated
    */

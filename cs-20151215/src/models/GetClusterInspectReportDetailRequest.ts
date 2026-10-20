@@ -10,7 +10,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
    * - performance: performance and efficiency 
    * - stability: business stability
    * - limitation: service limits 
-   * - cost: cost optimization.
+   * - cost: cost optimization
    * 
    * @example
    * cost
@@ -18,7 +18,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to filter check items. If set to true, only abnormal check items with result=true are returned.
+   * Specifies whether to filter inspection items. If set to true, only abnormal inspection items with a result of true are returned.
    * 
    * @example
    * true
@@ -28,7 +28,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
    * @remarks
    * The query language. Valid values:
    * - zh_CN
-   * - en_US.
+   * - en_US
    * 
    * @example
    * zh_CN
@@ -37,10 +37,10 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The level of the inspection item. Valid values:
-   * - advice: suggestion
-   * - warning: low-risk
-   * - error: medium-risk
-   * - critical: high-risk.
+   * - advice: advice
+   * - warning: low risk
+   * - error: medium risk
+   * - critical: high risk
    * 
    * @example
    * error
@@ -64,7 +64,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The object type of the inspection target. Only check items that match the specified targetType are returned.
+   * The object type. Only check items that match the object type are returned.
    * 
    * @example
    * NodePool

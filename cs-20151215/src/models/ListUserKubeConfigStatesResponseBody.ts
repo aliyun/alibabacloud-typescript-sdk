@@ -13,7 +13,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records returned per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -70,7 +70,7 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
    * - Unissued: The certificate has not been issued.
    * - Unknown: The status is unknown.
    * 
-   * - Removed: The certificate has been revoked. An issuance record exists for the certificate.
+   * - Removed: The certificate has been removed (an issuance record exists for the certificate).
    * 
    * @example
    * Unissued
@@ -94,7 +94,7 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster status. Valid values:
+   * The running status of the cluster. Valid values:
    * 
    * - `initial`: The cluster is being created.
    * - `failed`: The cluster failed to be created.

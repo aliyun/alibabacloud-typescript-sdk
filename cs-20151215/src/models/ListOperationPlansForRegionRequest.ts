@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationPlansForRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters results by cluster ID.
+   * Filters the results by cluster ID.
    * 
    * @example
    * c02b3e03be10643e8a644a843ffcb****
@@ -13,7 +13,7 @@ export class ListOperationPlansForRegionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Filters results by execution plan state.
+   * Filters the results by execution plan state.
    * 
    * @example
    * Scheduled
@@ -21,7 +21,7 @@ export class ListOperationPlansForRegionRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Filters results by execution plan type.
+   * Filters the results by execution plan type.
    * 
    * @example
    * CLUSTER_UPGRADE_MASTER

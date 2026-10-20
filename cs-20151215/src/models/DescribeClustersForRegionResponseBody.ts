@@ -28,11 +28,11 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
    * - `ack.pro.small`: Pro
    * - `ack.pro.xlarge`: Pro XL
    * - `ack.pro.2xlarge`: Pro 2XL
-   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to add your account to the whitelist)
+   * - `ack.pro.4xlarge`: Pro 4XL (Contact customer service to add your account to the whitelist.)
    * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and Pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
    * 
-   * For information about cluster management fees for Pro and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+   * For information about the cluster management fees for Pro and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.standard
@@ -51,7 +51,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The pod CIDR block of the cluster.
+   * The CIDR block used by the cluster pods.
    * 
    * @example
    * 172.20.0.0/16
@@ -77,7 +77,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
    * @remarks
    * Indicates whether deletion protection is enabled for the cluster. Deletion protection prevents the cluster from being accidentally deleted in the console or by calling API operations. Valid values:
    * - true: Deletion protection is enabled. The cluster cannot be deleted in the console or by calling API operations.
-   * - false: Deletion protection is not enabled. The cluster can be deleted in the console or by calling API operations.
+   * - false: Deletion protection is disabled. The cluster can be deleted in the console or by calling API operations.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   ipStack?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * test-cluster
@@ -145,7 +145,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the cluster.
+   * The ID of the resource group to which the cluster belongs.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -153,7 +153,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID of the cluster.
+   * The ID of the security group associated with the cluster.
    * 
    * @example
    * sg-2zeihch86ooz9io4****
@@ -179,7 +179,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The running state of the cluster. Valid values:
+   * The running status of the cluster. Valid values:
    * 
    * - `initial`: The cluster is being created.
    * - `failed`: The cluster failed to be created.
@@ -224,7 +224,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * The VPC ID of the cluster.
+   * The ID of the VPC where the cluster is deployed.
    * 
    * @example
    * vpc-2zeg8nf1ukc0fcmvq****
@@ -232,7 +232,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The list of vSwitches for the cluster control plane.
+   * The list of vSwitches used by the cluster control plane.
    */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {

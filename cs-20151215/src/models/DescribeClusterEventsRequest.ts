@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return for a single request.
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. The value is the next_token parameter returned by the previous API call.
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -17,7 +25,7 @@ export class DescribeClusterEventsRequest extends $dara.Model {
    * @remarks
    * The maximum number of results to return per page.
    * 
-   * Valid values: [1,100].
+   * Valid values: 1 to 100.
    * 
    * Default value: 50.
    * 

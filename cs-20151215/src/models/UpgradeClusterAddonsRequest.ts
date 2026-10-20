@@ -15,7 +15,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * The custom parameters of the component, encoded as a JSON string.
+   * The custom component parameters, encoded as a JSON string.
    * 
    * @example
    * {"CpuRequest":"800m"}
@@ -23,7 +23,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The target version to which you want to upgrade. You can call the `DescribeAddon` operation to query the versions to which the component can be upgraded.
+   * The target version to upgrade to. You can call the `DescribeAddon` operation to query the upgradable versions of a component.
    * 
    * This parameter is required.
    * 
@@ -34,8 +34,8 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   /**
    * @remarks
    * The component upgrade policy. Valid values:
-   * - overwrite: overwrites the existing version.
-   * - canary: performs a canary upgrade.
+   * - overwrite: overwrite upgrade.
+   * - canary: canary upgrade.
    * 
    * @example
    * canary

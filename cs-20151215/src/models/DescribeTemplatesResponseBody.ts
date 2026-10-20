@@ -21,7 +21,7 @@ export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 50
@@ -55,11 +55,11 @@ export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
 export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The access permissions for the deployment template. Valid values:
+   * The access permissions of the deployment template. Valid values:
    * 
-   * - `private`: private.
-   * - `public`: public.
-   * - `shared`: shared.
+   * - `private`: Private.
+   * - `public`: Public.
+   * - `shared`: Shared.
    * 
    * @example
    * private
@@ -83,7 +83,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the orchestration template.
+   * The orchestration template ID.
    * 
    * @example
    * 874ec485-e7e6-4373-8a3b-47bde8******
@@ -91,7 +91,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the orchestration template.
+   * The orchestration template name.
    * 
    * @example
    * webserver
@@ -117,7 +117,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
    * @remarks
    * The templatetype.
    * 
-   * - If the value is set to kubernetes, the template is displayed on the Orchestration Templates page in the console.
+   * - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
    * 
    * - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
    * 
@@ -127,7 +127,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The ID of the parent template associated with the template. This parameter is used to implement template versioning. Different versions of the same template share the same `template_with_hist_id` value.
+   * The ID of the parent template associated with the template. This parameter is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
    * 
    * @example
    * ad81d115-7c8b-47e7-a222-9c28d7******

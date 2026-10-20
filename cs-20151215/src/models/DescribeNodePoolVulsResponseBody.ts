@@ -170,7 +170,7 @@ export class DescribeNodePoolVulsResponseBody extends $dara.Model {
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
    * @remarks
-   * Indicates whether the Security Center CVE fix service has been purchased.
+   * Indicates whether the China Cloud Security CVE fix service has been purchased.
    * 
    * - true: Purchased.
    * 

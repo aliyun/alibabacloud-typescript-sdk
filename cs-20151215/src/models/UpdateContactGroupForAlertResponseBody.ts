@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContactGroupForAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message returned when the operation failed.
+   * The message returned when the operation fails.
    * 
    * @example
    * contact group illegal.

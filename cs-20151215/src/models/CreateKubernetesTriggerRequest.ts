@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKubernetesTriggerRequest extends $dara.Model {
   /**
    * @remarks
-   * The trigger action. Valid values:
+   * The action of the trigger. Valid values:
    * 
-   * `redeploy`: redeploys the resources defined in project_id.
+   * - `redeploy`: Redeploys the resources defined in `project_id`.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class CreateKubernetesTriggerRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The trigger project name.
+   * The project name of the trigger.
    * 
-   * The value consists of the namespace and application name in the format of `${namespace}/${name}`.
+   * It consists of the namespace and the name of the application, in the format of `${namespace}/${name}`.
    * 
    * Example: `default/test-app`.
    * 
@@ -41,11 +41,10 @@ export class CreateKubernetesTriggerRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The type of the trigger. Valid values:
    * 
-   * - `deployment`: a trigger for stateless applications. 
-   * 
-   * - `application`: a trigger for Application Center applications.
+   * - `deployment`: The trigger for stateless applications. 
+   * - `application`: The trigger for Hybrid Cloud Application Center applications.
    * 
    * Default value: `deployment`.
    * 

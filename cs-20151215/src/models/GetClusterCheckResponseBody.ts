@@ -18,7 +18,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   checkItems?: { [key: string]: { [key: string]: any }[] };
   /**
    * @remarks
-   * The creation time.
+   * The creation time in ISO 8601 format with time zone information.
    * 
    * @example
    * 2023-10-16T08:31:20.292030178Z

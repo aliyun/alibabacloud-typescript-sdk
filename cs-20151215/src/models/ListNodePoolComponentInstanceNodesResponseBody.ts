@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The custom configuration of the node component.
+   */
   customConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -29,18 +33,31 @@ export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponentConf
 }
 
 export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the node component.
+   */
   config?: ListNodePoolComponentInstanceNodesResponseBodyNodeListComponentConfig;
   /**
+   * @remarks
+   * The custom configuration version number of the component on the node.
+   * 
    * @example
    * 1
    */
   configRevision?: string;
   /**
+   * @remarks
+   * The name of the component on the node.
+   * 
    * @example
    * kubelet
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the component on the node.
+   * 
    * @example
    * 1.28.9-aliyun.1
    */
@@ -76,13 +93,23 @@ export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent ext
 }
 
 export class ListNodePoolComponentInstanceNodesResponseBodyNodeList extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the component on the node.
+   */
   component?: ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * i-bp1xxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * cn-hangzhou.10.91.xx.xx
    */
@@ -117,17 +144,30 @@ export class ListNodePoolComponentInstanceNodesResponseBodyNodeList extends $dar
 
 export class ListNodePoolComponentInstanceNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records returned in a single response for pagination.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination cursor. Do not specify this parameter for the first request. For subsequent requests, specify the token returned in the previous response.
+   * 
    * @example
    * 5c0a1c0f91c14c6****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of nodes.
+   */
   nodeList?: ListNodePoolComponentInstanceNodesResponseBodyNodeList[];
   /**
+   * @remarks
+   * The total number of nodes.
+   * 
    * @example
    * 50
    */

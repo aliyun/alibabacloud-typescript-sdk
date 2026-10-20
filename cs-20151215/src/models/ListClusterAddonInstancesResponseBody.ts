@@ -15,9 +15,9 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
    * @remarks
    * The component status. Valid values:
    * - active: installed
-   * - updating: being modified
+   * - updating: being updated
    * - upgrading: being upgraded
-   * - deleting: being uninstalled.
+   * - deleting: being uninstalled
    * 
    * @example
    * active

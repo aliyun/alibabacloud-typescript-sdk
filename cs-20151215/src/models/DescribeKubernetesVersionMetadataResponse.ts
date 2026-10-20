@@ -42,7 +42,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osVersion?: string;
   /**
    * @remarks
-   * The type of the operating system distribution. We recommend that you use this field to specify the node operating system. Valid values:
+   * The operating system distribution type. Use this field to specify the operating system for nodes. Valid values:
    * 
    * - `CentOS`
    * - `AliyunLinux`
@@ -71,12 +71,12 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osType?: string;
   /**
    * @remarks
-   * The image category. Partial valid values:
+   * The image category. Some valid values:
    * 
-   * - `system`: public image.
-   * - `self`: custom image.
-   * - `others`: shared image from other users.
-   * - `marketplace`: Alibaba Cloud Marketplace image.
+   * - `system`: public images.
+   * - `self`: your custom images.
+   * - `others`: public images from other users.
+   * - `marketplace`: Alibaba Cloud Marketplace images.
    * 
    * @example
    * system
@@ -128,7 +128,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
 export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The feature capabilities of the Kubernetes version.
+   * The features of the Kubernetes version.
    * 
    * @example
    * {
@@ -161,7 +161,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   runtimes?: Runtime[];
   /**
    * @remarks
-   * The Kubernetes version released by ACK. For more information about versions, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
+   * The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.31.1-aliyun.1
@@ -169,7 +169,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The release date of the Kubernetes version.
+   * The release time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2025-01-30T00:00:00Z
@@ -177,7 +177,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   releaseDate?: string;
   /**
    * @remarks
-   * The expiration date of the Kubernetes version.
+   * The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2026-01-30T00:00:00Z
@@ -185,7 +185,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   expirationDate?: string;
   /**
    * @remarks
-   * Indicates whether the Kubernetes version can be used to create clusters.
+   * Indicates whether the Kubernetes version can be created.
    * 
    * @example
    * true

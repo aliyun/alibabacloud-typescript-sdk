@@ -14,7 +14,8 @@ export class StopAlertResponseBody extends $dara.Model {
   /**
    * @remarks
    * The execution result status. Valid values:
-   * - True: The execution is successful.
+   * 
+   * - True: The execution succeeded.
    * - False: The execution failed.
    * 
    * @example

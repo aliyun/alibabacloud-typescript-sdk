@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 编排模板ID，每次变更都会有一个模板ID。
+   * The orchestration template ID. A new ID is generated each time the template is modified.
    * 
    * @example
    * 72d20cf8-a533-4ea9-a10d-e7630d3d****
@@ -13,11 +13,11 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 编排模板的访问权限，取值：
+   * The access permissions of the orchestration template. Valid values:
    * 
-   * - `private`：私有。
-   * - `public`：公共。
-   * - `shared`：可共享。
+   * - `private`: private.
+   * - `public`: public.
+   * - `shared`: shared.
    * 
    * @example
    * private
@@ -25,7 +25,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * 编排模板名称。
+   * The name of the orchestration template.
    * 
    * @example
    * web
@@ -33,7 +33,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 编排模板YAML内容。
+   * The YAML content of the orchestration template.
    * 
    * @example
    * apiVersion: V1\\n***
@@ -41,11 +41,11 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * 模板类型。
+   * The templatetype.
    * 
-   * - 当取值为kubernetes时将在控制台的编排模板页面展示该模板。
+   * - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
    * 
-   * - 该参数不填写或者取值为其他值时，控制台的编排模板页面将不会展示该模板。
+   * - If this parameter is not set or is set to other values, the template is not displayed on the Orchestration Templates page in the console.
    * 
    * @example
    * kubernetes
@@ -53,7 +53,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * 编排模板描述信息。
+   * The description of the orchestration template.
    * 
    * @example
    * test template
@@ -61,7 +61,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 部署模板的标签。
+   * The tags of the deployment template.
    * 
    * @example
    * sa
@@ -69,7 +69,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * 编排模板唯一ID，不随模板更新而改变。
+   * The unique ID of the orchestration template. This ID does not change when the template is updated.
    * 
    * @example
    * 874ec485-e7e6-4373-8a3b-47bde8ae****
@@ -77,7 +77,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   templateWithHistId?: string;
   /**
    * @remarks
-   * 编排模板创建时间。
+   * The time when the orchestration template was created.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00
@@ -85,7 +85,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * 编排模板更新时间。
+   * The time when the orchestration template was last updated.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00

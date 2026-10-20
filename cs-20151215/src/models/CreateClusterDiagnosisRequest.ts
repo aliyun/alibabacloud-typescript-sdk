@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterDiagnosisRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that specify the diagnosis target. The following examples show the parameters for different diagnosis types:
+   * The parameters used to specify the diagnosis target. The following examples show the parameters for different diagnosis types:
    * 
    * node:
    * ```
@@ -29,13 +29,13 @@ export class CreateClusterDiagnosisRequest extends $dara.Model {
    * 
    * memory
    * ```
-   * {"node":"ap-southeast-1.172.16.9.240"}
+   * {"node":"cn-hangzhou.172.16.9.240"}
    * ```
    * 
    * service
    * ```
    * {"namespace": "kube-system", "name": "nginx-ingress-lb"}
-   * ```.
+   * ```
    * 
    * @example
    * {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}

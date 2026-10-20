@@ -53,7 +53,7 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
   customConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The environment variables of the node component.
+   * The environment variables for the node component.
    */
   envs?: InstallNodePoolComponentsRequestComponentsConfigEnvs[];
   static names(): { [key: string]: string } {
@@ -88,12 +88,12 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
 export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * The component configuration.
+   * The configuration of the component.
    */
   config?: InstallNodePoolComponentsRequestComponentsConfig;
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * This parameter is required.
    * 
@@ -103,7 +103,7 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The component version.
+   * The version of the component.
    * 
    * @example
    * 1.28.9-aliyun.1
@@ -140,7 +140,7 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
 export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The upgrade interval between batches. Unit: seconds.
+   * The upgrade interval between batches, in seconds.
    * 
    * @example
    * 0
@@ -148,7 +148,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0, which indicates that the task is considered failed if any node fails. If the value is greater than 0, the task is considered failed and stops when the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -205,12 +205,12 @@ export class InstallNodePoolComponentsRequest extends $dara.Model {
   components?: InstallNodePoolComponentsRequestComponents[];
   /**
    * @remarks
-   * The list of node names for the rolling operation. By default, all nodes are included.
+   * The list of node names specified for the rolling update. Default value: all nodes.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The rolling policy configuration.
+   * The rolling update configuration.
    */
   rollingPolicy?: InstallNodePoolComponentsRequestRollingPolicy;
   static names(): { [key: string]: string } {

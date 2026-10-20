@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service role has been granted.
+   * Indicates whether the role has been authorized.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
   granted?: boolean;
   /**
    * @remarks
-   * The prompt message returned when the service role is not granted.
+   * The message returned when the role is not authorized.
    * 
    * @example
    * The role does not exist: AliyunCSManagedAutoScalerRole

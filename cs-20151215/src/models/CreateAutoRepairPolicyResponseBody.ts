@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoRepairPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The self-healing rule ID.
+   * The ID of the self-healing rule.
    * 
    * @example
    * r-xxxxxxx

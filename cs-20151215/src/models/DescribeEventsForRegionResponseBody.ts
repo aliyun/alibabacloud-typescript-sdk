@@ -92,7 +92,7 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event was generated. The time follows the ISO 8601 standard and includes time zone information.
    * 
    * @example
    * 2025-05-14T10:00:56+08:00
@@ -153,7 +153,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results displayed on each page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 50
@@ -198,6 +198,10 @@ export class DescribeEventsForRegionResponseBody extends $dara.Model {
    * The list of events.
    */
   events?: DescribeEventsForRegionResponseBodyEvents[];
+  /**
+   * @remarks
+   * The pagination token.
+   */
   nextToken?: string;
   /**
    * @remarks

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNodePoolComponentInstancesRequestComponentsConfigEnvs extends $dara.Model {
   /**
+   * @remarks
+   * The name of the environment variable.
+   * 
    * @example
    * LOG_LEVEL
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the environment variable.
+   * 
    * @example
    * info
    */
@@ -38,10 +44,17 @@ export class CreateNodePoolComponentInstancesRequestComponentsConfigEnvs extends
 
 export class CreateNodePoolComponentInstancesRequestComponentsConfig extends $dara.Model {
   /**
+   * @remarks
+   * The custom configuration of the component.
+   * 
    * @example
    * {"cpuManagerPolicy":"static"}
    */
   customConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * The environment variables of the node component.
+   */
   envs?: CreateNodePoolComponentInstancesRequestComponentsConfigEnvs[];
   static names(): { [key: string]: string } {
     return {
@@ -73,9 +86,15 @@ export class CreateNodePoolComponentInstancesRequestComponentsConfig extends $da
 }
 
 export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the component.
+   */
   config?: CreateNodePoolComponentInstancesRequestComponentsConfig;
   /**
    * @remarks
+   * The name of the component.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,6 +103,8 @@ export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Mod
   name?: string;
   /**
    * @remarks
+   * The version of the component.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,21 +141,33 @@ export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Mod
 
 export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The interval between batches in seconds. Default value: 0.
+   * 
    * @example
    * 10
    */
   batchInterval?: number;
   /**
+   * @remarks
+   * The maximum number of nodes that can fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+   * 
    * @example
    * 0
    */
   maxFailedNodes?: number;
   /**
+   * @remarks
+   * The maximum number of parallel updates per batch. Default value: 1.
+   * 
    * @example
    * 1
    */
   maxParallelism?: number;
   /**
+   * @remarks
+   * The auto-pause policy during the node upgrade. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+   * 
    * @example
    * NotPause
    */
@@ -169,10 +202,20 @@ export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.
 export class CreateNodePoolComponentInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of node components.
+   * 
    * This parameter is required.
    */
   components?: CreateNodePoolComponentInstancesRequestComponents[];
+  /**
+   * @remarks
+   * The list of nodes for the rolling update. Default value: all nodes.
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * The rolling update configuration.
+   */
   rollingPolicy?: CreateNodePoolComponentInstancesRequestRollingPolicy;
   static names(): { [key: string]: string } {
     return {

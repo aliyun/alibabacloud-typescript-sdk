@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodePoolComponentsResponseBodyComponents extends $dara.Model {
   /**
+   * @remarks
+   * The parameter schema of the node component, including custom parameters and system parameters.
+   * 
    * @example
    * "{\\"$schema\\": \\"\\",\\"properties\\": {}"
    */
   configSchema?: string;
   /**
+   * @remarks
+   * The name of the node component.
+   * 
    * @example
    * kubelet
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the node component.
+   * 
    * @example
    * 1.28.9-aliyun.1
    */
@@ -44,13 +53,23 @@ export class ListNodePoolComponentsResponseBodyComponents extends $dara.Model {
 }
 
 export class ListNodePoolComponentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of node components.
+   */
   components?: ListNodePoolComponentsResponseBodyComponents[];
   /**
+   * @remarks
+   * The maximum number of results to return. Default value: 200.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * 5c0a1c0f91c14c6****
    */

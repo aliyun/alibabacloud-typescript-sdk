@@ -88,7 +88,7 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
 export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The upgrade interval between batches. Unit: seconds.
+   * The interval between batches during the upgrade, in seconds.
    * 
    * @example
    * 0
@@ -104,7 +104,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   maxFailedNodes?: number;
   /**
    * @remarks
-   * The maximum number of parallel operations per batch. Default value: 1.
+   * The maximum number of nodes that can be updated in parallel per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -112,7 +112,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The automatic pause policy during node upgrade.
+   * The automatic pause policy during node upgrades.
    * 
    * @example
    * NotPause
@@ -153,7 +153,7 @@ export class UpdateNodePoolComponentRequest extends $dara.Model {
   config?: UpdateNodePoolComponentRequestConfig;
   /**
    * @remarks
-   * Specifies whether to disable log rotation. Default value: false. Updating the baseline configuration triggers log rotation on nodes.
+   * Specifies whether to disable rolling updates. Default value: false. When set to false, updating the baseline configuration triggers a rolling update of nodes.
    */
   disableRolling?: boolean;
   /**
@@ -166,12 +166,12 @@ export class UpdateNodePoolComponentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of nodes for log rotation. By default, all nodes are included.
+   * The list of nodes to include in the rolling update. By default, all nodes are included.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The log rotation configuration.
+   * The rolling update configuration.
    */
   rollingPolicy?: UpdateNodePoolComponentRequestRollingPolicy;
   /**

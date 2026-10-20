@@ -10,7 +10,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
    * - performance: performance and efficiency 
    * - stability: business stability
    * - limitation: service limits 
-   * - cost: cost optimization.
+   * - cost: cost optimization
    * 
    * @example
    * stability
@@ -29,24 +29,24 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
    * The description of the check item.
    * 
    * @example
-   * 集群API Server负载均衡实例异常会影响集群可用性，请检查负载均衡实例状态是否正常。
+   * Cluster API Server load balancer instance failures affect cluster availability. Check whether the load balancer instance status is normal.
    */
   description?: string;
   /**
    * @remarks
-   * The fix suggestion.
+   * The remediation suggestion.
    * 
    * @example
-   * 请提交工单处理。
+   * Submit a ticket
    */
   fix?: string;
   /**
    * @remarks
    * The level of the inspection item. Valid values:
-   * - advice: suggestion
-   * - warning: low-risk
-   * - error: medium-risk
-   * - critical: high-risk.
+   * - advice: advice
+   * - warning: low risk
+   * - error: medium risk
+   * - critical: high risk
    * 
    * @example
    * critical
@@ -57,7 +57,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
    * The name of the check item.
    * 
    * @example
-   * API Server CLB 实例状态异常
+   * Abnormal API server CLB instance status
    */
   name?: string;
   /**
@@ -65,7 +65,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
    * The check result. Valid values:
    * - true: The check item is abnormal.
    * - false: The check item is normal.
-   * - disable: The check item is not enabled.
+   * - disable: The check item is disabled.
    * 
    * @example
    * false
@@ -127,7 +127,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
 export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Model {
   /**
    * @remarks
-   * The number of check items with a result of advice.
+   * The number of check items whose result is advice.
    * 
    * @example
    * 0
@@ -143,7 +143,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The number of check items with a result of error.
+   * The number of check items whose result is error.
    * 
    * @example
    * 0
@@ -151,7 +151,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   errorCount?: number;
   /**
    * @remarks
-   * The number of check items with a result of normal.
+   * The number of check items whose result is normal.
    * 
    * @example
    * 10
@@ -159,7 +159,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   normalCount?: number;
   /**
    * @remarks
-   * The number of check items with a result of warning.
+   * The number of check items whose result is warning.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   checkItemResults?: GetClusterInspectReportDetailResponseBodyCheckItemResults[];
   /**
    * @remarks
-   * The completion time of the inspection report.
+   * The completion time of the inspection report in ISO 8601 format with time zone information.
    * 
    * @example
    * 2024-12-18T19:41:12.778433+08:00
@@ -234,7 +234,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the inspection report.
+   * The start time of the inspection report in ISO 8601 format with time zone information.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00
@@ -243,8 +243,8 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The generation status of the inspection report. Valid values:
-   * - completed: Completed.
-   * - running: In progress.
+   * - completed: The generation is completed.
+   * - running: The generation is in progress.
    * 
    * @example
    * completed
@@ -252,7 +252,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The inspection report summary.
+   * The summary of the inspection report.
    */
   summary?: GetClusterInspectReportDetailResponseBodySummary;
   static names(): { [key: string]: string } {

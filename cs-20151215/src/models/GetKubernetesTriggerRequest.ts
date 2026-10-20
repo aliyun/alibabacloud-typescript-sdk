@@ -26,14 +26,10 @@ export class GetKubernetesTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - `deployment`: a trigger for a stateless application. 
-   * 
-   * - `application`: a trigger for an application center application.
-   * 
+   * - `deployment`: the trigger for stateless applications.
+   * - `application`: the trigger for Application Center applications.
    * Default value: `deployment`.
-   * 
-   * If you do not specify a trigger type, the query results are not filtered by trigger type.
+   * If you do not specify the trigger type, the query results are not filtered by trigger type.
    * 
    * @example
    * deployment
@@ -42,10 +38,8 @@ export class GetKubernetesTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger action. Valid values:
-   * 
-   * `redeploy`: redeploys the resources defined in `project_id`.
-   * 
-   * If you do not specify a trigger action, the query results are not filtered by trigger action.
+   * - `redeploy`: Redeploys the resources defined in `project_id`.
+   * If you do not specify the trigger action, the query results are not filtered by trigger action.
    * 
    * @example
    * redeploy

@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the next query.
+   * The token for the next query.
    * 
    * @example
    * ***

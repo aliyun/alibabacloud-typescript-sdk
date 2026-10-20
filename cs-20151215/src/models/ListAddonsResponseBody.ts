@@ -19,7 +19,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
    * - monitor: logging and monitoring component.
    * - application: application component.
    * 
-   * An empty value indicates that the component belongs to another category.
+   * An empty value indicates that the component belongs to another categorization.
    * 
    * @example
    * monitor
@@ -122,7 +122,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
 export class ListAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of available components.
+   * The list of available add-on components.
    */
   addons?: ListAddonsResponseBodyAddons[];
   static names(): { [key: string]: string } {

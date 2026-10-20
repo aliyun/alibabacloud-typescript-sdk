@@ -29,7 +29,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The Log Service project used by the logging feature of the component.
+   * The log project used by the logging feature of the component.
    * 
    * @example
    * k8s-log-c02b3e03be10643e8a644a843ffcb****
@@ -37,7 +37,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The Log Service Logstore used by the logging feature of the component.
+   * The Logstore used by the logging feature of the component.
    * 
    * @example
    * my-logstore
@@ -81,7 +81,7 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The logging feature status of the component.
+   * The logging status of the component.
    */
   logging?: GetClusterAddonInstanceResponseBodyLogging;
   /**
@@ -95,10 +95,10 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The component status. Valid values:
-   * - active: installed.
-   * - updating: being modified.
-   * - upgrading: being upgraded.
-   * - deleting: being uninstalled.
+   * - active: The component is installed.
+   * - updating: The component is being modified.
+   * - upgrading: The component is being upgraded.
+   * - deleting: The component is being uninstalled.
    * 
    * @example
    * active

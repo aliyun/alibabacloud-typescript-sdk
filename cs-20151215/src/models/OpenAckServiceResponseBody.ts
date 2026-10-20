@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenAckServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID of the service activation.
+   * The order ID for activating the service.
    * 
    * @example
    * 2067*******0374

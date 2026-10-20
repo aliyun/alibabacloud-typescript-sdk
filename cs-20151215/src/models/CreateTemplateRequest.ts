@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the orchestration template.
+   * The orchestration template description.
    * 
    * @example
    * this is test
@@ -13,9 +13,9 @@ export class CreateTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
-   * Naming rules: The name must be 1 to 63 characters in length and can contain digits, Chinese characters, letters, and hyphens (-). It cannot start with a hyphen (-).
+   * Naming rules: The name can contain digits, Chinese characters, letters, and hyphens (-). The name must be 1 to 63 characters in length and cannot start with a hyphen (-).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The tags of the orchestration template.
+   * The orchestration template tags.
    * 
    * @example
    * test
@@ -45,9 +45,9 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The templatetype.
    * 
-   * - If you set this parameter to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
+   * - If the value is set to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
    * 
-   * - If you leave this parameter empty or set it to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
    * 
    * Settings this parameter to `kubernetes` is recommended.
    * 

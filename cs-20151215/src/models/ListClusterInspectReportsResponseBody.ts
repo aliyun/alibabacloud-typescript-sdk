@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of check items with a result of advice.
+   * The number of check items whose result is advice.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The number of check items with a result of error.
+   * The number of check items whose result is error.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   errorCount?: number;
   /**
    * @remarks
-   * The number of check items with a result of normal.
+   * The number of check items whose result is normal.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   normalCount?: number;
   /**
    * @remarks
-   * The number of check items with a result of warning.
+   * The number of check items whose result is warning.
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
 export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The completion time of the inspection report.
+   * The completion time of the inspection report, in ISO 8601 format with time zone information.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00
@@ -91,7 +91,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The start time of the inspection report.
+   * The start time of the inspection report, in ISO 8601 format with time zone information.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00

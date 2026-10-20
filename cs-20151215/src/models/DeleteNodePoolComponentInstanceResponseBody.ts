@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteNodePoolComponentInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c846d7d529e34413c9ab1****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EB022AB1-4CF7-5BB6-B44A-38****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * T-696de321273bb00****
    */

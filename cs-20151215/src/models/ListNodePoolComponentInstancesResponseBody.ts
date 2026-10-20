@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs extends $dara.Model {
   /**
+   * @remarks
+   * The name of the environment variable.
+   * 
    * @example
    * LOG_LEVEL
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the environment variable.
+   * 
    * @example
    * info
    */
@@ -38,10 +44,17 @@ export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigE
 
 export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig extends $dara.Model {
   /**
+   * @remarks
+   * The custom configuration of the component.
+   * 
    * @example
    * {"cpuManagerPolicy":"static"}
    */
   customConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * The environment variables of the node component.
+   */
   envs?: ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs[];
   static names(): { [key: string]: string } {
     return {
@@ -73,23 +86,39 @@ export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig 
 }
 
 export class ListNodePoolComponentInstancesResponseBodyComponentInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the component.
+   */
   config?: ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig;
   /**
+   * @remarks
+   * The version number of the component configuration.
+   * 
    * @example
    * 1
    */
   configRevision?: string;
   /**
+   * @remarks
+   * The name of the component.
+   * 
    * @example
    * kubelet
    */
   name?: string;
   /**
+   * @remarks
+   * The state of the component.
+   * 
    * @example
    * active
    */
   state?: string;
   /**
+   * @remarks
+   * The version of the component.
+   * 
    * @example
    * 1.33.3-aliyun.1
    */
@@ -127,13 +156,23 @@ export class ListNodePoolComponentInstancesResponseBodyComponentInstances extend
 }
 
 export class ListNodePoolComponentInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of node component instances.
+   */
   componentInstances?: ListNodePoolComponentInstancesResponseBodyComponentInstances[];
   /**
+   * @remarks
+   * The maximum number of results to return. Default value: 200.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * 5c0a1c0f91c14c6****
    */

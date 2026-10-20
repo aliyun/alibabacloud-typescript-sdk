@@ -13,7 +13,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The event details.
+   * The details of the event.
    * 
    * @example
    * Start to upgrade NodePool nodePool/npdd89dc2b76c04f14b06774883b******
@@ -21,7 +21,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The event status.
+   * The status of the event.
    * 
    * @example
    * Started
@@ -55,7 +55,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
 export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * c82e6987e2961451182edacd74faf****
@@ -63,12 +63,12 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The event description.
+   * The description of the event.
    */
   data?: DescribeClusterEventsResponseBodyEventsData;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * e-9ad04f72-8ee7-46bf-a02c-e4a06b39****
@@ -76,7 +76,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the event.
    * 
    * @example
    * task
@@ -84,7 +84,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The object associated with the event.
+   * The operation object associated with the event.
    * 
    * @example
    * npdd89dc2b76c04f14b06774883b******
@@ -92,7 +92,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The time when the event started.
+   * The start time of the event. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2025-05-14T10:00:56+08:00
@@ -102,22 +102,22 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * - cluster_create: creates a cluster.
-   * - cluster_scaleout: scales out a cluster.
-   * - cluster_attach: adds existing nodes.
-   * - cluster_delete: deletes a cluster.
-   * - cluster_upgrade: upgrades a cluster.
-   * - cluster_migrate: migrates a cluster.
-   * - cluster_node_delete: removes nodes.
-   * - cluster_node_drain: drains nodes.
-   * - cluster_modify: modifies a cluster.
-   * - cluster_configuration_modify: modifies cluster management configurations.
-   * - cluster_addon_install: installs a component.
-   * - cluster_addon_upgrade: upgrades a component.
-   * - cluster_addon_uninstall: uninstalls a component.
-   * - runtime_upgrade: upgrades the runtime.
-   * - nodepool_upgrade: upgrades a node pool.
-   * - nodepool_update: updates a node pool.
+   * - cluster_create: Creates a cluster.
+   * - cluster_scaleout: Scales out a cluster.
+   * - cluster_attach: Adds existing nodes.
+   * - cluster_delete: Deletes a cluster.
+   * - cluster_upgrade: Upgrades a cluster.
+   * - cluster_migrate: Migrates a cluster.
+   * - cluster_node_delete: Removes a node.
+   * - cluster_node_drain: Drains a node.
+   * - cluster_modify: Modifies a cluster.
+   * - cluster_configuration_modify: Modifies the control configurations of a cluster.
+   * - cluster_addon_install: Installs a component.
+   * - cluster_addon_upgrade: Upgrades a component.
+   * - cluster_addon_uninstall: Uninstalls a component.
+   * - runtime_upgrade: Upgrades the runtime.
+   * - nodepool_upgrade: Upgrades a node pool.
+   * - nodepool_update: Updates a node pool.
    * 
    * @example
    * nodepool_update
@@ -170,7 +170,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results returned per page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 50
@@ -215,6 +215,10 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
    * The list of events.
    */
   events?: DescribeClusterEventsResponseBodyEvents[];
+  /**
+   * @remarks
+   * The pagination token.
+   */
   nextToken?: string;
   /**
    * @remarks

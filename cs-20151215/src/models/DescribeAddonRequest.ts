@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAddonRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. If you specify a cluster ID, the system queries the list of components available for the cluster, and other parameters are ignored.
+   * The cluster ID. If you specify a cluster ID, the system queries the components available for the cluster and ignores other parameters.
    * 
    * @example
    * c02b3e03be10643e8a644a843ffcb****
@@ -13,7 +13,9 @@ export class DescribeAddonRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The cluster specifications. If cluster_id is specified, this parameter is ignored. The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
+   * The cluster specifications.
+   * If cluster_id is specified, this parameter is ignored.
+   * The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
    * 
    * @example
    * ack.pro.small
@@ -21,7 +23,9 @@ export class DescribeAddonRequest extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The cluster type. If cluster_id is specified, this parameter is ignored. The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
+   * The cluster type.
+   * If cluster_id is specified, this parameter is ignored.
+   * The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
    * 
    * @example
    * ManagedKubernetes
@@ -29,7 +33,9 @@ export class DescribeAddonRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The cluster version. If cluster_id is specified, this parameter is ignored. The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
+   * The cluster version.
+   * If cluster_id is specified, this parameter is ignored.
+   * The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
    * 
    * @example
    * 1.26.3-aliyun.1
@@ -37,7 +43,9 @@ export class DescribeAddonRequest extends $dara.Model {
   clusterVersion?: string;
   /**
    * @remarks
-   * The cluster subtype. If cluster_id is specified, this parameter is ignored. The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
+   * The cluster subtype.
+   * If cluster_id is specified, this parameter is ignored.
+   * The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
    * 
    * @example
    * Default
@@ -45,7 +53,9 @@ export class DescribeAddonRequest extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The region ID. If cluster_id is specified, this parameter is ignored. The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
+   * The region ID.
+   * If cluster_id is specified, this parameter is ignored.
+   * The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
    * 
    * @example
    * cn-hangzhou

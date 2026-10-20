@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class KubeletConfigReservedMemory extends $dara.Model {
   /**
    * @remarks
-   * The memory limit.
+   * The memory resources limit.
    * 
    * @example
    * {"memory": "1Gi"}
@@ -15,7 +15,7 @@ export class KubeletConfigReservedMemory extends $dara.Model {
   limits?: { [key: string]: any };
   /**
    * @remarks
-   * The NUMA node identifier.
+   * The NUMA node.
    * 
    * @example
    * 0
@@ -58,7 +58,7 @@ export class KubeletConfigTracing extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The number of samples to be collected per million spans.
+   * The number of samples to collect per million spans.
    * 
    * @example
    * 200000
@@ -90,17 +90,17 @@ export class KubeletConfigTracing extends $dara.Model {
 export class KubeletConfig extends $dara.Model {
   /**
    * @remarks
-   * The whitelisted unsafe sysctls.
+   * The whitelist of allowed unsafe sysctl patterns.
    */
   allowedUnsafeSysctls?: string[];
   /**
    * @remarks
-   * The list of IP addresses of the DNS servers.
+   * The list of IP addresses for the cluster DNS servers.
    */
   clusterDNS?: string[];
   /**
    * @remarks
-   * The maximum number of log files that can be stored in each container.
+   * The maximum number of log files that can exist per container.
    * 
    * @example
    * 5
@@ -108,7 +108,7 @@ export class KubeletConfig extends $dara.Model {
   containerLogMaxFiles?: number;
   /**
    * @remarks
-   * The maximum size that a log file can reach before it is rotated.
+   * The maximum size a log file can reach before log rotation is performed.
    * 
    * @example
    * 10Mi
@@ -116,7 +116,7 @@ export class KubeletConfig extends $dara.Model {
   containerLogMaxSize?: string;
   /**
    * @remarks
-   * The maximum number of concurrent programs that rotate logs
+   * The maximum number of concurrent workers for log rotation operations.
    * 
    * @example
    * 1
@@ -124,7 +124,7 @@ export class KubeletConfig extends $dara.Model {
   containerLogMaxWorkers?: number;
   /**
    * @remarks
-   * The duration at which the container logs are monitored for rotating logs.
+   * The interval for monitoring container logs to perform log rotation.
    * 
    * @example
    * 10s
@@ -132,7 +132,7 @@ export class KubeletConfig extends $dara.Model {
   containerLogMonitorInterval?: string;
   /**
    * @remarks
-   * Specifies whether to use Completely Fair Scheduler (CFS) quota to enforce pod CPU limits.
+   * Specifies whether to enable CPU CFS quota enforcement.
    * 
    * @example
    * true
@@ -140,7 +140,7 @@ export class KubeletConfig extends $dara.Model {
   cpuCFSQuota?: boolean;
   /**
    * @remarks
-   * The duration for the CPU CFS quota.
+   * The CPU CFS quota period value.
    * 
    * @example
    * 100ms
@@ -148,7 +148,7 @@ export class KubeletConfig extends $dara.Model {
   cpuCFSQuotaPeriod?: string;
   /**
    * @remarks
-   * The CPU management policy used by kubelet.
+   * The CPU manager policy.
    * 
    * @example
    * none
@@ -156,7 +156,7 @@ export class KubeletConfig extends $dara.Model {
   cpuManagerPolicy?: string;
   /**
    * @remarks
-   * The maximum number of burst peaks for the event records.
+   * The maximum burst size for event records.
    * 
    * @example
    * 10
@@ -164,7 +164,7 @@ export class KubeletConfig extends $dara.Model {
   eventBurst?: number;
   /**
    * @remarks
-   * Specifies the maximum number of events that can be generated per second.
+   * The maximum number of events that can be generated per second.
    * 
    * @example
    * 5
@@ -172,27 +172,27 @@ export class KubeletConfig extends $dara.Model {
   eventRecordQPS?: number;
   /**
    * @remarks
-   * A set of eviction thresholds that will trigger a pod eviction if met.
+   * The set of hard eviction thresholds that trigger pod eviction.
    */
   evictionHard?: { [key: string]: any };
   /**
    * @remarks
-   * A set of eviction thresholds that will trigger a pod eviction if met over a corresponding grace period.
+   * The set of soft eviction thresholds.
    */
   evictionSoft?: { [key: string]: any };
   /**
    * @remarks
-   * A set of grace periods for eviction thresholds.
+   * The set of eviction grace periods.
    */
   evictionSoftGracePeriod?: { [key: string]: any };
   /**
    * @remarks
-   * A feature gate that is used to enable an experimental feature.
+   * The feature gates configuration used to enable experimental features.
    */
   featureGates?: { [key: string]: any };
   /**
    * @remarks
-   * The percentage of disk usage after which image garbage collection always runs.
+   * The threshold above which image garbage collection runs continuously.
    * 
    * @example
    * 85
@@ -200,7 +200,7 @@ export class KubeletConfig extends $dara.Model {
   imageGCHighThresholdPercent?: number;
   /**
    * @remarks
-   * The percentage of disk usage before which image garbage collection never runs.
+   * The threshold below which image garbage collection is not performed.
    * 
    * @example
    * 80
@@ -216,7 +216,7 @@ export class KubeletConfig extends $dara.Model {
   kubeAPIBurst?: number;
   /**
    * @remarks
-   * The QPS when kubelet communicates with the Kubernetes API server.
+   * The number of queries per second when communicating with the API server.
    * 
    * @example
    * 5
@@ -224,12 +224,12 @@ export class KubeletConfig extends $dara.Model {
   kubeAPIQPS?: number;
   /**
    * @remarks
-   * A set of configurations that specify resources reserved for the Kubernetes system.
+   * The resource configuration reserved for Kubernetes system components.
    */
   kubeReserved?: { [key: string]: any };
   /**
    * @remarks
-   * The maximum number of running pods.
+   * The maximum number of pods that can run on the node.
    * 
    * @example
    * 110
@@ -237,7 +237,7 @@ export class KubeletConfig extends $dara.Model {
   maxPods?: number;
   /**
    * @remarks
-   * The name of the policy to be used by the memory manager.
+   * The policy used by the memory management manager.
    * 
    * @example
    * none
@@ -245,7 +245,7 @@ export class KubeletConfig extends $dara.Model {
   memoryManagerPolicy?: string;
   /**
    * @remarks
-   * The maximum number of processes per pod.
+   * The maximum number of PIDs that can be used in a pod.
    * 
    * @example
    * -1
@@ -253,7 +253,7 @@ export class KubeletConfig extends $dara.Model {
   podPidsLimit?: number;
   /**
    * @remarks
-   * The read-only port.
+   * The read-only port number.
    * 
    * @example
    * 0
@@ -261,7 +261,7 @@ export class KubeletConfig extends $dara.Model {
   readOnlyPort?: number;
   /**
    * @remarks
-   * The maximum number of images that can be pulled from bursty image pulls.
+   * The maximum number of burst image pulls.
    * 
    * @example
    * 10
@@ -269,7 +269,7 @@ export class KubeletConfig extends $dara.Model {
   registryBurst?: number;
   /**
    * @remarks
-   * The maximum queries per second (QPS) of the image repository.
+   * The QPS limit for the image registry.
    * 
    * @example
    * 5
@@ -277,30 +277,36 @@ export class KubeletConfig extends $dara.Model {
   registryPullQPS?: number;
   /**
    * @remarks
-   * A list of configurations that specify memory reservations for non-uniform memory access (NUMA) nodes.
+   * The memory reserved for NUMA nodes.
    */
   reservedMemory?: KubeletConfigReservedMemory[];
   /**
    * @remarks
-   * Specifies whether to pull one image at a time.
+   * Specifies whether to pull images one at a time.
    * 
    * @example
    * true
    */
   serializeImagePulls?: boolean;
   /**
+   * @remarks
+   * Enables automatic issuance and rotation of kubelet server certificates. When enabled, you must also set "RotateKubeletServerCertificate": true in the kubelet featureGates configuration.
+   * 
+   * > - Available only for clusters running version 1.30 or later.
+   * > - For clusters running version 1.30 to v1.33, submit a ticket to apply for this feature.
+   * 
    * @example
    * true
    */
   serverTLSBootstrap?: boolean;
   /**
    * @remarks
-   * A set of configurations that specify reserved resources for the system.
+   * The resource configuration reserved for the system.
    */
   systemReserved?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the Topology Manager policy that you want to use.
+   * The Policy Name of the topology management manager to use.
    * 
    * @example
    * restricted
@@ -308,7 +314,7 @@ export class KubeletConfig extends $dara.Model {
   topologyManagerPolicy?: string;
   /**
    * @remarks
-   * The versioned configuration information for the Managed Service for OpenTelemetry client.
+   * The versioned configuration for the OpenTelemetry tracing client.
    */
   tracing?: KubeletConfigTracing;
   static names(): { [key: string]: string } {

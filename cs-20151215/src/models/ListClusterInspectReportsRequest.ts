@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterInspectReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. Maximum value: 50.
+   * The maximum number of results to return. The maximum value is 50.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the orchestration template.
+   * The orchestration template ID.
    * 
    * @example
    * ba1fe77b-b01e-4640-b77e-8f1b80******

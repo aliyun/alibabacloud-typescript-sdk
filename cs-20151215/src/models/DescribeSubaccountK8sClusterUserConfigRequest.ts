@@ -6,7 +6,6 @@ export class DescribeSubaccountK8sClusterUserConfigRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to obtain the internal network connection configuration. Valid values:
-   * 
    * - `true`: Obtains only the KubeConfig credentials for internal network connections.
    * - `false`: Obtains only the KubeConfig credentials for public network connections.
    * 
@@ -21,7 +20,7 @@ export class DescribeSubaccountK8sClusterUserConfigRequest extends $dara.Model {
    * The validity period of the temporary KubeConfig. Unit: minutes.
    * 
    * Valid values: [15, 4320], which is up to 3 days.
-   * > If this parameter is not set, the system automatically determines a longer validity period. The specific expiration time is indicated by the value of the expiration field in the response.
+   * > If you do not set this parameter, the system automatically determines a longer validity period. The specific expiration time is indicated by the value of the expiration field in the response.
    * 
    * @example
    * 15

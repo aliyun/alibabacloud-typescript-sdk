@@ -7,7 +7,7 @@ import { Tag } from "./Tag";
 export class AttachInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The CPU management policy of the node. The following policies are supported for clusters of version 1.12.6 or later:
+   * The CPU management policy of the node. The following policies are supported for clusters running version 1.12.6 or later:
    * 
    * - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
    * - `none`: Uses the existing default CPU affinity scheme.
@@ -33,9 +33,9 @@ export class AttachInstancesRequest extends $dara.Model {
    * 
    * Data cloud disk mounting rules:
    * 
-   * - If the ECS instance has data cloud disks mounted and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to EXT4 to store the content of /var/lib/docker and /var/lib/kubelet (the default data directories for the Docker container runtime and the kubelet component, respectively).
-   * - If the ECS instance has no data cloud disks mounted, no new data cloud disk is mounted.
-   * > If you choose to store data on a data cloud disk and the ECS instance already has data cloud disks mounted, existing data on the data cloud disk is lost. Back up your data in advance.
+   * - If the ECS instance has data cloud disks attached and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to EXT4. The data cloud disk is then used to store the content of /var/lib/docker and /var/lib/kubelet, which are the default data directories for the Docker container runtime and the kubelet component, respectively.
+   * - If the ECS instance does not have data cloud disks attached, no new data cloud disk is mounted.
+   * > If you choose to store data on a data cloud disk and the ECS instance already has data cloud disks attached, the existing data on the data cloud disk will be lost. Back up your data in advance.
    * 
    * @example
    * false
@@ -64,7 +64,7 @@ export class AttachInstancesRequest extends $dara.Model {
   instances?: string[];
   /**
    * @remarks
-   * Specifies whether the node to be added is an edge node, that is, an Edge Node Service (ENS) node. Valid values:
+   * Specifies whether the node to be added is an edge node, which is an Edge Node Service (ENS) node. Valid values:
    * 
    * - `true`: The node to be added is an edge node.
    * 
@@ -94,7 +94,8 @@ export class AttachInstancesRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * The name of the key pair for the instances to be added. Specify either key_pair or password. You can also leave both parameters empty.
+   * The name of the key pair for the instances to be added.
+   * You need to specify only one of key_pair and password, or you can leave both parameters empty.
    * > After you specify `nodepool_id`, this parameter is not supported.
    * 
    * @example
@@ -111,14 +112,14 @@ export class AttachInstancesRequest extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The SSH logon password for the instances to be added. Specify either key_pair or password. You can also leave both parameters empty.
+   * The SSH logon password for the instances to be added. You need to specify only one of key_pair and password, or you can leave both parameters empty.
    * 
    * The password must meet the following requirements:
    * - The password must be 8 to 30 characters in length.
-   * - The password must contain uppercase letters, lowercase letters, digits, and special characters at the same time.
+   * - The password must contain at least uppercase letters, lowercase letters, digits, and special characters.
    * - The password cannot contain backslashes (\\) or double quotation marks (").
    * 
-   * The password is encrypted during transmission for security purposes.
+   * For security purposes, the password is encrypted during transmission.
    * 
    * @example
    * Hello1234
@@ -134,27 +135,27 @@ export class AttachInstancesRequest extends $dara.Model {
    * The container runtime.
    * > After you specify `nodepool_id`, this parameter is not supported.
    * 
-   * name: The name of the container runtime. ACK supports the following three container runtimes:
+   * name: the name of the container runtime. ACK supports the following three container runtimes:
    * 
    * - containerd: Recommended. Supported by all cluster versions.
-   * - Sandboxed-Container.runv: Sandboxed container that provides higher isolation. Supported by clusters of version 1.24 or earlier.
-   * - docker: Supported by clusters of version 1.22 or earlier.
+   * - Sandboxed-Container.runv: Sandboxed container that provides higher isolation. Supported by clusters running version 1.24 or earlier.
+   * - docker: Supported by clusters running version 1.22 or earlier.
    * 
    * Default value: containerd.
    * 
-   * containerd: The container runtime version. Default value: the latest version.
+   * containerd: the container runtime version. Default value: the latest version.
    * 
-   * For more information about changes to the sandboxed container runtime, see [Release notes for the sandboxed container runtime](https://help.aliyun.com/document_detail/160312.html).
+   * For more information about changes to the sandboxed container runtime, see [Sandboxed container runtime release notes](https://help.aliyun.com/document_detail/160312.html).
    */
   runtime?: Runtime;
   /**
    * @remarks
    * The node labels. Label definition rules:
    * 
-   * - Labels are case-sensitive key-value pairs. You can set up to 20 labels.
+   * - Labels are case-sensitive key-value pairs. You can configure up to 20 labels.
    * - Label keys cannot be duplicate and can be up to 64 characters in length.
    * - Label values can be empty and can be up to 128 characters in length.
-   * - Label keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`.
+   * - Label keys and label values cannot start with `aliyun`, `acs:`, `https://`, or `http://`.
    * 
    * For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    * > After you specify `nodepool_id`, this parameter is not supported.
@@ -162,7 +163,7 @@ export class AttachInstancesRequest extends $dara.Model {
   tags?: Tag[];
   /**
    * @remarks
-   * The instance user data of the node. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
+   * The node user data. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
    * 
    * > After you specify `nodepool_id`, this parameter is not supported.
    * 

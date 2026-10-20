@@ -34,7 +34,7 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
+   * The log retention period in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
    * 
    * Default value: 30 days.
    * 

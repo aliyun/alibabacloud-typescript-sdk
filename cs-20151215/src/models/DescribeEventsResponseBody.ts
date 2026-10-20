@@ -6,9 +6,9 @@ export class DescribeEventsResponseBodyEventsData extends $dara.Model {
   /**
    * @remarks
    * The event level. Valid values:
-   * - info: informational.
-   * - warning: warning.
-   * - error: error.
+   * - info: Information.
+   * - warning: Warning.
+   * - error: Error.
    * 
    * @example
    * info
@@ -95,7 +95,7 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The event start time.
+   * The start time of the event in ISO 8601 format, including the time zone.
    * 
    * @example
    * 2025-04-23T20:48:01+08:00
@@ -104,22 +104,22 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
    * The event type. Valid values:
-   * - `cluster_create`: creates a cluster.
-   * - `cluster_scaleout`: scales out a cluster.
-   * - `cluster_attach`: adds existing nodes.
-   * - `cluster_delete`: deletes a cluster.
-   * - `cluster_upgrade`: upgrades a cluster.
-   * - `cluster_migrate`: migrates a cluster.
-   * - `cluster_node_delete`: removes nodes.
-   * - `cluster_node_drain`: drains nodes.
-   * - `cluster_modify`: modifies a cluster.
-   * - `cluster_configuration_modify`: modifies cluster management configurations.
-   * - `cluster_addon_install`: installs a component.
-   * - `cluster_addon_upgrade`: upgrades a component.
-   * - `cluster_addon_uninstall`: uninstalls a component.
-   * - `runtime_upgrade`: upgrades the runtime.
-   * - `nodepool_upgrade`: upgrades a node pool.
-   * - `nodepool_update`: updates a node pool.
+   * - `cluster_create`: Cluster creation.
+   * - `cluster_scaleout`: Cluster scale-out.
+   * - `cluster_attach`: Addition of existing nodes.
+   * - `cluster_delete`: Cluster deletion.
+   * - `cluster_upgrade`: Cluster upgrade.
+   * - `cluster_migrate`: Cluster migration.
+   * - `cluster_node_delete`: Node removal.
+   * - `cluster_node_drain`: Node draining.
+   * - `cluster_modify`: Cluster modification.
+   * - `cluster_configuration_modify`: Cluster control configuration modification.
+   * - `cluster_addon_install`: Add-on installation.
+   * - `cluster_addon_upgrade`: Add-on upgrade.
+   * - `cluster_addon_uninstall`: Add-on uninstallation.
+   * - `runtime_upgrade`: Runtime upgrade.
+   * - `nodepool_upgrade`: Node pool upgrade.
+   * - `nodepool_update`: Node pool update.
    * 
    * @example
    * nodepool_upgrade
@@ -164,7 +164,7 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
 export class DescribeEventsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number for the paged query.
+   * The page number for paging in the paged query.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class DescribeEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 50
@@ -219,7 +219,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   events?: DescribeEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The query token. This value is the next_token value returned by the previous API call.
+   * The pagination token. Set this parameter to the next_token value returned from the previous API call.
    * 
    * @example
    * 5c0a1c0f91c14c6****

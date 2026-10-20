@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $dara.Model {
   /**
    * @remarks
-   * The policy type. For more information about supported policy types and their descriptions, see [Container security policy rule library](https://help.aliyun.com/document_detail/359819.html).
+   * The policy type. For more information about supported policy types and their descriptions, see [Container security policy rules](https://help.aliyun.com/document_detail/359819.html).
    * 
    * @example
    * compliance
@@ -37,7 +37,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
   policyName?: string;
   /**
    * @remarks
-   * The governance level of the policy.
+   * The policy governance level.
    * 
    * @example
    * medium
@@ -75,7 +75,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
 export class DescribePolicyInstancesStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of policy instances deployed in the cluster at different governance levels.
+   * The number of policy instances deployed at different governance levels in the cluster.
    * 
    * @example
    * { "high": 11,     "medium": 1  }
@@ -83,7 +83,7 @@ export class DescribePolicyInstancesStatusResponseBody extends $dara.Model {
   instancesSeverityCount?: { [key: string]: any };
   /**
    * @remarks
-   * The list of policy instance counts for different policy types.
+   * The list of policy instance counts by policy type.
    */
   policyInstances?: DescribePolicyInstancesStatusResponseBodyPolicyInstances[];
   static names(): { [key: string]: string } {

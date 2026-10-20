@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by language (Chinese or English).
+   * Filters the returned results by language (Chinese or English).
    * 
    * @example
    * zh-CN

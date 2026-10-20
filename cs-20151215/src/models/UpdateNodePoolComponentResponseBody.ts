@@ -21,7 +21,7 @@ export class UpdateNodePoolComponentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * T-67d7ec016ce37c0106000***

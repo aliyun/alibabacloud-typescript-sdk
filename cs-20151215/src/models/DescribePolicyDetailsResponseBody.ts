@@ -15,7 +15,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The rule templatetype.
+   * The templatetype of the rule.
    * 
    * @example
    * k8s-general
@@ -32,8 +32,8 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the rule is deleted. Valid values:
-   * - 0: The rule is not deleted.
-   * - 1: The rule is deleted.
+   * - 0: not deleted.
+   * - 1: deleted.
    * 
    * @example
    * 0
@@ -49,9 +49,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether policy configuration is required. Valid values: 
-   * - 0: Parameter settings are required.
-   * - 1: No parameter settings are required.
+   * Indicates whether the policy requires configuration. Valid values: 
+   * - 0: parameter settings required.
+   * - 1: no parameter settings required.
    * 
    * @example
    * 0
@@ -59,7 +59,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   noConfig?: number;
   /**
    * @remarks
-   * The governance severity level of the rule. Valid values:
+   * The governance severity of the rule. Valid values:
    * * `high`: high risk.
    * * `medium`: medium risk.
    * * `low`: low risk.
@@ -73,7 +73,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
    * The details of the rule template.
    * 
    * @example
-   * 详情请参见请求示例
+   * For more information, see the request example
    */
   template?: string;
   static names(): { [key: string]: string } {

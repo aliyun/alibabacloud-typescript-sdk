@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterAddonInstanceResourcesResponseBodyHelmRelease extends $dara.Model {
   /**
    * @remarks
-   * The Helm chart name of the component.
+   * The name of the Helm chart corresponding to the component.
    * 
    * @example
    * ack-node-problem-detector
@@ -13,7 +13,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyHelmRelease extends $d
   chartName?: string;
   /**
    * @remarks
-   * The Helm chart version of the component.
+   * The version of the Helm chart corresponding to the component.
    * 
    * @example
    * 1.2.28
@@ -135,7 +135,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
 export class ListClusterAddonInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Helm release instance information of the component.
+   * The Helm release instance information corresponding to the component.
    */
   helmRelease?: ListClusterAddonInstanceResourcesResponseBodyHelmRelease;
   /**

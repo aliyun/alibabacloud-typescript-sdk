@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodePoolComponentInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return. Default value: 200.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * 5c0a1c0f91c14c6****
    */

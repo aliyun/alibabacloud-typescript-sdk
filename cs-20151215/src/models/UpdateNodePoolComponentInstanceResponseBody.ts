@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNodePoolComponentInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c2230fxxxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * T-xxxx
    */

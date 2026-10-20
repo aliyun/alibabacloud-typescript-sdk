@@ -13,10 +13,10 @@ export class Addon extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Specifies whether to disable automatic installation. When you create a cluster, some additional log components are automatically installed in addition to the required components. You can disable the automatic installations of a component and install the component later by calling the component API or in the corresponding console. Valid values:
+   * Specifies whether to disable default installation. When a cluster is created, required components and additional components such as log components are installed by default. You can disable this default behavior and install these components later by calling the component installation API or by using the console. Valid values:
    * 
-   * *   `true`: disables the automatic installation of a component.
-   * *   `false`: allows the automatic installation of a component.
+   * - `true`: Disables default installation.
+   * - `false`: Allows default installation.
    * 
    * @example
    * false
@@ -24,7 +24,7 @@ export class Addon extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * @example
    * nginx-ingress-controller
