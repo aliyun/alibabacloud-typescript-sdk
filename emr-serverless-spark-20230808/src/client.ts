@@ -895,7 +895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a session cluster.
+   * Creates a session.
    * 
    * @param request - CreateSessionClusterRequest
    * @param headers - map
@@ -978,7 +978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a session cluster.
+   * Creates a session.
    * 
    * @param request - CreateSessionClusterRequest
    * @returns CreateSessionClusterResponse
@@ -990,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL statement.
+   * Creates an SQL query.
    * 
    * @param request - CreateSqlStatementRequest
    * @param headers - map
@@ -1049,7 +1049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL statement.
+   * Creates an SQL query.
    * 
    * @param request - CreateSqlStatementRequest
    * @returns CreateSqlStatementResponse
@@ -1641,7 +1641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the state of an AI center.
+   * Retrieves the status of AI Hub.
    * 
    * @param request - GetAICenterStateRequest
    * @param headers - map
@@ -1668,7 +1668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the state of an AI center.
+   * Retrieves the status of AI Hub.
    * 
    * @param request - GetAICenterStateRequest
    * @returns GetAICenterStateResponse
@@ -1774,7 +1774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   * Retrieves the diagnostic information for a Serverless Spark job.
    * 
    * @param request - GetDoctorApplicationRequest
    * @param headers - map
@@ -1815,7 +1815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   * Retrieves the diagnostic information for a Serverless Spark job.
    * 
    * @param request - GetDoctorApplicationRequest
    * @returns GetDoctorApplicationResponse
@@ -1827,7 +1827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job run by calling GetJobRun.
+   * Retrieves the details of a Spark job run by calling GetJobRun.
    * 
    * @param request - GetJobRunRequest
    * @param headers - map
@@ -1860,7 +1860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job run by calling GetJobRun.
+   * Retrieves the details of a Spark job run by calling GetJobRun.
    * 
    * @param request - GetJobRunRequest
    * @returns GetJobRunResponse
@@ -1872,7 +1872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Kyuubi Gateway.
+   * Retrieves a Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Kyuubi Gateway.
+   * Retrieves a Kyuubi Gateway.
    * @returns GetKyuubiServiceResponse
    */
   async getKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.GetKyuubiServiceResponse> {
@@ -1907,7 +1907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an authentication token for Kyuubi Gateway.
+   * Retrieves the Kyuubi Gateway authentication token.
    * 
    * @param request - GetKyuubiTokenRequest
    * @param headers - map
@@ -1940,7 +1940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an authentication token for Kyuubi Gateway.
+   * Retrieves the Kyuubi Gateway authentication token.
    * 
    * @param request - GetKyuubiTokenRequest
    * @returns GetKyuubiTokenResponse
@@ -1952,7 +1952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a Livy Gateway.
+   * Retrieves the Livy Gateway information.
    * 
    * @param request - GetLivyComputeRequest
    * @param headers - map
@@ -1985,7 +1985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a Livy Gateway.
+   * Retrieves the Livy Gateway information.
    * 
    * @param request - GetLivyComputeRequest
    * @returns GetLivyComputeResponse
@@ -1997,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a token for a Livy Gateway.
+   * Retrieves the token for a Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @param headers - map
@@ -2030,7 +2030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a token for a Livy Gateway.
+   * Retrieves the token for a Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @returns GetLivyComputeTokenResponse
@@ -2210,7 +2210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves session details.
+   * Retrieves the details of a session.
    * 
    * @param request - GetSessionClusterRequest
    * @param headers - map
@@ -2243,7 +2243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves session details.
+   * Retrieves the details of a session.
    * 
    * @param request - GetSessionClusterRequest
    * @returns GetSessionClusterResponse
@@ -2353,6 +2353,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a workspace.
+   * 
+   * @param request - GetWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspaceWithOptions(workspaceId: string, request: $_model.GetWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspace",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a workspace.
+   * 
+   * @param request - GetWorkspaceRequest
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspace(workspaceId: string, request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Assigns a specified role to users.
    * 
    * @param request - GrantRoleToUsersRequest
@@ -2457,7 +2502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the log files for a job executor.
+   * Lists the log files of a job executor.
    * 
    * @param request - ListExecutorLogsRequest
    * @param headers - map
@@ -2502,7 +2547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the log files for a job executor.
+   * Lists the log files of a job executor.
    * 
    * @param request - ListExecutorLogsRequest
    * @returns ListExecutorLogsResponse
@@ -2575,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Spark jobs.
+   * Lists Spark job runs.
    * 
    * @param tmpReq - ListJobRunsRequest
    * @param headers - map
@@ -2690,7 +2735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Spark jobs.
+   * Lists Spark job runs.
    * 
    * @param request - ListJobRunsRequest
    * @returns ListJobRunsResponse
@@ -2747,7 +2792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Kyuubi Spark applications.
+   * Queries the Spark applications submitted by Kyuubi.
    * 
    * @param tmpReq - ListKyuubiSparkApplicationsRequest
    * @param headers - map
@@ -2838,7 +2883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Kyuubi Spark applications.
+   * Queries the Spark applications submitted by Kyuubi.
    * 
    * @param request - ListKyuubiSparkApplicationsRequest
    * @returns ListKyuubiSparkApplicationsResponse
@@ -2850,7 +2895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists KyuubiServer authentication tokens.
+   * Lists the Kyuubi Server authentication tokens.
    * 
    * @param request - ListKyuubiTokenRequest
    * @param headers - map
@@ -2883,7 +2928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists KyuubiServer authentication tokens.
+   * Lists the Kyuubi Server authentication tokens.
    * 
    * @param request - ListKyuubiTokenRequest
    * @returns ListKyuubiTokenResponse
@@ -2895,7 +2940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Livy Gateways.
+   * Lists Livy gateways.
    * 
    * @param request - ListLivyComputeRequest
    * @param headers - map
@@ -2932,7 +2977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Livy Gateways.
+   * Lists Livy gateways.
    * 
    * @param request - ListLivyComputeRequest
    * @returns ListLivyComputeResponse
@@ -2944,7 +2989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the historical sessions for a Livy Gateway.
+   * Retrieves the historical sessions of a Livy Gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @param headers - map
@@ -2985,7 +3030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the historical sessions for a Livy Gateway.
+   * Retrieves the historical sessions of a Livy Gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @returns ListLivyComputeSessionsResponse
@@ -2997,7 +3042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tokens of a Livy Gateway.
+   * Lists the tokens of a Livy gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @param headers - map
@@ -3030,7 +3075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tokens of a Livy Gateway.
+   * Lists the tokens of a Livy gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @returns ListLivyComputeTokenResponse
@@ -3099,7 +3144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of members in the workspace.
+   * Queries the list of members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -3140,7 +3185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of members in the workspace.
+   * Queries the list of members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -3197,6 +3242,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the jobs with the highest CU usage in a queue.
+   * 
+   * @param request - ListQueueTopJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQueueTopJobsResponse
+   */
+  async listQueueTopJobsWithOptions(workspaceId: string, queueName: string, request: $_model.ListQueueTopJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListQueueTopJobsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      query["topN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQueueTopJobs",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/queues/${$dara.URL.percentEncode(queueName)}/topJobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQueueTopJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListQueueTopJobsResponse({}));
+  }
+
+  /**
+   * Queries the jobs with the highest CU usage in a queue.
+   * 
+   * @param request - ListQueueTopJobsRequest
+   * @returns ListQueueTopJobsResponse
+   */
+  async listQueueTopJobs(workspaceId: string, queueName: string, request: $_model.ListQueueTopJobsRequest): Promise<$_model.ListQueueTopJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listQueueTopJobsWithOptions(workspaceId, queueName, request, headers, runtime);
+  }
+
+  /**
    * Lists Ray clusters.
    * 
    * @param request - ListRayClusterRequest
@@ -3246,7 +3340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Ray Job information.
+   * Lists Ray job information.
    * 
    * @param tmpReq - ListRayJobRequest
    * @param headers - map
@@ -3305,7 +3399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Ray Job information.
+   * Lists Ray job information.
    * 
    * @param request - ListRayJobRequest
    * @returns ListRayJobResponse
@@ -3443,7 +3537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of session clusters.
+   * Retrieves a list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @param headers - map
@@ -3496,7 +3590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of session clusters.
+   * Retrieves a list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @returns ListSessionClustersResponse
@@ -3606,7 +3700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of queues in a workspace.
+   * Queries the queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @param headers - map
@@ -3643,7 +3737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of queues in a workspace.
+   * Queries the queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @returns ListWorkspaceQueuesResponse
@@ -3655,7 +3749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Retrieves a list of workspaces.
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -3718,7 +3812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Retrieves a list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -4951,7 +5045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a workflow definition and its timed scheduling.
+   * Updates the workflow definition and timed scheduling.
    * 
    * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
    * @param headers - map
@@ -5074,7 +5168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a workflow definition and its timed scheduling.
+   * Updates the workflow definition and timed scheduling.
    * 
    * @param request - UpdateProcessDefinitionWithScheduleRequest
    * @returns UpdateProcessDefinitionWithScheduleResponse
@@ -5159,7 +5253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a workspace.
+   * Updates the attributes of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @param headers - map
@@ -5230,7 +5324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a workspace.
+   * Updates the attributes of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse

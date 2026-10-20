@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Livy Gateway.
+   * The ID of the Livy gateway.
    * 
    * @example
    * lc-xxxxxxxxxxxx
@@ -21,7 +21,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network connection endpoint.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou.data.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -29,7 +29,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal network connection endpoint.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou-internal.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -37,7 +37,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   endpointInner?: string;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The creation time.
    * 
    * @example
    * 1749456094000
@@ -61,7 +61,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The time when the resource was started.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -115,7 +115,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
 export class ListLivyComputeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of Livy Gateways.
+   * The list of Livy gateways.
    */
   livyComputes?: ListLivyComputeResponseBodyDataLivyComputes[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class ListLivyComputeResponseBodyData extends $dara.Model {
 export class ListLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates that the request is successful. For other values, see the message parameter for error details.
+   * The return code of the request. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For specific error details, see the message.
    * 
    * @example
    * 1000000
@@ -153,7 +153,7 @@ export class ListLivyComputeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListLivyComputeResponseBodyData;
   /**

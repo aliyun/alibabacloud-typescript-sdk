@@ -13,7 +13,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * The name of the permission.
+   * The name of the action.
    * 
    * @example
    * add
@@ -21,7 +21,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * The list of action dependencies.
+   * The list of dependencies for the action.
    * 
    * @example
    * ["view"]
@@ -86,7 +86,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * The name of the permission.
+   * The name of the action.
    * 
    * @example
    * add
@@ -94,7 +94,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * The list of action dependencies.
+   * The list of dependencies for the action.
    * 
    * @example
    * ["view"]
@@ -156,7 +156,7 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
   actions?: ListMembersResponseBodyMembersRolesActions[];
   /**
    * @remarks
-   * The time when the role was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1753412502000
@@ -221,12 +221,12 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
 export class ListMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
-   * The list of operations allowed for this user.
+   * The list of actions allowed for the user.
    */
   actions?: ListMembersResponseBodyMembersActions[];
   /**
    * @remarks
-   * The time when the member was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1753412502000
@@ -242,7 +242,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the user.
+   * The ARN of the member.
    * 
    * @example
    * acs:emr::w-1234****abcd:member/202265*****276
@@ -263,7 +263,9 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The type of the user.
+   * The type of the user. Valid values:
+   * - ROLE
+   * - MEMBER
    * 
    * @example
    * MEMBER
@@ -321,7 +323,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
 export class ListMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of records to return per request.
    * 
    * @example
    * 20
@@ -334,7 +336,7 @@ export class ListMembersResponseBody extends $dara.Model {
   members?: ListMembersResponseBodyMembers[];
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token for the next page.
    * 
    * @example
    * 1
@@ -342,7 +344,7 @@ export class ListMembersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -350,7 +352,7 @@ export class ListMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 200

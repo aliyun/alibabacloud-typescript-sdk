@@ -13,13 +13,10 @@ export class GetAICenterStateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the AI center. Valid values:
-   * 
-   * - Running
-   * 
-   * - inactive
-   * 
-   * - activating
+   * The status of AI Hub. Valid values:
+   * * active
+   * * inactive
+   * * activating
    * 
    * @example
    * Running

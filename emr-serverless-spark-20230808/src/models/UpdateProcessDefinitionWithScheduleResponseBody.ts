@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The email address for alerts.
+   * The email address for alert notifications.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -29,7 +29,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The time when the workflow definition was created.
+   * The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2024-09-05T02:03:19Z
@@ -45,7 +45,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   crontab?: string;
   /**
    * @remarks
-   * The description of the workflow definition.
+   * The node definition description.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The end time of the schedule.
+   * The end time of the task time range. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710432000000
@@ -93,7 +93,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   projectName?: string;
   /**
    * @remarks
-   * The release state of the workflow.
+   * The online status of the workflow.
    * 
    * @example
    * ONLINE
@@ -101,7 +101,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   releaseState?: string;
   /**
    * @remarks
-   * The start time of the schedule.
+   * The start time of the scheduling.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   timezoneId?: string;
   /**
    * @remarks
-   * The time when the workflow definition was updated.
+   * The update time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2024-03-05T06:24:27Z
@@ -125,7 +125,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user who scheduled the workflow.
+   * The ID of the scheduling user.
    * 
    * @example
    * 113*********
@@ -133,7 +133,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   userId?: string;
   /**
    * @remarks
-   * The name of the user who scheduled the workflow.
+   * The name of the scheduling user.
    * 
    * @example
    * w-********
@@ -149,7 +149,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   version?: number;
   /**
    * @remarks
-   * The hash code of the version.
+   * The version hash code.
    * 
    * @example
    * dwerf*********
@@ -215,7 +215,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
 export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code from the backend API.
+   * The return code from the API backend.
    * 
    * @example
    * 1400009
@@ -228,7 +228,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   data?: UpdateProcessDefinitionWithScheduleResponseBodyData;
   /**
    * @remarks
-   * The number of failed operations.
+   * The number of failures.
    * 
    * @example
    * false
@@ -244,7 +244,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed description that corresponds to the return code.
+   * The detailed description corresponding to the request code.
    * 
    * @example
    * No permission for resource action
@@ -252,7 +252,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -260,7 +260,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

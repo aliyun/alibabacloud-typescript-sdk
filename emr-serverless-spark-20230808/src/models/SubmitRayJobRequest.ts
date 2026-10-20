@@ -13,7 +13,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The Ray DPI engine database engine version.
    * 
    * @example
    * err-1.3.0 (Ray 2.55.1, Python 3.12)
@@ -21,7 +21,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic scaling for workers.
+   * Specifies whether to enable auto-scaling for worker nodes.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The worker idle timeout period after automatic scaling is enabled.
+   * The idle time for worker nodes after auto-scaling is enabled.
    * 
    * @example
    * 60
@@ -45,7 +45,7 @@ export class SubmitRayJobRequestHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: GiB.
+   * The memory size, in Gi.
    * 
    * @example
    * 8Gi
@@ -143,7 +143,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The DPI engine version.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -167,7 +167,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of workers after automatic scaling is enabled.
+   * The maximum number of workers when automatic scaling is enabled.
    * 
    * @example
    * 10
@@ -175,7 +175,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: GiB.
+   * The memory size, in Gi.
    * 
    * @example
    * 16Gi
@@ -183,7 +183,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of workers after automatic scaling is enabled.
+   * The minimum number of workers when automatic scaling is enabled.
    * 
    * @example
    * 1
@@ -255,7 +255,7 @@ export class SubmitRayJobRequestWorkerSpec extends $dara.Model {
 export class SubmitRayJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The timeout period of the job, which includes the cluster creation time and job runtime. The job is canceled if this period is exceeded.
+   * The job timeout period, which includes the cluster creation and job execution time. The job is canceled if it exceeds this period.
    * 
    * @example
    * 3600
@@ -263,7 +263,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   activeDeadlineSeconds?: number;
   /**
    * @remarks
-   * The ID of an existing Ray cluster to which the job is submitted.
+   * The ID of the existing Ray cluster.
    * 
    * @example
    * ray-xxxxxxxxx
@@ -271,7 +271,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The Ray DPI engine version number.
+   * The Ray DPI engine database engine version number.
    * 
    * @example
    * err-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -279,7 +279,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The startup command.
+   * The entrypoint command.
    * 
    * @example
    * python -c "print(\\"hello ray job\\")"
@@ -287,7 +287,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypoint?: string;
   /**
    * @remarks
-   * The memory size requested by the entrypoint task.
+   * The memory size requested by the entrypoint job.
    * 
    * @example
    * 4Gi
@@ -295,7 +295,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypointMemory?: string;
   /**
    * @remarks
-   * The number of CPUs requested by the entrypoint task.
+   * The number of CPUs requested by the entrypoint job.
    * 
    * @example
    * 1
@@ -303,7 +303,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypointNumCpus?: string;
   /**
    * @remarks
-   * The number of GPUs requested by the entrypoint task.
+   * The number of GPUs requested by the entrypoint job.
    * 
    * @example
    * 0
@@ -311,7 +311,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypointNumGpus?: string;
   /**
    * @remarks
-   * The custom resource request JSON string for the entrypoint task.
+   * The custom resource request JSON string for the entrypoint job.
    * 
    * @example
    * {"fpu": 1}
@@ -319,7 +319,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   entrypointResources?: string;
   /**
    * @remarks
-   * The extra parameters in a JSON string.
+   * The JSON string for additional parameters.
    * 
    * @example
    * {"userDefinedFiles": "oss://mybucket/artifact/config.json,oss://mybucket/artifact/config2.json", "userRequirementsFile": "oss://mybucket/requirements.txt"}
@@ -327,7 +327,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The Ray cluster head node parameters.
+   * The parameters of the Ray cluster head node.
    */
   headSpec?: SubmitRayJobRequestHeadSpec;
   /**
@@ -385,7 +385,7 @@ export class SubmitRayJobRequest extends $dara.Model {
   tags?: SubmitRayJobRequestTags[];
   /**
    * @remarks
-   * The number of seconds to wait before destroying the cluster. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
+   * The wait time in seconds before the cluster is destroyed. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
    * 
    * @example
    * 60
@@ -398,12 +398,12 @@ export class SubmitRayJobRequest extends $dara.Model {
   volumeIds?: string[];
   /**
    * @remarks
-   * The parameters of the worker nodes in the Ray cluster.
+   * The Ray cluster worker node parameters.
    */
   workerSpec?: SubmitRayJobRequestWorkerSpec[];
   /**
    * @remarks
-   * The URL of the job code working directory.
+   * The URL of the working directory for the job code.
    * 
    * @example
    * oss://mybucket/rayjob.zip

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Model {
   /**
    * @remarks
-   * The action ARN.
+   * The ARN of the action.
    * 
    * @example
    * acs:emr::workspaceId:action/create_queue
@@ -21,7 +21,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
   actionName?: string;
   /**
    * @remarks
-   * The list of action dependencies.
+   * The list of dependencies for the action.
    * 
    * @example
    * ["view"]
@@ -29,7 +29,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
   dependencies?: string[];
   /**
    * @remarks
-   * The action description.
+   * The description of the action.
    * 
    * @example
    * Directory traversal and file browsing
@@ -40,7 +40,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
    * The display name of the permission.
    * 
    * @example
-   * File directory traversal, file browsing
+   * Directory traversal and file browsing
    */
   displayName?: string;
   static names(): { [key: string]: string } {
@@ -78,12 +78,12 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
 export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed actions on the queue.
+   * The list of allowed operations for the queue.
    */
   allowActions?: ListWorkspaceQueuesResponseBodyQueuesAllowActions[];
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684115879955
@@ -91,7 +91,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The UID of the user who created the queue.
+   * The UID of the creator.
    * 
    * @example
    * 237109
@@ -107,15 +107,26 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of queue environment types.
+   * The list of environment types for the queue.
    */
   environments?: string[];
+  /**
+   * @remarks
+   * The number of GPU machines.
+   * 
+   * @example
+   * 0
+   */
   gpuMachineNum?: number;
   /**
    * @remarks
-   * The list of GPU models.
+   * The list of GPU instance types.
    */
   gpuSpec?: string[];
+  /**
+   * @remarks
+   * The ID of the resource instance associated with the queue.
+   */
   instanceId?: string;
   /**
    * @remarks
@@ -135,10 +146,10 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   minResource?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
-   * - PayAsYouGo: pay-as-you-go.
-   * - Pre: subscription.
+   * - PayAsYouGo: pay-as-you-go
+   * - Pre: subscription
    * 
    * @example
    * PayAsYouGo
@@ -146,7 +157,10 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Indicates whether resource prefetch is enabled.
+   * Specifies whether resource prefetching is performed.
+   * 
+   * @example
+   * true
    */
   preheat?: boolean;
   /**
@@ -159,7 +173,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   properties?: string;
   /**
    * @remarks
-   * The queue category, CPU or GPU.
+   * The queue category, such as CPU or GPU.
    * 
    * @example
    * CPU
@@ -297,7 +311,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
 export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned per request.
+   * The maximum number of records to return per request.
    * 
    * @example
    * 20

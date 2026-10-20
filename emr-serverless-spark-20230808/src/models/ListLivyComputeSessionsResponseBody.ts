@@ -13,7 +13,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   computeId?: string;
   /**
    * @remarks
-   * The time when the session was created. This is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1768213240000
@@ -21,7 +21,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The number of compute units (CUs) consumed during the task execution. This is an estimated value. The actual value is subject to the bill.
+   * The number of compute units (CUs) consumed during the job runtime. This value is an estimate. The actual value is subject to the bill.
    * 
    * @example
    * 322.5
@@ -29,7 +29,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The time when the session ended. This is a UNIX timestamp in milliseconds.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1768213240000
@@ -45,7 +45,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   info?: string;
   /**
    * @remarks
-   * The total amount of memory in MB allocated to the task multiplied by the number of seconds the task has been running.
+   * The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
    * 
    * @example
    * 1098888
@@ -90,17 +90,12 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   sparkConf?: string;
   /**
    * @remarks
-   * The session state.
-   * 
-   * - starting: The session is starting.
-   * 
-   * - running: The session is running.
-   * 
-   * - terminating: The session is being terminated.
-   * 
-   * - terminated: The session is terminated.
-   * 
-   * - error: The session failed.
+   * The session status. Valid values:
+   * - starting: Starting.
+   * - running: Running.
+   * - terminating: Terminating.
+   * - terminated: Terminated.
+   * - error: Error.
    * 
    * @example
    * running
@@ -108,7 +103,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The total number of vCores allocated to the task multiplied by the number of seconds the task has been running.
+   * The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
    * 
    * @example
    * 343
@@ -116,7 +111,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   vcoreSeconds?: number;
   /**
    * @remarks
-   * The web UI URL of the session.
+   * The web UI address of the session.
    * 
    * @example
    * http://emr-spark-ui-cn-hangzhou.data.aliyun.com

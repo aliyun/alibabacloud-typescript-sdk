@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRayJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Ray Job (exact match).
+   * The name of the Ray job. Exact match is supported.
    * 
    * @example
    * myrayjob
@@ -21,7 +21,7 @@ export class ListRayJobShrinkRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListRayJobShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The submission ID of the Ray Job.
+   * The submission ID of the Ray job.
    * 
    * @example
    * rj-xxxxxxxxxxx
@@ -37,12 +37,12 @@ export class ListRayJobShrinkRequest extends $dara.Model {
   submissionId?: string;
   /**
    * @remarks
-   * The submit time range.
+   * The submission time range.
    */
   submitTimeShrink?: string;
   /**
    * @remarks
-   * The data development node ID.
+   * The ID of the data development node.
    * 
    * @example
    * TSK-db8b870d901e443ba0aebba40c923e02

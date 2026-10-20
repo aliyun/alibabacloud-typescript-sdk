@@ -13,7 +13,7 @@ export class ListSessionClustersRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListSessionClustersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the start of the next page of results.
+   * The token that indicates the position from which to start reading.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListSessionClustersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * emr-spark-demo-job

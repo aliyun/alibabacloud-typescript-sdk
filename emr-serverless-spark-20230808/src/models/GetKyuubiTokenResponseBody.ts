@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKyuubiTokenResponseBodyDataAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the token automatically expires.
+   * Specifies whether auto-expiration is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetKyuubiTokenResponseBodyDataAutoExpireConfiguration extends $dara
   enable?: boolean;
   /**
    * @remarks
-   * The expiration period, in days.
+   * The expiration period in days.
    * 
    * @example
    * 365
@@ -45,12 +45,12 @@ export class GetKyuubiTokenResponseBodyDataAutoExpireConfiguration extends $dara
 export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The automatic expiration configuration.
+   * The auto-expiration configuration struct.
    */
   autoExpireConfiguration?: GetKyuubiTokenResponseBodyDataAutoExpireConfiguration;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -58,7 +58,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
    * admin
@@ -66,7 +66,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1753932319390
@@ -74,7 +74,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The last used time.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456098000
@@ -82,7 +82,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   lastUsedTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Names (ARNs) of the authorized users.
+   * The list of authorized user ARNs.
    */
   memberArns?: string[];
   /**
@@ -104,7 +104,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The token ID.
+   * Token ID。
    * 
    * @example
    * tk-zpi0*****hdv4y
@@ -161,7 +161,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
 export class GetKyuubiTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetKyuubiTokenResponseBodyData;
   /**

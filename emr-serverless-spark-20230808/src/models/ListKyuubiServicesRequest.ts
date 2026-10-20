@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token of the Kyuubi Gateway.
+   * The Kyuubi Gateway token.
    * 
    * @example
    * 6w3s2e7y7t9fxnvtai9sv1uebw8b7bvc

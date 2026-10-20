@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivyComputeTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

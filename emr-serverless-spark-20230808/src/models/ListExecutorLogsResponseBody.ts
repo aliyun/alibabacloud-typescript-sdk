@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorLogsResponseBodyLogs extends $dara.Model {
   /**
    * @remarks
-   * The full path of the log file.
+   * The full file path.
    */
   fileName?: string;
   /**
    * @remarks
-   * The size of the file, in bytes.
+   * The file size.
    * 
    * @example
    * 6383327
@@ -34,7 +34,7 @@ export class ListExecutorLogsResponseBodyLogs extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The time the log file was last updated, as a Unix timestamp.
+   * The log update time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1745390462
@@ -72,12 +72,12 @@ export class ListExecutorLogsResponseBodyLogs extends $dara.Model {
 export class ListExecutorLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The retrieved logs, sorted in contextual order. If no contextual logs are found based on the specified starting log, this parameter is empty.
+   * The retrieved logs, sorted in contextual order. This parameter is empty if no contextual logs are found in the log query based on the specified starting log.
    */
   logs?: ListExecutorLogsResponseBodyLogs[];
   /**
    * @remarks
-   * The maximum number of results returned per page.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -85,7 +85,7 @@ export class ListExecutorLogsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. This value is null when there are no more results to return.
+   * The next token.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class ListExecutorLogsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944
@@ -101,7 +101,7 @@ export class ListExecutorLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of log files.
+   * The total number of records.
    * 
    * @example
    * 200

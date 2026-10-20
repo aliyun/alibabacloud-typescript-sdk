@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -21,7 +21,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   createdby?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456994000
@@ -29,7 +29,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The last used time.
+   * The time when the token was last used. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456098000
@@ -53,7 +53,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
    * lctk-xxxxxxxxxxx
@@ -95,7 +95,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
 export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of tokens.
+   * The token list.
    */
   tokens?: ListLivyComputeTokenResponseBodyDataTokens[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
 export class ListLivyComputeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates success. Any other value indicates failure. You can view the specific error description in the message field.
+   * The return code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error cause, see the message.
    * 
    * @example
    * 1000000
@@ -133,7 +133,7 @@ export class ListLivyComputeTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListLivyComputeTokenResponseBodyData;
   /**

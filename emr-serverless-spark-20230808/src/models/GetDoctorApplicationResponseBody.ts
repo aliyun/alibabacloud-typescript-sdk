@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDoctorApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The diagnostics list.
-   * 
-   * @example
-   * Normal.
+   * The list of diagnostic information.
    */
   suggestions?: string[];
   static names(): { [key: string]: string } {
@@ -38,7 +35,7 @@ export class GetDoctorApplicationResponseBodyData extends $dara.Model {
 export class GetDoctorApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: GetDoctorApplicationResponseBodyData;
   static names(): { [key: string]: string } {

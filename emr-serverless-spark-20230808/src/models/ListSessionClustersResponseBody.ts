@@ -55,7 +55,7 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
 export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto-start is enabled.
+   * Specifies whether auto-start is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguratio
 export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto-stop is enabled.
+   * Specifies whether auto-stop is enabled.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
   enable?: boolean;
   /**
    * @remarks
-   * The number of minutes of inactivity before the session is automatically stopped.
+   * The number of idle minutes after which the session is automatically stopped.
    * 
    * @example
    * 45
@@ -125,7 +125,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
 export class ListSessionClustersResponseBodySessionClustersStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * The state change code.
+   * The status change code.
    * 
    * @example
    * 200
@@ -133,7 +133,7 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
   code?: string;
   /**
    * @remarks
-   * The state change message.
+   * The status change message.
    * 
    * @example
    * ok
@@ -165,7 +165,7 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
 export class ListSessionClustersResponseBodySessionClusters extends $dara.Model {
   /**
    * @remarks
-   * The session configurations. These are equivalent to the configurations of the underlying Spark job.
+   * The session configurations, which are equivalent to the configurations of the underlying Spark job.
    */
   applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
   /**
@@ -178,10 +178,14 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
    * The auto-stop configuration.
    */
   autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
+  /**
+   * @remarks
+   * The token used to connect to the session cluster.
+   */
   connectionToken?: string;
   /**
    * @remarks
-   * The version displayed in the console.
+   * The version actually displayed in the console.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -189,7 +193,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The public endpoint of the Thrift server.
+   * The public domain name of the Thrift server.
    * 
    * @example
    * emr-spark-gateway-cn-hangzhou.data.aliyun.com
@@ -197,7 +201,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   domain?: string;
   /**
    * @remarks
-   * The internal same-region endpoint of the Thrift server.
+   * The internal domain name of the Thrift server.
    * 
    * @example
    * emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
@@ -205,7 +209,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   domainInner?: string;
   /**
    * @remarks
-   * The ID of the developer job that is attached to the session.
+   * The ID of the development job bound to the session.
    * 
    * @example
    * TSK-xxxxxxxxx
@@ -221,7 +225,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   extra?: string;
   /**
    * @remarks
-   * Indicates whether acceleration by the Fusion engine is enabled.
+   * Specifies whether Fusion engine acceleration is enabled.
    * 
    * @example
    * false
@@ -229,7 +233,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   fusion?: boolean;
   /**
    * @remarks
-   * The time when the session was created.
+   * The creation time.
    * 
    * @example
    * 1732267598000
@@ -251,10 +255,17 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
    * adhoc_query
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the public network access endpoint is enabled.
+   * 
+   * @example
+   * true
+   */
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The name of the queue in which the session runs.
+   * The name of the queue where the session runs.
    * 
    * @example
    * dev_queue
@@ -278,7 +289,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   sessionClusterId?: string;
   /**
    * @remarks
-   * The time when the session was started.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1732267598000
@@ -286,17 +297,12 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   startTime?: number;
   /**
    * @remarks
-   * The session state.
-   * 
-   * - Starting: The session is starting.
-   * 
-   * - Running: The session is running.
-   * 
-   * - Stopping: The session is stopping.
-   * 
-   * - Stopped: The session is stopped.
-   * 
-   * - Error: The session has failed.
+   * The session status. Valid values:
+   * - Starting: Starting.
+   * - Running: Running.
+   * - Stopping: Stopping.
+   * - Stopped: Stopped.
+   * - Error: Failed.
    * 
    * @example
    * Running
@@ -304,7 +310,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The details of the last state change of the session.
+   * The details of the most recent session status change.
    */
   stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
   /**
@@ -325,7 +331,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   userName?: string;
   /**
    * @remarks
-   * The URL of the Spark UI for the session.
+   * The Spark UI URL of the session.
    * 
    * @example
    * http://spark-ui-xxxx
@@ -421,7 +427,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
 export class ListSessionClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned for the request.
+   * The maximum number of records returned in the current request.
    * 
    * @example
    * 20
@@ -429,7 +435,7 @@ export class ListSessionClustersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the start of the next page of results.
+   * The token that indicates the position of the returned data.
    * 
    * @example
    * 1
@@ -445,12 +451,12 @@ export class ListSessionClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of sessions.
+   * The list of sessions.
    */
   sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
   /**
    * @remarks
-   * The total number of entries that match the query criteria.
+   * The total number of records that meet the current request conditions.
    * 
    * @example
    * 200

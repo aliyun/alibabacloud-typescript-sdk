@@ -13,10 +13,9 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   allocatedResource?: string;
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled for the resource. Valid values:
-   * 
+   * Specifies whether auto-renewal is enabled for the resource. Valid values:
    * - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
-   * - false: Auto-renewal is not enabled. The resource stops being available upon expiration.
+   * - false: Auto-renewal is disabled. The resource is stopped upon expiration.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The time when the resource quota was created.
+   * The time when the resource quota was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1745683200000
@@ -32,7 +31,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * The time when the resource quota expires.
+   * The expiration time of the resource quota. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740537153000
@@ -48,13 +47,16 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The maximum amount of resources available.
+   * The maximum amount of resources that can be used.
    * 
    * @example
    * {\\"cpu\\":\\"1\\",\\"memory\\":\\"4Gi\\",\\"cu\\":\\"1\\"}
    */
   maxResource?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23464687565
    */
@@ -62,8 +64,8 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   /**
    * @remarks
    * The payment status of the current resource. Valid values:
-   * - NORMAL: Active.
-   * - WAIT_FOR_EXPIRE: About to expire.
+   * - NORMAL: Valid.
+   * - WAIT_FOR_EXPIRE: Expiring.
    * - EXPIRED: Expired.
    * 
    * @example
@@ -116,49 +118,110 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
 }
 
 export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether auto-renewal is enabled.
+   * 
+   * @example
+   * true
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The number of CPU cores.
+   */
   cpuCoreCount?: string;
   /**
+   * @remarks
+   * The time when the GPU subscription quota was created. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1782292672000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1782292772000
    */
   expireTime?: number;
+  /**
+   * @remarks
+   * The number of GPUs.
+   * 
+   * @example
+   * 0
+   */
   gpuAmount?: number;
   /**
+   * @remarks
+   * The number of GPU machines.
+   * 
    * @example
    * 4
    */
   gpuMachineNum?: number;
+  /**
+   * @remarks
+   * The GPU memory size.
+   * 
+   * @example
+   * 0
+   */
   gpuMemorySize?: number;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 8
    */
   gpuNum?: number;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * ecs.gn7i-c8g1.2xlarge
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * w-xxxxxxxxx-gpu-quota-xxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance family.
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * The instance type ID.
+   */
   instanceTypeId?: string;
+  /**
+   * @remarks
+   * The memory size.
+   */
   memorySize?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2534863936
    */
   orderId?: string;
   /**
+   * @remarks
+   * The order status.
+   * 
    * @example
    * NORMAL
    */
@@ -253,7 +316,15 @@ export class ListWorkspacesResponseBodyWorkspacesStateChangeReason extends $dara
 }
 
 export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -281,7 +352,7 @@ export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled. This parameter is required for the prepaid type.
+   * Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
    * 
    * @example
    * true
@@ -289,7 +360,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration. This parameter is required for the prepaid type.
+   * The auto-renewal duration. This parameter is required for subscription resources.
    * 
    * @example
    * 1
@@ -297,7 +368,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The auto-renewal epoch unit. This parameter is required for the prepaid type.
+   * The auto-renewal epoch. This parameter is required for subscription resources.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -305,7 +376,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684115879955
@@ -313,7 +384,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The DLF Catalog information.
+   * The DLF catalog information.
    * 
    * @example
    * default
@@ -321,7 +392,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   dlfCatalogId?: string;
   /**
    * @remarks
-   * The DLF binding type.
+   * The type of the associated DLF.
    * 
    * @example
    * 1.0
@@ -329,7 +400,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The subscription period quantity. This parameter is required for the prepaid type.
+   * The duration of the subscription. This parameter is required for subscription resources.
    * 
    * @example
    * 1
@@ -337,7 +408,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the workspace was released.
+   * The time when the workspace was released. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1687103999999
@@ -345,17 +416,25 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The failure reason.
+   * The reason for the failure.
    * 
    * @example
    * out of stock
    */
   failReason?: string;
+  /**
+   * @remarks
+   * The list of GPU models.
+   */
   gpuSpec?: string[];
+  /**
+   * @remarks
+   * The IP whitelist of the workspace.
+   */
   ipWhiteList?: string[];
   /**
    * @remarks
-   * The subscription period unit. This parameter is required for the prepaid type.
+   * The unit of the subscription period. This parameter is required for subscription resources.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -371,7 +450,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   paymentStatus?: string;
   /**
    * @remarks
-   * The payment type.
+   * The billing method.
    * 
    * @example
    * PayAsYouGo or Subscription
@@ -379,9 +458,13 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The prepaid resource quota information.
+   * The information about the subscription resource quota.
    */
   prePaidQuota?: ListWorkspacesResponseBodyWorkspacesPrePaidQuota;
+  /**
+   * @remarks
+   * The list of GPU subscription quotas.
+   */
   prePaidQuotaGpu?: ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu[];
   /**
    * @remarks
@@ -400,6 +483,9 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    */
   releaseType?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxxxxxxxx
    */
@@ -414,7 +500,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   resourceSpec?: string;
   /**
    * @remarks
-   * The state change information of the workspace.
+   * The information about the workspace status change.
    */
   stateChangeReason?: ListWorkspacesResponseBodyWorkspacesStateChangeReason;
   /**
@@ -425,10 +511,14 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    * spark-result
    */
   storage?: string;
+  /**
+   * @remarks
+   * The list of workspace tags.
+   */
   tags?: ListWorkspacesResponseBodyWorkspacesTags[];
   /**
    * @remarks
-   * Workspace ID。
+   * The workspace ID.
    * 
    * @example
    * w-******
@@ -436,15 +526,15 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
-   * Spark batch workspace-1
+   * spark-batch-job-workspace-1
    */
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace status.
+   * The status of the workspace.
    * 
    * @example
    * STARTING,RUNNING,TERMINATED
@@ -542,7 +632,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -550,7 +640,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The next token.
    * 
    * @example
    * 1

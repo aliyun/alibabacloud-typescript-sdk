@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Spark application submitted by Kyuubi, used for searching.
+   * The ID of the Spark application submitted by Kyuubi, used for search.
    * 
    * @example
    * spark-339f844005b6404c95f9f7c7a13b****
@@ -13,56 +13,79 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name of the Spark application submitted by Kyuubi, used for searching.
+   * The name of the Spark application submitted by Kyuubi, used for search.
    * 
    * @example
    * kyuubi-connection-spark-sql-anonymous-fa9a5e73-b4b1-474a-b****
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The end time range of the task.
+   */
   endTimeShrink?: string;
   /**
+   * @remarks
+   * The list of statuses of the latest SQL statement used for filtering.
+   * 
    * @example
    * ["SUCCESS"]
    */
   latestSqlStatementStatuses?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The minimum execution duration of the application, in milliseconds.
+   * 
    * @example
    * 60000
    */
   minDuration?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The token for the next page.
    * 
    * @example
    * 1
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of sort fields.
+   */
   orderByShrink?: string;
   /**
+   * @remarks
+   * The resource queue ID used to filter Spark applications.
+   * 
    * @example
    * root_queue
    */
   resourceQueueId?: string;
   /**
+   * @remarks
+   * The sort order. A value of asc indicates ascending order, and desc indicates descending order.
+   * 
    * @example
    * asc
    */
   sort?: string;
   /**
    * @remarks
-   * The time range when the task started.
+   * The start time range of the task.
    */
   startTimeShrink?: string;
   /**
+   * @remarks
+   * The list of Spark application states used for filtering.
+   * 
    * @example
    * ["ERROR"]
    */

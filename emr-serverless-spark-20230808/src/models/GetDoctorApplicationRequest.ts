@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDoctorApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of diagnostic information.
+   * The language of the diagnostic information.
    * 
    * @example
    * zh-CN
@@ -13,7 +13,7 @@ export class GetDoctorApplicationRequest extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The query time.
+   * The query date in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-01-01

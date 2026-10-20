@@ -4,45 +4,13 @@ import { SparkConf } from "./SparkConf";
 
 
 export class TaskCredential extends $dara.Model {
-  /**
-   * @remarks
-   * access id
-   */
   accessId?: string;
-  /**
-   * @remarks
-   * The access URL.
-   */
   accessUrl?: string;
-  /**
-   * @remarks
-   * The expiration time.
-   */
   expire?: number;
-  /**
-   * @remarks
-   * The domain name.
-   */
   host?: string;
-  /**
-   * @remarks
-   * The path.
-   */
   path?: string;
-  /**
-   * @remarks
-   * policy
-   */
   policy?: string;
-  /**
-   * @remarks
-   * security token
-   */
   securityToken?: string;
-  /**
-   * @remarks
-   * The signature.
-   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,9 +51,6 @@ export class TaskRayHeadSpec extends $dara.Model {
   cpu?: string;
   enableAutoScaling?: boolean;
   /**
-   * @remarks
-   * The environment variables of the Ray node.
-   * 
    * @example
    * MY_ENV=123456
    */
@@ -95,17 +60,11 @@ export class TaskRayHeadSpec extends $dara.Model {
   memory?: string;
   queueName?: string;
   /**
-   * @remarks
-   * The startup parameters of Ray.
-   * 
    * @example
    * --num-cpus=0
    */
   rayStartParams?: string;
   /**
-   * @remarks
-   * The DPI engine version of Ray.
-   * 
    * @example
    * err-1.3.0 (Ray 2.55.1, Python 3.12)
    */
@@ -153,9 +112,6 @@ export class TaskRayHeadSpec extends $dara.Model {
 export class TaskRayWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
-   * @remarks
-   * The environment variables of Ray.
-   * 
    * @example
    * MY_ENV=123456
    */
@@ -167,17 +123,11 @@ export class TaskRayWorkerSpec extends $dara.Model {
   minReplica?: number;
   queueName?: string;
   /**
-   * @remarks
-   * The startup parameters of Ray.
-   * 
    * @example
    * --num-cpus=0
    */
   rayStartParams?: string;
   /**
-   * @remarks
-   * The DPI engine version of Ray.
-   * 
    * @example
    * err-1.3.0 (Ray 2.55.1, Python 3.12)
    */
@@ -225,156 +175,62 @@ export class TaskRayWorkerSpec extends $dara.Model {
 }
 
 export class Task extends $dara.Model {
-  /**
-   * @remarks
-   * The --archives parameter.
-   */
   archives?: string[];
-  /**
-   * @remarks
-   * The temporary URL for accessing the resource file.
-   */
   artifactUrl?: string;
   /**
    * @remarks
-   * The business ID.
-   * 
    * This parameter is required.
    */
   bizId?: string;
-  /**
-   * @remarks
-   * The business ID of the folder.
-   */
   categoryBizId?: string;
-  /**
-   * @remarks
-   * The Spark job content.
-   */
   content?: string;
   /**
    * @remarks
-   * The UID of the creator.
-   * 
    * This parameter is required.
    */
   creator?: number;
-  /**
-   * @remarks
-   * The credential for direct OSS upload.
-   */
   credential?: TaskCredential;
-  /**
-   * @remarks
-   * The default catalog ID.
-   */
   defaultCatalogId?: string;
-  /**
-   * @remarks
-   * The default database.
-   */
   defaultDatabase?: string;
-  /**
-   * @remarks
-   * The ID of the default task queue.
-   */
   defaultResourceQueueId?: string;
-  /**
-   * @remarks
-   * The default SQL session ID.
-   */
   defaultSqlComputeId?: string;
-  /**
-   * @remarks
-   * The deployment ID of the streaming task.
-   */
   deploymentId?: string;
-  /**
-   * @remarks
-   * The environment ID.
-   */
   environmentId?: string;
-  /**
-   * @remarks
-   * The IDs of extra Spark artifacts.
-   */
   extraArtifactIds?: string[];
-  /**
-   * @remarks
-   * The custom spark-submit configuration parameters.
-   */
   extraSparkSubmitParams?: string;
-  /**
-   * @remarks
-   * The --files parameter.
-   */
   files?: string[];
-  /**
-   * @remarks
-   * Indicates whether the fusion feature is enabled.
-   */
   fusion?: boolean;
   /**
    * @remarks
-   * The creation time.
-   * 
    * This parameter is required.
    */
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modified time.
-   * 
    * This parameter is required.
    */
   gmtModified?: string;
-  /**
-   * @remarks
-   * Indicates whether the task has been changed after the last commit.
-   */
   hasChanged?: boolean;
   /**
    * @remarks
-   * Indicates whether the task has been submitted.
-   * 
    * This parameter is required.
    */
   hasCommited?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the task is a streaming task.
-   */
   isStreaming?: boolean;
-  /**
-   * @remarks
-   * The --jars parameter.
-   */
   jars?: string[];
   kernelId?: string;
-  /**
-   * @remarks
-   * The ID of the resource queue used in the last run.
-   */
   lastRunResourceQueueId?: string;
   /**
    * @remarks
-   * The UID of the last modifier.
-   * 
    * This parameter is required.
    */
   modifier?: number;
   /**
    * @remarks
-   * The task name.
-   * 
    * This parameter is required.
    */
   name?: string;
   params?: { [key: string]: string };
-  /**
-   * @remarks
-   * The PySpark dependency pyfiles for the Spark task.
-   */
   pyFiles?: string[];
   rayActiveDeadlineSeconds?: number;
   rayBackoffLimit?: number;
@@ -397,91 +253,52 @@ export class Task extends $dara.Model {
   rayWorkingDir?: string;
   sessionClusterId?: string;
   /**
-   * @remarks
-   * The Spark arguments.
-   * 
    * @example
    * 100
    */
   sparkArgs?: string;
-  /**
-   * @remarks
-   * The list of Spark configurations.
-   */
   sparkConf?: SparkConf[];
   /**
    * @remarks
-   * The number of Spark driver cores.
-   * 
    * This parameter is required.
    */
   sparkDriverCores?: number;
   /**
    * @remarks
-   * The Spark driver memory.
-   * 
    * This parameter is required.
    */
   sparkDriverMemory?: number;
-  /**
-   * @remarks
-   * The Spark main class entrypoint.
-   */
   sparkEntrypoint?: string;
   /**
    * @remarks
-   * The number of Spark executor cores.
-   * 
    * This parameter is required.
    */
   sparkExecutorCores?: number;
   /**
    * @remarks
-   * The Spark executor memory.
-   * 
    * This parameter is required.
    */
   sparkExecutorMemory?: number;
   /**
    * @remarks
-   * The Spark log level.
-   * 
    * This parameter is required.
    */
   sparkLogLevel?: string;
   /**
    * @remarks
-   * The Spark log path.
-   * 
    * This parameter is required.
    */
   sparkLogPath?: string;
-  /**
-   * @remarks
-   * The spark-submit task submission clause.
-   */
   sparkSubmitClause?: string;
   /**
    * @remarks
-   * The Spark version.
-   * 
    * This parameter is required.
    */
   sparkVersion?: string;
-  /**
-   * @remarks
-   * The task labels.
-   */
   tags?: { [key: string]: string };
-  /**
-   * @remarks
-   * The task timeout period.
-   */
   timeout?: number;
   /**
    * @remarks
-   * The task type.
-   * 
    * This parameter is required.
    */
   type?: string;

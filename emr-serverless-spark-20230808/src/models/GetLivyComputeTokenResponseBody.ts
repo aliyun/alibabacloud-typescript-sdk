@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the token automatically expires.
-   * 
+   * Specifies whether the token expires automatically. Valid values:
    * - true: Yes.
-   * 
    * - false: No.
    * 
    * @example
@@ -17,7 +15,7 @@ export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends 
   enable?: boolean;
   /**
    * @remarks
-   * The expiration period, in days.
+   * The expiration period in days.
    * 
    * @example
    * 7
@@ -49,12 +47,12 @@ export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends 
 export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about token expiration.
+   * The token expiration configuration struct.
    */
   autoExpireConfiguration?: GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration;
   /**
    * @remarks
-   * The time when the token was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -62,7 +60,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The name of the user who created the token.
+   * The name of the creator.
    * 
    * @example
    * alice
@@ -70,7 +68,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The time when the token expires.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749457994000
@@ -78,7 +76,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The time when the token was last used.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456098000
@@ -86,7 +84,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   lastUsedTime?: number;
   /**
    * @remarks
-   * The name of the token.
+   * The token name.
    * 
    * @example
    * test
@@ -94,7 +92,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The content of the token.
+   * The token content.
    * 
    * @example
    * d25561157a635bb
@@ -102,7 +100,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The ID of the token.
+   * Token ID。
    * 
    * @example
    * lctk-xxxxxxxxxx
@@ -149,7 +147,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
 export class GetLivyComputeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information about the error, see the message parameter.
+   * The return code of the request. A value of 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
    * 
    * @example
    * 1000000
@@ -157,7 +155,7 @@ export class GetLivyComputeTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetLivyComputeTokenResponseBodyData;
   /**
@@ -170,7 +168,7 @@ export class GetLivyComputeTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 484D9DDA-300D-525E-AF7A-0CCCA5C64A7A

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   /**
    * @remarks
-   * The names of authorized RAM users.
+   * The list of RAM user names of authorized users.
    */
   accountNames?: string[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1755496031000
@@ -18,7 +18,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The creator\\"s name.
+   * The name of the creator.
    * 
    * @example
    * admin
@@ -26,7 +26,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787033891000
@@ -34,7 +34,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The last used time.
+   * The last usage time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760366232121
@@ -42,7 +42,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   lastUsedTime?: number;
   /**
    * @remarks
-   * The ARNs of authorized users.
+   * The list of ARNs of authorized users.
    */
   memberArns?: string[];
   /**
@@ -121,7 +121,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
 export class ListKyuubiTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of tokens.
+   * The list of tokens.
    */
   tokens?: ListKyuubiTokenResponseBodyDataTokens[];
   static names(): { [key: string]: string } {
@@ -151,7 +151,7 @@ export class ListKyuubiTokenResponseBodyData extends $dara.Model {
 export class ListKyuubiTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListKyuubiTokenResponseBodyData;
   /**

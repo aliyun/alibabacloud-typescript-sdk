@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivyComputeResponseBodyDataAutoStopConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to automatically start the gateway after it is created.
-   * 
+   * Specifies whether to automatically start after creation. Valid values:
    * - true: Yes.
-   * 
    * - false: No.
    * 
    * @example
@@ -17,7 +15,7 @@ export class GetLivyComputeResponseBodyDataAutoStopConfiguration extends $dara.M
   enable?: boolean;
   /**
    * @remarks
-   * The number of minutes after which the Livy Gateway is automatically stopped if it is idle.
+   * The number of idle minutes after which the Livy Gateway automatically stops.
    * 
    * @example
    * 300
@@ -70,7 +68,10 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   computeId?: string;
   /**
    * @remarks
-   * The number of CPU cores for the Livy server.
+   * The number of CPU cores for the Livy Server. Valid values:
+   * - 1
+   * - 2
+   * - 4
    * 
    * @example
    * 1
@@ -86,7 +87,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The version number of the Spark engine.
+   * The Spark DPI engine version number.
    * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12)
@@ -94,7 +95,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The status of the public endpoint switch.
+   * The status of the public network address switch.
    * 
    * @example
    * true
@@ -102,7 +103,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   enablePublic?: boolean;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network connection address.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou.data.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -110,7 +111,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal network connection address.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou-internal.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -118,7 +119,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   endpointInner?: string;
   /**
    * @remarks
-   * The ID of the runtime environment.
+   * The runtime environment ID.
    * 
    * @example
    * ev-cq31c7tlhtgm9nrrlj4g
@@ -126,7 +127,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Indicates whether the fusion switch is enabled.
+   * Specifies whether the fusion feature is enabled.
    * 
    * @example
    * false
@@ -145,11 +146,8 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
    * The Livy Gateway configuration in JSON format. The following files are supported:
    * 
    * - sparkDefaultsConf
-   * 
    * - sparkBlackListConf
-   * 
    * - livyConf
-   * 
    * - livyClientConf
    * 
    * @example
@@ -171,7 +169,10 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   livyVersion?: string;
   /**
    * @remarks
-   * The memory size of the Livy server.
+   * The memory size of the Livy Server. Valid values:
+   * - 4Gi
+   * - 8Gi
+   * - 16Gi
    * 
    * @example
    * 4Gi
@@ -187,7 +188,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the network connection.
+   * The network connectivity name.
    * 
    * @example
    * test
@@ -211,7 +212,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   ramUserId?: string;
   /**
    * @remarks
-   * The version number of the Spark engine. This parameter is deprecated. Use displayReleaseVersion instead.
+   * The Spark DPI engine version number. This field is deprecated. Use displayReleaseVersion instead.
    * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12, Java Runtime)
@@ -219,7 +220,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -302,7 +303,7 @@ export class GetLivyComputeResponseBodyData extends $dara.Model {
 export class GetLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates a successful request. Other values indicate a failed request. Check the message parameter for the error details.
+   * The return code of the request. The value 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
    * 
    * @example
    * 1000000
@@ -310,7 +311,7 @@ export class GetLivyComputeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetLivyComputeResponseBodyData;
   /**

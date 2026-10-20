@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the Kyuubi service.
+   * The Kyuubi service specifications.
    * 
    * @example
    * 2c8g
@@ -13,7 +13,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   computeInstance?: string;
   /**
    * @remarks
-   * The timestamp when the service was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -29,7 +29,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The internal same-region endpoint.
+   * The internal network domain name.
    * 
    * @example
    * kyuubi-cn-beijing-internal.spark.emr.aliyuncs.com
@@ -37,7 +37,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   innerEndpoint?: string;
   /**
    * @remarks
-   * The configuration of the Kyuubi service.
+   * The Kyuubi service configuration.
    * 
    * @example
    * []
@@ -45,7 +45,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   kyuubiConfigs?: string;
   /**
    * @remarks
-   * The Kyuubi service engine version.
+   * The Kyuubi service DPI engine version.
    * 
    * @example
    * 1.9.2-0.0.2
@@ -53,7 +53,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   kyuubiReleaseVersion?: string;
   /**
    * @remarks
-   * The ID of the Kyuubi service.
+   * Kyuubi Service ID。
    * 
    * @example
    * kb-4e209b04588***95f04ad3538ae4
@@ -61,7 +61,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   kyuubiServiceId?: string;
   /**
    * @remarks
-   * The name of the Kyuubi service.
+   * The Kyuubi service name.
    * 
    * @example
    * dev_serverless_spark
@@ -77,7 +77,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   publicEndpoint?: string;
   /**
    * @remarks
-   * Indicates whether public network access is enabled.
+   * Specifies whether public network access is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * dev_queue
@@ -93,7 +93,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The Spark engine version.
+   * The Spark DPI engine version.
    * 
    * @example
    * esr-4.6.0 (Spark 3.5.2, Scala 2.12)
@@ -101,7 +101,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The number of high-availability (HA) replicas.
+   * The number of replicas enabled for high availability.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   sparkConfigs?: string;
   /**
    * @remarks
-   * The timestamp when the service was started.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456094000
@@ -125,7 +125,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The state of the Kyuubi service.
+   * The Kyuubi service status.
    * 
    * @example
    * RUNNING
@@ -185,7 +185,7 @@ export class GetKyuubiServiceResponseBodyData extends $dara.Model {
 export class GetKyuubiServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetKyuubiServiceResponseBodyData;
   /**

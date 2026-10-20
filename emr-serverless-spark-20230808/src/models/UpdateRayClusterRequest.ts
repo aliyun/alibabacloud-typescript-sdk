@@ -71,7 +71,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic scaling.
+   * Specifies whether to enable auto scaling.
    * 
    * @example
    * false
@@ -87,12 +87,12 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The GCS Fault Tolerance configuration.
+   * The GCS fault tolerance configuration.
    */
   gftConfig?: UpdateRayClusterRequestHeadSpecGftConfig;
   /**
    * @remarks
-   * Specifies whether to enable GCS Fault Tolerance.
+   * Specifies whether to enable GCS fault tolerance.
    * 
    * **if can be null:**
    * true
@@ -108,7 +108,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout period of workers after automatic scaling is enabled.
+   * The idle timeout period for workers after auto scaling is enabled.
    * 
    * @example
    * 60
@@ -241,7 +241,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of workers. Minimum value: 1. The value must be less than or equal to maxReplica.
+   * The minimum number of workers. Minimum value: 1. The value must be less than or equal to the value of maxReplica.
    * 
    * @example
    * 1
@@ -349,12 +349,12 @@ export class UpdateRayClusterRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The Ray cluster head node information.
+   * The head node information for the Ray cluster.
    */
   headSpec?: UpdateRayClusterRequestHeadSpec;
   /**
    * @remarks
-   * The Ray cluster name. The name must be 1 to 64 characters in length.
+   * The name of the Ray cluster. The name must be 1 to 64 characters in length.
    * 
    * @example
    * myRayCluster
@@ -362,7 +362,7 @@ export class UpdateRayClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connectivity name.
+   * The network connection name.
    * 
    * @example
    * vpc
@@ -370,12 +370,12 @@ export class UpdateRayClusterRequest extends $dara.Model {
   networkServiceName?: string;
   /**
    * @remarks
-   * The list of managed folder IDs to mount.
+   * The list of managed directory IDs to mount.
    */
   volumeIds?: string[];
   /**
    * @remarks
-   * The Ray cluster worker node information. A maximum of 50 groups are supported.
+   * The worker node information for the Ray cluster. A maximum of 50 worker groups are supported.
    */
   workerSpec?: UpdateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {

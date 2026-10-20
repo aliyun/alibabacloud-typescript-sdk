@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of records to return per request.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListMembersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the start of the next page of results.
+   * The pagination token that specifies the starting position for the query.
    * 
    * @example
    * 1

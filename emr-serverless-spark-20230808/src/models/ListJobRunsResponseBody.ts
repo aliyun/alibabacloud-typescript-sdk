@@ -79,7 +79,7 @@ export class ListJobRunsResponseBodyJobRunsStateChangeReason extends $dara.Model
 export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   /**
    * @remarks
-   * The job code type. Valid values:
+   * The code type of the job. Valid values:
    * 
    * SQL
    * 
@@ -93,7 +93,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The Spark advanced configurations. This parameter is not returned by the List operation.
+   * The advanced Spark configurations. This parameter is not returned by the List operation.
    */
   configurationOverrides?: ListJobRunsResponseBodyJobRunsConfigurationOverrides;
   /**
@@ -106,7 +106,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The number of compute units (CUs) consumed during the job run cycle. This value is an estimate. The actual value is subject to the bill.
+   * The number of compute units (CUs) consumed during the job run. This value is an estimate and the final value is subject to the bill.
    * 
    * @example
    * 2.059
@@ -114,7 +114,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The version of the Spark DPI engine used to run the job.
+   * The Spark DPI engine version of the running job.
    * 
    * @example
    * esr-3.0.0 (Spark 3.4.3, Scala 2.12)
@@ -122,7 +122,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The job end time.
+   * The time when the job ended. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684119314000
@@ -130,7 +130,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The execution timeout period, in seconds.
+   * The execution timeout period.
    * 
    * @example
    * 3600
@@ -138,7 +138,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Indicates whether the Fusion engine acceleration is enabled.
+   * Specifies whether Fusion engine acceleration is enabled.
    * 
    * @example
    * true
@@ -146,12 +146,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The Spark Driver information. This parameter is not returned by the List operation.
+   * The information about the Spark driver. This parameter is not returned by the List operation.
    */
   jobDriver?: JobDriver;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job run.
    * 
    * @example
    * jr-231231
@@ -159,12 +159,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The path of the run log.
+   * The path to the execution log.
    */
   log?: RunLog;
   /**
    * @remarks
-   * The total amount of allocated memory multiplied by the number of seconds the job has been running.
+   * The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
    * 
    * @example
    * 33030784
@@ -172,33 +172,39 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   mbSeconds?: number;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * jobName
    */
   name?: string;
   /**
+   * @remarks
+   * The priority of the Spark job.
+   * 
    * @example
    * 5
    */
   priority?: string;
   /**
    * @remarks
-   * The version of the Spark DPI engine used to run the job.
+   * The Spark DPI engine version of the running job.
    * 
    * @example
    * esr-3.0.0 (Spark 3.4.3, Scala 2.12, Native Runtime)
    */
   releaseVersion?: string;
   /**
+   * @remarks
+   * The name of the resource queue in which the Spark job runs.
+   * 
    * @example
    * dev_queue
    */
   resourceQueueId?: string;
   /**
    * @remarks
-   * The job states.
+   * The states of the job runs.
    * 
    * @example
    * Running
@@ -211,7 +217,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   stateChangeReason?: ListJobRunsResponseBodyJobRunsStateChangeReason;
   /**
    * @remarks
-   * The job submission time.
+   * The time when the job was submitted. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684119314000
@@ -224,7 +230,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   tags?: Tag[];
   /**
    * @remarks
-   * The total number of allocated vcores multiplied by the number of seconds the job has been running.
+   * The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
    * 
    * @example
    * 8236
@@ -232,7 +238,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   vcoreSeconds?: number;
   /**
    * @remarks
-   * The job Web UI.
+   * The web UI of the job.
    * 
    * @example
    * http://spark-ui
@@ -240,7 +246,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   webUI?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * w-d2d82aa09155****
@@ -327,15 +333,19 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
 }
 
 export class ListJobRunsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistical results aggregated by job state.
+   */
   aggregations?: { [key: string]: string };
   /**
    * @remarks
-   * The list of Spark jobs.
+   * The list of Spark job runs.
    */
   jobRuns?: ListJobRunsResponseBodyJobRuns[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of records returned for the request.
    * 
    * @example
    * 20
@@ -343,7 +353,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position from which the data was read.
+   * The position of the data read.
    * 
    * @example
    * 1
@@ -359,7 +369,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the request conditions.
+   * The total number of records that meet the request conditions.
    * 
    * @example
    * 200

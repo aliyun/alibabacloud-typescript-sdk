@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of log. Only logs of this type are returned.
+   * The log type.
    * 
    * @example
    * log4j
@@ -13,7 +13,7 @@ export class ListExecutorLogsRequest extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListExecutorLogsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This is the `nextToken` from a previously truncated response.
+   * The next token.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListExecutorLogsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

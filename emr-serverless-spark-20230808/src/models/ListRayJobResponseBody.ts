@@ -6,10 +6,10 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   /**
    * @remarks
    * The status of the corresponding Ray cluster. Valid values:
-   * - Deleted: deleted.
-   * - Submitted: submitted but not yet being created.
-   * - Pending: being created.
-   * - Running: running.
+   * - Deleted: The cluster is deleted.
+   * - Submitted: The cluster is submitted but not yet created.
+   * - Pending: The cluster is being created.
+   * - Running: The cluster is running.
    * 
    * @example
    * Running
@@ -25,7 +25,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The number of compute units (CUs) consumed during the job execution cycle. This value is an estimate. The actual value is subject to the bill.
+   * The number of compute units (CUs) consumed during the job runtime. This value is an estimate. The actual value is subject to the bill.
    * 
    * @example
    * 120
@@ -33,7 +33,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The URL of the Ray cluster dashboard. When the Ray cluster is in the Running state, the URL points to the Runtime UI. After the cluster is in the Deleted state, the URL points to the History UI. The History UI is supported only in err-1.2.0 and later versions.
+   * The URL of the Ray cluster dashboard. If the Ray cluster is in the Running state, the URL points to the Runtime UI. If the cluster is in the Deleted state, the URL points to the History UI. The History UI is supported only in err-1.2.0 and later.
    * 
    * @example
    * https://emr-ray-gateway.aliyuncs.com?token=xxxxxxxxx
@@ -41,7 +41,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   dashboardUrl?: string;
   /**
    * @remarks
-   * The execution duration of the job. Unit: seconds.
+   * The execution duration of the job, in seconds.
    * 
    * @example
    * 3564
@@ -49,7 +49,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the job ended.
+   * The time when the job ended. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776945509000
@@ -57,7 +57,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The name of the Ray Job.
+   * The name of the Ray job.
    * 
    * @example
    * testRayJob
@@ -65,7 +65,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The Ray engine version.
    * 
    * @example
    * err-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -73,7 +73,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   resourceQueue?: string;
   /**
    * @remarks
-   * The time when the job was started.
+   * The time when the job was started. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776945499000
@@ -81,15 +81,15 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The job status. Valid values:
-   * - Submitted: submitted.
-   * - Pending: the cluster is being created.
-   * - Running: the job is running.
-   * - Succeeded: the job succeeded.
-   * - Failed: the job failed.
-   * - Cancelling: the job is being canceled.
-   * - Cancelled: the job is canceled.
-   * - Timeout: the job timed out and was canceled.
+   * The status of the job. Valid values:
+   * - Submitted: The job is submitted.
+   * - Pending: The cluster is being created.
+   * - Running: The job is running.
+   * - Succeeded: The job succeeded.
+   * - Failed: The job failed.
+   * - Cancelling: The job is being cancelled.
+   * - Cancelled: The job is cancelled.
+   * - Timeout: The job is cancelled due to a timeout.
    * 
    * @example
    * Running
@@ -97,7 +97,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the Ray Job.
+   * The ID of the Ray job.
    * 
    * @example
    * rj-uiulpgow9xljimm1
@@ -105,7 +105,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
   submissionId?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was submitted. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776945399000
@@ -157,7 +157,7 @@ export class ListRayJobResponseBodyRayJobs extends $dara.Model {
 export class ListRayJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of Ray Jobs.
+   * The list of Ray jobs.
    */
   rayJobs?: ListRayJobResponseBodyRayJobs[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRayJobRequestSubmitTime extends $dara.Model {
   /**
    * @remarks
-   * The end of the submit time range. The value is a UNIX timestamp in milliseconds.
+   * The end time of the submission time range. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780018822000
@@ -13,7 +13,7 @@ export class ListRayJobRequestSubmitTime extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The start of the submit time range. The value is a UNIX timestamp in milliseconds.
+   * The start time of the submission time range. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780017822000
@@ -45,7 +45,7 @@ export class ListRayJobRequestSubmitTime extends $dara.Model {
 export class ListRayJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Ray Job (exact match).
+   * The name of the Ray job. Exact match is supported.
    * 
    * @example
    * myrayjob
@@ -61,7 +61,7 @@ export class ListRayJobRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -69,7 +69,7 @@ export class ListRayJobRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The submission ID of the Ray Job.
+   * The submission ID of the Ray job.
    * 
    * @example
    * rj-xxxxxxxxxxx
@@ -77,12 +77,12 @@ export class ListRayJobRequest extends $dara.Model {
   submissionId?: string;
   /**
    * @remarks
-   * The submit time range.
+   * The submission time range.
    */
   submitTime?: ListRayJobRequestSubmitTime;
   /**
    * @remarks
-   * The data development node ID.
+   * The ID of the data development node.
    * 
    * @example
    * TSK-db8b870d901e443ba0aebba40c923e02

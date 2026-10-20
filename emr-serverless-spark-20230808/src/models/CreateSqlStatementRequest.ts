@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlStatementRequest extends $dara.Model {
   /**
    * @remarks
-   * The SQL code. This parameter accepts one or more SQL statements for execution.
+   * The SQL code. You can specify one or more SQL statements to execute.
    * 
    * @example
    * SHOW TABLES
@@ -13,7 +13,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   codeContent?: string;
   /**
    * @remarks
-   * The ID of the default DLF Catalog.
+   * The default DLF catalog ID.
    * 
    * @example
    * default_catalog
@@ -21,7 +21,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   defaultCatalog?: string;
   /**
    * @remarks
-   * The name of the default database.
+   * The default database name.
    * 
    * @example
    * default
@@ -29,7 +29,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   defaultDatabase?: string;
   /**
    * @remarks
-   * The limit value. The value must be between 1 and 10000, inclusive.
+   * The limit value. Valid values: 1 to 10000.
    * 
    * @example
    * 1000
@@ -37,12 +37,19 @@ export class CreateSqlStatementRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The ID of the SQL session. The session must be created in the Session Manager module of the EMR Serverless Spark workspace.
+   * The SQL session ID. Create the session in the session management module of the EMR Serverless Spark workspace.
    * 
    * @example
    * sc-dfahdfjafhajd****
    */
   sqlComputeId?: string;
+  /**
+   * @remarks
+   * The data development node ID.
+   * 
+   * @example
+   * TSK-d87******************
+   */
   taskBizId?: string;
   /**
    * @remarks

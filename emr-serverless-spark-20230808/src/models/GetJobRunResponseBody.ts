@@ -9,7 +9,7 @@ import { Configuration } from "./Configuration";
 export class GetJobRunResponseBodyJobRunConfigurationOverrides extends $dara.Model {
   /**
    * @remarks
-   * The list of configurations.
+   * The configuration list.
    */
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
@@ -76,10 +76,90 @@ export class GetJobRunResponseBodyJobRunStateChangeReason extends $dara.Model {
   }
 }
 
+export class GetJobRunResponseBodyJobRunTokenDetails extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether thinking mode is enabled.
+   * 
+   * @example
+   * true
+   */
+  enableThinking?: string;
+  /**
+   * @remarks
+   * The input modality.
+   * 
+   * @example
+   * -
+   */
+  inputModality?: string;
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * qwen-plus
+   */
+  modelName?: string;
+  /**
+   * @remarks
+   * The input token range.
+   * 
+   * @example
+   * 0<Token≤256K
+   */
+  tokenRange?: string;
+  /**
+   * @remarks
+   * The token source. Valid values: input and output.
+   * 
+   * @example
+   * input
+   */
+  tokenSource?: string;
+  /**
+   * @remarks
+   * The number of tokens consumed.
+   * 
+   * @example
+   * 10000
+   */
+  tokenUsed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableThinking: 'enableThinking',
+      inputModality: 'inputModality',
+      modelName: 'modelName',
+      tokenRange: 'tokenRange',
+      tokenSource: 'tokenSource',
+      tokenUsed: 'tokenUsed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableThinking: 'string',
+      inputModality: 'string',
+      modelName: 'string',
+      tokenRange: 'string',
+      tokenSource: 'string',
+      tokenUsed: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobRunResponseBodyJobRun extends $dara.Model {
   /**
    * @remarks
-   * The code type of the job. Valid values:
+   * The job code type. Valid values:
    * 
    * - SQL
    * 
@@ -106,7 +186,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The time when the job ended.
+   * The job end time. The value is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1684122914000
@@ -122,7 +202,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The execution timeout period, in seconds.
+   * The execution timeout period.
    * 
    * @example
    * 3600
@@ -130,7 +210,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Indicates whether the Fusion engine acceleration is enabled.
+   * Specifies whether the Fusion engine acceleration is enabled.
    * 
    * @example
    * false
@@ -156,7 +236,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   log?: RunLog;
   /**
    * @remarks
-   * The job run name.
+   * The job name.
    * 
    * @example
    * jobName
@@ -164,7 +244,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The download URL of the NOTEBOOK file. This parameter is returned only when the job type is NOTEBOOK.
+   * The download URL of the NOTEBOOK file. This parameter is returned only if the job type is NOTEBOOK.
    * 
    * @example
    * http://workflow-ide-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/spark-notebook-output/w-xxxxxxxxx/xxxxxxx
@@ -180,7 +260,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The Spark DPI engine version used to run the job.
+   * The Spark DPI engine version used to run the node.
    * 
    * @example
    * esr-3.3.1
@@ -204,7 +284,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The job run state.
+   * The job status.
    * 
    * @example
    * Running
@@ -212,12 +292,12 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The reason for the state change.
+   * The reason for the status change.
    */
   stateChangeReason?: GetJobRunResponseBodyJobRunStateChangeReason;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The job submission time. The value is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1684119314000
@@ -225,9 +305,14 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tags?: Tag[];
+  /**
+   * @remarks
+   * The details of token consumption.
+   */
+  tokenDetails?: GetJobRunResponseBodyJobRunTokenDetails[];
   /**
    * @remarks
    * The total number of tokens consumed.
@@ -274,6 +359,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       stateChangeReason: 'stateChangeReason',
       submitTime: 'submitTime',
       tags: 'tags',
+      tokenDetails: 'tokenDetails',
       totalTokens: 'totalTokens',
       webUI: 'webUI',
       workspaceId: 'workspaceId',
@@ -302,6 +388,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       stateChangeReason: GetJobRunResponseBodyJobRunStateChangeReason,
       submitTime: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
+      tokenDetails: { 'type': 'array', 'itemType': GetJobRunResponseBodyJobRunTokenDetails },
       totalTokens: 'number',
       webUI: 'string',
       workspaceId: 'string',
@@ -323,6 +410,9 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.tokenDetails)) {
+      $dara.Model.validateArray(this.tokenDetails);
     }
     super.validate();
   }

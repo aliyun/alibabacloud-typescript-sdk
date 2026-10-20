@@ -13,20 +13,23 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Indicates whether automatic scaling is enabled for worker nodes.
+   * Specifies whether auto scaling is enabled for worker nodes.
    * 
    * @example
    * false
    */
   enableAutoScaling?: boolean;
   /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout period for worker nodes.
+   * The idle timeout for worker nodes, in seconds.
    * 
    * @example
    * 60
@@ -34,7 +37,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size, in GiB.
    * 
    * @example
    * 8Gi
@@ -42,7 +45,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -99,6 +102,9 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
    */
   cpu?: string;
   /**
+   * @remarks
+   * The GPU instance type.
+   * 
    * @example
    * ecs.gn6i-c4g1.xlarge
    */
@@ -113,7 +119,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of worker nodes after automatic scaling is enabled.
+   * The maximum number of workers when auto scaling is enabled.
    * 
    * @example
    * 10
@@ -121,7 +127,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size, in GiB.
    * 
    * @example
    * 8Gi
@@ -129,7 +135,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   memory?: string;
   /**
    * @remarks
-   * The minimum number of worker nodes after automatic scaling is enabled.
+   * The minimum number of workers when auto scaling is enabled.
    * 
    * @example
    * 1
@@ -137,7 +143,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   minReplica?: number;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -153,7 +159,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   replica?: number;
   /**
    * @remarks
-   * The worker type.
+   * The type of the worker.
    * 
    * @example
    * CPU
@@ -207,7 +213,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1723722279800
@@ -215,7 +221,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The UID of the user who created the cluster.
+   * The UID of the creator.
    * 
    * @example
    * 202077646755123991
@@ -247,7 +253,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Ray engine version.
+   * The Ray DPI engine version.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
@@ -255,7 +261,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The gRPC endpoint for the internal network. The domain name can also be used to submit Ray jobs.
+   * The internal gRPC endpoint. You can also use the domain name to submit Ray jobs.
    * 
    * @example
    * ray://emr-spark-ray-gateway-cn-hanghzou-internal.emr.aliyuncs.com:80
@@ -263,12 +269,12 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   grpcEndpoint?: string;
   /**
    * @remarks
-   * The information about the head node of the Ray cluster.
+   * The head node information of the Ray cluster.
    */
   headSpec?: ListRayClusterResponseBodyRayClustersHeadSpec;
   /**
    * @remarks
-   * The ID of the Ray cluster instance.
+   * The instance ID of the Ray cluster.
    * 
    * @example
    * ray-uiulpgow9xljimm1-xxxxxxx
@@ -284,7 +290,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the configuration has been modified.
+   * Specifies whether the configuration has been modified.
    * 
    * @example
    * false
@@ -292,7 +298,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   modified?: boolean;
   /**
    * @remarks
-   * The time when the cluster was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1723722279800
@@ -300,7 +306,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The UID of the user who last updated the cluster.
+   * The UID of the last updater.
    * 
    * @example
    * 202077646755123991
@@ -324,7 +330,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the network connectivity service.
+   * The network connectivity name.
    * 
    * @example
    * vpc
@@ -332,7 +338,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   networkServiceName?: string;
   /**
    * @remarks
-   * The startup time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1723722279800
@@ -340,16 +346,11 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The cluster state.
-   * 
+   * The cluster status. Valid values:
    * - Starting: The cluster is starting.
-   * 
    * - Running: The cluster is running.
-   * 
    * - Stopping: The cluster is stopping.
-   * 
    * - Stopped: The cluster is stopped.
-   * 
    * - Error: The cluster has failed.
    * 
    * @example
@@ -358,7 +359,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1234567890
@@ -366,7 +367,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The information about the worker nodes of the Ray cluster.
+   * The worker information of the Ray cluster.
    */
   workerSpec?: ListRayClusterResponseBodyRayClustersWorkerSpec[];
   static names(): { [key: string]: string } {

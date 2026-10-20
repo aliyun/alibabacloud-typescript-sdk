@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment ID.
+   * The runtime environment ID.
    * 
    * @example
    * ev-cq31c7tlhtgm9nrrlj4g

@@ -13,7 +13,7 @@ export class SubmitRayJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Ray Job ID。
+   * The Ray job ID.
    * 
    * @example
    * rj-k7nm8ahl5te4tg91
