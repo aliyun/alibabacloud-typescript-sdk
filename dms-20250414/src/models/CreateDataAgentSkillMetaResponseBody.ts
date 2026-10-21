@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the parent account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 16738266********
@@ -13,7 +13,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   aliyunParentUid?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * The Alibaba Cloud user ID.
    * 
    * @example
    * 20372822********
@@ -21,7 +21,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
    * HaoY*****
@@ -37,7 +37,9 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the skill is available. Valid values: true and false.
+   * Indicates whether the skill is available. Valid values:
+   * - true: The skill is available.
+   * - false: The skill is not available.
    * 
    * @example
    * true
@@ -53,7 +55,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -62,7 +64,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The skill parsing error message.
-   * - When the skill status is INVALID, the parsing error message is returned.
+   * - This message is returned when the skill status is INVALID.
    * 
    * @example
    * SKILL.md file not exist.
@@ -103,9 +105,9 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The skill status. Valid values:
-   * - INIT: Not ready.
-   * - ACTIVE: Active.
-   * - INVALID: Invalid.
+   * - INIT: The skill is not ready.
+   * - ACTIVE: The skill is active.
+   * - INVALID: The skill is invalid.
    * 
    * @example
    * ACTIVE
@@ -182,7 +184,7 @@ export class CreateDataAgentSkillMetaResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when a system-level request failure occurs.
+   * The error message returned when a system-level request fails.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -198,10 +200,10 @@ export class CreateDataAgentSkillMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.                                 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

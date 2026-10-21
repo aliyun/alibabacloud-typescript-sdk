@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the session. Unit: seconds. The value is a UNIX timestamp.
+   * The creation time of the workspace. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765960516
@@ -19,10 +19,17 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
    * 20282*****7591
    */
   creator?: string;
+  /**
+   * @remarks
+   * Indicates whether sessions are shared within the workspace.
+   * 
+   * @example
+   * true
+   */
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The most recent modification time of the workspace. Unit: seconds. The value is a UNIX timestamp.
+   * The last modification time of the workspace. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765961516
@@ -44,10 +51,17 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
    * 11
    */
   totalMember?: string;
+  /**
+   * @remarks
+   * The type of the workspace.
+   * 
+   * @example
+   * personal
+   */
   type?: string;
   /**
    * @remarks
-   * The description of the collaborative workspace.
+   * The description of the workspace.
    * 
    * @example
    * space for test
@@ -55,7 +69,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The ID of the collaborative workspace.
+   * The ID of the workspace.
    * 
    * @example
    * 20923*****7291
@@ -142,7 +156,7 @@ export class GetDataAgentWorkspaceInfoResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E0D2-*****-A63B6

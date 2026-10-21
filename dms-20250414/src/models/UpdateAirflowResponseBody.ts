@@ -14,7 +14,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   airflowName?: string;
   /**
    * @remarks
-   * The version of Airflow.
+   * The Airflow version.
    * 
    * @example
    * 3.1
@@ -22,7 +22,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   airflowVersion?: string;
   /**
    * @remarks
-   * The instance specification.
+   * SMALL.
    * 
    * @example
    * SMALL
@@ -38,12 +38,12 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * A list of custom configuration items.
+   * The list of custom configuration items.
    */
   customAirflowCfg?: string[];
   /**
    * @remarks
-   * The directory where DAGs are scanned.
+   * The directory scanned for DAGs.
    * 
    * @example
    * default/dags
@@ -51,12 +51,12 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   dagsDir?: string;
   /**
    * @remarks
-   * A data mount item.
+   * The list of data mount information.
    */
   dataMountInfoList?: DataMountInfo[];
   /**
    * @remarks
-   * The error message returned upon deployment failure.
+   * The deployment error message.
    * 
    * @example
    * quota exists
@@ -72,12 +72,12 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether serverless mode is enabled.
+   * Specifies whether to enable serverless workers.
    */
   enableServerless?: boolean;
   /**
    * @remarks
-   * The environment variables.
+   * The environment configurations.
    * 
    * @example
    * k=v
@@ -85,7 +85,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   environments?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 2025-01-07T15:10:32+08:00
@@ -93,7 +93,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The graceful shutdown timeout, in seconds.
+   * The timeout period for a worker to exit.
    * 
    * @example
    * 60
@@ -109,7 +109,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The path in OSS where logs are stored.
+   * The OSS path for storing logs.
    * 
    * @example
    * /airflow
@@ -117,7 +117,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The directory where Airflow plugins are scanned.
+   * The directory scanned for Airflow plugins.
    * 
    * @example
    * default/plugins
@@ -125,7 +125,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path to the Python requirements file.
+   * The path of the installation package.
    * 
    * @example
    * default/requirements.txt
@@ -133,7 +133,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The Python package requirements.
+   * The configurations of the installation package.
    * 
    * @example
    * jieba==0.42
@@ -149,7 +149,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The startup script for the Airflow container.
+   * The startup script of the Airflow container.
    * 
    * @example
    * default/startup.sh
@@ -189,7 +189,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The number of worker node replicas.
+   * The number of scaled worker nodes.
    * 
    * @example
    * 0
@@ -293,7 +293,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
 export class UpdateAirflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * NOT_FOUND
@@ -333,16 +333,15 @@ export class UpdateAirflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the updated Airflow instance.
+   * The updated details.
    */
   root?: UpdateAirflowResponseBodyRoot;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

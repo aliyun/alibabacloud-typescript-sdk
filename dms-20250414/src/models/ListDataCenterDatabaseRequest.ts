@@ -13,7 +13,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   callFrom?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   dmsUnit?: string;
   /**
    * @remarks
-   * The import type.
+   * The import type. Valid values:
    *   - FILE
    * 
    * @example
@@ -38,12 +38,19 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The keyword for fuzzy match of databases.
+   * The keyword used for fuzzy search of databases.
    * 
    * @example
    * testdb
    */
   searchKey?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 8vrxbemhm*******v91y3fjy
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileUploadSignatureRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter used only by the frontend.
+   * For frontend use only.
    * 
    * @example
-   * 仅前端使用
+   * For frontend use only
    */
   callFrom?: string;
   /**
@@ -19,6 +19,13 @@ export class DescribeFileUploadSignatureRequest extends $dara.Model {
    * cn-hangzhou
    */
   dmsUnit?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * yrgug4e*******ypey63v
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

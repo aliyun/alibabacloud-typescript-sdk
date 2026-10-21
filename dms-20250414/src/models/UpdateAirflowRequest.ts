@@ -6,7 +6,7 @@ import { DataMountInfo } from "./DataMountInfo";
 export class UpdateAirflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the Airflow instance.
+   * The unique key ID of the Airflow instance.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   airflowName?: string;
   /**
    * @remarks
-   * The specifications of the Airflow instance.
+   * The specification description of the Airflow instance.
    * 
    * @example
    * SMALL
@@ -32,7 +32,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   appSpec?: string;
   /**
    * @remarks
-   * A client token to ensure request idempotence.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * token-****
@@ -40,12 +40,16 @@ export class UpdateAirflowRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The directory path where Airflow scans for DAGs.
+   * The DAG directory scanned by Airflow.
    * 
    * @example
    * default/dags
    */
   dagsDir?: string;
+  /**
+   * @remarks
+   * The list of data mount information.
+   */
   dataMountInfoList?: DataMountInfo[];
   /**
    * @remarks
@@ -55,15 +59,22 @@ export class UpdateAirflowRequest extends $dara.Model {
    * test airflow
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable serverless workers.
+   */
   enableServerless?: boolean;
   /**
+   * @remarks
+   * The timeout period for a worker to exit.
+   * 
    * @example
    * 60
    */
   gracefulShutdownTimeout?: number;
   /**
    * @remarks
-   * The directory path where Airflow scans for plugins.
+   * The plugin directory scanned by Airflow.
    * 
    * @example
    * default/plugins
@@ -71,7 +82,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path to the requirements file for package dependencies.
+   * The installation file for package dependencies.
    * 
    * @example
    * default/requirements.txt
@@ -79,7 +90,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The path to the startup script for the Airflow instance.
+   * The script loaded at startup of the Airflow instance.
    * 
    * @example
    * default/startup.sh
@@ -95,7 +106,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
-   * The Data Management Service (DMS) workspace ID.
+   * The ID of the Data Management (DMS) workspace.
    * 
    * This parameter is required.
    * 

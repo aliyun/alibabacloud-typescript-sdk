@@ -27,6 +27,13 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
    * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxxxx\\",\\"DmsDatabaseId\\":\\"752xxxxx\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
    */
   dataset?: string;
+  /**
+   * @remarks
+   * The data source information.
+   * 
+   * @example
+   * {"DataSourceType":"remote_data_center","DmsDatabaseId":"f-894***01m","FileId":"f-894***01m","Database":"data.csv","Tables":["example"],"TableIds":["aij5***qf8"],"RegionId":"cn-hangzhou"}]
+   */
   datasource?: string;
   /**
    * @remarks
@@ -38,7 +45,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -86,7 +93,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after analysis. This parameter is not supported.
+   * Specifies whether to display sessions after analysis. This parameter is currently not supported.
    * 
    * @example
    * no use

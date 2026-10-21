@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters to invoke callback tool calling.
+   * 
+   * @example
+   * {"ID":"test"}
+   */
   callbackArgs?: string;
+  /**
+   * @remarks
+   * The prompt for generating parameters to invoke callback tool calling.
+   * 
+   * @example
+   * send web report to 123456@163.com
+   */
   callbackPrompt?: string;
+  /**
+   * @remarks
+   * The timing to invoke callback tool calling.
+   * 
+   * @example
+   * 0
+   */
   callbackTime?: number;
+  /**
+   * @remarks
+   * The callback tool identifier.
+   * 
+   * @example
+   * Mcp serverId (6te...g7a)
+   */
   toolId?: string;
+  /**
+   * @remarks
+   * The callback tool type.
+   * 
+   * @example
+   * Mcp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +75,7 @@ export class ModifyCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources during the session.
+   * Specifies whether to prohibit appending data sources in a session.
    * 
    * @example
    * true
@@ -72,7 +107,7 @@ export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report generation confirmation.
+   * Specifies whether to skip the confirmation for generating a web report.
    * 
    * @example
    * true
@@ -160,9 +195,39 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
 }
 
 export class ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList extends $dara.Model {
+  /**
+   * @remarks
+   * The DMS database ID.
+   * 
+   * @example
+   * 69305251
+   */
   dbId?: string;
+  /**
+   * @remarks
+   * The DMS instance ID.
+   * 
+   * @example
+   * 2844854
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The knowledge UUID.
+   * 
+   * @example
+   * 7ca8f50d78234******e87
+   */
   knowledgeUuid?: string;
+  /**
+   * @remarks
+   * The knowledge semantic type. Valid values:
+   * - sql_template: SQL template.
+   * - ossie_model: Ossie semantic view.
+   * 
+   * @example
+   * sql_template
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,7 +259,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList extend
 export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for periodic scheduling.
+   * The cron expression for time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -244,7 +309,17 @@ export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
 export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The primary Alibaba Cloud account ID.
+   * The custom agent type. Valid values:
+   * - Default: The system-built-in custom agent. Each workspace can have at most one Default type, and it cannot be deleted.
+   * - Common: A common custom agent.
+   * 
+   * @example
+   * Common
+   */
+  agentType?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud main account.
    * 
    * @example
    * 16738266********
@@ -258,6 +333,10 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 20372822********
    */
   aliyunUid?: string;
+  /**
+   * @remarks
+   * The callback feature configuration.
+   */
   callbackConfig?: ModifyCustomAgentResponseBodyDataCallbackConfig;
   /**
    * @remarks
@@ -294,7 +373,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "Test_spreadsheet******.xlsx",
+   *     "Database" : "Test table******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -307,7 +386,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent test description
+   * Test agent description
    */
   description?: string;
   /**
@@ -345,9 +424,9 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes as well as year-over-year and month-over-month fluctuations.
-   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment by new and existing customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → pay) to locate churn points
    */
   instruction?: string;
   /**
@@ -365,7 +444,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
-   * 2. Order volume refers to the number of valid orders placed per day.
+   * 2. Order volume is the number of valid orders placed per day.
    * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
    * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
@@ -375,6 +454,10 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The external knowledge bases.
    */
   knowledgeConfigList?: ModifyCustomAgentResponseBodyDataKnowledgeConfigList[];
+  /**
+   * @remarks
+   * The knowledge semantic configuration list.
+   */
   knowledgeSemanticConfigList?: ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList[];
   /**
    * @remarks
@@ -397,12 +480,13 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent test name
+   * Test agent name
    */
   name?: string;
   /**
    * @remarks
-   * The next execution time of the scheduled task in timestamp format.
+   * The next run time of the scheduled task.
+   * - Timestamp format.
    * 
    * @example
    * 1767715200
@@ -416,6 +500,12 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 2025-12-11T14:04:32.000+00:00
    */
   offlineTime?: string;
+  /**
+   * @remarks
+   * The list of recommended questions.
+   * - You can configure up to 10 recommended questions.
+   */
+  recommendQuestionList?: string[];
   /**
    * @remarks
    * The region.
@@ -458,7 +548,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * Require all numbers in the text report to be written in Chinese characters instead of Arabic numerals
+   * The text report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -471,17 +561,17 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * Require all numbers in the web report to be written in Chinese characters instead of Arabic numerals
+   * The web report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   webReportConfig?: string;
   /**
    * @remarks
    * The web report theme. Valid values:
-   * - default: default.
-   * - journal: journal.
-   * - legacy: classic.
-   * - neobrutalism: stylized.
-   * - infographic: infographic.
+   * - default: Default.
+   * - journal: Journal.
+   * - legacy: Legacy.
+   * - neobrutalism: Neobrutalism.
+   * - infographic: Infographic.
    * 
    * @example
    * default
@@ -497,6 +587,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       aliyunParentUid: 'AliyunParentUid',
       aliyunUid: 'AliyunUid',
       callbackConfig: 'CallbackConfig',
@@ -519,6 +610,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       name: 'Name',
       nextRuntime: 'NextRuntime',
       offlineTime: 'OfflineTime',
+      recommendQuestionList: 'RecommendQuestionList',
       region: 'Region',
       relatedSessionId: 'RelatedSessionId',
       releaseTime: 'ReleaseTime',
@@ -534,6 +626,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       aliyunParentUid: 'string',
       aliyunUid: 'string',
       callbackConfig: ModifyCustomAgentResponseBodyDataCallbackConfig,
@@ -556,6 +649,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       name: 'string',
       nextRuntime: 'number',
       offlineTime: 'string',
+      recommendQuestionList: { 'type': 'array', 'itemType': 'string' },
       region: 'string',
       relatedSessionId: 'string',
       releaseTime: 'string',
@@ -581,6 +675,9 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeSemanticConfigList)) {
       $dara.Model.validateArray(this.knowledgeSemanticConfigList);
+    }
+    if(Array.isArray(this.recommendQuestionList)) {
+      $dara.Model.validateArray(this.recommendQuestionList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();

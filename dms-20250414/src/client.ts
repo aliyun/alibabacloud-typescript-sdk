@@ -30,6 +30,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a data source accessible by the Agent data gateway.
+   * 
+   * @remarks
+   * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+   * 
+   * @param request - AddAgenticDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAgenticDataSourceResponse
+   */
+  async addAgenticDataSourceWithOptions(request: $_model.AddAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAgenticDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alias)) {
+      query["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.authAccount)) {
+      query["AuthAccount"] = request.authAccount;
+    }
+
+    if (!$dara.isNull(request.authPassword)) {
+      query["AuthPassword"] = request.authPassword;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.createMode)) {
+      query["CreateMode"] = request.createMode;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.instanceResourceId)) {
+      query["InstanceResourceId"] = request.instanceResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceSource)) {
+      query["InstanceSource"] = request.instanceSource;
+    }
+
+    if (!$dara.isNull(request.kmsSecret)) {
+      query["KmsSecret"] = request.kmsSecret;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.snowflakeRole)) {
+      query["SnowflakeRole"] = request.snowflakeRole;
+    }
+
+    if (!$dara.isNull(request.snowflakeWarehouse)) {
+      query["SnowflakeWarehouse"] = request.snowflakeWarehouse;
+    }
+
+    if (!$dara.isNull(request.syncAlias)) {
+      query["SyncAlias"] = request.syncAlias;
+    }
+
+    if (!$dara.isNull(request.useSsl)) {
+      query["UseSsl"] = request.useSsl;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAgenticDataSource",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAgenticDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.AddAgenticDataSourceResponse({}));
+  }
+
+  /**
+   * Creates a data source accessible by the Agent data gateway.
+   * 
+   * @remarks
+   * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+   * 
+   * @param request - AddAgenticDataSourceRequest
+   * @returns AddAgenticDataSourceResponse
+   */
+  async addAgenticDataSource(request: $_model.AddAgenticDataSourceRequest): Promise<$_model.AddAgenticDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAgenticDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a memory entry to a DataAgent.
    * 
    * @param request - AddDataAgentMemoryRequest
@@ -354,6 +490,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a temporary credential for an agent to execute SQL statements.
+   * 
+   * @remarks
+   * The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+   * Fixed properties of the credential:
+   * - Validity period: 10 minutes after creation.
+   * - Maximum number of connections: 500.
+   * 
+   * @param request - CreateAgenticSqlExecuteCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticSqlExecuteCredentialResponse
+   */
+  async createAgenticSqlExecuteCredentialWithOptions(request: $_model.CreateAgenticSqlExecuteCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticSqlExecuteCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticSqlExecuteCredential",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticSqlExecuteCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticSqlExecuteCredentialResponse({}));
+  }
+
+  /**
+   * Creates a temporary credential for an agent to execute SQL statements.
+   * 
+   * @remarks
+   * The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+   * Fixed properties of the credential:
+   * - Validity period: 10 minutes after creation.
+   * - Maximum number of connections: 500.
+   * 
+   * @param request - CreateAgenticSqlExecuteCredentialRequest
+   * @returns CreateAgenticSqlExecuteCredentialResponse
+   */
+  async createAgenticSqlExecuteCredential(request: $_model.CreateAgenticSqlExecuteCredentialRequest): Promise<$_model.CreateAgenticSqlExecuteCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticSqlExecuteCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an Airflow instance in a workspace.
    * 
    * @remarks
@@ -552,6 +754,10 @@ export default class Client extends OpenApi {
       request.knowledgeSemanticConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeSemanticConfigList, "KnowledgeSemanticConfigList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.recommendQuestionList)) {
+      request.recommendQuestionListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recommendQuestionList, "RecommendQuestionList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
       request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
     }
@@ -561,6 +767,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
     if (!$dara.isNull(request.callbackConfigShrink)) {
       query["CallbackConfig"] = request.callbackConfigShrink;
     }
@@ -599,6 +809,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.recommendQuestionListShrink)) {
+      query["RecommendQuestionList"] = request.recommendQuestionListShrink;
     }
 
     if (!$dara.isNull(request.relatedSessionId)) {
@@ -1185,6 +1399,54 @@ export default class Client extends OpenApi {
   async createOneMetaSqlTemplate(request: $_model.CreateOneMetaSqlTemplateRequest): Promise<$_model.CreateOneMetaSqlTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createOneMetaSqlTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a data source and its associated metadata catalog.
+   * 
+   * @remarks
+   * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+   * 
+   * @param request - DeleteAgenticDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDataSourceResponse
+   */
+  async deleteAgenticDataSourceWithOptions(request: $_model.DeleteAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataSourceUuid)) {
+      query["DataSourceUuid"] = request.dataSourceUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDataSource",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDataSourceResponse({}));
+  }
+
+  /**
+   * Deletes a data source and its associated metadata catalog.
+   * 
+   * @remarks
+   * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+   * 
+   * @param request - DeleteAgenticDataSourceRequest
+   * @returns DeleteAgenticDataSourceResponse
+   */
+  async deleteAgenticDataSource(request: $_model.DeleteAgenticDataSourceRequest): Promise<$_model.DeleteAgenticDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDataSourceWithOptions(request, runtime);
   }
 
   /**
@@ -1922,7 +2184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom agent by custom agent ID.
+   * Retrieves the detailed description of a custom agent based on the custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +2219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom agent by custom agent ID.
+   * Retrieves the detailed description of a custom agent based on the custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -2398,7 +2660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls back after a file is uploaded.
+   * Processes the file upload callback.
    * 
    * @param request - FileUploadCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2453,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls back after a file is uploaded.
+   * Processes the file upload callback.
    * 
    * @param request - FileUploadCallbackRequest
    * @returns FileUploadCallbackResponse
@@ -2464,7 +2726,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries agent information by install token.
+   * Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+   * 
+   * @remarks
+   * Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
    * 
    * @param request - GetAgenticAgentByInstallTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,7 +2760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries agent information by install token.
+   * Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+   * 
+   * @remarks
+   * Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
    * 
    * @param request - GetAgenticAgentByInstallTokenRequest
    * @returns GetAgenticAgentByInstallTokenResponse
@@ -2503,6 +2771,230 @@ export default class Client extends OpenApi {
   async getAgenticAgentByInstallToken(request: $_model.GetAgenticAgentByInstallTokenRequest): Promise<$_model.GetAgenticAgentByInstallTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgenticAgentByInstallTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an Agentic DMS catalog based on the catalog UUID.
+   * 
+   * @param request - GetAgenticCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticCatalogResponse
+   */
+  async getAgenticCatalogWithOptions(request: $_model.GetAgenticCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticCatalogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticCatalog",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticCatalogResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticCatalogResponse({}));
+  }
+
+  /**
+   * Queries the details of an Agentic DMS catalog based on the catalog UUID.
+   * 
+   * @param request - GetAgenticCatalogRequest
+   * @returns GetAgenticCatalogResponse
+   */
+  async getAgenticCatalog(request: $_model.GetAgenticCatalogRequest): Promise<$_model.GetAgenticCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a data source by its UUID.
+   * 
+   * @remarks
+   * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+   * 
+   * @param request - GetAgenticDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticDataSourceResponse
+   */
+  async getAgenticDataSourceWithOptions(request: $_model.GetAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataSourceUuid)) {
+      query["DataSourceUuid"] = request.dataSourceUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticDataSource",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticDataSourceResponse({}));
+  }
+
+  /**
+   * Queries the details of a data source by its UUID.
+   * 
+   * @remarks
+   * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+   * 
+   * @param request - GetAgenticDataSourceRequest
+   * @returns GetAgenticDataSourceResponse
+   */
+  async getAgenticDataSource(request: $_model.GetAgenticDataSourceRequest): Promise<$_model.GetAgenticDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a database in Agentic DMS based on the database UUID.
+   * 
+   * @param request - GetAgenticDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticDatabaseResponse
+   */
+  async getAgenticDatabaseWithOptions(request: $_model.GetAgenticDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticDatabase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticDatabaseResponse({}));
+  }
+
+  /**
+   * Queries the details of a database in Agentic DMS based on the database UUID.
+   * 
+   * @param request - GetAgenticDatabaseRequest
+   * @returns GetAgenticDatabaseResponse
+   */
+  async getAgenticDatabase(request: $_model.GetAgenticDatabaseRequest): Promise<$_model.GetAgenticDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+   * 
+   * @param request - GetAgenticTableColumnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticTableColumnResponse
+   */
+  async getAgenticTableColumnWithOptions(request: $_model.GetAgenticTableColumnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticTableColumnResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.tableQualifiedName)) {
+      query["TableQualifiedName"] = request.tableQualifiedName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticTableColumn",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticTableColumnResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticTableColumnResponse({}));
+  }
+
+  /**
+   * Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+   * 
+   * @param request - GetAgenticTableColumnRequest
+   * @returns GetAgenticTableColumnResponse
+   */
+  async getAgenticTableColumn(request: $_model.GetAgenticTableColumnRequest): Promise<$_model.GetAgenticTableColumnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticTableColumnWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+   * 
+   * @param request - GetAgenticTableIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticTableIndexResponse
+   */
+  async getAgenticTableIndexWithOptions(request: $_model.GetAgenticTableIndexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticTableIndexResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.tableQualifiedName)) {
+      query["TableQualifiedName"] = request.tableQualifiedName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticTableIndex",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticTableIndexResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticTableIndexResponse({}));
+  }
+
+  /**
+   * Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+   * 
+   * @param request - GetAgenticTableIndexRequest
+   * @returns GetAgenticTableIndexResponse
+   */
+  async getAgenticTableIndex(request: $_model.GetAgenticTableIndexRequest): Promise<$_model.GetAgenticTableIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticTableIndexWithOptions(request, runtime);
   }
 
   /**
@@ -2770,10 +3262,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
    * @param tmpReq - GetDataAgentTaskModelUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2830,10 +3322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
    * @param request - GetDataAgentTaskModelUsageRequest
    * @returns GetDataAgentTaskModelUsageResponse
@@ -2844,10 +3336,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
    * 
    * @remarks
-   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
    * 
    * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2904,10 +3396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
    * 
    * @remarks
-   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
    * 
    * @param request - GetDataAgentTaskModelUsageMetricsRequest
    * @returns GetDataAgentTaskModelUsageMetricsResponse
@@ -2962,7 +3454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a collaborative workspace.
+   * Queries the details of a workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2997,7 +3489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a collaborative workspace.
+   * Queries the details of a workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @returns GetDataAgentWorkspaceInfoResponse
@@ -3642,6 +4134,440 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+   * 
+   * @param request - ListAgenticCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticCatalogResponse
+   */
+  async listAgenticCatalogWithOptions(request: $_model.ListAgenticCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticCatalogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogType)) {
+      query["CatalogType"] = request.catalogType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticCatalog",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticCatalogResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticCatalogResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+   * 
+   * @param request - ListAgenticCatalogRequest
+   * @returns ListAgenticCatalogResponse
+   */
+  async listAgenticCatalog(request: $_model.ListAgenticCatalogRequest): Promise<$_model.ListAgenticCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query on the data sources of the current account by using paging.
+   * 
+   * @remarks
+   * You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+   * 
+   * @param request - ListAgenticDataSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticDataSourcesResponse
+   */
+  async listAgenticDataSourcesWithOptions(request: $_model.ListAgenticDataSourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticDataSourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.instanceSource)) {
+      query["InstanceSource"] = request.instanceSource;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticDataSources",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticDataSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticDataSourcesResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the data sources of the current account by using paging.
+   * 
+   * @remarks
+   * You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+   * 
+   * @param request - ListAgenticDataSourcesRequest
+   * @returns ListAgenticDataSourcesResponse
+   */
+  async listAgenticDataSources(request: $_model.ListAgenticDataSourcesRequest): Promise<$_model.ListAgenticDataSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticDataSourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+   * 
+   * @param request - ListAgenticDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticDatabaseResponse
+   */
+  async listAgenticDatabaseWithOptions(request: $_model.ListAgenticDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.sortFieldName)) {
+      query["SortFieldName"] = request.sortFieldName;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticDatabase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticDatabaseResponse({}));
+  }
+
+  /**
+   * Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+   * 
+   * @param request - ListAgenticDatabaseRequest
+   * @returns ListAgenticDatabaseResponse
+   */
+  async listAgenticDatabase(request: $_model.ListAgenticDatabaseRequest): Promise<$_model.ListAgenticDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+   * 
+   * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticGlobalSqlExecutionHistoriesResponse
+   */
+  async listAgenticGlobalSqlExecutionHistoriesWithOptions(request: $_model.ListAgenticGlobalSqlExecutionHistoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticGlobalSqlExecutionHistoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actorId)) {
+      query["ActorId"] = request.actorId;
+    }
+
+    if (!$dara.isNull(request.actorName)) {
+      query["ActorName"] = request.actorName;
+    }
+
+    if (!$dara.isNull(request.actorType)) {
+      query["ActorType"] = request.actorType;
+    }
+
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sqlKeyword)) {
+      query["SqlKeyword"] = request.sqlKeyword;
+    }
+
+    if (!$dara.isNull(request.sqlType)) {
+      query["SqlType"] = request.sqlType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticGlobalSqlExecutionHistories",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticGlobalSqlExecutionHistoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticGlobalSqlExecutionHistoriesResponse({}));
+  }
+
+  /**
+   * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+   * 
+   * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
+   * @returns ListAgenticGlobalSqlExecutionHistoriesResponse
+   */
+  async listAgenticGlobalSqlExecutionHistories(request: $_model.ListAgenticGlobalSqlExecutionHistoriesRequest): Promise<$_model.ListAgenticGlobalSqlExecutionHistoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticGlobalSqlExecutionHistoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+   * 
+   * @param request - ListAgenticSqlExecutionHistoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticSqlExecutionHistoriesResponse
+   */
+  async listAgenticSqlExecutionHistoriesWithOptions(request: $_model.ListAgenticSqlExecutionHistoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticSqlExecutionHistoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actorId)) {
+      query["ActorId"] = request.actorId;
+    }
+
+    if (!$dara.isNull(request.actorName)) {
+      query["ActorName"] = request.actorName;
+    }
+
+    if (!$dara.isNull(request.actorType)) {
+      query["ActorType"] = request.actorType;
+    }
+
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sqlKeyword)) {
+      query["SqlKeyword"] = request.sqlKeyword;
+    }
+
+    if (!$dara.isNull(request.sqlType)) {
+      query["SqlType"] = request.sqlType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticSqlExecutionHistories",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticSqlExecutionHistoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticSqlExecutionHistoriesResponse({}));
+  }
+
+  /**
+   * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+   * 
+   * @param request - ListAgenticSqlExecutionHistoriesRequest
+   * @returns ListAgenticSqlExecutionHistoriesResponse
+   */
+  async listAgenticSqlExecutionHistories(request: $_model.ListAgenticSqlExecutionHistoriesRequest): Promise<$_model.ListAgenticSqlExecutionHistoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticSqlExecutionHistoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+   * 
+   * @param request - ListAgenticTableBaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticTableBaseInfoResponse
+   */
+  async listAgenticTableBaseInfoWithOptions(request: $_model.ListAgenticTableBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticTableBaseInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.sortFieldName)) {
+      query["SortFieldName"] = request.sortFieldName;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.tableType)) {
+      query["TableType"] = request.tableType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticTableBaseInfo",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticTableBaseInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticTableBaseInfoResponse({}));
+  }
+
+  /**
+   * Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+   * 
+   * @param request - ListAgenticTableBaseInfoRequest
+   * @returns ListAgenticTableBaseInfoResponse
+   */
+  async listAgenticTableBaseInfo(request: $_model.ListAgenticTableBaseInfoRequest): Promise<$_model.ListAgenticTableBaseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticTableBaseInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the available Airflow versions.
    * 
    * @remarks
@@ -3748,7 +4674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom agents in personal spaces and workspaces.
+   * Lists all custom agents in personal and team workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3757,6 +4683,10 @@ export default class Client extends OpenApi {
   async listCustomAgentWithOptions(request: $_model.ListCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3799,7 +4729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom agents in personal spaces and workspaces.
+   * Lists all custom agents in personal and team workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @returns ListCustomAgentResponse
@@ -3876,10 +4806,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists accuracy test configuration items that meet the specified conditions.
+   * Lists the accuracy test configuration items that meet the specified conditions.
    * 
    * @remarks
-   * Lists accuracy test configuration items that meet the specified conditions.
+   * Lists the accuracy test configuration items that meet the specified conditions.
    * 
    * @param request - ListDataAgentAccuracyTestInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3930,10 +4860,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists accuracy test configuration items that meet the specified conditions.
+   * Lists the accuracy test configuration items that meet the specified conditions.
    * 
    * @remarks
-   * Lists accuracy test configuration items that meet the specified conditions.
+   * Lists the accuracy test configuration items that meet the specified conditions.
    * 
    * @param request - ListDataAgentAccuracyTestInstancesRequest
    * @returns ListDataAgentAccuracyTestInstancesResponse
@@ -4466,7 +5396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of collaborative workspaces under the primary account.
+   * Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4533,7 +5463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of collaborative workspaces under the primary account.
+   * Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @returns ListDataAgentWorkspaceResponse
@@ -5218,7 +6148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom agent in a personal or shared workspace.
+   * Modifies a custom agent in a personal or team workspace.
    * 
    * @param tmpReq - ModifyCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5242,6 +6172,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.knowledgeSemanticConfigList)) {
       request.knowledgeSemanticConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeSemanticConfigList, "KnowledgeSemanticConfigList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recommendQuestionList)) {
+      request.recommendQuestionListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recommendQuestionList, "RecommendQuestionList", "json");
     }
 
     if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
@@ -5297,6 +6231,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.recommendQuestionListShrink)) {
+      query["RecommendQuestionList"] = request.recommendQuestionListShrink;
+    }
+
     if (!$dara.isNull(request.relatedSessionId)) {
       query["RelatedSessionId"] = request.relatedSessionId;
     }
@@ -5343,7 +6281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom agent in a personal or shared workspace.
+   * Modifies a custom agent in a personal or team workspace.
    * 
    * @param request - ModifyCustomAgentRequest
    * @returns ModifyCustomAgentResponse
@@ -5846,6 +6784,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+   * 
+   * @param request - SearchAgenticCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchAgenticCatalogResponse
+   */
+  async searchAgenticCatalogWithOptions(request: $_model.SearchAgenticCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchAgenticCatalogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogType)) {
+      query["CatalogType"] = request.catalogType;
+    }
+
+    if (!$dara.isNull(request.catalogUuids)) {
+      query["CatalogUuids"] = request.catalogUuids;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchAgenticCatalog",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchAgenticCatalogResponse>(await this.callApi(params, req, runtime), new $_model.SearchAgenticCatalogResponse({}));
+  }
+
+  /**
+   * Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+   * 
+   * @param request - SearchAgenticCatalogRequest
+   * @returns SearchAgenticCatalogResponse
+   */
+  async searchAgenticCatalog(request: $_model.SearchAgenticCatalogRequest): Promise<$_model.SearchAgenticCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchAgenticCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+   * 
+   * @param request - SearchAgenticDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchAgenticDatabaseResponse
+   */
+  async searchAgenticDatabaseWithOptions(request: $_model.SearchAgenticDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchAgenticDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchAgenticDatabase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchAgenticDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.SearchAgenticDatabaseResponse({}));
+  }
+
+  /**
+   * Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+   * 
+   * @param request - SearchAgenticDatabaseRequest
+   * @returns SearchAgenticDatabaseResponse
+   */
+  async searchAgenticDatabase(request: $_model.SearchAgenticDatabaseRequest): Promise<$_model.SearchAgenticDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchAgenticDatabaseWithOptions(request, runtime);
+  }
+
+  /**
    * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
@@ -6264,7 +7326,266 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of an Airflow instance.
+   * Tests whether the network and authentication information of a data source are available.
+   * 
+   * @remarks
+   * Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+   * 
+   * @param request - TestAgenticDataSourceConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TestAgenticDataSourceConnectionResponse
+   */
+  async testAgenticDataSourceConnectionWithOptions(request: $_model.TestAgenticDataSourceConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TestAgenticDataSourceConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alias)) {
+      query["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.authAccount)) {
+      query["AuthAccount"] = request.authAccount;
+    }
+
+    if (!$dara.isNull(request.authPassword)) {
+      query["AuthPassword"] = request.authPassword;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataSourceUuid)) {
+      query["DataSourceUuid"] = request.dataSourceUuid;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.instanceResourceId)) {
+      query["InstanceResourceId"] = request.instanceResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceSource)) {
+      query["InstanceSource"] = request.instanceSource;
+    }
+
+    if (!$dara.isNull(request.kmsSecret)) {
+      query["KmsSecret"] = request.kmsSecret;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.snowflakeRole)) {
+      query["SnowflakeRole"] = request.snowflakeRole;
+    }
+
+    if (!$dara.isNull(request.snowflakeWarehouse)) {
+      query["SnowflakeWarehouse"] = request.snowflakeWarehouse;
+    }
+
+    if (!$dara.isNull(request.syncAlias)) {
+      query["SyncAlias"] = request.syncAlias;
+    }
+
+    if (!$dara.isNull(request.useSsl)) {
+      query["UseSsl"] = request.useSsl;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TestAgenticDataSourceConnection",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TestAgenticDataSourceConnectionResponse>(await this.callApi(params, req, runtime), new $_model.TestAgenticDataSourceConnectionResponse({}));
+  }
+
+  /**
+   * Tests whether the network and authentication information of a data source are available.
+   * 
+   * @remarks
+   * Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+   * 
+   * @param request - TestAgenticDataSourceConnectionRequest
+   * @returns TestAgenticDataSourceConnectionResponse
+   */
+  async testAgenticDataSourceConnection(request: $_model.TestAgenticDataSourceConnectionRequest): Promise<$_model.TestAgenticDataSourceConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.testAgenticDataSourceConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the connection, authentication, or display information of an existing data source.
+   * 
+   * @remarks
+   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+   * 
+   * @param request - UpdateAgenticDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgenticDataSourceResponse
+   */
+  async updateAgenticDataSourceWithOptions(request: $_model.UpdateAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgenticDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alias)) {
+      query["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.authAccount)) {
+      query["AuthAccount"] = request.authAccount;
+    }
+
+    if (!$dara.isNull(request.authPassword)) {
+      query["AuthPassword"] = request.authPassword;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.createMode)) {
+      query["CreateMode"] = request.createMode;
+    }
+
+    if (!$dara.isNull(request.dataSourceUuid)) {
+      query["DataSourceUuid"] = request.dataSourceUuid;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.instanceResourceId)) {
+      query["InstanceResourceId"] = request.instanceResourceId;
+    }
+
+    if (!$dara.isNull(request.kmsSecret)) {
+      query["KmsSecret"] = request.kmsSecret;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.snowflakeRole)) {
+      query["SnowflakeRole"] = request.snowflakeRole;
+    }
+
+    if (!$dara.isNull(request.snowflakeWarehouse)) {
+      query["SnowflakeWarehouse"] = request.snowflakeWarehouse;
+    }
+
+    if (!$dara.isNull(request.syncAlias)) {
+      query["SyncAlias"] = request.syncAlias;
+    }
+
+    if (!$dara.isNull(request.useSsl)) {
+      query["UseSsl"] = request.useSsl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgenticDataSource",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgenticDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgenticDataSourceResponse({}));
+  }
+
+  /**
+   * Updates the connection, authentication, or display information of an existing data source.
+   * 
+   * @remarks
+   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+   * 
+   * @param request - UpdateAgenticDataSourceRequest
+   * @returns UpdateAgenticDataSourceResponse
+   */
+  async updateAgenticDataSource(request: $_model.UpdateAgenticDataSourceRequest): Promise<$_model.UpdateAgenticDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgenticDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the information of an Airflow instance.
+   * 
+   * @remarks
+   * Creates an Airflow instance in a workspace.
    * 
    * @param tmpReq - UpdateAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6353,7 +7674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of an Airflow instance.
+   * Updates the information of an Airflow instance.
+   * 
+   * @remarks
+   * Creates an Airflow instance in a workspace.
    * 
    * @param request - UpdateAirflowRequest
    * @returns UpdateAirflowResponse
@@ -6367,7 +7691,7 @@ export default class Client extends OpenApi {
    * Updates the content of an accuracy test item.
    * 
    * @remarks
-   * Updates the content of an accuracy test item.
+   * Updates the accuracy test item.
    * 
    * @param request - UpdateDataAgentAccuracyTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,7 +7777,7 @@ export default class Client extends OpenApi {
    * Updates the content of an accuracy test item.
    * 
    * @remarks
-   * Updates the content of an accuracy test item.
+   * Updates the accuracy test item.
    * 
    * @param request - UpdateDataAgentAccuracyTestRequest
    * @returns UpdateDataAgentAccuracyTestResponse

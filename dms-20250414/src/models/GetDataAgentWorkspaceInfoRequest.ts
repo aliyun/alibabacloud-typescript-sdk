@@ -13,7 +13,7 @@ export class GetDataAgentWorkspaceInfoRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The ID of the collaborative workspace.
+   * The ID of the workspace.
    * 
    * @example
    * 20923*****7291

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentTaskModelUsageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+   * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no more than one month.
    * 
    * @example
    * 1735660800
@@ -13,7 +13,7 @@ export class GetDataAgentTaskModelUsageShrinkRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -21,13 +21,24 @@ export class GetDataAgentTaskModelUsageShrinkRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+   * The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no more than one month.
    * 
    * @example
    * 1735747200
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of billing instance IDs to be queried.
+   */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The billing level.
+   * 
+   * @example
+   * ENTERPRISE
+   */
   payLevel?: string;
   /**
    * @remarks

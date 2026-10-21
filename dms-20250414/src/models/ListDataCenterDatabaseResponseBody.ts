@@ -8,13 +8,13 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
    * The database description.
    * 
    * @example
-   * This is a sample database.
+   * This is diamonds dataset.
    */
   databaseDesc?: string;
   /**
    * @remarks
    * The database name.
-   * - When ImportType is FILE, this parameter indicates the file name.
+   *   - When ImportType is FILE, this parameter indicates the file name.
    * 
    * @example
    * diamonds.csv
@@ -39,7 +39,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The time when the database description was last updated.
+   * The update time of the database description.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -47,7 +47,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   descUpdateTime?: string;
   /**
    * @remarks
-   * The ID of the Data Management database that hosts the instance.
+   * The ID of the DMS database where the instance is hosted.
    *   - This parameter is not returned when ImportType is FILE.
    * 
    * @example
@@ -56,17 +56,22 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   dmsDbId?: number;
   /**
    * @remarks
-   * The ID of the Data Management instance that hosts the instance.
+   * The ID of the DMS instance where the instance is hosted.
    *   - This parameter is not returned when ImportType is FILE.
    * 
    * @example
    * 2740966
    */
   dmsInstanceId?: number;
+  /**
+   * @remarks
+   * The public network download link.
+   *   - **[Deprecated]**
+   */
   downloadLink?: string;
   /**
    * @remarks
-   * The time when the file was created.
+   * The creation time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -74,7 +79,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The import type.
+   * The import type. Valid values:
    *   - FILE
    *   - RDS
    *   - ADB
@@ -89,23 +94,35 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The instance name.
-   * - When ImportType is FILE, this parameter indicates the file ID in the data center.
+   *   - When ImportType is FILE, this parameter indicates the file ID in the data center.
    * 
    * @example
    * f-ean8u5881qk4*********xh5y
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The internal network download link.
+   *   - **[Deprecated]**
+   */
   intranetDownloadLink?: string;
   /**
    * @remarks
    * Indicates whether the dataset is built-in. Valid values:
-   * - Y: The dataset is built-in.
-   * - N: The dataset is not built-in.
+   *   - Y: The dataset is built-in.
+   *   - N: The dataset is not built-in.
    * 
    * @example
    * N
    */
   isInternal?: string;
+  /**
+   * @remarks
+   * The name of the user\\"s OSS bucket.
+   * 
+   * @example
+   * bgc-hangzhou-test-bucket
+   */
   ossBucket?: string;
   /**
    * @remarks
@@ -115,6 +132,13 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
    * 999
    */
   size?: number;
+  /**
+   * @remarks
+   * Indicates whether the user\\"s OSS bucket is used.
+   * 
+   * @example
+   * true
+   */
   useUserOssBucket?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -175,7 +199,7 @@ export class ListDataCenterDatabaseResponseBody extends $dara.Model {
   data?: ListDataCenterDatabaseResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when an exception occurs in the request.
    * 
    * @example
    * success
@@ -199,10 +223,9 @@ export class ListDataCenterDatabaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.                                 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   *   - **true**: The request is successful.
+   *   - **false**: The request fails.
    * 
    * @example
    * true

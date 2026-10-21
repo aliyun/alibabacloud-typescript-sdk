@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The callback tool invocation parameters.
+   * 
+   * @example
+   * {"ID":"test"}
+   */
   callbackArgs?: string;
+  /**
+   * @remarks
+   * The prompt for generating callback tool invocation parameters.
+   * 
+   * @example
+   * send web report to 123456@163.com
+   */
   callbackPrompt?: string;
+  /**
+   * @remarks
+   * The callback tool invocation timing.
+   * 
+   * @example
+   * 0
+   */
   callbackTime?: number;
+  /**
+   * @remarks
+   * The callback tool identifier.
+   * 
+   * @example
+   * Mcp serverId (6te...g7a)
+   */
   toolId?: string;
+  /**
+   * @remarks
+   * The callback tool type.
+   * 
+   * @example
+   * Mcp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +75,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources during a session.
+   * Specifies whether to prohibit appending data sources in a session.
    * 
    * @example
    * true
@@ -48,7 +83,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable user inquiries during the process.
+   * Specifies whether to prohibit user inquiries during the process.
    * 
    * @example
    * true
@@ -72,7 +107,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report generation confirmation.
+   * Specifies whether to skip the confirmation for generating a web report.
    * 
    * @example
    * true
@@ -128,7 +163,7 @@ export class CreateCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   kbUuid?: string;
   /**
    * @remarks
-   * The ID of the MCP server.
+   * The MCP server ID.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -160,9 +195,39 @@ export class CreateCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
 }
 
 export class CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList extends $dara.Model {
+  /**
+   * @remarks
+   * The DMS database ID.
+   * 
+   * @example
+   * 69305251
+   */
   dbId?: string;
+  /**
+   * @remarks
+   * The DMS instance ID.
+   * 
+   * @example
+   * 2943299
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The knowledge UUID.
+   * 
+   * @example
+   * 7ca8f50d782*******02e87
+   */
   knowledgeUuid?: string;
+  /**
+   * @remarks
+   * The knowledge semantic type. Valid values:
+   * - sql_template: SQL template.
+   * - ossie_model: Ossie semantic view.
+   * 
+   * @example
+   * sql_template
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,7 +259,7 @@ export class CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList extend
 export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for periodic scheduling.
+   * The cron expression for time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -202,7 +267,7 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * The query for the periodic task.
+   * The query for the scheduled task.
    * 
    * @example
    * Analyze this data and provide a brief report
@@ -244,7 +309,17 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
 export class CreateCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The primary Alibaba Cloud account ID.
+   * The custom agent type. Valid values:
+   * - Default: The system-built-in custom agent.
+   * - Common: The common custom agent.
+   * 
+   * @example
+   * Common
+   */
+  agentType?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud main account ID.
    * 
    * @example
    * 16738266********
@@ -258,6 +333,10 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * 20372822********
    */
   aliyunUid?: string;
+  /**
+   * @remarks
+   * The callback feature configuration.
+   */
   callbackConfig?: CreateCustomAgentResponseBodyDataCallbackConfig;
   /**
    * @remarks
@@ -294,7 +373,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "TestTable******.xlsx",
+   *     "Database" : "Test table******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -341,13 +420,13 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instruction.
+   * The instructions.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
-   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on the user behavior path (browse -> add to cart -> pay) to locate churn points
+   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis to analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment data by new and existing customers, channels, and regions to identify growth drivers and shortcomings.
+   * 3. Conduct funnel analysis based on user behavior paths (browse > add to cart > checkout) to identify churn stages
    */
   instruction?: string;
   /**
@@ -365,9 +444,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume refers to the number of valid orders placed per day.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
-   * 4. Conversion rate = Number of paid orders / UV, which reflects the traffic conversion efficiency
+   * 2. Order volume refers to the number of valid daily orders.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
+   * 4. Conversion rate = Paid orders / UV, reflecting the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -375,6 +454,10 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The external knowledge bases.
    */
   knowledgeConfigList?: CreateCustomAgentResponseBodyDataKnowledgeConfigList[];
+  /**
+   * @remarks
+   * The knowledge semantic configuration list.
+   */
   knowledgeSemanticConfigList?: CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList[];
   /**
    * @remarks
@@ -402,7 +485,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next execution time of the scheduled task.
+   * The next run time of the scheduled task.
    * - Timestamp format.
    * 
    * @example
@@ -419,6 +502,12 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   offlineTime?: string;
   /**
    * @remarks
+   * The list of recommended questions.
+   * - You can configure up to 10 recommended questions.
+   */
+  recommendQuestionList?: string[];
+  /**
+   * @remarks
    * The region.
    * 
    * @example
@@ -428,6 +517,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the referenced historical session.
+   * 
+   * @example
+   * 99crainsjnv*******vynid
    */
   relatedSessionId?: string;
   /**
@@ -445,7 +537,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   scheduleTaskConfig?: CreateCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
-   * The status of the custom agent.
+   * The custom agent status.
    * 
    * @example
    * NEW
@@ -456,7 +548,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * All numbers in the text report must be written in Chinese characters instead of Arabic numerals
+   * The text report requires that all numbers be written as Chinese numerals instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -469,7 +561,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * All numbers in the web report must be written in Chinese characters instead of Arabic numerals
+   * The web report requires that all numbers be written as Chinese numerals instead of Arabic numerals
    */
   webReportConfig?: string;
   /**
@@ -477,7 +569,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The web report theme. Valid values:
    * - default: Default.
    * - journal: Journal.
-   * - legacy: Legacy.
+   * - legacy: Classic.
    * - neobrutalism: Neobrutalism.
    * - infographic: Infographic.
    * 
@@ -495,6 +587,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       aliyunParentUid: 'AliyunParentUid',
       aliyunUid: 'AliyunUid',
       callbackConfig: 'CallbackConfig',
@@ -517,6 +610,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       name: 'Name',
       nextRuntime: 'NextRuntime',
       offlineTime: 'OfflineTime',
+      recommendQuestionList: 'RecommendQuestionList',
       region: 'Region',
       relatedSessionId: 'RelatedSessionId',
       releaseTime: 'ReleaseTime',
@@ -532,6 +626,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       aliyunParentUid: 'string',
       aliyunUid: 'string',
       callbackConfig: CreateCustomAgentResponseBodyDataCallbackConfig,
@@ -554,6 +649,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       name: 'string',
       nextRuntime: 'number',
       offlineTime: 'string',
+      recommendQuestionList: { 'type': 'array', 'itemType': 'string' },
       region: 'string',
       relatedSessionId: 'string',
       releaseTime: 'string',
@@ -579,6 +675,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeSemanticConfigList)) {
       $dara.Model.validateArray(this.knowledgeSemanticConfigList);
+    }
+    if(Array.isArray(this.recommendQuestionList)) {
+      $dara.Model.validateArray(this.recommendQuestionList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();

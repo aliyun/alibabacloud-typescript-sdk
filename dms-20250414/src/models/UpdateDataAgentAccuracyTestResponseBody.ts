@@ -21,13 +21,27 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The data source. We recommend that you configure this parameter in a custom agent.
+   * The evaluation dataset.
    * 
    * @example
-   * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxxxx\\",\\"DmsDatabaseId\\":\\"752xxxxx\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
+   * ds-9z6***74al
    */
   dataset?: string;
+  /**
+   * @remarks
+   * The data source information.
+   * 
+   * @example
+   * {"DataSourceType":"remote_data_center","DmsDatabaseId":"f-894***01m","FileId":"f-894***01m","Database":"data.csv","Tables":["example"],"TableIds":["aij5***qf8"],"RegionId":"cn-hangzhou"}]
+   */
   datasource?: string;
+  /**
+   * @remarks
+   * The description of the evaluation item.
+   * 
+   * @example
+   * Customer Agent\\"s Evaluation
+   */
   desc?: string;
   /**
    * @remarks
@@ -45,6 +59,13 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
    * f-8*******01m
    */
   fileId?: string;
+  /**
+   * @remarks
+   * The maximum concurrency limit for the evaluation task.
+   * 
+   * @example
+   * 15
+   */
   maxConcurrent?: number;
   /**
    * @remarks
@@ -54,7 +75,21 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
    * 0
    */
   mode?: number;
+  /**
+   * @remarks
+   * The name of the evaluation item.
+   * 
+   * @example
+   * Evaluation_for_customagent213
+   */
   name?: string;
+  /**
+   * @remarks
+   * Reserved.
+   * 
+   * @example
+   * false
+   */
   needDelete?: boolean;
   /**
    * @remarks
@@ -115,7 +150,7 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   data?: UpdateDataAgentAccuracyTestResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when an exception occurs.
    * 
    * @example
    * UnknownError
@@ -123,7 +158,7 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -139,10 +174,10 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.                                 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

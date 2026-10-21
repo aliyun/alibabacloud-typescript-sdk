@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The invoke parameters for callback tool calling.
+   * 
+   * @example
+   * {"ID":"test"}
+   */
   callbackArgs?: string;
+  /**
+   * @remarks
+   * The prompt for generating invoke parameters for callback tool calling.
+   * 
+   * @example
+   * send web report to 123456@163.com
+   */
   callbackPrompt?: string;
+  /**
+   * @remarks
+   * The invoke timing for callback tool calling.
+   * 
+   * @example
+   * 0
+   */
   callbackTime?: number;
+  /**
+   * @remarks
+   * The callback tool identifier.
+   * 
+   * @example
+   * Mcp serverId (6te...g7a)
+   */
   toolId?: string;
+  /**
+   * @remarks
+   * The callback tool type.
+   * 
+   * @example
+   * Mcp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +75,7 @@ export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
 export class ModifyCustomAgentRequestExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources during the session.
+   * Specifies whether to prohibit appending data sources in a session.
    * 
    * @example
    * true
@@ -72,7 +107,7 @@ export class ModifyCustomAgentRequestExecutionConfig extends $dara.Model {
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report generation confirmation.
+   * Specifies whether to skip the confirmation for generating a web report.
    * 
    * @example
    * true
@@ -110,9 +145,9 @@ export class ModifyCustomAgentRequestExecutionConfig extends $dara.Model {
 export class ModifyCustomAgentRequestKnowledgeConfigList extends $dara.Model {
   /**
    * @remarks
-   * The access type. If this parameter is not specified, the default value is mcp. Valid values:
-   * - mcp: access through MCP. You must pass the McpServerId parameter.
-   * - dms_kb: access through DMS knowledge base. You must pass the KbUuid parameter.
+   * The access type. If you do not specify this parameter, the default value is mcp. Valid values:
+   * - mcp: Access through MCP. You must pass the McpServerId parameter.
+   * - dms_kb: Access through DMS knowledge base. You must pass the KbUuid parameter.
    * 
    * @example
    * mcp
@@ -160,9 +195,39 @@ export class ModifyCustomAgentRequestKnowledgeConfigList extends $dara.Model {
 }
 
 export class ModifyCustomAgentRequestKnowledgeSemanticConfigList extends $dara.Model {
+  /**
+   * @remarks
+   * The DMS database ID.
+   * 
+   * @example
+   * 69305251
+   */
   dbId?: string;
+  /**
+   * @remarks
+   * The DMS instance ID.
+   * 
+   * @example
+   * 2086427
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The knowledge UUID.
+   * 
+   * @example
+   * 7ca8f50d78*****1f4b8410f02e87
+   */
   knowledgeUuid?: string;
+  /**
+   * @remarks
+   * The knowledge semantic type. Valid values:
+   * - sql_template: SQL template.
+   * - ossie_model: Ossie semantic view.
+   * 
+   * @example
+   * sql_template
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,7 +259,7 @@ export class ModifyCustomAgentRequestKnowledgeSemanticConfigList extends $dara.M
 export class ModifyCustomAgentRequestScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for periodic scheduling.
+   * The cron expression for time-based scheduling.
    * 
    * @example
    * 0 0 0,1 ? * 1-7
@@ -242,6 +307,10 @@ export class ModifyCustomAgentRequestScheduleTaskConfig extends $dara.Model {
 }
 
 export class ModifyCustomAgentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The callback feature configuration.
+   */
   callbackConfig?: ModifyCustomAgentRequestCallbackConfig;
   /**
    * @remarks
@@ -264,18 +333,18 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The specified data scope in **JSON character string format**.
-   * - General parameter description
-   *   - tableFlag: true specifies the data scope.
-   *   - scope: personal is a fixed value.
-   *   - personal: parameters for file and database types.
+   * - General metric descriptions:
+   *   - tableFlag: true indicates that a data scope is specified.
+   *   - scope: The fixed value personal.
+   *   - personal: The parameters for file and database types.
    * 
-   * **File type**: pass parameters in the following format:
-   * - DataSourceType: remote_data_center is a fixed value.
-   * - FileId: the file ID.
-   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
-   * - Tables: the table names returned by the ListDataCenterTable operation.
-   * - TableIds: the table IDs returned by the ListDataCenterTable operation.
-   * - RegionId: the current region.
+   * **File type**: Pass parameters in the following format:
+   * - DataSourceType: The fixed value remote_data_center.
+   * - FileId: The file ID.
+   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: The table names returned by the ListDataCenterTable operation.
+   * - TableIds: The table IDs returned by the ListDataCenterTable operation.
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -295,17 +364,17 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * }
    * ```
    * 
-   * **Database type**: pass parameters as follows:
-   * - DataSourceType: database is a fixed value.
-   * - DmsInstanceId: the DMS instance ID returned by the Data Center operation.
-   * - DmsDatabaseId: the DMS database ID returned by the Data Center operation.
-   * - FileId: the instance name. **[Deprecated]**
-   * - DbName: the database name returned by the Data Center operation.
-   * - Database: the database name returned by the Data Center operation.
-   * - Tables: the table names returned by the Data Center operation.
-   * - TableIds: the table IDs returned by the Data Center operation.
-   * - Engine: the engine type, such as mysql or postgresql.
-   * - RegionId: the current region.
+   * **Database type**: Pass parameters in the following format:
+   * - DataSourceType: The fixed value database.
+   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
+   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
+   * - FileId: The instance name. **[Deprecated]**
+   * - DbName: The database name returned by the data center operation.
+   * - Database: The database name returned by the data center operation.
+   * - Tables: The table names returned by the data center operation.
+   * - TableIds: The table IDs returned by the data center operation.
+   * - Engine: The DPI engine type (mysql or postgresql).
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -336,7 +405,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "Test_spreadsheet******.xlsx",
+   *     "Database" : "Test table******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -349,7 +418,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent test description
+   * Test agent description
    */
   description?: string;
   /**
@@ -360,24 +429,24 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The instructions.
-   * - Input limit: up to 10,000 characters.
+   * - Input limit: Maximum of 10,000 characters.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes as well as year-over-year and month-over-month fluctuations.
-   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment by new and existing customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → pay) to locate churn points
    */
   instruction?: string;
   /**
    * @remarks
    * The knowledge.
-   * - Input limit: up to 10,000 characters.
+   * - Input limit: Maximum of 10,000 characters.
    * 
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
-   * 2. Order volume refers to the number of valid orders placed per day.
+   * 2. Order volume is the number of valid orders placed per day.
    * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
    * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
@@ -387,15 +456,25 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * The external knowledge bases.
    */
   knowledgeConfigList?: ModifyCustomAgentRequestKnowledgeConfigList[];
+  /**
+   * @remarks
+   * The knowledge semantic configuration list.
+   */
   knowledgeSemanticConfigList?: ModifyCustomAgentRequestKnowledgeSemanticConfigList[];
   /**
    * @remarks
    * The name of the custom agent.
    * 
    * @example
-   * Agent test name
+   * Test agent name
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of recommended questions.
+   * - You can configure up to 10 recommended questions.
+   */
+  recommendQuestionList?: string[];
   /**
    * @remarks
    * The ID of the referenced historical session.
@@ -412,10 +491,10 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The text report format.
-   * - Input limit: up to 10,000 characters.
+   *  - Input limit: Maximum of 10,000 characters.
    * 
    * @example
-   * Require all numbers in the text report to be written in Chinese characters instead of Arabic numerals
+   * The text report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -426,20 +505,20 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The web report format.
-   * - Input limit: up to 50,000 characters.
+   * - Input limit: Maximum of 50,000 characters.
    * 
    * @example
-   * Require all numbers in the web report to be written in Chinese characters instead of Arabic numerals
+   * The web report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   webReportConfig?: string;
   /**
    * @remarks
    * The web report theme. Valid values:
-   * - default: default.
-   * - journal: journal.
-   * - legacy: classic.
-   * - neobrutalism: stylized.
-   * - infographic: infographic.
+   * - default: Default.
+   * - journal: Journal.
+   * - legacy: Legacy.
+   * - neobrutalism: Neobrutalism.
+   * - infographic: Infographic.
    * 
    * @example
    * default
@@ -466,6 +545,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
       knowledgeConfigList: 'KnowledgeConfigList',
       knowledgeSemanticConfigList: 'KnowledgeSemanticConfigList',
       name: 'Name',
+      recommendQuestionList: 'RecommendQuestionList',
       relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfig: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
@@ -489,6 +569,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
       knowledgeConfigList: { 'type': 'array', 'itemType': ModifyCustomAgentRequestKnowledgeConfigList },
       knowledgeSemanticConfigList: { 'type': 'array', 'itemType': ModifyCustomAgentRequestKnowledgeSemanticConfigList },
       name: 'string',
+      recommendQuestionList: { 'type': 'array', 'itemType': 'string' },
       relatedSessionId: 'string',
       scheduleTaskConfig: ModifyCustomAgentRequestScheduleTaskConfig,
       textReportConfig: 'string',
@@ -511,6 +592,9 @@ export class ModifyCustomAgentRequest extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeSemanticConfigList)) {
       $dara.Model.validateArray(this.knowledgeSemanticConfigList);
+    }
+    if(Array.isArray(this.recommendQuestionList)) {
+      $dara.Model.validateArray(this.recommendQuestionList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();

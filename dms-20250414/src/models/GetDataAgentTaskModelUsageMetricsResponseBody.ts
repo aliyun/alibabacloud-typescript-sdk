@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The start time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
+   * The start time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735660800
@@ -13,7 +13,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   beginTime?: number;
   /**
    * @remarks
-   * The end time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
+   * The end time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735660860
@@ -21,7 +21,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The TPM for this time series data point, which is the number of tokens consumed within the statistical interval.
+   * The TPM at the time-series point, which represents the number of tokens consumed in the statistical interval.
    * 
    * @example
    * 1200
@@ -55,12 +55,12 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
 export class GetDataAgentTaskModelUsageMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of TPM time series metrics for model usage, returned in chronological order.
+   * The list of time-series TPM metrics for model usage. The usage at each time point is returned in chronological order.
    */
   data?: GetDataAgentTaskModelUsageMetricsResponseBodyData[];
   /**
    * @remarks
-   * The error code returned when the request is abnormal.
+   * The error code, which is returned when a request exception occurs.
    * 
    * @example
    * DMS-DA-40411
@@ -68,7 +68,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message, which is returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -84,10 +84,13 @@ export class GetDataAgentTaskModelUsageMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
+   * 
+   * @example
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -29,12 +29,28 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
   creator?: string;
   /**
    * @remarks
+   * The ID of the test dataset.
+   * 
+   * @example
+   * ds-sdg***jkh
+   */
+  datasetId?: string;
+  /**
+   * @remarks
    * The data source.
    * 
    * @example
    * null
    */
   datasource?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * null
+   */
+  description?: string;
   /**
    * @remarks
    * The ID of the test set file.
@@ -53,7 +69,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2026-06-30T07:31:09.000+00:00
@@ -88,12 +104,12 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
    * The custom agent name.
    * 
    * @example
-   * AgentTestName
+   * Agent test name
    */
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after analysis. This feature is not supported.
+   * Specifies whether the session is displayed after analysis. This feature is currently not supported.
    * 
    * @example
    * true
@@ -101,7 +117,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
   needDelete?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 8wfig6l33n4f4xxxxxxxxxx
@@ -112,7 +128,9 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
       accuracyTestInsId: 'AccuracyTestInsId',
       agentId: 'AgentId',
       creator: 'Creator',
+      datasetId: 'DatasetId',
       datasource: 'Datasource',
+      description: 'Description',
       fileId: 'FileId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -130,7 +148,9 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
       accuracyTestInsId: 'string',
       agentId: 'string',
       creator: 'string',
+      datasetId: 'string',
       datasource: 'string',
+      description: 'string',
       fileId: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -155,7 +175,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
 export class ListDataAgentAccuracyTestInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response struct.
+   * The response data.
    */
   data?: ListDataAgentAccuracyTestInstancesResponseBodyData[];
   /**
@@ -176,7 +196,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBody extends $dara.Model 
   errorMessage?: string;
   /**
    * @remarks
-   * The maximum number of entries returned per page. You can use this parameter together with NextToken to implement paging.
+   * The maximum number of results to return per request. You can use this parameter with NextToken to paginate results.
    * 
    * @example
    * 20
@@ -184,7 +204,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBody extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * zCXS*****
@@ -216,7 +236,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -224,7 +244,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBody extends $dara.Model 
   success?: string;
   /**
    * @remarks
-   * The operation timestamp.
+   * The timestamp of the operation.
    * 
    * @example
    * 1768270172

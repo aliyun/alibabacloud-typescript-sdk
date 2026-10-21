@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created. The value is a timestamp in milliseconds.
+   * The creation time of the workspace. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765960516000
@@ -29,6 +29,14 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
+   * The number of custom agents in the workspace.
+   * 
+   * @example
+   * 8
+   */
+  customAgentCount?: number;
+  /**
+   * @remarks
    * The description of the workspace.
    * 
    * @example
@@ -45,7 +53,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The time when the workspace was last modified. The value is a timestamp in milliseconds.
+   * The last modification time of the workspace. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765961516000
@@ -53,7 +61,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The role name of the user in the workspace.
    * 
    * @example
    * admin
@@ -85,7 +93,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   totalSessionCount?: number;
   /**
    * @remarks
-   * The workspace type.
+   * The type of the workspace.
    * 
    * @example
    * personal
@@ -93,7 +101,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 20923*****7291
@@ -120,6 +128,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       createTime: 'CreateTime',
       creator: 'Creator',
       creatorName: 'CreatorName',
+      customAgentCount: 'CustomAgentCount',
       description: 'Description',
       isSessionShareEnabled: 'IsSessionShareEnabled',
       modifyTime: 'ModifyTime',
@@ -139,6 +148,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       createTime: 'number',
       creator: 'string',
       creatorName: 'string',
+      customAgentCount: 'number',
       description: 'string',
       isSessionShareEnabled: 'boolean',
       modifyTime: 'number',
@@ -280,7 +290,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

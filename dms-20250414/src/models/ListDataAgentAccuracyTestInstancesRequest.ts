@@ -13,7 +13,7 @@ export class ListDataAgentAccuracyTestInstancesRequest extends $dara.Model {
   accuracyTestInsId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListDataAgentAccuracyTestInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * Nes****
@@ -45,7 +45,7 @@ export class ListDataAgentAccuracyTestInstancesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 8wfig6l33n4f4xxxxxxxxxx

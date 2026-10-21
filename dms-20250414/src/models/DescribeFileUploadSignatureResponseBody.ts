@@ -10,7 +10,7 @@ export class DescribeFileUploadSignatureResponseBodyData extends $dara.Model {
   ossCredential?: string;
   /**
    * @remarks
-   * The time of the request. The format follows the ISO 8601 date and time standard.
+   * The time of the request, which follows the ISO 8601 date and time standard.
    * 
    * @example
    * 20260101T135341Z
@@ -18,7 +18,7 @@ export class DescribeFileUploadSignatureResponseBodyData extends $dara.Model {
   ossDate?: string;
   /**
    * @remarks
-   * The STS token used to upload files to OSS. The token is valid for 1 hour.
+   * The STS token used to upload files to OSS, valid for one hour.
    * 
    * @example
    * CAIS4gJ1q6Ft5B2yfSjIr5vPHMj4p+lHx/utUUjg13ptZ+5u3oDzkzz2IHhMdXlrCOgYt/8xnG1V6f8flrJ/ToQAX0HfatZq5ZkS9AqnaoXM/te496IFg5D9y7dIs8GgjqHoeOzcYI73WJXEMiLp9EJaxb/9ak/RPTiMOoGIjphKd8keWhLCAxNNGNZRIHkJyqZYTwyzU8ygKRn3mGHdIVN1sw5n8wNF5L+439eX52i17jS46JdM/9ysesH5NpQxbMwkDYnk5oEsKPqdihw3wgNR6aJ7gJZD/Tr6pdyHCzFTmU7ea7uEqYw3clYiOPBnRvEd8eKPnPl5q/HVm4Hs0wxKNuxOSCXZS4yp3MLeH+ekJgOGwWFHz9qnOLmtQXqV22tMCRpzXIj6Zlmz+/reI6iNW+Ory74mxSFbrz3ZP4yv+o+Yv3QbMVumcySkKVbBbVvnv0R8GNsIC2lMUbp+rfShhfFuG2QagAECCyigwAlSAryrFmteD+EVuvxvi0NE7zDJLbUkhek6dcY+/u5V5jcmvL67CQ7bTNk+9lV8WDCvtoCD9ucqTaHweJEd8fS2DaFedAMDf8BfZa2C1CTLhVXdSgE2WORYbMqidelRm7dH3fTbZVvryWKDaveDRLt5J/Qfs**********
@@ -26,7 +26,7 @@ export class DescribeFileUploadSignatureResponseBodyData extends $dara.Model {
   ossSecurityToken?: string;
   /**
    * @remarks
-   * The description information used for signature authentication.
+   * The description used for signature authentication.
    * 
    * @example
    * 9bebe0900716bdefaab899781c7bdfd614ec6ed711e0de5ddf6f5a**********
@@ -42,7 +42,7 @@ export class DescribeFileUploadSignatureResponseBodyData extends $dara.Model {
   ossSignatureVersion?: string;
   /**
    * @remarks
-   * The permission restrictions and constraints for file uploads.
+   * The permission limits and constraints for file uploads.
    * 
    * @example
    * eyJjb25kaXRpb25zIjpbeyJ4LW9zcy1jcmVkZW50aWFsIjoiU1RTLk5YeldyTEo2ZnA5RlNuUTN6OGthQjFFWH**********
@@ -112,7 +112,7 @@ export class DescribeFileUploadSignatureResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter Tid is not valid.

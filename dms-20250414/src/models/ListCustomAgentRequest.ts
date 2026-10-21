@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The custom agent type. Valid values:
+   * - Default: system built-in custom agent
+   * - Common: regular custom agent
+   * 
+   * @example
+   * Common
+   */
+  agentType?: string;
+  /**
+   * @remarks
    * The page number. Pages start from 1.
    * 
    * @example
@@ -29,15 +39,15 @@ export class ListCustomAgentRequest extends $dara.Model {
   queryAllReleased?: boolean;
   /**
    * @remarks
-   * The search keyword. Fuzzy search is supported for custom agent names and descriptions.
+   * The search keyword. Supports fuzzy search for custom agent names and descriptions.
    * 
    * @example
-   * Test Agent
+   * Test agent
    */
   searchKey?: string;
   /**
    * @remarks
-   * The status of the custom agent.
+   * The custom agent status.
    * 
    * @example
    * RELEASED
@@ -53,6 +63,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       queryAllReleased: 'QueryAllReleased',
@@ -64,6 +75,7 @@ export class ListCustomAgentRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       queryAllReleased: 'boolean',

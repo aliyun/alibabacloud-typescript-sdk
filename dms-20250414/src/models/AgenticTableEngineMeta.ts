@@ -5,62 +5,98 @@ import * as $dara from '@darabonba/typescript';
 export class AgenticTableEngineMeta extends $dara.Model {
   /**
    * @remarks
-   * A checksum to verify the table\\"s data integrity.
+   * The checksum of the table metadata.
+   * 
+   * @example
+   * 9f86d081884c7d65****
    */
   checksum?: string;
   /**
    * @remarks
-   * The time the table was created, in UTC format (`YYYY-MM-DDThh:mm:ssZ`).
+   * The time when the table was created. The format is yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2025-01-01 10:00:00
    */
   createTime?: string;
   /**
    * @remarks
-   * The total size of the table\\"s data, in bytes.
+   * The data size of the table. Unit: bytes.
+   * 
+   * @example
+   * 786432
    */
   dataBytes?: number;
   /**
    * @remarks
-   * The character encoding of the table.
+   * The character set encoding of the table.
+   * 
+   * @example
+   * utf8mb4
    */
   encoding?: string;
   /**
    * @remarks
-   * The table\\"s storage engine, such as `InnoDB`.
+   * The storage engine of the table.
+   * 
+   * @example
+   * InnoDB
    */
   engine?: string;
   /**
    * @remarks
-   * A checksum of the table\\"s data and indexes.
+   * The full checksum of the table metadata.
+   * 
+   * @example
+   * 2c26b46b68ffc68f****
    */
   fullChecksum?: string;
   /**
    * @remarks
-   * The total size of the table\\"s indexes, in bytes.
+   * The index size of the table. Unit: bytes.
+   * 
+   * @example
+   * 262144
    */
   indexBytes?: number;
   /**
    * @remarks
-   * The timestamp of the last DDL (Data Definition Language) operation, in UTC format (`YYYY-MM-DDThh:mm:ssZ`).
+   * The time when the last DDL operation was executed on the table. The format is yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2025-01-02 10:00:00
    */
   lastDdlTime?: string;
   /**
    * @remarks
    * The number of rows in the table.
+   * 
+   * @example
+   * 10000
    */
   numRows?: number;
   /**
    * @remarks
-   * The table\\"s reference information.
+   * The reference information of the table.
+   * 
+   * @example
+   * order_db.orders_view
    */
   refInfo?: string;
   /**
    * @remarks
-   * The table\\"s total storage capacity, in bytes.
+   * The storage capacity of the table. Unit: MB.
+   * 
+   * @example
+   * 16
    */
   storageCapacity?: number;
   /**
    * @remarks
-   * The name of the table schema.
+   * The name of the schema to which the table belongs.
+   * 
+   * @example
+   * public
    */
   tableSchemaName?: string;
   static names(): { [key: string]: string } {

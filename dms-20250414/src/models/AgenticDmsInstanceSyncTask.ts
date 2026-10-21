@@ -6,6 +6,7 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
   actorId?: string;
   actorName?: string;
   actorType?: string;
+  authorizeAddVpcNatWhiteList?: boolean;
   errorCode?: string;
   errorSummary?: string;
   failedCount?: number;
@@ -24,6 +25,7 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
       actorId: 'ActorId',
       actorName: 'ActorName',
       actorType: 'ActorType',
+      authorizeAddVpcNatWhiteList: 'AuthorizeAddVpcNatWhiteList',
       errorCode: 'ErrorCode',
       errorSummary: 'ErrorSummary',
       failedCount: 'FailedCount',
@@ -45,6 +47,7 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
       actorId: 'string',
       actorName: 'string',
       actorType: 'string',
+      authorizeAddVpcNatWhiteList: 'boolean',
       errorCode: 'string',
       errorSummary: 'string',
       failedCount: 'number',

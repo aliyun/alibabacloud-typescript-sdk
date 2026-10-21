@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCustomAgentShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The callback feature configuration.
+   */
   callbackConfigShrink?: string;
   /**
    * @remarks
@@ -25,18 +29,18 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The specified data scope in **JSON character string format**.
-   * - General parameter description
-   *   - tableFlag: true specifies the data scope.
-   *   - scope: personal is a fixed value.
-   *   - personal: parameters for file and database types.
+   * - General metric descriptions:
+   *   - tableFlag: true indicates that a data scope is specified.
+   *   - scope: The fixed value personal.
+   *   - personal: The parameters for file and database types.
    * 
-   * **File type**: pass parameters in the following format:
-   * - DataSourceType: remote_data_center is a fixed value.
-   * - FileId: the file ID.
-   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
-   * - Tables: the table names returned by the ListDataCenterTable operation.
-   * - TableIds: the table IDs returned by the ListDataCenterTable operation.
-   * - RegionId: the current region.
+   * **File type**: Pass parameters in the following format:
+   * - DataSourceType: The fixed value remote_data_center.
+   * - FileId: The file ID.
+   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: The table names returned by the ListDataCenterTable operation.
+   * - TableIds: The table IDs returned by the ListDataCenterTable operation.
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -56,17 +60,17 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * }
    * ```
    * 
-   * **Database type**: pass parameters as follows:
-   * - DataSourceType: database is a fixed value.
-   * - DmsInstanceId: the DMS instance ID returned by the Data Center operation.
-   * - DmsDatabaseId: the DMS database ID returned by the Data Center operation.
-   * - FileId: the instance name. **[Deprecated]**
-   * - DbName: the database name returned by the Data Center operation.
-   * - Database: the database name returned by the Data Center operation.
-   * - Tables: the table names returned by the Data Center operation.
-   * - TableIds: the table IDs returned by the Data Center operation.
-   * - Engine: the engine type, such as mysql or postgresql.
-   * - RegionId: the current region.
+   * **Database type**: Pass parameters in the following format:
+   * - DataSourceType: The fixed value database.
+   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
+   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
+   * - FileId: The instance name. **[Deprecated]**
+   * - DbName: The database name returned by the data center operation.
+   * - Database: The database name returned by the data center operation.
+   * - Tables: The table names returned by the data center operation.
+   * - TableIds: The table IDs returned by the data center operation.
+   * - Engine: The DPI engine type (mysql or postgresql).
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -97,7 +101,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "Test_spreadsheet******.xlsx",
+   *     "Database" : "Test table******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -110,7 +114,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent test description
+   * Test agent description
    */
   description?: string;
   /**
@@ -121,24 +125,24 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instructions.
-   * - Input limit: up to 10,000 characters.
+   * - Input limit: Maximum of 10,000 characters.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes as well as year-over-year and month-over-month fluctuations.
-   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment by new and existing customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → pay) to locate churn points
    */
   instruction?: string;
   /**
    * @remarks
    * The knowledge.
-   * - Input limit: up to 10,000 characters.
+   * - Input limit: Maximum of 10,000 characters.
    * 
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
-   * 2. Order volume refers to the number of valid orders placed per day.
+   * 2. Order volume is the number of valid orders placed per day.
    * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
    * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
@@ -148,15 +152,25 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The external knowledge bases.
    */
   knowledgeConfigListShrink?: string;
+  /**
+   * @remarks
+   * The knowledge semantic configuration list.
+   */
   knowledgeSemanticConfigListShrink?: string;
   /**
    * @remarks
    * The name of the custom agent.
    * 
    * @example
-   * Agent test name
+   * Test agent name
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of recommended questions.
+   * - You can configure up to 10 recommended questions.
+   */
+  recommendQuestionListShrink?: string;
   /**
    * @remarks
    * The ID of the referenced historical session.
@@ -173,10 +187,10 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The text report format.
-   * - Input limit: up to 10,000 characters.
+   *  - Input limit: Maximum of 10,000 characters.
    * 
    * @example
-   * Require all numbers in the text report to be written in Chinese characters instead of Arabic numerals
+   * The text report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -187,20 +201,20 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The web report format.
-   * - Input limit: up to 50,000 characters.
+   * - Input limit: Maximum of 50,000 characters.
    * 
    * @example
-   * Require all numbers in the web report to be written in Chinese characters instead of Arabic numerals
+   * The web report requires that all numbers be spelled out in words instead of using Arabic numerals
    */
   webReportConfig?: string;
   /**
    * @remarks
    * The web report theme. Valid values:
-   * - default: default.
-   * - journal: journal.
-   * - legacy: classic.
-   * - neobrutalism: stylized.
-   * - infographic: infographic.
+   * - default: Default.
+   * - journal: Journal.
+   * - legacy: Legacy.
+   * - neobrutalism: Neobrutalism.
+   * - infographic: Infographic.
    * 
    * @example
    * default
@@ -227,6 +241,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
       knowledgeConfigListShrink: 'KnowledgeConfigList',
       knowledgeSemanticConfigListShrink: 'KnowledgeSemanticConfigList',
       name: 'Name',
+      recommendQuestionListShrink: 'RecommendQuestionList',
       relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfigShrink: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
@@ -250,6 +265,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
       knowledgeConfigListShrink: 'string',
       knowledgeSemanticConfigListShrink: 'string',
       name: 'string',
+      recommendQuestionListShrink: 'string',
       relatedSessionId: 'string',
       scheduleTaskConfigShrink: 'string',
       textReportConfig: 'string',

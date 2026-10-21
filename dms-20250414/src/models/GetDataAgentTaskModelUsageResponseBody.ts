@@ -3,13 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The acceleration ratio, which indicates the speed improvement brought by subtask parallelism.
+   * 
+   * @example
+   * 3.8
+   */
   accelerationRatio?: number;
+  /**
+   * @remarks
+   * The number of throttled sessions.
+   * 
+   * @example
+   * 8
+   */
   rateLimitedSessionCount?: number;
+  /**
+   * @remarks
+   * The total throttling duration of all sessions.
+   * 
+   * @example
+   * 89
+   */
   totalLlmWaitDuration?: number;
+  /**
+   * @remarks
+   * The total number of sessions.
+   * 
+   * @example
+   * 39
+   */
   totalSessionCount?: number;
   /**
    * @remarks
-   * The peak TPM (tokens per minute) within the query time range, which is the maximum number of tokens consumed per minute.
+   * The peak TPM within the query time range, which is the maximum number of tokens consumed per minute.
    * 
    * @example
    * 42000
@@ -82,7 +110,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   data?: GetDataAgentTaskModelUsageResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when a request exception occurs.
    * 
    * @example
    * DMS-DA-40411
@@ -90,7 +118,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -98,7 +126,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 67E910F2-***695C
@@ -106,10 +134,10 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

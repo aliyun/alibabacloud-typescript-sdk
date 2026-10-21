@@ -45,7 +45,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The sort field name.
+   * The name of the field to sort by.
    * 
    * @example
    * CreateTime
@@ -53,7 +53,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number.
+   * The starting page number.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace type.
+   * The workspace type to query.
    * 
    * This parameter is required.
    * 

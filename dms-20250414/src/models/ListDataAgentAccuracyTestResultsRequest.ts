@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentAccuracyTestResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the accuracy test.
+   * The instance ID of the accuracy test to which the task belongs.
    * 
    * @example
    * at-106n4rg17gv9fxxxxxxxxxx
@@ -13,7 +13,7 @@ export class ListDataAgentAccuracyTestResultsRequest extends $dara.Model {
   accuracyTestInsId?: string;
   /**
    * @remarks
-   * The result ID used to retrieve a single record.
+   * The ID of the result used to exactly match a single record.
    * 
    * @example
    * at-emhnbwewfngrxxxxxxxxxx
@@ -21,7 +21,7 @@ export class ListDataAgentAccuracyTestResultsRequest extends $dara.Model {
   accuracyTestResultId?: string;
   /**
    * @remarks
-   * The subtask ID used to filter results.
+   * The ID of the subtask used to filter results.
    * 
    * @example
    * f1eb8728-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -37,7 +37,7 @@ export class ListDataAgentAccuracyTestResultsRequest extends $dara.Model {
   accuracyTestTaskId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of results per page.
    * 
    * @example
    * nu use
@@ -77,7 +77,7 @@ export class ListDataAgentAccuracyTestResultsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 8wfig6l33n4f4xxxxxxxxxx

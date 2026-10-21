@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FileUploadCallbackResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * f-8*******01m
@@ -48,7 +48,7 @@ export class FileUploadCallbackResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -64,9 +64,9 @@ export class FileUploadCallbackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.                                 
+   * - **true**: The request is successful.                                 
    * - **false**: The request failed.
    * 
    * @example

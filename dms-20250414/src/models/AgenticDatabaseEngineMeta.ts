@@ -5,22 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class AgenticDatabaseEngineMeta extends $dara.Model {
   /**
    * @remarks
-   * The name of the database catalog.
+   * The catalog name in the database engine.
+   * 
+   * @example
+   * def
    */
   catalogName?: string;
   /**
    * @remarks
-   * The character encoding for the database.
+   * The character set encoding of the database.
+   * 
+   * @example
+   * utf8mb4
    */
   encoding?: string;
   /**
    * @remarks
-   * The name of the database schema.
+   * The schema name.
+   * 
+   * @example
+   * public
    */
   schemaName?: string;
   /**
    * @remarks
-   * The storage capacity of the database, in GB.
+   * The storage capacity of the database, in MB.
+   * 
+   * @example
+   * 1024
    */
   storageCapacity?: number;
   static names(): { [key: string]: string } {
