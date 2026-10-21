@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBudgetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The budget policy ID.
+   * The ID of the budget policy.
    * 
    * @example
    * 05a5a8603df444a8a605af712ffexxx
@@ -13,7 +13,7 @@ export class CreateBudgetPolicyResponseBody extends $dara.Model {
   budgetPolicyId?: string;
   /**
    * @remarks
-   * The gateway cluster ID.
+   * The gateway instance ID.
    * 
    * @example
    * pg-xxxxxxx
@@ -21,7 +21,7 @@ export class CreateBudgetPolicyResponseBody extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF

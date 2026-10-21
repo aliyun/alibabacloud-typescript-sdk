@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The key ID. This parameter is empty if the API key is invalid.
+   * The ID of the API key. This parameter is empty if the API key is invalid.
    * 
    * @example
    * ak-71304e39c7e841a1
@@ -23,7 +23,7 @@ export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
    * @remarks
    * The expiration time. This parameter is empty if the API key is permanently valid.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-01-01T00:00:00Z
@@ -31,11 +31,7 @@ export class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The reason for the validation failure. This parameter is empty if the API key is valid. Valid values:
-   * 
-   * - NotFound: The API key is not found.
-   * - Expired: The API key has expired.
-   * - Revoked: The API key has been revoked.
+   * The reason for validation failure. Valid values: NotFound, Expired, and Revoked. This parameter is empty if the API key is valid.
    * 
    * @example
    * NotFound

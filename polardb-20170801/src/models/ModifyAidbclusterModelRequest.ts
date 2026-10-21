@@ -15,7 +15,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The new client-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
+   * The new customer-facing invocation name. If you do not specify this parameter, the existing invocation name is retained.
    * 
    * @example
    * my-flagship-chat
@@ -23,7 +23,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   displayModelName?: string;
   /**
    * @remarks
-   * Specifies whether to only preview the change without actually performing it.
+   * Specifies whether to only preview the modification.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The name of the target model. Select a value from the ModelName values returned by the DescribeAvailableModels operation.
+   * The target model name. Select a value from the ModelName values returned by DescribeAvailableModels.
    * 
    * This parameter is required.
    * 
@@ -51,9 +51,7 @@ export class ModifyAIDBClusterModelRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The restart mode for workers. Valid values:
-   * - inPlace
-   * - recreate
+   * The worker restart mode. Valid values: inPlace and recreate.
    * 
    * @example
    * inPlace

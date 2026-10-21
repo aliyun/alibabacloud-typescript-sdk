@@ -48,7 +48,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   components?: CreateApplicationResponseBodyComponents[];
   /**
    * @remarks
-   * The application remarks.
+   * The application description.
    * 
    * @example
    * myapp
@@ -56,7 +56,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the generated order.
+   * The generated order ID.
    * 
    * @example
    * 2148126708*****
@@ -72,7 +72,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the required resources are available. This parameter is returned only when DryRun is set to true.
+   * Indicates whether the resources are sufficient. This parameter is returned only when DryRun is set to true.
    * 
    * @example
    * true

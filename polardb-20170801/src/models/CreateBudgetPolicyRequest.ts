@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBudgetPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert threshold, as a percentage. Valid values: 0 to 100.
+   * The alert threshold percentage (0 to 100).
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class CreateBudgetPolicyRequest extends $dara.Model {
   alertThresholdPct?: string;
   /**
    * @remarks
-   * The ID of the dimension object. This parameter is required if `BudgetType` is set to `ConsumerTotal` or `ConsumerGroupTotal`.
+   * The ID of the dimension object. This parameter is required when BudgetType is set to ConsumerGroupTotal or Consumer.
    * 
    * @example
    * mi-xxxxx
@@ -21,7 +21,7 @@ export class CreateBudgetPolicyRequest extends $dara.Model {
   budgetDimensionRefId?: string;
   /**
    * @remarks
-   * The number of budget points.
+   * The budget points.
    * 
    * This parameter is required.
    * 
@@ -32,22 +32,20 @@ export class CreateBudgetPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The budget type. Valid values:
-   * 
-   * - `GlobalTotal`: global total budget
-   * 
-   * - `ConsumerTotal`: consumer total budget
-   * 
-   * - `ConsumerGroupTotal`: consumer group total budget
+   * - **GlobalTotal**: Global total budget.
+   * - **ConsumerGroupTotal**: Total budget for a consumer group.
+   * - **ConsumerGroupMemberDefault**: Default budget for a consumer group member.
+   * - **Consumer**: Budget for a single consumer.
    * 
    * This parameter is required.
    * 
    * @example
-   * ConsumerTotal
+   * GlobalTotal
    */
   budgetType?: string;
   /**
    * @remarks
-   * The gateway cluster ID.
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +63,7 @@ export class CreateBudgetPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The day of the month on which the budget resets. Valid values: 1 to 28.
+   * The day of the month when the budget is reset (1 to 28).
    * 
    * This parameter is required.
    * 

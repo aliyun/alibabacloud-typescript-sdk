@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is a dry-run request.
+   * Indicates whether the request is a dry run.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resolved target model name.
+   * The parsed target model name.
    * 
    * @example
    * Qwen3-32B
@@ -37,7 +37,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   targetModelName?: string;
   /**
    * @remarks
-   * The resolved target OSS path.
+   * The parsed target OSS path.
    * 
    * @example
    * /my-model-bucket/models/qwen3
@@ -53,7 +53,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The number of change batches.
+   * The total number of modification batches.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   totalBatches?: number;
   /**
    * @remarks
-   * The number of affected model serving instances.
+   * The number of affected model service instances.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   totalMsds?: number;
   /**
    * @remarks
-   * The change warnings returned by the upstream. The caller must display these warnings.
+   * The modification warnings returned by the upstream service. The caller must display these warnings.
    */
   warnings?: string[];
   static names(): { [key: string]: string } {

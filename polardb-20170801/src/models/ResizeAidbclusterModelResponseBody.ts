@@ -21,7 +21,7 @@ export class ResizeAIDBClusterModelResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Indicates whether the current request performed only a capacity dry run.
+   * Indicates whether the current request performs a capacity dry run only.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ResizeAIDBClusterModelResponseBody extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The capacity that can be directly borrowed from the global pool without reshaping. This parameter is returned only when DryRun is set to true.
+   * The capacity that can be directly borrowed from the large pool without reshaping. This parameter is returned only when DryRun is set to true.
    * 
    * @example
    * 3000
@@ -37,7 +37,7 @@ export class ResizeAIDBClusterModelResponseBody extends $dara.Model {
   poolHitCapacity?: number;
   /**
    * @remarks
-   * The direct hit ratio of the global pool. Valid values: 0 to 1. This parameter is returned only when DryRun is set to true.
+   * The direct hit ratio of the large pool. Valid values: 0 to 1. This parameter is returned only when DryRun is set to true.
    * 
    * @example
    * 0.75

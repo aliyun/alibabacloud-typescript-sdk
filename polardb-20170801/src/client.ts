@@ -23871,7 +23871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the model or the client-facing invocation name of an AI cluster.
+   * Modifies the AI cluster model or the customer-facing invocation name.
    * 
    * @param request - ModifyAIDBClusterModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23926,7 +23926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the model or the client-facing invocation name of an AI cluster.
+   * Modifies the AI cluster model or the customer-facing invocation name.
    * 
    * @param request - ModifyAIDBClusterModelRequest
    * @returns ModifyAIDBClusterModelResponse
