@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStoragePackagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value (default value): 1.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeStoragePackagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of storage plans to return on each page.
+   * The number of storage plans on each page during a paged query.
    * 
    * Valid values: 1 to 100.
    * 
@@ -37,12 +37,12 @@ export class DescribeStoragePackagesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether the time to return is in UTC.
+   * Specifies whether the returned time is in UTC format.
    * 
    * Valid values:
    * 
-   * *   true (default): returns UTC time.
-   * *   false: returns UNIX timestamp.
+   * - true (default): The returned time is in UTC format.
+   * - false: A UNIX timestamp is returned.
    * 
    * @example
    * true

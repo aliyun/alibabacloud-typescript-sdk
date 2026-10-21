@@ -32,7 +32,7 @@ export class CancelDataFlowTaskRequest extends $dara.Model {
    * Valid values:
    * 
    * - true: Sends a check request without actually canceling the task. The check items include whether required parameters are specified, the request format, and the task state. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
-   * - false (default): Sends a normal request and directly cancels the task after the check passes.
+   * - false (default): Sends a normal request. After the check passes, the task is canceled.
    * 
    * @example
    * false
@@ -42,9 +42,9 @@ export class CancelDataFlowTaskRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS General-purpose: Must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * - General-purpose CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
    * 
-   * - CPFS for Lingjun: Must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 

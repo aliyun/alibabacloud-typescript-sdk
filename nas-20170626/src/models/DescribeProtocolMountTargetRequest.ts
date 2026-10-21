@@ -69,11 +69,11 @@ export class DescribeProtocolMountTargetRequestFilters extends $dara.Model {
 export class DescribeProtocolMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique among different requests.
+   * Ensures the idempotency of the request. Generate a value from your client to ensure that the value is unique among different requests.
    * 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+   * > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken value. The RequestId may vary for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -96,12 +96,12 @@ export class DescribeProtocolMountTargetRequest extends $dara.Model {
   filters?: DescribeProtocolMountTargetRequestFilters[];
   /**
    * @remarks
-   * The maximum number of results to return per query.
+   * The maximum number of results to return in each query.
    * 
-   *  - Valid values: 10 to 100.
+   *  - Valid values: 10 to 100
    * 
    * 
-   * - Default value: 20.
+   * - Default value: 20
    * 
    * @example
    * 20
@@ -109,7 +109,7 @@ export class DescribeProtocolMountTargetRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to initiate the next request when the response is truncated. You can use this token to retrieve the remaining results from where the truncation occurred.
+   * The token that is used for the next query. If not all results are returned in a query, a value is returned for the NextToken parameter. You can use this token in the next request to retrieve the remaining results.
    * 
    * @example
    * aBcdg==

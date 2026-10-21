@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecycleBinJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * rb-15****ed-r-1625****2441
@@ -23,7 +23,7 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The current page number for paging.
    * 
    * Start value (default value): 1.
    * 
@@ -33,7 +33,7 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page for paging.
    * 
    * Valid values: 1 to 100.
    * 

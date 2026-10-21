@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLifecyclePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****
@@ -17,8 +17,8 @@ export class ModifyLifecyclePolicyResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

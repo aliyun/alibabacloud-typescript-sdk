@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyProtocolServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+   * Ensures the idempotency of the request. Generate a parameter value from your client to ensure that the value is unique across different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
    * 
    * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
    * 
@@ -24,7 +24,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
    * - The description must be 2 to 128 characters in length.
    * - The description must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
    * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
-   * - **Spaces and other special characters are not allowed**. Valid example: `My-Protocol-Service_01`.
+   * - **Spaces and other special characters are not allowed.** Valid example: `My-Protocol-Service_01`.
    * 
    * @example
    * My-Protocol-Service_01
@@ -39,7 +39,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
    * A dry run checks parameter validity and dependencies without actually modifying the instance or incurring charges.
    * 
    * Valid values:
-   * - true: Sends a dry run request without modifying the protocol service. The dry run checks whether required parameters are specified, whether the request format is valid, and whether business constraints and dependencies are met. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned.
+   * - true: Sends a dry run request without modifying the protocol service. The dry run checks whether required parameters are specified, whether the request format is valid, and whether business limit dependencies are met. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned.
    * - false (default): Sends a normal request. After the check succeeds, the protocol service is directly modified.
    * 
    * @example
@@ -48,7 +48,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the protocol service. You can obtain the protocol service ID from the response of the [CreateProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-createprotocolservice-cpfs) operation, or query it by calling the [DescribeProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolservice-cpfs) operation.
+   * The ID of the protocol service. This ID is returned when you call the [CreateProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-createprotocolservice-cpfs) operation to create a protocol service, or you can obtain it by calling the [DescribeProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolservice-cpfs) operation.
    * 
    * This parameter is required.
    * 

@@ -14,8 +14,8 @@ export class DescribeAgenticSpacesRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the filter key. Wildcards are not supported.
-   * - AgenticSpaceIds: Only a single ID can be specified.
+   * The value of the filter key. This parameter does not support wildcards.
+   * - AgenticSpaceIds: You can specify only one ID.
    * 
    * @example
    * 06229oypxjgox0u****
@@ -47,7 +47,7 @@ export class DescribeAgenticSpacesRequestFilters extends $dara.Model {
 export class DescribeAgenticSpacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -57,12 +57,12 @@ export class DescribeAgenticSpacesRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The collection of filter conditions.
+   * The collection of filter key information.
    */
   filters?: DescribeAgenticSpacesRequestFilters[];
   /**
    * @remarks
-   * The number of results per query.
+   * The number of entries to return for each query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -72,7 +72,7 @@ export class DescribeAgenticSpacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that is returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned from the previous call.
    * 
    * @example
    * MTc3OTkzNTA0Mjg0NTc1MDI4OCM0MDQ0MzA****=

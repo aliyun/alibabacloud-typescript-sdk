@@ -145,7 +145,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Mode
 export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The access point ARN.
+   * The Alibaba Cloud Resource Name (ARN) of the access point.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -185,7 +185,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The access point domain name.
+   * The domain name of the access point.
    * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
@@ -230,7 +230,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The root directory permission.
+   * The root directory permissions.
    */
   rootPathPermission?: DescribeAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
@@ -253,12 +253,12 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Active: available.
-   * - Inactive: unavailable.
+   * - Active: active.
+   * - Inactive: inactive.
    * - Pending: being created.
    * - Deleting: being deleted.
    * 
-   * > You can mount the file system only when the status is Active.
+   * > You can mount a file system only when the status is Active.
    * 
    * @example
    * Active

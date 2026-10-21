@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddClientToBlackListRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client to add.
+   * The IP address of the client to be evicted.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class AddClientToBlackListRequest extends $dara.Model {
   clientIP?: string;
   /**
    * @remarks
-   * This parameter ensures the idempotency of each request. A ClientToken is generated for each client. Make sure that each ClientToken is unique between different requests. The parameter can be a maximum of 64 characters in length and contain ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/doc-detail/25693.htm).
+   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class AddClientToBlackListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class AddClientToBlackListRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the region where the file system resides.
+   * The region ID of the file system.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBlackListClientsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 192.168.0.0
@@ -13,7 +13,7 @@ export class DescribeBlackListClientsRequest extends $dara.Model {
   clientIP?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeBlackListClientsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the region where the file system resides.
+   * The region ID of the file system.
    * 
    * This parameter is required.
    * 

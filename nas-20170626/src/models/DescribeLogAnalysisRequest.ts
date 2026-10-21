@@ -11,7 +11,7 @@ export class DescribeLogAnalysisRequest extends $dara.Model {
    * 
    * - standard: General-purpose NAS
    * - extreme: Extreme NAS
-   * - all (default): all types.
+   * - all (default): all types
    * 
    * @example
    * all
@@ -27,7 +27,11 @@ export class DescribeLogAnalysisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems on each page in a paging query. Valid values: 1 to 100. Default value: 10.
+   * The number of file systems on each page during a paged query.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 10.
    * 
    * @example
    * 1

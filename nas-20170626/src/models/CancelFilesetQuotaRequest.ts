@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CancelFilesetQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can generate the token from your client and make sure that the token is unique across different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,14 +17,14 @@ export class CancelFilesetQuotaRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run.
+   * Specifies whether to perform a dry run on the request.
    * 
-   * A dry run validates the parameter validity and business constraints without actually canceling the fileset quota or incurring any charges.
+   * A dry run checks the validity of parameters and business constraints. It does not actually cancel the fileset quota or incur any fees.
    * 
    * Valid values:
    * 
-   * - true: Sends a dry run request without canceling the quota. The system checks required parameters, request format, and business limits. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
-   * - false (default): Sends a normal request. After the check passes, the fileset quota is directly canceled.
+   * - true: Sends a check request and does not cancel the quota. The check items include whether required parameters are specified, request format, and business limits. If the check fails, the corresponding error is returned. If the check succeeds, the HTTP status code 200 is returned.
+   * - false (default value): Sends a normal request and directly cancels the fileset quota after the check succeeds.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class CancelFilesetQuotaRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the CPFS for Lingjun file system. The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+   * The ID of the CPFS for Lingjun file system. The ID must start with `bmcpfs-`, for example, bmcpfs-290w65p03ok64ya****. To use CPFS for Lingjun, you must first submit a ticket to apply for the service whitelist and then create the file system in the NAS console.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class CancelFilesetQuotaRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * Fileset ID。
+   * The fileset ID.
    * 
    * This parameter is required.
    * 

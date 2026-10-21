@@ -65,7 +65,7 @@ export class ModifyAccessRuleRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The read and write permissions of the authorized object on the file system.
+   * The read and write permissions on the file system granted to the authorized object.
    * 
    * Valid values:
    * 
@@ -90,7 +90,7 @@ export class ModifyAccessRuleRequest extends $dara.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The authorization of the system user of the authorized object on the file system.
+   * The authorization for the system user of the authorized object to access the file system.
    * 
    * Valid values:
    * 
@@ -98,7 +98,7 @@ export class ModifyAccessRuleRequest extends $dara.Model {
    * - root_squash: maps the root user to the nobody user when the root user accesses the file system.
    * - all_squash: maps all users to the nobody user regardless of the user identity used to access the file system.
    * 
-   * The nobody user is a default user in Linux. This user can access only public content on the server and has low privileges and high security.
+   * The nobody user is the default user in Linux. This user can access only public content on the server and has low privileges and high security.
    * 
    * @example
    * all_squash

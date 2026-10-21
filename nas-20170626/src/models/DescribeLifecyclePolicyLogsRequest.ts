@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the lifecycle management policy.
+   * The ID of the lifecycle policy.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,10 @@ export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries per page.
+   * The number of log entries to return on each page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100.
+   * Default value: 10.
    * 
    * @example
    * 10

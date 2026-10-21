@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.Model {
   /**
    * @remarks
-   * The time when the protocol service was created. The time is displayed in UTC.
+   * The time when the protocol service was created, in UTC.
    * 
    * @example
    * 2018-12-12T07:28:38Z
@@ -16,18 +16,17 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * The description of the protocol service.
    * 
    * Limits:
-   * 
-   * *   The description must be 2 to 128 characters in length.
-   * *   The description must start with a letter and cannot start with `http://` or `https://`.
-   * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * - The description must be 2 to 128 characters in length.
+   * - The description must start with a letter and cannot start with `http://` or `https://`.
+   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
-   * 此协议服务的描述
+   * Description of this protocol service
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * cpfs-099394bd928c****
@@ -35,7 +34,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   fileSystemId?: string;
   /**
    * @remarks
-   * The base throughput of the protocol service. Unit: MB/s.
+   * The base throughput of the protocol node. Unit: MB/s.
    * 
    * @example
    * 100
@@ -43,7 +42,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   instanceBaseThroughput?: number;
   /**
    * @remarks
-   * The burst throughput of the protocol service. Unit: MB/s.
+   * The burst throughput of the protocol node. Unit: MB/s.
    * 
    * @example
    * 100
@@ -51,7 +50,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   instanceBurstThroughput?: number;
   /**
    * @remarks
-   * The memory cache size of the protocol service. Unit: GiB.
+   * The memory cache size of the protocol node. Unit: GiB.
    * 
    * @example
    * 0
@@ -59,7 +58,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   instanceRAM?: number;
   /**
    * @remarks
-   * The time when the protocol service was modified. The time is displayed in UTC.
+   * The time when the protocol service was last modified, in UTC.
    * 
    * @example
    * 2018-12-12T07:28:38Z
@@ -67,7 +66,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   modifyTime?: string;
   /**
    * @remarks
-   * The total number of CPFS directories and filesets exported in the protocol service.
+   * The total number of CPFS directories and filesets exported in this protocol service.
    * 
    * @example
    * 5
@@ -75,7 +74,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   mountTargetCount?: number;
   /**
    * @remarks
-   * The ID of the protocol service.
+   * The protocol service ID.
    * 
    * @example
    * ptc-197ed6a00f2b****
@@ -83,10 +82,9 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   protocolServiceId?: string;
   /**
    * @remarks
-   * The specification of the protocol service.
-   * 
-   * *   Valid value: General.
-   * *   Default value: General.
+   * The specification of the protocol service cluster.
+   * - Valid values: General
+   * - Default value: General
    * 
    * @example
    * General
@@ -105,8 +103,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * The protocol type supported by the protocol service.
    * 
    * Valid values:
-   * 
-   * *   NFS: The protocol service supports access over the Network File System (NFS) protocol.
+   *  - NFS: The protocol service supports NFS protocol access.
    * 
    * @example
    * NFS
@@ -117,14 +114,13 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * The status of the protocol service.
    * 
    * Valid values:
-   * 
-   * *   Creating: The protocol service is being created.
-   * *   Starting: The protocol service is being started.
-   * *   Running: The protocol service is running.
-   * *   Updating: The protocol service is being updated.
-   * *   Deleting: The protocol service is being deleted.
-   * *   Stopping: The protocol service is being stopped.
-   * *   Stopped: The protocol service is stopped.
+   * - Creating: The protocol service is being created.
+   * - Starting: The protocol service is being started.
+   * - Running: The protocol service is available.
+   * - Updating: The protocol service is being updated.
+   * - Deleting: The protocol service is being deleted.
+   * - Stopping: The protocol service is being stopped.
+   * - Stopped: The protocol service is stopped.
    * 
    * @example
    * Running
@@ -132,7 +128,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The VSW ID associated with the protocol service.
+   * The vSwitch ID associated with the protocol service.
    * 
    * @example
    * vsw-123xxx
@@ -198,7 +194,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
 export class DescribeProtocolServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The marker used to retrieve the remaining protocol services.
    * 
    * @example
    * aBcdeg==
@@ -206,7 +202,7 @@ export class DescribeProtocolServiceResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about protocol service list.
+   * The list of protocol service information.
    */
   protocolServices?: DescribeProtocolServiceResponseBodyProtocolServices[];
   /**

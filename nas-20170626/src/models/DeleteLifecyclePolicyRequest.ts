@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLifecyclePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,8 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the lifecycle policy. Required for the CPFS for Lingjun file systems.
+   * The ID of the lifecycle policy.
+   * This parameter is required for CPFS for Lingjun file systems.
    * 
    * @example
    * lc-xxx
@@ -23,9 +24,9 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy. The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The Policy Name of the lifecycle management policy. The name must be 3 to 64 characters in epoch, must start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
    * 
-   * >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
+   * >This parameter is optional for General-purpose NAS file systems. If this parameter is specified, the value of this parameter is used. If this parameter is not specified, the value of LifecyclePolicyId is used.
    * 
    * @example
    * lifecyclepolicy1

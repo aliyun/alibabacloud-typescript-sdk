@@ -73,9 +73,9 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
    * 
    * Valid values:
    * 
-   * - NFS: NFS protocol
-   * - SMB: SMB protocol
-   * - cpfs: the protocol type supported by CPFS file systems
+   * - NFS: NFS protocol.
+   * - SMB: SMB protocol.
+   * - cpfs: the protocol type supported by the CPFS file system.
    * 
    * @example
    * NFS
@@ -109,7 +109,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the protocol service export.
+   * The VPC ID of the protocol service export.
    * 
    * @example
    * vpc-bp1h5mxoqfuo3xurf****
@@ -164,7 +164,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
 export class GetProtocolMountTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If the response is truncated, you can use NextToken to send a subsequent request to retrieve the content after the current truncation point.
+   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to initiate another request to retrieve the content after the current truncation position.
    * 
    * @example
    * M18xMA==

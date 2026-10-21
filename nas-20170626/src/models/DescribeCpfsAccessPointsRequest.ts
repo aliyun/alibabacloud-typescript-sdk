@@ -95,7 +95,7 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of CPFS access point tags.
+   * The list of tags for the CPFS access point.
    */
   tag?: DescribeCpfsAccessPointsRequestTag[];
   static names(): { [key: string]: string } {

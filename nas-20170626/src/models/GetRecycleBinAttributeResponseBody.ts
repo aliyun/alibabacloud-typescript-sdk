@@ -31,7 +31,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   reservedDays?: number;
   /**
    * @remarks
-   * The storage usage of Infrequent Access (IA) data in the recycle bin. Unit: bytes.
+   * The storage usage of IA storage class data in the recycle bin. Unit: bytes.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySmbAclRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow anonymous access. 
+   * Specifies whether to allow anonymous access. Valid values: 
    * 
    * - true: Anonymous access is allowed.
    * 
@@ -20,7 +20,7 @@ export class ModifySmbAclRequest extends $dara.Model {
   enableAnonymousAccess?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable encryption in transit.
+   * Specifies whether to enable encryption in transit. Valid values:
    * 
    * - true: Encryption in transit is enabled.
    * 
@@ -42,17 +42,17 @@ export class ModifySmbAclRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The home folder path for each user. The file path format is as follows:
+   * The home folder path for each user. The file path must meet the following format requirements:
    * 
-   * - Use a forward slash (/) or backslash (\\) as the separator.
+   * - Forward slashes (/) or backslashes (\\) are used as separators.
    * 
    * - Each segment cannot contain `<>":|?*`.
    * 
    * - The length of each segment ranges from 0 to 255.
    * 
-   * - The total length ranges from 0 to 32767.
+   * - The total length ranges from 0 to 32,767.
    * 
-   * For example, if the user folder is `/home`, the file system performs automatic creation of the `/home/A` folder when user A performs logon. If `/home/A` already exists, this step is skipped.
+   * For example, if the home folder is `/home`, the file system automatically creates the `/home/A` folder when user A logs on. If `/home/A` already exists, this step is skipped.
    * 
    * > User A must have the permission to create folders. Otherwise, the `/home/A` folder cannot be created.
    * 
@@ -62,7 +62,7 @@ export class ModifySmbAclRequest extends $dara.Model {
   homeDirPath?: string;
   /**
    * @remarks
-   * The Base64-encoded string of the keytab file content.
+   * The Base64-encoded content of the keytab file.
    * 
    * @example
    * BQIAAABHAAIADUFMSUFEVEVTVC5DT00ABGNpZnMAGXNtYnNlcnZlcjI0LmFsaWFkdGVzdC5jb20AAAABAAAAAAEAAQAIqIx6v7p11oUAAABHAAIADUFMSUFEVEVTVC5DT00ABGNpZnMAGXNtYnNlcnZlcjI0LmFsaWFkdGVzdC5jb20AAAABAAAAAAEAAwAIqIx6v7p11oUAAABPAAIADUFMSUFEVEVTVC5DT00ABGNpZnMAGXNtYnNlcnZlcjI0LmFsaWFkdGVzdC5jb20AAAABAAAAAAEAFwAQnQZWB3RAPHU7PMIJyBWePAAAAF8AAgANQUxJQURURVNULkNPTQAEY2lmcwAZc21ic2VydmVyMjQuYWxpYWR0ZXN0LmNvbQAAAAEAAAAAAQASACAGJ7F0s+bcBjf6jD5HlvlRLmPSOW+qDZe0Qk0lQcf8WwAAAE8AAgANQUxJQURURVNULkNPTQAEY2lmcwAZc21ic2VydmVyMjQuYWxpYWR0ZXN0LmNvbQAAAAEAAAAAAQARABDdFmanrSIatnDDh****
@@ -78,7 +78,7 @@ export class ModifySmbAclRequest extends $dara.Model {
   keytabMd5?: string;
   /**
    * @remarks
-   * Specifies whether to reject unencrypted clients.
+   * Specifies whether to reject unencrypted clients. Valid values:
    * 
    * - true: Unencrypted clients are rejected.
    * 
@@ -90,13 +90,13 @@ export class ModifySmbAclRequest extends $dara.Model {
   rejectUnencryptedAccess?: boolean;
   /**
    * @remarks
-   * The ID of the superuser. The ID must follow these rules:
+   * The ID of the superuser. The ID must meet the following rules:
    * 
-   * - Must start with `S`, and no other letters are allowed after the initial S.
+   * - The ID must start with `S` and cannot contain other letters after the initial S.
    * 
-   * - Must contain at least three hyphens (-) as separators.
+   * - The ID must contain at least three hyphens (-) as separators.
    * 
-   * For example, `S-1-5-22` or `S-1-5-22-23`.
+   * Example: `S-1-5-22` or `S-1-5-22-23`.
    * 
    * @example
    * S-1-5-22

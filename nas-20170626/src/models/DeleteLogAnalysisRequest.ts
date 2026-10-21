@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLogAnalysisRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLogAnalysisRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * This parameter is required.
    * 

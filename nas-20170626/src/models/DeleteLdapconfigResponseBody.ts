@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLDAPConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5B4511A7-C99E-4071-AA8C-32E2529DA963

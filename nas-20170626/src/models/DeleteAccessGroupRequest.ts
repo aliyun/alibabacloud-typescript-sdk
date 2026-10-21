@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccessGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the access group to delete.
+   * The name of the permission group to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAccessGroupRequest extends $dara.Model {
   accessGroupName?: string;
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
    * Valid values:
    * - standard (default): General-purpose NAS

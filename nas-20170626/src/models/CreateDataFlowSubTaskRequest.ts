@@ -85,7 +85,7 @@ export class CreateDataFlowSubTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run for this request.
    * 
-   * A dry run checks parameter validity and resource availability without actually creating an instance or incurring fees.
+   * A dry run checks parameter validity and resource availability without actually creating the instance or incurring fees.
    * 
    * Valid values:
    * 

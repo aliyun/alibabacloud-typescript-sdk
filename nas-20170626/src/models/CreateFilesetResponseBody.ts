@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFilesetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The fileset ID.
+   * Fileset ID。
    * 
    * @example
    * fset-1902718ea0ae****
@@ -13,7 +13,7 @@ export class CreateFilesetResponseBody extends $dara.Model {
   fsetId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

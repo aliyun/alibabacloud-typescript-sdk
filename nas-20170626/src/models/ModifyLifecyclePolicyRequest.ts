@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLifecyclePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The description.
+   * 
+   * @example
+   * describe
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -23,9 +31,9 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The Policy Name of the lifecycle management policy.
+   * The lifecycle management Policy Name.
    * 
-   * The name must be 3 to 64 characters in length, must start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
+   * The name must be 3 to 64 characters in length. It must start with an uppercase letter or a lowercase letter, and can contain letters, digits, underscores (_), and hyphens (-).
    * 
    * @example
    * lifecyclepolicy_01
@@ -37,12 +45,12 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - DEFAULT_ATIME_14: files that have not been accessed for 14 days.
-   * - DEFAULT_ATIME_30: files that have not been accessed for 30 days.
-   * - DEFAULT_ATIME_60: files that have not been accessed for 60 days.
-   * - DEFAULT_ATIME_90: files that have not been accessed for 90 days.
-   * - DEFAULT_ATIME_180: files that have not been accessed for 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
-   * > If an IA storage class policy has already been configured for the directory, the time period specified for the archive policy must be longer than that of the IA storage class policy.
+   * - DEFAULT_ATIME_14: Files that have not been accessed for 14 days.
+   * - DEFAULT_ATIME_30: Files that have not been accessed for 30 days.
+   * - DEFAULT_ATIME_60: Files that have not been accessed for 60 days.
+   * - DEFAULT_ATIME_90: Files that have not been accessed for 90 days.
+   * - DEFAULT_ATIME_180: Files that have not been accessed for 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
+   * > If an IA storage class policy is already configured for the directory, the time threshold for the Archive storage class policy must be longer than that of the IA storage class policy.
    * 
    * @example
    * DEFAULT_ATIME_14
@@ -50,9 +58,9 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   lifecycleRuleName?: string;
   /**
    * @remarks
-   * The absolute path of a single directory configured in the lifecycle management policy.
+   * The absolute path of a single directory configured for the lifecycle management policy.
    * 
-   * The path must start with a forward slash (/) and must be an existing path in the mount target.
+   * The path must start with a forward slash (/) and must be a valid path in the mount target.
    * 
    * @example
    * /pathway/to/folder
@@ -60,7 +68,10 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The storage type.
+   * The tiered storage class.
+   * 
+   * Valid values:
+   * 
    * - InfrequentAccess: IA storage class.
    * - Archive: Archive storage class.
    * 
@@ -70,6 +81,7 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       fileSystemId: 'FileSystemId',
       lifecyclePolicyId: 'LifecyclePolicyId',
       lifecyclePolicyName: 'LifecyclePolicyName',
@@ -81,6 +93,7 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fileSystemId: 'string',
       lifecyclePolicyId: 'string',
       lifecyclePolicyName: 'string',

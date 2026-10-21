@@ -19,7 +19,7 @@ export class UpdateLifecyclePolicyRequestDeleteRules extends $dara.Model {
    * The threshold of the rule.
    * 
    * Valid values:
-   * - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   * - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 4
@@ -60,10 +60,9 @@ export class UpdateLifecyclePolicyRequestRetrieveRules extends $dara.Model {
   attribute?: string;
   /**
    * @remarks
-   * The threshold of the rule. Valid values:
-   * - RetrieveType
-   *     - AfterVisit: supported when LifecyclePolicyType is set to Auto. Indicates best-effort recall on visit.
-   *     - All: supported when LifecyclePolicyType is set to OnDemand. Indicates retrieving all data.
+   * The threshold of the rule. Valid values for RetrieveType:
+   * - AfterVisit: supported when LifecyclePolicyType is set to Auto. This value indicates best-effort recall on visit.
+   * - All: supported when LifecyclePolicyType is set to OnDemand. This value indicates that all data is retrieved.
    * 
    * @example
    * All
@@ -109,7 +108,7 @@ export class UpdateLifecyclePolicyRequestTransitRules extends $dara.Model {
    * The threshold of the rule.
    * 
    * Valid values:
-   * - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   * - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -149,8 +148,8 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
    * The description of the lifecycle policy.
    * 
    * Format:
-   * The description must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
-   * > Only CPFS for Lingjun is supported.
+   * The description must be 3 to 64 characters in length. It must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
+   * > Supported only for CPFS for Lingjun.
    * 
    * @example
    * Lifecycle policy description
@@ -158,8 +157,8 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The file system ID. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****.
-   * > This parameter is supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
+   * The ID of the file system. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****. To use CPFS for Lingjun, you must first submit a ticket to apply for the service whitelist and then create the file system in the NAS console.
+   * > Supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
    * 
    * This parameter is required.
    * 
@@ -170,7 +169,7 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the lifecycle policy.
-   * > This parameter is required for CPFS for Lingjun file systems.
+   * > Required for CPFS for Lingjun file systems.
    * 
    * This parameter is required.
    * 
@@ -180,19 +179,19 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The absolute paths of the directories associated with the lifecycle management policy.
+   * The absolute path of the directory associated with the lifecycle management policy. This parameter is required when FileSystemId starts with bmcpfs-.
    */
   paths?: string[];
   /**
    * @remarks
-   * The data retrieval rules. You can configure up to one rule.
-   * > Only CPFS for Lingjun file systems are supported.
+   * The data retrieval rules for files. You can configure up to one rule.
+   * > Supported only for CPFS for Lingjun file systems.
    */
   retrieveRules?: UpdateLifecyclePolicyRequestRetrieveRules[];
   /**
    * @remarks
-   * The tiered storage type.
-   * - InfrequentAccess: IA storage class (default).
+   * The tiered storage type. Valid values:
+   * - InfrequentAccess: IA storage class. This is the default value.
    * - Archive: Archive storage class.
    * 
    * @example
@@ -201,9 +200,9 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The data transit rules. You can configure up to one rule.
+   * The data transition rules for files. You can configure up to one rule.
    * 
-   * > This parameter is supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
+   * > Supported only when LifecyclePolicyType is set to Auto for a CPFS for Lingjun file system.
    */
   transitRules?: UpdateLifecyclePolicyRequestTransitRules[];
   static names(): { [key: string]: string } {

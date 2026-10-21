@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
    * @example
    * vpc-test

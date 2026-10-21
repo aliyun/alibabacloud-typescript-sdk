@@ -7,9 +7,9 @@ export class CreateAgenticSpaceRequestQuota extends $dara.Model {
    * @remarks
    * The maximum number of files allowed by the quota. Valid values:
    * 
-   * - Minimum value: 10000.
+   * - Minimum value: 10,000.
    * 
-   * - Maximum value: 100000000.
+   * - Maximum value: 100,000,000.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,9 @@ export class CreateAgenticSpaceRequestQuota extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Minimum value: 10737418240 (10 GiB).
-   * - Maximum value: 1099511627776000 (1024000 GiB).
-   * - Increment: 1073741824 (1 GiB).
+   * - Minimum value: 10,737,418,240 (10 GiB).
+   * - Maximum value: 1,099,511,627,776,000 (1,024,000 GiB).
+   * - Step: 1,073,741,824 (1 GiB).
    * 
    * This parameter is required.
    * 
@@ -69,9 +69,9 @@ export class CreateAgenticSpaceRequest extends $dara.Model {
   azone?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+   * Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that different requests have unique values for this parameter.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
    * 
    * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
    * 
@@ -99,8 +99,8 @@ export class CreateAgenticSpaceRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - true: Sends a dry run request without modifying the protocol service. The system checks whether required parameters are specified, whether the request format is valid, and whether business limits and dependencies are met. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned.
-   * - false (default): Sends a normal request. After the check is passed, the protocol service is directly modified.
+   * - true: Sends a check request without modifying the protocol service. The check items include required parameters, request format, and business limit dependencies. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned.
+   * - false (default): Sends a normal request. After the check succeeds, the protocol service is directly modified.
    * 
    * @example
    * false

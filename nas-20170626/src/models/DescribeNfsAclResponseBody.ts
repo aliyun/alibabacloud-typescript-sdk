@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNfsAclResponseBodyAcl extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the NFS ACL feature is enabled.
+   * Indicates whether the NFS ACL feature is enabled. Valid values:
    * 
-   * *   true: The NFS ACL feature is enabled.
-   * *   false: The NFS ACL feature is disabled.
+   * - true: The NFS ACL feature is enabled.
+   * 
+   * - false: The NFS ACL feature is not enabled.
    * 
    * @example
    * true
@@ -38,7 +39,7 @@ export class DescribeNfsAclResponseBodyAcl extends $dara.Model {
 export class DescribeNfsAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the ACL feature.
+   * The ACL information.
    */
   acl?: DescribeNfsAclResponseBodyAcl;
   /**

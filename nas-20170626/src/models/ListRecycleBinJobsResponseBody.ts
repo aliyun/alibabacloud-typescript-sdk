@@ -33,7 +33,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The FileId of the file or directory associated with the task.
+   * The file ID of the file or directory associated with the task.
    * 
    * @example
    * 04***08
@@ -49,7 +49,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 8C****C54
@@ -57,7 +57,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The execution progress of the task.
+   * The progress of the task.
    * 
    * Valid values: 1 to 100.
    * 
@@ -136,7 +136,7 @@ export class ListRecycleBinJobsResponseBody extends $dara.Model {
   jobs?: ListRecycleBinJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of files that a user can create in the directory.
+   * The maximum number of files that the user can create in the directory.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   fileCountLimit?: number;
   /**
    * @remarks
-   * The total number of files that a user has created in the directory.
+   * The actual number of files owned by the user in the directory.
    * 
    * @example
    * 5100
@@ -21,7 +21,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   fileCountReal?: number;
   /**
    * @remarks
-   * The type of the quota. Valid values: Accounting and Enforcement.
+   * The quota type. Valid values: Accounting (statistical quota) and Enforcement (restrictive quota).
    * 
    * @example
    * Accounting
@@ -29,7 +29,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   quotaType?: string;
   /**
    * @remarks
-   * The maximum size of files that a user can create in the directory. Unit: GiB.
+   * The maximum total size of files that the user can store in the directory. Unit: GiB.
    * 
    * @example
    * 1024
@@ -37,7 +37,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   sizeLimit?: number;
   /**
    * @remarks
-   * The total size of files that a user has created in the directory. Unit: GiB.
+   * The actual total size of files owned by the user in the directory. Unit: GiB.
    * 
    * @example
    * 800
@@ -45,7 +45,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   sizeReal?: number;
   /**
    * @remarks
-   * The total size of files that a user has created in the directory. Unit: bytes.
+   * The actual total size of files owned by the user in the directory. Unit: bytes.
    * 
    * @example
    * 858995833870
@@ -53,7 +53,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   sizeRealInByte?: number;
   /**
    * @remarks
-   * The ID of the user that you specify to create a quota for the directory. The value depends on the value of the UserType parameter. Valid values: Uid and Gid.
+   * The UID or GID to be restricted, depending on the value of UserType.
    * 
    * @example
    * 500
@@ -61,10 +61,9 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $d
   userId?: string;
   /**
    * @remarks
-   * The type of user. Valid values: Uid, Gid, and AllUsers.
-   * 
-   * *   If Uid or Gid is returned, a value is returned for UserId.
-   * *   If AllUsers is returned, UserId is empty.
+   * The type of the UserId. Valid values: Uid, Gid, and AllUsers.
+   * - If the value is Uid or Gid, UserId has a return value.
+   * - If the value is AllUsers, UserId is empty.
    * 
    * @example
    * Uid
@@ -116,7 +115,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $dara.Model {
   dirInode?: string;
   /**
    * @remarks
-   * The absolute path of a directory.
+   * The absolute path of the directory in the file system.
    * 
    * @example
    * /data/sub1
@@ -124,7 +123,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The status of the quota created for the directory. Valid values: Initializing and Normal. The Initializing state indicates that the quota is being created. The Normal state indicates that the quota is created.
+   * The statistical status of the directory. The value is Initializing during initialization and Normal when the status is normal.
    * 
    * @example
    * Normal
@@ -132,7 +131,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The information about quotas for all users.
+   * The collection of quota information for each user.
    */
   userQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos[];
   static names(): { [key: string]: string } {
@@ -168,7 +167,7 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $dara.Model {
 export class DescribeDirQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried directory quotas.
+   * The collection of quota information for each directory.
    */
   dirQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfos[];
   /**
@@ -181,7 +180,7 @@ export class DescribeDirQuotasResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of directories on each page.
    * 
    * @example
    * 1

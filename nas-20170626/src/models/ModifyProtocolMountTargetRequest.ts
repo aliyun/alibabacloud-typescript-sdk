@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyProtocolMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client to ensure that different requests have unique ClientToken values.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client to ensure that the value is unique among different requests.
    * 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -22,7 +22,7 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
    * Limits:
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
+   * - The description must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
    * - The description can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example

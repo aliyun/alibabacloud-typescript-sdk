@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachVscToFilesystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****

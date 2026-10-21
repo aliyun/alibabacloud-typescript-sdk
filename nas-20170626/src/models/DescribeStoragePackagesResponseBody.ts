@@ -73,7 +73,7 @@ export class DescribeStoragePackagesResponseBody extends $dara.Model {
   packages?: DescribeStoragePackagesResponseBodyPackages;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the storage plan list.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class DescribeStoragePackagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of storage plans returned per page.
+   * The number of storage plans on each page.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class DescribeStoragePackagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 035B3A3A-E514-4B41-B906-5D906CFB****

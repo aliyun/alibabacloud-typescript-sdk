@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag.
+   * The tag key.
    * 
    * Limits:
    * 
-   * *   The tag key cannot be null or an empty string.
-   * *   The tag value can be up to 128 characters in length.
-   * *   The tag value cannot start with `aliyun` or `acs:`.
-   * *   The tag value cannot contain `http://` or `https://`.
+   * - Cannot be empty or an empty string. 
+   * - Can be up to 128 characters in length.
+   * - Cannot start with `aliyun` or `acs:`.
+   * - Cannot contain `http://` or `https://`.
    * 
    * @example
    * nastest
@@ -20,12 +20,12 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag.
+   * The tag value.
    * 
    * Limits:
    * 
-   * *   The tag value can be up to 128 characters in length.
-   * *   The tag value cannot contain `http://` or `https://`.
+   * - Can be up to 128 characters in length.
+   * - Cannot contain `http://` or `https://`.
    * 
    * @example
    * filetest
@@ -57,17 +57,17 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token for the next query.
    * 
    * @example
-   * 无
+   * None
    */
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The list of resource IDs.
    * 
-   * The ID of the destination resource. Valid values of N: 1 to 50.
+   * The ID of the target resource. Valid values of N: 1 to 50.
    * 
    * @example
    * 03e08484f0
@@ -75,10 +75,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   filesystem
-   * *   accesspoint
+   * The resource type. Valid values:
+   * - filesystem: file system.
+   * - accesspoint: access point.
    * 
    * This parameter is required.
    * 
@@ -88,7 +87,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the reserved instance. The array may contain up to 20 tags. If the array contains multiple tags, each tag key is unique.
+   * The tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key (Key) must be unique.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

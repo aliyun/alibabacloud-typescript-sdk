@@ -70,7 +70,7 @@ export class DescribeCpfsAccessPointMountedClientsResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results on each page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

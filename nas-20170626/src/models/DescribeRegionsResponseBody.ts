@@ -68,7 +68,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of regions on each page.
+   * The number of regions returned per page.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of regions returned.
+   * The total number of regions returned.
    * 
    * @example
    * 1

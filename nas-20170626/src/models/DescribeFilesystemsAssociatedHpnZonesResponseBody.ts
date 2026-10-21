@@ -55,12 +55,12 @@ export class DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems extend
 export class DescribeFilesystemsAssociatedHpnZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of HpnZones associated with the file system.
+   * The list of HpnZones associated with the file systems.
    */
   filesystems?: DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

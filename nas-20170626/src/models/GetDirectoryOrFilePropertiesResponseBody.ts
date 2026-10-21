@@ -9,7 +9,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * @example
    * 2021-02-01T10:08:08Z
@@ -21,7 +21,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:10Z
@@ -31,7 +31,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * @remarks
    * Indicates whether the directory contains Archive storage class files.
    * 
-   * This parameter is returned only when Type is Directory.
+   * This parameter is returned only when Type is set to Directory.
    * 
    * Valid values:
    * 
@@ -46,7 +46,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * @remarks
    * Indicates whether the directory contains IA storage class files.
    * 
-   * This parameter is returned only when Type is Directory.
+   * This parameter is returned only when Type is set to Directory.
    * 
    * Valid values:
    * 
@@ -71,7 +71,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -103,11 +103,11 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
   offlineUnchangedDuration?: number;
   /**
    * @remarks
-   * The time when the most recent data retrieval task was executed.
+   * The time when the most recent data retrieval task was run.
    * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -119,7 +119,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * 
    * Unit: bytes.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * @example
    * 1024
@@ -129,7 +129,7 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * @remarks
    * The storage type of the returned file.
    * 
-   * This parameter is returned only when Type is File.
+   * This parameter is returned only when Type is set to File.
    * 
    * Valid values:
    * 

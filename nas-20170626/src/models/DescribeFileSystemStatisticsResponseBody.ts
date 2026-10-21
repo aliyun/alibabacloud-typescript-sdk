@@ -220,7 +220,7 @@ export class DescribeFileSystemStatisticsResponseBody extends $dara.Model {
   fileSystems?: DescribeFileSystemStatisticsResponseBodyFileSystems;
   /**
    * @remarks
-   * The page number.
+   * The page number of the file system statistics information list.
    * 
    * @example
    * 1
@@ -228,7 +228,7 @@ export class DescribeFileSystemStatisticsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of file system statistics information entries per page.
    * 
    * @example
    * 1
@@ -244,7 +244,7 @@ export class DescribeFileSystemStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of file system entries.
+   * The total number of file system statistics information entries.
    * 
    * @example
    * 100

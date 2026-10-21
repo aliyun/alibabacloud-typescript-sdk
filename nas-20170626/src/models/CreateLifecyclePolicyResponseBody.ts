@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLifecyclePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The lifecycle policy ID.
+   * The ID of the lifecycle policy.
    * 
    * @example
    * lsp-bp1234567890ab****
@@ -13,7 +13,7 @@ export class CreateLifecyclePolicyResponseBody extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****
@@ -25,8 +25,8 @@ export class CreateLifecyclePolicyResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

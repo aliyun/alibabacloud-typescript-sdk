@@ -27,7 +27,7 @@ export class DescribeAutoSnapshotTasksRequest extends $dara.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid values: extreme (Extreme NAS file system)
+   * Valid values: extreme (Extreme NAS file system).
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeAutoSnapshotTasksRequest extends $dara.Model {
    * @remarks
    * The page number of the automatic snapshot task list.
    * 
-   * Start value (default value): 1
+   * Start value (default value): 1.
    * 
    * @example
    * 1

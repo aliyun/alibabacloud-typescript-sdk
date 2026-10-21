@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveClientFromBlackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A70BEE5D-76D3-49FB-B58F-1F398211****

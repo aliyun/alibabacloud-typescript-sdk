@@ -11,7 +11,7 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
    * 
    * - false (default): No. Both directories and files can be queried.
    * - true: Yes. Only directories are queried.
-   * > When StorageType is set to All, DirectoryOnly must be set to true and cannot be set to false.
+   * > If StorageType is set to All, DirectoryOnly must be set to true and cannot be set to false.
    * 
    * @example
    * false
@@ -41,7 +41,7 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation position.
+   * If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -65,7 +65,7 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
    * - InfrequentAccess: IA storage class.
    * - Archive: Archive storage class.
    * - All: queries data of all storage classes.
-   * > When StorageType is set to All, you must set DirectoryOnly to true.
+   * > If StorageType is set to All, you must set DirectoryOnly to true.
    * 
    * This parameter is required.
    * 

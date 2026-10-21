@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The POSIX group ID.
+   * The POSIX user group ID.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Mod
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary group ID.
+   * The secondary user group ID.
    */
   posixSecondaryGroupIds?: number[];
   /**
@@ -55,7 +55,7 @@ export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Mod
 export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The owner group ID.
+   * The file group ID of the owner.
    * 
    * @example
    * 12
@@ -63,7 +63,7 @@ export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends 
   ownerGroupId?: number;
   /**
    * @remarks
-   * The owner user ID.
+   * The user ID of the owner.
    * 
    * @example
    * 1
@@ -185,7 +185,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was created. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-03-28T06:32:14Z
@@ -201,7 +201,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   createTimeUtc?: string;
   /**
    * @remarks
-   * The access point domain name.
+   * The domain name of the access point.
    * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
@@ -225,7 +225,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was last modified. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-06-24T02:10:23Z
@@ -277,10 +277,10 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Active: Available.
-   * - Inactive: Unavailable.
-   * - Pending: Being created.
-   * - Deleting: Being deleted.
+   * - Active: The access point is available.
+   * - Inactive: The access point is unavailable.
+   * - Pending: The access point is being created.
+   * - Deleting: The access point is being deleted.
    * 
    * > You can mount a file system only when the status is Active.
    * 

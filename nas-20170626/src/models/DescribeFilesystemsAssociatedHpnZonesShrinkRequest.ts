@@ -6,13 +6,12 @@ export class DescribeFilesystemsAssociatedHpnZonesShrinkRequest extends $dara.Mo
   /**
    * @remarks
    * The collection of file system IDs.
-   * 
-   * >  The maximum number of elements in the set must be less than or equal to 20.
+   * > The maximum number of elements in the collection must be less than or equal to 20.
    */
   filesystemsShrink?: string;
   /**
    * @remarks
-   * The ID of the region where the file system resides.
+   * The region ID of the file system.
    * 
    * This parameter is required.
    * 

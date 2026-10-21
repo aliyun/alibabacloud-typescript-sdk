@@ -8,10 +8,10 @@ export class DescribeRegionsRequest extends $dara.Model {
    * The file system type.
    * 
    * Valid values:
-   * - all: all types.
-   * - standard (default): General-purpose NAS.
-   * - extreme: Extreme NAS.
-   * - cpfs: CPFS.
+   * - all: all types
+   * - standard: General-purpose NAS (default)
+   * - extreme: Extreme NAS
+   * - cpfs: Cloud Parallel File Storage
    * 
    * @example
    * standard
@@ -19,9 +19,9 @@ export class DescribeRegionsRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
-   * Start value (default value): 1.
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeRegionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of regions on each page during a paged query.
+   * The number of regions per page in a paging query.
    * 
    * Valid values: 1 to 100.
    * 

@@ -42,9 +42,9 @@ export class SetAgenticSpaceQuotaRequest extends $dara.Model {
    * @remarks
    * The maximum number of files allowed by the quota. Valid values:
    * 
-   * - Minimum value: 10000.
+   * - Minimum value: 10,000.
    * 
-   * - Maximum value: 100000000.
+   * - Maximum value: 100,000,000.
    * 
    * @example
    * 10000
@@ -66,9 +66,9 @@ export class SetAgenticSpaceQuotaRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Minimum value: 10737418240 (10 GiB).
-   * - Maximum value: 1099511627776000 (1024000 GiB).
-   * - Increment: 1073741824 (1 GiB).
+   * - Minimum value: 10,737,418,240 (10 GiB).
+   * - Maximum value: 1,099,511,627,776,000 (1,024,000 GiB).
+   * - Increment: 1,073,741,824 (1 GiB).
    * 
    * @example
    * 10737418240

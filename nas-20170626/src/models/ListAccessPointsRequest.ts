@@ -58,7 +58,7 @@ export class ListAccessPointsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The filter information.
+   * The filter key information.
    */
   filters?: ListAccessPointsRequestFilters[];
   /**

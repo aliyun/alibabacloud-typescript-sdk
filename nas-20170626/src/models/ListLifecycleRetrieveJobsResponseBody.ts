@@ -44,7 +44,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   paths?: string[];
   /**
    * @remarks
-   * The number of files that are successfully retrieved by the data retrieval task.
+   * The number of files successfully retrieved by the data retrieval task.
    * 
    * @example
    * 80
@@ -66,7 +66,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
    * @remarks
    * The storage class. Valid values:
    * - InfrequentAccess: IA storage class.
-   * - Archive: Archive storage.
+   * - Archive: Archive storage class.
    * 
    * @example
    * InfrequentAccess

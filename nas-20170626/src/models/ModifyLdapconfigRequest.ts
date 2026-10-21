@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLDAPConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The LDAP entry.
+   * The distinguished name (DN) of the entry to bind to the LDAP directory.
    * 
    * @example
    * cn=alibaba,dc=com
@@ -13,7 +13,7 @@ export class ModifyLDAPConfigRequest extends $dara.Model {
   bindDN?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifyLDAPConfigRequest extends $dara.Model {
   searchBase?: string;
   /**
    * @remarks
-   * The LDAP service address.
+   * The LDAP server address.
    * 
    * This parameter is required.
    * 

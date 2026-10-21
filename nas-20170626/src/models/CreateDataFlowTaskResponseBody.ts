@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataFlowTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF518948****
@@ -13,7 +13,7 @@ export class CreateDataFlowTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data flow task ID.
+   * The ID of the data flow task.
    * 
    * @example
    * task-38aa8e890f45****

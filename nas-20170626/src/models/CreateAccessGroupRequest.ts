@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
    * Limits:
    * 
@@ -23,7 +23,7 @@ export class CreateAccessGroupRequest extends $dara.Model {
   accessGroupName?: string;
   /**
    * @remarks
-   * The type of the permission group. Set the value to **Vpc**, which indicates VPC.
+   * The type of the permission group. Set the value to **Vpc**, which indicates a virtual private cloud (VPC).
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateAccessGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
    * Valid values:
    * 

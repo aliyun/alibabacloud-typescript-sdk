@@ -8,7 +8,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRul
    * The attribute of the rule.
    * 
    * Valid values:
-   * - Atime: the last access time of the file.
+   * - Atime: The last access time of the file.
    * 
    * @example
    * Atime
@@ -19,7 +19,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRul
    * The threshold of the rule.
    * 
    * Valid values:
-   * - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   * - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -52,7 +52,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveR
   /**
    * @remarks
    * The attribute of the rule. Valid values:
-   * - RetrieveType: the retrieval method.
+   * - RetrieveType: The retrieval method.
    * 
    * @example
    * RetrieveType
@@ -61,9 +61,9 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveR
   /**
    * @remarks
    * The threshold of the rule. Valid values:
-   * - RetrieveType
-   *     - AfterVisit: Supported when LifecyclePolicyType=Auto. Indicates best-effort recall on visit.
-   *     - All: Supported when LifecyclePolicyType=OnDemand. Indicates retrieving all data.
+   * - RetrieveType:
+   *   - AfterVisit: Supported when LifecyclePolicyType is set to Auto. This value indicates best-effort recall on visit.
+   *   - All: Supported when LifecyclePolicyType is set to OnDemand. This value indicates that all data is retrieved.
    * 
    * @example
    * All
@@ -98,7 +98,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
    * The attribute of the rule.
    * 
    * Valid values:
-   * - Atime: the last access time of the file.
+   * - Atime: The last access time of the file.
    * 
    * @example
    * Atime
@@ -109,7 +109,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
    * The threshold of the rule.
    * 
    * Valid values:
-   * - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   * - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -141,7 +141,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
 export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-10-20T02:25:07Z
@@ -149,12 +149,12 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   createTime?: string;
   /**
    * @remarks
-   * The file data expiration and deletion rules. A maximum of one rule can be configured.
+   * The expiration and deletion rules for file data. You can configure up to one rule.
    */
   deleteRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules[];
   /**
    * @remarks
-   * The execution paths of the specified retrieval task.
+   * The execution paths specified for the retrieval task.
    */
   paths?: string[];
   /**
@@ -165,11 +165,11 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   /**
    * @remarks
    * The status of the data retrieval task. Valid values:
-   * - PENDING: Being created.
-   * - RUNNING: Running.
-   * - STOPPED: Stopped.
-   * - FINISHED: Finished.
-   * - FAILED: Failed.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - STOPPED: The task is stopped.
+   * - FINISHED: The task is completed.
+   * - FAILED: The task fails.
    * 
    * @example
    * RUNNING
@@ -178,8 +178,8 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   /**
    * @remarks
    * The tiered storage type. Valid values:
-   * - InfrequentAccess: IA storage class (default).
-   * - Archive: Archive storage.
+   * - InfrequentAccess: IA storage class. This is the default value.
+   * - Archive: Archive storage class.
    * 
    * @example
    * InfrequentAccess
@@ -187,7 +187,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   storageType?: string;
   /**
    * @remarks
-   * The task overview.
+   * The task summary.
    * 
    * @example
    * Total tasks: 100000, success tasks: 100000
@@ -195,7 +195,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   summary?: string;
   /**
    * @remarks
-   * The file data transit rules.
+   * The file data transition rules.
    */
   transitRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRules[];
   static names(): { [key: string]: string } {
@@ -248,7 +248,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
 export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution logs of the lifecycle management policy.
+   * The execution logs of the lifecycle policy.
    */
   lifecyclePolicyLogs?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs[];
   /**
@@ -261,7 +261,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries per page.
+   * The number of log entries returned on each page.
    * 
    * @example
    * 10
@@ -269,7 +269,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****
@@ -277,10 +277,11 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request status. Valid values:
+   * Indicates whether the request is successful.
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

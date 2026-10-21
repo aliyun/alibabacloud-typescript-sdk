@@ -55,7 +55,7 @@ export class DescribeMountedClientsResponseBody extends $dara.Model {
   clients?: DescribeMountedClientsResponseBodyClients;
   /**
    * @remarks
-   * The page number.
+   * The page number of the client list.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class DescribeMountedClientsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of IP addresses returned per page.
+   * The number of client IP addresses on each page.
    * 
    * @example
    * 10
@@ -79,7 +79,7 @@ export class DescribeMountedClientsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of IP addresses.
+   * The total number of client IP addresses returned.
    * 
    * @example
    * 10

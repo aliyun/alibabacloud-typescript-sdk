@@ -24,7 +24,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
    * The description of the protocol service export directory.
    * 
    * @example
-   * 此协议服务导出目录的描述。
+   * Description of this protocol service export directory
    */
   description?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   fsetId?: string;
   /**
    * @remarks
-   * The exported directory of the protocol service.
+   * The export directory of the protocol service.
    * 
    * @example
    * /path/

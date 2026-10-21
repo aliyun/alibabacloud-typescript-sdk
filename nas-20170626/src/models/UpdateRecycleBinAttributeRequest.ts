@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRecycleBinAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateRecycleBinAttributeRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The retention period of the files in the recycle bin. Unit: days.
+   * The retention period of files in the recycle bin. Unit: days.
    * 
    * Valid values: 1 to 180.
    * 

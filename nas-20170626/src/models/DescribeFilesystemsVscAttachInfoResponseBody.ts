@@ -72,7 +72,7 @@ export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token. The value is the NextToken parameter value returned by the previous API call.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -88,7 +88,7 @@ export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of association entries.
+   * The total number of association records.
    * 
    * @example
    * 1

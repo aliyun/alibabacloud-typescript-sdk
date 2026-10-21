@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetFilesetResponseBodyDataQuota extends $dara.Model {
   /**
    * @remarks
-   * The file quantity quota. Valid values:
+   * The file count limit of the quota. Value range:
    * 
-   * *   Minimum value: 10,000.
-   * *   Maximum value: 10,000,000,000.
+   * - Minimum value: 10,000.
+   * 
+   * - Maximum value: 10,000,000,000.
    * 
    * @example
    * 10001
@@ -16,12 +17,13 @@ export class GetFilesetResponseBodyDataQuota extends $dara.Model {
   fileCountLimit?: number;
   /**
    * @remarks
-   * The total quota capacity limit. Unit: bytes.
+   * The total capacity limit of the quota. Unit: bytes.
    * 
-   * Valid values:
+   * Value range:
    * 
-   * *   Minimum value: 10,737,418,240 (10 GiB).
-   * *   Step size: 1,073,741,824 (1 GiB).
+   * - Minimum value: 10,737,418,240 (10 GiB).
+   * 
+   * - Increment: 1,073,741,824 (1 GiB).
    * 
    * @example
    * 10,737,418,240
@@ -53,9 +55,9 @@ export class GetFilesetResponseBodyDataQuota extends $dara.Model {
 export class GetFilesetResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the fileset was created.
+   * The time when the Fileset was created.
    * 
-   * Return format: `yyyy-MM-dd HH:mm:ss`
+   * Format: `yyyy-MM-dd HH:mm:ss`.
    * 
    * @example
    * 2025-11-21 12:49:25
@@ -63,12 +65,12 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Specifies whether the fileset is protected from being released through the console or the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+   * The release protection property of the instance. Specifies whether the instance can be released from the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
    * 
-   * *   true: Enables release protection. The fileset cannot be released.
-   * *   false (default): Disables release protection. The fileset can be released.
+   * -   true: Release protection is enabled.
+   * -   false (default): Release protection is disabled.
    * 
-   * >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+   * > This property applies only to manual release operations and does not apply to system-initiated release operations.
    * 
    * @example
    * false
@@ -76,7 +78,7 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The description of the fileset.
+   * The description of the Fileset.
    * 
    * @example
    * Description
@@ -84,9 +86,8 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The usage of the file quantity.
-   * 
-   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   * The file count usage.
+   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
    * 
    * @example
    * 1024
@@ -94,10 +95,11 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   fileCountUsage?: number;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
-   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-   * *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * 
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
    * 
    * @example
    * cpfs-0244729a8ef8****
@@ -105,7 +107,7 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The directory of the fileset in the CPFS file system.
+   * The path of the Fileset in the CPFS file system.
    * 
    * @example
    * pathtoroot/fset/
@@ -113,9 +115,8 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   fileSystemPath?: string;
   /**
    * @remarks
-   * The fileset ID.
-   * 
-   * >  This parameter is required for CPFS file systems.
+   * The Fileset ID.
+   * > This parameter is required if the file system type is CPFS.
    * 
    * @example
    * fset-03250e8fe78d****
@@ -124,15 +125,13 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The quota information.
-   * 
-   * >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
+   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
    */
   quota?: GetFilesetResponseBodyDataQuota;
   /**
    * @remarks
    * The capacity usage. Unit: bytes.
-   * 
-   * >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
+   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
    * 
    * @example
    * 1024
@@ -140,12 +139,12 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   spaceUsage?: number;
   /**
    * @remarks
-   * The fileset status. Valid values:
+   * The status of the Fileset. Valid values:
    * 
-   * *   CREATING: The fileset is being created.
-   * *   CREATED: The fileset has been created and is running properly.
-   * *   RELEASING: The fileset is being released.
-   * *   RELEASED: The fileset has been deleted.
+   * - CREATING: The Fileset is being created.
+   * - CREATED: The Fileset is created and running as expected. 
+   * - RELEASING: The Fileset is being released.
+   * - RELEASED: The Fileset is deleted.
    * 
    * @example
    * CREATED
@@ -153,9 +152,9 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the fileset was last updated.
+   * The time when the Fileset was last updated.
    * 
-   * Return format: `yyyy-MM-dd HH:mm:ss`
+   * Format: `yyyy-MM-dd HH:mm:ss`.
    * 
    * @example
    * 2025-11-22 12:49:25
@@ -208,7 +207,7 @@ export class GetFilesetResponseBodyData extends $dara.Model {
 export class GetFilesetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data details.
    */
   data?: GetFilesetResponseBodyData;
   /**

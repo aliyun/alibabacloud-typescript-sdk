@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoSnapshotPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
-   * 
-   * Every response returns a unique request ID regardless of whether the request is successful.
+   * The request ID. A request ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

@@ -15,7 +15,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    * @remarks
    * The file system type.
    * 
-   * Valid values: extreme (Extreme NAS file system)
+   * Valid value: extreme (Extreme NAS file system).
    * 
    * @example
    * extreme

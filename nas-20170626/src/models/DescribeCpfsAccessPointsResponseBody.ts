@@ -169,7 +169,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The list of CPFS access point tags.
+   * The list of tags for the CPFS access point.
    */
   tags?: DescribeCpfsAccessPointsResponseBodyAccessPointsTags[];
   static names(): { [key: string]: string } {

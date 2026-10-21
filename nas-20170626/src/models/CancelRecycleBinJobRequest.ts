@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CancelRecycleBinJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the task that you want to cancel.
+   * 
+   * You can call the [ListRecycleBinJobs](https://help.aliyun.com/document_detail/2412172.html) operation to query the task ID.
    * 
    * This parameter is required.
    * 

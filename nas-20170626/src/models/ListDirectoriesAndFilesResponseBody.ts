@@ -7,9 +7,9 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * @remarks
    * The query time.
    * 
-   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * @example
    * 2021-02-01T10:08:08Z
@@ -19,9 +19,9 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * @remarks
    * The time when the metadata was modified.
    * 
-   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * @example
    * 2021-02-11T10:08:10Z
@@ -37,14 +37,14 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * Indicates whether the directory contains archive storage class files.
+   * Indicates whether the directory contains archive storage files.
    * 
-   * This parameter is returned and meaningful only when Type is set to Directory.
+   * This parameter is returned and meaningful only when Type is Directory.
    * 
    * Valid values:
    * 
-   * - true: The directory contains archive storage class files.
-   * - false: The directory does not contain archive storage class files.
+   * - true: The directory contains archive storage files.
+   * - false: The directory does not contain archive storage files.
    * 
    * @example
    * true
@@ -54,7 +54,7 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * @remarks
    * Indicates whether the directory contains IA storage class files.
    * 
-   * This parameter is returned and meaningful only when Type is set to Directory.
+   * This parameter is returned and meaningful only when Type is Directory.
    * 
    * Valid values:
    * 
@@ -77,9 +77,9 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * @remarks
    * The time when the file was modified.
    * 
-   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -120,11 +120,11 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The time when the most recent data retrieval task was run.
+   * The time when the most recent data retrieval task was executed.
    * 
-   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -136,7 +136,7 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * 
    * Unit: bytes.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * @example
    * 1024
@@ -146,7 +146,7 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * @remarks
    * The storage class type of the returned file.
    * 
-   * This parameter is returned and meaningful only when Type is set to File.
+   * This parameter is returned and meaningful only when Type is File.
    * 
    * Valid values:
    * - InfrequentAccess: IA storage class.
@@ -226,7 +226,7 @@ export class ListDirectoriesAndFilesResponseBody extends $dara.Model {
   entries?: ListDirectoriesAndFilesResponseBodyEntries[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation position.
+   * If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

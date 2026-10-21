@@ -17,7 +17,7 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
    * @remarks
    * The IDs of the Advanced Extreme NAS file systems.
    * 
-   * You can specify up to 100 file system IDs in a single request. Separate multiple file system IDs with commas (,).
+   * You can specify up to 100 file system IDs in a single request. To apply the automatic snapshot policy to multiple file systems, separate the file system IDs with commas (,).
    * 
    * This parameter is required.
    * 

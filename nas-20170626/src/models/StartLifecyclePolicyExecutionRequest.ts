@@ -15,7 +15,7 @@ export class StartLifecyclePolicyExecutionRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The lifecycle policy ID.
+   * The ID of the lifecycle management policy.
    * 
    * This parameter is required.
    * 

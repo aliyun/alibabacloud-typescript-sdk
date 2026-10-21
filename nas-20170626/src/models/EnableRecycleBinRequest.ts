@@ -15,7 +15,7 @@ export class EnableRecycleBinRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The retention period of the files in the recycle bin. Unit: days.
+   * The retention period of files in the recycle bin. Unit: days.
    * 
    * Valid values: 1 to 180.
    * 
