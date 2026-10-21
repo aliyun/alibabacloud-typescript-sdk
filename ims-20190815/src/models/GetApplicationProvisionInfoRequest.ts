@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationProvisionInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the application. You can call ListApplicationProvisionInfos to obtain the AppId of an installed application.
    * 
    * This parameter is required.
    * 

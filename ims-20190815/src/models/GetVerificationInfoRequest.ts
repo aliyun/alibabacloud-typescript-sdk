@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVerificationInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com

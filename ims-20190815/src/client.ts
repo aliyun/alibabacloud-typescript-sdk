@@ -1184,7 +1184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a passkey of a RAM user.
+   * Deletes the passkey of a user.
    * 
    * @param request - DeletePasskeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1219,7 +1219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a passkey of a RAM user.
+   * Deletes the passkey of a user.
    * 
    * @param request - DeletePasskeyRequest
    * @returns DeletePasskeyResponse
@@ -1786,6 +1786,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the account-level AccessKey network access control policy.
+   * 
+   * @param request - GetAccessKeyPolicyForAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyPolicyForAccountResponse
+   */
+  async getAccessKeyPolicyForAccountWithOptions(request: $_model.GetAccessKeyPolicyForAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyPolicyForAccountResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAccessKeyPolicyForAccount",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAccessKeyPolicyForAccountResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyPolicyForAccountResponse({}));
+  }
+
+  /**
+   * Queries the account-level AccessKey network access control policy.
+   * 
+   * @param request - GetAccessKeyPolicyForAccountRequest
+   * @returns GetAccessKeyPolicyForAccountResponse
+   */
+  async getAccessKeyPolicyForAccount(request: $_model.GetAccessKeyPolicyForAccountRequest): Promise<$_model.GetAccessKeyPolicyForAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAccessKeyPolicyForAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1973,10 +2008,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries installation information about a specified installed application.
+   * Queries the installation information of a specified installed application.
    * 
    * @remarks
-   * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+   * Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
    * 
    * @param request - GetApplicationProvisionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2007,10 +2042,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries installation information about a specified installed application.
+   * Queries the installation information of a specified installed application.
    * 
    * @remarks
-   * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+   * Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
    * 
    * @param request - GetApplicationProvisionInfoRequest
    * @returns GetApplicationProvisionInfoResponse
@@ -2398,7 +2433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+   * Queries the details of a specified role-based SSO identity provider.
    * 
    * @param request - GetSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2429,7 +2464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+   * Queries the details of a specified role-based SSO identity provider.
    * 
    * @param request - GetSAMLProviderRequest
    * @returns GetSAMLProviderResponse
@@ -2686,7 +2721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+   * Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2717,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+   * Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @returns GetVerificationInfoResponse
@@ -3773,7 +3808,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+   * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3812,7 +3847,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+   * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
    * @returns RemoveClientIdFromOIDCProviderResponse
@@ -4058,6 +4093,48 @@ export default class Client extends OpenApi {
   async setAccessKeyPolicy(request: $_model.SetAccessKeyPolicyRequest): Promise<$_model.SetAccessKeyPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setAccessKeyPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Sets the account-level AccessKey network access control policy.
+   * 
+   * @param request - SetAccessKeyPolicyForAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAccessKeyPolicyForAccountResponse
+   */
+  async setAccessKeyPolicyForAccountWithOptions(request: $_model.SetAccessKeyPolicyForAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAccessKeyPolicyForAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessKeyPolicy)) {
+      query["AccessKeyPolicy"] = request.accessKeyPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAccessKeyPolicyForAccount",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAccessKeyPolicyForAccountResponse>(await this.callApi(params, req, runtime), new $_model.SetAccessKeyPolicyForAccountResponse({}));
+  }
+
+  /**
+   * Sets the account-level AccessKey network access control policy.
+   * 
+   * @param request - SetAccessKeyPolicyForAccountRequest
+   * @returns SetAccessKeyPolicyForAccountResponse
+   */
+  async setAccessKeyPolicyForAccount(request: $_model.SetAccessKeyPolicyForAccountRequest): Promise<$_model.SetAccessKeyPolicyForAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAccessKeyPolicyForAccountWithOptions(request, runtime);
   }
 
   /**

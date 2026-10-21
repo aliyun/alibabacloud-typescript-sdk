@@ -83,13 +83,18 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfoDele
 export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 177242285274****
    */
   accountId?: string;
   /**
+   * @remarks
+   * The application category. Valid values:
+   * - Official: official applications
+   * - ThirdParty: regular third-party applications
+   * 
    * @example
    * ThirdParty
    */
@@ -111,13 +116,18 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
    */
   appName?: string;
   /**
+   * @remarks
+   * The application assignment type. Valid values:
+   * - AllowAll: No assignment is required. All RAM users and roles can access the application.
+   * - OnDemand: Assignment is required on demand. RAM users and roles can access the application only after it is assigned to them.
+   * 
    * @example
    * AllowAll
    */
   assignmentType?: string;
   /**
    * @remarks
-   * The time when the application was installed. The value is a timestamp.
+   * The installation timestamp.
    * 
    * @example
    * 1603693518000
@@ -125,7 +135,7 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
   createDate?: string;
   /**
    * @remarks
-   * The information about the scopes of permissions that are granted to the application.
+   * The application permission scope information.
    */
   delegatedScope?: GetApplicationProvisionInfoResponseBodyApplicationProvisionInfoDelegatedScope;
   /**
@@ -137,13 +147,16 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether user authorization is required.
+   * 
    * @example
    * true
    */
   needPrincipalConsent?: boolean;
   /**
    * @remarks
-   * The update time. The value is a timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1603693518000
@@ -194,7 +207,7 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
 export class GetApplicationProvisionInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The installation information about the application.
+   * The application installation information.
    */
   applicationProvisionInfo?: GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo;
   /**

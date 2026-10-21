@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the IdP.
+   * The ARN of the identity provider.
    * 
    * @example
    * acs:ram::177242285274****:saml-provider/test-provider
@@ -13,10 +13,9 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The supported signature algorithm. Valid values:
+   * The signature algorithm supported by the Alibaba Cloud service provider (SP). Valid values:
    * 
    * - rsa-sha256
-   * 
    * - rsa-sha1
    * 
    * @example
@@ -25,7 +24,7 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   authnSignAlgo?: string;
   /**
    * @remarks
-   * The time when the information was created. It is displayed in UTC.
+   * The creation time. Format: RFC 3339 (UTC). Example: 2020-10-22T02:37:05Z.
    * 
    * @example
    * 2020-10-22T02:37:05Z
@@ -33,7 +32,7 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The IdP description.
+   * The description.
    * 
    * @example
    * This is a provider.
@@ -41,7 +40,7 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The metadata file, which is Base64-encoded.
+   * The metadata document. The document is Base64-encoded.
    * 
    * @example
    * PD94bWwgdmVy****
@@ -49,7 +48,7 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   encodedSAMLMetadataDocument?: string;
   /**
    * @remarks
-   * The IdP name.
+   * The name of the identity provider.
    * 
    * @example
    * test-provider
@@ -57,7 +56,7 @@ export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The time when the information was last updated. It is displayed in UTC.
+   * The update time. Format: RFC 3339 (UTC). Example: 2020-10-22T02:51:20Z.
    * 
    * @example
    * 2020-10-22T02:51:20Z
@@ -107,7 +106,7 @@ export class GetSAMLProviderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the IdP.
+   * The identity provider information.
    */
   SAMLProvider?: GetSAMLProviderResponseBodySAMLProvider;
   static names(): { [key: string]: string } {

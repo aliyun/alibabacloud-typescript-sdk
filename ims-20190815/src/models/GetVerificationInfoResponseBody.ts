@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Model {
   /**
    * @remarks
-   * The email address.
+   * The security email address.
    * 
    * @example
    * username@example.com
@@ -13,11 +13,9 @@ export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Mo
   email?: string;
   /**
    * @remarks
-   * The status of the email. Valid values:
-   * 
-   * - active: The email is activated.
-   * 
-   * - pending: The email is pending for activation.
+   * The status of the security email address. Valid values:
+   * - active: Activated.
+   * - pending: Pending activation.
    * 
    * @example
    * active
@@ -49,7 +47,7 @@ export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Mo
 export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Model {
   /**
    * @remarks
-   * The international dialing code.
+   * The area code.
    * 
    * @example
    * 86
@@ -57,7 +55,7 @@ export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Mo
   areaCode?: string;
   /**
    * @remarks
-   * The mobile phone number.
+   * The phone number.
    * 
    * @example
    * 13900001234
@@ -65,11 +63,9 @@ export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Mo
   phoneNumber?: string;
   /**
    * @remarks
-   * The status of the mobile phone. Valid values:
-   * 
-   * - active: The mobile phone is activated.
-   * 
-   * - pending: The mobile phone is pending for activation.
+   * The status of the secure phone. Valid values:
+   * - active: Activated.
+   * - pending: Pending activation.
    * 
    * @example
    * active
@@ -111,12 +107,12 @@ export class GetVerificationInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the email.
+   * The security email address information.
    */
   securityEmailDevice?: GetVerificationInfoResponseBodySecurityEmailDevice;
   /**
    * @remarks
-   * The information about the mobile phone.
+   * The secure phone information.
    */
   securityPhoneDevice?: GetVerificationInfoResponseBodySecurityPhoneDevice;
   static names(): { [key: string]: string } {

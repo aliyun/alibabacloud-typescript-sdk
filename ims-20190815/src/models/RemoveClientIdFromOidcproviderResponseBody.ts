@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
+   * The ARN of the OIDC IdP.
    * 
    * @example
    * acs:ram::177242285274****:oidc-provider/TestOIDCProvider
@@ -21,7 +21,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   clientIds?: string;
   /**
    * @remarks
-   * The time when the OIDC IdP was created. The time is displayed in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-11-11T06:56:03Z
@@ -37,7 +37,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   description?: string;
   /**
    * @remarks
-   * The fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
+   * The verification fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
    * 
    * @example
    * 902ef2deeb3c5b13ea4c3d5193629309e231****
@@ -45,7 +45,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   fingerprints?: string;
   /**
    * @remarks
-   * The time when the OIDC IdP was created. The value is a UNIX timestamp.
+   * The creation time as a UNIX timestamp.
    * 
    * @example
    * 1636613763000
@@ -53,7 +53,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the OIDC IdP was last modified. The value is a UNIX timestamp.
+   * The update time as a UNIX timestamp.
    * 
    * @example
    * 1636706309000
@@ -61,7 +61,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   gmtModified?: string;
   /**
    * @remarks
-   * The earliest time when an external IdP is allowed to issue an ID token. If the iat field in the ID token indicates a time earlier than the current time by more than this value, the request is rejected.
+   * The earliest issuance time allowed for the external IdP to issue an ID token. If the time difference between the `iat` field in the ID token and the current time is greater than this value, the request is rejected.
    * Unit: hours. Valid values: 1 to 168.
    * 
    * @example
@@ -86,7 +86,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
   OIDCProviderName?: string;
   /**
    * @remarks
-   * The time when the OIDC IdP was last modified. The time is displayed in UTC.
+   * The update time in UTC.
    * 
    * @example
    * 2021-11-12T08:38:29Z
@@ -136,7 +136,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $dar
 export class RemoveClientIdFromOIDCProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the OIDC IdP.
+   * The OIDC IdP information.
    */
   OIDCProvider?: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider;
   /**

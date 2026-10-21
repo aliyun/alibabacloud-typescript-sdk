@@ -7,6 +7,8 @@ export class DeletePasskeyRequest extends $dara.Model {
    * @remarks
    * The ID of the passkey.
    * 
+   * This parameter is actually required. If you do not specify this parameter, the call fails and the error code `MissingPasskeyId` is returned.
+   * 
    * @example
    * PASSKEY-CuZjEHhWcr7GIQOMGvkS
    */
