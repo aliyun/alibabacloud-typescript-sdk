@@ -10,7 +10,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * Idempotency is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
+   * Idempotence is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
    * 
    * @example
    * custom-agent-request-20261010-001

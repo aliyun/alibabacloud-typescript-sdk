@@ -7,6 +7,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
    * @remarks
    * The ID of the ACR Enterprise instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cri-1234567890abcdef
    */
@@ -15,13 +17,17 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
    * @remarks
    * The current attachment status of the policy for the target repository.
    * 
+   * This parameter is required.
+   * 
    * @example
    * UNAUTHORIZED
    */
   authorizationStatus?: string;
   /**
    * @remarks
-   * The access prerequisite status. This does not indicate that the secret is ready.
+   * The access prerequisite status, which does not indicate Secret Ready.
+   * 
+   * This parameter is required.
    * 
    * @example
    * ELIGIBLE
@@ -29,23 +35,31 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   eligibilityStatus?: string;
   /**
    * @remarks
-   * The stable reason code for unauthorized or unmet conditions. This field is omitted when no reason exists.
+   * The stable reason code for unauthorized or unmet conditions. This field is omitted if no reason exists.
    * 
    * @example
    * AcrRamUnauthorized
+   * 
+   * **if can be null:**
+   * true
    */
   reasonCode?: string;
   /**
    * @remarks
-   * The user-readable reason message. This field is omitted when no reason exists.
+   * The user-readable reason. This field is omitted if no reason exists.
    * 
    * @example
    * Authorize the Workspace role for this ACR instance.
+   * 
+   * **if can be null:**
+   * true
    */
   reasonMessage?: string;
   /**
    * @remarks
    * The name of the shared role selected by the backend. This field is not editable on the frontend.
+   * 
+   * This parameter is required.
    * 
    * @example
    * AliyunAgentCoreWorkspace-ws-1234567890abcdef12345
@@ -55,6 +69,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
    * @remarks
    * The source of the shared role. This does not indicate that authorization is complete.
    * 
+   * This parameter is required.
+   * 
    * @example
    * WORKSPACE_SHARED
    */
@@ -62,6 +78,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   /**
    * @remarks
    * The workspace ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * ws-1234567890abcdef12345
@@ -107,6 +125,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
    * @remarks
    * The business status code.
    * 
+   * This parameter is required.
+   * 
    * @example
    * SUCCESS
    */
@@ -114,11 +134,15 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
   /**
    * @remarks
    * The response data.
+   * 
+   * This parameter is required.
    */
   data?: VerifyWorkspaceAcrRamAuthorizationResponseBodyData;
   /**
    * @remarks
    * The HTTP status code.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 200
@@ -128,6 +152,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
    * @remarks
    * The response message.
    * 
+   * This parameter is required.
+   * 
    * @example
    * success
    */
@@ -136,6 +162,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
    * @remarks
    * The request ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 12345678-1234-1234-1234-123456789012
    */
@@ -143,6 +171,8 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBody extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the request is successful.
+   * 
+   * This parameter is required.
    * 
    * @example
    * true
