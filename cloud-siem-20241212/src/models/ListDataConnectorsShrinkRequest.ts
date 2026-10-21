@@ -19,8 +19,8 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The collector status. Valid values:
-   * - "enabled": enabled.
-   * - "disabled" (default): disabled.
+   * - enabled: Enabled.
+   * - disabled (default): Disabled.
    * 
    * @example
    * enabled
@@ -51,6 +51,8 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
+   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
+   * 
    * @example
    * zh
    */
@@ -65,7 +67,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. You do not need to set this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -73,7 +75,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort field. Currently, only sorting by updateTime is supported. If OrderField is left empty, the default order returned by the database is used.
+   * The sort field. Currently, only sorting by updateTime is supported. If OrderField is empty, the default order returned by the database is used.
    * 
    * @example
    * Id
@@ -82,8 +84,8 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - "asc": ascending order.
-   * - "desc" (default): descending order.
+   * - asc: ascending order.
+   * - desc (default): descending order.
    * 
    * @example
    * desc
@@ -117,7 +119,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that the administrator switches to when viewing as another member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****

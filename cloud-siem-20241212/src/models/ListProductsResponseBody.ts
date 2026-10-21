@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsResponseBodyProducts extends $dara.Model {
   /**
    * @remarks
-   * The number of abnormal data ingestion configurations.
+   * The number of abnormal data ingestion entries.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   activeTime?: number;
   /**
    * @remarks
-   * Indicates whether data collection configurations can be added.
+   * Indicates whether data collection can be added.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   allowAddDataIngestion?: boolean;
   /**
    * @remarks
-   * The time when the product was created.
+   * The creation time.
    * 
    * @example
    * 1733269771123
@@ -37,11 +37,9 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The data ingestion status. Valid values:
-   * 
-   * - true: enabled.
-   * 
-   * - false: disabled.
+   * The accessed state of data ingestion. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -49,7 +47,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   dataIngestionStatus?: boolean;
   /**
    * @remarks
-   * The number of enabled data ingestion configurations.
+   * The number of enabled data ingestion entries.
    * 
    * @example
    * 1
@@ -73,7 +71,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * sas
@@ -82,9 +80,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   /**
    * @remarks
    * The product type. Valid values:
-   * 
    * - preset
-   * 
    * - custom
    * 
    * @example
@@ -93,7 +89,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The total number of data ingestion configurations.
+   * The total number of data ingestion entries.
    * 
    * @example
    * 10
@@ -101,7 +97,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   totalDataIngestionCount?: number;
   /**
    * @remarks
-   * The time when the product was updated.
+   * The update time.
    * 
    * @example
    * 1733269771123
@@ -173,7 +169,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
 export class ListProductsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -181,7 +177,7 @@ export class ListProductsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If the value of this parameter is not empty, more results are available. You can use this token in the next request to retrieve the next page of results.
+   * The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -202,7 +198,7 @@ export class ListProductsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 57

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data ingestion task.
+   * The data ingestion ID.
    * 
    * @example
    * alibaba_cloud_sas_process_ingestion_173326*******
@@ -13,11 +13,9 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions e
   dataIngestionId?: string;
   /**
    * @remarks
-   * The status of the data ingestion task. Valid values:
-   * 
-   * - enabled: enabled
-   * 
-   * - disabled: disabled
+   * The accessed state of the data ingestion. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -25,7 +23,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions e
   dataIngestionStatus?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
    * @example
    * alibaba_cloud_sas_process_log_173326*******
@@ -33,7 +31,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions e
   dataSourceId?: string;
   /**
    * @remarks
-   * The ID of the product.
+   * The product ID.
    * 
    * @example
    * alibaba_cloud_sas
@@ -41,7 +39,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions e
   productId?: string;
   /**
    * @remarks
-   * The ID of the vendor.
+   * The vendor ID.
    * 
    * @example
    * alibaba_cloud
@@ -79,16 +77,14 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions e
 export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.Model {
   /**
    * @remarks
-   * The list of data ingestion IDs for Alibaba Cloud services.
+   * The list of cloud native mode ingestion IDs.
    */
   apsaraDataIngestionIds?: string[];
   /**
    * @remarks
-   * Specifies whether to automatically discover new users. Valid values:
-   * 
-   * - enabled: New users are automatically discovered.
-   * 
-   * - disabled: New users are not automatically discovered.
+   * Indicates whether new users are automatically discovered. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -96,7 +92,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   autoScanNew?: string;
   /**
    * @remarks
-   * The time when the configuration of the batch data ingestion task took effect.
+   * The effective period of the data batch ingestion. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -104,7 +100,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   dataBatchIngestionEffectTime?: string;
   /**
    * @remarks
-   * The mode of the batch data ingestion task.
+   * The batch data ingestion mode.
    * 
    * @example
    * full
@@ -112,7 +108,7 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   dataBatchIngestionMode?: string;
   /**
    * @remarks
-   * The time when the batch data ingestion task was configured.
+   * The time when the data batch ingestion was configured. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -120,15 +116,11 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   dataBatchIngestionSetTime?: string;
   /**
    * @remarks
-   * The status of the batch data ingestion task. Valid values:
-   * 
-   * - pending: The configuration is pending to take effect.
-   * 
-   * - running: The configuration is taking effect.
-   * 
-   * - success: The configuration has taken effect.
-   * 
-   * - failed: The configuration failed to take effect.
+   * The accessed state of the data batch ingestion. Valid values:
+   * - pending: Pending.
+   * - running: In effect.
+   * - success: Succeeded.
+   * - failed: Failed.
    * 
    * @example
    * pending
@@ -136,12 +128,12 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   dataBatchIngestionStatus?: string;
   /**
    * @remarks
-   * The list of data ingestion tasks.
+   * The list of data ingestions.
    */
   dataIngestions?: GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions[];
   /**
    * @remarks
-   * Specifies whether to automatically discover new Logstores.
+   * Indicates whether automatic discovery of new Logstores is enabled.
    * 
    * @example
    * true
@@ -149,12 +141,12 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
   dataSourceRecognizeEnabled?: boolean;
   /**
    * @remarks
-   * The list of user IDs for batch data ingestion.
+   * The list of user IDs for data batch ingestion.
    */
   logUserIds?: string[];
   /**
    * @remarks
-   * The list of recommended data ingestion IDs.
+   * The list of recommended ingestion IDs.
    */
   recommendDataIngestionIds?: string[];
   static names(): { [key: string]: string } {
@@ -211,12 +203,12 @@ export class GetDataBatchIngestionResponseBodyDataBatchIngestion extends $dara.M
 export class GetDataBatchIngestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the batch data ingestion task.
+   * The data batch ingestion configuration.
    */
   dataBatchIngestion?: GetDataBatchIngestionResponseBodyDataBatchIngestion;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

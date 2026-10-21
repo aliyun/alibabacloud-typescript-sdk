@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSetsResponseBodyDataSetsDataSetReferences extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dataset.
+   * The dataset ID.
    * 
    * @example
    * dataset-nhcrmjpx1zsorlaq****
@@ -13,7 +13,7 @@ export class ListDataSetsResponseBodyDataSetsDataSetReferences extends $dara.Mod
   dataSetId?: string;
   /**
    * @remarks
-   * The ID of the rule or playbook that is associated with the dataset.
+   * The ID of the rule or playbook associated with the dataset.
    * 
    * @example
    * 456232
@@ -21,7 +21,7 @@ export class ListDataSetsResponseBodyDataSetsDataSetReferences extends $dara.Mod
   dataSetReferenceId?: string;
   /**
    * @remarks
-   * The name of the rule or playbook that is associated with the dataset.
+   * The name of the rule or playbook associated with the dataset.
    * 
    * @example
    * playbook_name
@@ -29,10 +29,8 @@ export class ListDataSetsResponseBodyDataSetsDataSetReferences extends $dara.Mod
   dataSetReferenceName?: string;
   /**
    * @remarks
-   * The type of the service that is associated with the dataset. Valid values:
-   * 
+   * The type of service associated with the dataset. Valid values:
    * - custom_rule: custom rule.
-   * 
    * - playbook: playbook.
    * 
    * @example
@@ -69,10 +67,8 @@ export class ListDataSetsResponseBodyDataSetsDataSetReferences extends $dara.Mod
 export class ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers extends $dara.Model {
   /**
    * @remarks
-   * The status of automatic detection. Valid values:
-   * 
+   * The automatic recognition status. Valid values:
    * - enabled: enabled.
-   * 
    * - disabled: disabled.
    * 
    * @example
@@ -81,25 +77,16 @@ export class ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers extends $dar
   autoRecognizeStatus?: string;
   /**
    * @remarks
-   * The type of IP address that the recognizer detects. Valid values:
-   * 
-   * - sas_vulnerability_scanner_ip: Security Center web vulnerability scanner IP address.
-   * 
-   * - waf_back_source_ip: Web Application Firewall back-to-origin IP address.
-   * 
-   * - ddos_back_source_ip: Anti-DDoS back-to-origin IP address.
-   * 
-   * - esa_back_source_ip: Edge Security Acceleration (ESA) back-to-origin node IP address.
-   * 
-   * - ecs_public_ip: Elastic Compute Service (ECS) public IP address.
-   * 
-   * - slb_public_ip: Server Load Balancer (SLB) public IP address.
-   * 
-   * - vpc_eip: Elastic IP Address (EIP).
-   * 
-   * - cdn_back_source_ip: Alibaba Cloud CDN back-to-origin IP address.
-   * 
-   * - ga_back_source_ip: Global Accelerator (GA) back-to-origin IP address.
+   * The IP type identified by the recognizer. Valid values:
+   * - sas_vulnerability_scanner_ip: IP addresses of the Security Center vulnerability web scanner.
+   * - waf_back_source_ip: back-to-origin IP addresses of Web Application Firewall (WAF).
+   * - ddos_back_source_ip: back-to-origin IP addresses of Anti-DDoS.
+   * - esa_back_source_ip: back-to-origin node IP addresses of Edge Security Acceleration (ESA).
+   * - ecs_public_ip: public IP addresses of Elastic Compute Service (ECS) instances.
+   * - slb_public_ip: public IP addresses of Server Load Balancer (SLB) instances.
+   * - vpc_eip: elastic IP addresses (EIPs).
+   * - cdn_back_source_ip: back-to-origin IP addresses of Content Delivery Network (CDN).
+   * - ga_back_source_ip: back-to-origin IP addresses of Global Accelerator (GA).
    * 
    * @example
    * waf_back_source_ip
@@ -107,11 +94,9 @@ export class ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers extends $dar
   ipWhitelistRecognizerType?: string;
   /**
    * @remarks
-   * The detection scope. Valid values:
-   * 
+   * The recognition scope. Valid values:
    * - current_account: current account only.
-   * 
-   * - rd_accounts: multiple accounts.
+   * - rd_accounts: multi-account enabled.
    * 
    * @example
    * current_account
@@ -119,7 +104,7 @@ export class ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers extends $dar
   recognizeScope?: string;
   /**
    * @remarks
-   * The time when the dataset was updated.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1713787368000
@@ -155,7 +140,7 @@ export class ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers extends $dar
 export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   /**
    * @remarks
-   * The time when the dataset was created.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1713787368000
@@ -163,7 +148,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the dataset.
+   * The dataset description.
    * 
    * @example
    * lmftest desc
@@ -171,7 +156,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetDescription?: string;
   /**
    * @remarks
-   * The name of the unique key for the dataset.
+   * The unique key name of the dataset.
    * 
    * @example
    * ip
@@ -179,7 +164,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetFieldKeyName?: string;
   /**
    * @remarks
-   * The names of the fields in the dataset.
+   * The field names of the dataset.
    * 
    * @example
    * ["ip","region"]
@@ -195,7 +180,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetFileName?: string;
   /**
    * @remarks
-   * The ID of the dataset.
+   * The dataset ID.
    * 
    * @example
    * dataset-t8ha6p7k61rmniqw****
@@ -203,7 +188,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetId?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * lmftest
@@ -211,15 +196,13 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetName?: string;
   /**
    * @remarks
-   * The dataset references.
+   * The dataset reference data.
    */
   dataSetReferences?: ListDataSetsResponseBodyDataSetsDataSetReferences[];
   /**
    * @remarks
-   * The status of the dataset. Valid values:
-   * 
+   * The dataset status. Valid values:
    * - 0: deleted.
-   * 
    * - 1: enabled.
    * 
    * @example
@@ -228,11 +211,9 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   dataSetStatus?: number;
   /**
    * @remarks
-   * The type of the dataset. Valid values:
-   * 
-   * - custom: custom.
-   * 
-   * - preset: predefined.
+   * The dataset type. Valid values:
+   * - custom: custom dataset.
+   * - preset: predefined dataset.
    * 
    * @example
    * preset
@@ -245,7 +226,7 @@ export class ListDataSetsResponseBodyDataSets extends $dara.Model {
   ipWhitelistRecognizers?: ListDataSetsResponseBodyDataSetsIpWhitelistRecognizers[];
   /**
    * @remarks
-   * The time when the dataset was updated.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1713787368000
@@ -308,7 +289,7 @@ export class ListDataSetsResponseBody extends $dara.Model {
   dataSets?: ListDataSetsResponseBodyDataSets[];
   /**
    * @remarks
-   * The maximum number of results to return for the request. This parameter is used for queries that use NextToken. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -316,7 +297,7 @@ export class ListDataSetsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -348,7 +329,7 @@ export class ListDataSetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 57

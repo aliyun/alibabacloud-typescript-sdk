@@ -6,17 +6,16 @@ export class ListAlertsRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level of the alert. Valid values:
-   * 
-   * - 5: critical.
-   * - 4: high-risk.
-   * - 3: medium-risk.
-   * - 2: low-risk.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    */
   alertLevel?: string[];
   /**
    * @remarks
-   * The alert ID associated with the event.
+   * The ID of the alert that is associated with the event.
    * 
    * @example
    * sas_71e24437d2797ce8fc59692905a4****
@@ -24,7 +23,7 @@ export class ListAlertsRequest extends $dara.Model {
   alertUuid?: string;
   /**
    * @remarks
-   * The end time of the alert.
+   * The end time of the alert. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1766801904000
@@ -33,9 +32,10 @@ export class ListAlertsRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
    * - **en**: English.
+   * 
+   * Note: This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -43,7 +43,7 @@ export class ListAlertsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50
@@ -60,7 +60,6 @@ export class ListAlertsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
    * - **asc** (default): ascending order.
    * - **desc**: descending order.
    * 
@@ -71,9 +70,8 @@ export class ListAlertsRequest extends $dara.Model {
   /**
    * @remarks
    * The field used for sorting. Valid values:
-   * 
    * - GmtCreate: creation time.
-   * - GmtModified: update time.
+   * - GmtModified: last modified time.
    * 
    * @example
    * GmtModified
@@ -103,10 +101,10 @@ export class ListAlertsRequest extends $dara.Model {
    * @remarks
    * The query filter condition in JSON format. Valid values:
    * 
-   * - `{"Type":"maxCost", "Value":"100"}`: the top 100 queries with the longest execution duration.
-   * - `{"Type":"status","Value":"finished"}`: completed queries.
-   * - `{"Type":"status","Value":"running"}`: running queries.
-   * - `{"Type":"cost","Min":"30","Max":"50"}`: queries with a custom execution duration range. You can specify the minimum and maximum execution duration. **Min** specifies the minimum execution duration. **Max** specifies the maximum execution duration. Unit: milliseconds (ms).
+   * - `{"Type":"maxCost", "Value":"100"}`: The 100 queries with the longest execution duration.
+   * - `{"Type":"status","Value":"finished"}`: Completed queries.
+   * - `{"Type":"status","Value":"running"}`: Running queries.
+   * - `{"Type":"cost","Min":"30","Max":"50"}`: Custom execution duration queries. You can specify the minimum and maximum execution duration. **Min** specifies the minimum execution duration. **Max** specifies the maximum execution duration. Unit: milliseconds (ms).
    *     - If only **Min** is specified, queries with an execution duration greater than this value are returned.
    *     - If only **Max** is specified, queries with an execution duration less than this value are returned.
    *     - If both **Min** and **Max** are specified, queries with an execution duration greater than or equal to **Min** and less than or equal to **Max** are returned.
@@ -125,10 +123,9 @@ export class ListAlertsRequest extends $dara.Model {
   queryViewId?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are located in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: Your assets are located outside China.
+   * The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
    * 
    * @example
    * cn-shanghai
@@ -136,7 +133,7 @@ export class ListAlertsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder.
+   * The ID of the member accounts in the resource directory.
    * 
    * @example
    * 113091674488****
@@ -155,10 +152,10 @@ export class ListAlertsRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The time when the alert first occurred.
+   * The time when the alert first occurred. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
-   * 2025-09-30T02:23:00Z
+   * 1759198980000
    */
   startTime?: number;
   static names(): { [key: string]: string } {

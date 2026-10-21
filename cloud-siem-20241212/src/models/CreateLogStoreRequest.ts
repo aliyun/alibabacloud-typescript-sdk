@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
-   * 
+   * The language of the response. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * Note: This parameter is required. If this parameter is not specified, the API returns a 400 error. Valid values: zh (Chinese) or en (English).
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class CreateLogStoreRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The Simple Log Service project name.
    * 
    * @example
    * aliyun-cloudsiem-channel-173326*******-cn-hangzhou
@@ -25,7 +24,7 @@ export class CreateLogStoreRequest extends $dara.Model {
   logProjectName?: string;
   /**
    * @remarks
-   * The ID of the log storage region.
+   * The log storage region ID.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +32,7 @@ export class CreateLogStoreRequest extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The Simple Log Service LogStore name.
    * 
    * @example
    * logstoreqykug
@@ -49,11 +48,9 @@ export class CreateLogStoreRequest extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The region of the Data Management Center for threat analysis. Select a region for the Management Center based on the region of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +58,7 @@ export class CreateLogStoreRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can specify this parameter to switch to the perspective of the member.
+   * The user ID that the administrator switches to when viewing as another member.
    * 
    * @example
    * 173326*******

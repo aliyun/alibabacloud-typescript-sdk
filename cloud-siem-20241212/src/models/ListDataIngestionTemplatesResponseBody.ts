@@ -13,7 +13,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   capacityCount?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time.
    * 
    * @example
    * 1733269771123
@@ -22,9 +22,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   /**
    * @remarks
    * The data ingestion mode. Valid values:
-   * 
    * - realtime
-   * 
    * - scan
    * 
    * @example
@@ -33,11 +31,9 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   dataIngestionMode?: string;
   /**
    * @remarks
-   * The data ingestion status. Valid values:
-   * 
-   * - enabled: enabled.
-   * 
-   * - disabled: disabled.
+   * The accessed state of data ingestion. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -45,7 +41,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   dataIngestionStatus?: string;
   /**
    * @remarks
-   * The ID of the data ingestion template.
+   * The data ingestion template ID.
    * 
    * @example
    * alibaba_cloud_sas_account_snapshot_log
@@ -53,7 +49,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   dataIngestionTemplateId?: string;
   /**
    * @remarks
-   * The name of the data ingestion template.
+   * The data source template name.
    * 
    * @example
    * alibaba_cloud_sas_account_snapshot_log
@@ -62,13 +58,9 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   /**
    * @remarks
    * The status of the data ingestion template. Valid values:
-   * 
    * - pending
-   * 
    * - running
-   * 
    * - success
-   * 
    * - failed
    * 
    * @example
@@ -77,7 +69,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   dataIngestionTemplateStatus?: string;
   /**
    * @remarks
-   * The ID of the data source template.
+   * The data source template ID.
    * 
    * @example
    * alibaba_cloud_sas_account_snapshot_log_173326*******
@@ -85,7 +77,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   dataSourceTemplateId?: string;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
    * 
    * @example
    * alibaba_cloud_actiontrail_event_rule
@@ -93,7 +85,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The name of the normalization rule.
+   * The normalization rule name.
    * 
    * @example
    * normalization_rule_ke1RN
@@ -101,7 +93,7 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
   normalizationRuleName?: string;
   /**
    * @remarks
-   * The time when the template was last updated.
+   * The update time.
    * 
    * @example
    * 173326*******

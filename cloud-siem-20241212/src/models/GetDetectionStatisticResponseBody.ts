@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDetectionStatisticResponseBodyDetectionStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The number of AI-powered aggregation rules.
+   */
   aiPoweredAggregationRuleCount?: number;
   /**
    * @remarks
@@ -46,7 +50,7 @@ export class GetDetectionStatisticResponseBodyDetectionStatistic extends $dara.M
   passthroughRuleCount?: number;
   /**
    * @remarks
-   * The number of similar aggregation rules.
+   * The number of same-type aggregation rules.
    * 
    * @example
    * 6
@@ -88,12 +92,12 @@ export class GetDetectionStatisticResponseBodyDetectionStatistic extends $dara.M
 export class GetDetectionStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detection rule count result.
+   * The count results of detection rules.
    */
   detectionStatistic?: GetDetectionStatisticResponseBodyDetectionStatistic;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FB890AC-90B2-5EEA-845B-F7C86FB2****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUpgradeItemResponseBodyUpgradeItem extends $dara.Model {
   /**
    * @remarks
-   * The name of the module.
+   * The check result of the check item. Example values: OK and FAIL.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CheckUpgradeItemResponseBodyUpgradeItem extends $dara.Model {
   checkResult?: string;
   /**
    * @remarks
-   * The check status.
+   * The checkpoint status.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class CheckUpgradeItemResponseBodyUpgradeItem extends $dara.Model {
   checkStatus?: string;
   /**
    * @remarks
-   * The ID of the upgrade item.
+   * The upgrade item ID.
    * 
    * @example
    * incident_upgrade

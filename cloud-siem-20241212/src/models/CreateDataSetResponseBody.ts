@@ -13,7 +13,7 @@ export class CreateDataSetResponseBodyDataSetRecordStatistic extends $dara.Model
   dataSetId?: string;
   /**
    * @remarks
-   * The number of new records in the dataset.
+   * The number of new dataset records.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class CreateDataSetResponseBodyDataSetRecordStatistic extends $dara.Model
 export class CreateDataSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result returned after the dataset is created.
+   * The result of the dataset creation.
    */
   dataSetRecordStatistic?: CreateDataSetResponseBodyDataSetRecordStatistic;
   /**

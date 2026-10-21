@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNormalizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -15,22 +15,25 @@ export class GetNormalizationRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The normalization rule ID.
+   * The ID of the normalization rule.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The ID of the normalization security domain.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The region where the data management center of threat analysis is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: the asset is in the Chinese mainland.
-   * - ap-southeast-1: the asset is outside the Chinese mainland.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +41,7 @@ export class GetNormalizationRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that the administrator uses to switch to the view of another member.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

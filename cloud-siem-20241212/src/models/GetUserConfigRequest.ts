@@ -6,10 +6,10 @@ export class GetUserConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is required. If this parameter is not specified, the API returns a 400 error.
    * 
    * @example
    * en
@@ -17,11 +17,9 @@ export class GetUserConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select a region for the Management Hub based on the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Assets in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Assets outside China.
+   * The region where the threat detection and response data management center resides. Specify the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +27,7 @@ export class GetUserConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this parameter to switch to the perspective of the specified member.
+   * The user ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUpgradeItemsResponseBodyUpgradeItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the upgrade item.
+   * The upgrade item ID.
    * 
    * @example
    * data_storage_2_upgrade
@@ -35,7 +35,7 @@ export class ListUpgradeItemsResponseBodyUpgradeItems extends $dara.Model {
 export class ListUpgradeItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on the current page.
+   * The maximum number of entries to return in a single call.
    * 
    * @example
    * 50
@@ -43,7 +43,7 @@ export class ListUpgradeItemsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If the value is not empty, more results are available.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if there are no more results to return. If a next page exists, set this parameter to the value of NextToken returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -59,7 +59,7 @@ export class ListUpgradeItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 57

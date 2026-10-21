@@ -18,7 +18,7 @@ export class ListIncidentsRequest extends $dara.Model {
   detectionRuleIds?: string[];
   /**
    * @remarks
-   * The end time as a timestamp in milliseconds (ms).
+   * The end time timestamp, in milliseconds (ms).
    * 
    * @example
    * 1749090526055
@@ -35,10 +35,10 @@ export class ListIncidentsRequest extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * - 0: unhandled.
-   * - 1: handling.
-   * - 5: handling failed.
-   * - 10: handled.
+   * - 0: Unhandled.
+   * - 1: Handling.
+   * - 5: Handling failed.
+   * - 10: Handled.
    * 
    * @example
    * 0
@@ -62,14 +62,16 @@ export class ListIncidentsRequest extends $dara.Model {
   incidentTags?: string;
   /**
    * @remarks
-   * The list of event UUIDs, separated by commas (,).
+   * The list of event UUIDs, separated by commas (half-width).
    */
   incidentUuids?: string[];
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
+   * 
+   * Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
    * 
    * @example
    * zh
@@ -77,7 +79,7 @@ export class ListIncidentsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to read in this request.
    * 
    * @example
    * 10
@@ -85,7 +87,7 @@ export class ListIncidentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****
@@ -94,8 +96,8 @@ export class ListIncidentsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort direction. Valid values:
-   * - **desc** (default): descending order.
-   * - **asc**: ascending order.
+   * - **desc** (default): Descending order.
+   * - **asc**: Ascending order.
    * 
    * @example
    * desc
@@ -103,9 +105,9 @@ export class ListIncidentsRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The name of the field used to sort the list.
-   * - GmtModified: event update time (default).
-   * - ThreatScore: threat score.
+   * The field used to sort the list. Valid values:
+   * - GmtModified: The event update time (default).
+   * - ThreatScore: The threat score.
    * 
    * @example
    * GmtModified
@@ -113,12 +115,12 @@ export class ListIncidentsRequest extends $dara.Model {
   orderFieldName?: string;
   /**
    * @remarks
-   * The UID of the account that owns the event.
+   * The UID of the account responsible for the event.
    */
   owners?: string[];
   /**
    * @remarks
-   * The page number.
+   * The current page number for pagination.
    * 
    * This parameter is required.
    * 
@@ -128,7 +130,7 @@ export class ListIncidentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to display per page.
    * 
    * This parameter is required.
    * 
@@ -138,9 +140,9 @@ export class ListIncidentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Select the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside outside China.
+   * The location of the data management center for Cloud Threat Detection and Response (CTDR). Select the management center location based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -164,7 +166,7 @@ export class ListIncidentsRequest extends $dara.Model {
   relateEntityId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The user ID that the administrator uses to switch to another member\\"s view.
    * 
    * @example
    * 113091674488****
@@ -173,8 +175,8 @@ export class ListIncidentsRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts in the enterprise.
+   * - 0: The current Alibaba Cloud account view.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -182,7 +184,7 @@ export class ListIncidentsRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The start time as a timestamp in milliseconds (ms).
+   * The start time timestamp, in milliseconds (ms).
    * 
    * @example
    * 1690102943000
@@ -191,11 +193,11 @@ export class ListIncidentsRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: critical.
-   * - 4: high.
-   * - 3: medium.
-   * - 2: low.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 5

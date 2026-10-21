@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dataset.
+   * The dataset ID.
    * 
    * @example
    * dataset-qt0n8246gs9nackg****
@@ -18,7 +18,7 @@ export class ListDataSetsRequest extends $dara.Model {
   dataSetIds?: string[];
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * lmftest
@@ -26,10 +26,8 @@ export class ListDataSetsRequest extends $dara.Model {
   dataSetName?: string;
   /**
    * @remarks
-   * The status of the dataset. Valid values:
-   * 
+   * The dataset status. Valid values:
    * - 0: deleted.
-   * 
    * - 1: enabled.
    * 
    * @example
@@ -38,11 +36,9 @@ export class ListDataSetsRequest extends $dara.Model {
   dataSetStatus?: number;
   /**
    * @remarks
-   * The type of the dataset. Valid values:
-   * 
-   * - custom: custom.
-   * 
-   * - preset: predefined.
+   * The dataset type. Valid values:
+   * - custom: custom dataset.
+   * - preset: predefined dataset.
    * 
    * @example
    * custom
@@ -51,10 +47,9 @@ export class ListDataSetsRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.). Valid values: zh and en.
    * 
    * @example
    * zh
@@ -62,7 +57,7 @@ export class ListDataSetsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return for the request. This parameter is used for queries that use NextToken. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -70,7 +65,7 @@ export class ListDataSetsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -79,10 +74,8 @@ export class ListDataSetsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - **asc** (default): ascending.
-   * 
-   * - **desc**: descending.
+   * - **asc** (default): ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * asc
@@ -90,10 +83,8 @@ export class ListDataSetsRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The field to use for sorting. Valid values:
-   * 
+   * The field used for sorting. Valid values:
    * - GmtCreate: creation time.
-   * 
    * - GmtModified: update time.
    * 
    * @example
@@ -118,11 +109,9 @@ export class ListDataSetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the Data Management Center for threat analysis is deployed. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets reside in the Chinese mainland.
+   * - ap-southeast-1: The assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -130,7 +119,7 @@ export class ListDataSetsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that an administrator uses to switch to the perspective of a member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****

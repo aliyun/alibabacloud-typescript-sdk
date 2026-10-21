@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1658974643000
@@ -13,7 +13,7 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The dataset ID.
+   * The ID of the dataset.
    * 
    * @example
    * dataset-t8ha6p7k61rmniqw****
@@ -21,7 +21,7 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   dataSetId?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * lmftest
@@ -29,7 +29,7 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   dataSetName?: string;
   /**
    * @remarks
-   * The dataset record ID.
+   * The ID of the dataset record.
    * 
    * @example
    * 124566
@@ -37,12 +37,12 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   dataSetRecordId?: string;
   /**
    * @remarks
-   * The dataset record value.
+   * The values of the dataset record.
    */
   dataSetRecordValues?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1658974643000
@@ -82,12 +82,12 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
 export class ListDataSetRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of dataset records.
+   * The list of dataset records.
    */
   dataSetRecords?: ListDataSetRecordsResponseBodyDataSetRecords[];
   /**
    * @remarks
-   * The maximum number of results to return per page for token-based pagination. Valid values: 1 to 100. Default: 50.
+   * The maximum number of results to return per query when you use the NextToken parameter. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -95,7 +95,7 @@ export class ListDataSetRecordsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -103,7 +103,7 @@ export class ListDataSetRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class ListDataSetRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -127,7 +127,7 @@ export class ListDataSetRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The total number of records.
    * 
    * @example
    * 57

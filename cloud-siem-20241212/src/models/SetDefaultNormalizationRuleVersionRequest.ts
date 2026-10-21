@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDefaultNormalizationRuleVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -15,7 +15,7 @@ export class SetDefaultNormalizationRuleVersionRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The normalization rule ID.
+   * The normalization rule ID. Only custom-type normalization rules are supported. This operation does not support preset normalization rules.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -31,7 +31,7 @@ export class SetDefaultNormalizationRuleVersionRequest extends $dara.Model {
   normalizationRuleVersion?: number;
   /**
    * @remarks
-   * The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+   * The region where the data management center of the threat analysis feature is located. Select the region based on the region where your assets reside. Valid values:
    * - cn-hangzhou: Your assets reside in the Chinese mainland.
    * - ap-southeast-1: Your assets reside outside China.
    * 
@@ -41,7 +41,7 @@ export class SetDefaultNormalizationRuleVersionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The user ID that the administrator uses to switch to the view of another member account.
    * 
    * @example
    * 173326*******

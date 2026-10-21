@@ -113,8 +113,29 @@ export class ListQueryViewsResponseBodyQueryViews extends $dara.Model {
 }
 
 export class ListQueryViewsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Log Service project name.
+   * 
+   * @example
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
+   */
   logProjectName?: string;
+  /**
+   * @remarks
+   * The log storage region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   logRegionId?: string;
+  /**
+   * @remarks
+   * The Simple Log Service Logstore name.
+   * 
+   * @example
+   * audit-activity
+   */
   logStoreName?: string;
   /**
    * @remarks
@@ -126,7 +147,7 @@ export class ListQueryViewsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****

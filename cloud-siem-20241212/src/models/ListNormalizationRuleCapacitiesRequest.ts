@@ -6,10 +6,9 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * This parameter is required in practice. If you do not specify this parameter or pass an empty string, the API returns a 400 error (The specified Lang can not be empty.).
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -28,7 +27,7 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to start the next query. Leave this parameter empty for the first query. If the response is truncated, use the \\`NextToken\\` value from the previous response.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -36,7 +35,7 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -44,16 +43,14 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   normalizationRuleId?: string;
   /**
    * @remarks
-   * A list of normalization rule IDs.
+   * The list of normalization rule IDs.
    */
   normalizationRuleIds?: string[];
   /**
    * @remarks
-   * The region of the threat analysis Data Management Center. Select the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are outside the Chinese mainland.
+   * The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets reside in the Chinese mainland.
+   * - ap-southeast-1: The assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +58,7 @@ export class ListNormalizationRuleCapacitiesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that an administrator uses to switch to a member\\"s perspective.
+   * The user ID that the administrator uses to switch to the view of another member.
    * 
    * @example
    * 173326*******

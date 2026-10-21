@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogStoresRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message. Valid values:
-   * 
+   * The language of the response. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * Note: This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.).
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class ListLogStoresRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the Simple Log Service project. The project name follows the naming convention aliyun-cloudsiem-data-{userId}-{regionId}. You can call the GetDataStorage operation and obtain a valid project name from the Data.LogProject field in the response.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -25,7 +24,7 @@ export class ListLogStoresRequest extends $dara.Model {
   logProjectName?: string;
   /**
    * @remarks
-   * The ID of the log storage region.
+   * The log storage region ID.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +32,7 @@ export class ListLogStoresRequest extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The ID of the user who ingests the data.
+   * The user ID for data ingestion.
    * 
    * @example
    * 173326*******
@@ -41,7 +40,7 @@ export class ListLogStoresRequest extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The maximum number of entries to return on this call.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -52,7 +51,7 @@ export class ListLogStoresRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query. You do not need to specify this parameter for the first query. If a subsequent query is required, set the value to the NextToken value that is returned from the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -60,11 +59,9 @@ export class ListLogStoresRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region of the Data Management center. Select the region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets are located in the Chinese mainland.
+   * - ap-southeast-1: Your assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -72,7 +69,7 @@ export class ListLogStoresRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose permissions are assumed by the administrator.
+   * The user ID that the administrator wants to switch to for viewing from another member\\"s perspective.
    * 
    * @example
    * 173326*******

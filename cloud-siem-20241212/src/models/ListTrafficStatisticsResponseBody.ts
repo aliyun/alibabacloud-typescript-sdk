@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticData extends $dara.Model {
   /**
    * @remarks
-   * The statistic time.
+   * The statistical time. The value is a date number in the YYYYMMDD format. For example, 20250815 indicates August 15, 2025.
    * 
    * @example
    * 20250815
@@ -13,7 +13,7 @@ export class ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticD
   trafficStatisticTime?: number;
   /**
    * @remarks
-   * The statistic value.
+   * The statistical value.
    * 
    * @example
    * 1.699814
@@ -50,7 +50,7 @@ export class ListTrafficStatisticsResponseBodyTrafficStatistics extends $dara.Mo
   trafficStatisticData?: ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticData[];
   /**
    * @remarks
-   * The statistic target.
+   * The statistical target.
    * 
    * @example
    * all

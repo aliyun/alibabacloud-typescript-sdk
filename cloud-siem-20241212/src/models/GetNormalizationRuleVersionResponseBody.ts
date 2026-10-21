@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion extends $dara.Model {
   /**
    * @remarks
-   * The time when the rule version was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -13,7 +13,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   createTime?: number;
   /**
    * @remarks
-   * The ID of the normalization rule category.
+   * The category ID of the normalization rule.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -29,7 +29,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   normalizationRuleDescription?: string;
   /**
    * @remarks
-   * The expression for the normalization rule.
+   * The expression of the normalization rule.
    * 
    * @example
    * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
@@ -70,10 +70,8 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   /**
    * @remarks
    * The type of the normalization rule. Valid values:
-   * 
-   * - predefined: a predefined rule.
-   * 
-   * - custom: a custom rule.
+   * - predefined: predefined normalization rule.
+   * - custom: custom normalization rule.
    * 
    * @example
    * predefined
@@ -89,7 +87,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   normalizationRuleVersion?: number;
   /**
    * @remarks
-   * The name of the normalization rule version.
+   * The version name of the normalization rule.
    * 
    * @example
    * v1
@@ -105,7 +103,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The product ID.
+   * The ID of the product.
    * 
    * @example
    * alibaba_cloud_sas
@@ -113,11 +111,9 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   productId?: string;
   /**
    * @remarks
-   * The region where the Data Management center for Threat Analysis is located. Select a region for the management center based on the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -125,7 +121,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   regionId?: string;
   /**
    * @remarks
-   * The time when the rule version was last updated.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -133,7 +129,7 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
   updateTime?: number;
   /**
    * @remarks
-   * The ID of the vendor for the normalization rule.
+   * The ID of the vendor that corresponds to the normalization rule.
    * 
    * @example
    * alibaba_cloud

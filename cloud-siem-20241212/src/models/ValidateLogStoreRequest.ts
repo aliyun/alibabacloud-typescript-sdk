@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateLogStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * This parameter is actually required. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class ValidateLogStoreRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the Simple Log Service project. You can call GetDataStorage to obtain a valid project name.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -33,7 +32,7 @@ export class ValidateLogStoreRequest extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Simple Log Service Logstore. This parameter is actually required. You can call GetDataStorage to obtain a valid Logstore name.
    * 
    * @example
    * ssglauncher-log
@@ -41,7 +40,7 @@ export class ValidateLogStoreRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The user ID for data access.
+   * The ID of the data ingestion user.
    * 
    * @example
    * 173326*******
@@ -49,11 +48,9 @@ export class ValidateLogStoreRequest extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The region of the Data Management Center for threat analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: The Chinese mainland.
-   * 
-   * - ap-southeast-1: Regions outside China.
+   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +58,7 @@ export class ValidateLogStoreRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. This lets an administrator switch to the member\\"s perspective.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

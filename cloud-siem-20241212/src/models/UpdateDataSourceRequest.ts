@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceRequestDataSourceStores extends $dara.Model {
   /**
    * @remarks
-   * The source of the data. Valid values:
-   * 
+   * The data source. Valid values:
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -17,7 +15,7 @@ export class UpdateDataSourceRequestDataSourceStores extends $dara.Model {
   dataSourceStoreFrom?: string;
   /**
    * @remarks
-   * The ID of the log storage.
+   * The log storage ID.
    * 
    * @example
    * 1
@@ -25,7 +23,7 @@ export class UpdateDataSourceRequestDataSourceStores extends $dara.Model {
   dataSourceStoreId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The Simple Log Service project name.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -41,7 +39,7 @@ export class UpdateDataSourceRequestDataSourceStores extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The Simple Log Service Logstore name.
    * 
    * @example
    * cn-rds-sqlaudit
@@ -79,10 +77,8 @@ export class UpdateDataSourceRequestDataSourceStores extends $dara.Model {
 export class UpdateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the data. Valid values:
-   * 
+   * The data source. Valid values:
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -91,7 +87,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   dataSourceFrom?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID. This parameter is required and specifies the ID of the data source to update. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * ds-014frtpy28m5ct2eoyo1
@@ -99,7 +95,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * ActiontrailLog
@@ -121,10 +117,8 @@ export class UpdateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response messages. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
-   * - **en**: English.
+   * - **en**: English. This parameter is required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * zh
@@ -132,7 +126,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The Simple Log Service project name.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -148,7 +142,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The Simple Log Service Logstore name.
    * 
    * @example
    * cn-rds-sqlaudit
@@ -156,7 +150,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The user ID for data access.
+   * The user ID for data ingestion.
    * 
    * @example
    * 173326*******
@@ -164,11 +158,9 @@ export class UpdateDataSourceRequest extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The field to use for sorting the rule list. Valid values:
-   * 
-   * - GmtModified: Sorts the list by modification time.
-   * 
-   * - Id: Sorts the list by rule ID. This is the default value.
+   * The field used to sort the rule list. Valid values:
+   * - GmtModified: Sort by modification time.
+   * - Id: Sort by rule ID (default).
    * 
    * @example
    * Id
@@ -176,11 +168,9 @@ export class UpdateDataSourceRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select a region based on the location of the assets. Valid values:
-   * 
-   * - cn-hangzhou: Assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Assets are outside China.
+   * The region where the data management center of the threat analysis service is located. Select the management center region based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -188,7 +178,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose perspective the administrator switches to.
+   * The user ID of the member account that the administrator switches to.
    * 
    * @example
    * 173326*******

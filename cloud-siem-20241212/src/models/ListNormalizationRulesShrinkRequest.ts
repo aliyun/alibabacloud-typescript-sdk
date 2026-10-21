@@ -8,6 +8,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
    * The language of the response. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
+   * This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.).
    * 
    * @example
    * zh
@@ -26,7 +27,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query is required, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -34,7 +35,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The category ID of the normalization rule.
+   * The normalization rule category ID.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -47,7 +48,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   normalizationRuleIdsShrink?: string;
   /**
    * @remarks
-   * The name of the normalization rule.
+   * The normalization rule name.
    * 
    * @example
    * normalization_rule_Z57np
@@ -55,7 +56,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   normalizationRuleName?: string;
   /**
    * @remarks
-   * The type of the normalization rule. Valid values:
+   * The normalization rule type. Valid values:
    * - predefined: predefined normalization rule.
    * - custom: custom normalization rule.
    * 
@@ -72,6 +73,9 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The security domain ID.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
@@ -88,7 +92,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * - desc
-   * - asc.
+   * - asc
    * 
    * @example
    * desc
@@ -120,9 +124,9 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region where the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: the Chinese mainland.
-   * - ap-southeast-1: outside China.
+   * The data management center of threat analysis. Specify the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -130,7 +134,7 @@ export class ListNormalizationRulesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******

@@ -11,10 +11,9 @@ export class ListDataSourceTemplatesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.). Valid values: zh and en.
    * 
    * @example
    * zh
@@ -38,11 +37,9 @@ export class ListDataSourceTemplatesShrinkRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Chinese mainland. Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Outside China. Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -50,7 +47,7 @@ export class ListDataSourceTemplatesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can switch to the perspective of the member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******

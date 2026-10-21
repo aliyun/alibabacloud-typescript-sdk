@@ -6,13 +6,9 @@ export class ListDataIngestionTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the data ingestion template. Valid values:
-   * 
    * - pending
-   * 
    * - running
-   * 
    * - success
-   * 
    * - failed
    * 
    * @example
@@ -21,7 +17,7 @@ export class ListDataIngestionTemplatesRequest extends $dara.Model {
   dataIngestionTemplateStatus?: string;
   /**
    * @remarks
-   * A list of data source template IDs.
+   * The list of data source template IDs.
    * 
    * @example
    * alibaba_cloud_sas_account_snapshot_log_173326*******
@@ -30,10 +26,10 @@ export class ListDataIngestionTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass in a language code.
    * 
    * @example
    * zh
@@ -65,11 +61,9 @@ export class ListDataIngestionTemplatesRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region where the Data Management center of threat analysis is located. You must select a region based on the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of threat detection and response resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +71,7 @@ export class ListDataIngestionTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose perspective you want to use. This parameter is available only for administrators.
+   * The user ID used by an administrator to assume the view of another member.
    * 
    * @example
    * 173326*******

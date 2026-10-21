@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDetectionRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ATT\\&CK technique of the alert.
+   * The alert ATT&CK technique.
    * 
    * @example
    * Discovery
@@ -14,16 +14,11 @@ export class ListDetectionRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level of the alert. Valid values:
-   * 
-   * - 5: critical.
-   * 
-   * - 4: important.
-   * 
-   * - 3: medium.
-   * 
-   * - 2: low.
-   * 
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 1
@@ -39,7 +34,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   alertTacticId?: string;
   /**
    * @remarks
-   * The alert type.
+   * The Alarm Metric of the alerting rule.
    * 
    * @example
    * siem_rule_type_alert_storm
@@ -47,7 +42,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The type of the detection rule expression.
+   * The expression content of the detection rule.
    * 
    * @example
    * playbook
@@ -86,11 +81,9 @@ export class ListDetectionRulesRequest extends $dara.Model {
    * @remarks
    * The type of the detection rule. Valid values:
    * 
-   * - preset: a built-in detection rule.
-   * 
-   * - custom: a custom detection rule.
-   * 
-   * - custom_template: a rule template.
+   * - preset: preset detection rule.
+   * - custom: custom detection rule.
+   * - custom_template: rule template.
    * 
    * @example
    * preset
@@ -98,17 +91,12 @@ export class ListDetectionRulesRequest extends $dara.Model {
   detectionRuleType?: string;
   /**
    * @remarks
-   * The event aggregation type. Valid values:
-   * 
-   * - none: No events are generated.
-   * 
-   * - graph_compute: graph computing (supported by predefined rules).
-   * 
-   * - expert: expert rule.
-   * 
-   * - passthrough: alert passthrough (one-to-one).
-   * 
-   * - window: aggregation of similar alerts (by window).
+   * The event summaries type. Valid values:
+   * - none: No event is generated.
+   * - graph_compute: Graph computing (supported by predefined rules).
+   * - expert: Expert rule.
+   * - passthrough: Alerting pass-through (one-to-one).
+   * - window: Same-type aggregation (window).
    * 
    * @example
    * graph_compute
@@ -117,10 +105,10 @@ export class ListDetectionRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
    * 
    * @example
    * zh
@@ -144,7 +132,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   logSchemaId?: string;
   /**
    * @remarks
-   * The maximum number of data entries to read.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -152,7 +140,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -162,9 +150,8 @@ export class ListDetectionRulesRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * - **asc**: ascending order. This is the default value.
-   * 
-   * - **desc**: descending order.
+   * - **asc**: Ascending order. This is the default value.
+   * - **desc**: Descending order.
    * 
    * @example
    * asc
@@ -172,11 +159,9 @@ export class ListDetectionRulesRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The field to sort by. Valid values:
-   * 
-   * - GmtCreate: the creation time.
-   * 
-   * - GmtModified: the update time.
+   * The field used for sorting. Valid values:
+   * - GmtCreate: creation time.
+   * - GmtModified: update time.
    * 
    * @example
    * GmtModified
@@ -184,7 +169,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   orderFieldName?: string;
   /**
    * @remarks
-   * The pagination parameter. This specifies the current page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -192,7 +177,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The pagination parameter. This specifies the number of entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -200,11 +185,9 @@ export class ListDetectionRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the Data Management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are outside China.
+   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -212,7 +195,7 @@ export class ListDetectionRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that the administrator uses to switch to the perspective of another member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****

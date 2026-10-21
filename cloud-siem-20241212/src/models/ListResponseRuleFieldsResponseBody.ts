@@ -65,12 +65,12 @@ export class ListResponseRuleFieldsResponseBodyListResponseRuleFieldsSupportOper
    * @remarks
    * The aggregation method for the dispatch rule condition. Valid values:
    * 
-   * - `=`: equal to
-   * - `<>`: not equal to
-   * - `in`: contains
-   * - `not in`: does not contain
-   * - `REGEXP`: matches the regular expression
-   * - `NOT REGEXP`: does not match the regular expression
+   * - `=`: Equal to.
+   * - `<>`: Not equal to.
+   * - `in`: Contains.
+   * - `not in`: Does not contain.
+   * - `REGEXP`: Matches the regular expression.
+   * - `NOT REGEXP`: Does not match the regular expression.
    * 
    * @example
    * BETWEEN
@@ -148,7 +148,7 @@ export class ListResponseRuleFieldsResponseBodyListResponseRuleFields extends $d
   fieldName?: string;
   /**
    * @remarks
-   * The normalization object type to which the field belongs.
+   * The normalized object type to which the field belongs.
    * 
    * @example
    * alert
@@ -156,7 +156,7 @@ export class ListResponseRuleFieldsResponseBodyListResponseRuleFields extends $d
   fieldNormalization?: string;
   /**
    * @remarks
-   * The list of optional enumeration values for the field. This parameter is not returned if no enumeration values are available.
+   * The list of optional enumeration values for the field. This parameter is not returned if no enumeration values exist.
    */
   rightValue?: ListResponseRuleFieldsResponseBodyListResponseRuleFieldsRightValue[];
   /**
@@ -217,7 +217,7 @@ export class ListResponseRuleFieldsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Valid values: leave this parameter empty for the first query or if no more results exist. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the version was created.
+   * The creation time.
    * 
    * @example
    * 1733269771123
@@ -13,7 +13,7 @@ export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions 
   createTime?: number;
   /**
    * @remarks
-   * The expression of the normalization rule.
+   * The normalization rule expression.
    * 
    * @example
    * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
@@ -21,7 +21,7 @@ export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions 
   normalizationRuleExpression?: string;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -29,7 +29,7 @@ export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions 
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The version of the normalization rule.
+   * The normalization rule version.
    * 
    * @example
    * V1
@@ -37,7 +37,7 @@ export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions 
   normalizationRuleVersion?: number;
   /**
    * @remarks
-   * The time when the version was updated.
+   * The update time.
    * 
    * @example
    * 1733269771123
@@ -75,7 +75,7 @@ export class ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions 
 export class ListNormalizationRuleVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50
@@ -83,7 +83,7 @@ export class ListNormalizationRuleVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no more results are available.
+   * The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -96,7 +96,7 @@ export class ListNormalizationRuleVersionsResponseBody extends $dara.Model {
   normalizationRuleVersions?: ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

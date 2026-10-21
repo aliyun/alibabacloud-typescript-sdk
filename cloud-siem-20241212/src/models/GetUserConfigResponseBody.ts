@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserConfigResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The current CTDR version.
+   * The current Cloud Threat Detection and Response (CTDR) version.
    * 
    * @example
    * v2
@@ -14,14 +14,10 @@ export class GetUserConfigResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The upgrade status. Valid values:
-   * 
-   * - pending: The upgrade is pending.
-   * 
-   * - upgrading: The upgrade is in progress.
-   * 
-   * - success: The upgrade is successful.
-   * 
-   * - failed: The upgrade failed.
+   * - pending: Pending upgrade.
+   * - upgrading: Upgrading.
+   * - success: Upgrade succeeded.
+   * - failed: Upgrade failed.
    * 
    * @example
    * pending
@@ -29,7 +25,7 @@ export class GetUserConfigResponseBodyUser extends $dara.Model {
   dataStorageVersion?: string;
   /**
    * @remarks
-   * The version of Log Management.
+   * The log management version.
    * 
    * @example
    * v2
@@ -37,7 +33,7 @@ export class GetUserConfigResponseBodyUser extends $dara.Model {
   upgradeCtdrVersion?: string;
   /**
    * @remarks
-   * The target CTDR version for the upgrade.
+   * The CTDR version to upgrade to.
    * 
    * @example
    * v2

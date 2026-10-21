@@ -35,7 +35,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRu
 export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -53,7 +53,10 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   extendContentPacked?: string;
   /**
    * @remarks
-   * The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
+   * The extended field storage mode. Valid values:
+   * - flat: ingested as-is.
+   * - reject: not ingested.
+   * - pack: packed into the extend_content field.
    * 
    * @example
    * flat
@@ -61,20 +64,23 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   extendFieldStoreMode?: string;
   /**
    * @remarks
-   * The category ID of the normalization rule.
+   * The normalization rule category ID.
    * 
    * @example
    * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The field source.
+   * 
    * @example
    * normalized
    */
   normalizationFieldSource?: string;
   /**
    * @remarks
-   * The description of the normalization rule.
+   * The normalization rule description.
    * 
    * @example
    * normalization_rule_Z57np
@@ -82,7 +88,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleDescription?: string;
   /**
    * @remarks
-   * The expression of the normalization rule.
+   * The normalization rule expression.
    * 
    * @example
    * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
@@ -90,7 +96,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleExpression?: string;
   /**
    * @remarks
-   * The format of the normalization rule.
+   * The normalization rule format.
    * 
    * @example
    * SPL
@@ -106,10 +112,10 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The mode of the normalization rule. Valid values:
+   * The normalization rule mode. Valid values:
    * - both
    * - scan
-   * - realtime.
+   * - realtime
    * 
    * @example
    * both
@@ -117,7 +123,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleMode?: string;
   /**
    * @remarks
-   * The name of the normalization rule.
+   * The normalization rule name.
    * 
    * @example
    * normalization_rule_Z57np
@@ -125,12 +131,12 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleName?: string;
   /**
    * @remarks
-   * The list of associated ingestion policies.
+   * The list of associated collection policies.
    */
   normalizationRuleReferences?: ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences[];
   /**
    * @remarks
-   * The status of the normalization rule.
+   * The normalization rule status.
    * 
    * @example
    * started
@@ -138,7 +144,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   normalizationRuleStatus?: string;
   /**
    * @remarks
-   * The type of the normalization rule. Valid values:
+   * The normalization rule type. Valid values:
    * - predefined: predefined normalization rule.
    * - custom: custom normalization rule.
    * 
@@ -163,6 +169,9 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The security domain ID.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
@@ -177,7 +186,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
   productId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -264,7 +273,7 @@ export class ListNormalizationRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query is required, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

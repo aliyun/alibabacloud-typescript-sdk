@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to automatically discover new users. Valid values:
-   * 
-   * - enabled: enabled.
-   * 
-   * - disabled: disabled.
+   * Indicates whether automatic discovery of new users is enabled. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -17,7 +15,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   autoScanNew?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -25,10 +23,8 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   createTime?: number;
   /**
    * @remarks
-   * The source of the data. Valid values:
-   * 
+   * The data source origin. Valid values:
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -37,7 +33,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   dataSourceFrom?: string;
   /**
    * @remarks
-   * Indicates whether to automatically discover new data sources.
+   * Indicates whether automatic discovery of new data sources is enabled.
    * 
    * @example
    * true
@@ -53,7 +49,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   dataSourceRecognizer?: string;
   /**
    * @remarks
-   * The ID of the data source template.
+   * The data source template ID.
    * 
    * @example
    * alibaba_cloud_actiontrail_event_ingestion
@@ -61,7 +57,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   dataSourceTemplateId?: string;
   /**
    * @remarks
-   * The name of the data source template.
+   * The data source template name.
    * 
    * @example
    * alibaba_cloud_actiontrail_event_ingestion
@@ -69,7 +65,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   dataSourceTemplateName?: string;
   /**
    * @remarks
-   * The rule for matching the name of the Simple Log Service project.
+   * The matching rule for the Simple Log Service project name.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******
@@ -82,7 +78,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   logRegionIds?: string[];
   /**
    * @remarks
-   * The rule for matching the name of the Simple Log Service Logstore.
+   * The matching rule for the Simple Log Service Logstore name.
    * 
    * @example
    * audit-activity
@@ -95,7 +91,7 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
   logUserIds?: string[];
   /**
    * @remarks
-   * The time when the template was updated.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123

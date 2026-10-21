@@ -8,6 +8,7 @@ export class ListTagsRequest extends $dara.Model {
    * The language of the response. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
+   * > This parameter is required. If you do not specify this parameter, the service returns a 400 error.
    * 
    * @example
    * zh
@@ -15,7 +16,7 @@ export class ListTagsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return when using NextToken-based pagination. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of entries to return when you use NextToken for pagination. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -23,7 +24,7 @@ export class ListTagsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next query is available, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for NextToken. In the next query, set NextToken to this value.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****
@@ -31,9 +32,9 @@ export class ListTagsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: the asset is in the Chinese mainland.
-   * - ap-southeast-1: the asset is outside China.
+   * The region where the data management center of threat detection and response is located. Specify the management center region based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -41,7 +42,7 @@ export class ListTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that the administrator switches to when viewing as another member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -50,8 +51,8 @@ export class ListTagsRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts in the enterprise.
+   * - 0: The view of the current Alibaba Cloud account.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -67,7 +68,7 @@ export class ListTagsRequest extends $dara.Model {
   targetRelation?: string;
   /**
    * @remarks
-   * The scan object type. Valid values:
+   * The object type of the scan target. Valid values:
    * 
    * - **1**: snapshot 
    * - **2**: image

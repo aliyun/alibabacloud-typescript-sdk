@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -23,7 +23,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that marks the current reading position. Leave this parameter empty to start reading from the beginning.
+   * The token that marks the start position of the current read. Leave this parameter empty to start from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -31,9 +31,9 @@ export class CreateResponseRuleRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: the Chinese mainland and Hong Kong (China).
-   * - ap-southeast-1: regions outside China.
+   * The region where the data management center for Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Assets are located in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -50,13 +50,12 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The action type of the automatic response rule. Valid values:
-   * 
-   * - doPlaybook: execute a playbook.
-   * - changeEventStatus: update the event status.
-   * - changeThreatLevel: update the event threat level.
-   * - addEventTag: add an event label.
-   * - deleteEventTag: delete an event label.
-   * - alertWhitelist: add the alert to the whitelist.
+   * - doPlaybook: runs a playbook.
+   * - changeEventStatus: updates the event status.
+   * - changeThreatLevel: updates the threat level of an event.
+   * - addEventTag: adds a tag to an event.
+   * - deleteEventTag: deletes a tag from an event.
+   * - alertWhitelist: adds an alert to the whitelist.
    * 
    * @example
    * doPlaybook
@@ -86,14 +85,17 @@ export class CreateResponseRuleRequest extends $dara.Model {
    * 1
    */
   responseRulePriority?: string;
+  /**
+   * @remarks
+   * The remarks for the response rule.
+   */
   responseRuleRemark?: string;
   /**
    * @remarks
    * The trigger type of the automatic response rule. Valid values:
-   * 
-   * - event: event occurrence.
-   * - event_update: event update.
-   * - alert: alert occurrence.
+   * - event: an event occurs.
+   * - event_update: an event is updated.
+   * - alert: an alert occurs.
    * 
    * @example
    * event
@@ -101,7 +103,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   responseTriggerType?: string;
   /**
    * @remarks
-   * The user ID that the administrator switches to for viewing from the perspective of another member.
+   * The user ID that the administrator uses to switch to the view of another member account.
    * 
    * @example
    * 113091674488****
@@ -110,7 +112,6 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * 
    * - 0: the view of the current Alibaba Cloud account.
    * - 1: the view of all accounts in the enterprise.
    * 

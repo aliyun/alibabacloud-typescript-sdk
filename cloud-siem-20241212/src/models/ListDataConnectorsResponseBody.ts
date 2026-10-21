@@ -13,7 +13,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   authConfigId?: string;
   /**
    * @remarks
-   * The cloud product of the authentication configuration.
+   * The cloud product to which the authentication configuration belongs.
    * 
    * @example
    * salesForceRestAPI
@@ -21,7 +21,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   authConfigProduct?: string;
   /**
    * @remarks
-   * The cloud vendor of the authentication configuration.
+   * The cloud vendor to which the authentication configuration belongs.
    * 
    * @example
    * SALESFORCE
@@ -109,7 +109,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The name of the SLS data import job associated with the collector.
+   * The name of the SLS data import job for the collector.
    * 
    * @example
    * 1a2b3c4d5e6f7a8b9c0d1e2f3a4b****
@@ -117,7 +117,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   slsIngestionJobName?: string;
   /**
    * @remarks
-   * The status of the SLS data import job associated with the collector.
+   * The status of the SLS data import job for the collector.
    * 
    * @example
    * running
@@ -200,7 +200,7 @@ export class ListDataConnectorsResponseBody extends $dara.Model {
   dataConnector?: ListDataConnectorsResponseBodyDataConnector[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of records returned in this query.
    * 
    * @example
    * 50

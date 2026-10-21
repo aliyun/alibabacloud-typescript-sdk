@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDetectionRulesResponseBodyDetectionRulesEntityMappingsNormalizationFieldMappings extends $dara.Model {
   /**
    * @remarks
-   * The mapped field.
+   * The mapping field.
    * 
    * @example
    * ip
@@ -13,7 +13,7 @@ export class ListDetectionRulesResponseBodyDetectionRulesEntityMappingsNormaliza
   mappingFieldName?: string;
   /**
    * @remarks
-   * The standard entity field.
+   * The normalized entity field.
    * 
    * @example
    * src_ip
@@ -21,7 +21,7 @@ export class ListDetectionRulesResponseBodyDetectionRulesEntityMappingsNormaliza
   normalizationFieldName?: string;
   /**
    * @remarks
-   * The data type of the standard entity field.
+   * The data type of the normalized entity field.
    * 
    * @example
    * vachar
@@ -95,7 +95,7 @@ export class ListDetectionRulesResponseBodyDetectionRulesEntityMappings extends 
 export class ListDetectionRulesResponseBodyDetectionRulesPlaybook extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the input parameters for invoking the playbook.
+   * The input parameter configuration for invoking the playbook.
    * 
    * @example
    * [
@@ -164,16 +164,20 @@ export class ListDetectionRulesResponseBodyDetectionRulesPlaybook extends $dara.
 export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
-   * The ATT\\&CK technique of the alert.
+   * The alert ATT&CK technique.
    * 
    * @example
    * Discovery
    */
   alertAttCk?: string;
+  /**
+   * @remarks
+   * The ATT&CK technique mapping.
+   */
   alertAttCkMapping?: string;
   /**
    * @remarks
-   * The alert description. You can use $$ to reference the output fields of the query.
+   * The alert description. You can use $$ to reference query output fields.
    * 
    * @example
    * Alert from: $product_code$, detected network attack from $src_ip$, affected assets include: $dst_ip$
@@ -182,25 +186,24 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
    * The threat level of the alert. Valid values:
-   * 
-   * - 5: critical.
-   * 
-   * - 4: important.
-   * 
-   * - 3: medium.
-   * 
-   * - 2: low.
-   * 
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 1
    */
   alertLevel?: string;
+  /**
+   * @remarks
+   * The alert level mapping.
+   */
   alertLevelMapping?: string;
   /**
    * @remarks
-   * The alert name. You can use $$ to reference the output fields of the query.
+   * The alert name. You can use $$ to reference query output fields.
    * 
    * @example
    * Detected high-frequency multi-type network attacks from $src_ip$
@@ -208,15 +211,11 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   alertName?: string;
   /**
    * @remarks
-   * The ID of the alert template for the detection rule. Valid values:
-   * 
+   * The alert template ID of the detection rule. Valid values:
    * - ALERT_ACTIVITY: other alerts.
-   * 
-   * - EDR_ALERT_ACTIVITY: Endpoint Detection and Response (EDR) alerts.
-   * 
+   * - EDR_ALERT_ACTIVITY: endpoint detection and response alerts.
    * - FIREWALL_ALERT_ACTIVITY: firewall alerts.
-   * 
-   * - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
+   * - WAF_ALERT_ACTIVITY: web application firewall alerts.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -232,7 +231,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   alertTacticId?: string;
   /**
    * @remarks
-   * The number of alert thresholds.
+   * The alert threshold count.
    * 
    * @example
    * 10
@@ -248,7 +247,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   alertThresholdGroup?: string;
   /**
    * @remarks
-   * The length of the alert threshold period.
+   * The alert threshold period length.
    * 
    * @example
    * 5m
@@ -256,16 +255,20 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   alertThresholdPeriod?: string;
   /**
    * @remarks
-   * The alert type.
+   * The alerting type.
    * 
    * @example
    * WebShell
    */
   alertType?: string;
+  /**
+   * @remarks
+   * The alerting type mapping.
+   */
   alertTypeMapping?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-03-21 13:47:01
@@ -273,7 +276,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The content of the detection rule expression.
+   * The expression content of the detection rule.
    * 
    * @example
    * *|set session mode=scan;SELECT * FROM log
@@ -294,7 +297,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   detectionExpressionContent?: string;
   /**
    * @remarks
-   * The type of the detection rule expression.
+   * The expression content of the detection rule.
    * 
    * @example
    * playbook
@@ -327,12 +330,9 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
    * The status of the detection rule. Valid values:
-   * 
-   * - enabled: The rule is enabled.
-   * 
-   * - disabled: The rule is disabled.
-   * 
-   * - testing: The rule is being tested.
+   * - enabled: Enabled.
+   * - disabled: Disabled.
+   * - testing: Testing.
    * 
    * @example
    * enabled
@@ -341,12 +341,9 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule. Valid values:
-   * 
-   * - preset: a built-in detection rule.
-   * 
-   * - custom: a custom detection rule.
-   * 
-   * - custom_template: a rule template.
+   * - preset: preset detection rule.
+   * - custom: custom detection rule.
+   * - custom_template: rule template.
    * 
    * @example
    * custom
@@ -359,7 +356,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   entityMappings?: ListDetectionRulesResponseBodyDetectionRulesEntityMappings[];
   /**
    * @remarks
-   * The configuration of the event aggregation period.
+   * The event aggregation period configuration.
    * 
    * @example
    * 5m
@@ -368,16 +365,11 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
    * The event aggregation type. Valid values:
-   * 
-   * - none: No events are generated.
-   * 
-   * - graph_compute: graph computing (supported by predefined rules).
-   * 
-   * - expert: expert rule.
-   * 
-   * - passthrough: alert passthrough (one-to-one).
-   * 
-   * - window: aggregation of similar alerts (by window).
+   * - none: No event is generated.
+   * - graph_compute: Graph computing (supported by predefined rules).
+   * - expert: Expert rule.
+   * - passthrough: Alerting pass-through (one-to-one).
+   * - window: Same-type aggregation (window).
    * 
    * @example
    * passthrough
@@ -401,12 +393,12 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   logSchemaId?: string;
   /**
    * @remarks
-   * The configuration of the playbook.
+   * The XML configuration of the playbook.
    */
   playbook?: ListDetectionRulesResponseBodyDetectionRulesPlaybook;
   /**
    * @remarks
-   * The custom parameters of the playbook.
+   * The user-defined parameters of the playbook.
    * 
    * @example
    * {
@@ -418,7 +410,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   playbookParameters?: string;
   /**
    * @remarks
-   * The UUID of the playbook.
+   * The playbook UUID.
    * 
    * @example
    * dde983ed-eb56-45ea-ac2e-3b12b2a9****
@@ -426,7 +418,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The start time of the scheduling. This is a 13-digit timestamp.
+   * The scheduling start time (13-digit timestamp).
    * 
    * @example
    * 1733269771123
@@ -434,7 +426,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleBeginTime?: number;
   /**
    * @remarks
-   * The cron expression for scheduling. This parameter is required when ScheduleType is set to cron.
+   * The scheduling cron expression. This parameter is required when ScheduleType is set to cron.
    * 
    * @example
    * 5m
@@ -442,7 +434,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleExpression?: string;
   /**
    * @remarks
-   * The maximum number of retries after a timeout. The value can be from 1 to 100.
+   * The maximum number of retries upon timeout. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -450,7 +442,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleMaxRetries?: number;
   /**
    * @remarks
-   * The maximum timeout period, in seconds. The value can be from 60 to 1800.
+   * The maximum timeout period, in seconds. Valid values: 60 to 1800.
    * 
    * @example
    * 60
@@ -460,9 +452,8 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
    * @remarks
    * The scheduling type. Valid values:
    * 
-   * - fixed_rate: fixed interval
-   * 
-   * - cron: cron expression
+   * - fixed_rate: fixed interval.
+   * - cron: cron expression.
    * 
    * @example
    * fixed_rate
@@ -470,7 +461,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The length of the scheduling window.
+   * The scheduling window length.
    * 
    * @example
    * 5m
@@ -478,7 +469,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleWindow?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-04-16 10:51:00
@@ -589,7 +580,7 @@ export class ListDetectionRulesResponseBody extends $dara.Model {
   detectionRules?: ListDetectionRulesResponseBodyDetectionRules[];
   /**
    * @remarks
-   * The maximum number of data entries to read.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -597,7 +588,7 @@ export class ListDetectionRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -605,7 +596,7 @@ export class ListDetectionRulesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination parameter. This specifies the current page number.
+   * The page number of the current page.
    * 
    * @example
    * 2
@@ -613,7 +604,7 @@ export class ListDetectionRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The pagination parameter. This specifies the number of entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
-   * 
+   * The language of the response. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * Note: This parameter is required in practice. If this parameter is not specified, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * A list of user IDs for batch data ingestion.
+   * The list of user IDs for batch data ingestion.
    */
   logUserIds?: number[];
   /**
@@ -30,11 +29,9 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select a region based on the location of your asset. Valid values:
-   * 
-   * - cn-hangzhou: Your asset is in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your asset is outside China.
+   * The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets reside in the Chinese mainland.
+   * - ap-southeast-1: The assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -50,7 +47,7 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   regionTag?: number;
   /**
    * @remarks
-   * The user ID of a member. This parameter is used by an administrator to switch to the perspective of the member.
+   * The user ID that the administrator switches to when viewing from another member\\"s perspective.
    * 
    * @example
    * 173326*******
@@ -66,10 +63,8 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   trafficStatisticPeriod?: string;
   /**
    * @remarks
-   * The statistic granularity. Valid values:
-   * 
+   * The statistical granularity. Valid values:
    * - day: day. This is the default value.
-   * 
    * - hour: hour.
    * 
    * @example
@@ -78,14 +73,10 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   trafficStatisticPeriodType?: string;
   /**
    * @remarks
-   * The statistic dimension. Valid values:
-   * 
+   * The statistical dimension. Valid values:
    * - Region
-   * 
    * - Product
-   * 
    * - DataIngetion
-   * 
    * - logUserId
    * 
    * @example
@@ -94,7 +85,7 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
   trafficStatisticType?: string;
   /**
    * @remarks
-   * The type of the log traffic.
+   * The log traffic type.
    * 
    * @example
    * agentAnalysisLogTraffic

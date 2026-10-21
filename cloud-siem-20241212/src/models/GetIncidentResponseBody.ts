@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIncidentResponseBodyIncident extends $dara.Model {
   /**
    * @remarks
-   * The count of attack stages associated with the event alerts.
+   * The number of attack phases in the alerts associated with the event.
    * 
    * @example
    * {
@@ -21,7 +21,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   attckTactics?: any;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1757386075000
@@ -37,13 +37,12 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   detectionRuleId?: string;
   /**
    * @remarks
-   * The event summaries type. Valid values:
-   * 
-   * - none: no event is generated.
-   * - graph_compute: graph computing (supported by predefined rules).
-   * - expert: expert rule.
-   * - passthrough: alerting pass-through (one-to-one).
-   * - window: same-type aggregation (window).
+   * The event aggregation type. Valid values:
+   * - none: No event is generated.
+   * - graph_compute: Graph computing (supported by predefined rules).
+   * - expert: Expert rules.
+   * - passthrough: Alert pass-through (one-to-one).
+   * - window: Similar event aggregation (window).
    * 
    * @example
    * window
@@ -67,7 +66,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The remarks of the event.
+   * The remarks on the event.
    * 
    * @example
    * Remark
@@ -76,10 +75,10 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   /**
    * @remarks
    * The status of the event. Valid values:
-   * - 0: unhandled.
-   * - 1: handling.
-   * - 5: handling failed.
-   * - 10: handled.
+   * - 0: Unhandled.
+   * - 1: Processing.
+   * - 5: Processing failed.
+   * - 10: Handled.
    * 
    * @example
    * 0
@@ -143,7 +142,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   relateUserIds?: any;
   /**
    * @remarks
-   * The response time. Unit: milliseconds (ms).
+   * The response time in milliseconds.
    * 
    * @example
    * 1757386075000
@@ -152,11 +151,11 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: critical.
-   * - 4: high.
-   * - 3: medium.
-   * - 2: low.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 2
@@ -172,7 +171,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   threatScore?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1757386075000
@@ -243,7 +242,7 @@ export class GetIncidentResponseBody extends $dara.Model {
   incident?: GetIncidentResponseBodyIncident;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

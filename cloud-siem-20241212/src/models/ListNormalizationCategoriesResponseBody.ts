@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNormalizationCategoriesResponseBodyNormalizationCategories extends $dara.Model {
   /**
    * @remarks
-   * The ID of the normalization category.
+   * The ID of the standardized category.
    * 
    * @example
    * COMMON_CATEGORY
@@ -13,7 +13,7 @@ export class ListNormalizationCategoriesResponseBodyNormalizationCategories exte
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The name of the normalization category.
+   * The name of the standardized category.
    * 
    * @example
    * COMMON_CATEGORY
@@ -45,7 +45,7 @@ export class ListNormalizationCategoriesResponseBodyNormalizationCategories exte
 export class ListNormalizationCategoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on the current page.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -53,7 +53,7 @@ export class ListNormalizationCategoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If the response does not contain this parameter, no more results are available.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -61,7 +61,7 @@ export class ListNormalizationCategoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of normalization categories.
+   * The list of standardized categories.
    */
   normalizationCategories?: ListNormalizationCategoriesResponseBodyNormalizationCategories[];
   /**
@@ -74,7 +74,7 @@ export class ListNormalizationCategoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 57

@@ -21,7 +21,7 @@ export class GetCopilotTurnByClientMessageIdResponseBodyTurn extends $dara.Model
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DDTHH:mm:ss.
    * 
    * @example
    * 2026-06-10T10:23:40
@@ -69,7 +69,7 @@ export class GetCopilotTurnByClientMessageIdResponseBodyTurn extends $dara.Model
   reasoningTokens?: number;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    */
   retryAllowed?: boolean;
   /**
@@ -148,7 +148,7 @@ export class GetCopilotTurnByClientMessageIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The security operations Agent conversation turn.
+   * The security operations agent conversation turn.
    */
   turn?: GetCopilotTurnByClientMessageIdResponseBodyTurn;
   static names(): { [key: string]: string } {

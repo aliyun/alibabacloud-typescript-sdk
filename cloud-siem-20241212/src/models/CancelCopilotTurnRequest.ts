@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCopilotTurnRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CancelCopilotTurnRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The language of the response message. Valid values:
+   * The language of the response messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -25,9 +25,9 @@ export class CancelCopilotTurnRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region where the Threat Analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
+   * The region where the data management center for threat analysis is located. Select the management center region based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -35,7 +35,7 @@ export class CancelCopilotTurnRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The trace ID used to track the service request.
+   * The trace ID used to track service requests.
    * 
    * @example
    * 550e8400e29b41d4a71644665544****
@@ -43,7 +43,7 @@ export class CancelCopilotTurnRequest extends $dara.Model {
   traceId?: string;
   /**
    * @remarks
-   * The primary key ID.
+   * The conversation turn ID, obtained from the streaming response of CreateCopilotChat.
    * 
    * This parameter is required.
    * 

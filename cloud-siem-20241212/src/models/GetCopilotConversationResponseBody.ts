@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCopilotConversationResponseBodyConversation extends $dara.Model {
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -13,10 +13,10 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   conversationId?: string;
   /**
    * @remarks
-   * The conversation summary.
+   * The session summary.
    * 
    * @example
-   * Preliminary correlation analysis of alerts and network logs has been completed
+   * Initial correlation analysis between alerts and network logs has been completed
    */
   conversationSummary?: string;
   /**
@@ -53,7 +53,7 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   model?: string;
   /**
    * @remarks
-   * Specifies whether planning is enabled. Valid values: [disable, enable, force]. Default value: enable.
+   * Specifies whether the plan mode is enabled. Valid values: disable, enable, and force. Default value: enable.
    * 
    * @example
    * enabled
@@ -85,7 +85,7 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The conversation summary version number.
+   * The version number of the session summary.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   thinkingMode?: string;
   /**
    * @remarks
-   * The conversation title.
+   * The session title.
    * 
    * @example
    * Security event investigation
@@ -109,7 +109,7 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   title?: string;
   /**
    * @remarks
-   * The update date.
+   * The update date. The format is YYYY-MM-DDTHH:mm:ss.
    * 
    * @example
    * 2026-06-09T10:27:35
@@ -118,7 +118,6 @@ export class GetCopilotConversationResponseBodyConversation extends $dara.Model 
   /**
    * @remarks
    * The visibility. Valid values:
-   * 
    * - **PUBLIC**: Public.
    * - **PRIVATE**: Private.
    * 

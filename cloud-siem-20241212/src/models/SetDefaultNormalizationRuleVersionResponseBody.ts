@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVersion extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the normalization rule version was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -94,6 +94,9 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The normalization security domain ID.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
@@ -108,7 +111,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   productId?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the normalization rule version was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123

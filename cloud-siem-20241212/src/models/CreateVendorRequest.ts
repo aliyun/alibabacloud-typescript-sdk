@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVendorRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
+   * The language of the response. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * > Note: This parameter is required in practice. If you omit it, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * en
@@ -17,11 +18,10 @@ export class CreateVendorRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region of the Data Management center. Select a region based on the location of your assets. Valid values:
+   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
    * 
-   * - cn-hangzhou: The assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: The assets are in a region outside China.
+   * - cn-hangzhou: Your assets belong to the Chinese mainland.
+   * - ap-southeast-1: Your assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class CreateVendorRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this parameter to switch to the member\\"s view.
+   * The ID of the member account that the administrator switches to.
    * 
    * @example
    * 173326*******
@@ -37,7 +37,7 @@ export class CreateVendorRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The name of the vendor.
+   * The vendor name.
    * 
    * @example
    * 111

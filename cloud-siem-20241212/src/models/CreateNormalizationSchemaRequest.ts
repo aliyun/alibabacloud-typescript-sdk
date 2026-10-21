@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   /**
    * @remarks
-   * The description of the key for a normalization field of the json type.
+   * The key description for a standard field of the JSON type.
    * 
    * @example
    * The alert severity levels are represented by the values 1, 2, 3, and 4.
@@ -13,7 +13,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldDescription?: string;
   /**
    * @remarks
-   * An example of the key for a normalization field of the json type.
+   * The key example for a standard field of the JSON type.
    * 
    * @example
    * 1, 2, 3, 4
@@ -21,7 +21,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The source of the key for a normalization field of the json type.
+   * The key source for a standard field of the JSON type.
    * 
    * @example
    * preset
@@ -29,7 +29,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * The name of the key for a normalization field of the json type.
+   * The key name for a standard field of the JSON type.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the key for a normalization field of the json type is required.
+   * Specifies whether the key for a standard field of the JSON type is required.
    * 
    * @example
    * true
@@ -47,7 +47,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether to tokenize the key for a normalization field of the json type.
+   * Specifies whether the key for a standard field of the JSON type is tokenized.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
   normalizationFieldTokenize?: boolean;
   /**
    * @remarks
-   * The type of the key for a normalization field of the json type. Supported types: text, long, double, and json.
+   * The key type for a standard field of the JSON type. Valid values: text, long, double, and json.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFie
 export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.Model {
   /**
    * @remarks
-   * The description of the normalization field.
+   * The standard field description.
    * 
    * @example
    * cloud_user
@@ -107,7 +107,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldDescription?: string;
   /**
    * @remarks
-   * An example of the normalization field.
+   * The standard field example.
    * 
    * @example
    * 173326*******
@@ -115,7 +115,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The source of the key for a normalization field of the json type.
+   * The key source for a standard field of the JSON type.
    * 
    * @example
    * preset
@@ -123,7 +123,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * Indicates whether to create an index for all keys of a json type normalization field.
+   * Specifies whether to create indexes for all keys in a standard field of the JSON type.
    * 
    * @example
    * true
@@ -131,12 +131,12 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldJsonIndexAll?: boolean;
   /**
    * @remarks
-   * The list of keys for a normalization field of the json type.
+   * The key list for a standard field of the JSON type.
    */
   normalizationFieldJsonKeys?: CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
    * @remarks
-   * The name of the normalization field.
+   * The normalization field name.
    * 
    * This parameter is required.
    * 
@@ -146,7 +146,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the normalization field is required.
+   * Specifies whether the standard field is required.
    * 
    * @example
    * true
@@ -154,7 +154,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field is required.
+   * Specifies whether the normalization field is required.
    * 
    * @example
    * true
@@ -162,7 +162,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldRequirement?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field is reserved.
+   * Specifies whether the normalization field is reserved.
    * 
    * @example
    * true
@@ -170,7 +170,7 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * Indicates whether to tokenize the normalization field.
+   * Specifies whether the standard field is tokenized.
    * 
    * @example
    * true
@@ -178,12 +178,12 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
   normalizationFieldTokenize?: boolean;
   /**
    * @remarks
-   * The type of the normalization field. Supported types: text, long, double, and json.
+   * The standard field type. Valid values: text, long, double, and json.
    * 
    * This parameter is required.
    * 
    * @example
-   * varchar
+   * text
    */
   normalizationFieldType?: string;
   static names(): { [key: string]: string } {
@@ -233,11 +233,11 @@ export class CreateNormalizationSchemaRequestNormalizationFields extends $dara.M
 export class CreateNormalizationSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message. Valid values:
+   * The language of the response messages. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
    * 
    * @example
    * zh
@@ -245,13 +245,16 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the normalization classification.
+   * The normalization category ID.
    * 
    * @example
    * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The field source.
+   * 
    * @example
    * native
    */
@@ -263,7 +266,7 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   normalizationFields?: CreateNormalizationSchemaRequestNormalizationFields[];
   /**
    * @remarks
-   * The description of the normalization structure.
+   * The normalization schema description.
    * 
    * @example
    * ProcessQuery
@@ -271,7 +274,7 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   normalizationSchemaDescription?: string;
   /**
    * @remarks
-   * The ID of the normalization structure.
+   * The normalization schema ID. When creating a custom schema, the ID must start with custom- and can contain only lowercase letters, digits, and hyphens. Example: custom-my-log-schema.
    * 
    * This parameter is required.
    * 
@@ -281,7 +284,7 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The name of the normalization structure.
+   * The normalization schema name.
    * 
    * This parameter is required.
    * 
@@ -291,11 +294,9 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   normalizationSchemaName?: string;
   /**
    * @remarks
-   * The type of the normalization structure. Valid values:
-   * 
-   * - log: a log
-   * 
-   * - entity: an entity
+   * The normalization schema type. Valid values:
+   * - log: log.
+   * - entity: entity.
    * 
    * This parameter is required.
    * 
@@ -304,22 +305,26 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
    */
   normalizationSchemaType?: string;
   /**
+   * @remarks
+   * The security domain ID.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
   normalizationSecurityDomainId?: string;
   /**
+   * @remarks
+   * The product ID.
+   * 
    * @example
    * sas
    */
   productId?: string;
   /**
    * @remarks
-   * The region where the Data Management center for threat analysis is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: for assets in the Chinese mainland and China (Hong Kong)
-   * 
-   * - ap-southeast-1: for assets in regions outside China
+   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: assets in the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: assets in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -327,7 +332,7 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this ID to switch to the member\\"s perspective.
+   * The user ID that the administrator uses to switch to the view of another member account.
    * 
    * @example
    * 113091674488****
@@ -335,7 +340,7 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The Simple Log Service Logstore.
+   * The Simple Log Service LogStore.
    * 
    * This parameter is required.
    * 
@@ -344,6 +349,9 @@ export class CreateNormalizationSchemaRequest extends $dara.Model {
    */
   targetLogStore?: string;
   /**
+   * @remarks
+   * The vendor ID.
+   * 
    * @example
    * alibaba
    */

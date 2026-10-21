@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateNormalizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 123456
@@ -13,7 +13,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The storage mode for extended fields. Valid values: \\`flat\\`, \\`pack\\`, and \\`reject\\`.
+   * The storage mode of extended fields. Valid values: flat, pack, and reject.
    * 
    * @example
    * flat
@@ -21,11 +21,11 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   extendFieldStoreMode?: string;
   /**
    * @remarks
-   * The language of the response messages. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message \\"The specified Lang can not be empty.\\" Explicitly specify the language code.
    * 
    * @example
    * zh
@@ -33,7 +33,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The sample log. The value must be in the JSON format.
+   * The log sample in JSON format.
    * 
    * @example
    * {"aaa":"bbb","xxx":"yyy"}
@@ -41,7 +41,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   logSample?: string;
   /**
    * @remarks
-   * The normalization category of the rule.
+   * The normalization category to which the rule belongs.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -49,7 +49,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The expression for the normalization rule.
+   * The expression of the normalization rule.
    * 
    * @example
    * *
@@ -57,7 +57,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   normalizationRuleExpression?: string;
   /**
    * @remarks
-   * The mode of the normalization rule. Valid values: \\`both\\` and \\`realtime\\`.
+   * The mode of the normalization rule. Valid values: both and realtime.
    * 
    * @example
    * realtime
@@ -65,7 +65,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   normalizationRuleMode?: string;
   /**
    * @remarks
-   * The ID of the normalization pattern for the rule.
+   * The ID of the normalization schema to which the rule belongs. This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -73,7 +73,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The product ID.
+   * The ID of the product.
    * 
    * @example
    * alibaba_cloud_sas
@@ -81,11 +81,9 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region where the Data Management center for threat analysis is deployed. Select the region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -93,7 +91,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. An administrator uses this parameter to switch to the perspective of the member.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******
@@ -101,7 +99,7 @@ export class ValidateNormalizationRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The vendor ID.
+   * The ID of the vendor.
    * 
    * @example
    * alibaba_cloud

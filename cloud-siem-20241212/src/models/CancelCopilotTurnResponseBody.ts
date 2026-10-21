@@ -15,7 +15,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   clientMessageId?: string;
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -23,7 +23,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2026-08-23T02:13:49Z
@@ -39,7 +39,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   feedback?: number;
   /**
    * @remarks
-   * The number of input tokens consumed.
+   * The number of tokens used for input.
    * 
    * @example
    * 1280
@@ -55,7 +55,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The number of output tokens.
+   * The number of tokens used for output.
    * 
    * @example
    * 856
@@ -63,7 +63,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   outputTokens?: number;
   /**
    * @remarks
-   * The number of reasoning tokens for the day.
+   * The number of reasoning tokens used on the current day.
    * 
    * @example
    * 420
@@ -71,12 +71,12 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
   reasoningTokens?: number;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    */
   retryAllowed?: boolean;
   /**
    * @remarks
-   * The status.
+   * The status of the conversation turn.
    * 
    * @example
    * success
@@ -134,7 +134,7 @@ export class CancelCopilotTurnResponseBodyTurn extends $dara.Model {
 export class CancelCopilotTurnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API version number, "1.0.0".
+   * The API version number. The value is 1.0.0.
    * 
    * @example
    * v1.2
@@ -150,7 +150,7 @@ export class CancelCopilotTurnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Security Operations Agent conversation turn.
+   * The security operations Agent conversation turn.
    */
   turn?: CancelCopilotTurnResponseBodyTurn;
   static names(): { [key: string]: string } {

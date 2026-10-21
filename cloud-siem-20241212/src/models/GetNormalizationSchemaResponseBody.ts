@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -13,7 +13,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   createTime?: number;
   /**
    * @remarks
-   * The key description of the JSON-type standard field.
+   * The description of the key for a JSON normalization field.
    * 
    * @example
    * Cloud Provider Code
@@ -21,7 +21,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldDescription?: string;
   /**
    * @remarks
-   * The key example of the JSON-type standard field.
+   * The example of the key for a JSON normalization field.
    * 
    * @example
    * alibaba_cloud
@@ -29,7 +29,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The key source of the JSON-type standard field.
+   * The source of the key for a JSON normalization field.
    * 
    * @example
    * preset
@@ -37,7 +37,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * The key name of the JSON-type standard field.
+   * The name of the key for a JSON normalization field.
    * 
    * @example
    * cloud_code
@@ -45,22 +45,22 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the key of the JSON-type standard field is required.
+   * Specifies whether the key of a JSON normalization field is required.
    */
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is a system built-in standard field name.
+   * Specifies whether the normalization field name is a system built-in name.
    */
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * Indicates whether the key of the JSON-type standard field is tokenized.
+   * Specifies whether the key of a JSON normalization field is tokenized.
    */
   normalizationFieldTokenize?: boolean;
   /**
    * @remarks
-   * The key type of the JSON-type standard field.
+   * The type of the key for a JSON normalization field.
    * 
    * @example
    * varchar
@@ -68,7 +68,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -116,7 +116,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -124,7 +124,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   createTime?: number;
   /**
    * @remarks
-   * The normalization field description.
+   * The description of the normalization field.
    * 
    * @example
    * cloud_user
@@ -132,7 +132,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldDescription?: string;
   /**
    * @remarks
-   * The normalization field example.
+   * The example of the normalization field.
    * 
    * @example
    * 173326*******
@@ -140,7 +140,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The source of the standard field. Valid values:
+   * The source of the normalization field. Valid values:
    * - preset: built-in.
    * - custom: custom.
    * 
@@ -150,17 +150,17 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * Indicates whether indexes are created for all keys of the JSON-type standard field.
+   * Specifies whether indexes are created for all keys of a JSON normalization field.
    */
   normalizationFieldJsonIndexAll?: boolean;
   /**
    * @remarks
-   * The key list of the JSON-type standard field.
+   * The list of keys for a JSON normalization field.
    */
   normalizationFieldJsonKeys?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
    * @remarks
-   * The normalization field name.
+   * The name of the normalization field.
    * 
    * @example
    * cloud_user
@@ -168,12 +168,12 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the field is required.
+   * Specifies whether the field is required.
    */
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field is required.
+   * Specifies whether the normalization field is required.
    * 
    * @example
    * true
@@ -181,7 +181,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldRequirement?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field is reserved.
+   * Specifies whether the normalization field is reserved.
    * 
    * @example
    * true
@@ -189,12 +189,12 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * Indicates whether the standard field is tokenized.
+   * Specifies whether the normalization field is tokenized.
    */
   normalizationFieldTokenize?: boolean;
   /**
    * @remarks
-   * The normalization field type. Valid values:
+   * The type of the normalization field. Valid values:
    * - varchar
    * - bigint
    * - double
@@ -205,7 +205,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   normalizationFieldType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -262,7 +262,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences extends $dara.Model {
   /**
    * @remarks
-   * The normalization rule ID.
+   * The ID of the normalization rule.
    * 
    * @example
    * alibaba_cloud_cfw_flow_rule
@@ -292,7 +292,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationS
 export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -300,13 +300,16 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   createTime?: number;
   /**
    * @remarks
-   * The ID of the normalization rule category.
+   * The ID of the normalized rule category.
    * 
    * @example
    * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The source of the field. Valid values: normalized: normalized field, native: native field.
+   * 
    * @example
    * native
    */
@@ -318,7 +321,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   normalizationFields?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields[];
   /**
    * @remarks
-   * The normalization schema description.
+   * The description of the normalization schema.
    * 
    * @example
    * Network 5-Tuple Logs
@@ -336,7 +339,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   normalizationSchemaFrom?: string;
   /**
    * @remarks
-   * The normalization schema ID.
+   * The ID of the normalization schema.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -344,7 +347,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The normalization schema name.
+   * The name of the normalization schema.
    * 
    * @example
    * normalization_rule_Z57np
@@ -357,7 +360,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   normalizationSchemaReferences?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences[];
   /**
    * @remarks
-   * The normalization schema type. Valid values:
+   * The type of the normalization schema. Valid values:
    * - log
    * - entity
    * - incident
@@ -367,19 +370,29 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
    */
   normalizationSchemaType?: string;
   /**
+   * @remarks
+   * The security domain ID.
+   * 
    * @example
    * DATA_SECURITY
    */
   normalizationSecurityDomainId?: string;
   /**
+   * @remarks
+   * The product ID.
+   * 
    * @example
    * alibaba_cloud_bastionhost
    */
   productId?: string;
+  /**
+   * @remarks
+   * The list of recommended entities.
+   */
   recommendEntities?: string[];
   /**
    * @remarks
-   * The Simple Log Service LogStore.
+   * The Simple Log Service Logstore.
    * 
    * @example
    * network-activity
@@ -395,13 +408,16 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
   targetStoreView?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
    */
   updateTime?: number;
   /**
+   * @remarks
+   * The vendor ID.
+   * 
    * @example
    * alibaba_cloud
    */

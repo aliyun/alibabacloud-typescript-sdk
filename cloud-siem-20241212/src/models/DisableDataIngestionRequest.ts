@@ -14,10 +14,10 @@ export class DisableDataIngestionRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is actually required. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -25,11 +25,9 @@ export class DisableDataIngestionRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select the region of the management center based on the region where your asset is located. Valid values:
-   * 
-   * - cn-hangzhou: Your asset is in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your asset is outside China.
+   * The region in which the threat analysis data management center resides. Specify this parameter based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +35,7 @@ export class DisableDataIngestionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member account that the administrator wants to switch to.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******

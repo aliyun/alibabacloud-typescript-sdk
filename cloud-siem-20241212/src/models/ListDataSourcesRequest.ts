@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the data. Valid values:
-   * 
+   * The data source origin. Valid values:
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -17,12 +15,12 @@ export class ListDataSourcesRequest extends $dara.Model {
   dataSourceFrom?: string;
   /**
    * @remarks
-   * The IDs of the data sources.
+   * The list of data source IDs.
    */
   dataSourceIds?: string[];
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * alibaba_cloud_waf_alert_log
@@ -30,12 +28,9 @@ export class ListDataSourcesRequest extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * The status of the data source. Valid values:
-   * 
+   * The data source status. Valid values:
    * - unconfigured
-   * 
    * - normal
-   * 
    * - abnormal
    * 
    * @example
@@ -44,10 +39,8 @@ export class ListDataSourcesRequest extends $dara.Model {
   dataSourceStatus?: string;
   /**
    * @remarks
-   * The status of the Logstore. Valid values:
-   * 
+   * The Logstore status. Valid values:
    * - normal
-   * 
    * - abnormal
    * 
    * @example
@@ -56,16 +49,14 @@ export class ListDataSourcesRequest extends $dara.Model {
   dataSourceStoreStatus?: string;
   /**
    * @remarks
-   * The IDs of the data source templates.
+   * The list of data source template IDs.
    */
   dataSourceTemplateIds?: string[];
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * - preset
-   * 
-   * - custom
+   * The data source type. Valid values:
+   *  - preset
+   *  - custom
    * 
    * @example
    * custom
@@ -74,10 +65,10 @@ export class ListDataSourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * 
+   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
    * 
    * @example
    * zh
@@ -85,7 +76,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The Simple Log Service project name.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -93,7 +84,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   logProjectName?: string;
   /**
    * @remarks
-   * The ID of the log storage region.
+   * The log storage region ID.
    * 
    * @example
    * cn-hangzhou
@@ -101,7 +92,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The Simple Log Service Logstore name.
    * 
    * @example
    * audit-activity
@@ -109,12 +100,12 @@ export class ListDataSourcesRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The IDs of the users who can access the data.
+   * The list of data ingestion user IDs.
    */
   logUserIds?: number[];
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -125,7 +116,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the response to the previous query. Leave this parameter empty for the first query.
+   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -133,10 +124,8 @@ export class ListDataSourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
-   * 
+   * The sort order. Valid values:
    * - desc
-   * 
    * - asc
    * 
    * @example
@@ -145,7 +134,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The sorting field.
+   * The field used for sorting.
    * 
    * @example
    * UpdateTime
@@ -169,11 +158,9 @@ export class ListDataSourcesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region where the Data Management Center of your threat analysis feature is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -181,7 +168,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. You can use this parameter to switch the perspective to a member.
+   * The user ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******

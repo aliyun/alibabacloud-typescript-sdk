@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -13,7 +13,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   createTime?: number;
   /**
    * @remarks
-   * The description of the JSON-type normalization field key.
+   * The description of the JSON-type standard field key.
    * 
    * @example
    * alert_level
@@ -21,7 +21,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   normalizationFieldDescription?: string;
   /**
    * @remarks
-   * The example value of the JSON-type normalization field key.
+   * The example value of the JSON-type standard field key.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The source of the normalization field key of the JSON type.
+   * The source of the JSON-type standard field key.
    * 
    * @example
    * preset
@@ -37,7 +37,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * The name of the JSON-type normalization field key.
+   * The name of the JSON-type standard field key.
    * 
    * @example
    * alert_level
@@ -45,22 +45,22 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the JSON-type normalization field key is required.
+   * Indicates whether the JSON-type standard field key is required.
    */
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field key is a built-in system field key.
+   * Indicates whether the standard field key is a system built-in key.
    */
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * Indicates whether the JSON-type normalization field key is tokenized.
+   * Indicates whether the JSON-type standard field key is tokenized.
    */
   normalizationFieldTokenize?: boolean;
   /**
    * @remarks
-   * The type of the JSON-type normalization field key.
+   * The type of the JSON-type standard field key.
    * 
    * @example
    * text
@@ -68,7 +68,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   normalizationFieldType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -116,7 +116,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
 export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -124,7 +124,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   createTime?: number;
   /**
    * @remarks
-   * The ID of the normalization category.
+   * The normalization category ID.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -148,7 +148,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   normalizationFieldExample?: string;
   /**
    * @remarks
-   * The source of the normalization field key of the JSON type.
+   * The source of the JSON-type standard field key.
    * 
    * @example
    * preset
@@ -156,12 +156,12 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   normalizationFieldFrom?: string;
   /**
    * @remarks
-   * Indicates whether indexes are created for all keys of the JSON-type normalization field.
+   * Indicates whether indexes are created for all keys of the JSON-type standard field.
    */
   normalizationFieldJsonIndexAll?: boolean;
   /**
    * @remarks
-   * The list of keys for the JSON-type normalization field.
+   * The list of keys for the JSON-type standard field.
    */
   normalizationFieldJsonKeys?: ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
@@ -174,7 +174,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the normalization field key is required.
+   * Indicates whether the standard field key is required.
    */
   normalizationFieldRequired?: boolean;
   /**
@@ -195,7 +195,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * Indicates whether the normalization field is tokenized.
+   * Indicates whether the standard field is tokenized.
    */
   normalizationFieldTokenize?: boolean;
   /**
@@ -203,7 +203,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
    * The type of the normalization field. Valid values:
    * - varchar
    * - bigint
-   * - double.
+   * - double
    * 
    * @example
    * varchar
@@ -211,20 +211,23 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   normalizationFieldType?: string;
   /**
    * @remarks
-   * The ID of the normalization schema.
+   * The normalization schema ID.
    * 
    * @example
    * NETWORK_SESSION_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The security domain ID.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -287,7 +290,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
 export class ListNormalizationFieldsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50
@@ -295,7 +298,7 @@ export class ListNormalizationFieldsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether a next query token exists. You do not need to specify this parameter for the first query or if no next query exists. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+   * Specifies whether a next query token exists. Leave this parameter empty for the first query or when no more results are available. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

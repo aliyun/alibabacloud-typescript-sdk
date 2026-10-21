@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCopilotTurnRequest extends $dara.Model {
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCopilotTurnRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -25,9 +25,9 @@ export class GetCopilotTurnRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: Your assets reside outside China.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -35,7 +35,7 @@ export class GetCopilotTurnRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The trace ID, which is used to query specific call information.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 550e8400e29b41d4a71644665544****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   /**
    * @remarks
-   * The time when the data ingestion was enabled.
+   * The activation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -21,7 +21,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   capacityCount?: number;
   /**
    * @remarks
-   * The time when the data ingestion was created.
+   * The creation time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -29,7 +29,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the data ingestion.
+   * The data ingestion ID.
    * 
    * @example
    * alibaba_cloud_sas_netstat_ingestion_173326*******
@@ -37,10 +37,8 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionId?: string;
   /**
    * @remarks
-   * The mode of the data ingestion. Valid values:
-   * 
+   * The data ingestion mode. Valid values:
    * - realtime
-   * 
    * - scan
    * 
    * @example
@@ -57,12 +55,9 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionModeEditable?: boolean;
   /**
    * @remarks
-   * The state of the data ingestion. Valid values:
-   * 
+   * The data ingestion state. Valid values:
    * - ingested
-   * 
    * - uningested
-   * 
    * - abnormal
    * 
    * @example
@@ -71,7 +66,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionState?: string;
   /**
    * @remarks
-   * The error code for the data ingestion anomaly.
+   * The error code for the data ingestion exception state.
    * 
    * @example
    * UserUnauthorized
@@ -79,11 +74,9 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionStateCode?: string;
   /**
    * @remarks
-   * The status of the data ingestion. Valid values:
-   * 
-   * - enabled: The data ingestion is enabled.
-   * 
-   * - disabled: The data ingestion is disabled.
+   * The accessed state of data ingestion. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -91,7 +84,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionStatus?: string;
   /**
    * @remarks
-   * The ID of the data ingestion template.
+   * The data ingestion template ID.
    * 
    * @example
    * alibaba_cloud_sas_netstat_ingestion
@@ -99,10 +92,8 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataIngestionTemplateId?: string;
   /**
    * @remarks
-   * The type of the data ingestion. Valid values:
-   * 
+   * The data ingestion type. Valid values:
    * - preset
-   * 
    * - custom
    * 
    * @example
@@ -119,7 +110,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   dataSourceEditable?: boolean;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
    * @example
    * ds-scpfegri73oyoknbc90c
@@ -135,7 +126,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   normalizationRuleEditable?: boolean;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
    * 
    * @example
    * nr-0aywiqdtaqdvwac7xkbjsf3a
@@ -143,7 +134,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the data source for real-time ingestion.
+   * The data source ID in real-time mode.
    * 
    * @example
    * ds-scpfegri73oyoknbc90c
@@ -151,7 +142,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   realtimeDataSourceId?: string;
   /**
    * @remarks
-   * The ID of the data source for scan-based ingestion.
+   * The data source ID in scan mode.
    * 
    * @example
    * ds-scpfegri73oyoknbc90c
@@ -159,7 +150,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   scanDataSourceId?: string;
   /**
    * @remarks
-   * The job ID of the stream processing task.
+   * The stream job ID.
    * 
    * @example
    * 73a78aa245e3b1299d6ceed093de7bd8
@@ -167,7 +158,7 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   streamJobId?: string;
   /**
    * @remarks
-   * The time when the data ingestion was last updated.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123

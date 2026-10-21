@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * host
@@ -13,7 +13,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   fieldName?: string;
   /**
    * @remarks
-   * The field value.
+   * The field information.
    * 
    * @example
    * ze
@@ -38,20 +38,13 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   /**
    * @remarks
    * The reason for the validation result. Valid values:
-   * 
    * - OperationDenied.TheValueIsRequired: A required parameter is empty.
-   * 
-   * - OperationDenied.TheValueIsNull: The parameter value is empty.
-   * 
-   * - OperationDenied.TheEnumValueNotSupport: The field value is not within the valid enumeration.
-   * 
-   * - OperationDenied.TheValueLessThanMin: The field value is less than the minimum value.
-   * 
-   * - OperationDenied.TheValueMoreThanMax: The field value is greater than the maximum value.
-   * 
-   * - OperationDenied.TheValueNotMatchRegularExpression: The field value does not match the regular expression.
-   * 
-   * - success: The validation passed.
+   * - OperationDenied.TheValueIsNull: The parameter value is null.
+   * - OperationDenied.TheEnumValueNotSupport: The field value is not within the valid enum values.
+   * - OperationDenied.TheValueLessThanMin: The field value is less than the specified minimum value.
+   * - OperationDenied.TheValueMoreThanMax: The field value is greater than the specified maximum value.
+   * - OperationDenied.TheValueNotMatchRegularExpression: The field value fails the regular expression match.
+   * - success: The validation is passed.
    * 
    * @example
    * success
@@ -59,7 +52,9 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The source of the normalized field. Valid values: \\`preset\\` (built-in) and \\`custom\\`.
+   * The source of the normalized field. Valid values:
+   * - preset: Built-in.
+   * - custom: Custom.
    * 
    * @example
    * preset
@@ -75,7 +70,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldName?: string;
   /**
    * @remarks
-   * Indicates whether the normalized field is required.
+   * Specifies whether the normalized field is required.
    * 
    * @example
    * true
@@ -83,12 +78,12 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the name of the normalized field is a built-in field name.
+   * Specifies whether the normalized field name is built into the system.
    */
   normalizationFieldReserved?: boolean;
   /**
    * @remarks
-   * The type of the normalized field. Supported types: \\`text\\`, \\`long\\`, \\`double\\`, and \\`json\\`.
+   * The type of the normalized field. Valid values: text, long, double, and json.
    * 
    * @example
    * text
@@ -96,7 +91,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldType?: string;
   /**
    * @remarks
-   * The reason why the validation of the normalized field failed.
+   * The reason why the normalized field fails the validation.
    * 
    * @example
    * OperationDenied.TheValueIsRequired
@@ -104,7 +99,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldValidationReason?: string;
   /**
    * @remarks
-   * The validation status of the normalized field. Valid values: \\`pass\\` and \\`fail\\`.
+   * The validation status of the normalized field. Valid values: pass and fail.
    * 
    * @example
    * pass
@@ -112,13 +107,10 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldValidationStatus?: string;
   /**
    * @remarks
-   * The result of the validation. Valid values:
-   * 
-   * - 1: The validation passed.
-   * 
+   * The validation result. Valid values:
+   * - 1: The validation is passed.
    * - 0: A warning is returned.
-   * 
-   * - -1: The validation failed.
+   * - 1: The validation fails.
    * 
    * @example
    * 1
@@ -172,7 +164,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
 export class ValidateNormalizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

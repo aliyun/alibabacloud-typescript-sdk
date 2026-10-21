@@ -14,10 +14,8 @@ export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $da
   /**
    * @remarks
    * The disposal method. Valid values:
-   * 
-   * - `ignore`: Ignore.
-   * 
-   * - `dispose`: Playbook-based disposal.
+   * - ignore: Ignored.
+   * - dispose: Playbook-based disposal.
    * 
    * @example
    * dispose
@@ -42,16 +40,11 @@ export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $da
   /**
    * @remarks
    * The entity type. Valid values:
-   * 
-   * - `ip`: An IP address.
-   * 
-   * - `domain`: A domain.
-   * 
-   * - `process`: A process.
-   * 
-   * - `file`: A file.
-   * 
-   * - `host`: A host.
+   * - ip: IP address.
+   * - domain: domain name.
+   * - process: process.
+   * - file: file.
+   * - host: host.
    * 
    * @example
    * process
@@ -75,7 +68,7 @@ export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $da
   playbookUuid?: string;
   /**
    * @remarks
-   * The unique identifier (UUID) of the entry.
+   * The UUID of the playbook. This is the unique identifier of the playbook.
    * 
    * @example
    * 0d23f133-22d7-4388-b738-ab******
@@ -119,7 +112,7 @@ export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $da
 export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of AI-powered automated analysis entities.
+   * The list of AI automatic decision-making entity information.
    */
   autoDecisionEntities?: ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities[];
   /**
@@ -132,7 +125,7 @@ export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries returned in this call.
    * 
    * @example
    * 50
@@ -140,7 +133,7 @@ export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. An empty value indicates that all results have been returned.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -156,7 +149,7 @@ export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
@@ -164,7 +157,7 @@ export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of entries.
+   * The total number of records.
    * 
    * @example
    * 57

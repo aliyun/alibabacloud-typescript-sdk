@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -13,7 +13,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   createTime?: number;
   /**
    * @remarks
-   * Specifies whether to pack non-standard fields into the extend_content field. Valid values:
+   * Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -23,10 +23,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   extendContentPacked?: string;
   /**
    * @remarks
-   * The storage mode for extended fields. Valid values:
-   * - flat: ingested as-is.
-   * - reject: not ingested.
-   * - pack: packed into the extend_content field.
+   * The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
    * 
    * @example
    * flat
@@ -41,6 +38,11 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The field source:
+   * - "native": raw logs
+   * - "normalized": normalized logs
+   * 
    * @example
    * normalized
    */
@@ -71,7 +73,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   normalizationRuleFormat?: string;
   /**
    * @remarks
-   * The normalization rule ID.
+   * The ID of the normalization rule.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -79,7 +81,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The list of normalization rule IDs.
+   * The IDs of the normalization rules.
    */
   normalizationRuleIds?: string[];
   /**
@@ -87,7 +89,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
    * The mode of the normalization rule. Valid values:
    * - both
    * - scan
-   * - realtime.
+   * - realtime
    * 
    * @example
    * both
@@ -112,8 +114,8 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   /**
    * @remarks
    * The type of the normalization rule. Valid values:
-   * - predefined: predefined normalization rule.
-   * - custom: custom normalization rule.
+   * - predefined: predefined normalization rule
+   * - custom: custom normalization rule
    * 
    * @example
    * predefined
@@ -129,13 +131,16 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   normalizationRuleVersion?: number;
   /**
    * @remarks
-   * The normalization schema ID.
+   * The ID of the normalization schema.
    * 
    * @example
    * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the normalization security domain.
+   * 
    * @example
    * NETWORK_AND_WEB_SECURITY
    */
@@ -143,8 +148,8 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   /**
    * @remarks
    * The field used to sort the rule list. Valid values:
-   * - GmtModified: sorted by modification time.
-   * - Id: sorted by rule ID (default).
+   * - GmtModified: sort by modification time
+   * - Id: sort by rule ID (default)
    * 
    * @example
    * GmtModified
@@ -160,7 +165,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   productId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -168,7 +173,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   updateTime?: number;
   /**
    * @remarks
-   * The vendor ID associated with the normalization rule.
+   * The ID of the vendor corresponding to the normalization rule.
    * 
    * @example
    * alibaba_cloud
@@ -246,7 +251,7 @@ export class GetNormalizationRuleResponseBody extends $dara.Model {
   normalizationRule?: GetNormalizationRuleResponseBodyNormalizationRule;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

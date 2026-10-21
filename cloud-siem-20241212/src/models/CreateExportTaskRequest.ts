@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters for the export task. The value is a JSON string that is generated based on the query conditions.
+   * The export task parameters, which are concatenated based on query conditions in JSON format.
    * 
    * @example
    * {
@@ -18,9 +18,8 @@ export class CreateExportTaskRequest extends $dara.Model {
   exportTaskParameter?: string;
   /**
    * @remarks
-   * The type of data to export. Valid values:
-   * 
-   * - incident_list: event list.
+   * The export type. Valid values:
+   * - incident_list: Event list.
    * 
    * @example
    * incident_list
@@ -29,10 +28,9 @@ export class CreateExportTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * > Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -40,11 +38,9 @@ export class CreateExportTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region of the Data Management center. Select a region based on where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: The Chinese mainland.
-   * 
-   * - ap-southeast-1: Regions outside China.
+   * The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +48,7 @@ export class CreateExportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this parameter to switch to the perspective of a member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****

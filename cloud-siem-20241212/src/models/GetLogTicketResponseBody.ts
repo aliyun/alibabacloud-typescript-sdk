@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLogTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ticket for Simple Log Service.
+   * The Simple Log Service ticket.
    * 
    * @example
    * *******
@@ -13,7 +13,7 @@ export class GetLogTicketResponseBody extends $dara.Model {
   logTicket?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 173326*******

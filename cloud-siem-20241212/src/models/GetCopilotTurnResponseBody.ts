@@ -13,7 +13,7 @@ export class GetCopilotTurnResponseBodyTurn extends $dara.Model {
   clientMessageId?: string;
   /**
    * @remarks
-   * The security operations Agent session ID.
+   * The Security Operations agent conversation ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -21,7 +21,7 @@ export class GetCopilotTurnResponseBodyTurn extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2026-08-12T10:17:46.398+08:00
@@ -69,7 +69,7 @@ export class GetCopilotTurnResponseBodyTurn extends $dara.Model {
   reasoningTokens?: number;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    */
   retryAllowed?: boolean;
   /**
@@ -148,7 +148,7 @@ export class GetCopilotTurnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The security operations Agent conversation turn.
+   * The Security Operations agent conversation turn.
    */
   turn?: GetCopilotTurnResponseBodyTurn;
   static names(): { [key: string]: string } {

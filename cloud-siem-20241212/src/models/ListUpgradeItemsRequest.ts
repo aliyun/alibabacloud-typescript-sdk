@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListUpgradeItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response messages. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * Note: This parameter is required. If it is not specified, the service returns a 400 error (The specified Lang can not be empty.).
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class ListUpgradeItemsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return in a single call.
    * 
    * @example
    * 50
@@ -25,7 +24,7 @@ export class ListUpgradeItemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. Leave this parameter empty for the first request. To retrieve the next page, set this parameter to the NextToken value from the previous response.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if there are no more results to return. If a next page exists, set this parameter to the value of NextToken returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -33,11 +32,9 @@ export class ListUpgradeItemsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the Data Management center is located. Select a region based on where your assets are. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are outside China.
+   * The region where the data management center of Cloud Threat Detection and Response (CTDR) resides. Select the region based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +42,7 @@ export class ListUpgradeItemsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. An administrator can use this parameter to switch to the member\\"s view.
+   * The user ID of the member account that the administrator switches to.
    * 
    * @example
    * 113091674488****

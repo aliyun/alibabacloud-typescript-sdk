@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetExportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * - success: The task is successful.
-   * 
-   * - exporting: The task is in progress.
+   * The task status. Valid values:
+   * - success: The export is successful.
+   * - exporting: The export is in progress.
    * 
    * @example
    * success
@@ -17,9 +15,8 @@ export class GetExportTaskResponseBody extends $dara.Model {
   exportStatus?: string;
   /**
    * @remarks
-   * The type of the export task. Valid value:
-   * 
-   * - incident_list: event list.
+   * The export type. Valid values:
+   * - incident_list: incident list.
    * 
    * @example
    * incident_list
@@ -27,7 +24,7 @@ export class GetExportTaskResponseBody extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * event_1193842352994186_17344888****.xlsx
@@ -35,7 +32,7 @@ export class GetExportTaskResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * @example
    * 1605076118000
@@ -43,7 +40,7 @@ export class GetExportTaskResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The ID of the export task.
+   * The export task ID.
    * 
    * @example
    * 400185
@@ -51,7 +48,7 @@ export class GetExportTaskResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The download link for the exported Excel file.
+   * The download URL of the exported Excel file.
    * 
    * @example
    * https://cloud-siem-user-dataset.oss-cn-shanghai.aliyuncs.com/export_file/17661858******5/event_17661858******5_175748****.xlsx
@@ -59,7 +56,7 @@ export class GetExportTaskResponseBody extends $dara.Model {
   link?: string;
   /**
    * @remarks
-   * The progress of the export task.
+   * The export progress.
    * 
    * @example
    * 66

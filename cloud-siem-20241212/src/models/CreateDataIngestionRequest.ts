@@ -14,9 +14,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   /**
    * @remarks
    * The data ingestion mode. Valid values:
-   * 
    * - realtime
-   * 
    * - scan
    * 
    * @example
@@ -25,7 +23,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   dataIngestionMode?: string;
   /**
    * @remarks
-   * The error code for the data ingestion status.
+   * The status code for data ingestion exceptions.
    * 
    * @example
    * UserUnauthorized
@@ -34,9 +32,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   /**
    * @remarks
    * The data ingestion type. Valid values:
-   * 
    * - preset
-   * 
    * - custom
    * 
    * @example
@@ -45,7 +41,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   dataIngestionType?: string;
   /**
    * @remarks
-   * Specifies whether the data source can be edited.
+   * Specifies whether the data source is editable.
    * 
    * @example
    * true
@@ -53,7 +49,9 @@ export class CreateDataIngestionRequest extends $dara.Model {
   dataSourceEditable?: boolean;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
+   * > This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error: "The specified DataSourceId is invalid."
+   * Before calling this operation, call the CreateDataSource operation to create a data source and obtain the data source ID.
    * 
    * @example
    * ds-3g6lyf4eonngyohaq7tr
@@ -62,10 +60,9 @@ export class CreateDataIngestionRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
+   * > This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -73,7 +70,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether the normalization rule can be edited.
+   * Specifies whether the normalization rule is editable.
    * 
    * @example
    * true
@@ -81,7 +78,8 @@ export class CreateDataIngestionRequest extends $dara.Model {
   normalizationRuleEditable?: boolean;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
+   * Before calling this operation, call the CreateNormalizationRule operation to create a normalization rule and obtain the normalization rule ID.
    * 
    * @example
    * nr-hdmady54piigkjfv17yp
@@ -97,11 +95,10 @@ export class CreateDataIngestionRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region where the Data Management hub for threat analysis is located. Select a region for the management hub based on the region of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region of the management center for threat analysis. Specify the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
+   * - cn-shanghai: The actual effective value. RegionId refers to the management center location, which is a different dimension from the API endpoint region (cn-shanghai).
    * 
    * @example
    * cn-hangzhou
@@ -109,7 +106,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this parameter to assume the permissions of the specified member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 173326*******
@@ -117,7 +114,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The ID of the data source for the scan mode.
+   * The data source ID for scan mode.
    * 
    * @example
    * ds-014frtpy28m5ct2eoyo1
@@ -125,7 +122,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   scanDataSourceId?: string;
   /**
    * @remarks
-   * The ID of the stream job.
+   * The job ID of the stream task.
    * 
    * @example
    * 802c0129b6cfd50861d4b25deea29afb
@@ -133,7 +130,7 @@ export class CreateDataIngestionRequest extends $dara.Model {
   streamJobId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123

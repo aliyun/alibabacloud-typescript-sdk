@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
-   * The alert information of the incident.
+   * The list of associated alert information.
    */
   alertInfos?: string;
   /**
@@ -15,12 +15,12 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   alertSources?: string[];
   /**
    * @remarks
-   * The attacker tactics.
+   * The list of MITRE ATT&CK tactics.
    */
   attckTactics?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1603248483000
@@ -41,7 +41,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   detectionRuleName?: string;
   /**
    * @remarks
-   * The entity information associated with the incident.
+   * The list of associated entity information.
    */
   entityInfos?: string;
   /**
@@ -59,7 +59,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The remark of the incident.
+   * The remark for the incident.
    * 
    * @example
    * remark
@@ -68,10 +68,10 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * - 0: unhandled.
-   * - 1: handling.
-   * - 5: handling failed.
-   * - 10: handled.
+   * - 0: Unhandled.
+   * - 1: Handling.
+   * - 5: Handling failed.
+   * - 10: Handled.
    * 
    * @example
    * 0
@@ -95,7 +95,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The UID of the account that owns the event.
+   * The UID of the account responsible for the event.
    * 
    * @example
    * 1234567890xxxxxx
@@ -141,11 +141,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: critical.
-   * - 4: high.
-   * - 3: medium.
-   * - 2: low.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 2
@@ -153,7 +153,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   threatLevel?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1603248483000
@@ -234,7 +234,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   incidents?: ListIncidentsResponseBodyIncidents[];
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to read in this request.
    * 
    * @example
    * 50
@@ -242,7 +242,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -250,7 +250,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number for pagination.
    * 
    * @example
    * 1
@@ -258,7 +258,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to display per page.
    * 
    * @example
    * 10

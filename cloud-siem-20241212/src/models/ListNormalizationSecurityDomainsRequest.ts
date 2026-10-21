@@ -9,6 +9,8 @@ export class ListNormalizationSecurityDomainsRequest extends $dara.Model {
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
+   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
+   * 
    * @example
    * zh
    */
@@ -23,7 +25,7 @@ export class ListNormalizationSecurityDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -32,8 +34,8 @@ export class ListNormalizationSecurityDomainsRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the threat detection and response data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: the asset is in the Chinese mainland.
-   * - ap-southeast-1: the asset is outside China.
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -41,7 +43,7 @@ export class ListNormalizationSecurityDomainsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The user ID that the administrator uses to switch to the view of another member.
    * 
    * @example
    * 113091674488****

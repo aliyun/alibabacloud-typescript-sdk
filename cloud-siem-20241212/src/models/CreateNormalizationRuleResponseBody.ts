@@ -13,7 +13,7 @@ export class CreateNormalizationRuleResponseBody extends $dara.Model {
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request message ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

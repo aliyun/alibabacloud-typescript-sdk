@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVendorsResponseBodyVendors extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1733269771123
@@ -13,7 +13,7 @@ export class ListVendorsResponseBodyVendors extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1733269771123
@@ -38,9 +38,7 @@ export class ListVendorsResponseBodyVendors extends $dara.Model {
   /**
    * @remarks
    * The vendor type. Valid values:
-   * 
    * - preset
-   * 
    * - custom
    * 
    * @example
@@ -79,7 +77,7 @@ export class ListVendorsResponseBodyVendors extends $dara.Model {
 export class ListVendorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned for this request.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -90,7 +88,7 @@ export class ListVendorsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If this is your first query or if no next page exists, you do not need to specify this parameter. If a next page exists, set the value to the NextToken value that is returned in the last response.
+   * The pagination token for the next query. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -98,7 +96,7 @@ export class ListVendorsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

@@ -8,6 +8,7 @@ export class ListNormalizationFieldsRequest extends $dara.Model {
    * The language of the response. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
+   * This parameter is required and cannot be omitted.
    * 
    * @example
    * zh
@@ -15,7 +16,7 @@ export class ListNormalizationFieldsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50
@@ -34,27 +35,33 @@ export class ListNormalizationFieldsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether a next query token exists. You do not need to specify this parameter for the first query or if no next query exists. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+   * Specifies whether a next query token exists. Leave this parameter empty for the first query or when no more results are available. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The field source.
+   * 
    * @example
    * native
    */
   normalizationFieldSource?: string;
   /**
+   * @remarks
+   * The schema type.
+   * 
    * @example
    * log
    */
   normalizationSchemaType?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside outside China.
+   * The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets reside in the Chinese mainland.
+   * - ap-southeast-1: The assets reside outside China.
    * 
    * @example
    * cn-hangzhou
@@ -62,7 +69,7 @@ export class ListNormalizationFieldsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The user ID that the administrator switches to when viewing as another member.
    * 
    * @example
    * 173326*******

@@ -45,7 +45,7 @@ export class ListNormalizationSecurityDomainsResponseBodyNormalizationSecurityDo
 export class ListNormalizationSecurityDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned in this query.
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 50
@@ -53,7 +53,7 @@ export class ListNormalizationSecurityDomainsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

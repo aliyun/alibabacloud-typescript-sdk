@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertsResponseBodyAlerts extends $dara.Model {
   /**
    * @remarks
-   * The alert details.
+   * The detailed content of the alert.
    * 
    * @example
    * {"alert_uuid":"a3f8c2e1-9b7d-4f6a-8c2e-1d5b9a7f****"}
@@ -13,7 +13,7 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
   alertRecord?: string;
   /**
    * @remarks
-   * The alert UUID.
+   * The UUID of the alert.
    * 
    * @example
    * 798341271677187
@@ -50,7 +50,7 @@ export class ListAlertsResponseBody extends $dara.Model {
   alerts?: ListAlertsResponseBodyAlerts[];
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50

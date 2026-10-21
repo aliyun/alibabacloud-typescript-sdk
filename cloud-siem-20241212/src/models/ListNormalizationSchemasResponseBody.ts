@@ -13,7 +13,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   createTime?: number;
   /**
    * @remarks
-   * The ID of the normalization rule category.
+   * The normalization rule category ID.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -22,8 +22,8 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   /**
    * @remarks
    * The field source. Valid values:
-   * normalized: normalized field.
-   * native: native field.
+   * - normalized: normalized field.
+   * - native: native field.
    * 
    * @example
    * normalized
@@ -31,7 +31,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationFieldSource?: string;
   /**
    * @remarks
-   * The description of the normalization schema.
+   * The normalization schema description.
    * 
    * @example
    * Network flow log
@@ -39,7 +39,9 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaDescription?: string;
   /**
    * @remarks
-   * The source of the normalization schema. Valid values: preset (predefined) and custom (user-defined).
+   * The normalization schema source. Valid values:
+   * - preset: predefined.
+   * - custom: custom.
    * 
    * @example
    * preset
@@ -47,7 +49,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaFrom?: string;
   /**
    * @remarks
-   * The ID of the normalization schema.
+   * The normalization schema ID.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -55,7 +57,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The name of the normalization schema.
+   * The normalization schema name.
    * 
    * @example
    * normalization_rule_Z57np
@@ -191,7 +193,7 @@ export class ListNormalizationSchemasResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

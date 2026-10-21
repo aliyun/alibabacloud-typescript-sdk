@@ -13,7 +13,7 @@ export class CreateExportTaskResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The ID of the export task.
+   * The export task ID.
    * 
    * @example
    * 400151

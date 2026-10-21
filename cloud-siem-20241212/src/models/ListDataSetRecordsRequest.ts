@@ -15,7 +15,8 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   dataSetId?: string;
   /**
    * @remarks
-   * The filter conditions, specified as a JSON string. For example: {"field1":"value1","field2":"value2"}
+   * The JSON string for field fuzzy match. Example:
+   * {"field1":"value1","field2":"value2"}
    * 
    * @example
    * {"field1":"value1","field2":"value2"}
@@ -23,11 +24,9 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * The language of the response message. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -35,7 +34,7 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return for each request when `NextToken` is used for pagination. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return per query when you use the NextToken parameter. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -43,7 +42,7 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -51,11 +50,9 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * 
-   * - "desc" (default)
-   * 
-   * - "asc"
+   * The sort direction. Valid values:
+   * - "desc" (default): Descending order.
+   * - "asc": Ascending order.
    * 
    * @example
    * desc
@@ -63,11 +60,9 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The sort field. Valid values:
-   * 
-   * - "updatetime" (default)
-   * 
-   * - "createtime"
+   * The field by which to sort. Valid values:
+   * - "updatetime" (default): Update time.
+   * - "createtime": Creation time.
    * 
    * @example
    * updatetime
@@ -75,7 +70,7 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -85,7 +80,7 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * This parameter is required.
    * 
@@ -95,11 +90,9 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the data management center for Threat Analysis. Select the region where your assets are located. Valid values:
-   * 
-   * - `cn-hangzhou`: For assets in the Chinese mainland.
-   * 
-   * - `ap-southeast-1`: For assets in regions outside mainland China.
+   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -107,7 +100,7 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that an administrator can use to view data as another member.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****

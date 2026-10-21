@@ -11,13 +11,9 @@ export class ListNormalizationRuleCapacitiesResponseBodyNormalizationRuleCapacit
   /**
    * @remarks
    * The type of the security capability. Valid values:
-   * 
    * - detection_preset_rule: predefined analysis rule.
-   * 
    * - detection_custom_rule: custom analysis rule.
-   * 
-   * - incident_investigation: security event handling.
-   * 
+   * - incident_investigation: security incident handling.
    * - soar_playbooks: predefined playbook.
    * 
    * @example
@@ -26,7 +22,7 @@ export class ListNormalizationRuleCapacitiesResponseBodyNormalizationRuleCapacit
   capacityType?: string;
   /**
    * @remarks
-   * The ID of the normalization rule.
+   * The normalization rule ID.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -63,7 +59,7 @@ export class ListNormalizationRuleCapacitiesResponseBodyNormalizationRuleCapacit
 export class ListNormalizationRuleCapacitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50
@@ -71,7 +67,7 @@ export class ListNormalizationRuleCapacitiesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. If the response is truncated, use this token in your next request to retrieve the next page of results. If this parameter is empty, all results have been returned.
+   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -79,7 +75,7 @@ export class ListNormalizationRuleCapacitiesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of security capabilities that are associated with the normalization rules.
+   * The list of security capabilities associated with normalization rules.
    */
   normalizationRuleCapacities?: ListNormalizationRuleCapacitiesResponseBodyNormalizationRuleCapacities[];
   /**
@@ -100,7 +96,7 @@ export class ListNormalizationRuleCapacitiesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
@@ -108,7 +104,7 @@ export class ListNormalizationRuleCapacitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 57
