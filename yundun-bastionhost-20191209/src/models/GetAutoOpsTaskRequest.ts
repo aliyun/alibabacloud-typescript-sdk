@@ -6,12 +6,19 @@ export class GetAutoOpsTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the bastion host.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * @example
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
@@ -24,7 +31,7 @@ export class GetAutoOpsTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the O&M task that you want to query.
+   * The ID of the O&M task to query.
    * 
    * This parameter is required.
    * 

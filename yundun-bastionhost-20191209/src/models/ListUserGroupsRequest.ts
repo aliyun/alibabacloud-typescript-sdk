@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host on which you want to query user groups.
-   * 
-   * > You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/462953.html)operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance whose user groups you want to query.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ListUserGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number for paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,18 +24,25 @@ export class ListUserGroupsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The maximum number of entries to return on each page for paging. Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to query user groups.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/462924.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -44,7 +50,7 @@ export class ListUserGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the user group that you want to query. Only exact match is supported.
+   * The name of the user group to query. Only exact match is supported.
    * 
    * @example
    * TestGroup01

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkDomainRequestProxies extends $dara.Model {
   /**
    * @remarks
-   * The new IP address of the proxy server.
+   * The new address of the proxy server.
    * 
    * @example
    * 114.21**.**
@@ -13,11 +13,10 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The node type of the proxy server to modify. Valid values:
+   * The type of the proxy server node to be modified. Valid values:
    * 
-   * - **Master**: primary proxy server.
-   * 
-   * - **Slave**: secondary proxy server.
+   * - **Master**: Primary proxy server.
+   * - **Slave**: Secondary proxy server.
    * 
    * @example
    * Slave
@@ -33,7 +32,7 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The new port of the proxy server.
+   * The new Server Port of the proxy server.
    * 
    * @example
    * 22
@@ -41,13 +40,11 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The new proxy mode. Valid values:
+   * The new proxy type. Valid values:
    * 
-   * - **SSHProxy**
-   * 
-   * - **HTTPProxy**
-   * 
-   * - **Socks5Proxy**
+   * - **SSHProxy**: SSH proxy.
+   * - **HTTPProxy**: HTTP proxy.
+   * - **Socks5Proxy**: SOCKS5 proxy.
    * 
    * @example
    * HTTPProxy
@@ -55,7 +52,7 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The new username of the proxy server account.
+   * The new username of the proxy server.
    * 
    * @example
    * test
@@ -95,7 +92,7 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
 export class ModifyNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The new remarks of the network domain.
+   * The new description of the network domain.
    * 
    * @example
    * xxx
@@ -103,9 +100,9 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host to which the network domain to modify belongs.
+   * The instance ID of the Bastionhost instance to which the network domain to be modified belongs.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -115,7 +112,7 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network domain to modify.
+   * The ID of the network domain to be modified.
    * 
    * This parameter is required.
    * 
@@ -133,16 +130,22 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
   networkDomainName?: string;
   /**
    * @remarks
-   * The new connection mode of the network domain. Valid values:
+   * The new type of the network domain. Valid values:
    * 
-   * - **Direct**
-   * 
-   * - **Proxy**
+   * - **Direct**: Direct connection.
+   * - **Proxy**: Proxy.
    * 
    * @example
    * Proxy
    */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
@@ -151,8 +154,7 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
   proxies?: ModifyNetworkDomainRequestProxies[];
   /**
    * @remarks
-   * The region ID of the bastion host to which the network domain to modify belongs.
-   * 
+   * The region ID of the Bastionhost instance to which the network domain to be modified belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

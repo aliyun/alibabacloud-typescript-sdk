@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,8 +27,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
    * The type of the network domain. Valid values:
    * 
    * - **Direct**: direct connection
-   * 
-   * - **Proxy**: proxy connection
+   * - **Proxy**: proxy
    * 
    * @example
    * Proxy
@@ -37,7 +35,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   networkDomainType?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the current page for paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,20 +43,26 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.<br> The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned on each page.<br>
-   * 
-   * > Do not leave the PageSize value empty.
+   * The maximum number of entries to return on each page for paging in a paged query.  
+   * Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Do not leave this parameter empty.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
-   * 
-   * > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

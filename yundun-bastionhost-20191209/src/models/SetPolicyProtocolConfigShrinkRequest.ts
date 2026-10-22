@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The instance ID of the bastion host.
+   * > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,9 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the control policy that you want to modify.
+   * The ID of the control policy to modify.
    * 
-   * > Call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the policy ID.
+   * > You can call [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,6 +26,13 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
    * 61
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
@@ -37,9 +43,8 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
   protocolConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the region where the Bastionhost instance resides.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

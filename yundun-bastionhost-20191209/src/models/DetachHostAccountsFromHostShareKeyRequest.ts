@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The host account IDs.
-   * 
-   * > You can call the [ListHostAccountsForHostShareKey](https://help.aliyun.com/document_detail/462975.html) operation to query the host account IDs.
+   * The list of host account IDs.
+   * > You can call [ListHostAccountsForHostShareKey](https://help.aliyun.com/document_detail/462975.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
   hostAccountIds?: string;
   /**
    * @remarks
-   * The shared key ID.
-   * 
-   * > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * The ID of the host shared key.
+   * > You can call [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,8 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -39,12 +36,18 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

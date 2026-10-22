@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostsForUserResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
-   * The endpoint type of the host. Valid values:
-   * 
-   * - **Public**: public endpoint
-   * 
-   * - **Private**: internal endpoint
+   * The address type of the host. Valid values:
+   * - **Public**: Public network address.
+   * - **Private**: Private network address.
    * 
    * @example
    * Public
@@ -41,7 +39,7 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * The private network address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -49,7 +47,7 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public endpoint of the host. The value is a domain name or an IP address.
+   * The public network address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 10.158.XX.XX
@@ -57,17 +55,29 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
   hostPublicAddress?: string;
   /**
    * @remarks
-   * The operating system of the host. Valid values:
-   * 
+   * The operating system type of the host. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
    * Linux
    */
   OSType?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * The name of the project.
+   * 
+   * @example
+   * test
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,12 +119,12 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
 export class ListHostsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hosts returned.
+   * The list of hosts returned.
    */
   hosts?: ListHostsForUserResponseBodyHosts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

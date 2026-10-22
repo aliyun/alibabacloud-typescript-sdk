@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleResponseBodyRuleDatabasesDatabaseAccounts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database account that the policy authorizes users to manage.
+   * The ID of the authorized database account.
    * 
    * @example
    * 5
@@ -35,12 +35,12 @@ export class GetRuleResponseBodyRuleDatabasesDatabaseAccounts extends $dara.Mode
 export class GetRuleResponseBodyRuleDatabases extends $dara.Model {
   /**
    * @remarks
-   * The database accounts on which permissions are granted by using the authorization rule.
+   * The information about the authorized database accounts.
    */
   databaseAccounts?: GetRuleResponseBodyRuleDatabasesDatabaseAccounts[];
   /**
    * @remarks
-   * The ID of the database that the policy authorizes users to manage.
+   * The instance ID of the authorization database.
    * 
    * @example
    * 2
@@ -75,12 +75,12 @@ export class GetRuleResponseBodyRuleDatabases extends $dara.Model {
 export class GetRuleResponseBodyRuleHostGroups extends $dara.Model {
   /**
    * @remarks
-   * The asset accounts on which permissions are granted by using the authorization rule.
+   * The information about the authorized host accounts.
    */
   hostAccountNames?: string[];
   /**
    * @remarks
-   * The ID of the asset group that the policy authorizes users to manage.
+   * The ID of the authorized host group.
    * 
    * @example
    * 7
@@ -115,12 +115,19 @@ export class GetRuleResponseBodyRuleHostGroups extends $dara.Model {
 export class GetRuleResponseBodyRuleHostsHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host account that the policy authorizes users to manage.
+   * The ID of the authorized host account.
    * 
    * @example
    * 9
    */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The name of the authorized host account.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,12 +155,12 @@ export class GetRuleResponseBodyRuleHostsHostAccounts extends $dara.Model {
 export class GetRuleResponseBodyRuleHosts extends $dara.Model {
   /**
    * @remarks
-   * The host accounts that the policy authorizes users to manage.
+   * The list of authorized host accounts.
    */
   hostAccounts?: GetRuleResponseBodyRuleHostsHostAccounts[];
   /**
    * @remarks
-   * The ID of the host that the policy authorizes users to manage.
+   * The ID of the authorized host.
    * 
    * @example
    * 52
@@ -248,7 +255,7 @@ export class GetRuleResponseBodyRuleUsers extends $dara.Model {
 export class GetRuleResponseBodyRule extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the authorization rule.
+   * The comment of the authorization rule.
    * 
    * @example
    * comment
@@ -256,12 +263,12 @@ export class GetRuleResponseBodyRule extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The databases on which permissions are granted by using the authorization rule.
+   * The information about the authorized databases.
    */
   databases?: GetRuleResponseBodyRuleDatabases[];
   /**
    * @remarks
-   * The end time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the validity period of the authorization rule. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1698720972
@@ -269,7 +276,7 @@ export class GetRuleResponseBodyRule extends $dara.Model {
   effectiveEndTime?: string;
   /**
    * @remarks
-   * The start time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the validity period of the authorization rule. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1687140883
@@ -277,12 +284,12 @@ export class GetRuleResponseBodyRule extends $dara.Model {
   effectiveStartTime?: string;
   /**
    * @remarks
-   * The asset groups on which permissions are granted by using the authorization rule.
+   * The list of authorized host groups.
    */
   hostGroups?: GetRuleResponseBodyRuleHostGroups[];
   /**
    * @remarks
-   * The information about the hosts that the policy authorizes users to manage.
+   * The information about the authorized hosts.
    */
   hosts?: GetRuleResponseBodyRuleHosts[];
   /**
@@ -303,12 +310,12 @@ export class GetRuleResponseBodyRule extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The authorized user groups.
+   * The list of authorized user groups.
    */
   userGroups?: GetRuleResponseBodyRuleUserGroups[];
   /**
    * @remarks
-   * The authorized users.
+   * The list of authorized users.
    */
   users?: GetRuleResponseBodyRuleUsers[];
   static names(): { [key: string]: string } {
@@ -368,7 +375,7 @@ export class GetRuleResponseBodyRule extends $dara.Model {
 export class GetRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -376,7 +383,7 @@ export class GetRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned information about the authorization rule.
+   * The authorization rule information.
    */
   rule?: GetRuleResponseBodyRule;
   static names(): { [key: string]: string } {

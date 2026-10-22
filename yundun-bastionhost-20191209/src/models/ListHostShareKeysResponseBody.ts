@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
   /**
    * @remarks
-   * The number of the associated host accounts.
+   * The number of associated host accounts.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
   hostAccountCount?: number;
   /**
    * @remarks
-   * The shared key ID.
+   * The ID of the host shared key.
    * 
    * @example
    * 10247
@@ -21,7 +21,7 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The name of the shared key.
+   * The name of the host shared key.
    * 
    * @example
    * name
@@ -29,7 +29,7 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
   hostShareKeyName?: string;
   /**
    * @remarks
-   * The time when the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the key was last modified. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1644806406
@@ -75,12 +75,12 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
 export class ListHostShareKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the shared keys.
+   * The host shared keys.
    */
   hostShareKeys?: ListHostShareKeysResponseBodyHostShareKeys[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -88,7 +88,7 @@ export class ListHostShareKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the shared keys.
+   * The total number of host shared keys returned.
    * 
    * @example
    * 10

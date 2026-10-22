@@ -13,7 +13,7 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   databaseAddress?: string;
   /**
    * @remarks
-   * The name of the database to query.
+   * The name of the database instance to query.
    * 
    * @example
    * MySQL-8.0
@@ -21,14 +21,11 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The engine of the database to query. Valid values:
+   * The type of the database to query. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -37,9 +34,9 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The bastion host ID.
+   * The ID of the Bastionhost instance.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +46,7 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network domain where the database to query resides.
+   * The ID of the network domain for which you want to query the authorized databases.
    * 
    * @example
    * 5
@@ -57,7 +54,7 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**. Pages start from page 1.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -65,20 +62,25 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br>
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page in a paged query.  
+   * Maximum value: 100. Default value: 20. If this paging parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -87,7 +89,8 @@ export class ListDatabasesForUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user to query.
+   * The ID of the user whose authorized databases you want to query.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain the user ID.
    * 
    * This parameter is required.
    * 

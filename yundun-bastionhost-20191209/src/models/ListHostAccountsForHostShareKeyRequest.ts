@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The shared key ID.
-   * 
-   * > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * The ID of the host shared key.
+   * > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to retrieve this parameter.
    * 
    * @example
    * 1124
@@ -15,9 +14,8 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,7 +25,7 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * Specifies the page number of the returned results. Default value: **1**.
    * 
    * @example
    * 1
@@ -35,18 +33,24 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The Settings for the paged query determine the number of host accounts associated with the host shared key to return on each page during paging. Default value: **10**, which indicates that 10 host accounts associated with the host shared key are displayed on each page.
    * 
    * @example
    * 10
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset group to query.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the asset group ID.
+   * The ID of the asset group that you want to query.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class GetHostGroupRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The ID of the bastion host whose asset group you want to query.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host to which the asset group belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +25,18 @@ export class GetHostGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host whose asset group you want to query.
-   * 
-   * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host to which the asset group belongs.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

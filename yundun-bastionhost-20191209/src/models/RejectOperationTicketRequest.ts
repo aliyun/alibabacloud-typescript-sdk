@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RejectOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The review remarks.
+   * The approval comment.
    * 
    * @example
    * Reject
@@ -13,9 +13,8 @@ export class RejectOperationTicketRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -25,9 +24,8 @@ export class RejectOperationTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the O\\&M application that you want to reject.
-   * 
-   * > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O\\&M applications that require review.
+   * The ID of the O&M application to be rejected.
+   * > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O&M applications that require approval.
    * 
    * This parameter is required.
    * 
@@ -35,11 +33,17 @@ export class RejectOperationTicketRequest extends $dara.Model {
    * 2
    */
   operationTicketId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

@@ -35,7 +35,7 @@ export class CreateHostRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The private network address of the host to create. You can specify a domain name or an IP address.
+   * The private network address of the host to create. You can set this parameter to a domain name or an IP address.
    * > This parameter is required if **ActiveAddressType** is set to **Private**.
    * 
    * @example
@@ -44,7 +44,7 @@ export class CreateHostRequest extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public address of the host to create. You can specify a domain name or an IP address.
+   * The public address of the host to create. You can set this parameter to a domain name or an IP address.
    * > This parameter is required if **ActiveAddressType** is set to **Public**.
    * 
    * @example
@@ -72,7 +72,7 @@ export class CreateHostRequest extends $dara.Model {
   instanceMemberId?: number;
   /**
    * @remarks
-   * The region ID of the ECS instance or dedicated cluster host.  
+   * The region ID of the ECS instance or the host in the dedicated cluster.  
    * > This parameter is required if **Source** is set to **Ecs** or **Rds**.
    * 
    * @example
@@ -103,6 +103,9 @@ export class CreateHostRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
@@ -119,7 +122,7 @@ export class CreateHostRequest extends $dara.Model {
    * The source of the host to create. Valid values:
    * - **Local**: on-premises host.
    * - **Ecs**: ECS instance.
-   * - **Rds**: ApsaraDB RDS dedicated cluster host.
+   * - **Rds**: host in an ApsaraDB RDS dedicated cluster.
    * 
    * This parameter is required.
    * 
@@ -129,7 +132,7 @@ export class CreateHostRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The instance ID of the ECS instance or dedicated cluster host.  
+   * The instance ID of the ECS instance or the host in the dedicated cluster.  
    * > This parameter is required if **Source** is set to **Ecs** or **Rds**.
    * 
    * @example

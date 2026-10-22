@@ -73,7 +73,7 @@ export class AttachHostAccountsToHostShareKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results of the operation.
+   * The result of the operation.
    */
   results?: AttachHostAccountsToHostShareKeyResponseBodyResults[];
   static names(): { [key: string]: string } {

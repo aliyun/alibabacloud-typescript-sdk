@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveHostsFromGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset group from which you want to remove hosts.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * The ID of the host group from which you want to remove hosts.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the host group ID.
    * 
    * This parameter is required.
    * 
@@ -17,8 +16,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The IDs of the hosts that you want to remove from the host group. Specify a JSON string. You can specify up to 100 host IDs.
-   * 
+   * The IDs of the hosts that you want to remove. The value is a JSON string. You can specify up to 100 host IDs.
    * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
    * 
    * This parameter is required.
@@ -29,9 +27,8 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
   hostIds?: string;
   /**
    * @remarks
-   * The ID of the bastion host whose asset group you want to manage.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the Bastionhost instance to which the host group from which you want to remove hosts belongs.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -39,11 +36,17 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host whose asset group you want to manage.
-   * 
+   * The region ID of the Bastionhost instance to which the host group from which you want to remove hosts belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

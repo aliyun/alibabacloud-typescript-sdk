@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   /**
    * @remarks
-   * The distinguished name (DN) of the AD server account.
+   * The distinguished name (DN) of the server account.
    * 
    * @example
    * cn=Manager,dc=test,dc=com
@@ -13,7 +13,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The Base DN of the AD server.
+   * The base DN used to connect to the AD server.
    * 
    * @example
    * dc=test,dc=com
@@ -29,7 +29,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The field that is used to indicate the email address of a user on the AD server.
+   * The name of the field that maps to the user email address on the AD server.
    * 
    * @example
    * emailAttr
@@ -37,7 +37,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   emailMapping?: string;
   /**
    * @remarks
-   * The condition that is used to filter users.
+   * The filter condition for users.
    * 
    * @example
    * (&(objectClass=top))
@@ -45,37 +45,76 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Indicates whether passwords are required. Valid values:
-   * 
-   * - **true**:
-   * 
-   * - **false**
+   * Specifies whether a password is set. Valid values:
+   * - **true**: A password is set.
+   * - **false**: No password is set.
    * 
    * @example
    * true
    */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the server is the default AD authentication server. A value of true indicates that the server is the default AD authentication server, and a value of false indicates that the server is not the default AD authentication server.
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether SSL is supported. Valid values:
+   * Specifies whether SSL is supported. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
    */
   isSSL?: boolean;
+  /**
+   * @remarks
+   * Specifies whether email addresses are synchronized. A value of true indicates that email addresses are synchronized, and a value of false indicates that email addresses are not synchronized.
+   * 
+   * @example
+   * true
+   */
   isSyncEmailAttr?: boolean;
+  /**
+   * @remarks
+   * Specifies whether mobile phone numbers are synchronized. A value of true indicates that mobile phone numbers are synchronized, and a value of false indicates that mobile phone numbers are not synchronized.
+   * 
+   * @example
+   * true
+   */
   isSyncMobileAttr?: boolean;
+  /**
+   * @remarks
+   * Specifies whether display names are synchronized. A value of true indicates that display names are synchronized, and a value of false indicates that display names are not synchronized.
+   * 
+   * @example
+   * true
+   */
   isSyncNameAttr?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the organization to which a user belongs is synchronized as a user group. A value of true indicates that the organization is synchronized as a user group, and a value of false indicates that the organization is not synchronized as a user group.
+   * 
+   * @example
+   * true
+   */
   isSyncOuAsUserGroup?: boolean;
+  /**
+   * @remarks
+   * The time when the user snapshot was last synchronized.
+   * 
+   * @example
+   * 0
+   */
   latestSyncTime?: number;
   /**
    * @remarks
-   * The field that is used to indicate the mobile phone number of a user on the AD server.
+   * The name of the field that maps to the user mobile phone number on the AD server.
    * 
    * @example
    * mobileAttr
@@ -83,7 +122,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   mobileMapping?: string;
   /**
    * @remarks
-   * The field that is used to indicate the name of a user on the AD server.
+   * The name of the field that maps to the username on the AD server.
    * 
    * @example
    * nameAttr
@@ -91,7 +130,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   nameMapping?: string;
   /**
    * @remarks
-   * The port that is used to access the AD server.
+   * The port of the server.
    * 
    * @example
    * 389
@@ -99,21 +138,35 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The address of the AD server.
+   * The address of the server.
    * 
    * @example
    * 192.168.XX.XX
    */
   server?: string;
+  /**
+   * @remarks
+   * The name of the AD authentication server.
+   * 
+   * @example
+   * AD Server
+   */
   serverName?: string;
   /**
    * @remarks
-   * The address of the secondary AD server.
+   * The address of the standby server.
    * 
    * @example
    * 192.168.XX.XX
    */
   standbyServer?: string;
+  /**
+   * @remarks
+   * The interval for automatic synchronization of user snapshots. Unit: hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled and no synchronization is performed.
+   * 
+   * @example
+   * 0
+   */
   syncInterval?: number;
   userSourceId?: string;
   static names(): { [key: string]: string } {
@@ -180,12 +233,12 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
 export class GetInstanceADAuthServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The settings of AD authentication.
+   * The Active Directory (AD) authentication configurations.
    */
   AD?: GetInstanceADAuthServerResponseBodyAD;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 89398CFB-4EB6-4C7E-BB3C-EF213AC8FA50

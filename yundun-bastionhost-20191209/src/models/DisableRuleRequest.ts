@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,12 +14,18 @@ export class DisableRuleRequest extends $dara.Model {
    * bastionhost-cn-78v1gh****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -28,9 +33,8 @@ export class DisableRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the authorization rule to be disabled.
-   * 
-   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID to be disabled.
+   * The ID of the authorization rule that you want to disable.
+   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the rule ID.
    * 
    * This parameter is required.
    * 

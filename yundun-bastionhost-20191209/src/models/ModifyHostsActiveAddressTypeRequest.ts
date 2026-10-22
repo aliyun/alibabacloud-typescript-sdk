@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The new portal type of the host. Valid values:
+   * The new endpoint type of the host. Valid values:
    * 
-   * - **Public**: public portal
-   * 
-   * - **Private**: internal portal
+   * - **Public**: Internet
+   * - **Private**: private network
    * 
    * This parameter is required.
    * 
@@ -19,9 +18,8 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
-   * 
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * The IDs of the hosts whose endpoint types you want to modify. The value is a character string in JSON format. You can specify up to 100 host IDs.
+   * You can invoke the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -31,9 +29,9 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
   hostIds?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to change the portal type of the host.
+   * The instance ID of the Bastionhost instance to which the host whose endpoint type you want to modify belongs.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -41,12 +39,19 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
    * bastionhost-cn-st220aw***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host for which you want to change the portal type of the host.
+   * The area ID of the Bastionhost instance to which the host whose endpoint type you want to modify belongs.
    * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between area IDs and area names, see [Regions and active zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

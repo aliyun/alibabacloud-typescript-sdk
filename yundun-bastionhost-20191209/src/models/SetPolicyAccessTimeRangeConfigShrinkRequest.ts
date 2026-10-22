@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyAccessTimeRangeConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The logon period limits.
+   * The logon time limit configuration.
    * 
    * This parameter is required.
    */
   accessTimeRangeConfigShrink?: string;
   /**
    * @remarks
-   * The bastion host ID.
+   * The instance ID of the Bastionhost instance.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,9 +24,8 @@ export class SetPolicyAccessTimeRangeConfigShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The control policy ID.
-   * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * The ID of the control policy.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -34,12 +33,18 @@ export class SetPolicyAccessTimeRangeConfigShrinkRequest extends $dara.Model {
    * 13
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

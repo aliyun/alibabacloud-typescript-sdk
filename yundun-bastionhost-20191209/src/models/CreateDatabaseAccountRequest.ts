@@ -26,7 +26,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   databaseId?: string;
   /**
    * @remarks
-   * The database name. This parameter is required when the database corresponding to DatabaseId is PostgreSQL or Oracle.
+   * The database name. This parameter is required when the database that corresponds to DatabaseId is PostgreSQL or Oracle.
    * 
    * @example
    * orcl
@@ -45,7 +45,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The logon attribute. This parameter is required for Oracle databases. Valid values:
+   * The logon property. This parameter is required for Oracle databases. Valid values:
    * - SERVICENAME
    * - SID
    * 
@@ -64,6 +64,9 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

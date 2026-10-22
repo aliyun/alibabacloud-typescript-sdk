@@ -7,8 +7,8 @@ export class CreateDatabaseRequest extends $dara.Model {
    * @remarks
    * The address type of the new database. Valid values:
    * 
-   * - Public: public address
-   * - Private: private network address
+   * - Public: public endpoint.
+   * - Private: private endpoint.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The remarks of the new database. The value can be up to 500 characters in length.
+   * The description of the new database. The value can be up to 500 characters in length.
    * 
    * @example
    * cpp
@@ -26,7 +26,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name of the new database instance. This parameter is required when the database source is **Local**.
+   * The name of the new database instance. This parameter is required if Source is set to **Local**.
    * 
    * @example
    * Test01
@@ -34,7 +34,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The port used to access the database. This parameter is required when the database source is **Local**.
+   * The port of the database. This parameter is required if Source is set to **Local**.
    * 
    * @example
    * 5433
@@ -42,8 +42,8 @@ export class CreateDatabaseRequest extends $dara.Model {
   databasePort?: number;
   /**
    * @remarks
-   * The private network address. IPv4 addresses and domain name formats are supported.
-   * > This parameter is required when ActiveAddressType is set to Private.
+   * The private endpoint. IPv4 addresses and domain names are supported.
+   * > This parameter is required if ActiveAddressType is set to Private.
    * 
    * @example
    * 192.168.XX.XX
@@ -51,8 +51,8 @@ export class CreateDatabaseRequest extends $dara.Model {
   databasePrivateAddress?: string;
   /**
    * @remarks
-   * The public address. IPv4 addresses and domain name formats are supported.
-   * > This parameter is required when ActiveAddressType is set to Public.
+   * The public endpoint. IPv4 addresses and domain names are supported.
+   * > This parameter is required if ActiveAddressType is set to Public.
    * 
    * @example
    * www.example.com
@@ -60,7 +60,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   databasePublicAddress?: string;
   /**
    * @remarks
-   * The database type. Valid values:
+   * The type of the database. Valid values:
    * 
    * - **MySQL**
    * - **Oracle**
@@ -103,9 +103,9 @@ export class CreateDatabaseRequest extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The endpoint type of the PolarDB cluster. This parameter is required when Source is set to PolarDB. Valid values:
-   * - Cluster: cluster endpoint
-   * - Primary: primary endpoint
+   * The endpoint type of the PolarDB cluster. This parameter is required if Source is set to PolarDB. Valid values:
+   * - Cluster: cluster endpoint.
+   * - Primary: primary endpoint.
    * 
    * @example
    * Cluster
@@ -114,6 +114,9 @@ export class CreateDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
@@ -128,9 +131,9 @@ export class CreateDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the new database. Valid values:
-   * - Local: self-managed database instance
-   * - Rds: ApsaraDB RDS instance
-   * - PolarDB: PolarDB cluster
+   * - Local: self-managed database instance.
+   * - Rds: ApsaraDB RDS instance.
+   * - PolarDB: PolarDB cluster.
    * 
    * This parameter is required.
    * 
@@ -141,7 +144,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the new database.  
-   * > This parameter is required when **Source** is set to **Rds** or **PolarDB**.
+   * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -150,7 +153,7 @@ export class CreateDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the new database instance.
-   * > This parameter is required when **Source** is set to **Rds** or **PolarDB**.
+   * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
    * 
    * @example
    * cn-shanghai

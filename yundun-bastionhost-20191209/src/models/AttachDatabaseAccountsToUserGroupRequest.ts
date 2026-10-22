@@ -10,7 +10,7 @@ export class AttachDatabaseAccountsToUserGroupRequestDatabases extends $dara.Mod
   databaseAccountIds?: string[];
   /**
    * @remarks
-   * The ID of the database instance to authorize.
+   * The ID of the database instance to which you want to grant permissions.
    * 
    * @example
    * 58
@@ -46,7 +46,7 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The array of database objects.
-   * >A maximum of 10 databases and 10 database accounts are supported. You can leave the database accounts unspecified. If no accounts are specified, permissions are granted at the database level.
+   * > A maximum of 10 databases and 10 database accounts are supported. You can leave the database accounts unspecified. If no database accounts are specified, permissions are granted at the database level.
    */
   databases?: AttachDatabaseAccountsToUserGroupRequestDatabases[];
   /**
@@ -63,6 +63,9 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether permissions on the specified host account were revoked from the user group. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code of removing the authorized host account from the user group. Valid values:
+   * - **OK**: The operation was successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
-   * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **INVALID_ARGUMENT**: The request parameters are invalid.
+   * - **OBJECT_NOT_FOUND**: The specified object does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The specified object already exists.
    * 
    * @example
    * OK
@@ -23,7 +18,7 @@ export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts exte
   code?: string;
   /**
    * @remarks
-   * The ID of the host account.
+   * The host account ID.
    * 
    * @example
    * １
@@ -31,7 +26,7 @@ export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts exte
   hostAccountId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -65,17 +60,12 @@ export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts exte
 export class DetachHostAccountsFromUserGroupResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the call was successful. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code of the operation. Valid values:
+   * - **OK**: The operation was successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
-   * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **INVALID_ARGUMENT**: The request parameters are invalid.
+   * - **OBJECT_NOT_FOUND**: The specified object does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The specified object already exists.
    * 
    * @example
    * OK
@@ -83,12 +73,12 @@ export class DetachHostAccountsFromUserGroupResponseBodyResults extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * The result of revoking permissions on the specified host accounts from the user group.
+   * The results of removing authorized host accounts from the user group.
    */
   hostAccounts?: DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts[];
   /**
    * @remarks
-   * The ID of the host.
+   * The host ID.
    * 
    * @example
    * １
@@ -96,7 +86,7 @@ export class DetachHostAccountsFromUserGroupResponseBodyResults extends $dara.Mo
   hostId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -104,7 +94,7 @@ export class DetachHostAccountsFromUserGroupResponseBodyResults extends $dara.Mo
   message?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The user group ID.
    * 
    * @example
    * １
@@ -145,7 +135,7 @@ export class DetachHostAccountsFromUserGroupResponseBodyResults extends $dara.Mo
 export class DetachHostAccountsFromUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -153,7 +143,7 @@ export class DetachHostAccountsFromUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The call results of the operation.
    */
   results?: DetachHostAccountsFromUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {

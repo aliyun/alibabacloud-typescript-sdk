@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The task name or task remarks to query. Fuzzy match is supported.
+   * The name or comment of the task to query. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -32,19 +32,26 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.  
-   * The maximum value of the PageSize parameter is 100. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries to return on each page in a paging query.  
+   * The maximum value of the PageSize parameter is 100. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for the PageSize parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -52,10 +59,10 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The task scheduling type used to filter results. Valid values:
-   * - **FixTime**: scheduled execution.
-   * - **CycleInterval**: periodic execution.
-   * - **Manual**: manually triggered by the user.
+   * The scheduling type of the task. Valid values:
+   * - **FixTime**: Scheduled execution.
+   * - **CycleInterval**: Periodic execution.
+   * - **Manual**: Manually triggered execution.
    * 
    * @example
    * Manual

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DetachDatabaseAccountsFromUserGroupRequestDatabases extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of database account IDs.
+   * The IDs of the database accounts from which you want to remove authorization.
    */
   databaseAccountIds?: string[];
   /**
    * @remarks
-   * The ID of the database on which the permissions are to be revoked.
+   * The instance ID of the database from which you want to remove authorization.
    * 
    * @example
    * 4
@@ -45,14 +45,13 @@ export class DetachDatabaseAccountsFromUserGroupRequestDatabases extends $dara.M
 export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the database.
+   * The information about the databases from which you want to remove authorization.
    */
   databases?: DetachDatabaseAccountsFromUserGroupRequestDatabases[];
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the bastion host instance.
+   * > You can call [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -60,12 +59,18 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
    * bastionhost-cn-7mz2v120f0y
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -73,9 +78,8 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group from which you want to revoke permissions on databases and database accounts.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * The ID of the user group from which you want to remove authorized databases and database accounts.
+   * > You can call [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 

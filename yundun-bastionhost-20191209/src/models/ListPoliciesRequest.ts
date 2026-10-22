@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ListPoliciesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,10 +24,9 @@ export class ListPoliciesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br>
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page in a paged query.  
+   * The maximum value of the PageSize parameter is 100. The default number of entries returned per page during paging is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
@@ -36,17 +34,23 @@ export class ListPoliciesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The name of the control policy to query. Only exact match is supported.
+   * The Policy Name of the control policy to query. Only exact match is supported.
    * 
    * @example
    * 123
    */
   policyName?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

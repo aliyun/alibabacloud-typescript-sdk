@@ -13,9 +13,8 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
   hostGroupName?: string;
   /**
    * @remarks
-   * The ID of the bastion host whose user you want to query.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance to which the user belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -25,11 +24,9 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The category of the host groups to query. Valid values:
-   * 
-   * - **Authorized** (default): queries the host groups that the user is authorized to manage.
-   * 
-   * - **Unauthorized**: queries the host groups that the user is not authorized to manage.
+   * The mode of the host group list to query. Valid values:
+   * - **Authorized**: Authorized host groups. This is the default value.
+   * - **Unauthorized**: Unauthorized host groups.
    * 
    * @example
    * Authorized
@@ -37,7 +34,7 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number for paging. Default value: **1**.
    * 
    * @example
    * １
@@ -45,19 +42,25 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br> Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return per page for paging.  
+   * The maximum value of the PageSize parameter is 100. Default value: 20. If you leave this parameter empty, 20 entries are returned by default.
+   * > Specify a value for the PageSize parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host whose user you want to query.
-   * 
+   * The region ID of the Bastionhost instance to which the user belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -66,9 +69,8 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID.
-   * 
-   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * The ID of the user to query.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 

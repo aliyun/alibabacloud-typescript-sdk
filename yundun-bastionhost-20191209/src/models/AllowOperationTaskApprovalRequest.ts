@@ -6,7 +6,7 @@ export class AllowOperationTaskApprovalRequest extends $dara.Model {
   /**
    * @remarks
    * The approval ID of the O&M task.
-   * > You can call the ListTodoOpsTaskApprovals operation to query this parameter.
+   * > You can call the ListTodoOpsTaskApprovals operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class AllowOperationTaskApprovalRequest extends $dara.Model {
   approveId?: string;
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of the Bastionhost.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,18 @@ export class AllowOperationTaskApprovalRequest extends $dara.Model {
    * bastionhost-cn-lbj3bw4ma02
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

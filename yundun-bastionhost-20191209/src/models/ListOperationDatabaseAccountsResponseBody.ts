@@ -13,7 +13,7 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
   DBName?: string;
   /**
    * @remarks
-   * The database account ID.
+   * The ID of the database account.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
   databaseAccountName?: string;
   /**
    * @remarks
-   * The database ID.
+   * The database instance ID.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
   databaseId?: string;
   /**
    * @remarks
-   * Indicates whether a password is configured for the database host account.
+   * Indicates whether a password is set for the database host account.
    * 
    * @example
    * true
@@ -45,10 +45,9 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
   hasPassword?: string;
   /**
    * @remarks
-   * The logon attribute. One of the following values is returned if the database engine is Oracle:
+   * The logon attribute. This parameter has a return value only for Oracle databases. Valid values:
    * 
    * - **SERVICENAME**
-   * 
    * - **SID**
    * 
    * @example
@@ -57,7 +56,7 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
   loginAttribute?: string;
   /**
    * @remarks
-   * The protocol that is used by the database account.
+   * The protocol name of the database account.
    * 
    * @example
    * MySQL
@@ -99,12 +98,12 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
 export class ListOperationDatabaseAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database accounts returned.
+   * The list of database accounts.
    */
   databaseAccounts?: ListOperationDatabaseAccountsResponseBodyDatabaseAccounts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -112,7 +111,7 @@ export class ListOperationDatabaseAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of queried manageable database accounts.
    * 
    * @example
    * 5

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model {
   /**
    * @remarks
-   * The type of the database address. Valid values:
-   * 
-   * - **Public**: public address
-   * 
-   * - **Private**: private address
+   * The address type of the database. Valid values:
+   * - **Public**: public network address
+   * - **Private**: private network address
    * 
    * @example
    * Private
@@ -25,7 +23,7 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
   comment?: string;
   /**
    * @remarks
-   * The total number of database accounts that are queried.
+   * The total number of queried database accounts.
    * 
    * @example
    * 2
@@ -33,7 +31,7 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
   databaseAccountCount?: number;
   /**
    * @remarks
-   * The ID of the database instance to which the database account belongs.
+   * The instance ID of the database to which the database account belongs.
    * 
    * @example
    * 2
@@ -57,7 +55,7 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
   databasePort?: number;
   /**
    * @remarks
-   * The private endpoint of the database, which can be a domain name or an IP address.
+   * The private network address of the database, which can be a domain name or an IP address.
    * 
    * @example
    * rm-bp1******
@@ -76,11 +74,8 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
    * The type of the database. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -95,17 +90,29 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
    * 5
    */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * The project name.
+   * 
+   * @example
+   * test
+   */
   projectName?: string;
   /**
    * @remarks
    * The source of the database. Valid values:
    * 
-   * - **Local**: local database instance
-   * 
-   * - **Rds**: RDS database instance
-   * 
-   * - **PolarDB**: PolarDB database instance
+   * - **Local**: self-managed database instance
+   * - **Rds**: ApsaraDB RDS instance
+   * - **PolarDB**: PolarDB instance
    * 
    * @example
    * Local
@@ -113,8 +120,7 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
   source?: string;
   /**
    * @remarks
-   * The ID of the RDS instance or PolarDB instance that corresponds to the database.
-   * 
+   * The instance ID of the ApsaraDB RDS or PolarDB instance that corresponds to the database.
    * > If **Source** is set to **Local**, this parameter is empty.
    * 
    * @example
@@ -171,12 +177,12 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
 export class ListDatabasesForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of databases that are queried.
+   * The queried databases.
    */
   databases?: ListDatabasesForUserGroupResponseBodyDatabases[];
   /**
    * @remarks
-   * The unique ID that Alibaba Cloud generates for the request.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -184,7 +190,7 @@ export class ListDatabasesForUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of databases that are queried.
+   * The total number of queried databases.
    * 
    * @example
    * 15

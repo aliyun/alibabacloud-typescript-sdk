@@ -6,10 +6,8 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
    * The address type of the host. Valid values:
-   * 
-   * - **Public**: a public address
-   * 
-   * - **Private**: a private address
+   * - **Public**: public address
+   * - **Private**: private endpoint in the private network
    * 
    * @example
    * Public
@@ -33,7 +31,7 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   hostAccountCount?: number;
   /**
    * @remarks
-   * The ID of the host.
+   * The host ID.
    * 
    * @example
    * 1
@@ -49,7 +47,7 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The private address of the host. The value is a domain name or an IP address.
+   * The private endpoint in the private network of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -57,7 +55,7 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public address of the host. The value is a domain name or an IP address.
+   * The public address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 1.1.XX.XX
@@ -66,9 +64,7 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
    * The operating system of the host. Valid values:
-   * 
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -78,12 +74,9 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
    * The source of the host. Valid values:
-   * 
-   * - **Local**: a host in a data center
-   * 
-   * - **Ecs**: an ECS instance
-   * 
-   * - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * - **Local**: local host
+   * - **Ecs**: ECS instance
+   * - **Rds**: ApsaraDB RDS dedicated cluster host
    * 
    * @example
    * Local
@@ -91,9 +84,8 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
-   * 
-   * > No value is returned for this parameter if the **Source** parameter is set to **Local**.
+   * The ECS instance ID or the dedicated cluster host ID that corresponds to the host.
+   * > If **Source** is **Local**, this parameter is empty.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -102,9 +94,7 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
    * The status of the host. Valid values:
-   * 
    * - **Normal**: normal
-   * 
    * - **Release**: released
    * 
    * @example
@@ -155,12 +145,12 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
 export class ListHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the hosts returned.
+   * The list of hosts queried.
    */
   hosts?: ListHostsResponseBodyHosts[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -168,7 +158,7 @@ export class ListHostsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of hosts returned.
+   * The total number of hosts queried.
    * 
    * @example
    * 1

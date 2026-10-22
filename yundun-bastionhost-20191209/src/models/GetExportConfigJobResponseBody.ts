@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExportConfigJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download link of the configuration backup file.
+   * The download URL of the configuration backup file.
    * 
    * @example
    * https://bastionhost-cn-hangzhou-164***.oss-cn-hangzhou.aliyuncs.com/bastionhost-cn-2******
@@ -13,7 +13,7 @@ export class GetExportConfigJobResponseBody extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The expiration time of the configuration backup download link. (In seconds, UNIX timestamp format)
+   * The expiration time of the configuration backup download URL. Unit: seconds. The value is a UNIX timestamp.
    * 
    * @example
    * 1679393152
@@ -21,7 +21,7 @@ export class GetExportConfigJobResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the configuration backup export job.
+   * The ID of the configuration backup export task.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class GetExportConfigJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier that Alibaba Cloud generates for this request.
+   * The request ID.
    * 
    * @example
    * 98DBE5C2-7D7A-5393-9E5A-71074336D33B
@@ -45,7 +45,7 @@ export class GetExportConfigJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the configuration backup export job.
+   * The status of the configuration backup export task.
    * 
    * @example
    * Success

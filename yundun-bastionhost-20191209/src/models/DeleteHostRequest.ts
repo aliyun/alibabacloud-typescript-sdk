@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHostRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host that you want to delete.
+   * The ID of the host to be deleted.
    * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query this parameter.
    * 
    * This parameter is required.
@@ -16,7 +16,7 @@ export class DeleteHostRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host where the host that you want to delete resides.
+   * The instance ID of the bastion host to which the host to be deleted belongs.
    * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
@@ -28,11 +28,14 @@ export class DeleteHostRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host instance where the host that you want to delete resides.
+   * The region ID of the bastion host instance to which the host to be deleted belongs.
    * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

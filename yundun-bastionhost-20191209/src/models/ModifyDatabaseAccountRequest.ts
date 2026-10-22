@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database account to modify.
-   * 
-   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * The ID of the database account to be modified.
+   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
   databaseAccountId?: string;
   /**
    * @remarks
-   * The new username of the database account. The username can be up to 128 characters in length.
+   * The new name of the database account. The name can be up to 128 characters in length.
    * 
    * @example
    * aaa
@@ -25,7 +24,7 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
   databaseAccountName?: string;
   /**
    * @remarks
-   * The new name of the database. This parameter is required if the database engine is PostgreSQL or Oracle.
+   * The new database schema name. This parameter is required when the database specified by DatabaseId is a PostgreSQL or Oracle database.
    * 
    * @example
    * orcl
@@ -33,9 +32,8 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
   databaseSchema?: string;
   /**
    * @remarks
-   * The ID of the bastion host that manages the database account to modify.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance where the database account to be modified resides.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -51,11 +49,17 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
    * 14SZ!******
    */
   password?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host that manages the database account to modify.
-   * 
+   * The region ID of the Bastionhost instance where the database account to be modified resides.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host in which you want to query the details of the user group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance for which you want to query user group details.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -15,11 +14,17 @@ export class GetUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host in which you want to query the details of the user group.
-   * 
+   * The region ID of the Bastionhost instance for which you want to query user group details.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -28,9 +33,8 @@ export class GetUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * The ID of the user group that you want to query.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain the user group ID.
    * 
    * This parameter is required.
    * 

@@ -6,10 +6,8 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   /**
    * @remarks
    * The address type of the database. Valid values:
-   * 
-   * - **Public**
-   * 
-   * - **Private**
+   * - **Public**: public endpoint
+   * - **Private**: private endpoint in the private network
    * 
    * @example
    * Private
@@ -17,7 +15,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The remarks of the database.
+   * The description of the database instance.
    * 
    * @example
    * comment
@@ -25,7 +23,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The database ID.
+   * The instance ID of the database.
    * 
    * @example
    * 36
@@ -33,7 +31,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databaseId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database instance.
    * 
    * @example
    * MySQL56
@@ -41,7 +39,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The database port.
+   * The port of the database.
    * 
    * @example
    * 3306
@@ -49,7 +47,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databasePort?: number;
   /**
    * @remarks
-   * The internal endpoint of the database. The value is a domain name or an IP address.
+   * The private endpoint of the database in the private network, which can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -57,7 +55,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databasePrivateAddress?: string;
   /**
    * @remarks
-   * The public endpoint of the database. The value is a domain name or an IP address.
+   * The public address of the database, which can be a domain name or an IP address.
    * 
    * @example
    * www.example.com
@@ -65,14 +63,11 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databasePublicAddress?: string;
   /**
    * @remarks
-   * The database engine. Valid values:
+   * The type of the database. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -81,23 +76,35 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The ID of the network domain where the database resides.
+   * The ID of the network domain to which the database belongs.
    * 
    * @example
    * 2
    */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The ID of the project to which the database belongs.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * The name of the project.
+   * 
+   * @example
+   * test
+   */
   projectName?: string;
   /**
    * @remarks
-   * The database type. Valid values:
+   * The source of the database. Valid values:
    * 
-   * - **Local**: on-premises database.
-   * 
-   * - **Rds**: ApsaraDB RDS instance.
-   * 
-   * - **PolarDB**: PolarDB cluster.
+   * - **Local**: local database instance
+   * - **Rds**: ApsaraDB RDS instance
+   * - **PolarDB**: PolarDB instance
    * 
    * @example
    * Local
@@ -105,9 +112,8 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS instance or PolarDB cluster.
-   * 
-   * > No value is returned for this parameter if **Source** is set to **Local**.
+   * The instance ID of the ApsaraDB RDS or PolarDB instance that corresponds to the database.
+   * > If **Source** is set to **Local**, this parameter is empty.
    * 
    * @example
    * i-wz9fv2hwux78x9******
@@ -161,12 +167,12 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
 export class ListDatabasesForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The databases returned.
+   * The list of databases.
    */
   databases?: ListDatabasesForUserResponseBodyDatabases[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A8A665B9-8550-4942-9DEE-73198051856B
@@ -174,7 +180,7 @@ export class ListDatabasesForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of databases returned.
+   * The total number of databases.
    * 
    * @example
    * 15

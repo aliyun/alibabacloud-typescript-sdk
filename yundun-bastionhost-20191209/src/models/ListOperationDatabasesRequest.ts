@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationDatabasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the database.
+   * The address of the database instance.
    * 
    * @example
    * 10.167.XX.XX
@@ -13,7 +13,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   databaseAddress?: string;
   /**
    * @remarks
-   * The name of the database. This parameter supports only exact matches.
+   * The name of the database instance. Exact match is used.
    * 
    * @example
    * aaa
@@ -24,11 +24,8 @@ export class ListOperationDatabasesRequest extends $dara.Model {
    * The database type. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **SQLServer**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
    * 
    * @example
@@ -37,9 +34,8 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the bastion host.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -49,7 +45,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. The default value is **1**.
+   * The page number of the current page for a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -57,20 +53,26 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.<br>The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned.<br>
-   * 
-   * > Specify a value for this parameter.
+   * The maximum number of entries to return on each page for a paged query.  
+   * The maximum value of the PageSize parameter is 100. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Do not leave the PageSize parameter empty.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
-   * 
-   * > For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-shanghai
@@ -78,13 +80,10 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The source of the database. Valid values:
-   * 
-   * - **Local**: a local database
-   * 
-   * - **Rds**: an ApsaraDB RDS database
-   * 
-   * - **PolarDB**: a PolarDB database
+   * The source of the database instance. Valid values:
+   * - **Local**: on-premises database
+   * - **Rds**: ApsaraDB RDS database
+   * - **PolarDB**: PolarDB database
    * 
    * @example
    * Local
@@ -92,7 +91,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the source instance. This parameter supports only exact matches.
+   * The instance ID of the ApsaraDB RDS instance. Exact match.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -100,11 +99,10 @@ export class ListOperationDatabasesRequest extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The status of the source instance. You can use this parameter to filter the results.
+   * Filters database instances by instance status. Valid values:
    * 
-   * - **Normal**: The instance is running.
-   * 
-   * - **RemoteRelease**: The instance is released.
+   * - **Normal**: normal
+   * - **RemoteRelease**: released
    * 
    * @example
    * Normal

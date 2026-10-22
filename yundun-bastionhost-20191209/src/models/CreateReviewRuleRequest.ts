@@ -45,9 +45,9 @@ export class CreateReviewRuleRequest extends $dara.Model {
    * @remarks
    * The type of the auditable asset scope rule. Valid values:
    * 
-   * - **1**: all projects.
+   * - **1**: All projects.
    * 
-   * - **2**: specified projects.
+   * - **2**: Specified projects.
    * 
    * This parameter is required.
    * 

@@ -55,7 +55,7 @@ export class ListHostGroupsForUserGroupResponseBodyHostGroups extends $dara.Mode
 export class ListHostGroupsForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The host groups returned.
+   * The list of host groups returned.
    */
   hostGroups?: ListHostGroupsForUserGroupResponseBodyHostGroups[];
   /**

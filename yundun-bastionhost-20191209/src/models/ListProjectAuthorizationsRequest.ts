@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectAuthorizationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,26 +15,43 @@ export class ListProjectAuthorizationsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The keyword for fuzzy search by project authorization name.
+   * 
    * @example
    * name
    */
   keyword?: string;
   /**
+   * @remarks
+   * The maximum number of project authorizations to return per request. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The request token. Leave this parameter empty or set it to an empty string for the first request.
+   * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The region ID of the bastion host.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The number of entries to skip.
+   * > This parameter takes effect only when NextToken is empty.
+   * 
    * @example
    * 0
    */

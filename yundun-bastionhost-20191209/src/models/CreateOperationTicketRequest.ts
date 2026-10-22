@@ -26,7 +26,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the asset for which you want to request O&M access.
-   * > You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) or [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to query this parameter.
+   * > You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) or [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -75,6 +75,9 @@ export class CreateOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

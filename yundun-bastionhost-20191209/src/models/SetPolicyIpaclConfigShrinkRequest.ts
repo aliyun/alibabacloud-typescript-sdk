@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The access control settings for source IP addresses.
+   * The source IP address restriction configuration.
    * 
    * This parameter is required.
    */
   IPAclConfigShrink?: string;
   /**
    * @remarks
-   * The bastion host ID.
+   * The ID of the bastion host instance.
    * 
-   * > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the control policy that you want to modify.
    * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -34,12 +34,19 @@ export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
    * 3
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
    * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

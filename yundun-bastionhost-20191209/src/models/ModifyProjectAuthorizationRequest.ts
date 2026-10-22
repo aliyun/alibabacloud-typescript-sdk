@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyProjectAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the project authorization to modify.
-   * > You can call the ListProjectAuthorizations operation to query this parameter.
+   * The ID of the project authorization to be modified.
+   * > You can call the ListProjectAuthorizations operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,8 +24,8 @@ export class ModifyProjectAuthorizationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -43,8 +43,8 @@ export class ModifyProjectAuthorizationRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -52,11 +52,11 @@ export class ModifyProjectAuthorizationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scope of manageable assets associated with the authorization after modification. Valid values:
+   * The scope of assets that can be managed by the authorization after modification. Valid values:
    * 
-   * - **1**: All projects.
+   * - **1**: all projects
    * 
-   * - **2**: Specified projects.
+   * - **2**: specified projects
    * 
    * @example
    * 1

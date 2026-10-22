@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host instance to query.
-   *  > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
+   * The ID of the Bastionhost instance to query.
+   *  > You can obtain the Bastionhost instance ID by calling the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host instance to query.
+   * The region ID of the Bastionhost instance to query.
    * 
    * @example
    * cn-hangzhou

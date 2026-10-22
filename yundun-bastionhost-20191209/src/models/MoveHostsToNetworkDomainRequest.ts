@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class MoveHostsToNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the hosts that you want to add to the network domain.
+   * The IDs of the hosts to move to the network domain.
    */
   hostIds?: string[];
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the parameter value.
    * 
    * This parameter is required.
    * 
@@ -22,9 +21,8 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network domain to which you want to add hosts.
-   * 
-   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * The ID of the destination network domain.
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the parameter value.
    * 
    * This parameter is required.
    * 
@@ -32,11 +30,17 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
    * 2
    */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

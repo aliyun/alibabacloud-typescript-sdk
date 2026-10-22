@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database account that you want to delete.
-   * 
-   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * The ID of the database account to delete.
+   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DeleteDatabaseAccountRequest extends $dara.Model {
   databaseAccountId?: string;
   /**
    * @remarks
-   * The ID of the bastion host from which you want to delete the database account.
-   * 
-   * > You can call the DescribeInstances operation to query the ID of the bastion host.
+   * The ID of the bastion host instance to which the database account to be deleted belongs.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +25,18 @@ export class DeleteDatabaseAccountRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host from which you want to delete the database account.
-   * 
-   * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host to which the database account to be deleted belongs.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the host group that you want to query. Only exact match is supported.
+   * The name of the asset group. Only exact match is supported.
    * 
    * @example
    * HostGroup1
@@ -13,9 +13,8 @@ export class ListHostGroupsRequest extends $dara.Model {
   hostGroupName?: string;
   /**
    * @remarks
-   * The ID of the bastion host to query.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/462953.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/462953.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class ListHostGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page for paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,19 +32,24 @@ export class ListHostGroupsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page for paging in a paged query. Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host in which you want to query the host group.
-   * 
+   * The region ID of the bastion host.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

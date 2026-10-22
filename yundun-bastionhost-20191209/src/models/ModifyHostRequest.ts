@@ -13,9 +13,8 @@ export class ModifyHostRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the host.
-   * 
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * The ID of the host to be updated.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class ModifyHostRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The new name of the host. The name can be up to 128 characters.
+   * The new name of the host. The name can be up to 128 characters in length.
    * 
    * @example
    * TestHost
@@ -33,7 +32,7 @@ export class ModifyHostRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The new internal endpoint of the host. You can set this parameter to a domain name or an IP address.
+   * The new private network address of the host. You can specify a domain name or an IP address.
    * 
    * @example
    * 193.168.XX.XX
@@ -41,7 +40,7 @@ export class ModifyHostRequest extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The new public endpoint of the host. You can set this parameter to a domain name or an IP address.
+   * The new public address of the host. You can specify a domain name or an IP address.
    * 
    * @example
    * 200.1.XX.XX
@@ -49,9 +48,8 @@ export class ModifyHostRequest extends $dara.Model {
   hostPublicAddress?: string;
   /**
    * @remarks
-   * The ID of the bastion host on which you want to modify the information about the host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance to which the host belongs.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -61,8 +59,7 @@ export class ModifyHostRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the new network domain to which the host belongs.
-   * 
+   * The ID of the network domain to which the host belongs.
    * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
    * 
    * @example
@@ -71,10 +68,8 @@ export class ModifyHostRequest extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The new operating system of the host. Valid values:
-   * 
+   * The new operating system type of the host. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -83,25 +78,27 @@ export class ModifyHostRequest extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The preferred key exchange algorithm of the host. If you set OSType to Linux, you can modify this parameter. Valid values:
-   * 
-   * - **default**
-   * 
-   * - **diffie-hellman-group1-sha1**
-   * 
-   * - **diffie-hellman-group14-sha1**
-   * 
-   * - **diffie-hellman-group-exchange-sha1**
+   * The preferred key exchange algorithm for the host. You can modify this parameter only when the OSType parameter is set to Linux. Valid values: 
+   * - **default**: Default mode.
+   * - **diffie-hellman-group1-sha1**: Compatibility mode for the diffie-hellman-group1-sha1 algorithm.
+   * - **diffie-hellman-group14-sha1**: Compatibility mode for the diffie-hellman-group14-sha1 algorithm.
+   * - **diffie-hellman-group-exchange-sha1**: Compatibility mode for the diffie-hellman-group-exchange-sha1 algorithm.
    * 
    * @example
    * default
    */
   prefKex?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to modify the information about the host.
-   * 
+   * The region ID of the Bastionhost instance to which the host belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

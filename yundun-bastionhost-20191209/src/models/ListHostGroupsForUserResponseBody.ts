@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupsForUserResponseBodyHostGroups extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the host group.
+   * The description of the host group.
    * 
    * @example
    * comment
@@ -13,7 +13,7 @@ export class ListHostGroupsForUserResponseBodyHostGroups extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The host group ID.
+   * The ID of the host group.
    * 
    * @example
    * １
@@ -55,12 +55,12 @@ export class ListHostGroupsForUserResponseBodyHostGroups extends $dara.Model {
 export class ListHostGroupsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The host groups returned.
+   * The list of host groups returned.
    */
   hostGroups?: ListHostGroupsForUserResponseBodyHostGroups[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

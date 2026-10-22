@@ -6,8 +6,7 @@ export class GetDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the database account to query.
-   * 
-   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class GetDatabaseAccountRequest extends $dara.Model {
   databaseAccountId?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +25,18 @@ export class GetDatabaseAccountRequest extends $dara.Model {
    * bastionhost-cn-i7m2d7zrw11
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-beijing

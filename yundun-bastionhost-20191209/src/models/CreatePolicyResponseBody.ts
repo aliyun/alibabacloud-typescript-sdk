@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The control policy ID.
+   * The ID of the control policy.
    * 
    * @example
    * 1

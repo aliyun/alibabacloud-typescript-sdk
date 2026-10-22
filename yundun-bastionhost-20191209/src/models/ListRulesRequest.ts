@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ListRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the current page for paging in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -25,20 +24,24 @@ export class ListRulesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br>
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page for paging in a paged query. Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -55,11 +58,9 @@ export class ListRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The state of the authorization rule to query.
-   * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * The state of the authorization rule to query. Valid values:
+   * - **Enabled**: Normal.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled

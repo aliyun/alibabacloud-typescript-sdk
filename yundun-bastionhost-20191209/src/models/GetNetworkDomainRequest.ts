@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to immediately recheck the status of the proxy server. Valid values:
+   * Specifies whether to immediately re-check the proxy server status. Valid values:
    * 
-   * - **true**: Immediately rechecks the status of the proxy server and returns the latest ProxyState and ProxyStateErrorCode.
+   * - **true**: Immediately re-checks the proxy server status and returns the latest ProxyState/ProxyStateErrorCode.
    * 
-   * - **false**: (Default) Returns the currently recorded status without rechecking the proxy server.
+   * - **false**: Default value. Does not re-check the proxy server status and directly returns the currently recorded status.
    * 
    * @example
    * false
@@ -17,9 +17,8 @@ export class GetNetworkDomainRequest extends $dara.Model {
   checkProxyState?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to get this parameter.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -30,8 +29,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the network domain to query.
-   * 
-   * > Call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to get this parameter.
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -39,12 +37,19 @@ export class GetNetworkDomainRequest extends $dara.Model {
    * 3
    */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
+   * The region ID of the bastion host.
    * 
-   * > For more information about region IDs, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

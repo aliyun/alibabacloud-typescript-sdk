@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationDatabaseAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account. Exact match is supported.
+   * The name of the database account. Exact match.
    * 
    * @example
    * test
@@ -13,9 +13,8 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
   databaseAccountName?: string;
   /**
    * @remarks
-   * The database ID.
-   * 
-   * > You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) operation to query the database ID.
+   * The database instance ID.
+   * > You can invoke the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) operation to obtain this parameter.
    * 
    * @example
    * 56
@@ -23,9 +22,8 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
   databaseId?: string;
   /**
    * @remarks
-   * The ID of the bastion host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -33,10 +31,17 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
    * bastionhost-cn-2r42t9cvf0i
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   operationProjectId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page for a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -44,10 +49,10 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br>
-   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The maximum number of entries to return on each page for a paged query.
+   * <br>The maximum value of the PageSize parameter is 100. The default number of entries returned per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
    * 
-   * > We recommend that you do not leave this parameter empty.
+   * > Do not leave the PageSize parameter empty.
    * 
    * @example
    * 20
@@ -55,9 +60,8 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-shanghai

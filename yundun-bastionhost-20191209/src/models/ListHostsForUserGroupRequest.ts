@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostsForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the host. You can set this parameter to a domain name or an IP address. Exact match is supported.
+   * The address of the host to query. You can use a domain name or an IP address. Only exact match is supported.
    * 
    * @example
    * 192.168.XX.XX
@@ -13,7 +13,7 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The name of the host. Exact match is supported.
+   * The name of the host to query. Only exact match is supported.
    * 
    * @example
    * abc
@@ -21,9 +21,8 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the bastion host instance that contains the user group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The ID of the Bastionhost instance to which the user group belongs.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -33,11 +32,9 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to query for authorized or unauthorized hosts. Valid values:
-   * 
-   * - **Authorized** (default)
-   * 
-   * - **Unauthorized**
+   * The mode of the host list to query. Valid values:
+   * - **Authorized**: authorized (default)
+   * - **Unauthorized**: unauthorized
    * 
    * @example
    * Authorized
@@ -45,10 +42,8 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The operating system of the host. Valid values:
-   * 
+   * The operating system type of the host to query. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -57,7 +52,7 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number of the current page in paging. Default value: 1.
    * 
    * @example
    * 1
@@ -65,20 +60,26 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.<br>Maximum value: 100. Default value: 20.<br>
-   * 
-   * > We recommend that you specify this parameter.
+   * The maximum number of entries to return on each page in paging.  
+   * Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The ID of the region where the bastion host instance is located.
-   * 
-   * > For more information about regions and their corresponding IDs, see [regions and availability zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance to which the user group belongs.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -86,9 +87,8 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group whose hosts you want to list.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain the user group ID.
+   * The ID of the user group whose authorized hosts you want to query.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

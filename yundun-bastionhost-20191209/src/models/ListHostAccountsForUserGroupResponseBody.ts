@@ -21,7 +21,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
   hostAccountName?: string;
   /**
    * @remarks
-   * The ID of the host for which the host accounts were queried.
+   * The ID of the host to which the host account belongs.
    * 
    * @example
    * １
@@ -29,11 +29,9 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
   hostId?: string;
   /**
    * @remarks
-   * Indicates whether the user group is authorized to manage the host account. Valid values:
-   * 
-   * - **true**: yes
-   * 
-   * - **false**: no
+   * Indicates whether the host account is authorized for the current user group. Valid values:
+   * - **true**: Authorized.
+   * - **false**: Not authorized.
    * 
    * @example
    * true
@@ -41,10 +39,8 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
   isAuthorized?: boolean;
   /**
    * @remarks
-   * The protocol that is used by the host. Valid values:
-   * 
+   * The protocol name of the host account. Valid values:
    * - **SSH**
-   * 
    * - **RDP**
    * 
    * @example
@@ -83,7 +79,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
 export class ListHostAccountsForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the queried host accounts.
+   * The host accounts returned.
    */
   hostAccounts?: ListHostAccountsForUserGroupResponseBodyHostAccounts[];
   /**
@@ -96,7 +92,7 @@ export class ListHostAccountsForUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of host accounts that were queried.
+   * The total number of host accounts returned.
    * 
    * @example
    * 1

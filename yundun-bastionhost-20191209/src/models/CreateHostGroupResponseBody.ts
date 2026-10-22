@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created asset group.
+   * The ID of the asset group.
    * 
    * @example
    * 1

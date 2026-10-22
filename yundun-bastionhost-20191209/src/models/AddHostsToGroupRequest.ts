@@ -16,7 +16,7 @@ export class AddHostsToGroupRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The IDs of the hosts that you want to add to the asset group. This parameter is a JSON-formatted string. A maximum of 100 host IDs are supported.
+   * The IDs of the hosts that you want to add to the asset group. This parameter is a JSON-formatted string. You can add up to 100 host IDs.
    * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query host IDs.
    * 
    * This parameter is required.
@@ -39,6 +39,9 @@ export class AddHostsToGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

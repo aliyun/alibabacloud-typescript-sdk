@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command to be reviewed.
+   * The ID of the command pending approval.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   approveCommandId?: string;
   /**
    * @remarks
-   * The username of the asset account that is used for O\\&M.
+   * The name of the asset account.
    * 
    * @example
    * root
@@ -21,7 +21,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetAccountName?: string;
   /**
    * @remarks
-   * The IP address of the asset for O\\&M.
+   * The IP address of the O&M asset.
    * 
    * @example
    * 10.167.XX.XX
@@ -29,7 +29,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetIp?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the O&M asset.
    * 
    * @example
    * poros-test
@@ -45,7 +45,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   clientIp?: string;
   /**
    * @remarks
-   * The Bastionhost user who submitted the O\\&M application.
+   * The Bastionhost user who submitted the application.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   clientUser?: string;
   /**
    * @remarks
-   * The command to be reviewed.
+   * The command pending approval.
    * 
    * @example
    * /bin/bash
@@ -61,7 +61,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   command?: string;
   /**
    * @remarks
-   * The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the application was submitted. Unit: seconds. The value is a UNIX timestamp.
    * 
    * @example
    * 1679393152
@@ -69,7 +69,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The O\\&M protocol.
+   * The name of the O&M protocol.
    * 
    * @example
    * SSH
@@ -77,7 +77,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   protocolName?: string;
   /**
    * @remarks
-   * The ID of the O\\&M session that triggered the review.
+   * The ID of the O&M session that triggered the approval.
    * 
    * @example
    * 95f873ab64a76d5b0000000000004d5e
@@ -85,7 +85,8 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   sessionId?: string;
   /**
    * @remarks
-   * The status of the review. Valid values: **Wait**: The command is pending review.
+   * The approval status.
+   * **Wait**: Pending approval.
    * 
    * @example
    * Wait
@@ -135,12 +136,12 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
 export class ListApproveCommandsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The commands to be reviewed.
+   * The list of commands.
    */
   approveCommands?: ListApproveCommandsResponseBodyApproveCommands[];
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * E3EF7711-766D-5888-997B-EFBA76809229
@@ -148,7 +149,7 @@ export class ListApproveCommandsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of commands to be reviewed.
+   * The total number of commands pending approval.
    * 
    * @example
    * 15

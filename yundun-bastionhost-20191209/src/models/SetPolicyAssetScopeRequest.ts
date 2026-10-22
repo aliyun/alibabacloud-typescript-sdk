@@ -7,8 +7,8 @@ export class SetPolicyAssetScopeRequestDatabases extends $dara.Model {
    * @remarks
    * The scope of database accounts to which the control policy applies. Valid values:
    * 
-   * - **All**: applies to all accounts in the database.
-   * - **AccountId**: applies to specified accounts in the database.
+   * - **All**: all accounts in the database
+   * - **AccountId**: specified accounts in the database
    * 
    * @example
    * AccountId
@@ -16,7 +16,7 @@ export class SetPolicyAssetScopeRequestDatabases extends $dara.Model {
   accountScopeType?: string;
   /**
    * @remarks
-   * The database accounts to which the control policy applies.
+   * The scope of database accounts to which the control policy applies.
    * 
    * > Required when AccountScopeType is set to AccountId.
    */
@@ -60,7 +60,7 @@ export class SetPolicyAssetScopeRequestDatabases extends $dara.Model {
 export class SetPolicyAssetScopeRequestHostGroups extends $dara.Model {
   /**
    * @remarks
-   * The asset accounts to which the control policy applies.
+   * The scope of asset accounts to which the control policy applies.
    * 
    * > Required when AccountScopeType is set to AccountNames.
    */
@@ -69,8 +69,8 @@ export class SetPolicyAssetScopeRequestHostGroups extends $dara.Model {
    * @remarks
    * The scope of asset accounts to which the control policy applies. Valid values:
    * 
-   * - **All**: applies to all accounts in the asset group.
-   * - **AccountName**: applies to specified accounts in the asset group.
+   * - **All**: all accounts in the asset group
+   * - **AccountName**: specified accounts in the asset group
    * 
    * @example
    * All
@@ -78,7 +78,7 @@ export class SetPolicyAssetScopeRequestHostGroups extends $dara.Model {
   accountScopeType?: string;
   /**
    * @remarks
-   * The asset group ID.
+   * The ID of the asset group.
    * 
    * @example
    * 86
@@ -117,8 +117,8 @@ export class SetPolicyAssetScopeRequestHosts extends $dara.Model {
    * @remarks
    * The scope of host accounts to which the control policy applies. Valid values:
    * 
-   * - **All**: applies to all accounts on the host.
-   * - **AccountId**: applies to specified accounts on the host.
+   * - **All**: all accounts on the host
+   * - **AccountId**: specified accounts on the host
    * 
    * @example
    * All
@@ -126,14 +126,14 @@ export class SetPolicyAssetScopeRequestHosts extends $dara.Model {
   accountScopeType?: string;
   /**
    * @remarks
-   * The host accounts to which the control policy applies.
+   * The scope of host accounts to which the control policy applies.
    * 
    * > Required when AccountScopeType is set to AccountId.
    */
   hostAccountIds?: string[];
   /**
    * @remarks
-   * The host ID.
+   * The ID of the host.
    * 
    * @example
    * 1
@@ -170,28 +170,28 @@ export class SetPolicyAssetScopeRequestHosts extends $dara.Model {
 export class SetPolicyAssetScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The databases to which the control policy applies.
+   * The scope of database assets to which the control policy applies.
    * 
-   * > Required when ScopeType is set to Database. A maximum of 500 databases can be specified.
+   * > Required when ScopeType is set to Database. You can specify up to 500 databases.
    */
   databases?: SetPolicyAssetScopeRequestDatabases[];
   /**
    * @remarks
-   * The asset groups to which the control policy applies.
+   * The scope of asset groups to which the control policy applies.
    * 
-   * > Required when ScopeType is set to HostGroup. A maximum of 100 asset groups can be specified.
+   * > Required when ScopeType is set to HostGroup. You can specify up to 100 asset groups.
    */
   hostGroups?: SetPolicyAssetScopeRequestHostGroups[];
   /**
    * @remarks
-   * The hosts to which the control policy applies.
+   * The scope of hosts to which the control policy applies.
    * 
-   * > Required when ScopeType is set to Host. A maximum of 500 hosts can be specified.
+   * > Required when ScopeType is set to Host. You can specify up to 500 hosts.
    */
   hosts?: SetPolicyAssetScopeRequestHosts[];
   /**
    * @remarks
-   * The instance ID of the bastion host.
+   * The Bastionhost instance ID.
    * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
@@ -214,11 +214,14 @@ export class SetPolicyAssetScopeRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -227,11 +230,11 @@ export class SetPolicyAssetScopeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The asset scope for the control policy. Valid values:
-   * - **All**: applies to all assets.
-   * - **Host**: applies to selected hosts.
-   * - **Database**: applies to selected databases.
-   * - **HostGroup**: applies to selected asset groups.
+   * The scope of assets to which the control policy applies. Valid values:
+   * - **All**: all assets
+   * - **Host**: selected hosts
+   * - **Database**: selected databases
+   * - **HostGroup**: selected asset groups
    * 
    * This parameter is required.
    * 

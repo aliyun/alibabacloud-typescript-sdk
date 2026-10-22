@@ -18,8 +18,8 @@ export class AcceptOperationTicketRequest extends $dara.Model {
    * - **0**: No limit on the number of logons. The O&M engineer can log on an unlimited number of times during the validity period.
    * 
    * - **1**: The O&M engineer can log on only once during the validity period.
-   * > - The logon limit for database asset O&M approval can only be set to unlimited.
-   * > - If an empty character string is passed, the default value is unlimited.
+   * > - The logon limit for database asset O&M approval can only be set to no limit on the number of logons in Settings.
+   * > - If an empty character string is passed, the default value is no limit on the number of logons.
    * 
    * @example
    * 1
@@ -44,7 +44,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the bastion host instance.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -66,6 +66,9 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

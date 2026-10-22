@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostShareKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared key whose information you want to query.
-   * 
-   * > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * The ID of the host shared key to query.
+   * > You can call [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class GetHostShareKeyRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +25,18 @@ export class GetHostShareKeyRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

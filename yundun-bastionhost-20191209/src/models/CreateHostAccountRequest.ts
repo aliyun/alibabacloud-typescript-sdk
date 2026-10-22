@@ -86,6 +86,9 @@ export class CreateHostAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
@@ -113,9 +116,9 @@ export class CreateHostAccountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The password rotation mode of the account. Default value: Self.
-   * - **Privileged**: uses a privileged account to rotate the password.
-   * - **Self**: does not use a privileged account to rotate the password.
+   * The password change mode of the account. Default value: Self.
+   * - **Privileged**: uses a privileged account to change the password.
+   * - **Self**: does not use a privileged account to change the password.
    * >Only supported in V3.2.47 and later.
    * 
    * @example

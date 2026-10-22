@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The new remarks of the control policy.
+   * The new description of the control policy.
    * 
    * @example
    * test
@@ -13,9 +13,7 @@ export class ModifyPolicyRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host to which the control policy to modify belongs.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the Bastionhost instance to which the control policy belongs. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +23,7 @@ export class ModifyPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the control policy that you want to modify.
+   * The ID of the control policy.
    * 
    * This parameter is required.
    * 
@@ -35,7 +33,7 @@ export class ModifyPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The new name of the control policy.
+   * The new Policy Name of the control policy.
    * 
    * @example
    * test
@@ -43,18 +41,23 @@ export class ModifyPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The priority of the modified control policy. Valid values: 1 to 100. The smaller the value, the higher the priority. Default value: 1.
+   * The new priority of the control policy. Valid values: 1 to 100. A smaller value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 3
    */
   priority?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host to which the control policy to modify belongs.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance to which the control policy belongs. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

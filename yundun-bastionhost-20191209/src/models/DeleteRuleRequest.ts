@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host from which you want to delete the authorization rule.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host to which the authorization rule to be deleted belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -15,12 +14,18 @@ export class DeleteRuleRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host from which you want to delete the authorization rule.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host instance from which you want to delete the authorization rule.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -28,9 +33,8 @@ export class DeleteRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the authorization rule that you want to delete.
-   * 
-   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * The ID of the authorization rule to be deleted.
+   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 

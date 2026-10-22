@@ -17,6 +17,9 @@ export class AddUsersToGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

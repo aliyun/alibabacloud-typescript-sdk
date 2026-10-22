@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyAssetScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,9 @@ export class GetPolicyAssetScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The control policy ID.
+   * The ID of the control policy.
    * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +26,18 @@ export class GetPolicyAssetScopeRequest extends $dara.Model {
    * 7
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

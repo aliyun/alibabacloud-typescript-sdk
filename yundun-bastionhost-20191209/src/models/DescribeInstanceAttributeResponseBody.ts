@@ -6,8 +6,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
   /**
    * @remarks
    * The custom port.
-   * 
-   * > Only SSH and RDP support modification. If no custom O&M port is configured for the bastion host, the value is the same as the standard port.
+   * > Only SSH and RDP ports can be modified. If no custom O&M port is specified for the Bastionhost instance, the standard port is returned.
    * 
    * @example
    * 600xx
@@ -15,9 +14,8 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
   customPort?: number;
   /**
    * @remarks
-   * The standard port of the bastion host. Valid values:
-   * 
-   * - **SSH**: 60022 
+   * The standard port of the Bastionhost instance. Valid values:
+   * - **SSH**: 60022
    * - **RDP**: 63389
    * - **HTTPS**: 443
    * 
@@ -59,7 +57,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPoli
   description?: string;
   /**
    * @remarks
-   * The IP address whitelist to configure. A maximum of 50 IP addresses are supported. Separate multiple IP addresses with commas (,).
+   * The IP address whitelist to be configured. You can configure up to 50 IP addresses. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 94.74.xx.xx/32
@@ -92,16 +90,46 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   /**
    * @remarks
    * The AI credit status (Available/Exhausted).
+   * 
+   * @example
+   * Available
    */
   aiCreditStatus?: string;
   /**
    * @remarks
-   * The intelligent O&M module switch (Enable/Disable).
+   * The total number of AI credits in the package.
+   * 
+   * @example
+   * 1
+   */
+  aiCreditsTotal?: number;
+  /**
+   * @remarks
+   * The number of used AI credits in the package.
+   * 
+   * @example
+   * 1
+   */
+  aiCreditsUs?: number;
+  /**
+   * @remarks
+   * The AI O&M audit status.
+   * 
+   * @example
+   * Disabled
+   */
+  aiOpsAuditStatus?: string;
+  /**
+   * @remarks
+   * The switch status of the intelligent O&M module (Enable/Disable).
+   * 
+   * @example
+   * Enable
    */
   aiOpsModule?: string;
   /**
    * @remarks
-   * The application O&M module. Valid values: Enable (enabled) and Disable (disabled).
+   * The application O&M module. Valid values: Enable and Disable.
    * 
    * @example
    * Enable
@@ -114,7 +142,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   authorizedSecurityGroups?: string[];
   /**
    * @remarks
-   * The total bandwidth of the bastion host instance.
+   * The total bandwidth of the Bastionhost instance.
    * 
    * @example
    * 30
@@ -122,7 +150,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   bandwidth?: string;
   /**
    * @remarks
-   * The extended bandwidth package of the bastion host.
+   * The extended bandwidth plan of the Bastionhost instance.
    * 
    * @example
    * 5
@@ -130,7 +158,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   bandwidthPackage?: string;
   /**
    * @remarks
-   * The database O&M status.
+   * The database O&M status. Valid values:
    * - **Enable**: Database O&M is supported.
    * - **Disable**: Database O&M is not supported.
    * 
@@ -140,15 +168,15 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   dbOperationModule?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The description.
    * 
    * @example
-   * TestAPI
+   * Test API
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the elastic network interfaces (ENIs). This is the network interface controller (NIC) ID bound to the instance.
+   * The ID of the elastic network interface controller (NIC).
    * 
    * @example
    * eni-bp1455jrzwm7moaxxxxx
@@ -156,7 +184,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   eniInstanceId?: string;
   /**
    * @remarks
-   * The expiration timestamp of the bastion host instance. Unit: milliseconds.
+   * The expiration timestamp of the Bastionhost instance. Unit: milliseconds.
    * 
    * @example
    * 1578326400000
@@ -164,12 +192,12 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   expireTime?: number;
   /**
    * @remarks
-   * The HSM hardware encryption module status. Indicates whether the bastion host is integrated with HSM.
+   * The status of the HSM hardware encryption module. Indicates whether the Bastionhost instance is integrated with an HSM.
    */
   HSMModule?: string;
   /**
    * @remarks
-   * The IDaaS integration module. Valid values: Enable (enabled) and Disable (disabled).
+   * The IDaaS integration module. Valid values: Enable and Disable.
    * 
    * @example
    * Enable
@@ -186,14 +214,13 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   /**
    * @remarks
    * The instance status. Valid values:
-   * 
-   * - **PENDING**: Not initialized.
-   * - **CREATING**: Being created. 
-   * - **RUNNING**: Running. 
-   * - **EXPIRED**: Expired. 
+   * - **PENDING**: Uninitialized.
+   * - **CREATING**: Creating.
+   * - **RUNNING**: Running.
+   * - **EXPIRED**: Expired.
    * - **CREATE_FAILED**: Creation failed.
-   * - **UPGRADING**: Being upgraded.
-   * - **UPGRADE_FAILED**: Upgrade failed.
+   * - **UPGRADING**: Upgrading or downgrading.
+   * - **UPGRADE_FAILED**: Upgrade or downgrade failed.
    * 
    * @example
    * RUNNING
@@ -217,7 +244,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The KMS Secrets Manager integration module. Valid values: Enable (enabled) and Disable (disabled).
+   * The KMS Secrets Manager integration module. Valid values: Enable and Disable.
    * 
    * @example
    * Enable
@@ -233,8 +260,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   licenseCode?: string;
   /**
    * @remarks
-   * The status of the password change task feature.
-   * 
+   * The status of the password change task feature. Valid values:
    * - **Enable**: Enabled.
    * - **Disable**: Disabled.
    * 
@@ -244,9 +270,9 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   modifyPasswordModule?: string;
   /**
    * @remarks
-   * The network domain proxy status.
-   * - **Enable**: Network domain proxy mode is supported.
-   * - **Disable**: Network domain proxy mode is not supported.
+   * The network domain proxy status. Valid values:
+   * - **Enable**: The network domain proxy mode is supported.
+   * - **Disable**: The network domain proxy mode is not supported.
    * 
    * @example
    * Enable
@@ -254,35 +280,34 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   networkProxyModule?: string;
   /**
    * @remarks
-   * The O&M ports of the bastion host.
+   * The O&M ports of the Bastionhost instance.
    */
   ports?: DescribeInstanceAttributeResponseBodyInstanceAttributePorts[];
   /**
    * @remarks
-   * The list of internal egress IP addresses of the bastion host.
+   * The list of internal outbound IP addresses of the Bastionhost instance.
    */
   privateExportIps?: string[];
   /**
    * @remarks
-   * The list of internal whitelist IP addresses.
+   * The list of IP addresses in the internal network whitelist.
    */
   privateWhiteList?: string[];
   /**
    * @remarks
-   * The list of public egress IP addresses of the bastion host.
+   * The list of public outbound IP addresses of the Bastionhost instance.
    */
   publicExportIps?: string[];
   /**
    * @remarks
-   * The list of public IP addresses of the bastion host.
+   * The list of public IP addresses of the Bastionhost instance.
    */
   publicIps?: string[];
   /**
    * @remarks
-   * Indicates whether the bastion host instance is accessible over the Internet. Valid values:
-   * 
-   * - **true**: The bastion host is accessible over the Internet.
-   * - **false**: The bastion host is not accessible over the Internet.
+   * Indicates whether the Bastionhost instance can be accessed over the Internet. Valid values:
+   * - **true**: The Bastionhost instance can be accessed over the Internet.
+   * - **false**: The Bastionhost instance cannot be accessed over the Internet.
    * 
    * @example
    * true
@@ -290,12 +315,12 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   publicNetworkAccess?: boolean;
   /**
    * @remarks
-   * The public whitelist of the bastion host.
+   * The list of IP addresses in the public network whitelist of the Bastionhost instance.
    */
   publicWhiteList?: string[];
   /**
    * @remarks
-   * The multi-account module. Valid values: Enable (enabled) and Disable (disabled).
+   * The multi-account module. Valid values: Enable and Disable.
    * 
    * @example
    * Enable
@@ -319,12 +344,12 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of rules for the bastion host instance.
+   * The list of rules for the Bastionhost instance.
    */
   routerRules?: string[];
   /**
    * @remarks
-   * The script O&M module. Valid values: Enable (enabled) and Disable (disabled).
+   * The script O&M module. Valid values: Enable and Disable.
    * 
    * @example
    * Enable
@@ -337,7 +362,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the secondary vSwitch bound to the bastion host instance.
+   * The ID of the secondary vSwitch bound to the Bastionhost instance.
    * 
    * @example
    * vsw-uf6cmnae7hu5****
@@ -345,7 +370,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   slaveVswitchId?: string;
   /**
    * @remarks
-   * The timestamp when the bastion host instance was purchased or renewed. Unit: milliseconds.
+   * The timestamp when the Bastionhost instance was purchased or renewed. Unit: milliseconds.
    * 
    * @example
    * 1577681345000
@@ -353,7 +378,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   startTime?: number;
   /**
    * @remarks
-   * The total storage capacity of the purchased bastion host. Unit: bytes.
+   * The total purchased storage capacity of the Bastionhost instance. Unit: bytes.
    * 
    * @example
    * 2199023255552
@@ -361,7 +386,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   storage?: number;
   /**
    * @remarks
-   * The VPC ID bound to the instance.
+   * The ID of the VPC to which the instance is connected.
    * 
    * @example
    * vpc-bp1c85tzgqu1bf5bxxxxx
@@ -369,7 +394,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   vpcId?: string;
   /**
    * @remarks
-   * The vSwitch ID bound to the instance.
+   * The ID of the vSwitch to which the instance is connected.
    * 
    * @example
    * vsw-bp1xfwzzfti0kjbfxxxxx
@@ -377,7 +402,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   vswitchId?: string;
   /**
    * @remarks
-   * The Web Terminal status.
+   * The Web Terminal status. Valid values:
    * - **Enable**: Web remote connection is supported.
    * - **Disable**: Web remote connection is not supported.
    * 
@@ -387,12 +412,15 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   webTerminalModule?: string;
   /**
    * @remarks
-   * The IP address whitelist to configure.
+   * The IP address whitelist to be configured.
    */
   whiteListPolicies?: DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPolicies[];
   static names(): { [key: string]: string } {
     return {
       aiCreditStatus: 'AiCreditStatus',
+      aiCreditsTotal: 'AiCreditsTotal',
+      aiCreditsUs: 'AiCreditsUs',
+      aiOpsAuditStatus: 'AiOpsAuditStatus',
       aiOpsModule: 'AiOpsModule',
       appOperationModule: 'AppOperationModule',
       authorizedSecurityGroups: 'AuthorizedSecurityGroups',
@@ -438,6 +466,9 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   static types(): { [key: string]: any } {
     return {
       aiCreditStatus: 'string',
+      aiCreditsTotal: 'number',
+      aiCreditsUs: 'number',
+      aiOpsAuditStatus: 'string',
       aiOpsModule: 'string',
       appOperationModule: 'string',
       authorizedSecurityGroups: { 'type': 'array', 'itemType': 'string' },
@@ -527,7 +558,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceAttribute?: DescribeInstanceAttributeResponseBodyInstanceAttribute;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 082FAB35-6AB9-4FD5-8750-D36673548E76

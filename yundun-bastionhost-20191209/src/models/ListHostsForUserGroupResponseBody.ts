@@ -6,10 +6,8 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
    * The address type of the host. Valid values:
-   * 
-   * - **Public**: a public IP address
-   * 
-   * - **Private**: a private IP address
+   * - **Public**: public address
+   * - **Private**: private network address
    * 
    * @example
    * Public
@@ -17,7 +15,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The remarks of the host.
+   * The description of the host.
    * 
    * @example
    * comment
@@ -41,7 +39,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The private IP address of the host. This can be a domain name or an IP address.
+   * The private network address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -49,7 +47,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public IP address of the host. This can be a domain name or an IP address.
+   * The public address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 10.158.XX.XX
@@ -57,10 +55,8 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostPublicAddress?: string;
   /**
    * @remarks
-   * The OS type of the host. Valid values:
-   * 
+   * The operating system type of the host. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -103,7 +99,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
 export class ListHostsForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of hosts.
+   * The list of hosts returned.
    */
   hosts?: ListHostsForUserGroupResponseBodyHosts[];
   /**
@@ -116,7 +112,7 @@ export class ListHostsForUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of hosts.
+   * The total number of hosts returned.
    * 
    * @example
    * 10

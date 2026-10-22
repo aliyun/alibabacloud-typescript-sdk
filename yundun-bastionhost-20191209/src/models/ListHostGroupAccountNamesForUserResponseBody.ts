@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupAccountNamesForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the names of host accounts.
+   * The list of host account names.
    */
   hostAccountNames?: string[];
   /**

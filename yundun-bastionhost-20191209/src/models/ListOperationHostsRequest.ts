@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationHostsRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the host. You can specify a domain name or an IP address. Only exact matches are supported.
+   * The address of the host to query. You can use a domain name or an IP address. Fuzzy match is not supported. Only exact match is supported.
    * 
    * @example
    * 10.162.XX.XX
@@ -13,7 +13,7 @@ export class ListOperationHostsRequest extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The name of the host. Only exact matches are supported.
+   * The name of the host to query. Fuzzy match is not supported. Only exact match is supported.
    * 
    * @example
    * abc
@@ -21,9 +21,8 @@ export class ListOperationHostsRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -33,20 +32,25 @@ export class ListOperationHostsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operating system of the host. Valid values:
-   * 
+   * The operating system of the host to query. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
    * Linux
    */
   OSType?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   operationProjectId?: string;
   /**
    * @remarks
-   * The number of the page to return. The default value is 1.
+   * The page number of the current page for a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -54,9 +58,9 @@ export class ListOperationHostsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.<br> The maximum value is 100. The default value is 20. If you do not specify this parameter, the default value is used.<br>
-   * 
-   * > Specify a value for this parameter.
+   * The maximum number of entries to return on each page for a paged query.  
+   * Maximum value of PageSize: 100. Default value: 20. If you leave PageSize empty, 20 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -64,9 +68,8 @@ export class ListOperationHostsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the region where the Bastionhost instance resides.
-   * 
-   * > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -74,11 +77,9 @@ export class ListOperationHostsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The source of the host. Valid values:
-   * 
-   * - **Local**: a local host
-   * 
-   * - **Ecs**: an ECS instance
+   * The source of the host to query. Valid values:
+   * - **Local**: local host
+   * - **Ecs**: ECS instance
    * 
    * @example
    * Local
@@ -86,7 +87,7 @@ export class ListOperationHostsRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ECS instance. Only exact matches are supported.
+   * The ECS instance ID. Exact search.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -94,11 +95,9 @@ export class ListOperationHostsRequest extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The state of the host. Valid values:
-   * 
-   * - **Normal**: The host is running.
-   * 
-   * - **Release**: The host is released.
+   * The status of the host to query. Valid values:
+   * - **Normal**: Normal
+   * - **Release**: Released
    * 
    * @example
    * Normal

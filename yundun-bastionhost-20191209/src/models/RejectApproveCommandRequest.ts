@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RejectApproveCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command that you want to reject.
-   * 
-   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+   * The ID of the command to be rejected.
+   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that require approval.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class RejectApproveCommandRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The ID of the bastion host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,11 +25,17 @@ export class RejectApproveCommandRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

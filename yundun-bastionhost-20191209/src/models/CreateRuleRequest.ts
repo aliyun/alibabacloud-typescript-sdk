@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequestDatabases extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of database account IDs.
+   * The array of database account IDs.
    */
   databaseAccountIds?: string[];
   /**
    * @remarks
-   * The database ID.
+   * The database instance ID.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class CreateRuleRequestDatabases extends $dara.Model {
 export class CreateRuleRequestHostGroups extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of asset account names.
+   * The array of asset account names.
    */
   hostAccountNames?: string[];
   /**
@@ -85,7 +85,7 @@ export class CreateRuleRequestHostGroups extends $dara.Model {
 export class CreateRuleRequestHosts extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of host account IDs.
+   * The array of host account IDs.
    */
   hostAccountIds?: string[];
   /**
@@ -125,7 +125,7 @@ export class CreateRuleRequestHosts extends $dara.Model {
 export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the authorization rule. The remarks can be up to 500 characters in length.
+   * The description of the authorization rule. Maximum length: 500 characters.
    * 
    * @example
    * comment
@@ -133,12 +133,12 @@ export class CreateRuleRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The information about the database that runs on your server.
+   * The database information.
    */
   databases?: CreateRuleRequestDatabases[];
   /**
    * @remarks
-   * The end time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time of the validity period for the authorization rule, in seconds (timestamp format).
    * 
    * @example
    * 1672502400
@@ -146,7 +146,7 @@ export class CreateRuleRequest extends $dara.Model {
   effectiveEndTime?: number;
   /**
    * @remarks
-   * The start time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the validity period for the authorization rule, in seconds (timestamp format).
    * 
    * @example
    * 1669630029
@@ -154,7 +154,7 @@ export class CreateRuleRequest extends $dara.Model {
   effectiveStartTime?: number;
   /**
    * @remarks
-   * The information about the asset group that you want to authorize to manage.
+   * The asset group information to authorize.
    */
   hostGroups?: CreateRuleRequestHostGroups[];
   /**
@@ -164,9 +164,8 @@ export class CreateRuleRequest extends $dara.Model {
   hosts?: CreateRuleRequestHosts[];
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -174,12 +173,18 @@ export class CreateRuleRequest extends $dara.Model {
    * bastionhost-cn-5yd2ymfsa0e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -187,7 +192,7 @@ export class CreateRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the authorization rule. The name can be up to 128 characters in length.
+   * The name of the authorization rule. Maximum length: 128 characters.
    * 
    * This parameter is required.
    * 
@@ -197,12 +202,12 @@ export class CreateRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * An array that consists of user group IDs.
+   * The array of user group IDs.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * An array that consists of user IDs.
+   * The array of user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

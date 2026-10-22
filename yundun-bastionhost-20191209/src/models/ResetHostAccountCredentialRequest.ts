@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ResetHostAccountCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of logon credential to clear. Valid values:
-   * 
-   * - **Password**: The password.
-   * 
-   * - **PrivateKey**: The SSH private key.
+   * The type of the logon credential to purge. Valid values:
+   * - **Password**: password
+   * - **PrivateKey**: SSH private key
    * 
    * This parameter is required.
    * 
@@ -19,9 +17,8 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The ID of the host account. The logon credential of this account will be cleared.
-   * 
-   * > Call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain this parameter.
+   * The ID of the host account whose logon credentials you want to purge.
+   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -31,9 +28,8 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
   hostAccountId?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance. The instance contains the host account.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance to which the host account whose logon credentials you want to purge belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -41,12 +37,18 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
    * bastionhost-cn-rp640dg****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
-   * 
-   * > For information about region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance to which the host account whose logon credentials you want to purge belongs.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

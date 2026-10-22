@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the control policy.
+   * The comment of the control policy.
    * 
    * @example
    * Comment
@@ -13,7 +13,7 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The control policy ID.
+   * The ID of the control policy.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the control policy.
+   * The Policy Name of the control policy.
    * 
    * @example
    * test
@@ -70,7 +70,7 @@ export class ListPoliciesResponseBody extends $dara.Model {
   policies?: ListPoliciesResponseBodyPolicies[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -78,7 +78,7 @@ export class ListPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of control policies that are returned.
+   * The total number of control policies returned.
    * 
    * @example
    * 10

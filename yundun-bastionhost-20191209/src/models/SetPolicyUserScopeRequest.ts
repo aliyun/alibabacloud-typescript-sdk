@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyUserScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the control policy that you want to modify.
-   * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * The ID of the control policy to modify.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,12 +25,18 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
    * 1
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -40,13 +44,11 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scope of users to whom the control policy applies. Valid values:
+   * The user scope for the control policy. Valid values:
    * 
-   * - **All**: The control policy applies to all users.
-   * 
-   * - **User**: The control policy applies to specified users.
-   * 
-   * - **UserGroup**: The control policy applies to specified user groups.
+   * - **All**: The policy applies to all users.
+   * - **User**: The policy applies to selected users.
+   * - **UserGroup**: The policy applies to selected user groups.
    * 
    * This parameter is required.
    * 
@@ -56,16 +58,16 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
   scopeType?: string;
   /**
    * @remarks
-   * The user groups to which the control policy applies.
+   * The user group scope for the control policy.
    * 
-   * > This parameter is required if ScopeType is set to UserGroup. You can specify up to 100 user group IDs.
+   * > This parameter is required when ScopeType is set to UserGroup. A maximum of 100 user groups can be specified.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The users to whom the control policy applies.
+   * The user scope for the control policy.
    * 
-   * > This parameter is required if ScopeType is set to User. You can specify up to 500 user IDs.
+   * > This parameter is required when ScopeType is set to User. A maximum of 500 users can be specified.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

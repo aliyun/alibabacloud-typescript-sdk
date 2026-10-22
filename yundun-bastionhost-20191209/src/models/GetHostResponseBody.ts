@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostResponseBodyHostProtocols extends $dara.Model {
   /**
    * @remarks
-   * The fingerprint of the host. This parameter uniquely identifies a host. A value is returned for this parameter only if you have performed O\\&M operations on the host by using the bastion host. Otherwise, no value is returned.
+   * The host fingerprint information, which uniquely identifies a host. The bastion host records the host fingerprint only when you use the bastion host to perform O&M on the target host. Otherwise, this parameter is empty.
    * 
    * @example
    * ssh-ed25519|3e:46:5a:e1:1f:0d:39:7e:61:35:d5:fa:7b:2b:**:**
@@ -21,10 +21,8 @@ export class GetHostResponseBodyHostProtocols extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol that is used to connect to the host. Valid values:
-   * 
+   * The protocol name used by the host. Valid values:
    * - **SSH**
-   * 
    * - **RDP**
    * 
    * @example
@@ -59,11 +57,9 @@ export class GetHostResponseBodyHostProtocols extends $dara.Model {
 export class GetHostResponseBodyHost extends $dara.Model {
   /**
    * @remarks
-   * The address type of the host. Valid values:
-   * 
-   * - **Public**: a public address
-   * 
-   * - **Private**: a private address
+   * The host address type. Valid values:
+   * - **Public**: public address.
+   * - **Private**: private network address.
    * 
    * @example
    * Public
@@ -71,7 +67,7 @@ export class GetHostResponseBodyHost extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The description of the host.
+   * The remarks of the host.
    * 
    * @example
    * host
@@ -79,7 +75,7 @@ export class GetHostResponseBodyHost extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the host.
+   * The host ID.
    * 
    * @example
    * 1
@@ -95,7 +91,7 @@ export class GetHostResponseBodyHost extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * The private network address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -103,7 +99,7 @@ export class GetHostResponseBodyHost extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public address of the host. The value is a domain name or an IP address.
+   * The public address of the host, which can be a domain name or an IP address.
    * 
    * @example
    * 1.1.XX.XX
@@ -120,9 +116,7 @@ export class GetHostResponseBodyHost extends $dara.Model {
   /**
    * @remarks
    * The operating system of the host. Valid values:
-   * 
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -131,15 +125,12 @@ export class GetHostResponseBodyHost extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The preferred key exchange algorithm of the host. The value of this parameter is returned if OSType is set to Linux. Valid values:
+   * The preferred key exchange algorithm configuration of the host. This parameter is returned only when OSType is Linux.
    * 
-   * - **default**
-   * 
-   * - **diffie-hellman-group1-sha1**
-   * 
-   * - **diffie-hellman-group14-sha1**
-   * 
-   * - **diffie-hellman-group-exchange-sha1**
+   * - **default**: default mode.
+   * - **diffie-hellman-group1-sha1**: diffie-hellman-group1-sha1 algorithm compatibility mode.
+   * - **diffie-hellman-group14-sha1**: diffie-hellman-group14-sha1 algorithm compatibility mode.
+   * - **diffie-hellman-group-exchange-sha1**: diffie-hellman-group-exchange-sha1 algorithm compatibility mode.
    * 
    * @example
    * default
@@ -147,18 +138,15 @@ export class GetHostResponseBodyHost extends $dara.Model {
   prefKex?: string;
   /**
    * @remarks
-   * The protocol information about the host.
+   * The protocol information of the host.
    */
   protocols?: GetHostResponseBodyHostProtocols[];
   /**
    * @remarks
    * The source of the host. Valid values:
-   * 
-   * - **Local**: a host in a data center
-   * 
-   * - **Ecs**: an Elastic Compute Service (ECS) instance
-   * 
-   * - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * - **Local**: local host.
+   * - **Ecs**: ECS instance.
+   * - **Rds**: ApsaraDB RDS dedicated cluster host.
    * 
    * @example
    * Local
@@ -166,9 +154,8 @@ export class GetHostResponseBodyHost extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
-   * 
-   * > If **Local** is returned for the **Source** parameter, no value is returned for this parameter.
+   * The ECS instance ID or dedicated cluster host ID that corresponds to the host.
+   * > If **Source** is set to **Local**, this parameter is empty.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -176,11 +163,9 @@ export class GetHostResponseBodyHost extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The status of the host. Valid values:
-   * 
-   * - **Normal**: normal
-   * 
-   * - **Release**: released
+   * The host status. Valid values:
+   * - **Normal**: Normal.
+   * - **Release**: Released.
    * 
    * @example
    * Normal
@@ -237,12 +222,12 @@ export class GetHostResponseBodyHost extends $dara.Model {
 export class GetHostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned information about the host.
+   * The information about the queried host.
    */
   host?: GetHostResponseBodyHost;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID generated by Alibaba Cloud for this request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

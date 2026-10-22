@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends $dara.Model {
   /**
    * @remarks
-   * The number of remaining uses for the token.
+   * The remaining number of times the O&M token can be used.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   countLeft?: number;
   /**
    * @remarks
-   * The expiration time of the token. This value is a UNIX timestamp.
+   * The expiration time of the O&M token. The value is a UNIX timestamp.
    * 
    * @example
    * 1709110797
@@ -21,7 +21,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   expireTime?: number;
   /**
    * @remarks
-   * Indicates whether the token has a use limit.
+   * Indicates whether the number of uses is limited.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   renewCount?: number;
   /**
    * @remarks
-   * The single sign-on (SSO) URL.
+   * The single sign-on URL.
    * 
    * @example
    * sso://eyJOT0RFX0NPTU1PTiI6eyJNb2R******
@@ -53,7 +53,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   ssoUrl?: string;
   /**
    * @remarks
-   * The O\\&M token that is requested.
+   * The requested O&M token.
    * 
    * @example
    * NmYyMmEzNmMwYzljNGY******
@@ -61,7 +61,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   token?: string;
   /**
    * @remarks
-   * The ID of the O\\&M token.
+   * The ID of the O&M token.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
 export class GenerateAssetOperationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asset operation token.
+   * The response data.
    */
   assetOperationToken?: GenerateAssetOperationTokenResponseBodyAssetOperationToken;
   /**

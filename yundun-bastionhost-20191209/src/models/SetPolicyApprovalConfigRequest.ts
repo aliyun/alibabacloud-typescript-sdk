@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyApprovalConfigRequestApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable O\\&M approval in the control policy. Valid values:
+   * The O&M approval configuration in the control policy. Valid values:
    * 
-   * - **On**: enables O\\&M approval.
-   * 
-   * - **Off**: disables O\\&M approval.
+   * - **On**: Enables O&M approval.
+   * - **Off**: Disables O&M approval.
    * 
    * This parameter is required.
    * 
@@ -41,16 +40,15 @@ export class SetPolicyApprovalConfigRequestApprovalConfig extends $dara.Model {
 export class SetPolicyApprovalConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The O\\&M approval setting in the control policy.
+   * The O&M approval configuration in the control policy.
    * 
    * This parameter is required.
    */
   approvalConfig?: SetPolicyApprovalConfigRequestApprovalConfig;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The Bastionhost instance ID.
+   * > You can call the DescribeInstances operation to obtain the Bastionhost instance ID.
    * 
    * This parameter is required.
    * 
@@ -61,8 +59,7 @@ export class SetPolicyApprovalConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the control policy that you want to modify.
-   * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -70,12 +67,18 @@ export class SetPolicyApprovalConfigRequest extends $dara.Model {
    * 7
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

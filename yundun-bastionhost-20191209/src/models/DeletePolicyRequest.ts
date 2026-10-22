@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host where the control policy to be deleted resides.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the bastion host to which the control policy to be deleted belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class DeletePolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the control policy to be deleted.
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
+   * The ID of the control policy to delete.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,12 +28,15 @@ export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

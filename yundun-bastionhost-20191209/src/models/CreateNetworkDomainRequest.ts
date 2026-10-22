@@ -99,8 +99,8 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance for which you want to create a network domain.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The ID of the Bastionhost instance for which you want to create a network domain.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -121,8 +121,8 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the network domain to create. Valid values:
-   * - Direct: direct connection. Bastionhost is directly connected to the asset network without an intermediate proxy server.
-   * - Proxy: proxy connection. If the network where the assets reside is not connected to the Bastionhost network, you can use a proxy server to forward network requests and manage assets in different network environments.
+   * - Direct: The bastion host directly connects to the asset network without going through an intermediate proxy server.
+   * - Proxy: When the asset network cannot communicate with the bastion host network, a proxy server forwards network requests to enable O&M on assets in different network environments.
    * 
    * This parameter is required.
    * 
@@ -133,6 +133,9 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

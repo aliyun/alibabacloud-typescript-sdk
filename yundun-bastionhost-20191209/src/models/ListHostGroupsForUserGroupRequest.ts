@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the host group that you want to query. Only exact match is supported.
+   * The name of the host group to query. Only exact match is supported.
    * 
    * @example
    * group
@@ -13,9 +13,8 @@ export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   hostGroupName?: string;
   /**
    * @remarks
-   * The ID of the bastion host to which the user group belongs.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance to which the user group belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -25,11 +24,9 @@ export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies the category of the host group that you want to query. Valid values:
-   * 
-   * - **Authorized**: queries the host groups that the user group is authorized to manage. This is the default value.
-   * 
-   * - **Unauthorized**: queries the host groups that the user group is not authorized to manage.
+   * The mode of the host group list to query. Valid values:
+   * - **Authorized**: Authorized host groups. This is the default value.
+   * - **Unauthorized**: Unauthorized host groups.
    * 
    * @example
    * Authorized
@@ -37,7 +34,7 @@ export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the current page when paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,20 +42,25 @@ export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.<br>
-   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page when paging in a paged query.  
+   * The maximum value of the PageSize parameter is 100. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for the PageSize parameter.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host to which the user group belongs.
-   * 
+   * The region ID of the Bastionhost instance to which the user group belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -67,9 +69,8 @@ export class ListHostGroupsForUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * The ID of the user group to query.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

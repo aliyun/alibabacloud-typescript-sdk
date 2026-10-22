@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupsResponseBodyHostGroups extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the asset group.
+   * The description of the asset group.
    * 
    * @example
    * Comment
@@ -13,7 +13,7 @@ export class ListHostGroupsResponseBodyHostGroups extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The asset group ID.
+   * The ID of the asset group.
    * 
    * @example
    * 1

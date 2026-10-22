@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
-   * The exact address of the asset pending approval for O&M.
+   * The address of the O&M asset for exact search.
    * 
    * @example
    * 10.167.XX.XX
@@ -13,8 +13,8 @@ export class ListOperationTicketsRequest extends $dara.Model {
   assetAddress?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class ListOperationTicketsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number for a paged query. Default value: **1**.
+   * The page number of the page to return in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -32,9 +32,9 @@ export class ListOperationTicketsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.  
-   * The maximum value of PageSize is 1000. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries to return on each page in a paged query.  
+   * The maximum value of the PageSize parameter is 1000. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+   * > We recommend that you specify a value for the PageSize parameter.
    * 
    * @example
    * 20
@@ -43,12 +43,15 @@ export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

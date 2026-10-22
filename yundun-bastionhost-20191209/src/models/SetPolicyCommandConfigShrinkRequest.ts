@@ -14,9 +14,8 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
   commandConfigShrink?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,7 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the control policy that you want to modify.
    * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -36,11 +35,17 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
    * 45
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

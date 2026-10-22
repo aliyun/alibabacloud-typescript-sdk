@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A34F9731-A4EA-5D1D-8445-BAEF782BFFE6

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host group.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * The ID of the host group to query.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The ID of the bastion host to which the user belongs.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance to which the user belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,11 +25,17 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host to which the user belongs.
-   * 
+   * The region ID of the Bastionhost instance to which the user belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -40,9 +44,8 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user.
-   * 
-   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * The ID of the user to query.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

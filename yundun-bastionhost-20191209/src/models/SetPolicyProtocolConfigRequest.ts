@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow clipboard content to be downloaded. Valid values:
+   * The clipboard download configuration. Valid values:
    * 
-   * - Enable
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -19,13 +18,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
   clipboardDownload?: string;
   /**
    * @remarks
-   * Specifies whether to allow clipboard content to be uploaded. Valid values:
+   * The clipboard upload configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -33,37 +30,39 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
   clipboardUpload?: string;
   /**
    * @remarks
-   * Specifies whether to enable drive and printer mapping. Valid values:
+   * The drive/printer mapping configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
    */
   diskRedirection?: string;
   /**
+   * @remarks
+   * Specifies whether to allow disk download.
+   * 
    * @example
    * Enable
    */
   diskRedirectionDownload?: string;
   /**
+   * @remarks
+   * Specifies whether to allow disk upload.
+   * 
    * @example
    * Enable
    */
   diskRedirectionUpload?: string;
   /**
    * @remarks
-   * Specifies whether to record keyboard input. Valid values:
+   * The keyboard recording configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -102,24 +101,28 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
 
 export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow direct TCP connection.
+   * 
    * @example
    * Enable
    */
   allowDirectTcp?: string;
   /**
+   * @remarks
+   * Specifies whether to allow TCP forwarding.
+   * 
    * @example
    * Enable
    */
   allowTcpForwarding?: string;
   /**
    * @remarks
-   * Specifies whether to allow remote command execution. Valid values:
+   * The remote command execution configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -127,17 +130,14 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   execCommand?: string;
   /**
    * @remarks
-   * Specifies whether to enable the SFTP channel. Valid values:
+   * The SFTP channel configuration. Valid values:
    * 
-   * - Enable
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
-   * - Disable
-   * 
-   * > * The default value is Disable.
-   * >
-   * > * At least one of the SSH channel and the SFTP channel must be enabled.
-   * >
-   * > * If you grant only SFTP permissions to a host account, do not disable the SSH and SFTP channels for that account in the control policy. Otherwise, you cannot use the host account to access the target server through Bastionhost.
+   * > - If this parameter is not specified, the default value is Disable.
+   * > - At least one of the SSH channel and SFTP channel must be set to Enable.
+   * > - If you enable the SFTP-only permission for a host account, do not disable both the SSH channel and SFTP channel for that account in the control policy. Otherwise, you cannot use the host account to access the target server through the bastion host.
    * 
    * @example
    * Enable
@@ -145,13 +145,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPChannel?: string;
   /**
    * @remarks
-   * Specifies whether to allow file downloads over SFTP. Valid values:
+   * The SFTP file download configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -159,13 +157,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPDownloadFile?: string;
   /**
    * @remarks
-   * Specifies whether to allow folder creation over SFTP. Valid values:
+   * The SFTP folder creation configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -173,13 +169,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPMkdir?: string;
   /**
    * @remarks
-   * Specifies whether to allow file deletions over SFTP. Valid values:
+   * The SFTP file deletion configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -187,13 +181,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPRemoveFile?: string;
   /**
    * @remarks
-   * Specifies whether to allow file renames over SFTP. Valid values:
+   * The SFTP file rename configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -201,13 +193,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPRenameFile?: string;
   /**
    * @remarks
-   * Specifies whether to allow folder deletion over SFTP. Valid values:
+   * The SFTP folder deletion configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -215,13 +205,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPRmdir?: string;
   /**
    * @remarks
-   * Specifies whether to allow file uploads over SFTP. Valid values:
+   * The SFTP file upload configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -229,36 +217,34 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   SFTPUploadFile?: string;
   /**
    * @remarks
-   * Specifies whether to enable the SSH channel. Valid values:
+   * The SSH channel configuration. Valid values:
    * 
-   * - Enable
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
-   * - Disable
-   * 
-   * > * The default value is Disable.
-   * >
-   * > * At least one of the SSH channel and the SFTP channel must be enabled. If you disable the SSH channel, you cannot use SSH permissions to log on to the asset account. Configure this parameter with caution.
-   * >
-   * > * If you grant only SFTP permissions to a host account, do not disable the SSH and SFTP channels for that account in the control policy. Otherwise, you cannot use the host account to access the target server through Bastionhost.
+   * > - If this parameter is not specified, the default value is Disable.
+   * > - At least one of the SSH channel and SFTP channel must be set to Enable. If the SSH channel is set to Disable, you cannot log on to asset accounts by using SSH permissions. Proceed with caution.
+   * > - If you enable the SFTP-only permission for a host account, do not disable both the SSH channel and SFTP channel for that account in the control policy. Otherwise, you cannot use the host account to access the target server through the bastion host.
    * 
    * @example
    * Enable
    */
   SSHChannel?: string;
   /**
+   * @remarks
+   * Specifies whether to allow TCP forwarding.
+   * 
    * @example
    * Enable
    */
   tcpForwarding?: string;
   /**
    * @remarks
-   * Specifies whether to enable X11 forwarding. Valid values:
+   * The X11 forwarding configuration. Valid values:
    * 
-   * - Enable
-   * 
-   * - Disable
-   * 
-   * > The default value is Disable.
+   * - Enable: Enabled.
+   * - Disable: Disabled.
+   * > If this parameter is not specified, the default value is Disable.
    * 
    * @example
    * Enable
@@ -312,12 +298,12 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
 export class SetPolicyProtocolConfigRequestProtocolConfig extends $dara.Model {
   /**
    * @remarks
-   * The RDP options.
+   * The RDP option configuration details.
    */
   RDP?: SetPolicyProtocolConfigRequestProtocolConfigRDP;
   /**
    * @remarks
-   * The SSH and SFTP options.
+   * The SSH and SFTP option configuration details.
    */
   SSH?: SetPolicyProtocolConfigRequestProtocolConfigSSH;
   static names(): { [key: string]: string } {
@@ -352,9 +338,8 @@ export class SetPolicyProtocolConfigRequestProtocolConfig extends $dara.Model {
 export class SetPolicyProtocolConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The instance ID of the bastion host.
+   * > You can invoke [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -364,9 +349,9 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the control policy that you want to modify.
+   * The ID of the control policy to modify.
    * 
-   * > Call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the policy ID.
+   * > You can call [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -374,6 +359,13 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
    * 61
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
@@ -384,9 +376,8 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
   protocolConfig?: SetPolicyProtocolConfigRequestProtocolConfig;
   /**
    * @remarks
-   * The ID of the region where the Bastionhost instance resides.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

@@ -6,7 +6,7 @@ export class AcceptApproveCommandRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the command to be approved for execution.
-   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query all command IDs that require approval.
+   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that require approval.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class AcceptApproveCommandRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the bastion host.
-   * > You can call the DescribeInstances operation to obtain the bastion host instance ID.
+   * > You can call the DescribeInstances operation to query the bastion host instance ID.
    * 
    * This parameter is required.
    * 
@@ -28,6 +28,9 @@ export class AcceptApproveCommandRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
+   * 
+   * @example
+   * 3
    */
   projectId?: number;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the user group. The description can be up to 500 characters in length.
+   * The description of the user group to create. The description can be up to 500 characters in length.
    * 
    * @example
    * comment
@@ -13,9 +13,8 @@ export class CreateUserGroupRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to create a user group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the bastion host instance for which you want to create a user group.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -23,11 +22,17 @@ export class CreateUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host for which you want to create a user group.
-   * 
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -36,7 +41,7 @@ export class CreateUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the user group that you want to create. This name can be a up to 128 characters in length.
+   * The name of the user group to create. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 

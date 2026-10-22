@@ -6,10 +6,8 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   /**
    * @remarks
    * The address type of the database. Valid values:
-   * 
-   * - **Public**
-   * 
-   * - **Private**
+   * - **Public**: public address
+   * - **Private**: private endpoint on the private network
    * 
    * @example
    * Public
@@ -17,7 +15,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The remarks of the database.
+   * The description of the database.
    * 
    * @example
    * comment
@@ -25,7 +23,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The database ID.
+   * The instance ID of the database.
    * 
    * @example
    * 9
@@ -41,7 +39,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The port of the database.
+   * The port number of the database.
    * 
    * @example
    * 3306
@@ -49,7 +47,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   databasePort?: number;
   /**
    * @remarks
-   * The internal address of the database. The value is a domain name or an IP address.
+   * The private endpoint of the database on the private network, which can be a domain name or an IP address.
    * 
    * @example
    * rm-wz973w7******
@@ -57,7 +55,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   databasePrivateAddress?: string;
   /**
    * @remarks
-   * The public address of the database. The value is a domain name or an IP address.
+   * The public address of the database, which can be a domain name or an IP address.
    * 
    * @example
    * rm-uf65n2******
@@ -65,14 +63,11 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   databasePublicAddress?: string;
   /**
    * @remarks
-   * The database engine. Valid values:
+   * The type of the database. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -81,7 +76,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The ID of the network domain where the database resides.
+   * The ID of the network domain to which the database belongs.
    * 
    * @example
    * 8
@@ -89,13 +84,11 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The type of the database. Valid values:
+   * The source of the database. Valid values:
    * 
-   * - **Local**: on-premises database.
-   * 
-   * - **Rds**: ApsaraDB for RDS instance.
-   * 
-   * - **PolarDB**: PolarDB cluster
+   * - **Local**: local database instance
+   * - **Rds**: ApsaraDB RDS instance
+   * - **PolarDB**: PolarDB instance
    * 
    * @example
    * Local
@@ -103,9 +96,8 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB for RDS instance or PolarDB cluster.
-   * 
-   * > No value is returned for this parameter if **Source** is set to **Local**.
+   * The instance ID of the ApsaraDB RDS instance or PolarDB instance that corresponds to the database.
+   * > If **Source** is set to **Local**, this parameter is empty.
    * 
    * @example
    * i-wz9ejupczf41******
@@ -113,7 +105,7 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the ApsaraDB for RDS instance or PolarDB cluster.
+   * The region ID of the ApsaraDB RDS instance or PolarDB instance that corresponds to the database.
    * 
    * @example
    * cn-hangzhou
@@ -121,11 +113,9 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
   sourceInstanceRegionId?: string;
   /**
    * @remarks
-   * The status of the database. Valid values:
-   * 
-   * - **Normal**
-   * 
-   * - **Release**
+   * The instance status of the database. Valid values:
+   * - **Normal**: Normal
+   * - **Release**: released
    * 
    * @example
    * Normal
@@ -179,12 +169,12 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
 export class ListDatabasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The databases returned.
+   * The list of databases.
    */
   databases?: ListDatabasesResponseBodyDatabases[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

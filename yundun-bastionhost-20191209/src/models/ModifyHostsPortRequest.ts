@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostsPortRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host for which you want to change the port. The value is a JSON string. You can add up to 100 host IDs. If you specify multiple IDs, separate the IDs with commas (,).
-   * 
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the IDs of hosts.
+   * The IDs of the hosts whose O&M protocols and ports you want to modify. The value is a JSON string. You can enter up to 100 host IDs. Separate multiple host IDs with commas (,).
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class ModifyHostsPortRequest extends $dara.Model {
   hostIds?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to change the port of the host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance where the hosts whose protocol ports you want to modify reside.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +27,7 @@ export class ModifyHostsPortRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The new port of the host. The port number must be an integer. Valid values: 22 to 65535.
+   * The new port number. The port number must be an integer. Valid values: 22 to 65535.
    * 
    * This parameter is required.
    * 
@@ -37,13 +35,18 @@ export class ModifyHostsPortRequest extends $dara.Model {
    * 22
    */
   port?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The protocol that is used to connect to the host. Valid values:
-   * 
+   * The name of the protocol whose port you want to modify. Valid values:
    * - **SSH**
-   * 
    * - **RDP**
    * 
    * This parameter is required.
@@ -54,8 +57,7 @@ export class ModifyHostsPortRequest extends $dara.Model {
   protocolName?: string;
   /**
    * @remarks
-   * The region ID of the bastion host for which you want to change the port of the host.
-   * 
+   * The region ID of the Bastionhost instance where the hosts whose ports you want to modify reside.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

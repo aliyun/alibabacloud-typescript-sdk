@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigInstanceWhiteListRequestWhiteListPolicies extends $dara.Model {
   /**
    * @remarks
-   * The description of this whitelist rule.
+   * The remark or description for the whitelist rule.
+   * 
+   * @example
+   * description
    */
   description?: string;
   /**
    * @remarks
-   * The IP addresses to add to the whitelist. You can specify up to 50 IP addresses, separated by a comma.
+   * The IP address whitelist to be configured. You can configure up to 50 IP addresses. To add multiple IP addresses to the whitelist, separate them with commas (,). The whitelist cannot contain 0.0.0.0/0.
    * 
    * @example
    * 10.162.XX.XX,192.168.XX.XX
@@ -42,9 +45,8 @@ export class ConfigInstanceWhiteListRequestWhiteListPolicies extends $dara.Model
 export class ConfigInstanceWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Bastionhost instance to configure.
-   * 
-   * > To obtain the instance ID, call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation.
+   * Instance ID of the Bastionhost instance for which you want to configure the public IP address whitelist.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query instance ID of the Bastionhost instance.
    * 
    * This parameter is required.
    * 
@@ -62,7 +64,7 @@ export class ConfigInstanceWhiteListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of IP addresses to add to the whitelist.
+   * The IP address whitelist to be configured.
    * 
    * @example
    * 10.162.XX.XX
@@ -70,7 +72,7 @@ export class ConfigInstanceWhiteListRequest extends $dara.Model {
   whiteList?: string[];
   /**
    * @remarks
-   * The policies for the public IP address whitelist.
+   * The IP address whitelist to be configured.
    */
   whiteListPolicies?: ConfigInstanceWhiteListRequestWhiteListPolicies[];
   static names(): { [key: string]: string } {

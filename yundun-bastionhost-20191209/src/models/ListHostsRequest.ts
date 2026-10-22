@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostsRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+   * The address of the host. A domain name or an IP address is supported. Only exact match is supported.
    * 
    * @example
    * 1.1.XX.XX
@@ -13,9 +13,8 @@ export class ListHostsRequest extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The ID of the host group to which the host to be queried belongs.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * The ID of the host group to which the host belongs.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the host group ID.
    * 
    * @example
    * 1
@@ -23,7 +22,7 @@ export class ListHostsRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The name of the host that you want to query. Only exact match is supported.
+   * The name of the host. Only exact match is supported.
    * 
    * @example
    * host
@@ -31,9 +30,8 @@ export class ListHostsRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the bastion host on which you want to query hosts.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -43,10 +41,8 @@ export class ListHostsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operating system of the host that you want to query. Valid values:
-   * 
+   * The operating system of the host. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * @example
@@ -63,19 +59,24 @@ export class ListHostsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * Settings for paging. Specifies the number of host information entries to return per page in a paged query. Default value: **10**, which indicates that 10 host information entries are displayed per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to query hosts.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -84,13 +85,10 @@ export class ListHostsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The source of the host that you want to query. Valid values:
-   * 
-   * - **Local**: a host in a data center
-   * 
-   * - **Ecs**: an Elastic Compute Service (ECS) instance
-   * 
-   * - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * The source of the host. Valid values:
+   * - **Local**: local host
+   * - **Ecs**: ECS instance
+   * - **Rds**: ApsaraDB RDS dedicated cluster host
    * 
    * @example
    * Local
@@ -98,7 +96,7 @@ export class ListHostsRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster that you want to query. Only exact match is supported.
+   * The ECS instance ID or the dedicated cluster host ID that corresponds to the host. Only exact match is supported.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -106,10 +104,8 @@ export class ListHostsRequest extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The status of the host that you want to query. Valid values:
-   * 
+   * The status of the host. Valid values:
    * - **Normal**: normal
-   * 
    * - **Release**: released
    * 
    * @example

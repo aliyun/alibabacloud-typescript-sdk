@@ -13,7 +13,7 @@ export class GetUserGroupResponseBodyUserGroup extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The ID of the user group.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class GetUserGroupResponseBodyUserGroup extends $dara.Model {
 export class GetUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -63,7 +63,7 @@ export class GetUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the user group returned.
+   * The details of the user group.
    */
   userGroup?: GetUserGroupResponseBodyUserGroup;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Model {
   /**
    * @remarks
-   * The address of the proxy server.
+   * The proxy server address.
    * 
    * @example
    * ``47.102.**.**``
@@ -13,10 +13,8 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   address?: string;
   /**
    * @remarks
-   * Specifies whether a password is set for the proxy server. Valid values:
-   * 
+   * Indicates whether a password is set for the proxy server. Valid values:
    * - **true**: A password is set.
-   * 
    * - **false**: No password is set.
    * 
    * @example
@@ -25,10 +23,9 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   hasPassword?: boolean;
   /**
    * @remarks
-   * The node type of the proxy server. Valid values:
+   * The proxy server node. Valid values:
    * 
    * - Master: primary proxy server
-   * 
    * - Slave: secondary proxy server
    * 
    * @example
@@ -37,7 +34,7 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   nodeType?: string;
   /**
    * @remarks
-   * The port of the proxy server.
+   * The proxy server port.
    * 
    * @example
    * 22
@@ -45,11 +42,9 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   port?: number;
   /**
    * @remarks
-   * The status of the proxy server. Valid values:
-   * 
-   * - **Available**: available
-   * 
-   * - **Unavailable**: unavailable
+   * The proxy server status. Valid values:
+   * - **Available**: The proxy server is available.
+   * - **Unavailable**: The proxy server is unavailable.
    * 
    * @example
    * Unavailable
@@ -57,15 +52,12 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   proxyState?: string;
   /**
    * @remarks
-   * The error code that is returned if the proxy server is unavailable. Valid values:
+   * The error code of the proxy server status.
    * 
-   * - **CHECK_PWD_FAILED**: Incorrect password.
-   * 
-   * - **CHECK_PWD_TIMEOUT**: Password verification timeout.
-   * 
-   * - **CHECK_PWD_NETWORK_ERR**: Network error.
-   * 
-   * - **UNEXPECTED**: Unknown error.
+   * - CHECK_PWD_FAILED: The password is incorrect. Password verification failed.
+   * - CHECK_PWD_TIMEOUT: Password verification timed out.
+   * - CHECK_PWD_NETWORK_ERR: A network error occurred.
+   * - UNEXPECTED: An unknown error occurred.
    * 
    * @example
    * CHECK_PWD_TIMEOUT
@@ -74,12 +66,9 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
   /**
    * @remarks
    * The proxy method. Valid values:
-   * 
    * - SSHProxy: SSH proxy
-   * 
    * - HTTPProxy: HTTP proxy
-   * 
-   * - Socks5Proxy: SOCKS5 proxy
+   * - Socks5Proxy: SOCKS proxy
    * 
    * @example
    * HTTPProxy
@@ -131,7 +120,7 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $dara.Mode
 export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   /**
    * @remarks
-   * The comment for the network domain.
+   * The remarks of the network domain.
    * 
    * @example
    * comment
@@ -139,11 +128,10 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Specifies whether the network domain is built-in. Valid values:
+   * Indicates whether the network domain is a built-in network domain.
    * 
-   * - **true**: Yes
-   * 
-   * - **false**: No
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -151,7 +139,7 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * The ID of the network domain.
+   * The network domain ID.
    * 
    * @example
    * 2
@@ -159,7 +147,7 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The name of the network domain.
+   * The network domain name.
    * 
    * @example
    * SSH Proxy
@@ -167,10 +155,8 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   networkDomainName?: string;
   /**
    * @remarks
-   * The type of the network domain. Valid values:
-   * 
+   * The network domain type. Valid values:
    * - Direct: direct connection
-   * 
    * - Proxy: proxy
    * 
    * @example
@@ -179,7 +165,7 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $dara.Model {
   networkDomainType?: string;
   /**
    * @remarks
-   * A list of proxy servers.
+   * The proxy server information.
    */
   proxies?: GetNetworkDomainResponseBodyNetworkDomainProxies[];
   static names(): { [key: string]: string } {
@@ -224,7 +210,7 @@ export class GetNetworkDomainResponseBody extends $dara.Model {
   networkDomain?: GetNetworkDomainResponseBodyNetworkDomain;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID generated by Alibaba Cloud for this request.
    * 
    * @example
    * 05F59944-2E24-595C-B21A-8C9955E60FAF

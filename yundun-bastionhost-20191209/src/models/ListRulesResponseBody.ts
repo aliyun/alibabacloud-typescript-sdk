@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the authorization rule.
+   * The description of the authorization rule.
    * 
    * @example
    * comment
@@ -13,7 +13,7 @@ export class ListRulesResponseBodyRules extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The end time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+   * The end time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1709258400
@@ -21,7 +21,7 @@ export class ListRulesResponseBodyRules extends $dara.Model {
   effectiveEndTime?: number;
   /**
    * @remarks
-   * The start time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+   * The start time of the validity period for the authorization rule. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1685499134
@@ -29,7 +29,7 @@ export class ListRulesResponseBodyRules extends $dara.Model {
   effectiveStartTime?: number;
   /**
    * @remarks
-   * The authorization rule ID.
+   * The ID of the authorization rule.
    * 
    * @example
    * 13
@@ -45,11 +45,9 @@ export class ListRulesResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The state of the authorization rule.
-   * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * The state of the authorization rule. Valid values:
+   * - **Enabled**: Normal.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -97,12 +95,12 @@ export class ListRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The authorization rules that are returned.
+   * The authorization rules returned.
    */
   rules?: ListRulesResponseBodyRules[];
   /**
    * @remarks
-   * The total number of authorization rules that are returned.
+   * The total number of authorization rules returned.
    * 
    * @example
    * 1

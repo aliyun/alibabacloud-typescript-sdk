@@ -6,8 +6,7 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the host group.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance to which the specified user group belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,11 +25,17 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 3
+   */
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
-   * 
+   * The region ID of the Bastionhost instance to which the specified user group belongs.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -41,8 +45,7 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the user group.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $dara.Model {
   /**
    * @remarks
-   * The node type of the proxy server. Valid values:
+   * The type of the proxy server node. Valid values:
    * 
-   * - **Master**: the master proxy server
-   * 
-   * - **Slave**: the slave proxy server
+   * - **Master**: primary proxy server
+   * - **Slave**: secondary proxy server
    * 
    * @example
    * Master
@@ -17,11 +16,10 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $d
   nodeType?: string;
   /**
    * @remarks
-   * The status of the proxy server. Valid values:
+   * The status of the proxy server.
    * 
-   * - **Available**
-   * 
-   * - **Unavailable**
+   * - **Available**: available
+   * - **Unavailable**: unavailable
    * 
    * @example
    * Available
@@ -53,7 +51,7 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $d
 export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   /**
    * @remarks
-   * The comments on the network domain.
+   * The description of the network domain.
    * 
    * @example
    * comment
@@ -61,10 +59,9 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Indicates whether the network domain is a built-in domain.
+   * Indicates whether the network domain is a built-in network domain.
    * 
    * - **true**: yes
-   * 
    * - **false**: no
    * 
    * @example
@@ -92,8 +89,7 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
    * The type of the network domain. Valid values:
    * 
    * - **Direct**: direct connection
-   * 
-   * - **Proxy**: proxy connection
+   * - **Proxy**: proxy
    * 
    * @example
    * Proxy
@@ -141,7 +137,7 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
 export class ListNetworkDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of network domains.
+   * The network domains.
    */
   networkDomains?: ListNetworkDomainsResponseBodyNetworkDomains[];
   /**

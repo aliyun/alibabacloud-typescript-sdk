@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MoveHostsToNetworkDomainResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the host is added to the network domain.
+   * The result of the operation.
    * 
-   * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
+   * > LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not enabled for the current edition.
    * 
    * @example
    * OK
@@ -15,7 +15,7 @@ export class MoveHostsToNetworkDomainResponseBodyResults extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The host ID.
+   * The ID of the host.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class MoveHostsToNetworkDomainResponseBodyResults extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * None
@@ -57,7 +57,7 @@ export class MoveHostsToNetworkDomainResponseBodyResults extends $dara.Model {
 export class MoveHostsToNetworkDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F9B9E190-9C8E-5FEE-B963-7E9F1FD7FB4E
@@ -65,7 +65,7 @@ export class MoveHostsToNetworkDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The results of the operation.
    */
   results?: MoveHostsToNetworkDomainResponseBodyResults[];
   static names(): { [key: string]: string } {

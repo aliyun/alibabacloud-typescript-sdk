@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostShareKeyResponseBodyHostShareKey extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared key.
+   * The ID of the host shared key.
    * 
    * @example
    * 10427
@@ -13,7 +13,7 @@ export class GetHostShareKeyResponseBodyHostShareKey extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The name of the shared key.
+   * The name of the host shared key.
    * 
    * @example
    * name
@@ -21,7 +21,7 @@ export class GetHostShareKeyResponseBodyHostShareKey extends $dara.Model {
   hostShareKeyName?: string;
   /**
    * @remarks
-   * The time when the information about the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the host shared key was last modified, in seconds (UNIX timestamp format).
    * 
    * @example
    * 1644287246
@@ -65,12 +65,12 @@ export class GetHostShareKeyResponseBodyHostShareKey extends $dara.Model {
 export class GetHostShareKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned information about the shared key.
+   * The details of the shared key.
    */
   hostShareKey?: GetHostShareKeyResponseBodyHostShareKey;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

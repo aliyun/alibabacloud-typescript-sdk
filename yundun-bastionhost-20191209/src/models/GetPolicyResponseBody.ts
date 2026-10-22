@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when access is allowed.
+   * The allowed logon days.
    */
   days?: string[];
   /**
    * @remarks
-   * The hours of the day when access is allowed.
+   * The allowed logon hours.
    */
   hours?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime exten
 export class GetPolicyResponseBodyPolicyAccessTimeRangeConfig extends $dara.Model {
   /**
    * @remarks
-   * The allowed access time slots.
+   * The details of the allowed logon time ranges.
    */
   effectiveTime?: GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime[];
   static names(): { [key: string]: string } {
@@ -75,11 +75,10 @@ export class GetPolicyResponseBodyPolicyAccessTimeRangeConfig extends $dara.Mode
 export class GetPolicyResponseBodyPolicyApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether O\\&M approval is enabled. Valid values:
+   * The O&M approval configuration in the control policy. Valid values:
    * 
-   * - **On**: O\\&M approval is enabled.
-   * 
-   * - **Off**: O\\&M approval is disabled.
+   * - **On**: O&M approval is enabled.
+   * - **Off**: O&M approval is disabled.
    * 
    * @example
    * Off
@@ -109,7 +108,7 @@ export class GetPolicyResponseBodyPolicyApprovalConfig extends $dara.Model {
 export class GetPolicyResponseBodyPolicyCommandConfigApproval extends $dara.Model {
   /**
    * @remarks
-   * The commands that require approval.
+   * The array of commands.
    */
   commands?: string[];
   static names(): { [key: string]: string } {
@@ -139,11 +138,10 @@ export class GetPolicyResponseBodyPolicyCommandConfigApproval extends $dara.Mode
 export class GetPolicyResponseBodyPolicyCommandConfigDeny extends $dara.Model {
   /**
    * @remarks
-   * The command control mode. Valid values:
+   * The command control type. Valid values:
    * 
-   * - `white`: allowlist.
-   * 
-   * - `black`: denylist.
+   * - white: whitelist mode.
+   * - black: blacklist mode.
    * 
    * @example
    * black
@@ -151,7 +149,7 @@ export class GetPolicyResponseBodyPolicyCommandConfigDeny extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The commands in the list.
+   * The array of commands.
    */
   commands?: string[];
   static names(): { [key: string]: string } {
@@ -183,12 +181,12 @@ export class GetPolicyResponseBodyPolicyCommandConfigDeny extends $dara.Model {
 export class GetPolicyResponseBodyPolicyCommandConfig extends $dara.Model {
   /**
    * @remarks
-   * The command approval settings.
+   * The command approval configuration details.
    */
   approval?: GetPolicyResponseBodyPolicyCommandConfigApproval;
   /**
    * @remarks
-   * The command control settings.
+   * The command control configuration details.
    */
   deny?: GetPolicyResponseBodyPolicyCommandConfigDeny;
   static names(): { [key: string]: string } {
@@ -223,11 +221,10 @@ export class GetPolicyResponseBodyPolicyCommandConfig extends $dara.Model {
 export class GetPolicyResponseBodyPolicyIPAclConfig extends $dara.Model {
   /**
    * @remarks
-   * The source IP address-based access control mode. Valid values:
+   * The source IP restriction mode. Valid values:
    * 
-   * - `white`: allowlist.
-   * 
-   * - `black`: denylist.
+   * - white: whitelist mode.
+   * - black: blacklist mode.
    * 
    * @example
    * black
@@ -235,7 +232,7 @@ export class GetPolicyResponseBodyPolicyIPAclConfig extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The IP addresses in the ACL.
+   * The IP address information for logon restriction.
    */
   IPs?: string[];
   static names(): { [key: string]: string } {
@@ -267,11 +264,10 @@ export class GetPolicyResponseBodyPolicyIPAclConfig extends $dara.Model {
 export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether clipboard download is enabled. Valid values:
+   * The clipboard download configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -279,11 +275,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
   clipboardDownload?: string;
   /**
    * @remarks
-   * Indicates whether clipboard upload is enabled. Valid values:
+   * The clipboard upload configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -291,33 +286,37 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
   clipboardUpload?: string;
   /**
    * @remarks
-   * Indicates whether drive redirection and printer mapping are enabled. Valid values:
+   * The drive/printer mapping configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
    */
   diskRedirection?: string;
   /**
+   * @remarks
+   * The RDP disk download control.
+   * 
    * @example
    * Enable
    */
   diskRedirectionDownload?: string;
   /**
+   * @remarks
+   * The RDP disk upload control.
+   * 
    * @example
    * Enable
    */
   diskRedirectionUpload?: string;
   /**
    * @remarks
-   * Indicates whether keyboard recording is enabled. Valid values:
+   * The keyboard recording configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -356,22 +355,27 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
 
 export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow TCP tunneling.
+   * 
    * @example
    * Enable
    */
   allowDirectTcp?: string;
   /**
+   * @remarks
+   * Specifies whether to allow TCP forwarding.
+   * 
    * @example
    * Enable
    */
   allowTcpForwarding?: string;
   /**
    * @remarks
-   * Indicates whether remote command execution is enabled. Valid values:
+   * The remote command execution configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -379,11 +383,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   execCommand?: string;
   /**
    * @remarks
-   * Indicates whether the SFTP channel is enabled. Valid values:
+   * The SFTP channel configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -391,11 +394,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPChannel?: string;
   /**
    * @remarks
-   * Indicates whether file downloads over SFTP are enabled. Valid values:
+   * The SFTP file download configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -403,11 +405,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPDownloadFile?: string;
   /**
    * @remarks
-   * Indicates whether directory creation over SFTP is enabled. Valid values:
+   * The SFTP folder creation configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -415,11 +416,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPMkdir?: string;
   /**
    * @remarks
-   * Indicates whether file deletion over SFTP is enabled. Valid values:
+   * The SFTP file deletion configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -427,11 +427,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPRemoveFile?: string;
   /**
    * @remarks
-   * Indicates whether file renaming over SFTP is enabled. Valid values:
+   * The SFTP file rename configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -439,11 +438,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPRenameFile?: string;
   /**
    * @remarks
-   * Indicates whether directory deletion over SFTP is enabled. Valid values:
+   * The SFTP folder deletion configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -451,11 +449,10 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPRmdir?: string;
   /**
    * @remarks
-   * Indicates whether file uploads over SFTP are enabled. Valid values:
+   * The SFTP file upload configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -463,28 +460,29 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   SFTPUploadFile?: string;
   /**
    * @remarks
-   * Indicates whether the SSH channel is enabled. Valid values:
+   * The SSH channel configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
    */
   SSHChannel?: string;
   /**
+   * @remarks
+   * Specifies whether to allow TCP forwarding.
+   * 
    * @example
    * Enable
    */
   tcpForwarding?: string;
   /**
    * @remarks
-   * Indicates whether X11 forwarding is enabled. Valid values:
+   * The X11 forwarding configuration. Valid values:
    * 
-   * - `Enable`
-   * 
-   * - `Disable`
+   * - Enable: Enabled.
+   * - Disable: Disabled.
    * 
    * @example
    * Enable
@@ -538,12 +536,12 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
 export class GetPolicyResponseBodyPolicyProtocolConfig extends $dara.Model {
   /**
    * @remarks
-   * The RDP security settings.
+   * The RDP option configuration details.
    */
   RDP?: GetPolicyResponseBodyPolicyProtocolConfigRDP;
   /**
    * @remarks
-   * The SSH and SFTP security settings.
+   * The SSH and SFTP option configuration details.
    */
   SSH?: GetPolicyResponseBodyPolicyProtocolConfigSSH;
   static names(): { [key: string]: string } {
@@ -578,22 +576,22 @@ export class GetPolicyResponseBodyPolicyProtocolConfig extends $dara.Model {
 export class GetPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The time-based access control settings.
+   * The logon time range restriction details.
    */
   accessTimeRangeConfig?: GetPolicyResponseBodyPolicyAccessTimeRangeConfig;
   /**
    * @remarks
-   * The O\\&M approval settings.
+   * The O&M approval configuration details.
    */
   approvalConfig?: GetPolicyResponseBodyPolicyApprovalConfig;
   /**
    * @remarks
-   * The command control policy.
+   * The command policy details.
    */
   commandConfig?: GetPolicyResponseBodyPolicyCommandConfig;
   /**
    * @remarks
-   * The remarks on the policy.
+   * The description of the control policy.
    * 
    * @example
    * comment
@@ -601,7 +599,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The source IP address-based access control settings.
+   * The source IP restriction configuration details.
    */
   IPAclConfig?: GetPolicyResponseBodyPolicyIPAclConfig;
   /**
@@ -614,7 +612,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the control policy.
+   * The Policy Name of the control policy.
    * 
    * @example
    * test
@@ -630,7 +628,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The protocol control settings.
+   * The protocol control details.
    */
   protocolConfig?: GetPolicyResponseBodyPolicyProtocolConfig;
   static names(): { [key: string]: string } {
@@ -693,7 +691,7 @@ export class GetPolicyResponseBody extends $dara.Model {
   policy?: GetPolicyResponseBodyPolicy;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID generated by Alibaba Cloud for this request.
    * 
    * @example
    * 0D29F2C0-8B4B-5861-9474-F3F23D25594B
