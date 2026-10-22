@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the slot can contain an array of values.
+   * Specifies whether the slot is an array.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable data masking for the slot value.
+   * Specifies whether the slot value is masked.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   encrypt?: boolean;
   /**
    * @remarks
-   * Specifies whether the slot is interactive. If true, the chatbot prompts the user for a value if the user does not provide one.
+   * Specifies whether the slot is interactive.
    * 
    * @example
    * false
@@ -29,17 +29,17 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   interactive?: boolean;
   /**
    * @remarks
-   * The name of the slot.
+   * The slot name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 天气
+   * Weather
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the slot.
+   * The slot ID.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 天气
+   * Weather
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -91,25 +91,25 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
 export class UpdateIntentRequestIntentDefinition extends $dara.Model {
   /**
    * @remarks
-   * The alias for the intent.
+   * The intent alias.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   aliasName?: string;
   /**
    * @remarks
-   * The name of the intent.
+   * The intent name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * A list of slot objects.
+   * The slot information.
    */
   slotInfos?: UpdateIntentRequestIntentDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -143,7 +143,7 @@ export class UpdateIntentRequestIntentDefinition extends $dara.Model {
 export class UpdateIntentRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If you omit this parameter, the system uses the default business space. You can find this key on the Business Management page of your primary account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -151,7 +151,7 @@ export class UpdateIntentRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot instance.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -161,12 +161,12 @@ export class UpdateIntentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent definition object.
+   * The intent definition struct.
    */
   intentDefinition?: UpdateIntentRequestIntentDefinition;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * This parameter is required.
    * 

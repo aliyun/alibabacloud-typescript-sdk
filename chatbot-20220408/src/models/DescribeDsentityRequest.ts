@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDSEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If omitted, the default business space is used. You can find this key on the Business Management page of your primary account.
+   * The business space key. If this parameter is not set, the default business space is accessed. Obtain the key value from the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -23,7 +23,7 @@ export class DescribeDSEntityRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The robot ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 

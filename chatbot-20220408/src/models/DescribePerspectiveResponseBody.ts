@@ -21,15 +21,15 @@ export class DescribePerspectiveResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the perspective.
+   * The perspective name.
    * 
    * @example
-   * 移动端视角
+   * Mobile perspective
    */
   name?: string;
   /**
    * @remarks
-   * The perspective code (used for the Q\\&A API).
+   * The perspective code, which is used for the Q&A API.
    * 
    * @example
    * FZJBY3raWr
@@ -37,7 +37,7 @@ export class DescribePerspectiveResponseBody extends $dara.Model {
   perspectiveCode?: string;
   /**
    * @remarks
-   * The ID of the perspective.
+   * The perspective ID.
    * 
    * @example
    * 3001
@@ -53,7 +53,7 @@ export class DescribePerspectiveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the perspective is user-defined.
+   * Indicates whether the perspective is custom-defined.
    * 
    * @example
    * true
@@ -61,7 +61,10 @@ export class DescribePerspectiveResponseBody extends $dara.Model {
   selfDefine?: boolean;
   /**
    * @remarks
-   * The status of the perspective. Valid values: 3 (Enabled) and 1 (Disabled).
+   * The data status. Valid values:
+   * 
+   * - 3: Enabled.
+   * - 1: Not enabled.
    * 
    * @example
    * 1

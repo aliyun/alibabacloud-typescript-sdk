@@ -24,7 +24,7 @@ export class ListCategoryResponseBodyCategories extends $dara.Model {
    * The category name.
    * 
    * @example
-   * 类目名称
+   * CategoryName
    */
   name?: string;
   /**
@@ -37,7 +37,10 @@ export class ListCategoryResponseBodyCategories extends $dara.Model {
   parentCategoryId?: number;
   /**
    * @remarks
-   * The status of the category. Valid values: `0` (Normal) and `-1` (Deleted).
+   * The category status. Valid values:
+   * 
+   * - -1: Deleted but not published.
+   * - 0: Normal.
    * 
    * @example
    * 0
@@ -75,7 +78,7 @@ export class ListCategoryResponseBodyCategories extends $dara.Model {
 export class ListCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of categories.
+   * The list of categories.
    */
   categories?: ListCategoryResponseBodyCategories[];
   /**

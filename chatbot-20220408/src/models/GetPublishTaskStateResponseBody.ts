@@ -18,27 +18,27 @@ export class GetPublishTaskStateResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned if the task fails.
+   * The failure information of the task.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
    * @remarks
-   * A map of error messages for each submodule, where the key is the submodule name and the value is the error message.
+   * The fault information of each sub-publish module. The key is the sub-publish module and the value is the fault information.
    * 
    * @example
    * {
    *     "faq": [
-   *         "答案资源未发布，资源类型：全局服务，名称：动态答案服务"
+   *         "Answer resource not published. Resource type: global service. Name: dynamic answer service"
    *     ]
    * }
    */
   errors?: { [key: string]: any };
   /**
    * @remarks
-   * The publish task ID.
+   * The ID of the publish task.
    * 
    * @example
    * 8522
@@ -62,7 +62,7 @@ export class GetPublishTaskStateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The publish task ID. This field is redundant. Use the `Id` field instead.
+   * The ID of the publish task. This is a redundant field. Use the publish task ID instead.
    * 
    * @example
    * 8522
@@ -70,15 +70,13 @@ export class GetPublishTaskStateResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task status.
    * 
-   * - `FE_RUNNING`: Publishing
-   * 
-   * - `FE_SUCCESS`: Success
-   * 
-   * - `FE_FAILED`: Failed
-   * 
-   * - `FE_ABORTED`: Aborted
+   * Valid values:
+   * - FE_RUNNING: Publishing in progress.
+   * - FE_SUCCESS: Published.
+   * - FE_FAILED: Publish failed.
+   * - FE_ABORTED: Publish canceled.
    * 
    * @example
    * FE_RUNNING
@@ -86,12 +84,12 @@ export class GetPublishTaskStateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A map of warning messages for each submodule, where the key is the submodule name and the value is the warning message.
+   * The warning information of each sub-publish module. The key is the sub-publish module and the value is the warning information.
    * 
    * @example
    * {
    *     "faq": [
-   *         "答案资源未发布，类型：service，名称：null，答案资源未发布，类型：service，名称：null"
+   *         "Answer resource not published. Type: service. Name: null. Answer resource not published. Type: service. Name: null"
    *     ]
    * }
    */

@@ -13,7 +13,7 @@ export class DescribeDocResponseBodyDocInfoDocParas extends $dara.Model {
   paraLevel?: number;
   /**
    * @remarks
-   * The paragraph number.
+   * The paragraph sequence number.
    * 
    * @example
    * 1
@@ -21,15 +21,18 @@ export class DescribeDocResponseBodyDocInfoDocParas extends $dara.Model {
   paraNo?: number;
   /**
    * @remarks
-   * The paragraph content. The content can be plain text, text extracted from an image using optical character recognition (OCR), or a table in Markdown format.
+   * The paragraph content (plain text, OCR content for images, or Markdown representation for tables).
    * 
    * @example
-   * 内容
+   * Content
    */
   paraText?: string;
   /**
    * @remarks
-   * The paragraph type.<br>text: Text<br>figure: Image<br>table: Table<br><br><br>
+   * The paragraph content type. Valid values:
+   * - text: Text.
+   * - figure: Image.
+   * - table: Table.
    * 
    * @example
    * text
@@ -65,7 +68,7 @@ export class DescribeDocResponseBodyDocInfoDocParas extends $dara.Model {
 export class DescribeDocResponseBodyDocInfo extends $dara.Model {
   /**
    * @remarks
-   * The paragraphs of the document.
+   * The document paragraph information.
    */
   docParas?: DescribeDocResponseBodyDocInfoDocParas[];
   static names(): { [key: string]: string } {
@@ -93,20 +96,8 @@ export class DescribeDocResponseBodyDocInfo extends $dara.Model {
 }
 
 export class DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the field.
-   */
   fieldCode?: string;
-  /**
-   * @remarks
-   * The field name.
-   */
   fieldName?: string;
-  /**
-   * @remarks
-   * The value of the field.
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,20 +125,12 @@ export class DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList extends $dara
 }
 
 export class DescribeDocResponseBodyDocMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the business view.
-   */
   businessViewId?: string;
   /**
    * @remarks
-   * The business view name.
+   * The tag name.
    */
   businessViewName?: string;
-  /**
-   * @remarks
-   * A list of metadata cells.
-   */
   metaCellInfoDTOList?: DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList[];
   static names(): { [key: string]: string } {
     return {
@@ -180,7 +163,7 @@ export class DescribeDocResponseBodyDocMetadata extends $dara.Model {
 export class DescribeDocResponseBodyDocTags extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the tag represents all items by default.
+   * Indicates whether this is the default "all tags" label.
    * 
    * @example
    * false
@@ -188,7 +171,7 @@ export class DescribeDocResponseBodyDocTags extends $dara.Model {
   defaultTag?: boolean;
   /**
    * @remarks
-   * The tag\\"s group ID.
+   * The tag group ID.
    * 
    * @example
    * 3610
@@ -199,7 +182,7 @@ export class DescribeDocResponseBodyDocTags extends $dara.Model {
    * The tag group name.
    * 
    * @example
-   * 文章
+   * Article
    */
   groupName?: string;
   /**
@@ -215,7 +198,7 @@ export class DescribeDocResponseBodyDocTags extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * 小说
+   * Novel
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -266,13 +249,15 @@ export class DescribeDocResponseBody extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The configuration for document parsing and splitting. Key: `Splitter`. Valid values: `paragraphSplitter` (splits by recognition level, default) and `treeSplitter` (splits by rule level).
+   * The document parsing and chunking configuration items:
    * 
-   * Key: `ChunkSize`. The size of each document chunk, which must be between 200 and 800. The default value is 500.
+   * Chunker KEY: Splitter. Valid values: paragraphSplitter - hierarchy recognition (default). treeSplitter - rule-based hierarchy.
    * 
-   * Key: `TreePatterns`. The patterns for the rule-based hierarchy. The default value is [].
+   * Document chunk size KEY: ChunkSize. VALUE: default 500. Range: [200, 800].
    * 
-   * Key: `TitleSource`. The source of the document title. Valid values: `ocrTitle` (OCR-recognized title, default) and `docName` (document name).
+   * Rule-based hierarchy KEY: TreePatterns. VALUE: default [].
+   * 
+   * Document title source KEY: TitleSource. Valid values: ocrTitle - OCR-recognized title (default). docName - document name as title.
    * 
    * @example
    * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":"docName"}
@@ -288,7 +273,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the user who created the document.
    * 
    * @example
    * 1111111111
@@ -296,10 +281,10 @@ export class DescribeDocResponseBody extends $dara.Model {
   createUserId?: number;
   /**
    * @remarks
-   * The creator name.
+   * The name of the user who created the document.
    * 
    * @example
-   * 张三
+   * Jane
    */
   createUserName?: string;
   /**
@@ -307,27 +292,26 @@ export class DescribeDocResponseBody extends $dara.Model {
    * The document details.
    */
   docInfo?: DescribeDocResponseBodyDocInfo;
-  /**
-   * @remarks
-   * A list of metadata sets, where each set corresponds to a business view.
-   */
   docMetadata?: DescribeDocResponseBodyDocMetadata[];
   /**
    * @remarks
    * The document name.
    * 
    * @example
-   * 文档名称
+   * Document name
    */
   docName?: string;
   /**
    * @remarks
-   * A list of document tags.
+   * The list of tag details.
    */
   docTags?: DescribeDocResponseBodyDocTags[];
   /**
    * @remarks
-   * The effective status, calculated from `StartDate` and `EndDate`.<br>20: Active<br>21: Expired<br>22: Pending<br><br><br>
+   * The effective status, which is calculated based on StartDate and EndDate. Valid values:
+   * - 20: Effective.
+   * - 21: Expired.
+   * - 22: Pending effective.
    * 
    * @example
    * 20
@@ -335,7 +319,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   effectStatus?: number;
   /**
    * @remarks
-   * The end time in UTC format.
+   * The expiration time (UTC).
    * 
    * @example
    * 2023-04-27T06:08:54Z
@@ -351,7 +335,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The document\\"s metadata.
+   * The metadata associated with the document.
    * 
    * @example
    * {"code":"xxx"}
@@ -367,7 +351,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The modifier ID.
+   * The ID of the user who last modified the document.
    * 
    * @example
    * 2222222222
@@ -375,15 +359,17 @@ export class DescribeDocResponseBody extends $dara.Model {
   modifyUserId?: number;
   /**
    * @remarks
-   * The modifier name.
+   * The name of the user who last modified the document.
    * 
    * @example
-   * 李四
+   * John
    */
   modifyUserName?: string;
   /**
    * @remarks
-   * Indicates whether a failed task can be retried.<br>`true`: The task can be retried.<br>`false`: The task cannot be retried.<br><br>
+   * Indicates whether the task can be retried. Valid values:
+   * - true: The task can be retried.
+   * - false: The task cannot be retried.
    * 
    * @example
    * true
@@ -391,15 +377,20 @@ export class DescribeDocResponseBody extends $dara.Model {
   processCanRetry?: boolean;
   /**
    * @remarks
-   * The processing message.
+   * The task processing message.
    * 
    * @example
-   * 任务处理成功
+   * Task processed successfully
    */
   processMessage?: string;
   /**
    * @remarks
-   * The processing status of the task.<br>-1: Queued<br>0: Succeeded<br>1: Parsing<br>2: Processing<br>3: Failed<br><br><br><br><br>
+   * The task processing status. Valid values:
+   * - -1: Queued.
+   * - 0: Succeeded.
+   * - 1: Parsing.
+   * - 2: Processing.
+   * - 3: Failed.
    * 
    * @example
    * 0
@@ -407,7 +398,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   processStatus?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 7F132693-212A-40A9-8A81-11E7694E478B
@@ -415,7 +406,7 @@ export class DescribeDocResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time in UTC format.
+   * The effective period (UTC).
    * 
    * @example
    * 1979-12-31T16:00:00Z
@@ -423,7 +414,10 @@ export class DescribeDocResponseBody extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The edit status.<br>1: Unpublished<br>2: Published<br>3: Updated but not published<br><br><br>
+   * The editing status. Valid values:
+   * - 1: Unpublished.
+   * - 2: Published.
+   * - 3: Updated but not published.
    * 
    * @example
    * 1
@@ -434,12 +428,12 @@ export class DescribeDocResponseBody extends $dara.Model {
    * The document title.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   /**
    * @remarks
-   * The OSS address of the document.
+   * The OSS URL where the document is stored.
    * 
    * @example
    * https://doc2bot-bucket-cloud.oss-cn-shanghai.aliyuncs.com/doc2bot/input/文档问答说明书_V1.pdf

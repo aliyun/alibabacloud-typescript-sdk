@@ -24,12 +24,12 @@ export class CreateCategoryResponseBodyCategory extends $dara.Model {
    * The category name.
    * 
    * @example
-   * 类目名称
+   * Category name
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the parent category.
+   * The parent category ID.
    * 
    * @example
    * -1
@@ -37,7 +37,10 @@ export class CreateCategoryResponseBodyCategory extends $dara.Model {
   parentCategoryId?: number;
   /**
    * @remarks
-   * The category status. A value of -1 indicates that the category has been deleted, but this change has not been published. A value of 0 indicates Normal.
+   * The category status. Valid values:
+   * 
+   * - -1: deleted but not published.
+   * - 0: Normal.
    * 
    * @example
    * 0
@@ -75,7 +78,7 @@ export class CreateCategoryResponseBodyCategory extends $dara.Model {
 export class CreateCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the created category.
+   * The category information.
    */
   category?: CreateCategoryResponseBodyCategory;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If this parameter is omitted, the default business space is used. You can obtain the key on the **Business Management** page of your primary account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -36,7 +36,7 @@ export class UpdateCategoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 类目名称
+   * Category name
    */
   name?: string;
   static names(): { [key: string]: string } {

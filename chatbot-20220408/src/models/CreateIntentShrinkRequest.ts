@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIntentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If you do not specify this parameter, the default business space is used. You can get the key from the business management page of your main account.
+   * The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value on the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class CreateIntentShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateIntentShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent definition.
+   * The intent definition struct.
    */
   intentDefinitionShrink?: string;
   static names(): { [key: string]: string } {

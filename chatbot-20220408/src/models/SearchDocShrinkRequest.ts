@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchDocShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace key. If omitted, the default workspace is used. You can obtain this key from the Business Management page of your main account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class SearchDocShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * A list of category IDs.
+   * The list of category IDs.
    */
   categoryIdsShrink?: string;
   /**
@@ -37,7 +37,7 @@ export class SearchDocShrinkRequest extends $dara.Model {
    * The name of the creator.
    * 
    * @example
-   * 张三
+   * John
    */
   createUserName?: string;
   /**
@@ -58,10 +58,10 @@ export class SearchDocShrinkRequest extends $dara.Model {
   endTimeEnd?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The keyword.
    * 
    * @example
-   * 搜索关键字
+   * SearchKeyword
    */
   keyword?: string;
   /**
@@ -82,15 +82,15 @@ export class SearchDocShrinkRequest extends $dara.Model {
   modifyTimeEnd?: string;
   /**
    * @remarks
-   * The name of the last modifier.
+   * The name of the modifier.
    * 
    * @example
-   * 李四
+   * Jane
    */
   modifyUserName?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class SearchDocShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -106,7 +106,12 @@ export class SearchDocShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task status.<br>Valid values:<br>• -1: Queued<br>• 0: Succeeded<br>• 1: Parsing<br>• 2: Processing<br>• 3: Failed<br><br><br><br><br><br>
+   * The task status. Valid values:
+   * - -1: queued
+   * - 0: succeeded
+   * - 1: parsing
+   * - 2: processing
+   * - 3: processing failed
    * 
    * @example
    * 0
@@ -114,7 +119,9 @@ export class SearchDocShrinkRequest extends $dara.Model {
   processStatus?: number;
   /**
    * @remarks
-   * The search scope.<br>Valid values:<br>• 1: Search titles<br>• 2: Search content<br><br><br>
+   * The search scope. Valid values: 
+   * - 1: search by title
+   * - 2: search by content
    * 
    * @example
    * 1
@@ -138,7 +145,10 @@ export class SearchDocShrinkRequest extends $dara.Model {
   startTimeEnd?: string;
   /**
    * @remarks
-   * The edit status.<br>Valid values:<br>• 1: Unpublished<br>• 2: Published<br>• 3: Updated but not published<br><br><br><br>
+   * The editing status. Valid values:
+   * - 1: unpublished
+   * - 2: published
+   * - 3: updated but not published
    * 
    * @example
    * 1
@@ -146,7 +156,7 @@ export class SearchDocShrinkRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * A list of tag IDs. If you provide multiple IDs, the operation returns documents that match at least one of the specified tags (logical OR).
+   * The list of label IDs. When multiple labels are specified, the union logic is used for filtering.
    */
   tagIdsShrink?: string;
   static names(): { [key: string]: string } {

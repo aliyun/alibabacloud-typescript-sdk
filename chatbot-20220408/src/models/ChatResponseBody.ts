@@ -45,8 +45,8 @@ export class ChatResponseBodyMessagesKnowledgeRelatedKnowledges extends $dara.Mo
 export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   /**
    * @remarks
-   * The source of the answer.
-   * `KnowledgeBase`: The answer is from the knowledge base.
+   * Distinguishes the answer type.
+   * KnowledgeBase: knowledge base.
    * 
    * @example
    * KnowledgeBase
@@ -54,7 +54,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   answerSource?: string;
   /**
    * @remarks
-   * The category of the knowledge entry.
+   * The knowledge category.
    * 
    * @example
    * 公积金
@@ -62,7 +62,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The content of the matched knowledge entry.
+   * The content of the hit question.
    * 
    * @example
    * 公积金提取，请在首页搜索公积金提取，提交办事的表单
@@ -70,7 +70,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Content format of the answer.
+   * The indicator of whether the answer is plain text or rich text.
    * 
    * @example
    * PLAIN_TEXT
@@ -78,7 +78,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The hit statement matching the query.
+   * The hit statement.
    * 
    * @example
    * 公积金
@@ -86,7 +86,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   hitStatement?: string;
   /**
    * @remarks
-   * ID of the matched knowledge entry in the knowledge base.
+   * The ID of the hit question in the knowledge base.
    * 
    * @example
    * 735898
@@ -94,12 +94,12 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * A list of related knowledge objects.
+   * The list of related knowledge entries.
    */
   relatedKnowledges?: ChatResponseBodyMessagesKnowledgeRelatedKnowledges[];
   /**
    * @remarks
-   * The confidence score.
+   * The score.
    * 
    * @example
    * 0.998
@@ -107,7 +107,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * Summary of the matched knowledge entry.
+   * The summary of the hit question.
    * 
    * @example
    * 公积金提取
@@ -115,7 +115,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * The title of the matched knowledge entry.
+   * The title of the hit question.
    * 
    * @example
    * 公积金提取
@@ -166,7 +166,7 @@ export class ChatResponseBodyMessagesKnowledge extends $dara.Model {
 export class ChatResponseBodyMessagesRecommends extends $dara.Model {
   /**
    * @remarks
-   * Source of the clarification.
+   * The identifier of the clarification source.
    * 
    * @example
    * KNOWLEDGE
@@ -174,7 +174,7 @@ export class ChatResponseBodyMessagesRecommends extends $dara.Model {
   answerSource?: string;
   /**
    * @remarks
-   * The knowledge ID for the clarification.
+   * The knowledge ID for clarification.
    * 
    * @example
    * 4548
@@ -182,7 +182,7 @@ export class ChatResponseBodyMessagesRecommends extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * The score of the recommended content. Returned only if `AnswerSource` is `KNOWLEDGE`.
+   * The score of the recommended content. This field has a value when AnswerSource is KNOWLEDGE.
    * 
    * @example
    * 0.46
@@ -190,10 +190,10 @@ export class ChatResponseBodyMessagesRecommends extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * Clarification content. This can be an entity from knowledge graph QA, a knowledge title from FAQ-based QA, or a column value from table QA.
+   * The clarification content, which can be an entity from knowledge graph Q&A, a knowledge title from knowledge-based Q&A, or a column value from table-based Q&A.
    * 
    * @example
-   * 测试纯文本
+   * Test plain text
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -226,7 +226,7 @@ export class ChatResponseBodyMessagesRecommends extends $dara.Model {
 export class ChatResponseBodyMessagesTextSlots extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the slot was filled.
+   * Indicates whether the slot is hit.
    * 
    * @example
    * false
@@ -234,26 +234,26 @@ export class ChatResponseBodyMessagesTextSlots extends $dara.Model {
   hit?: boolean;
   /**
    * @remarks
-   * The name of the slot.
+   * The name.
    * 
    * @example
-   * 查天气意图.city
+   * CheckWeatherIntent.city
    */
   name?: string;
   /**
    * @remarks
-   * The original value from the user\\"s input.
+   * The original value.
    * 
    * @example
-   * 北京
+   * Beijing
    */
   origin?: string;
   /**
    * @remarks
-   * Extracted value of the slot.
+   * The specific value.
    * 
    * @example
-   * 北京
+   * Beijing
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -286,7 +286,7 @@ export class ChatResponseBodyMessagesTextSlots extends $dara.Model {
 export class ChatResponseBodyMessagesText extends $dara.Model {
   /**
    * @remarks
-   * The source of the answer.
+   * Distinguishes the answer type.
    * 
    * @example
    * BotFramework
@@ -294,15 +294,16 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
   answerSource?: string;
   /**
    * @remarks
-   * Title of the matched article. Returned only if `AnswerSource` is `MACHINE_READ`.
+   * When AnswerSource is MACHINE_READ, this field returns the title of the hit article.
    * 
    * @example
-   * 备案十一
+   * ICP Filing 11
+   * [responses.200.schema.properties.Messages.items.properties.AnswerSource.enumValueTitles. INTENT_FAQ_CLARIFY]FAQ and dialog flow mixed clarification
    */
   articleTitle?: string;
   /**
    * @remarks
-   * Command parameters, such as the skill group for transferring to a human agent.
+   * The instruction parameters, such as the skill group for a transfer-to-agent instruction.
    * 
    * @example
    * {
@@ -315,12 +316,12 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
    * The content of the text message.
    * 
    * @example
-   * 请问您要查哪里的天气？
+   * Which location do you want to check the weather for?
    */
   content?: string;
   /**
    * @remarks
-   * The content format of the answer.
+   * The indicator of whether the answer is plain text or rich text.
    * 
    * @example
    * PLAIN_TEXT
@@ -328,37 +329,37 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Name of the dialog. Returned only if `AnswerSource` is `BotFramework`.
+   * When AnswerSource is BotFramework, this field returns the dialog flow unit name.
    * 
    * @example
-   * 示例_查天气
+   * Sample_CheckWeather
    */
   dialogName?: string;
   /**
    * @remarks
-   * Contains passthrough parameters.
+   * The pass-through parameters returned in this field.
    * 
    * @example
    * {
    * 	"MATCHED_INTENT_SOURCE": "",
    * 	"INTENT_ID": 724414,
-   * 	"IntentName": "查天气意图",
-   * 	"INTENT_DETAIL": "[我想|我要]查天气",
-   * 	"LGF_EXPRESSION": "[我想|我要]查天气",
+   * 	"IntentName": "CheckWeatherIntent",
+   * 	"INTENT_DETAIL": "[I want|I need to] check the weather",
+   * 	"LGF_EXPRESSION": "[I want|I need to] check the weather",
    * 	"IS_SESSION_FINISHED": false,
    * 	"DsScore": 100.0,
    * 	"DIALOG_ID": "299034",
    * 	"FINISH_LABEL": false,
    * 	"MODULE_START": false,
-   * 	"INTENT_NAME": "查天气意图",
+   * 	"INTENT_NAME": "CheckWeatherIntent",
    * 	"INTENT_SOURCE": "Lgf",
-   * 	"DIALOG_NAME": "示例_查天气"
+   * 	"DIALOG_NAME": "Sample_CheckWeather"
    * }
    */
   ext?: { [key: string]: any };
   /**
    * @remarks
-   * Passthrough parameters. Returned only if `AnswerSource` is `BotFramework`.
+   * The pass-through parameters returned when AnswerSource is BotFramework.
    */
   externalFlags?: { [key: string]: any };
   /**
@@ -366,28 +367,28 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
    * The hit statement.
    * 
    * @example
-   * 查天气
+   * CheckWeather
    */
   hitStatement?: string;
   /**
    * @remarks
-   * The name of the intent. This field is returned when `AnswerSource` is `BotFramework`.
+   * When AnswerSource is BotFramework, this field returns the intent name.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * Metadata.
+   * The metadata.
    * 
    * @example
-   * [[{\\"columnName\\":\\"姓名\\",\\"stringValue\\":\\"王珊珊\\"}]]
+   * [[{"columnName":"Name","stringValue":"Wang Shanshan"}]]
    */
   metaData?: string;
   /**
    * @remarks
-   * The node ID. Returned only if `AnswerSource` is `BotFramework`.
+   * The node ID returned when AnswerSource is BotFramework.
    * 
    * @example
    * 1410-c7a72a78.__city
@@ -395,15 +396,15 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node. This field is returned when `AnswerSource` is `BotFramework`.
+   * When AnswerSource is BotFramework, this field returns the node name.
    * 
    * @example
-   * 示例_查天气.查天气填槽.__city
+   * Sample_CheckWeather.CheckWeatherSlotFilling.__city
    */
   nodeName?: string;
   /**
    * @remarks
-   * A value of `SSML` indicates that an interactive slot-filling process has started in the dialog factory. This field is returned only if `AnswerSource` is `BotFramework`.
+   * When AnswerSource is BotFramework and ResponseType is SSML, this field indicates that a dialog flow interactive slot filling is hit. Otherwise, this field does not exist.
    * 
    * @example
    * SSML
@@ -411,7 +412,7 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
   responseType?: string;
   /**
    * @remarks
-   * The confidence score.
+   * The score.
    * 
    * @example
    * 100.0
@@ -419,15 +420,15 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * A list of slot objects. Returned only if `AnswerSource` is `BotFramework`.
+   * When AnswerSource is BotFramework, this field returns the list of named entities.
    */
   slots?: ChatResponseBodyMessagesTextSlots[];
   /**
    * @remarks
-   * The title of a custom chit-chat topic.
+   * The title of the custom chitchat topic.
    * 
    * @example
-   * 问候
+   * Greeting
    */
   userDefinedChatTitle?: string;
   static names(): { [key: string]: string } {
@@ -498,7 +499,8 @@ export class ChatResponseBodyMessagesText extends $dara.Model {
 export class ChatResponseBodyMessages extends $dara.Model {
   /**
    * @remarks
-   * Indicates the source of the recommended answer if `AnswerType` is `Recommend`.
+   * The source of the recommended answer when AnswerType is Recommend.
+   * [_single.resp.200.props.Messages.items.AnswerSource.enum. INTENT_FAQ_CLARIFY]mixed clarification from FAQ and dialog flow
    * 
    * @example
    * KNOWLEDGE
@@ -506,7 +508,7 @@ export class ChatResponseBodyMessages extends $dara.Model {
   answerSource?: string;
   /**
    * @remarks
-   * Type of the message.
+   * The type of this message.
    * 
    * @example
    * Text
@@ -514,33 +516,33 @@ export class ChatResponseBodyMessages extends $dara.Model {
   answerType?: string;
   /**
    * @remarks
-   * Contains the `Knowledge` object if `AnswerType` is `Knowledge`.
+   * When AnswerType is Knowledge, this field contains the Knowledge object returned by the chatbot.
    */
   knowledge?: ChatResponseBodyMessagesKnowledge;
   /**
    * @remarks
-   * Contains a list of `Recommend` objects if `AnswerType` is `Recommend`.
+   * The list of recommendations returned by the bot when AnswerType is Recommend.
    */
   recommends?: ChatResponseBodyMessagesRecommends[];
   /**
    * @remarks
-   * Contains the `Text` object if `AnswerType` is `Text`.
+   * When AnswerType is Text, this field contains the Text object returned by the chatbot.
    */
   text?: ChatResponseBodyMessagesText;
   /**
    * @remarks
-   * The title of the clarification question for text-based chat scenarios.
+   * The counter-question title in online scenarios.
    * 
    * @example
-   * 请问您想咨询的是哪个投保年龄区间呢？
+   * Which insurance age range are you inquiring about?
    */
   title?: string;
   /**
    * @remarks
-   * The clarification content for voice-based scenarios.
+   * The clarification content in voice scenarios.
    * 
    * @example
-   * 请问你说的是公积金查询，还是公积金提取
+   * Are you asking about provident fund inquiry or provident fund withdrawal?
    */
   voiceTitle?: string;
   static names(): { [key: string]: string } {
@@ -588,7 +590,7 @@ export class ChatResponseBodyMessages extends $dara.Model {
 export class ChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique message ID.
+   * The ID of the response message in the current session.
    * 
    * @example
    * A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
@@ -596,17 +598,17 @@ export class ChatResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * A list of message objects.
+   * The list of messages.
    */
   messages?: ChatResponseBodyMessages[];
   /**
    * @remarks
-   * The words segmented from the query. This field may be empty.
+   * The tokenization results of the query, which may be empty.
    */
   querySegList?: string[];
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
@@ -614,7 +616,7 @@ export class ChatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The unique session ID.
+   * The ID of the current session.
    * 
    * @example
    * a6f216a0685c4c8baa0e8beb6d5ec6db

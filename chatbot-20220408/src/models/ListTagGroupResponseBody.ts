@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagGroupResponseBodyTagGroups extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * xxxx
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 32323
    */
   createUserId?: number;
   /**
+   * @remarks
+   * The name of the creator.
+   * 
    * @example
    * xxx
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The ID of the default tag.
+   * 
    * @example
    * 232323
    */
   defaultTagId?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
-   * 标签1
+   * Tag 1
    */
   groupName?: string;
   /**
+   * @remarks
+   * ID
+   * 
    * @example
    * 7562321
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * xxx
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The ID of the modifier.
+   * 
    * @example
    * xxx
    */
   modifyUserId?: number;
   /**
+   * @remarks
+   * The name of the modifier.
+   * 
    * @example
    * xxx
    */
@@ -87,22 +114,38 @@ export class ListTagGroupResponseBodyTagGroups extends $dara.Model {
 
 export class ListTagGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * xxxXxxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tag group information.
+   */
   tagGroups?: ListTagGroupResponseBodyTagGroups[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */

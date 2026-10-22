@@ -66,7 +66,7 @@ export class UpdateDocRequestDocMetadata extends $dara.Model {
 export class UpdateDocRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If this parameter is not specified, the default business space is used. You can obtain the key on the Business Management page of your master account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -82,13 +82,24 @@ export class UpdateDocRequest extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * **Splitter**: The method used to split the document. Valid values: `paragraphSplitter` (splits by paragraph, default) and `treeSplitter` (splits by hierarchical rules).
+   * The document parsing/chunking configuration.
+   * Configuration item: Splitter
+   * KEY: Splitter
+   * Valid values: paragraphSplitter - hierarchy recognition (default)
+   * Valid values: treeSplitter - rule-based hierarchy
    * 
-   * **ChunkSize**: The chunk size. The value must be an integer from 200 to 800. The default value is 500.
+   * Configuration item: Document chunk size
+   * KEY: ChunkSize
+   * VALUE: Default 500. Range: [200,800]
    * 
-   * **TreePatterns**: An array of regular expressions that define the structure for rule-based splitting. The default value is `[]`.
+   * Configuration item: Rule-based hierarchy
+   * KEY: TreePatterns
+   * VALUE: Default []
    * 
-   * **TitleSource**: The source of the document title. Valid values: `ocrTitle` (uses the OCR-recognized title, default) and `docName` (uses the document name as the title).
+   * Configuration item: Document title source
+   * KEY: TitleSource
+   * Valid values: ocrTitle - OCR-recognized title (default)
+   * Valid values: docName - document name as title.
    * 
    * @example
    * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
@@ -99,7 +110,7 @@ export class UpdateDocRequest extends $dara.Model {
    * The document content.
    * 
    * @example
-   * 文档内容
+   * Document content
    */
   content?: string;
   docMetadata?: UpdateDocRequestDocMetadata[];
@@ -108,12 +119,12 @@ export class UpdateDocRequest extends $dara.Model {
    * The document name.
    * 
    * @example
-   * 文档问答模块功能说明文档
+   * Document QA Module Feature Description
    */
   docName?: string;
   /**
    * @remarks
-   * The time when the document expires. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
+   * The end of the effective period.
    * 
    * @example
    * 2023-03-11T23:59:59Z
@@ -131,7 +142,7 @@ export class UpdateDocRequest extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The metadata of the document, specified as a JSON string.
+   * The document metadata.
    * 
    * @example
    * {"code":"xxx"}
@@ -139,7 +150,7 @@ export class UpdateDocRequest extends $dara.Model {
   meta?: string;
   /**
    * @remarks
-   * The time when the document becomes effective. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
+   * The start of the effective period.
    * 
    * @example
    * 2022-05-25T16:28:36Z
@@ -147,7 +158,7 @@ export class UpdateDocRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The tag IDs to associate with the document. Passing an empty array removes all existing tag associations.
+   * The list of tag IDs. If this parameter is left empty, the tag bindings are removed.
    */
   tagIds?: number[];
   /**
@@ -155,7 +166,7 @@ export class UpdateDocRequest extends $dara.Model {
    * The document title.
    * 
    * @example
-   * 文档问答功能说明
+   * Document QA Feature Description
    */
   title?: string;
   static names(): { [key: string]: string } {

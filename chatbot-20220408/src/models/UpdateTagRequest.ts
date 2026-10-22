@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The idempotence parameter.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The tag group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class UpdateTagRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
+   * The tag ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,10 +41,12 @@ export class UpdateTagRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tag name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 标签组1
+   * Tag group 1
    */
   tagName?: string;
   static names(): { [key: string]: string } {

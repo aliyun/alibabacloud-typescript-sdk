@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTagResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the label.
+   * 
    * @example
    * 7391272
    */
   id?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * xxxXxxxxx
    */

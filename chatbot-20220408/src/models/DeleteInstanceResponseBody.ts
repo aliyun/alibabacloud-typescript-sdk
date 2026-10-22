@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of business types.
+   * The list of business types.
    */
   bizTypeList?: string[];
   /**
@@ -18,7 +18,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the user who created the task.
+   * The ID of the task creator.
    * 
    * @example
    * 9052
@@ -26,7 +26,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   createUserId?: number;
   /**
    * @remarks
-   * The username of the user who created the task.
+   * The name of the task creator.
    * 
    * @example
    * xuqiang_test
@@ -37,7 +37,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
@@ -58,7 +58,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID. This parameter is an alias for `Id`.
+   * The task ID.
    * 
    * @example
    * 8521
@@ -66,7 +66,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   response?: number;
   /**
    * @remarks
-   * The task status. For more information about possible states, see the GetInstancePublishTaskState API operation.
+   * The task status. You can call the GetInstancePublishTaskState operation to learn more about the status.
    * 
    * @example
    * FE_RUNNING

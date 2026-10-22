@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocRequest extends $dara.Model {
   /**
    * @remarks
-   * The key that identifies the workspace. If this parameter is omitted, the default workspace is used. You can find this key on the workspace management page of your root account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -23,7 +23,9 @@ export class DescribeDocRequest extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * Specifies whether to return detailed information for paragraphs. true: Detailed information is returned. false: Detailed information is not returned (default).
+   * Specifies whether to display detailed paragraph information of the document. Valid values:
+   * - true: Display.
+   * - false: Ignore (default).
    * 
    * @example
    * false

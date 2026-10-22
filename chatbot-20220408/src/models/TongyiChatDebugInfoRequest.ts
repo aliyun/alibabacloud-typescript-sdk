@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TongyiChatDebugInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the primary account.
+   * The key of the workspace. If you do not specify this parameter, the default workspace is accessed. You can obtain the key value from the Business Management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class TongyiChatDebugInfoRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The chatbot ID.
+   * The ID of the chatbot.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class TongyiChatDebugInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the response message in the current session.
+   * The ID of the response message for the current session.
    * 
    * This parameter is required.
    * 

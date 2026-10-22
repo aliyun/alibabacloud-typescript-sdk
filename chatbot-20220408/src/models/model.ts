@@ -58,6 +58,7 @@ export { SearchDocResponseBodyDocHits } from './SearchDocResponseBody';
 export { SearchFaqResponseBodyFaqHits } from './SearchFaqResponseBody';
 export { TongyiChatDebugInfoResponseBodyAnswerInfoAnswerReferenceInfoItemList } from './TongyiChatDebugInfoResponseBody';
 export { TongyiChatDebugInfoResponseBodyAnswerInfoAnswerReferenceInfo } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBodyDirectMessageBodyRtDetail } from './TongyiChatDebugInfoResponseBody';
 export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBodyDirectMessageBodySentenceList } from './TongyiChatDebugInfoResponseBody';
 export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBodyDirectMessageBody } from './TongyiChatDebugInfoResponseBody';
 export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBody } from './TongyiChatDebugInfoResponseBody';

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBodyCategories extends $dara.Model {
   /**
    * @remarks
-   * The ability type of the category, such as FAQ or MRC.
+   * The ability type of the category, such as FAQ (frequently asked questions) or MRC (document).
    * 
    * @example
    * FAQ
@@ -21,10 +21,10 @@ export class DescribeInstanceResponseBodyCategories extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
-   * 杭州市防疫政策
+   * Pandemic Prevention Policy
    */
   name?: string;
   /**
@@ -65,7 +65,7 @@ export class DescribeInstanceResponseBodyCategories extends $dara.Model {
 export class DescribeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL of the robot\\"s avatar.
+   * The URL of the chatbot avatar.
    * 
    * @example
    * /alimefe/meebot/robot/0.0.5/img/xxx-90-97.png
@@ -73,12 +73,12 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * A list of categories.
+   * The list of categories.
    */
   categories?: DescribeInstanceResponseBodyCategories[];
   /**
    * @remarks
-   * The UTC time when the robot was created.
+   * The UTC time when the chatbot was created.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -86,7 +86,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The status of the robot.
+   * The status of the chatbot.
    * 
    * @example
    * PUBLISHED
@@ -94,7 +94,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   editStatus?: string;
   /**
    * @remarks
-   * The unique identifier of the robot instance.
+   * The unique identifier of the chatbot.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050
@@ -102,15 +102,15 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The robot\\"s introduction.
+   * The remarks of the chatbot.
    * 
    * @example
-   * 用于C端问答的机器人
+   * A chatbot for consumer Q&A
    */
   introduction?: string;
   /**
    * @remarks
-   * The language of the robot, such as zh-cn and en-us.
+   * The language of the chatbot service, such as zh-cn or en-us.
    * 
    * @example
    * zh-cn
@@ -118,10 +118,10 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * The robot name.
+   * The name of the chatbot.
    * 
    * @example
-   * 智能客服-小C
+   * Intelligent Customer Service - Bot C
    */
   name?: string;
   /**
@@ -134,7 +134,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The robot type.
+   * The type of the chatbot.
    * 
    * @example
    * scenario_im
@@ -142,7 +142,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   robotType?: string;
   /**
    * @remarks
-   * The time zone of the robot. For more information, see Time zone codes.
+   * The time zone of the chatbot. For more information, see the common time zone codes.
    * 
    * @example
    * Asia/Chongqing

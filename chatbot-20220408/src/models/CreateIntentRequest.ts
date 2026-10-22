@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the slot can have multiple values.
+   * Specifies whether the slot is an array.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * Specifies whether to encrypt the slot value.
+   * Specifies whether the slot value is masked.
    * 
    * @example
    * false
@@ -34,7 +34,7 @@ export class CreateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 天气
+   * Weather
    */
   name?: string;
   /**
@@ -54,7 +54,7 @@ export class CreateIntentRequestIntentDefinitionSlotInfos extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 天气
+   * Weather
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -94,7 +94,7 @@ export class CreateIntentRequestIntentDefinition extends $dara.Model {
    * The intent alias.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   aliasName?: string;
   /**
@@ -104,12 +104,12 @@ export class CreateIntentRequestIntentDefinition extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * An array of objects, each defining a slot for the intent.
+   * The slot information.
    */
   slotInfos?: CreateIntentRequestIntentDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -143,7 +143,7 @@ export class CreateIntentRequestIntentDefinition extends $dara.Model {
 export class CreateIntentRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If you do not specify this parameter, the default business space is used. You can get the key from the business management page of your main account.
+   * The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value on the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -151,7 +151,7 @@ export class CreateIntentRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -161,7 +161,7 @@ export class CreateIntentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent definition.
+   * The intent definition struct.
    */
   intentDefinition?: CreateIntentRequestIntentDefinition;
   static names(): { [key: string]: string } {

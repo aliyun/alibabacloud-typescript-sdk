@@ -13,7 +13,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The time when the chatbot was created. The time is in the UTC format.
+   * The UTC time when the chatbot was created.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -21,7 +21,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The unique ID of the chatbot.
+   * The unique identifier of the chatbot.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050
@@ -29,15 +29,15 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The remarks on the chatbot.
+   * The description of the chatbot.
    * 
    * @example
-   * 用于C端问答的机器人
+   * A chatbot for consumer Q&A
    */
   introduction?: string;
   /**
    * @remarks
-   * The language of the chatbot, such as zh-cn and en-us. For more information, see http\\://www\\.lingoes.net/en/translator/langcode.htm.
+   * The language of the chatbot service, such as zh-cn or en-us. For more information, see http://www.lingoes.net/zh/translator/langcode.htm.
    * 
    * @example
    * zh-cn
@@ -48,7 +48,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
    * The name of the chatbot.
    * 
    * @example
-   * 智能客服-小C
+   * Intelligent Customer Service - Bot C
    */
   name?: string;
   /**

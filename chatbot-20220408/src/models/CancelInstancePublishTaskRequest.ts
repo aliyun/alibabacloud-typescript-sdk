@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelInstancePublishTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. You can obtain the key from the Business Management page of your Alibaba Cloud account. If you omit this parameter, the default business space is used.
+   * The key of the business space. If not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -21,7 +21,7 @@ export class CancelInstancePublishTaskRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The unique ID of the chatbot.
+   * The unique identifier of the chatbot.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050

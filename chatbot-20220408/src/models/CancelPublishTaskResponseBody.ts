@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CancelPublishTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of business types.
+   * The list of business types.
    */
   bizTypeList?: string[];
   /**
    * @remarks
-   * The time when the task was created, in UTC.
+   * The UTC time when the task was created.
    * 
    * @example
    * 2022-04-12T06:30:17Z
@@ -18,15 +18,15 @@ export class CancelPublishTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned if the task fails.
+   * The task failure information.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
    * @remarks
-   * The ID of the publish task.
+   * The publish task ID.
    * 
    * @example
    * 8522
@@ -34,7 +34,7 @@ export class CancelPublishTaskResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The time when the task was last modified, in UTC.
+   * The UTC time when the task was last modified.
    * 
    * @example
    * 2022-04-12T06:30:33Z
@@ -50,7 +50,7 @@ export class CancelPublishTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the publish task. This is a redundant field. We recommend that you use the `Id` field instead.
+   * The publish task ID. This is a redundant field. Use the publish task ID instead.
    * 
    * @example
    * 8522
@@ -58,9 +58,13 @@ export class CancelPublishTaskResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task status.
+   * Valid values:
    * 
-   * `FE_RUNNING`: in progress, `FE_SUCCESS`: succeeded, `FE_FAILED`: failed, `FE_ABORTED`: aborted.
+   * - FE_RUNNING: Publishing in progress.
+   * - FE_SUCCESS: Published successfully.
+   * - FE_FAILED: Publishing failed.
+   * - FE_ABORTED: Publishing canceled.
    * 
    * @example
    * FE_ABORTED

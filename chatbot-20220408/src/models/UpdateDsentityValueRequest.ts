@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDSEntityValueRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If you omit this parameter, the default business space is used. You can find this key on the Business Management page of your primary account.
+   * The business space key. If this parameter is not set, the default business space is accessed. Obtain the key value from the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,17 +13,17 @@ export class UpdateDSEntityValueRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The new content for the entity value. For an entity type of `synonyms`, this is the normalized value. For an entity type of `regex`, this is the regular expression.
+   * When the entity type is synonyms, this parameter specifies the normalized value of the entity. When the entity type is regex, this parameter specifies the regular expression text.
    * 
    * This parameter is required.
    * 
    * @example
-   * 书本类型
+   * Book type
    */
   content?: string;
   /**
    * @remarks
-   * The entity ID. You can leave this parameter empty when modifying an entity value.
+   * The entity ID. This parameter can be left empty when you modify an entity member.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateDSEntityValueRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The ID of the entity value to update.
+   * The entity member ID. This parameter is left empty when you create an entity member.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UpdateDSEntityValueRequest extends $dara.Model {
   entityValueId?: number;
   /**
    * @remarks
-   * The bot ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateDSEntityValueRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The synonym list for the normalized value.
+   * The list of synonyms.
    */
   synonyms?: string[];
   static names(): { [key: string]: string } {

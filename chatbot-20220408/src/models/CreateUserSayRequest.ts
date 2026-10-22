@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model {
   /**
    * @remarks
-   * The zero-based end index of the slot in the user say content. This index is exclusive.
+   * The end index of the slot in the intent utterance (exclusive).
    * 
    * @example
    * 6
@@ -13,7 +13,7 @@ export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model 
   endIndex?: number;
   /**
    * @remarks
-   * The ID of the slot.
+   * The slot ID.
    * 
    * @example
    * fb34adf2fv43f2
@@ -21,7 +21,7 @@ export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model 
   slotId?: string;
   /**
    * @remarks
-   * The zero-based start index of the slot in the user say content.
+   * The start index of the slot in the intent utterance.
    * 
    * @example
    * 4
@@ -55,17 +55,17 @@ export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model 
 export class CreateUserSayRequestUserSayDefinition extends $dara.Model {
   /**
    * @remarks
-   * The content of the user say.
+   * The user utterance.
    * 
    * This parameter is required.
    * 
    * @example
-   * 请问明天北京的天气
+   * What is the weather in Beijing tomorrow?
    */
   content?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class CreateUserSayRequestUserSayDefinition extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * An array of objects, each containing information about a slot.
+   * The slot information.
    */
   slotInfos?: CreateUserSayRequestUserSayDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -109,7 +109,7 @@ export class CreateUserSayRequestUserSayDefinition extends $dara.Model {
 export class CreateUserSayRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If you do not specify this parameter, the default business space is used. You can find the key on the Business Management page of your Alibaba Cloud account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -117,7 +117,7 @@ export class CreateUserSayRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot instance.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -127,7 +127,7 @@ export class CreateUserSayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The definition of the user say.
+   * The user utterance definition information.
    */
   userSayDefinition?: CreateUserSayRequestUserSayDefinition;
   static names(): { [key: string]: string } {

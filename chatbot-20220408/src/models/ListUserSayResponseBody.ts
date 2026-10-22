@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserSayResponseBodyUserSaysSlotInfos extends $dara.Model {
   /**
    * @remarks
-   * The zero-based end index of the slot in the user say. This value is exclusive.
+   * The end index of the slot in the intent utterance (exclusive).
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class ListUserSayResponseBodyUserSaysSlotInfos extends $dara.Model {
   endIndex?: number;
   /**
    * @remarks
-   * The ID of the intent slot.
+   * The intent slot ID.
    * 
    * @example
    * 3456sdfg3tu
@@ -21,7 +21,7 @@ export class ListUserSayResponseBodyUserSaysSlotInfos extends $dara.Model {
   slotId?: string;
   /**
    * @remarks
-   * The zero-based start index of the slot in the user say. This value is inclusive.
+   * The start index of the slot in the intent utterance.
    * 
    * @example
    * 2
@@ -55,15 +55,15 @@ export class ListUserSayResponseBodyUserSaysSlotInfos extends $dara.Model {
 export class ListUserSayResponseBodyUserSays extends $dara.Model {
   /**
    * @remarks
-   * The content of the user say.
+   * The utterance content.
    * 
    * @example
-   * 您做核酸了嘛
+   * Have you taken a COVID test
    */
   content?: string;
   /**
    * @remarks
-   * The time when the user say was created. The time is in UTC.
+   * The time when the utterance was created, in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -71,7 +71,7 @@ export class ListUserSayResponseBodyUserSays extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * @example
    * 235564564
@@ -79,7 +79,7 @@ export class ListUserSayResponseBodyUserSays extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The time when the user say was last modified. The time is in UTC.
+   * The time when the utterance was last modified, in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -87,12 +87,12 @@ export class ListUserSayResponseBodyUserSays extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * A list of associated slots.
+   * The associated slot information.
    */
   slotInfos?: ListUserSayResponseBodyUserSaysSlotInfos[];
   /**
    * @remarks
-   * The ID of the user say.
+   * The utterance ID.
    * 
    * @example
    * 3453452138
@@ -135,7 +135,7 @@ export class ListUserSayResponseBodyUserSays extends $dara.Model {
 export class ListUserSayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListUserSayResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -159,7 +159,7 @@ export class ListUserSayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class ListUserSayResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of user says.
+   * The list of utterances.
    */
   userSays?: ListUserSayResponseBodyUserSays[];
   static names(): { [key: string]: string } {

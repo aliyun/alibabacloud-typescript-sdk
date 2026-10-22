@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDSEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the `business space`. If you omit this parameter, the default `business space` is used. You can get the key from the Business Management page of your `main account`.
+   * The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value on the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,17 +13,20 @@ export class CreateDSEntityRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The `entity name`. The name can contain Chinese characters, uppercase and lowercase letters, digits, and underscores (_).
+   * The entity name. Only Chinese characters, uppercase and lowercase letters, digits, and underscores are supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * 实体名称
+   * EntityName
    */
   entityName?: string;
   /**
    * @remarks
-   * The `entity type`. Valid values: `synonyms` and `regex`.
+   * The entity type. Valid values:
+   * 
+   * - synonyms: synonym.
+   * - regex: regular expression.
    * 
    * @example
    * synonyms
@@ -31,7 +34,7 @@ export class CreateDSEntityRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The `instance ID`.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 

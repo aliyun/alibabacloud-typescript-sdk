@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLgfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the LGF configuration.
+   * LGF ID
    * 
    * @example
    * 2342424

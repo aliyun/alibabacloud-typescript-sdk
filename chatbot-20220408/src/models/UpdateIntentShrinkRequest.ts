@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIntentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If you omit this parameter, the system uses the default business space. You can find this key on the Business Management page of your primary account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class UpdateIntentShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot instance.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,12 @@ export class UpdateIntentShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent definition object.
+   * The intent definition struct.
    */
   intentDefinitionShrink?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * This parameter is required.
    * 

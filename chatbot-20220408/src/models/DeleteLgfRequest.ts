@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLgfRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If omitted, the default business space is used. You can find this key on the Business Management page of your primary account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteLgfRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The robot ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteLgfRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The ID of the LGF configuration.
+   * lgf Id
    * 
    * This parameter is required.
    * 

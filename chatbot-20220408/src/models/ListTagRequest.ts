@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The client token.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The ID of the tag group.
+   * 
    * @example
    * 43445343
    */
   groupId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * xx
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaqResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * F79E7305-5314-5069-A701-9591AD051902

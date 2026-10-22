@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListSolutionResponseBodySolutions extends $dara.Model {
   /**
    * @remarks
-   * The content of the solution.
+   * The answer content.
    * 
    * @example
-   * 答案内容
+   * Answer content
    */
   content?: string;
   /**
    * @remarks
-   * The type of the solution content. Valid values: `0` (plain text) and `1` (rich text).
+   * The answer type. Valid values:
+   * - 0: plain text.
+   * - 1: rich text.
    * 
    * @example
    * 1
@@ -21,7 +23,7 @@ export class ListSolutionResponseBodySolutions extends $dara.Model {
   contentType?: number;
   /**
    * @remarks
-   * The time when the solution was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-03-29T03:55:04Z
@@ -29,7 +31,7 @@ export class ListSolutionResponseBodySolutions extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the solution was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-03-29T06:23:53Z
@@ -37,20 +39,20 @@ export class ListSolutionResponseBodySolutions extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * A list of perspective codes.
+   * The list of perspective codes.
    */
   perspectiveCodes?: string[];
   /**
    * @remarks
-   * The content of the solution in plain text.
+   * The plain text content of the answer.
    * 
    * @example
-   * 答案内容
+   * Answer content
    */
   plainText?: string;
   /**
    * @remarks
-   * The solution ID.
+   * The answer ID.
    * 
    * @example
    * 496
@@ -58,7 +60,7 @@ export class ListSolutionResponseBodySolutions extends $dara.Model {
   solutionId?: number;
   /**
    * @remarks
-   * A list of tag IDs.
+   * The list of label IDs.
    */
   tagIdList?: number[];
   static names(): { [key: string]: string } {
@@ -113,7 +115,7 @@ export class ListSolutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of solutions.
+   * The list of answers.
    */
   solutions?: ListSolutionResponseBodySolutions[];
   static names(): { [key: string]: string } {

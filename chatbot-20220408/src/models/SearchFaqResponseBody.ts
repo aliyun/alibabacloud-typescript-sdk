@@ -13,7 +13,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The creation time (UTC).
+   * The creation time in UTC.
    * 
    * @example
    * 2022-04-02T03:09:30Z
@@ -21,7 +21,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 18453
@@ -29,7 +29,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   createUserId?: number;
   /**
    * @remarks
-   * The creator\\"s username.
+   * The name of the creator.
    * 
    * @example
    * test01
@@ -37,7 +37,11 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * The effective status of the FAQ. This status is determined by the StartDate and EndDate parameters.
+   * The effective status of the knowledge, calculated based on StartDate and EndDate. Valid values:
+   * 
+   * - 20: Active.
+   * - 21: Expired.
+   * - 22: Pending.
    * 
    * @example
    * 20
@@ -45,17 +49,17 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   effectStatus?: number;
   /**
    * @remarks
-   * A list of matched similar titles.
+   * The list of hit similar questions.
    */
   hitSimilarTitles?: string[];
   /**
    * @remarks
-   * A list of matched answers.
+   * The list of hit solutions.
    */
   hitSolutions?: string[];
   /**
    * @remarks
-   * The FAQ ID.
+   * The knowledge ID.
    * 
    * @example
    * 30002145804
@@ -63,7 +67,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The modification time (UTC).
+   * The modification time in UTC.
    * 
    * @example
    * 2022-04-02T03:09:30Z
@@ -71,7 +75,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The modifier ID.
+   * The ID of the modifier.
    * 
    * @example
    * 18453
@@ -79,7 +83,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   modifyUserId?: number;
   /**
    * @remarks
-   * The modifier\\"s username.
+   * The name of the modifier.
    * 
    * @example
    * test01
@@ -87,7 +91,12 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * The FAQ status.
+   * The knowledge status. Valid values:
+   * 
+   * - -1: deleted and unpublished.
+   * - 1: unpublished.
+   * - 2: published.
+   * - 3: updated and unpublished.
    * 
    * @example
    * 3
@@ -95,10 +104,10 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The title of the FAQ.
+   * The title.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -155,7 +164,7 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
 export class SearchFaqResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of matching FAQs.
+   * The knowledge search results.
    */
   faqHits?: SearchFaqResponseBodyFaqHits[];
   /**
@@ -184,7 +193,7 @@ export class SearchFaqResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matched entries.
+   * The total number of entries.
    * 
    * @example
    * 1075

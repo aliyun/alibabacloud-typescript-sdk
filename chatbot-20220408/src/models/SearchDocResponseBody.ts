@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchDocResponseBodyDocHitsDocTags extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is a default tag.
+   * Indicates whether this is the default label that represents all labels.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class SearchDocResponseBodyDocHitsDocTags extends $dara.Model {
   defaultTag?: boolean;
   /**
    * @remarks
-   * The tag group ID.
+   * The label group ID.
    * 
    * @example
    * 3610
@@ -21,15 +21,15 @@ export class SearchDocResponseBodyDocHitsDocTags extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The tag group name.
+   * The label group name.
    * 
    * @example
-   * 文章
+   * Article
    */
   groupName?: string;
   /**
    * @remarks
-   * The tag ID.
+   * The label ID.
    * 
    * @example
    * 1201
@@ -37,10 +37,10 @@ export class SearchDocResponseBodyDocHitsDocTags extends $dara.Model {
   tagId?: number;
   /**
    * @remarks
-   * The tag name.
+   * The label name.
    * 
    * @example
-   * 小说
+   * Novel
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -91,13 +91,27 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The splitter for the document. Key: `Splitter`. Valid values:<br>• `paragraphSplitter` (default): Splits the document by paragraph.<br>• `treeSplitter`: Splits the document based on a rule-based hierarchy.<br><br>
+   * The document parsing and chunking configuration.
    * 
-   * The size of each document chunk. Key: `ChunkSize`. Default value: 500. Value range: [200, 800].
+   * Configuration item: Splitter
+   * KEY: Splitter
+   * Valid values:
+   * - paragraphSplitter: hierarchy recognition (default)
+   * - treeSplitter: rule-based hierarchy
    * 
-   * The patterns for the rule-based hierarchy. Key: `TreePatterns`. Default value: `[]`.
+   * Configuration item: Document chunk size
+   * KEY: ChunkSize
+   * VALUE: Default value: 500. Value range: [200, 800].
    * 
-   * The source of the document title. Key: `TitleSource`. Valid values:<br>• `ocrTitle` (default): Uses the OCR-identified title.<br>• `docName`: Uses the document name as the title.<br><br>
+   * Configuration item: Rule-based hierarchy
+   * KEY: TreePatterns
+   * VALUE: Default value: [].
+   * 
+   * Configuration item: Document title source
+   * KEY: TitleSource
+   * Valid values:
+   * - ocrTitle: OCR-recognized title (default)
+   * - docName: document name as title
    * 
    * @example
    * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":"docName"}
@@ -105,7 +119,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The time the document was created (UTC).
+   * The creation time in UTC.
    * 
    * @example
    * 2023-06-22T03:53:41Z
@@ -113,7 +127,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 111111111
@@ -124,7 +138,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
    * The name of the creator.
    * 
    * @example
-   * 张三
+   * John
    */
   createUserName?: string;
   /**
@@ -132,17 +146,20 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
    * The document name.
    * 
    * @example
-   * 文档名称
+   * DocumentName
    */
   docName?: string;
   /**
    * @remarks
-   * A list of the document\\"s tags.
+   * The list of label details.
    */
   docTags?: SearchDocResponseBodyDocHitsDocTags[];
   /**
    * @remarks
-   * The knowledge\\"s effective status, calculated based on `StartDate` and `EndDate`. Valid values:<br>• 20: Active<br>• 21: Expired<br>• 22: Pending<br><br><br>
+   * The knowledge effective status, calculated based on StartDate and EndDate. Valid values:
+   * - 20: effective
+   * - 21: expired
+   * - 22: pending effective
    * 
    * @example
    * 20
@@ -150,7 +167,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   effectStatus?: number;
   /**
    * @remarks
-   * The time the knowledge expires (UTC).
+   * The expiration time in UTC.
    * 
    * @example
    * 2099-12-31T16:00:00Z
@@ -166,7 +183,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The document metadata.
+   * The metadata associated with the document.
    * 
    * @example
    * {"code":"xxx"}
@@ -174,7 +191,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   meta?: string;
   /**
    * @remarks
-   * The time the document was last modified (UTC).
+   * The modification time in UTC.
    * 
    * @example
    * 2023-06-25T02:27:42Z
@@ -182,7 +199,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The modifier ID.
+   * The ID of the modifier.
    * 
    * @example
    * 222222222
@@ -190,15 +207,17 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   modifyUserId?: number;
   /**
    * @remarks
-   * The name of the last modifier.
+   * The name of the modifier.
    * 
    * @example
-   * 李四
+   * Jane
    */
   modifyUserName?: string;
   /**
    * @remarks
-   * Indicates whether the task can be retried.<br>• `true`: The task can be retried.<br>• `false`: The task cannot be retried.<br><br>
+   * Indicates whether the task can be retried. Valid values:
+   * - true: The task can be retried.
+   * - false: The task cannot be retried.
    * 
    * @example
    * true
@@ -206,15 +225,20 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   processCanRetry?: boolean;
   /**
    * @remarks
-   * The processing message for the task.
+   * The task processing message.
    * 
    * @example
-   * 任务处理成功
+   * Task processing succeeded
    */
   processMessage?: string;
   /**
    * @remarks
-   * The task\\"s processing status. Valid values:<br>• -1: Queued<br>• 0: Succeeded<br>• 1: Parsing<br>• 2: Processing<br>• 3: Failed<br><br><br><br><br>
+   * The task processing status. Valid values:
+   * - -1: queued
+   * - 0: succeeded
+   * - 1: parsing
+   * - 2: processing
+   * - 3: processing failed
    * 
    * @example
    * 0
@@ -222,7 +246,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   processStatus?: number;
   /**
    * @remarks
-   * The time the knowledge takes effect (UTC).
+   * The effective period in UTC.
    * 
    * @example
    * 2023-02-28T11:40:18Z
@@ -230,7 +254,10 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The editing status of the document. Valid values:<br>• 1: Unpublished<br>• 2: Published<br>• 3: Updated but not published<br><br><br>
+   * The editing status. Valid values:
+   * - 1: unpublished
+   * - 2: published
+   * - 3: updated but not published
    * 
    * @example
    * 1
@@ -238,7 +265,7 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The OSS URL of the object.
+   * The OSS URL where the document is stored.
    * 
    * @example
    * https://doc2bot-bucket-cloud.oss-cn-shanghai.aliyuncs.com/doc2bot/input/文档问答说明书_V1.pdf
@@ -311,12 +338,12 @@ export class SearchDocResponseBodyDocHits extends $dara.Model {
 export class SearchDocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of matching documents.
+   * The list of documents.
    */
   docHits?: SearchDocResponseBodyDocHits[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -332,7 +359,7 @@ export class SearchDocResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E3E5C779-A630-45AC-B0F2-A4506A4212F1
@@ -340,7 +367,7 @@ export class SearchDocResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 141

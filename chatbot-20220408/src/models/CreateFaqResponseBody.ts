@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFaqResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the newly created knowledge.
+   * The knowledge ID.
    * 
    * @example
    * 30001979424
@@ -13,7 +13,7 @@ export class CreateFaqResponseBody extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 28805A7C-D695-548C-A31B-67E52C2C274F

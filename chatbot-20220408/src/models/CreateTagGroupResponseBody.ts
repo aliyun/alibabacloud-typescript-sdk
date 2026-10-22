@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTagGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the tag group.
+   * 
    * @example
    * 7393472
    */
   id?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * xxxXxxxxx
    */

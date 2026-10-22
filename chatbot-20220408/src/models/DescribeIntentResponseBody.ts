@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIntentResponseBodySlotInfos extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the slot can contain an array of values.
+   * Indicates whether the slot is an array.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeIntentResponseBodySlotInfos extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot is configured to encrypt its value.
+   * Indicates whether the slot is sensitive.
    * 
    * @example
    * false
@@ -32,12 +32,12 @@ export class DescribeIntentResponseBodySlotInfos extends $dara.Model {
    * The slot name.
    * 
    * @example
-   * 天气
+   * Weather
    */
   name?: string;
   /**
    * @remarks
-   * The slot ID.
+   * The unique identifier of the slot.
    * 
    * @example
    * aa4d2a343a3ad4afad
@@ -45,10 +45,10 @@ export class DescribeIntentResponseBodySlotInfos extends $dara.Model {
   slotId?: string;
   /**
    * @remarks
-   * The value extracted for the slot.
+   * The slot tagging result.
    * 
    * @example
-   * 天气
+   * Weather
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -88,12 +88,12 @@ export class DescribeIntentResponseBody extends $dara.Model {
    * The intent alias.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   aliasName?: string;
   /**
    * @remarks
-   * The time when the intent was created, in UTC format.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -101,7 +101,7 @@ export class DescribeIntentResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The unique identifier of the creator.
    * 
    * @example
    * 123231
@@ -109,7 +109,7 @@ export class DescribeIntentResponseBody extends $dara.Model {
   createUserId?: string;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -128,12 +128,12 @@ export class DescribeIntentResponseBody extends $dara.Model {
    * The intent name.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * The time when the intent was last modified, in UTC format.
+   * The modification time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -141,7 +141,7 @@ export class DescribeIntentResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The modifier ID.
+   * The unique identifier of the user who last modified the intent.
    * 
    * @example
    * 123231
@@ -149,7 +149,7 @@ export class DescribeIntentResponseBody extends $dara.Model {
   modifyUserId?: string;
   /**
    * @remarks
-   * The modifier name.
+   * The name of the user who last modified the intent.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class DescribeIntentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of objects that contain the slot information for the intent.
+   * The slot information associated with the intent.
    */
   slotInfos?: DescribeIntentResponseBodySlotInfos[];
   static names(): { [key: string]: string } {

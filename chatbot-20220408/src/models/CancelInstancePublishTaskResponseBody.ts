@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CancelInstancePublishTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of business types.
+   * The list of business types.
    */
   bizTypeList?: string[];
   /**
    * @remarks
-   * The creation time of the task in UTC.
+   * The UTC time when the task was created.
    * 
    * @example
    * 2022-04-12T06:30:17Z
@@ -18,10 +18,10 @@ export class CancelInstancePublishTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message if the task fails.
+   * The job failure information.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
@@ -34,7 +34,7 @@ export class CancelInstancePublishTaskResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The last modification time of the task in UTC.
+   * The UTC time when the task was last modified.
    * 
    * @example
    * 2022-04-12T06:30:33Z
@@ -50,7 +50,7 @@ export class CancelInstancePublishTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID, returned as a string.
+   * The task ID.
    * 
    * @example
    * 8522

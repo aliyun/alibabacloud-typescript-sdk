@@ -4,25 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTagGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The idempotence parameter.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The name of the label group.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 标签组1
+   * Label group 1
    */
   groupName?: string;
   /**
    * @remarks
+   * The ID of the label group.
+   * 
    * This parameter is required.
    * 
    * @example

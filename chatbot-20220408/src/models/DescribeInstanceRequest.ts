@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If this parameter is omitted, the default business space is used. You can obtain this key from the business management page of your main account.
+   * The key of the business space. If this parameter is not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DescribeInstanceRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique identifier of the robot instance.
+   * The unique identifier of the chatbot.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050

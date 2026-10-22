@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLgfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the LGF.
+   * The unique identifier of the LGF.
    * 
    * @example
    * 2342556223532

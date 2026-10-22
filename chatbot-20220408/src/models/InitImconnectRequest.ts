@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitIMConnectRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. Omit this parameter to use the default business space. You can get the key from the business management page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,15 +13,9 @@ export class InitIMConnectRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The identifier for the connection source. You can obtain this value from the channel console.
-   * 
    * This parameter is required.
    */
   from?: string;
-  /**
-   * @remarks
-   * The access token for user authentication.
-   */
   userAccessToken?: string;
   static names(): { [key: string]: string } {
     return {

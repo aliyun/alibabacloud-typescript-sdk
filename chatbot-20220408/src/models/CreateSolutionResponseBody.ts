@@ -13,7 +13,7 @@ export class CreateSolutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the knowledge answer.
+   * The answer ID.
    * 
    * @example
    * 100001089003

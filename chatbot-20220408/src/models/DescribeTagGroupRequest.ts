@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTagGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The idempotence parameter.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the tag group.
+   * 
    * This parameter is required.
    * 
    * @example

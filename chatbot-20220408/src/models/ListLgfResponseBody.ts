@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLgfResponseBodyLgfs extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -13,7 +13,7 @@ export class ListLgfResponseBodyLgfs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * @example
    * 256756734345
@@ -21,7 +21,7 @@ export class ListLgfResponseBodyLgfs extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The LGF ID.
+   * LGF ID
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class ListLgfResponseBodyLgfs extends $dara.Model {
   lgfId?: number;
   /**
    * @remarks
-   * The modification time, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -75,12 +75,12 @@ export class ListLgfResponseBodyLgfs extends $dara.Model {
 export class ListLgfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of advanced semantic configurations.
+   * The list of LGF configurations.
    */
   lgfs?: ListLgfResponseBodyLgfs[];
   /**
    * @remarks
-   * The returned page number.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class ListLgfResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -104,7 +104,7 @@ export class ListLgfResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 1

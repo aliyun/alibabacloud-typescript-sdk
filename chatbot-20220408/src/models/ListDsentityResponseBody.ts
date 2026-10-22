@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDSEntityResponseBodyEntities extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC.
+   * The creation time (UTC).
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -29,7 +29,7 @@ export class ListDSEntityResponseBodyEntities extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * The ID of the entity.
+   * The entity ID.
    * 
    * @example
    * 234564567445
@@ -40,12 +40,12 @@ export class ListDSEntityResponseBodyEntities extends $dara.Model {
    * The entity name.
    * 
    * @example
-   * 书实体
+   * BookEntity
    */
   entityName?: string;
   /**
    * @remarks
-   * The entity type. Valid values: `synonyms`, `regex`, and `system`.
+   * The entity type (synonyms | regex | system).
    * 
    * @example
    * synonyms
@@ -53,7 +53,7 @@ export class ListDSEntityResponseBodyEntities extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The update time in UTC.
+   * The modification time (UTC).
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -77,7 +77,7 @@ export class ListDSEntityResponseBodyEntities extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * The code for the system entity, such as `sys_date`. This parameter is blank for custom entities.
+   * The system entity code, such as sys.date. This parameter is empty for user entities.
    * 
    * @example
    * sys_date
@@ -130,7 +130,7 @@ export class ListDSEntityResponseBody extends $dara.Model {
   entities?: ListDSEntityResponseBodyEntities[];
   /**
    * @remarks
-   * The current page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListDSEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. You can obtain the key on the Business Management page of the primary account. If you do not set this parameter, the default business space is accessed.
+   * The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,15 +13,15 @@ export class ListInstanceRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The name of the chatbot. A fuzzy search is supported.
+   * Performs a fuzzy match by chatbot name.
    * 
    * @example
-   * 售前客服
+   * Pre-sales Customer Service
    */
   name?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for pagination. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instances to return on each page. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the chatbot.
+   * Filters chatbots by type.
    * 
    * @example
    * scenario_im

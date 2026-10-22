@@ -13,7 +13,7 @@ export class CreateUserSayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The unique ID of the intent-user say pair.
+   * The unique ID of the intent utterance.
    * 
    * @example
    * 46456176856

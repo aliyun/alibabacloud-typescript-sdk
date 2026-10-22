@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business types associated with the publish task.
+   * The list of business types.
    */
   bizTypeList?: string[];
   /**
@@ -18,15 +18,15 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message if the task fails.
+   * The job failure information.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
    * @remarks
-   * A key-value map of errors. Keys are the submodule names, and values are arrays of error messages.
+   * The fault information for each sub-publish module. The key is the sub-publish module and the value is the fault information.
    * 
    * @example
    * {}
@@ -34,7 +34,7 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   errors?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 8522
@@ -50,7 +50,7 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
@@ -58,7 +58,7 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task, returned as a string.
+   * The task ID.
    * 
    * @example
    * 8522
@@ -66,7 +66,7 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * FE_RUNNING
@@ -74,12 +74,12 @@ export class ContinueInstancePublishTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A key-value map of warnings. Keys are the submodule names, and values are arrays of warning messages.
+   * The warning information for each sub-publish module. The key is the sub-publish module and the value is the warning information.
    * 
    * @example
    * {
    * 	"category_bind_faq": [
-   * 		"以下类目没有发布到正式环境: 项目交付信息汇总"
+   * 		"The following categories have not been published to the production environment: Project Delivery Information Summary"
    * 	]
    * }
    */

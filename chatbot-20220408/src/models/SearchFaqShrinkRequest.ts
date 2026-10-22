@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchFaqShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the workspace. If this parameter is not specified, the default workspace is used. You can get the key on the Business Management page of your main account.
+   * The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,12 +13,12 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * An array of category IDs to filter the search results.
+   * The unique identifier of the category.
    */
   categoryIdsShrink?: string;
   /**
    * @remarks
-   * The start of the creation period.
+   * The start of the creation time range.
    * 
    * @example
    * 2022-04-02T03:09:30Z
@@ -26,7 +26,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   createTimeBegin?: string;
   /**
    * @remarks
-   * The end of the creation period.
+   * The end of the creation time range.
    * 
    * @example
    * 2022-05-02T03:09:30Z
@@ -34,7 +34,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The creator\\"s username.
+   * The name of the creator.
    * 
    * @example
    * test01
@@ -42,7 +42,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * The start of the expiration period.
+   * The start of the expiration time range.
    * 
    * @example
    * 2023-04-02T03:09:30Z
@@ -50,7 +50,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   endTimeBegin?: string;
   /**
    * @remarks
-   * The end of the expiration period.
+   * The end of the expiration time range.
    * 
    * @example
    * 2023-05-02T03:09:30Z
@@ -58,15 +58,15 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   endTimeEnd?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The keyword.
    * 
    * @example
-   * 搜索标题
+   * Search title
    */
   keyword?: string;
   /**
    * @remarks
-   * The start of the modification period.
+   * The start of the modification time range.
    * 
    * @example
    * 2023-04-02T03:09:30Z
@@ -74,7 +74,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   modifyTimeBegin?: string;
   /**
    * @remarks
-   * The end of the modification period.
+   * The end of the modification time range.
    * 
    * @example
    * 2023-05-02T03:09:30Z
@@ -82,7 +82,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   modifyTimeEnd?: string;
   /**
    * @remarks
-   * The modifier\\"s username.
+   * The name of the modifier.
    * 
    * @example
    * test01
@@ -90,7 +90,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * The number of the page to return. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 10, and the maximum value is 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -106,7 +106,11 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search scope.
+   * The search scope. Valid values:
+   * 
+   * - 1: Search titles and similar questions.
+   * - 2: Search answers.
+   * - 3: Search all.
    * 
    * @example
    * 1
@@ -114,7 +118,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   searchScope?: number;
   /**
    * @remarks
-   * The start of the effective period.
+   * The start of the effective time range.
    * 
    * @example
    * 2022-04-02T03:09:30Z
@@ -122,7 +126,7 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   startTimeBegin?: string;
   /**
    * @remarks
-   * The end of the effective period.
+   * The end of the effective time range.
    * 
    * @example
    * 2022-04-03T03:09:30Z
@@ -130,7 +134,12 @@ export class SearchFaqShrinkRequest extends $dara.Model {
   startTimeEnd?: string;
   /**
    * @remarks
-   * The status of the knowledge item.
+   * The knowledge status. Valid values:
+   * 
+   * - -1: deleted and unpublished.
+   * - 1: unpublished.
+   * - 2: published.
+   * - 3: updated and unpublished.
    * 
    * @example
    * 1

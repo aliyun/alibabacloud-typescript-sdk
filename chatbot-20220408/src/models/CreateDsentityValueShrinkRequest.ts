@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDSEntityValueShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space key. If omitted, the default business space is used. You can obtain the key from the Business Management page of your primary account.
+   * The key of the workspace. If this parameter is not specified, the default workspace is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,17 +13,17 @@ export class CreateDSEntityValueShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The entity value (or regular expression).
+   * The entity value or regular expression.
    * 
    * This parameter is required.
    * 
    * @example
-   * 书类型
+   * BookType
    */
   content?: string;
   /**
    * @remarks
-   * The entity ID.
+   * The entity ID. This parameter can be left empty when you modify an entity member.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateDSEntityValueShrinkRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The robot ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateDSEntityValueShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of synonyms for the entity value.
+   * The synonym list.
    */
   synonymsShrink?: string;
   static names(): { [key: string]: string } {

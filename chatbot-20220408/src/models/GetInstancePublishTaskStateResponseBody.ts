@@ -18,15 +18,15 @@ export class GetInstancePublishTaskStateResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message if the task fails.
+   * The job failure information.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
    * @remarks
-   * A map of error messages for each submodule, where the key is the submodule and the value is an array of errors.
+   * The fault information for each sub-publish module. The key is the sub-publish module and the value is the fault information.
    * 
    * @example
    * {
@@ -62,7 +62,7 @@ export class GetInstancePublishTaskStateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID, returned as a string.
+   * The task ID.
    * 
    * @example
    * 8522
@@ -70,7 +70,7 @@ export class GetInstancePublishTaskStateResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * FE_RUNNING
@@ -78,12 +78,12 @@ export class GetInstancePublishTaskStateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A map of warning messages for each submodule, where the key is the submodule and the value is an array of warnings.
+   * The warning information for each sub-publish module. The key is the sub-publish module and the value is the warning information.
    * 
    * @example
    * {
    *     "category_bind_faq": [
-   *         "以下类目没有发布到正式环境：项目交付类目"
+   *         "The following categories have not been published to the production environment: Project Delivery category"
    *     ]
    * }
    */

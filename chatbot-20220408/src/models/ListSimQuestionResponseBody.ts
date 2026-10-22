@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSimQuestionResponseBodySimQuestions extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the similar question, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-05-30T02:08:33Z
@@ -13,7 +13,7 @@ export class ListSimQuestionResponseBodySimQuestions extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The modification time of the similar question, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-05-13T03:49:28Z
@@ -32,7 +32,7 @@ export class ListSimQuestionResponseBodySimQuestions extends $dara.Model {
    * The title of the similar question.
    * 
    * @example
-   * 相似问
+   * Similar question
    */
   title?: string;
   static names(): { [key: string]: string } {

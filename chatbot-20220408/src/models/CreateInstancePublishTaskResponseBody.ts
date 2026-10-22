@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstancePublishTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of business types.
+   * The list of business types.
    */
   bizTypeList?: string[];
   /**
@@ -18,10 +18,10 @@ export class CreateInstancePublishTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message for the publish task.
+   * The error message of the job failure.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误,faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
@@ -50,7 +50,7 @@ export class CreateInstancePublishTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID, returned as a string.
+   * The task ID.
    * 
    * @example
    * 8522

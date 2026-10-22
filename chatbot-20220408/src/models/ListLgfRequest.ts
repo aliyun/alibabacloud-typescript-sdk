@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLgfRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your main account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class ListLgfRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListLgfRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListLgfRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The text used to filter the advanced semantic configurations.
+   * The semantic configuration content to filter.
    * 
    * @example
    * .{0,5}北京天气
@@ -41,7 +41,7 @@ export class ListLgfRequest extends $dara.Model {
   lgfText?: string;
   /**
    * @remarks
-   * The number of the page to return. Defaults to 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class ListLgfRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Defaults to 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

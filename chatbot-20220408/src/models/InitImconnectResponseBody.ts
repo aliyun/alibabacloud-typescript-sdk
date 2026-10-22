@@ -13,7 +13,7 @@ export class InitIMConnectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The IM connection information, returned as a JSON string.
+   * The IM connection information.
    * 
    * @example
    * {     "imDomain": "im.alimebot.com",     "appKey": "WDg2VfNv",     "token": "QUM4SndaY3VPMjhkQldDZUNOR0ZaTmZ5R3NBY0FKWHJ4OGc4dERZbEJzcjNIKzFiS1RyTjhXRUpBYmVpQlpsakprNDRFVkdxcy9HWVk2RXZvalU3bHhxRkJlc1NBUXZwdHFKOTE2UTNwamQ4b1U4N3dEbmhyRjc4R2hOQStvMnMrYkV2dlVpSHNvWC96SEVNZWRqMjBuMXdjNklpamJzaDNWYllnUldDZGhJPQ=="   }
@@ -21,7 +21,7 @@ export class InitIMConnectResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The response message. If the request fails, this parameter provides the exception message.
+   * The error message.
    * 
    * @example
    * Parameter.Invalid
@@ -29,7 +29,7 @@ export class InitIMConnectResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E6988CE6-41CF-1103-9BEC-2B20D26C0B52

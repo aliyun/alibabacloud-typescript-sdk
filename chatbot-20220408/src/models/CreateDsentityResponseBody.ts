@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDSEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The `entity ID`.
+   * The entity ID.
    * 
    * @example
    * 23436345
@@ -13,7 +13,7 @@ export class CreateDSEntityResponseBody extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The `request ID`.
+   * The request ID.
    * 
    * @example
    * adfad2343f1f2r

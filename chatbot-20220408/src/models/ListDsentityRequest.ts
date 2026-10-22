@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDSEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If this parameter is not set, the default business space is used. You can find this key on the Business Management page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class ListDSEntityRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The entity type. If you omit this parameter, all custom entities are returned.
+   * If left empty, all custom entities are returned (default).
    * 
    * @example
    * synonyms
@@ -23,7 +23,7 @@ export class ListDSEntityRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The robot ID.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -33,15 +33,15 @@ export class ListDSEntityRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A keyword to filter entities by name using a \\"contains\\" match. Future releases will also support searching by entity member and synonym.
+   * The filter keyword. Uses contains matching. Scope: entity name (future expansion: entity members, synonyms).
    * 
    * @example
-   * 实体
+   * entity
    */
   keyword?: string;
   /**
    * @remarks
-   * The current page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class ListDSEntityRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. The default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

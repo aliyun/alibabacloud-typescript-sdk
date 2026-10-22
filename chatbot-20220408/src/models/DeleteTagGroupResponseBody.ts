@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTagGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * xxxXxxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the update is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

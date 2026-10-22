@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the slot can accept multiple values.
+   * Indicates whether the slot is an array.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
   array?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot contains sensitive data.
+   * Indicates whether the slot is sensitive.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
   encrypt?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot value is collected interactively.
+   * Indicates whether the slot is collected interactively.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
    * The slot name.
    * 
    * @example
-   * 天气
+   * Weather
    */
   name?: string;
   /**
@@ -48,7 +48,7 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
    * The slot value (entity name).
    * 
    * @example
-   * 天气
+   * Weather
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -85,15 +85,15 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
 export class ListIntentResponseBodyIntents extends $dara.Model {
   /**
    * @remarks
-   * The intent alias.
+   * The alias of the intent.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   aliasName?: string;
   /**
    * @remarks
-   * The time at which the intent was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -101,7 +101,7 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the user who created the intent.
+   * The unique identifier of the creator.
    * 
    * @example
    * 123231
@@ -109,7 +109,7 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
   createUserId?: string;
   /**
    * @remarks
-   * The name of the user who created the intent.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -128,12 +128,12 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
    * The intent name.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * The time at which the intent was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -141,7 +141,7 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The ID of the user who last modified the intent.
+   * The unique identifier of the user who last modified the intent.
    * 
    * @example
    * 123231
@@ -157,7 +157,7 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * A list of slots associated with the intent.
+   * The slot information associated with the intent.
    */
   slotInfos?: ListIntentResponseBodyIntentsSlotInfos[];
   static names(): { [key: string]: string } {
@@ -205,7 +205,7 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
 export class ListIntentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of intents.
+   * The list of intents.
    */
   intents?: ListIntentResponseBodyIntents[];
   /**
@@ -218,7 +218,7 @@ export class ListIntentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of intents per page. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -234,7 +234,7 @@ export class ListIntentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of intents.
+   * The total number of entries.
    * 
    * @example
    * 1

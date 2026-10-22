@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntentRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique key for the business space. If you omit this parameter, the default business space is used. You can find this key on the business management page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class ListIntentRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot.
+   * The chatbot ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ListIntentRequest extends $dara.Model {
    * The intent name.
    * 
    * @example
-   * 查天气
+   * CheckWeather
    */
   intentName?: string;
   /**
@@ -39,7 +39,7 @@ export class ListIntentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of intents per page. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

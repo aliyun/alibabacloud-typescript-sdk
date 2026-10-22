@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The idempotence parameter.
+   * 
    * @example
    * xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the label group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,10 +31,12 @@ export class CreateTagRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
+   * The name of the label group.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 标签组1
+   * LabelGroup1
    */
   tagName?: string;
   static names(): { [key: string]: string } {

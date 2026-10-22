@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUserAccessTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates a successful request.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GenerateUserAccessTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The generated token value.
+   * The token value.
    * 
    * @example
    * DDEXEDAFWAGASDFWAEFFAWEFAWFWEAFWAFWAEF
@@ -21,7 +21,7 @@ export class GenerateUserAccessTokenResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message for a failed request.
+   * The error message.
    * 
    * @example
    * Parameter.Invalid
@@ -29,7 +29,7 @@ export class GenerateUserAccessTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * Id of the request
    * 
    * @example
    * E6988CE6-41CF-1103-9BEC-2B20D26C0B51
@@ -37,7 +37,7 @@ export class GenerateUserAccessTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: `true` and `false`.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

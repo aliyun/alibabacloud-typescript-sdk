@@ -13,7 +13,7 @@ export class DeleteUserSayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the user say.
+   * The utterance ID.
    * 
    * @example
    * 4562121234

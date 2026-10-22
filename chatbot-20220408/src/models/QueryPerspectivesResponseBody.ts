@@ -24,12 +24,12 @@ export class QueryPerspectivesResponseBodyPerspectives extends $dara.Model {
    * The perspective name.
    * 
    * @example
-   * 移动端视角
+   * Mobile perspective
    */
   name?: string;
   /**
    * @remarks
-   * The perspective code (used for the Q\\&A API).
+   * The perspective code, which is used for the Q&A API.
    * 
    * @example
    * FZJBY3raWr
@@ -53,7 +53,9 @@ export class QueryPerspectivesResponseBodyPerspectives extends $dara.Model {
   selfDefine?: boolean;
   /**
    * @remarks
-   * The status of the perspective. Valid values are 3 (enabled) and 1 (disabled).
+   * The data status. Valid values:
+   * - 3: Enabled.
+   * - 1: Not enabled.
    * 
    * @example
    * 1
@@ -95,7 +97,7 @@ export class QueryPerspectivesResponseBodyPerspectives extends $dara.Model {
 export class QueryPerspectivesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of perspectives.
+   * The list of perspectives.
    */
   perspectives?: QueryPerspectivesResponseBodyPerspectives[];
   /**

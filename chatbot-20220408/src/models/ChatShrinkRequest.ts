@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If omitted, the request is routed to the default business space. You can get this key from the **Business Management** page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class ChatShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique ID of the chatbot instance. To get this ID, log in to the Alibaba Cloud Chatbot console and go to **Chatbot Details** > **Session API**.
+   * The unique chatbot identifier (chatbot ID). Log on to the Chatbot console and navigate to Chatbot Details > Session Interface to view the chatbot instance information and obtain the instance ID.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050
@@ -21,15 +21,15 @@ export class ChatShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of an intent within a dialog flow. If specified, the chatbot directly activates this intent to process the user\\"s request.
+   * The intent name in the dialog flow. If this name is specified, the chatbot directly enters this intent for Q&A.
    * 
    * @example
-   * 查天气意图
+   * CheckWeatherIntent
    */
   intentName?: string;
   /**
    * @remarks
-   * The ID of an entry in the knowledge base. If you specify this ID, the chatbot directly returns the corresponding answer.
+   * The ID of a knowledge title in the knowledge base. If this ID is specified, the chatbot directly returns the answer for the specified knowledge title.
    * 
    * @example
    * 30002406051
@@ -37,16 +37,14 @@ export class ChatShrinkRequest extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * An array of perspective codes. Use these codes to retrieve answers from different perspectives for the same knowledge entry. Example: `Perspective=["FZJBY3raWr"]`. When using an SDK, refer to its parameter definitions.
+   * The array of perspective codes, which is used to call answers from different perspectives under the same knowledge title. Example: Perspective=["FZJBY3raWr"]. When using the SDK, use the parameters defined in the SDK.
    */
   perspectiveShrink?: string;
   /**
    * @remarks
-   * Specifies the environment to use. The default value is `false`, which indicates the production environment.
-   * 
-   * - `true`: The test environment. This environment is for testing only. Do not use it in production due to potential instability and QPS limitations.
-   * 
-   * - `false`: The production environment.
+   * Specifies whether to use the test or production environment. Default value: false (production environment). Valid values:
+   * - true: Test environment. This is for testing only. Using it in production may cause instability and QPS throttling.
+   * - false: Production environment.
    * 
    * @example
    * true
@@ -54,7 +52,7 @@ export class ChatShrinkRequest extends $dara.Model {
   sandBox?: boolean;
   /**
    * @remarks
-   * The unique ID of the user in the current session.
+   * The visitor ID, which identifies the user in the current session.
    * 
    * @example
    * custumer_123456
@@ -62,15 +60,15 @@ export class ChatShrinkRequest extends $dara.Model {
   senderId?: string;
   /**
    * @remarks
-   * The nickname of the user in the current session.
+   * The nickname of the visitor in the current session.
    * 
    * @example
-   * 用户123456
+   * User123456
    */
   senderNick?: string;
   /**
    * @remarks
-   * The session ID, used to identify a user session and maintain context. For a new user, omit this parameter in the first call to the `Chat` API. The chatbot automatically starts a session and returns the `SessionId` in the response. To continue the conversation, include this `SessionId` in all subsequent requests. The maximum length is 64 characters.
+   * The session ID, which identifies a visitor\\"s session and maintains context information. For a new visitor, you do not need to pass this field when calling the Chat operation for the first time. The chatbot starts a session and returns the SessionId in the response of the Chat operation. For subsequent conversation turns of the visitor, pass the SessionId of the current session when calling the Chat operation so that the chatbot can continue the conversation based on the SessionId. Maximum length: 64 characters.
    * 
    * @example
    * 9c6ebdc6e66f46ecadab3434314f6959
@@ -78,15 +76,15 @@ export class ChatShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user\\"s input text.
+   * The input from the chatbot visitor.
    * 
    * @example
-   * 今天天气怎么样？
+   * How is the weather today?
    */
   utterance?: string;
   /**
    * @remarks
-   * A JSON-formatted string containing custom parameters to pass to various dialog engines.
+   * A JSON-formatted set of user-defined parameters that can be passed to various dialog engines.
    * 
    * @example
    * {"phone":123456789}

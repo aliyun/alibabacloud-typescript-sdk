@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BeginSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ASR end-pointing detection time, in milliseconds.
+   * The Automatic Speech Recognition (ASR) end-of-speech detection time. Unit: milliseconds.
    * 
    * @example
    * 700
@@ -13,7 +13,7 @@ export class BeginSessionResponseBody extends $dara.Model {
   asrMaxEndSilence?: number;
   /**
    * @remarks
-   * Indicates whether voice playback is interruptible.
+   * Indicates whether the voice broadcast can be interrupted.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class BeginSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The silence timeout, in seconds.
+   * The silence timeout period. Unit: seconds.
    * 
    * @example
    * 5
@@ -40,7 +40,7 @@ export class BeginSessionResponseBody extends $dara.Model {
    * The welcome message.
    * 
    * @example
-   * 智能对话机器人为您服务，请问有什么可以帮您？
+   * The intelligent chatbot is at your service. How can I help you?
    */
   welcomeMessage?: string;
   static names(): { [key: string]: string } {

@@ -10,7 +10,7 @@ export class CreatePublishTaskResponseBody extends $dara.Model {
   bizTypeList?: string[];
   /**
    * @remarks
-   * The time when the task was created, in UTC.
+   * The UTC time when the task was created.
    * 
    * @example
    * 2022-04-12T06:30:17Z
@@ -18,10 +18,10 @@ export class CreatePublishTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message if the task fails.
+   * The task failure information.
    * 
    * @example
-   * 检查待发布模块是否空闲发生错误，faq
+   * An error occurred while checking whether the module to be published is idle, faq
    */
   error?: string;
   /**
@@ -34,7 +34,7 @@ export class CreatePublishTaskResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The time when the task was last modified, in UTC.
+   * The UTC time when the task was last modified.
    * 
    * @example
    * 2022-04-12T06:30:33Z
@@ -50,7 +50,7 @@ export class CreatePublishTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The publish task ID. This parameter is redundant. Use the `Id` parameter instead.
+   * The publish task ID. This is a redundant field. Use the publish task ID from the Id field instead.
    * 
    * @example
    * 8522
@@ -58,9 +58,14 @@ export class CreatePublishTaskResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task status.
    * 
-   * `FE_RUNNING`: Publishing<br><br>`FE_SUCCESS`: Published<br><br>`FE_FAILED`: Failed<br><br>`FE_ABORTED`: Canceled<br><br><br><br><br><br>
+   * Valid values:
+   * 
+   * - FE_RUNNING: Publishing in progress.
+   * - FE_SUCCESS: Published.
+   * - FE_FAILED: Publish failed.
+   * - FE_ABORTED: Publish canceled.
    * 
    * @example
    * FE_RUNNING

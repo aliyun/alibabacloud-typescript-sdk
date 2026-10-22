@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDSEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the entity was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -13,7 +13,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the user who created the entity.
+   * The ID of the creator.
    * 
    * @example
    * 123231
@@ -21,7 +21,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   createUserId?: string;
   /**
    * @remarks
-   * The name of the user who created the entity.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -37,15 +37,15 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The entity name. The name can contain only Chinese characters, letters, digits, and underscores (_).
+   * The entity name. Only Chinese characters, uppercase and lowercase letters, digits, and underscores are supported.
    * 
    * @example
-   * 书类型
+   * BookType
    */
   entityName?: string;
   /**
    * @remarks
-   * The entity type. Valid values are `synonyms` and `regex`.
+   * The entity type. Valid values: synonyms (synonym) and regex (regular expression).
    * 
    * @example
    * synonyms
@@ -53,7 +53,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The time when the entity was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -61,7 +61,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The ID of the user who last modified the entity.
+   * The unique identifier of the modifier.
    * 
    * @example
    * 123231
@@ -69,7 +69,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   modifyUserId?: string;
   /**
    * @remarks
-   * The name of the user who last modified the entity.
+   * The name of the modifier.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class DescribeDSEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The code of the system entity, such as sys.date. This parameter is empty for user-defined entities.
+   * The system entity code, such as sys.date. This parameter is empty for user entities.
    * 
    * @example
    * sys.date

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTongyiConversationLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If omitted, the default business space is used. You can find this key on the Business Management page of your root account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class ListTongyiConversationLogsRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the chatbot instance.
+   * The robot instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListTongyiConversationLogsRequest extends $dara.Model {
   robotInstanceId?: string;
   /**
    * @remarks
-   * The ID of the session.
+   * The session ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPublishTaskStateRequest extends $dara.Model {
   /**
    * @remarks
-   * The key that identifies the business space. If omitted, the default business space is used. You can get the key from the Business Management page of your main account.
+   * The key of the business space. If this parameter is not specified, the default business space is accessed. Obtain the key value from the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class GetPublishTaskStateRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The publish task ID.
+   * The ID of the publish task.
    * 
    * @example
    * 8521

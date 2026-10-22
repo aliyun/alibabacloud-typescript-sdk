@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The agent key. It is used to specify the agent in Platform as a Service (PaaS) API calls.
+   * The signature of the business space, used to specify the business space when calling PaaS API operations.
    * 
    * @example
    * 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
@@ -13,10 +13,10 @@ export class GetAgentInfoResponseBodyData extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The agent name.
+   * The name of the business space.
    * 
    * @example
-   * 业务空间_881
+   * BusinessSpace_881
    */
   agentName?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetAgentInfoResponseBodyData extends $dara.Model {
 export class GetAgentInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent details.
+   * The business space data.
    */
   data?: GetAgentInfoResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
    * Parameter.Invalid
@@ -58,7 +58,7 @@ export class GetAgentInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FC384CE1-8D42-1900-84E1-F33F990F2B5E

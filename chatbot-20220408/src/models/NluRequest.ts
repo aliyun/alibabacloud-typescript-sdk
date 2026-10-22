@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class NluRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent key. If not specified, the default agent is used. Find the key on the Business Management page of your Alibaba Cloud account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class NluRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique identifier of the bot instance.
+   * The unique identifier of the chatbot.
    * 
    * @example
    * chatbot-cn-mp90s2lrk00050
@@ -21,10 +21,10 @@ export class NluRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The user\\"s text input.
+   * The user utterance.
    * 
    * @example
-   * 北京的天气怎么样
+   * How is the weather in Beijing
    */
   utterance?: string;
   static names(): { [key: string]: string } {

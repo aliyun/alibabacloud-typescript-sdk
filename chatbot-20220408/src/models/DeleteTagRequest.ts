@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * AgentKey
+   * 
    * @example
    * xxxx
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The idempotence parameter.
+   * 
    * @example
    * xxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The tag group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class DeleteTagRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
+   * The tag ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,20 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUserAccessTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If you do not specify this parameter, the system accesses the default business space. You can obtain the key from the Business Management page of your main account.
+   * The key of the business space. If you do not specify this parameter, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
-  /**
-   * @remarks
-   * The user\\"s email address.
-   */
   email?: string;
   /**
    * @remarks
-   * This parameter is reserved. You do not need to specify it.
+   * Reserved parameter. You do not need to specify this parameter.
    * 
    * @example
    * 1000
@@ -26,7 +22,7 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * Additional information formatted as a JSON string.
+   * The additional information in JSON string format.
    * 
    * @example
    * {
@@ -34,15 +30,15 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
    *     "yy": 22332,
    *     "customerNameCard": [
    *         {
-   *             "key": "姓名",
-   *             "value": "张三"
+   *             "key": "Name",
+   *             "value": "John"
    *         },
    *         {
-   *             "key": "等级",
+   *             "key": "Level",
    *             "value": "v2"
    *         },
    *         {
-   *             "key": "联系方式",
+   *             "key": "Contact",
    *             "value": "123"
    *         }
    *     ]
@@ -61,18 +57,14 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
   foreignId?: string;
   /**
    * @remarks
-   * The visitor\\"s nickname.
+   * The nickname of the visitor.
    * 
    * This parameter is required.
    * 
    * @example
-   * 张三
+   * John
    */
   nick?: string;
-  /**
-   * @remarks
-   * The user\\"s telephone number.
-   */
   telephone?: string;
   static names(): { [key: string]: string } {
     return {

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateResponseBodyAssociate extends $dara.Model {
   /**
    * @remarks
-   * Additional information.
+   * The additional information.
    * 
    * @example
    * {}
@@ -15,10 +15,10 @@ export class AssociateResponseBodyAssociate extends $dara.Model {
   meta?: string;
   /**
    * @remarks
-   * The title of the suggested FAQ.
+   * The title of the associated question.
    * 
    * @example
-   * 公积金提取的政策
+   * Housing fund withdrawal policy
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -47,12 +47,12 @@ export class AssociateResponseBodyAssociate extends $dara.Model {
 export class AssociateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of suggested FAQs.
+   * The list of associated suggestions.
    */
   associate?: AssociateResponseBodyAssociate[];
   /**
    * @remarks
-   * The response message ID.
+   * The ID of the response message in the current session.
    * 
    * @example
    * 5ADF0EBD-7C50-1922-A28B-43215B47CC1A
@@ -68,7 +68,7 @@ export class AssociateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The ID of the current session.
    * 
    * @example
    * 1531ded6b3df4afca4be63943f708bb7

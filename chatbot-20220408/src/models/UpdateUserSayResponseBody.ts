@@ -13,7 +13,7 @@ export class UpdateUserSayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the updated user say.
+   * The utterance ID.
    * 
    * @example
    * 34512323

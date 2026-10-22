@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTongyiChatHistorysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request duration, in milliseconds.
+   * The time consumed by the request.
    * 
    * @example
    * 116
@@ -13,7 +13,7 @@ export class ListTongyiChatHistorysResponseBody extends $dara.Model {
   costTime?: string;
   /**
    * @remarks
-   * A list of chat history entries.
+   * The data details.
    */
   datas?: { [key: string]: any }[];
   /**

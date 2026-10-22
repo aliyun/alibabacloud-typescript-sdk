@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDSEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * If unspecified, the default agent is used. You can get the key from the agent management page of your main account.
+   * Business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public

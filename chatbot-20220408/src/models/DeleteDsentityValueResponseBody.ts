@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDSEntityValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted entity value.
+   * The entity member ID.
    * 
    * @example
    * 3453453452
@@ -13,7 +13,7 @@ export class DeleteDSEntityValueResponseBody extends $dara.Model {
   entityValueId?: number;
   /**
    * @remarks
-   * The unique identifier of the request.
+   * The request ID.
    * 
    * @example
    * dfdf2t3rfvb45y

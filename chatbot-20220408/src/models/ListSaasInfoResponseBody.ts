@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSaasInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the SaaS atomic page. Use this code to reference the page and query its information.
+   * The unique identifier of the SaaS atomic page. This identifier can be used to associate and query related information about the atomic page.
    * 
    * @example
    * GLOBAL_SERVICE
@@ -29,7 +29,7 @@ export class ListSaasInfoResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The URL to embed the SaaS page in an iframe.
+   * The iframe-embedded SaaS page URL.
    * 
    * @example
    * https://pre-alime4service.console.aliyun.com/?productCode=p_beebot_public&switchAgent=1204001&saasCode=Robot&saasToken=06614fdb-c72f-436e-8003-dfe8a2854a15&saasName=123#/robot
@@ -75,12 +75,12 @@ export class ListSaasInfoResponseBodyData extends $dara.Model {
 export class ListSaasInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of SaaS integrations.
+   * The list of SaaS integration entries.
    */
   data?: ListSaasInfoResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * A629A28F-F25E-5572-A679-FA46FB0151D6

@@ -13,7 +13,7 @@ export class DescribeCategoryResponseBodyCategory extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 30000049006
@@ -21,15 +21,15 @@ export class DescribeCategoryResponseBodyCategory extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * 类目名称
+   * CategoryName
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the parent category. A value of -1 indicates the root directory.
+   * The parent category ID. Default value: -1, which indicates the root directory.
    * 
    * @example
    * -1
@@ -37,7 +37,10 @@ export class DescribeCategoryResponseBodyCategory extends $dara.Model {
   parentCategoryId?: number;
   /**
    * @remarks
-   * The status of the category. Valid values: 0 (Normal) or -1 (Deleted).
+   * The category status. Valid values:
+   * 
+   * - -1: deleted and unpublished.
+   * - 0: Normal.
    * 
    * @example
    * 0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBotSessionDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the workspace. If you omit this parameter, the operation uses the default workspace. You can find the key on the business management page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class GetBotSessionDataRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The end time for the query. The format must be `yyyyMMdd`. For example: `20240605`.
+   * The end time of the query. The time format is yyyyMMdd, such as 20240605.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetBotSessionDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the bot instance.
+   * The ID of the chatbot instance.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetBotSessionDataRequest extends $dara.Model {
   robotInstanceId?: string;
   /**
    * @remarks
-   * The start time for the query. The format must be `yyyyMMdd`. For example: `20240505`.
+   * The start time of the query. The time format is yyyyMMdd, such as 20240505.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaqRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space key. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your Alibaba Cloud account.
+   * The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteFaqRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique identifier for the knowledge item.
+   * The knowledge ID.
    * 
    * This parameter is required.
    * 

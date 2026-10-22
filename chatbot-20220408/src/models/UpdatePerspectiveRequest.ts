@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePerspectiveRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space key. If not specified, the default business space is used. You can get the key from the Business Management page of your main account.
+   * The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,10 +13,10 @@ export class UpdatePerspectiveRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The name of the perspective. The name must be 50 characters or fewer.
+   * The perspective name. The name can be up to 50 characters in length.
    * 
    * @example
-   * 客户端视角
+   * Client perspective
    */
   name?: string;
   /**

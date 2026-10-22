@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connected question.
+   * The associated knowledge ID.
    * 
    * @example
    * 30001979424
@@ -13,7 +13,7 @@ export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
   connQuestionId?: number;
   /**
    * @remarks
-   * The creation time, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-02-25T02:47:18Z
@@ -21,7 +21,7 @@ export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The last modification time, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-05-26T10:18:15Z
@@ -29,7 +29,7 @@ export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The relation ID.
+   * The association ID.
    * 
    * @example
    * 797
@@ -37,10 +37,10 @@ export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
   outlineId?: number;
   /**
    * @remarks
-   * The title of the connected question.
+   * The title of the associated knowledge item.
    * 
    * @example
-   * 关联问
+   * Associated question
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListConnQuestionResponseBodyOutlines extends $dara.Model {
 export class ListConnQuestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of connected questions.
+   * The list of associated questions.
    */
   outlines?: ListConnQuestionResponseBodyOutlines[];
   /**

@@ -13,7 +13,7 @@ export class DeletePerspectiveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the perspective was successfully deleted.
+   * The result of deleting the perspective.
    * 
    * @example
    * true

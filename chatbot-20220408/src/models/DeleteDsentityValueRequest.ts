@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDSEntityValueRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent key. If omitted, the system uses the default Agent. You can get this key from the Business Management page of your main account.
+   * The key of the workspace. If this parameter is not specified, the default workspace is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteDSEntityValueRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique identifier of the entity.
+   * The entity ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeleteDSEntityValueRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The unique identifier of the entity value.
+   * The entity member ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteDSEntityValueRequest extends $dara.Model {
   entityValueId?: number;
   /**
    * @remarks
-   * The unique identifier of the instance.
+   * The robot ID.
    * 
    * This parameter is required.
    * 

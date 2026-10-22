@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSolutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If you omit this parameter, the default business space is used. You can obtain this key from the Business Management page of your main account.
+   * The key of the business space. If this parameter is not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteSolutionRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the solution.
+   * The ID of the answer.
    * 
    * This parameter is required.
    * 

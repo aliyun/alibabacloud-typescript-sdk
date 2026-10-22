@@ -13,7 +13,7 @@ export class ListAgentResponseBodyData extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * The business space signature, used to identify the business space in Platform-as-a-Service (PaaS) API calls.
+   * The business space signature, which is used to specify the business space when calling PaaS API operations.
    * 
    * @example
    * 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
@@ -21,15 +21,15 @@ export class ListAgentResponseBodyData extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The name of the business space.
+   * The business space name.
    * 
    * @example
-   * 业务空间_881
+   * BusinessSpace_881
    */
   agentName?: string;
   /**
    * @remarks
-   * Details of the associated commodity instance. The object keys are commodity codes.
+   * The commodity instance information.
    */
   instanceInfos?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class ListAgentResponseBody extends $dara.Model {
   data?: ListAgentResponseBodyData[];
   /**
    * @remarks
-   * The page number of the returned results.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class ListAgentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records per page in the response. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -86,7 +86,7 @@ export class ListAgentResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
@@ -94,7 +94,7 @@ export class ListAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of business spaces that match the query.
+   * The total number of records.
    * 
    * @example
    * 6

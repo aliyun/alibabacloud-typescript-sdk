@@ -13,7 +13,7 @@ export class DescribeFaqResponseBodyOutlines extends $dara.Model {
   connQuestionId?: number;
   /**
    * @remarks
-   * The time the related question was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-05-26T10:24:00Z
@@ -21,7 +21,7 @@ export class DescribeFaqResponseBodyOutlines extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time the related question was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-05-26T18:12:02Z
@@ -29,7 +29,7 @@ export class DescribeFaqResponseBodyOutlines extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The relationship ID.
+   * The relation ID.
    * 
    * @example
    * 797
@@ -40,7 +40,7 @@ export class DescribeFaqResponseBodyOutlines extends $dara.Model {
    * The related knowledge title.
    * 
    * @example
-   * 测试关联问标题
+   * Test related question title
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeFaqResponseBodyOutlines extends $dara.Model {
 export class DescribeFaqResponseBodySimQuestions extends $dara.Model {
   /**
    * @remarks
-   * The time the similar question was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-05-26T10:24:00Z
@@ -83,7 +83,7 @@ export class DescribeFaqResponseBodySimQuestions extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time the similar question was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-05-29T03:55:07Z
@@ -102,7 +102,7 @@ export class DescribeFaqResponseBodySimQuestions extends $dara.Model {
    * The similar question title.
    * 
    * @example
-   * 测试相似问标题
+   * Test similar question title
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -138,12 +138,14 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
    * The solution content.
    * 
    * @example
-   * 测试答案内容
+   * Test solution content
    */
   content?: string;
   /**
    * @remarks
-   * The solution content type. Valid values: `0` (plain text) and `1` (rich text).
+   * The solution type. Valid values:
+   * - 0: plain text.
+   * - 1: rich text.
    * 
    * @example
    * 0
@@ -151,7 +153,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
   contentType?: number;
   /**
    * @remarks
-   * The time the solution was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2022-05-26T10:24:00Z
@@ -159,7 +161,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time the solution was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2022-05-29T07:07:13Z
@@ -167,7 +169,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * A list of perspective codes.
+   * The list of perspective codes.
    */
   perspectiveCodes?: string[];
   /**
@@ -175,7 +177,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
    * The plain text content of the solution.
    * 
    * @example
-   * 测试答案内容
+   * Test solution content
    */
   plainText?: string;
   /**
@@ -188,7 +190,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
   solutionId?: number;
   /**
    * @remarks
-   * A list of tag IDs.
+   * The list of label IDs.
    */
   tagIdList?: number[];
   static names(): { [key: string]: string } {
@@ -243,7 +245,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The time the knowledge was created, in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2020-11-30T03:03:37Z
@@ -251,7 +253,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator of the knowledge.
+   * The user who created the knowledge.
    * 
    * @example
    * test01
@@ -259,7 +261,10 @@ export class DescribeFaqResponseBody extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * The validity status of the knowledge, calculated based on `StartDate` and `EndDate`. Valid values: `20` (Active), `21` (Expired), and `22` (Pending).
+   * The knowledge effective status, calculated based on StartDate and EndDate. Valid values:
+   * - 20: effective.
+   * - 21: expired.
+   * - 22: pending.
    * 
    * @example
    * 20
@@ -267,7 +272,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
   effectStatus?: number;
   /**
    * @remarks
-   * The expiration time of the knowledge, in UTC.
+   * The expiration time in UTC.
    * 
    * @example
    * 2023-04-27T06:08:54Z
@@ -283,7 +288,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
   knowledgeId?: number;
   /**
    * @remarks
-   * The time the knowledge was last modified, in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2020-12-02T06:35:50Z
@@ -299,7 +304,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * A list of related questions.
+   * The list of related questions.
    */
   outlines?: DescribeFaqResponseBodyOutlines[];
   /**
@@ -312,17 +317,17 @@ export class DescribeFaqResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of similar questions.
+   * The list of similar questions.
    */
   simQuestions?: DescribeFaqResponseBodySimQuestions[];
   /**
    * @remarks
-   * A list of solutions.
+   * The list of solutions.
    */
   solutions?: DescribeFaqResponseBodySolutions[];
   /**
    * @remarks
-   * The effective start time of the knowledge, in UTC.
+   * The effective period in UTC.
    * 
    * @example
    * 2022-04-27T07:04:39Z
@@ -330,7 +335,11 @@ export class DescribeFaqResponseBody extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The knowledge status. Valid values: `-1` (Deleted and unpublished), `1` (Unpublished), `2` (Published), and `3` (Updated and unpublished).
+   * The knowledge status. Valid values:
+   * - -1: deleted but not published.
+   * - 1: not published.
+   * - 2: published.
+   * - 3: updated but not published.
    * 
    * @example
    * 3
@@ -338,15 +347,15 @@ export class DescribeFaqResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * A list of tag IDs associated with the knowledge.
+   * The list of label IDs.
    */
   tagIdList?: number[];
   /**
    * @remarks
-   * The knowledge title.
+   * The title.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   static names(): { [key: string]: string } {

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
   /**
    * @remarks
-   * The content of the entity value, which can be a standard value or a regular expression.
+   * The entity member name (entity value or regular expression).
    * 
    * @example
-   * 书类型
+   * Book type
    */
   content?: string;
   /**
    * @remarks
-   * The creation time of the entity value in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -21,7 +21,7 @@ export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the entity.
+   * The entity ID.
    * 
    * @example
    * 34313785463
@@ -29,7 +29,7 @@ export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The ID of the entity value.
+   * The entity member ID.
    * 
    * @example
    * 3467858234534534532
@@ -37,7 +37,7 @@ export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
   entityValueId?: number;
   /**
    * @remarks
-   * The last modification time of the entity value in UTC.
+   * The modification time in UTC.
    * 
    * @example
    * 2021-08-12T16:00:01Z
@@ -45,7 +45,7 @@ export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * A list of synonyms for the entity value.
+   * The synonym list.
    */
   synonyms?: string[];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class ListDSEntityValueResponseBodyEntityValues extends $dara.Model {
 export class ListDSEntityValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of entity values.
+   * The entity list.
    */
   entityValues?: ListDSEntityValueResponseBodyEntityValues[];
   /**
    * @remarks
-   * The page number of the returned results.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class ListDSEntityValueResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the returned page.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -114,7 +114,7 @@ export class ListDSEntityValueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 1

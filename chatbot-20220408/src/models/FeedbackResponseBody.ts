@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class FeedbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The feedback rating.
+   * The feedback type.
    * 
-   * Enumerated values: \\"good\\" (a positive rating) or \\"bad\\" (a negative rating).
+   * Valid values:
+   * - good: Like.
+   * - bad: Dislike.
    * 
    * @example
    * good
@@ -15,7 +17,7 @@ export class FeedbackResponseBody extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * The unique identifier of a single message within the session.
+   * The ID that uniquely identifies a single message in a session window.
    * 
    * @example
    * 5ca40988-4f99-47ad-ac96-9060d0f81db9
@@ -23,7 +25,7 @@ export class FeedbackResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4e5eea71-f326-450c-8849-49515473ef64

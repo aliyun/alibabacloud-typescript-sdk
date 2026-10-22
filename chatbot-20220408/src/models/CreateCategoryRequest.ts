@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If this parameter is not specified, the default business space is used. You can obtain the key from the Business Management page of your main account.
+   * The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -21,7 +21,12 @@ export class CreateCategoryRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The knowledge type. Valid values are 1 for an FAQ category and 3 for a document category. The default value is 1.
+   * The knowledge type. Valid values:
+   * 
+   * - 1: FAQ category.
+   * - 3: Document category.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -34,12 +39,12 @@ export class CreateCategoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试1
+   * Test1
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the parent category. Defaults to -1, which indicates the root category.
+   * The parent category ID. Default value: -1, which indicates the root directory.
    * 
    * @example
    * -1

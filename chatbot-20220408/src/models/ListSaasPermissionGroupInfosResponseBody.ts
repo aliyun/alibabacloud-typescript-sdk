@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $dara.Model {
   /**
    * @remarks
-   * The unique permission group code.
+   * The code of the SaaS permission group.
    * 
    * @example
    * FAQ
@@ -13,7 +13,7 @@ export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $dara.M
   pgCode?: string;
   /**
    * @remarks
-   * The English name of the permission group.
+   * The English name of the SaaS permission group.
    * 
    * @example
    * FAQ
@@ -21,7 +21,7 @@ export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $dara.M
   pgEnName?: string;
   /**
    * @remarks
-   * The name of the permission group.
+   * The Chinese name of the SaaS permission group.
    * 
    * @example
    * FAQ管理
@@ -55,7 +55,7 @@ export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $dara.M
 export class ListSaasPermissionGroupInfosResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the page in English.
+   * The English name of the atomic page.
    * 
    * @example
    * Release Center
@@ -63,7 +63,7 @@ export class ListSaasPermissionGroupInfosResponseBodyData extends $dara.Model {
   enName?: string;
   /**
    * @remarks
-   * The name of the page.
+   * The Chinese name of the atomic page.
    * 
    * @example
    * 发布中心
@@ -71,12 +71,12 @@ export class ListSaasPermissionGroupInfosResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The SaaS permission groups.
+   * The list of SaaS permission groups.
    */
   pgInfos?: ListSaasPermissionGroupInfosResponseBodyDataPgInfos[];
   /**
    * @remarks
-   * The unique code for the SaaS page.
+   * The unique identifier of the SaaS atomic page.
    * 
    * @example
    * FAQ
@@ -115,12 +115,12 @@ export class ListSaasPermissionGroupInfosResponseBodyData extends $dara.Model {
 export class ListSaasPermissionGroupInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The permission details for integrated SaaS pages.
+   * The list of permissions for each SaaS integration page.
    */
   data?: ListSaasPermissionGroupInfosResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 8AD9FA10-7780-5E12-B701-13C928524F32

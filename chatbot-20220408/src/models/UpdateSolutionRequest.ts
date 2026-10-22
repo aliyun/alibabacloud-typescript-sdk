@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSolutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent key. If you omit this parameter, the default agent is used. You can obtain the key on the Business Management page of your primary account.
+   * The workspace key. If this parameter is not specified, the default workspace is accessed. You can obtain the key from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,17 +13,20 @@ export class UpdateSolutionRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The content of the solution.
+   * The answer content.
    * 
    * This parameter is required.
    * 
    * @example
-   * 修改的答案内容
+   * Updated answer content
    */
   content?: string;
   /**
    * @remarks
-   * The content type. Valid values: 0 for plain text and 1 for rich text.
+   * The answer type. Valid values:
+   * 
+   * - 0: plain text
+   * - 1: rich text
    * 
    * @example
    * 1
@@ -31,14 +34,14 @@ export class UpdateSolutionRequest extends $dara.Model {
   contentType?: number;
   /**
    * @remarks
-   * A list of perspective codes.
+   * The list of perspective codes.
    * 
    * This parameter is required.
    */
   perspectiveCodes?: string[];
   /**
    * @remarks
-   * The ID of the solution.
+   * The answer ID.
    * 
    * This parameter is required.
    * 
@@ -48,7 +51,7 @@ export class UpdateSolutionRequest extends $dara.Model {
   solutionId?: number;
   /**
    * @remarks
-   * A list of tag IDs.
+   * The list of tag IDs.
    */
   tagIdList?: number[];
   static names(): { [key: string]: string } {

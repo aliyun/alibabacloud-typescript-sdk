@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSimQuestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * DFB71B34-4188-4EA2-9988-EF3014E75910

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePerspectiveRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent key. If unspecified, the system uses the default agent. You can obtain this key from the Business Management page of your Alibaba Cloud account.
+   * The key of the business space. If this parameter is not specified, the default business space is accessed. You can obtain the key from the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -16,15 +16,15 @@ export class CreatePerspectiveRequest extends $dara.Model {
    * The description of the perspective.
    * 
    * @example
-   * 用于购物APP的移动端视角
+   * A mobile perspective for the shopping app
    */
   description?: string;
   /**
    * @remarks
-   * The name of the perspective. The maximum length is 50 characters.
+   * The name of the perspective. The name can be up to 50 characters in length.
    * 
    * @example
-   * 移动端视角
+   * Mobile perspective
    */
   name?: string;
   static names(): { [key: string]: string } {

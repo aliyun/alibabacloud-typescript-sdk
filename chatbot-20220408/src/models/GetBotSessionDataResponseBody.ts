@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBotSessionDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API call latency, in milliseconds (ms).
+   * The time consumed by the API call, in milliseconds (ms).
    * 
    * @example
    * 116
@@ -13,7 +13,7 @@ export class GetBotSessionDataResponseBody extends $dara.Model {
   costTime?: string;
   /**
    * @remarks
-   * An array of objects containing the data details.
+   * The data details.
    */
   datas?: { [key: string]: any }[];
   /**

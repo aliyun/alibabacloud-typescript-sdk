@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConnQuestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The outline ID.
+   * The association ID.
    * 
    * @example
    * 1000002123

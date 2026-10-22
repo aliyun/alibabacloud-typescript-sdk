@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConnQuestionRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space key. If you do not set this parameter, the default business space is used. You can find the key on the Business Management page of your primary account.
+   * The key of the workspace. If this parameter is not specified, the default workspace is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteConnQuestionRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The unique ID of the association.
+   * The ID of the association.
    * 
    * This parameter is required.
    * 

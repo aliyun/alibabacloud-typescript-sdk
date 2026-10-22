@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserSayRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the business space. If omitted, the default business space is used. You can obtain the key from the Business Management page of your primary account.
+   * The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class DeleteUserSayRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The instance ID of the bot.
+   * The robot ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeleteUserSayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the intent.
+   * The intent ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteUserSayRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The ID of the user say.
+   * The utterance ID.
    * 
    * This parameter is required.
    * 

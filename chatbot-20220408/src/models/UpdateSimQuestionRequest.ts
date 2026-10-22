@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSimQuestionRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the workspace. If you do not specify this parameter, the default workspace is used. You can find the key on the Business Management page of your master account.
+   * The key of the business space. If this parameter is not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class UpdateSimQuestionRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the similar question that you want to update.
+   * The ID of the similar question.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,12 @@ export class UpdateSimQuestionRequest extends $dara.Model {
   simQuestionId?: number;
   /**
    * @remarks
-   * The new title of the similar question. The title can be up to 120 characters long.
+   * The title of the similar question. The maximum length is 120 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试相似问标题
+   * Test similar question title
    */
   title?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BeginSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The key for the business space. If not specified, the default business space is used. You can find the key on the Business Management page of your main account.
+   * The key of the workspace. If this parameter is not set, the default workspace is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public

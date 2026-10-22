@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFaqRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent key. If omitted, the default agent is used. Find this key on the Agent Management page.
+   * The key of the business space. If this parameter is not set, the default business space is accessed. You can obtain the key value from the business management page of the main account.
    * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class CreateFaqRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The ID of the knowledge category.
+   * The category ID of the knowledge entry.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateFaqRequest extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The knowledge end time. The time is in UTC and in ISO 8601 format.
+   * The expiration time.
    * 
    * @example
    * 2030-12-31T16:00:00Z
@@ -31,15 +31,18 @@ export class CreateFaqRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The content of the default solution. Required if the fallback feature is enabled.
+   * The default answer content. This parameter is required if the fallback perspective is enabled.
    * 
    * @example
-   * 测试答案
+   * Test answer
    */
   solutionContent?: string;
   /**
    * @remarks
-   * The type of the default solution. Valid values: `0` (plain text) and `1` (rich text).
+   * The type of the default answer. Valid values:
+   * 
+   * - 0: plain text.
+   * - 1: rich text.
    * 
    * @example
    * 0
@@ -47,7 +50,7 @@ export class CreateFaqRequest extends $dara.Model {
   solutionType?: number;
   /**
    * @remarks
-   * The knowledge start time. The time is in UTC and in ISO 8601 format.
+   * The effective period.
    * 
    * @example
    * 2022-05-25T16:28:36Z
@@ -55,17 +58,17 @@ export class CreateFaqRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * A list of tag IDs to associate with the knowledge.
+   * The list of label IDs.
    */
   tagIdList?: number[];
   /**
    * @remarks
-   * The knowledge title. Max length: 120 characters.
+   * The title of the knowledge entry. Maximum length: 120 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   static names(): { [key: string]: string } {
