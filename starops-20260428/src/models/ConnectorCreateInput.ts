@@ -7,7 +7,7 @@ import { ConnectorRuntime } from "./ConnectorRuntime";
 export class ConnectorCreateInput extends $dara.Model {
   /**
    * @remarks
-   * The authentication configuration used to access the target service.
+   * The authentication configuration for accessing the target service.
    * 
    * This parameter is required.
    */
@@ -69,12 +69,12 @@ export class ConnectorCreateInput extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether the connector is enabled after creation.
+   * Specifies whether to enable the connector after creation.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The execution policy of the connector.
+   * The execution policy for the connector.
    * 
    * This parameter is required.
    */
@@ -91,7 +91,7 @@ export class ConnectorCreateInput extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The runtime configuration of the connector.
+   * The runtime configuration for the connector.
    * 
    * This parameter is required.
    */

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListThreadsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results. If this parameter is omitted, the operation returns all threads in the instance.
+   * The filter conditions for the query. If this parameter is not specified, all topics under the instance are queried.
    */
   filterShrink?: string;
   /**
    * @remarks
-   * Specifies whether to include threads created by missions.
+   * Specifies whether to include threads created by mission.
    */
   includeMission?: boolean;
   /**
@@ -31,7 +31,7 @@ export class ListThreadsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The status of the thread.
+   * The session status.
    * 
    * @example
    * active
@@ -39,7 +39,7 @@ export class ListThreadsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The thread ID.
+   * The session ID.
    * 
    * @example
    * thread-123123

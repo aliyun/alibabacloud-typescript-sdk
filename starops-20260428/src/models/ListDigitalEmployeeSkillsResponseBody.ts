@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The time at which the skill was created.
+   * The creation time in RFC 3339 format with the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -15,7 +15,7 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the skill.
+   * The description.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * @example
    * test
@@ -47,7 +47,7 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The time at which the skill was last updated.
+   * The update time in RFC 3339 format with the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -89,7 +89,7 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
 export class ListDigitalEmployeeSkillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 10
@@ -97,7 +97,7 @@ export class ListDigitalEmployeeSkillsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token to retrieve the next page of results. If this parameter is not returned, it indicates that no more results are available.
+   * The token for the next query.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq
@@ -105,7 +105,7 @@ export class ListDigitalEmployeeSkillsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
@@ -118,7 +118,7 @@ export class ListDigitalEmployeeSkillsResponseBody extends $dara.Model {
   skills?: ListDigitalEmployeeSkillsResponseBodySkills[];
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The total number of records.
    * 
    * @example
    * 15

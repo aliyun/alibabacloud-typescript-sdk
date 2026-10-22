@@ -13,7 +13,7 @@ export class CreateMcpServiceRequestConnectionAuth extends $dara.Model {
   keyInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication type. Currently, only bearer is supported.
+   * The authentication type. Currently, bearer is supported.
    * 
    * @example
    * bearer
@@ -63,12 +63,12 @@ export class CreateMcpServiceRequestConnection extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The custom headers.
+   * The custom HTTP request headers appended when calling the MCP service.
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The platform type of the MCP service. Valid values: AIGateway and Custom.
+   * The MCP service platform type. Valid values: AIGateway and Custom.
    * 
    * This parameter is required.
    * 
@@ -265,7 +265,7 @@ export class CreateMcpServiceRequestTools extends $dara.Model {
    * The description of the MCP tool.
    * 
    * @example
-   * Query logs in a specified Logstore
+   * Queries logs in a specified Logstore
    */
   description?: string;
   /**

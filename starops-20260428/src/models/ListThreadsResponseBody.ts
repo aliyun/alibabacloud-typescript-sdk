@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListThreadsResponseBodyThreadsVariables extends $dara.Model {
   /**
    * @remarks
-   * The project in SLS.
+   * SLS project。
    * 
    * @example
    * project
@@ -45,12 +45,12 @@ export class ListThreadsResponseBodyThreadsVariables extends $dara.Model {
 export class ListThreadsResponseBodyThreads extends $dara.Model {
   /**
    * @remarks
-   * A map of key-value pairs that you can attach to the thread.
+   * The properties.
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * The creation time of the thread, in ISO 8601 format.
+   * The creation time in RFC 3339 format, including the time zone offset.
    * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
@@ -58,7 +58,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The digital employee name.
+   * The name of the digital employee.
    * 
    * @example
    * test
@@ -66,7 +66,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The thread status.
+   * The session status.
    * 
    * @example
    * active
@@ -74,7 +74,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The thread ID.
+   * The session ID.
    * 
    * @example
    * thread-123123
@@ -82,7 +82,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   threadId?: string;
   /**
    * @remarks
-   * The thread title.
+   * The session title.
    * 
    * @example
    * test
@@ -90,7 +90,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The last update time of the thread, in ISO 8601 format.
+   * The update time in RFC 3339 format, including the time zone offset.
    * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
@@ -98,12 +98,12 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The thread variables.
+   * The session properties.
    */
   variables?: ListThreadsResponseBodyThreadsVariables;
   /**
    * @remarks
-   * The thread version.
+   * The version number.
    * 
    * @example
    * 123123
@@ -155,7 +155,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
 export class ListThreadsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 20
@@ -163,7 +163,7 @@ export class ListThreadsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A token to retrieve the next page of results. If this parameter is absent, no more results are available.
+   * The pagination token.
    * 
    * @example
    * xxxxxxxxxx
@@ -171,7 +171,7 @@ export class ListThreadsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-xxxx
@@ -179,7 +179,7 @@ export class ListThreadsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The thread ID.
+   * The session ID.
    * 
    * @example
    * thread-123123
@@ -187,12 +187,12 @@ export class ListThreadsResponseBody extends $dara.Model {
   threadId?: string;
   /**
    * @remarks
-   * A list of threads.
+   * The sessions.
    */
   threads?: ListThreadsResponseBodyThreads[];
   /**
    * @remarks
-   * The total number of threads.
+   * The total number of sessions.
    * 
    * @example
    * 1

@@ -52,7 +52,7 @@ export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
 export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the skill was created.
+   * The creation time in RFC 3339 format with the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -86,12 +86,12 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The file list of the skill.
+   * The list of skill files.
    */
   files?: GetDigitalEmployeeSkillResponseBodyFiles[];
   /**
    * @remarks
-   * A user-provided remark about the skill.
+   * The remarks.
    * 
    * @example
    * remark
@@ -99,7 +99,7 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -107,7 +107,7 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * @example
    * test
@@ -115,7 +115,7 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The time when the skill was last updated.
+   * The update time in RFC 3339 format with the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +125,7 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The version of the skill.
+   * The version number.
    * 
    * @example
    * 1770386951147366810

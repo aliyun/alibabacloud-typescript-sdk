@@ -173,7 +173,10 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   apiVersion?: string;
   /**
    * @remarks
-   * The execution policy.
+   * The execution policy. Valid values:
+   * - allow: Allowed.
+   * - deny: Denied.
+   * - user_ack: Requires user confirmation before execution.
    * 
    * @example
    * user_ack
@@ -181,7 +184,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   decision?: string;
   /**
    * @remarks
-   * The cloud product code.
+   * The cloud service code.
    * 
    * @example
    * Cms
@@ -220,7 +223,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The automatic pass-through policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically allowed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically allowed. Unmatched actions require human-in-the-loop (HIL) confirmation.
+   * The list of auto-approved RAM actions in the format of *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -228,7 +231,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. STAROps directly denies matched actions. Pop performs secondary enforcement.
+   * The list of denied RAM actions in the format of *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -291,10 +294,10 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 export class UpdateDigitalEmployeeRequestToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The Aliyun CLI tool calling security policy configuration.
+   * The security policy configuration for Aliyun CLI tool calling.
    * 
    * @example
-   * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
+   * {"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
    */
   aliyun?: UpdateDigitalEmployeeRequestToolPolicyAliyun;
   static names(): { [key: string]: string } {
@@ -374,10 +377,10 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
   sandboxNetworkPolicy?: UpdateDigitalEmployeeRequestSandboxNetworkPolicy;
   /**
    * @remarks
-   * The tool calling security policy configuration of the digital employee.
+   * The security policy configuration for tool calling of the digital employee.
    * 
    * @example
-   * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
+   * {"aliyun":{"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
    */
   toolPolicy?: UpdateDigitalEmployeeRequestToolPolicy;
   static names(): { [key: string]: string } {

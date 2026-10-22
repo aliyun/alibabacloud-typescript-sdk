@@ -13,7 +13,8 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListConnectionAuth 
   keyInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication type. Currently, bearer is supported.
+   * The authentication type. Currently, only bearer is supported. Valid values:
+   * - bearer: Bearer token authentication.
    * 
    * @example
    * bearer
@@ -59,10 +60,19 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListConnection exte
    * https://example.com/mcp
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The custom HTTP request headers appended when calling the MCP service.
+   * 
+   * @example
+   * {"X-Custom-Header":"example-value"}
+   */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The platform type of the MCP service. Valid values: AIGateway and Custom.
+   * The platform type of the MCP service. Valid values:
+   * - AIGateway: AI gateway.
+   * - Custom: custom MCP service.
    * 
    * @example
    * Custom
@@ -70,7 +80,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListConnection exte
   platform?: string;
   /**
    * @remarks
-   * The timeout period for requests to the MCP service. Unit: milliseconds.
+   * The timeout period for requests to the MCP service, in milliseconds.
    * 
    * @example
    * 5000
@@ -78,7 +88,9 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListConnection exte
   timeout?: number;
   /**
    * @remarks
-   * The transport protocol of the MCP service. Valid values: http and sse.
+   * The transport protocol of the MCP service. Valid values:
+   * - sse: Server-Sent Events (SSE) transport protocol.
+   * - http: HTTP transport protocol.
    * 
    * @example
    * http
@@ -156,7 +168,9 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListNetwork extends
   mcpServerId?: string;
   /**
    * @remarks
-   * The network access mode of the MCP service. Valid values: public and vpc.
+   * The network access mode of the MCP service. Valid values:
+   * - public: direct public network access mode.
+   * - vpc: Virtual Private Cloud (VPC) mode.
    * 
    * @example
    * public
@@ -242,7 +256,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListTools extends $
   annotations?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether user confirmation is required before calling the MCP tool.
+   * Specifies whether user confirmation is required before calling the MCP tool.
    * 
    * @example
    * false
@@ -253,7 +267,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListTools extends $
    * The description of the MCP tool.
    * 
    * @example
-   * 查询指定日志库中的日志。
+   * Query logs in a specified Logstore
    */
   description?: string;
   /**
@@ -261,7 +275,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListTools extends $
    * The display name of the MCP tool.
    * 
    * @example
-   * 日志查询工具
+   * Log Query Tool
    */
   displayName?: string;
   /**
@@ -317,7 +331,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceListTools extends $
    * The title of the MCP tool.
    * 
    * @example
-   * 查询日志
+   * Query Logs
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -387,7 +401,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceList extends $dara.
    * The description of the MCP service.
    * 
    * @example
-   * 通过 MCP 调用日志查询工具。
+   * Call the log query tool through MCP
    */
   description?: string;
   /**
@@ -395,7 +409,7 @@ export class ListMcpServicesResponseBodyMcpServicesMcpServiceList extends $dara.
    * The display name of the MCP service.
    * 
    * @example
-   * 日志查询
+   * Log Query
    */
   displayName?: string;
   /**

@@ -13,7 +13,8 @@ export class FetchRemoteMcpToolsRequestConnectionAuth extends $dara.Model {
   keyInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication type. Currently, only bearer is supported.
+   * The authentication type. Currently, only bearer is supported. Valid values:
+   * - bearer: Bearer token authentication.
    * 
    * @example
    * bearer
@@ -61,10 +62,16 @@ export class FetchRemoteMcpToolsRequestConnection extends $dara.Model {
    * https://example.com/mcp
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The custom HTTP request headers appended when calling the MCP service.
+   */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The MCP service platform type. Valid values: AIGateway and Custom.
+   * The MCP service platform type. Valid values:
+   * - AIGateway: AI gateway.
+   * - Custom: custom MCP service.
    * 
    * @example
    * Custom
@@ -80,7 +87,9 @@ export class FetchRemoteMcpToolsRequestConnection extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The transport protocol of the MCP service. Valid values: http and sse.
+   * The transport protocol of the MCP service. Valid values:
+   * - sse: Server-Sent Events (SSE) transport protocol.
+   * - http: HTTP transport protocol.
    * 
    * This parameter is required.
    * 
@@ -160,7 +169,9 @@ export class FetchRemoteMcpToolsRequestNetwork extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The network access mode of the MCP service. Valid values: public and vpc.
+   * The network access mode of the MCP service. Valid values:
+   * - public: Direct Internet Access mode.
+   * - vpc: VPC mode.
    * 
    * @example
    * public

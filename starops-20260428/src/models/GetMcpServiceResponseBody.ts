@@ -13,7 +13,7 @@ export class GetMcpServiceResponseBodyMcpServiceConnectionAuth extends $dara.Mod
   keyInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication type. Currently, bearer is supported.
+   * The authentication type. Currently, only bearer is supported.
    * 
    * @example
    * bearer
@@ -59,6 +59,13 @@ export class GetMcpServiceResponseBodyMcpServiceConnection extends $dara.Model {
    * https://example.com/mcp
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The custom HTTP request headers appended when calling the MCP service.
+   * 
+   * @example
+   * {"X-Custom-Header":"example-value"}
+   */
   headers?: { [key: string]: string };
   /**
    * @remarks
@@ -180,7 +187,7 @@ export class GetMcpServiceResponseBodyMcpServiceNetwork extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-xxx
@@ -242,7 +249,7 @@ export class GetMcpServiceResponseBodyMcpServiceTools extends $dara.Model {
   annotations?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether user confirmation is required before the MCP tool is called.
+   * Indicates whether user confirmation is required before calling the MCP tool.
    * 
    * @example
    * false
@@ -253,7 +260,7 @@ export class GetMcpServiceResponseBodyMcpServiceTools extends $dara.Model {
    * The description of the MCP tool.
    * 
    * @example
-   * 查询指定日志库中的日志。
+   * Query logs in a specified Logstore
    */
   description?: string;
   /**
@@ -261,7 +268,7 @@ export class GetMcpServiceResponseBodyMcpServiceTools extends $dara.Model {
    * The display name of the MCP tool.
    * 
    * @example
-   * 日志查询工具
+   * Log Query Tool
    */
   displayName?: string;
   /**
@@ -306,7 +313,7 @@ export class GetMcpServiceResponseBodyMcpServiceTools extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The JSON Schema of the MCP tool output.
+   * The JSON Schema of the MCP tool output results.
    * 
    * @example
    * {"type":"object"}
@@ -317,7 +324,7 @@ export class GetMcpServiceResponseBodyMcpServiceTools extends $dara.Model {
    * The title of the MCP tool.
    * 
    * @example
-   * 查询日志
+   * Query Logs
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -387,7 +394,7 @@ export class GetMcpServiceResponseBodyMcpService extends $dara.Model {
    * The description of the MCP service.
    * 
    * @example
-   * 通过 MCP 调用日志查询工具。
+   * Call the log query tool through MCP
    */
   description?: string;
   /**
@@ -395,7 +402,7 @@ export class GetMcpServiceResponseBodyMcpService extends $dara.Model {
    * The display name of the MCP service.
    * 
    * @example
-   * 日志查询
+   * Log Query
    */
   displayName?: string;
   /**

@@ -13,7 +13,7 @@ export class UpdateMcpServiceRequestConnectionAuth extends $dara.Model {
   keyInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication type. Currently, only bearer is supported.
+   * The authentication type. Currently, bearer is supported.
    * 
    * @example
    * bearer
@@ -61,10 +61,16 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
    * https://example.com/mcp
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The custom HTTP request headers appended when calling the MCP service.
+   */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The platform type of the MCP service. Valid values: AIGateway and Custom.
+   * The MCP service platform type. Valid values:
+   * - AIGateway
+   * - Custom
    * 
    * This parameter is required.
    * 
@@ -82,7 +88,9 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The transport protocol of the MCP service. Valid values: http and sse.
+   * The transport protocol of the MCP service. Valid values:
+   * - http
+   * - sse
    * 
    * This parameter is required.
    * 
@@ -130,7 +138,7 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
 export class UpdateMcpServiceRequestNetwork extends $dara.Model {
   /**
    * @remarks
-   * The IP address used to access the MCP service over the VPC network.
+   * The IP address used to access the MCP service within the VPC network.
    * 
    * @example
    * 10.0.0.12
@@ -138,7 +146,7 @@ export class UpdateMcpServiceRequestNetwork extends $dara.Model {
   accessIp?: string;
   /**
    * @remarks
-   * The port used to access the MCP service over the VPC network. Valid values: 1 to 65535.
+   * The port used to access the MCP service within the VPC network. Valid values: 1 to 65535.
    * 
    * @example
    * 8080
@@ -162,7 +170,9 @@ export class UpdateMcpServiceRequestNetwork extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The network access mode of the MCP service. Valid values: public and vpc.
+   * The network access mode of the MCP service. Valid values:
+   * - public
+   * - vpc
    * 
    * This parameter is required.
    * 
@@ -261,7 +271,7 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
    * The description of the MCP tool.
    * 
    * @example
-   * 查询指定日志库中的日志。
+   * Queries logs in a specified Logstore
    */
   description?: string;
   /**
@@ -269,7 +279,7 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
    * The display name of the MCP tool.
    * 
    * @example
-   * 日志查询工具
+   * Log Query Tool
    */
   displayName?: string;
   /**
@@ -329,7 +339,7 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
    * The title of the MCP tool.
    * 
    * @example
-   * 查询日志
+   * Query Logs
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -401,7 +411,7 @@ export class UpdateMcpServiceRequest extends $dara.Model {
    * The description of the MCP service.
    * 
    * @example
-   * 通过 MCP 调用日志查询工具。
+   * Call the log query tool through MCP
    */
   description?: string;
   /**
@@ -409,7 +419,7 @@ export class UpdateMcpServiceRequest extends $dara.Model {
    * The display name of the MCP service.
    * 
    * @example
-   * 日志查询
+   * Log Query
    */
   displayName?: string;
   /**

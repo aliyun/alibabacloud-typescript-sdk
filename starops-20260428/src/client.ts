@@ -215,7 +215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DigitalEmployee.
+   * Creates a digital employee.
    * 
    * @remarks
    * Creates a digital employee.
@@ -295,7 +295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DigitalEmployee.
+   * Creates a digital employee.
    * 
    * @remarks
    * Creates a digital employee.
@@ -777,7 +777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the tool list from a remote MCP server.
+   * Retrieves the tool list from a remote MCP service.
+   * 
+   * @remarks
+   * Retrieves the tool list from a remote MCP service.
    * 
    * @param request - FetchRemoteMcpToolsRequest
    * @param headers - map
@@ -814,7 +817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the tool list from a remote MCP server.
+   * Retrieves the tool list from a remote MCP service.
+   * 
+   * @remarks
+   * Retrieves the tool list from a remote MCP service.
    * 
    * @param request - FetchRemoteMcpToolsRequest
    * @returns FetchRemoteMcpToolsResponse
@@ -990,7 +996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entity data of a digital employee.
+   * Queries the entity data of a digital human.
+   * 
+   * @remarks
+   * Queries the entity data of a digital human.
    * 
    * @param request - GetDigitalEmployeeEntityDataRequest
    * @param headers - map
@@ -1031,7 +1040,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entity data of a digital employee.
+   * Queries the entity data of a digital human.
+   * 
+   * @remarks
+   * Queries the entity data of a digital human.
    * 
    * @param request - GetDigitalEmployeeEntityDataRequest
    * @returns GetDigitalEmployeeEntityDataResponse
@@ -1043,10 +1055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific skill.
+   * Retrieves the details of a skill.
    * 
    * @remarks
-   * Retrieves the details of a specified skill for a digital employee.
+   * Retrieves the details of a skill.
    * 
    * @param request - GetDigitalEmployeeSkillRequest
    * @param headers - map
@@ -1079,10 +1091,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific skill.
+   * Retrieves the details of a skill.
    * 
    * @remarks
-   * Retrieves the details of a specified skill for a digital employee.
+   * Retrieves the details of a skill.
    * 
    * @param request - GetDigitalEmployeeSkillRequest
    * @returns GetDigitalEmployeeSkillResponse
@@ -1135,6 +1147,9 @@ export default class Client extends OpenApi {
   /**
    * Queries an MCP service.
    * 
+   * @remarks
+   * Queries the configuration of an MCP service.
+   * 
    * @param request - GetMcpServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1162,6 +1177,9 @@ export default class Client extends OpenApi {
   /**
    * Queries an MCP service.
    * 
+   * @remarks
+   * Queries the configuration of an MCP service.
+   * 
    * @param request - GetMcpServiceRequest
    * @returns GetMcpServiceResponse
    */
@@ -1172,10 +1190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a thread.
+   * Retrieves a session.
    * 
    * @remarks
-   * Retrieves the details of a thread.
+   * Retrieves a session.
    * 
    * @param request - GetThreadRequest
    * @param headers - map
@@ -1202,10 +1220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a thread.
+   * Retrieves a session.
    * 
    * @remarks
-   * Retrieves the details of a thread.
+   * Retrieves a session.
    * 
    * @param request - GetThreadRequest
    * @returns GetThreadResponse
@@ -1331,10 +1349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the versions of a skill.
+   * Lists skill versions.
    * 
    * @remarks
-   * Lists the previous versions of a skill.
+   * Lists historical versions of a skill.
    * 
    * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @param headers - map
@@ -1361,10 +1379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the versions of a skill.
+   * Lists skill versions.
    * 
    * @remarks
-   * Lists the previous versions of a skill.
+   * Lists historical versions of a skill.
    * 
    * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @returns ListDigitalEmployeeSkillVersionsResponse
@@ -1376,10 +1394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the skills of a digital employee.
+   * Lists skills.
    * 
    * @remarks
-   * Lists the skills of a specified digital employee.
+   * Lists skills.
    * 
    * @param request - ListDigitalEmployeeSkillsRequest
    * @param headers - map
@@ -1420,10 +1438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the skills of a digital employee.
+   * Lists skills.
    * 
    * @remarks
-   * Lists the skills of a specified digital employee.
+   * Lists skills.
    * 
    * @param request - ListDigitalEmployeeSkillsRequest
    * @returns ListDigitalEmployeeSkillsResponse
@@ -1522,6 +1540,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of MCP services.
    * 
+   * @remarks
+   * Queries the list of MCP services.
+   * 
    * @param request - ListMcpServicesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1559,6 +1580,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of MCP services.
    * 
+   * @remarks
+   * Queries the list of MCP services.
+   * 
    * @param request - ListMcpServicesRequest
    * @returns ListMcpServicesResponse
    */
@@ -1569,10 +1593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List sessions
+   * Lists sessions.
    * 
    * @remarks
-   * List sessions
+   * Lists sessions.
    * 
    * @param tmpReq - ListThreadsRequest
    * @param headers - map
@@ -1631,10 +1655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List sessions
+   * Lists sessions.
    * 
    * @remarks
-   * List sessions
+   * Lists sessions.
    * 
    * @param request - ListThreadsRequest
    * @returns ListThreadsResponse
@@ -1839,6 +1863,9 @@ export default class Client extends OpenApi {
   /**
    * Updates an MCP service.
    * 
+   * @remarks
+   * Updates the configuration of an MCP service.
+   * 
    * @param request - UpdateMcpServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1892,6 +1919,9 @@ export default class Client extends OpenApi {
   /**
    * Updates an MCP service.
    * 
+   * @remarks
+   * Updates the configuration of an MCP service.
+   * 
    * @param request - UpdateMcpServiceRequest
    * @returns UpdateMcpServiceResponse
    */
@@ -1902,10 +1932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a thread.
+   * Updates a session.
    * 
    * @remarks
-   * Updates a thread.
+   * Updates a session.
    * 
    * @param request - UpdateThreadRequest
    * @param headers - map
@@ -1946,10 +1976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a thread.
+   * Updates a session.
    * 
    * @remarks
-   * Updates a thread.
+   * Updates a session.
    * 
    * @param request - UpdateThreadRequest
    * @returns UpdateThreadResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeeSkillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in the response.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListDigitalEmployeeSkillsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in a subsequent request to retrieve the next page of results. To retrieve the first page, do not specify this parameter.
+   * The token for the next page. A value of null indicates that there is no next page.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq
@@ -21,7 +21,7 @@ export class ListDigitalEmployeeSkillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * @example
    * test

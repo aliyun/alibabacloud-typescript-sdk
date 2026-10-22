@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListThreadsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key. Supported values are title, workspace, and project.
+   * The filter key. Valid values: title, workspace, and project.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListThreadsRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value for the filter key.
+   * The value to set.
    * 
    * This parameter is required.
    * 
@@ -49,12 +49,12 @@ export class ListThreadsRequestFilter extends $dara.Model {
 export class ListThreadsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results. If this parameter is omitted, the operation returns all threads in the instance.
+   * The filter conditions for the query. If this parameter is not specified, all topics under the instance are queried.
    */
   filter?: ListThreadsRequestFilter[];
   /**
    * @remarks
-   * Specifies whether to include threads created by missions.
+   * Specifies whether to include threads created by mission.
    */
   includeMission?: boolean;
   /**
@@ -75,7 +75,7 @@ export class ListThreadsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The status of the thread.
+   * The session status.
    * 
    * @example
    * active
@@ -83,7 +83,7 @@ export class ListThreadsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The thread ID.
+   * The session ID.
    * 
    * @example
    * thread-123123

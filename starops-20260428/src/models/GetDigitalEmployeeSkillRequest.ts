@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDigitalEmployeeSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the skill to retrieve. If this parameter is not specified, the latest version is returned.
+   * The historical version number.
    * 
    * @example
    * 1770386951147366810

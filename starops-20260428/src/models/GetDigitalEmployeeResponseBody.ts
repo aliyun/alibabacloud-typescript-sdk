@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base attributes.
+   * The attributes of the knowledge base.
    * 
    * @example
    * test
@@ -14,7 +14,7 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
   attributes?: string;
   /**
    * @remarks
-   * The Bailian index ID.
+   * The ID of the Model Studio index.
    * 
    * @example
    * index-xxxx
@@ -30,7 +30,7 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The Bailian workspace ID.
+   * The ID of the Model Studio workspace.
    * 
    * @example
    * llm-xxxxx
@@ -66,12 +66,12 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
 export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
   /**
    * @remarks
-   * The Bailian knowledge base list.
+   * The list of Model Studio knowledge bases.
    */
   bailian?: GetDigitalEmployeeResponseBodyKnowledgesBailian[];
   /**
    * @remarks
-   * The SOP knowledge base list.
+   * The list of SOP knowledge bases.
    */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -106,7 +106,7 @@ export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
 export class GetDigitalEmployeeResponseBodySandboxNetworkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed CIDRs or IP addresses.
+   * The list of allowed CIDR blocks or IP addresses.
    */
   allowCidrs?: string[];
   /**
@@ -116,7 +116,7 @@ export class GetDigitalEmployeeResponseBodySandboxNetworkPolicy extends $dara.Mo
   allowFqdns?: string[];
   /**
    * @remarks
-   * Indicates whether the sandbox network ACL is enabled.
+   * Specifies whether to enable the sandbox network ACL.
    * 
    * @example
    * false
@@ -182,7 +182,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
   decision?: string;
   /**
    * @remarks
-   * The cloud product code.
+   * The code of the cloud service.
    * 
    * This parameter is required.
    * 
@@ -223,7 +223,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
+   * The automatic allow policy. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If an action matches an entry, the action is automatically allowed without manual confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, and Describe*) are automatically allowed. Unmatched actions require human-in-the-loop (HIL) confirmation.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -231,7 +231,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
+   * The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. If an action matches a STAROps entry, the action is directly denied. The POP layer provides a secondary fallback check.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -239,7 +239,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   denyPolicy?: string[];
   /**
    * @remarks
-   * Indicates whether the policy is enabled.
+   * Specifies whether the policy is enabled.
    * 
    * @example
    * true
@@ -247,7 +247,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * The list of Alibaba Cloud CLI tool policy statements.
+   * The list of Aliyun CLI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -294,7 +294,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
 export class GetDigitalEmployeeResponseBodyToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The security policy configuration for Alibaba Cloud CLI tool calling invokes.
+   * The security policy configuration to invoke Aliyun CLI tools.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -340,7 +340,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, which follows the RFC 3339 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -350,7 +350,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The default rule of the digital employee.
+   * The default rules of the digital employee.
    * 
    * @example
    * test
@@ -382,7 +382,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   employeeType?: string;
   /**
    * @remarks
-   * The knowledge base list.
+   * The list of knowledge bases.
    */
   knowledges?: GetDigitalEmployeeResponseBodyKnowledges;
   /**
@@ -419,7 +419,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * The ARN of the RAM role.
    * 
    * @example
    * acs:ram::12345678912:role/testrole
@@ -435,6 +435,14 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   sandboxNetworkPolicy?: GetDigitalEmployeeResponseBodySandboxNetworkPolicy;
   /**
    * @remarks
+   * The status of the digital employee. Valid values: 0 (normal) and 1 (disabled).
+   * 
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @remarks
    * The tags.
    */
   tags?: Tag[];
@@ -448,7 +456,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   toolPolicy?: GetDigitalEmployeeResponseBodyToolPolicy;
   /**
    * @remarks
-   * The modification time.
+   * The update time in UTC, which follows the RFC 3339 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -472,6 +480,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
       sandboxNetworkPolicy: 'sandboxNetworkPolicy',
+      status: 'status',
       tags: 'tags',
       toolPolicy: 'toolPolicy',
       updateTime: 'updateTime',
@@ -494,6 +503,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       resourceGroupId: 'string',
       roleArn: 'string',
       sandboxNetworkPolicy: GetDigitalEmployeeResponseBodySandboxNetworkPolicy,
+      status: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       toolPolicy: GetDigitalEmployeeResponseBodyToolPolicy,
       updateTime: 'string',

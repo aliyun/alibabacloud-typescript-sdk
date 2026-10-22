@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base attributes.
+   * The attributes of the knowledge base.
    * 
    * @example
    * test
@@ -14,7 +14,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
   attributes?: string;
   /**
    * @remarks
-   * The Bailian index ID.
+   * The Model Studio index ID.
    * 
    * @example
    * index-xxxx
@@ -30,7 +30,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
   region?: string;
   /**
    * @remarks
-   * The Bailian workspace ID.
+   * The Model Studio workspace ID.
    * 
    * @example
    * llm-xxxx
@@ -66,7 +66,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends $dara.Model {
   /**
    * @remarks
-   * The list of Bailian knowledge bases.
+   * The list of Model Studio knowledge bases.
    */
   bailian?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian[];
   /**
@@ -106,12 +106,15 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends 
 export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Model {
   /**
    * @remarks
-   * The attributes.
+   * The attributes of the digital employee.
+   * 
+   * @example
+   * {"key":"value"}
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * The channel type of the digital employee.
+   * The channel type.
    * 
    * @example
    * default
@@ -119,7 +122,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   channel?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in RFC 3339 format. The time zone is UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -190,12 +193,20 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   roleArn?: string;
   /**
    * @remarks
+   * The status of the digital employee. Valid values: 0: Normal. 1: Disabled.
+   * 
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @remarks
    * The tags.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The update time.
+   * The update time in RFC 3339 format. The time zone is UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -216,6 +227,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       name: 'name',
       resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
+      status: 'status',
       tags: 'tags',
       updateTime: 'updateTime',
     };
@@ -234,6 +246,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       name: 'string',
       resourceGroupId: 'string',
       roleArn: 'string',
+      status: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       updateTime: 'string',
     };

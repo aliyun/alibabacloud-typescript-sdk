@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters digital employees by channel type. If this parameter is not specified, the default channel is used.
+   * The channel type.
    * 
    * @example
    * default
@@ -29,7 +29,7 @@ export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
   employeeType?: string;
   /**
    * @remarks
-   * The page size. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10

@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base attributes.
+   * The knowledge base properties.
    * 
    * @example
    * test
@@ -66,12 +66,12 @@ export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
   /**
    * @remarks
-   * The Bailian knowledge base list.
+   * The list of Bailian knowledge bases.
    */
   bailian?: CreateDigitalEmployeeRequestKnowledgesBailian[];
   /**
    * @remarks
-   * The SOP knowledge base list.
+   * The list of SOP knowledge bases.
    */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -106,12 +106,12 @@ export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
 export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed CIDRs or IP addresses. A maximum of 50 entries are supported.
+   * The list of allowed CIDRs or IP addresses.
    */
   allowCidrs?: string[];
   /**
    * @remarks
-   * The list of allowed FQDNs. A maximum of 50 entries are supported.
+   * The list of allowed FQDNs.
    */
   allowFqdns?: string[];
   /**
@@ -156,7 +156,7 @@ export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Mode
 export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dara.Model {
   /**
    * @remarks
-   * The list of Aliyun OpenAPI actions in the format of product:ApiName, product:Prefix*, or product:*.
+   * The list of Aliyun OpenAPI actions. The format is product:ApiName, product:Prefix*, or product:*.
    * 
    * @example
    * ["log:GetProject","log:CreateDashboard"]
@@ -174,7 +174,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   apiVersion?: string;
   /**
    * @remarks
-   * The execution policy when this API is matched.
+   * The execution policy when the API is matched.
    * 
    * @example
    * user_ack
@@ -221,7 +221,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
+   * The RAM actions that are automatically allowed. The format is *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -229,7 +229,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
+   * The RAM actions that are denied. The format is *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -237,7 +237,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   denyPolicy?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the Aliyun MCP tool policy. The policy is enabled by default and is disabled only when this parameter is explicitly set to false.
+   * Specifies whether to enable the policy.
    * 
    * @example
    * true
@@ -245,7 +245,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This parameter is still returned during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
+   * **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This field is still returned during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -292,7 +292,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The Aliyun MCP tool calling security policy configuration.
+   * The security policy configuration for Aliyun CLI tool invocation.
    * 
    * @example
    * {"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -325,12 +325,12 @@ export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
 export class CreateDigitalEmployeeRequest extends $dara.Model {
   /**
    * @remarks
-   * The attributes.
+   * The digital employee properties.
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * 数字员工渠道类型。不填时使用默认渠道。
+   * The channel type.
    * 
    * @example
    * default
@@ -362,7 +362,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The knowledge base list.
+   * The list of knowledge bases.
    */
   knowledges?: CreateDigitalEmployeeRequestKnowledges;
   /**
@@ -385,7 +385,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role.
+   * The RAM role ARN.
    * 
    * This parameter is required.
    * 
@@ -408,7 +408,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   tags?: Tag[];
   /**
    * @remarks
-   * The tool calling security policy configuration of the digital employee.
+   * The tool policy.
    * 
    * @example
    * {"aliyun":{"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}

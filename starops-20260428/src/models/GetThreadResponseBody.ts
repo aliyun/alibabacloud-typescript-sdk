@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetThreadResponseBodyVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the SLS project.
+   * The Simple Log Service (SLS) project name.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class GetThreadResponseBodyVariables extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * test
@@ -45,12 +45,12 @@ export class GetThreadResponseBodyVariables extends $dara.Model {
 export class GetThreadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The thread\\"s attributes.
+   * The attributes.
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * The thread\\"s creation time, in ISO 8601 format.
+   * The creation time in RFC 3339 format, including the time zone offset.
    * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
@@ -66,7 +66,7 @@ export class GetThreadResponseBody extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -74,7 +74,7 @@ export class GetThreadResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The thread\\"s status.
+   * The session status.
    * 
    * @example
    * active
@@ -82,7 +82,7 @@ export class GetThreadResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The thread ID.
+   * The session ID.
    * 
    * @example
    * thread_id01
@@ -90,7 +90,7 @@ export class GetThreadResponseBody extends $dara.Model {
   threadId?: string;
   /**
    * @remarks
-   * The thread\\"s title.
+   * The session title.
    * 
    * @example
    * testLive
@@ -98,7 +98,7 @@ export class GetThreadResponseBody extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The thread\\"s last update time, in ISO 8601 format.
+   * The update time in RFC 3339 format, including the time zone offset.
    * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
@@ -106,12 +106,12 @@ export class GetThreadResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The thread\\"s variables.
+   * The session properties.
    */
   variables?: GetThreadResponseBodyVariables;
   /**
    * @remarks
-   * The thread\\"s version.
+   * The version.
    * 
    * @example
    * 1231
