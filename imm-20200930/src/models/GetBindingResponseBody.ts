@@ -6,7 +6,7 @@ import { Binding } from "./Binding";
 export class GetBindingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the binding.
+   * The binding relationship information.
    */
   binding?: Binding;
   /**

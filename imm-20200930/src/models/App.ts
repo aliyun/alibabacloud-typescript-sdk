@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class App extends $dara.Model {
   /**
    * @remarks
-   * AppDescription
+   * The application description.
    * 
    * @example
-   * 中国最大的电商购物商城
+   * The largest e-commerce shopping mall in China
    */
   appDescription?: string;
   /**
    * @remarks
-   * AppId
+   * The application ID.
    * 
    * @example
    * 1234567890
@@ -21,7 +21,7 @@ export class App extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * AppKey
+   * The key returned when the application is created.
    * 
    * @example
    * ryBOBW0Z6NnQ3fV9
@@ -29,15 +29,15 @@ export class App extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * AppName
+   * The application name.
    * 
    * @example
-   * 淘宝
+   * Taobao
    */
   appName?: string;
   /**
    * @remarks
-   * AppRegion
+   * The region where the application is used. Valid values: 0: Chinese mainland. 1: Outside the Chinese mainland.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class App extends $dara.Model {
   appRegion?: number;
   /**
    * @remarks
-   * AppType
+   * The application type. Valid values: 0: Android. 1: iOS.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class App extends $dara.Model {
   appType?: number;
   /**
    * @remarks
-   * EnglishName
+   * The English name of the application.
    * 
    * @example
    * Taobao
@@ -61,7 +61,7 @@ export class App extends $dara.Model {
   englishName?: string;
   /**
    * @remarks
-   * OwnerId
+   * The customer ID.
    * 
    * @example
    * 1023210024677934

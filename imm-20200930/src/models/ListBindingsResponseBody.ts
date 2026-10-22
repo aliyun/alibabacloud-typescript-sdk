@@ -6,14 +6,14 @@ import { Binding } from "./Binding";
 export class ListBindingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of binding information between datasets and OSS buckets.
+   * The list of bindings between datasets and OSS buckets.
    */
   bindings?: Binding[];
   /**
    * @remarks
-   * - The pagination token that is used when the total number of bindings exceeds the MaxResults value.
-   * - Use this value as the NextToken in the next request to return the remaining results.
-   * - This parameter has a value only when not all bindings are returned.
+   * - The pagination token that is used when the total number of bindings exceeds the value of MaxResults.
+   * - Use this value as NextToken in the next request to obtain the remaining bindings.
+   * - This parameter is returned only when not all bindings are returned.
    * 
    * @example
    * immtest:dataset001:examplebucket01
@@ -21,7 +21,7 @@ export class ListBindingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EFDFD356-C928-4A36-951A-6EB5A592****

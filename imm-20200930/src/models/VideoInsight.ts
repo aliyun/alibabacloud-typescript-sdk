@@ -5,11 +5,23 @@ import { MultilingualContentEntry } from "./MultilingualContentEntry";
 
 export class VideoInsight extends $dara.Model {
   /**
+   * @remarks
+   * The video synopsis.
+   * 
+   * @example
+   * The video shows two different scenes: one features a stationary white plate, a black bottle, and a transparent glass, and the other shows a hand holding a shampoo bottle labeled "YEZOLU" moving slowly upward in a bathroom
+   * 
    * **if can be null:**
    * true
    */
   caption?: string;
   /**
+   * @remarks
+   * The detailed description of the video content.
+   * 
+   * @example
+   * The scene shows a slightly chubby orange cat lying on a light gray fabric sofa with its body slightly curled up
+   * 
    * **if can be null:**
    * true
    */

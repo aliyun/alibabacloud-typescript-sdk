@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class TargetImageAnimations extends $dara.Model {
   /**
    * @remarks
-   * Format
-   * 
    * This parameter is required.
    * 
    * @example
@@ -14,57 +12,37 @@ export class TargetImageAnimations extends $dara.Model {
    */
   format?: string;
   /**
-   * @remarks
-   * FrameRate
-   * 
    * @example
    * 25
    */
   frameRate?: number;
   /**
-   * @remarks
-   * Height
-   * 
    * @example
    * 960
    */
   height?: number;
   /**
-   * @remarks
-   * Interval
-   * 
    * @example
    * 0.5
    */
   interval?: number;
   /**
-   * @remarks
-   * Number
-   * 
    * @example
    * 100
    */
   number?: number;
   /**
-   * @remarks
-   * ScaleType
-   * 
    * @example
    * crop
    */
   scaleType?: string;
   /**
-   * @remarks
-   * StartTime
-   * 
    * @example
    * 0
    */
   startTime?: number;
   /**
    * @remarks
-   * URI
-   * 
    * This parameter is required.
    * 
    * @example
@@ -72,9 +50,6 @@ export class TargetImageAnimations extends $dara.Model {
    */
   URI?: string;
   /**
-   * @remarks
-   * Width
-   * 
    * @example
    * 1280
    */
@@ -119,8 +94,6 @@ export class TargetImageAnimations extends $dara.Model {
 export class TargetImageSnapshots extends $dara.Model {
   /**
    * @remarks
-   * Format
-   * 
    * This parameter is required.
    * 
    * @example
@@ -128,17 +101,11 @@ export class TargetImageSnapshots extends $dara.Model {
    */
   format?: string;
   /**
-   * @remarks
-   * Height
-   * 
    * @example
    * 960
    */
   height?: number;
   /**
-   * @remarks
-   * Interval
-   * 
    * @example
    * 0.5
    */
@@ -149,25 +116,16 @@ export class TargetImageSnapshots extends $dara.Model {
    */
   mode?: string;
   /**
-   * @remarks
-   * Number
-   * 
    * @example
    * 10
    */
   number?: number;
   /**
-   * @remarks
-   * ScaleType
-   * 
    * @example
    * crop
    */
   scaleType?: string;
   /**
-   * @remarks
-   * StartTime
-   * 
    * @example
    * 0
    */
@@ -179,8 +137,6 @@ export class TargetImageSnapshots extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * URI
-   * 
    * This parameter is required.
    * 
    * @example
@@ -188,9 +144,6 @@ export class TargetImageSnapshots extends $dara.Model {
    */
   URI?: string;
   /**
-   * @remarks
-   * Width
-   * 
    * @example
    * 1280
    */
@@ -237,8 +190,6 @@ export class TargetImageSnapshots extends $dara.Model {
 export class TargetImageSprites extends $dara.Model {
   /**
    * @remarks
-   * Format
-   * 
    * This parameter is required.
    * 
    * @example
@@ -246,17 +197,11 @@ export class TargetImageSprites extends $dara.Model {
    */
   format?: string;
   /**
-   * @remarks
-   * Interval
-   * 
    * @example
    * 1
    */
   interval?: number;
   /**
-   * @remarks
-   * Margin
-   * 
    * @example
    * 2
    */
@@ -267,49 +212,31 @@ export class TargetImageSprites extends $dara.Model {
    */
   mode?: string;
   /**
-   * @remarks
-   * Number
-   * 
    * @example
    * 0
    */
   number?: number;
   /**
-   * @remarks
-   * Pad
-   * 
    * @example
    * 2
    */
   pad?: number;
   /**
-   * @remarks
-   * ScaleHeight
-   * 
    * @example
    * 960
    */
   scaleHeight?: number;
   /**
-   * @remarks
-   * ScaleType
-   * 
    * @example
    * crop
    */
   scaleType?: string;
   /**
-   * @remarks
-   * ScaleWidth
-   * 
    * @example
    * 1280
    */
   scaleWidth?: number;
   /**
-   * @remarks
-   * StartTime
-   * 
    * @example
    * 0
    */
@@ -320,25 +247,17 @@ export class TargetImageSprites extends $dara.Model {
    */
   threshold?: number;
   /**
-   * @remarks
-   * TileHeight
-   * 
    * @example
    * 6
    */
   tileHeight?: number;
   /**
-   * @remarks
-   * TileWidth
-   * 
    * @example
    * 6
    */
   tileWidth?: number;
   /**
    * @remarks
-   * URI
-   * 
    * This parameter is required.
    * 
    * @example
@@ -393,20 +312,8 @@ export class TargetImageSprites extends $dara.Model {
 }
 
 export class TargetImage extends $dara.Model {
-  /**
-   * @remarks
-   * Animations
-   */
   animations?: TargetImageAnimations[];
-  /**
-   * @remarks
-   * Snapshots
-   */
   snapshots?: TargetImageSnapshots[];
-  /**
-   * @remarks
-   * Sprites
-   */
   sprites?: TargetImageSprites[];
   static names(): { [key: string]: string } {
     return {

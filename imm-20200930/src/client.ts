@@ -1067,16 +1067,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+   * Attaches a dataset to an Object Storage Service (OSS) bucket for automatic synchronization and indexing of full and incremental files.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2743997.html) of Intelligent Media Management (IMM).\\*\\*\\*\\*
-   * > Asynchronous processing does not guarantee timely task completion.
-   * Before you create a binding, make sure that the project and the dataset that you want to use exist.
-   * - For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-   * - For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
-   * > The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
-   * After you create a binding between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are uploaded to the OSS bucket, IMM tracks and scans the objects and updates the index. For objects whose metadata index is created by calling this operation, you can call query operations, such as [SimpleQuery](https://help.aliyun.com/document_detail/478175.html), to query objects, manage objects, and collect statistics on objects.
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2743997.html) of Intelligent Media Management (IMM) before you call this operation.**
+   * >Notice: Asynchronous tasks do not guarantee immediate completion.
+   * Before you create a binding relationship, make sure that you have created the corresponding project and dataset.
+   * * [Create a project](https://help.aliyun.com/document_detail/478153.html)
+   * * [Create a dataset](https://help.aliyun.com/document_detail/478160.html)
+   * > Data binding uses the [workflow template](https://help.aliyun.com/document_detail/466304.html) specified when the project or dataset is created to process files.
+   * After the binding relationship is created, IMM first performs a full scan on the existing data in the OSS bucket and extracts file metadata for indexing. After the full scan is complete, IMM continues to perform near real-time incremental tracking, extraction, and indexing for new files in the OSS bucket. After files are indexed in this way, you can use file query operations such as [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) to query, manage, and collect statistics on the files.
    * 
    * @param request - CreateBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1115,16 +1115,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+   * Attaches a dataset to an Object Storage Service (OSS) bucket for automatic synchronization and indexing of full and incremental files.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2743997.html) of Intelligent Media Management (IMM).\\*\\*\\*\\*
-   * > Asynchronous processing does not guarantee timely task completion.
-   * Before you create a binding, make sure that the project and the dataset that you want to use exist.
-   * - For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-   * - For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
-   * > The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
-   * After you create a binding between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are uploaded to the OSS bucket, IMM tracks and scans the objects and updates the index. For objects whose metadata index is created by calling this operation, you can call query operations, such as [SimpleQuery](https://help.aliyun.com/document_detail/478175.html), to query objects, manage objects, and collect statistics on objects.
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2743997.html) of Intelligent Media Management (IMM) before you call this operation.**
+   * >Notice: Asynchronous tasks do not guarantee immediate completion.
+   * Before you create a binding relationship, make sure that you have created the corresponding project and dataset.
+   * * [Create a project](https://help.aliyun.com/document_detail/478153.html)
+   * * [Create a dataset](https://help.aliyun.com/document_detail/478160.html)
+   * > Data binding uses the [workflow template](https://help.aliyun.com/document_detail/466304.html) specified when the project or dataset is created to process files.
+   * After the binding relationship is created, IMM first performs a full scan on the existing data in the OSS bucket and extracts file metadata for indexing. After the full scan is complete, IMM continues to perform near real-time incremental tracking, extraction, and indexing for new files in the OSS bucket. After files are indexed in this way, you can use file query operations such as [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) to query, manage, and collect statistics on the files.
    * 
    * @param request - CreateBindingRequest
    * @returns CreateBindingResponse
@@ -5323,11 +5323,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
+   * Queries the details of the binding relationship between a specified dataset and an Object Storage Service (OSS) bucket.
    * 
    * @remarks
-   * - **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-   * - Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
+   * - **Ensure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management before you call this operation.**
+   * - Ensure that you have created the corresponding binding relationship by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation.
    * 
    * @param request - GetBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5366,11 +5366,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
+   * Queries the details of the binding relationship between a specified dataset and an Object Storage Service (OSS) bucket.
    * 
    * @remarks
-   * - **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-   * - Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
+   * - **Ensure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management before you call this operation.**
+   * - Ensure that you have created the corresponding binding relationship by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation.
    * 
    * @param request - GetBindingRequest
    * @returns GetBindingResponse
@@ -6324,10 +6324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of bindings between datasets and Object Storage Service (OSS) buckets.
+   * Queries the list of bindings between datasets and Object Storage Service (OSS) buckets.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you are familiar with the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management.**
    * 
    * @param request - ListBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6356,6 +6356,10 @@ export default class Client extends OpenApi {
       query["ProjectName"] = request.projectName;
     }
 
+    if (!$dara.isNull(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6374,10 +6378,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of bindings between datasets and Object Storage Service (OSS) buckets.
+   * Queries the list of bindings between datasets and Object Storage Service (OSS) buckets.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you are familiar with the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management.**
    * 
    * @param request - ListBindingsRequest
    * @returns ListBindingsResponse
