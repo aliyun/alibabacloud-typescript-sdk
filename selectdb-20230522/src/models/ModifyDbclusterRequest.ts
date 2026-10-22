@@ -11,19 +11,29 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * 200
    */
   cacheSize?: string;
+  /**
+   * @remarks
+   * The number of cluster nodes. This parameter takes effect only in Serverless mode.
+   * 
+   * @example
+   * 1
+   */
   clusterNodeCount?: number;
+  /**
+   * @remarks
+   * The cluster node type. This parameter takes effect only in Serverless mode.
+   */
   clusterNodeType?: string;
   /**
    * @remarks
    * The cluster specifications. Valid values:
-   * 
-   * - **selectdb.xlarge**: 4 cores, 32 GB memory.
-   * - **selectdb.2xlarge**: 8 cores, 64 GB memory.
-   * - **selectdb.4xlarge**: 16 cores, 128 GB memory.
-   * - **selectdb.8xlarge**: 32 cores, 256 GB memory.
-   * - **selectdb.16xlarge**: 16 cores, 512 GB memory.
-   * - **selectdb.24xlarge**: 24 cores, 768 GB memory.
-   * - **selectdb.32xlarge**: 32 cores, 1024 GB memory.
+   * - **selectdb.xlarge**: 4 cores and 32 GB.
+   * - **selectdb.2xlarge**: 8 cores and 64 GB.
+   * - **selectdb.4xlarge**: 16 cores and 128 GB.
+   * - **selectdb.8xlarge**: 32 cores and 256 GB.
+   * - **selectdb.16xlarge**: 16 cores and 512 GB.
+   * - **selectdb.24xlarge**: 24 cores and 768 GB.
+   * - **selectdb.32xlarge**: 32 cores and 1024 GB.
    * 
    * This parameter is required.
    * 
@@ -53,7 +63,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database type. Set the value to selectdb.
+   * The database engine type. Set the value to selectdb.
    * 
    * @example
    * selectdb
@@ -70,7 +80,21 @@ export class ModifyDBClusterRequest extends $dara.Model {
    */
   regionId?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The maximum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
+   * 
+   * @example
+   * 32
+   */
   scaleMax?: number;
+  /**
+   * @remarks
+   * The minimum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
+   * 
+   * @example
+   * 4
+   */
   scaleMin?: number;
   static names(): { [key: string]: string } {
     return {

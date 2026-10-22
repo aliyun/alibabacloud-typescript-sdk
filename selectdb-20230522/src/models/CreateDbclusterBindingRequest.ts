@@ -35,7 +35,7 @@ export class CreateDBClusterBindingRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBClusterBindingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of Cluster 1.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDBClusterBindingRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of Cluster 2.
+   * The ID of the other cluster in the binding relationship.
    * 
    * This parameter is required.
    * 

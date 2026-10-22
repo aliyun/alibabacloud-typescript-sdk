@@ -15,7 +15,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The destination resource group.
+   * The ID of the target resource group.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the instance you want to move.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Default value: `DBInstance`.
+   * The resource type.
    * 
    * @example
    * DBInstance

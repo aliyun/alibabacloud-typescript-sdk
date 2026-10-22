@@ -53,7 +53,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The instance ID. Separate multiple instance IDs with commas (,).
+   * The IDs of the instances. Separate multiple instance IDs with commas (,).
    * 
    * @example
    * selectdb-cn-7213cjv****
@@ -61,19 +61,18 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceIds?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
+   * The status of the instance. Valid values:
+   * - **CREATING**: Creating.
    * 
-   * - **CREATING**: The instance is being created.
+   * - **ACTIVATION**: Running.
    * 
-   * - **ACTIVATION**: The instance is running.
+   * - **RESOURCE_CHANGING**: Changing specifications.
    * 
-   * - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+   * - **ORDER_PREPARING**: Confirming the order.
    * 
-   * - **ORDER_PREPARING**: The order is being confirmed.
+   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
    * 
-   * - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
-   * 
-   * - **DELETING**: The instance is being deleted.
+   * - **DELETING**: Deleting.
    * 
    * @example
    * ACTIVATION
@@ -89,12 +88,9 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
+   * The number of entries per page. Valid values:
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -122,7 +118,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags of instances.
+   * The instance tags.
    */
   tag?: DescribeDBInstancesRequestTag[];
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class DescribeSlowQueryStatsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time. Must be later than the start time. Defaults to the current time.
+   * The end time. It must be later than the start time. Default value: the current time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-04-08 16:00:00
@@ -33,7 +33,7 @@ export class DescribeSlowQueryStatsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Defaults to 24 hours before the current time.
+   * The start time. Default value: 24 hours ago. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-04-07 16:00:00
@@ -41,7 +41,7 @@ export class DescribeSlowQueryStatsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The slow query threshold, in milliseconds. The default value is 5000.
+   * The slow query threshold in milliseconds. Default value: 5000.
    * 
    * @example
    * 5000
@@ -49,7 +49,7 @@ export class DescribeSlowQueryStatsRequest extends $dara.Model {
   thresholdMs?: number;
   /**
    * @remarks
-   * The number of top slow queries to return. The default value is 10.
+   * The number of top slow queries to return. Default value: 10.
    * 
    * @example
    * 10

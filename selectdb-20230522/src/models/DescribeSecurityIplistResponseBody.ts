@@ -17,7 +17,7 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
   aecurityIPType?: string;
   /**
    * @remarks
-   * The name of the whitelist.
+   * The name of the whitelist group.
    * 
    * @example
    * group1
@@ -25,7 +25,7 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The tag of the whitelist.
+   * The group tag.
    * 
    * @example
    * ""
@@ -33,7 +33,7 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
   groupTag?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist. Multiple IP addresses are separated by commas (,).
+   * The IP address whitelist of the instance. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 127.0.XX.XX
@@ -87,7 +87,7 @@ export class DescribeSecurityIPListResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The details about each IP address whitelist returned.
+   * The list of whitelist groups.
    */
   groupItems?: DescribeSecurityIPListResponseBodyGroupItems[];
   /**

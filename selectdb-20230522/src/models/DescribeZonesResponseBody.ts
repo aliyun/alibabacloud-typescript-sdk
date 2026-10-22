@@ -45,12 +45,12 @@ export class DescribeZonesResponseBodyItems extends $dara.Model {
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of results.
+   * The result list.
    */
   items?: DescribeZonesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -58,7 +58,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is empty, all results have been returned.
+   * The token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * 40831b4f-d91d-4796-9589-ad306ec528d5

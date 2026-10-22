@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQueryExplainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Explain result.
+   * The EXPLAIN result.
    * 
    * @example
    * +-----------------------------------------------------------------------+
@@ -49,7 +49,7 @@ export class DescribeQueryExplainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SQL statement for which the execution plan is retrieved. Excessively long SQL statements in audit logs may be truncated.
+   * The SQL statement for which the execution plan is queried. Overly long SQL statements in audit logs may be truncated.
    * 
    * @example
    * SELECT * FROM example_db.example_tbl

@@ -8,12 +8,12 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
    * The zone description.
    * 
    * @example
-   * 北京H可用区
+   * Beijing H Zone
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the VPC is disabled.
+   * Indicates whether the zone is disabled.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   subDomain?: string;
   /**
    * @remarks
-   * Indicates whether the VPC is enabled.
+   * Indicates whether VPC is enabled.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   vpcEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the virtual private cloud (VPC) is available.
+   * Indicates whether VPC is available.
    * 
    * @example
    * cn-beijing-h
@@ -113,7 +113,7 @@ export class DescribeRegionsResponseBodyRegionModelList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * An array of zones.
+   * The list of zones.
    */
   zones?: DescribeRegionsResponseBodyRegionModelListZones[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class DescribeRegionsResponseBodyRegionModelList extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of regions.
+   * The list of region data.
    */
   regionModelList?: DescribeRegionsResponseBodyRegionModelList[];
   /**

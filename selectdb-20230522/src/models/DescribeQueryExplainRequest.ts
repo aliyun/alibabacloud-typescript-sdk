@@ -15,7 +15,7 @@ export class DescribeQueryExplainRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The Explain mode.
+   * The EXPLAIN mode.
    * 
    * @example
    * BASIC

@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
+   * > This parameter is not applicable to the Chinese site.
+   * 
    * @example
    * 100
    */
   canPromFee?: string;
   /**
+   * @remarks
+   * The description of the promotion rule.
+   * 
    * @example
    * 7afs9d
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
-   * General coupon with a deduction of 100
+   * General coupon for a deduction of 100
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * General coupon
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 775735400028
    */
@@ -66,11 +83,25 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
    * CNY
    */
   currency?: string;
+  /**
+   * @remarks
+   * The coupon information.
+   * 
+   * @example
+   * [{"OptionCode":"7afs9d","PromotionDesc":"General coupon for a deduction of 100","PromotionName":"General coupon","CanPromFee":"100","PromotionOptionNo":"775735400028"}]
+   */
   optionalPromotions?: GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions[];
+  /**
+   * @remarks
+   * The unit price results of billable items.
+   * 
+   * @example
+   * {"compute_size":{"priceUnit":"CNY/(CU*hour)","payFee":"0.0"},"cache_size":{"priceUnit":"CNY/(GB*hour)","payFee":"0.0"},"storage_size":{"priceUnit":"CNY/(GB*hour)","payFee":"0.0"}}
+   */
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The trade amount.
+   * The amount.
    * 
    * @example
    * 1.76

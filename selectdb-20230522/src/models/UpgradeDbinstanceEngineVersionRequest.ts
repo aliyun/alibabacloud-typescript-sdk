@@ -46,8 +46,8 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
    * @remarks
    * The upgrade mode.
    * 
-   * - If this parameter is left empty, the upgrade is performed immediately.
-   * - If this parameter is set to 1, the upgrade is performed during the maintenance window.
+   * - If you leave this parameter empty, the upgrade is performed immediately.
+   * - If you set this parameter to 1, the upgrade is performed during the maintenance window.
    * 
    * @example
    * 1

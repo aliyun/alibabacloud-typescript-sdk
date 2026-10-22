@@ -13,13 +13,7 @@ export class DeleteElasticRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the deletion is successful.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the rule was deleted.
    * 
    * @example
    * true

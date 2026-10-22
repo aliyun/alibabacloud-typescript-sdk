@@ -13,7 +13,7 @@ export class CreateDBClusterBindingResponseBodyData extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The numeric ID.
+   * The numeric ID of the instance.
    * 
    * @example
    * 6585
@@ -55,7 +55,7 @@ export class CreateDBClusterBindingResponseBodyData extends $dara.Model {
 export class CreateDBClusterBindingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: CreateDBClusterBindingResponseBodyData;
   /**

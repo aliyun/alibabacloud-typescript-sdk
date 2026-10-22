@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of slow query statistics, grouped by database.
+   * The slow query information by database.
    * 
    * @example
    * [
@@ -34,7 +34,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   byDatabase?: any;
   /**
    * @remarks
-   * An array of slow query statistics, grouped by time bucket.
+   * The slow query information by time bucket.
    * 
    * @example
    * [
@@ -62,7 +62,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   byTimeBucket?: any;
   /**
    * @remarks
-   * An array of slow query statistics, grouped by user.
+   * The slow query information by user.
    * 
    * @example
    * [
@@ -92,7 +92,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   byUser?: any;
   /**
    * @remarks
-   * The percentile statistics for query latency.
+   * The query latency percentile information.
    * 
    * @example
    * {
@@ -114,7 +114,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The summary of slow query statistics.
+   * The summary information.
    * 
    * @example
    * {
@@ -142,7 +142,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   summary?: { [key: string]: any };
   /**
    * @remarks
-   * An array of detailed audit records for the top N slow queries.
+   * The audit information of the top N slow queries.
    * 
    * @example
    * [
@@ -195,7 +195,7 @@ export class DescribeSlowQueryStatsResponseBody extends $dara.Model {
   topQueries?: any;
   /**
    * @remarks
-   * An array of statistics for the top N slow queries, grouped by SQL digest. Available for kernel version 5.0 and later.
+   * The classification information of the top N slow query fingerprints. Supported by kernel version 5.0 and later.
    * 
    * @example
    * [

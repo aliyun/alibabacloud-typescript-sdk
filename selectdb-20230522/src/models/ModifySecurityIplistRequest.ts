@@ -15,7 +15,7 @@ export class ModifySecurityIPListRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the whitelist. Default value: **Default**.
+   * The name of the whitelist group. By default, the **Default** group is modified.
    * 
    * This parameter is required.
    * 
@@ -25,13 +25,11 @@ export class ModifySecurityIPListRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The mode in which you want to modify the whitelist. Valid values:
+   * The modification mode of the whitelist. Valid values:
    * 
-   * - **0**: overwrites the IP addresses in the whitelist.
-   * 
-   * - **1**: adds IP addresses to the whitelist.
-   * 
-   * - **2**: removes IP addresses from the whitelist.
+   * - **0**: Overwrites the original whitelist.
+   * - **1**: Adds IP addresses to the whitelist.
+   * - **2**: Removes IP addresses from the whitelist.
    * 
    * This parameter is required.
    * 
@@ -41,7 +39,7 @@ export class ModifySecurityIPListRequest extends $dara.Model {
   modifyMode?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.Model {
   /**
    * @remarks
-   * The specification code.
+   * The instance type code.
    * 
    * @example
    * selectdb.xlarge
@@ -95,7 +95,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
 export class DescribeAllDBInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instance specifications.
+   * The list of instance types.
    */
   classCodeList?: DescribeAllDBInstanceClassResponseBodyClassCodeList[];
   /**

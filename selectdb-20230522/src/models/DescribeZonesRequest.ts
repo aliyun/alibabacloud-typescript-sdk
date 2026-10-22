@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * - If you do not specify the **MaxResults** request parameter, paged query is disabled. The **MaxResults** response parameter indicates the total number of entries.
-   * 
-   * - If you specify the **MaxResults** request parameter, paged query is enabled. The **MaxResults** response parameter indicates the number of entries on the current page.
+   * - If you do not specify the **MaxResults** request parameter, paged queries are not performed. The **MaxResults** value in the response indicates the total number of entries.
+   * - If you specify the **MaxResults** request parameter, paged queries are performed. The **MaxResults** value in the response indicates the number of entries in the current query batch.
    * 
    * @example
    * 10
@@ -15,7 +14,7 @@ export class DescribeZonesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token for the next query.
    * 
    * @example
    * 40831b4f-d91d-4796-9589-ad306ec528d5

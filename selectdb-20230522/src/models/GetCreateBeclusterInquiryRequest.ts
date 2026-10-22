@@ -13,7 +13,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * This parameter is required.
    * 
@@ -74,6 +74,9 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 2374923467
    */

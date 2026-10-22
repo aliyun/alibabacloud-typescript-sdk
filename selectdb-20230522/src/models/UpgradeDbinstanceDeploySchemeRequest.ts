@@ -59,14 +59,14 @@ export class UpgradeDBInstanceDeploySchemeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A list of multi-zone configurations.
+   * The list of multiple zones.
    * 
    * This parameter is required.
    */
   multiZone?: UpgradeDBInstanceDeploySchemeRequestMultiZone[];
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The ID of the region in which the instance resides.
    * 
    * This parameter is required.
    * 

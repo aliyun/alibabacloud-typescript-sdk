@@ -25,7 +25,7 @@ export class EnDisableScalingRulesRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The cloud service.
+   * The cloud service type.
    * 
    * @example
    * selectdb
@@ -44,13 +44,7 @@ export class EnDisableScalingRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the scheduled scaling policy.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Specifies whether the time-based elastic policy is enabled.
    * 
    * This parameter is required.
    * 

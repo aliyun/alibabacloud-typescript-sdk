@@ -25,7 +25,7 @@ export class DescribeElasticRulesRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The cloud service.
+   * The cloud service type.
    * 
    * @example
    * selectdb

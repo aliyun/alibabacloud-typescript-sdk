@@ -13,7 +13,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   classCode?: string;
   /**
    * @remarks
-   * The number of vCPU cores.
+   * The number of CPU cores.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   cpuCores?: number;
   /**
    * @remarks
-   * The default cache size in GB.
+   * The default cache size. Unit: GB.
    * 
    * @example
    * 8
@@ -29,7 +29,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   defaultStorageInGB?: number;
   /**
    * @remarks
-   * The maximum cache size in GB.
+   * The maximum cache size. Unit: GB.
    * 
    * @example
    * 16
@@ -37,7 +37,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   maxStorageInGB?: number;
   /**
    * @remarks
-   * The memory size in GB.
+   * The memory size. Unit: GB.
    * 
    * @example
    * 16
@@ -45,7 +45,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   memoryInGB?: number;
   /**
    * @remarks
-   * The minimum cache size in GB.
+   * The minimum cache size. Unit: GB.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
   minStorageInGB?: number;
   /**
    * @remarks
-   * The cache step size in GB.
+   * The cache step size. Unit: GB.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyData extends $dara.Mo
 export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial. This field is returned only when the RAM verification fails.
+   * The details about the access denial. This parameter is returned only when RAM authentication fails.
    * 
    * @example
    * failed
@@ -138,7 +138,7 @@ export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model 
   data?: DescribeDBClusterStorageLimitationResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not used. Ignore this parameter.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * 0
@@ -146,7 +146,7 @@ export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model 
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not used. Ignore this parameter.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * An error occurred while processing your request.

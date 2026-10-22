@@ -55,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * An array of instance IDs.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
@@ -72,7 +72,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * An array of tags.
+   * The list of tags.
    * 
    * This parameter is required.
    */

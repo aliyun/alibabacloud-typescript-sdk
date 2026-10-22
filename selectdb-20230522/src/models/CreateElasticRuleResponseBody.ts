@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateElasticRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The target compute resource specification for the cluster.
+   * The target compute resource rule of the cluster.
    * 
    * @example
    * selectdb.2xlarge
@@ -29,7 +29,7 @@ export class CreateElasticRuleResponseBodyData extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The start time of the time-based elastic scaling rule.
+   * The start time of the time-based elastic rule. The time is in the HH:mm format.
    * 
    * @example
    * 00:00

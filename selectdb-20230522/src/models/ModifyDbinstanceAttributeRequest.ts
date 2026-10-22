@@ -15,11 +15,11 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance parameter to be modified. Valid values:
+   * The attribute to modify. Valid values:
    * 
-   * - **MaintainTime**: Modify the maintenance window of the instance in the hh:mm-hh:mm format.
+   * - **MaintainTime**: modifies the O&M time. The format is hh:mm-hh:mm.
    * 
-   * - **DBInstanceDescription**: Modify the description of the instance.
+   * - **DBInstanceDescription**: modifies the instance description.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   instanceAttributeType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -40,11 +40,11 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new value of the instance parameter to be modified. Examples:
+   * The new value of the attribute. Valid values:
    * 
-   * - If InstanceAttributeType is set to MaintainTime, you can set Value to 00:00-06:00.
+   * - If InstanceAttributeType is set to MaintainTime, set this parameter to a time range such as 00:00-06:00.
    * 
-   * - If InstanceAttributeType is set to DBInstanceDescription, you can set Value to testdb.
+   * - If InstanceAttributeType is set to DBInstanceDescription, set this parameter to a description such as testdb.
    * 
    * This parameter is required.
    * 

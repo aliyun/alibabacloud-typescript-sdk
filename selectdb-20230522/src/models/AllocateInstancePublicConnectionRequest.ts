@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the endpoint. Set the parameter to the prefix of the value of **ConnectionString**.
+   * The prefix of the target endpoint, which is the prefix part of the **ConnectionString** parameter.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type of the endpoint to be applied for. Set the value to Public.
+   * The network type of the new endpoint. Set the value to Public.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

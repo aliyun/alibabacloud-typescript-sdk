@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyElasticRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule for computing resources of the required cluster.
+   * The target compute resource rule for the cluster.
    * 
    * @example
    * selectdb.2xlarge
@@ -33,7 +33,7 @@ export class ModifyElasticRuleRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The time when you want to execute the scheduled scaling rule.
+   * The start time of the time-based elastic rule. The time is in the HH:mm format.
    * 
    * @example
    * 00:00
@@ -41,11 +41,7 @@ export class ModifyElasticRuleRequest extends $dara.Model {
   elasticRuleStartTime?: string;
   /**
    * @remarks
-   * The execution cycle.
-   * 
-   * Valid value:
-   * 
-   * - Day
+   * The execution period.
    * 
    * @example
    * Day
@@ -53,7 +49,7 @@ export class ModifyElasticRuleRequest extends $dara.Model {
   executionPeriod?: string;
   /**
    * @remarks
-   * The cloud service.
+   * The cloud service type.
    * 
    * @example
    * selectdb

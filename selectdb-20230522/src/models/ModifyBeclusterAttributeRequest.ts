@@ -25,7 +25,7 @@ export class ModifyBEClusterAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The type of the attribute to modify. Set this parameter to DBInstanceDescription.
+   * The type of the attribute to modify. Set the value to DBInstanceDescription.
    * 
    * This parameter is required.
    * 

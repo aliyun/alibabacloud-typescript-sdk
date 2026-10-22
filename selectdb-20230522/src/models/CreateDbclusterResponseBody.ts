@@ -55,7 +55,7 @@ export class CreateDBClusterResponseBodyData extends $dara.Model {
 export class CreateDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: CreateDBClusterResponseBodyData;
   /**

@@ -13,7 +13,7 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the whitelist.
+   * The name of the whitelist group.
    * 
    * @example
    * group1
@@ -21,7 +21,7 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The tag of the whitelist.
+   * The tag of the group.
    * 
    * @example
    * grouptag
@@ -37,7 +37,7 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist of the instance. Multiple IP addresses are separated by commas (,).
+   * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 127.0.XX.XX,127.2.XX.XX
@@ -45,7 +45,7 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The IP address type.
+   * The type of the IP address.
    * 
    * @example
    * ipv4

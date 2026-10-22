@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the instances. This parameter takes effect only when you do not specify TagKey. The default value is false.
+   * Specifies whether to remove all tags from the instance. This parameter takes effect only when TagKey is not specified. Default value: false.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * An array of instance IDs.
+   * The list of instance IDs.
    */
   resourceId?: string[];
   /**
@@ -38,7 +38,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * An array of tag keys.
+   * The list of tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

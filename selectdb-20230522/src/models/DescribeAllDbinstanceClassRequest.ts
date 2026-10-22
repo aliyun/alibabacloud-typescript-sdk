@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAllDBInstanceClassRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The SelectDB instance ID. This parameter is required when you create a cluster or change the specifications of a cluster.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
   DBInstanceId?: string;
   /**
    * @remarks

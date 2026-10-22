@@ -21,13 +21,7 @@ export class EnDisableScalingRulesResponseBodyData extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the scheduled scaling policy is enabled.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the time-based elastic scaling rule is enabled.
    * 
    * @example
    * true
@@ -61,7 +55,7 @@ export class EnDisableScalingRulesResponseBodyData extends $dara.Model {
 export class EnDisableScalingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: EnDisableScalingRulesResponseBodyData;
   /**
