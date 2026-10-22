@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryStoreRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The MemoryStore description. Maximum length: 1,024 characters.
+   * The MemoryStore description, up to 1,024 characters.
    * 
    * @example
    * Memory store used to save long-term customer preferences
@@ -13,7 +13,7 @@ export class UpdateMemoryStoreRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The custom memory extraction instructions. Maximum length: 4,096 characters.
+   * The custom memory extraction instructions, up to 4,096 characters.
    * 
    * @example
    * Extract only long-term preferences explicitly expressed by the user

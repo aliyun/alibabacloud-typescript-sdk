@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMemoryStoreShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request to create a memory store.
+   * The MemoryStore creation request.
    * 
    * This parameter is required.
    */
   bodyShrink?: string;
   /**
    * @remarks
-   * The client request token.
+   * The client token.
    * 
    * @example
    * memory-store-create-20260909-001

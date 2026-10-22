@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   /**
    * @remarks
-   * The App ID of the Lark application. This parameter is required when the binding type is Feishu.
+   * The App ID of the Feishu application. This parameter is required when the binding type is Feishu.
    * 
    * @example
    * cli_exampleappid01
@@ -21,7 +21,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Required. The application secret of the external identity provider. This parameter is used only for write operations and is not returned by query operations.
+   * Required. The secret of the external identity provider application. This parameter is used only for writing and is not returned by the query API.
    * 
    * @example
    * example-app-secret
@@ -29,7 +29,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   appSecret?: string;
   /**
    * @remarks
-   * The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
+   * The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
    * 
    * @example
    * dingexamplecorpid01
@@ -37,7 +37,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
+   * The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by the query API.
    * 
    * @example
    * example-encrypt-key
@@ -45,7 +45,7 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   encryptKey?: string;
   /**
    * @remarks
-   * The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
+   * The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by the query API.
    * 
    * @example
    * example-verification-token
@@ -82,6 +82,52 @@ export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   }
 }
 
+export class CreateIdentityProviderRequestBodySyncScope extends $dara.Model {
+  /**
+   * @remarks
+   * When the mode is SelectedDepartments, this parameter must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+   * 
+   * @example
+   * ["10001"]
+   */
+  departmentIds?: string[];
+  /**
+   * @remarks
+   * Valid values:
+   * - AllAuthorized: The full authorization scope, which is limited by the application address book authorization.
+   * - SelectedDepartments: The selected departments and all their sub-departments.
+   * When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
+   * 
+   * @example
+   * SelectedDepartments
+   */
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentIds: 'departmentIds',
+      mode: 'mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentIds: { 'type': 'array', 'itemType': 'string' },
+      mode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.departmentIds)) {
+      $dara.Model.validateArray(this.departmentIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdentityProviderRequestBody extends $dara.Model {
   /**
    * @remarks
@@ -95,25 +141,37 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * Specifies whether workspace users can log on through the external identity provider.
+   * Specifies whether to allow workspace users to log on through the external identity provider.
    */
   loginEnabled?: boolean;
   /**
    * @remarks
-   * The application configuration for the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
+   * The application configuration of the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
    */
   metadata?: CreateIdentityProviderRequestBodyMetadata;
   /**
    * @remarks
-   * Specifies whether to enable organization member synchronization. If enabled, organization members are synchronized to workspace users from the external identity provider.
+   * Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
+  /**
+   * @remarks
+   * Controls the initial synchronization when DingTalk or Feishu is bound. If this parameter is omitted or set to null, the default value is true. If this parameter is set to false, only the configuration is saved, and synchronization is explicitly triggered later. CustomSSO does not use the vendor pull link.
+   */
+  syncOnBind?: boolean;
+  /**
+   * @remarks
+   * Retains the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically perform full synchronization.
+   */
+  syncScope?: CreateIdentityProviderRequestBodySyncScope;
   static names(): { [key: string]: string } {
     return {
       identityProviderType: 'identityProviderType',
       loginEnabled: 'loginEnabled',
       metadata: 'metadata',
       syncEnabled: 'syncEnabled',
+      syncOnBind: 'syncOnBind',
+      syncScope: 'syncScope',
     };
   }
 
@@ -123,12 +181,17 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
       loginEnabled: 'boolean',
       metadata: CreateIdentityProviderRequestBodyMetadata,
       syncEnabled: 'boolean',
+      syncOnBind: 'boolean',
+      syncScope: CreateIdentityProviderRequestBodySyncScope,
     };
   }
 
   validate() {
     if(this.metadata && typeof (this.metadata as any).validate === 'function') {
       (this.metadata as any).validate();
+    }
+    if(this.syncScope && typeof (this.syncScope as any).validate === 'function') {
+      (this.syncScope as any).validate();
     }
     super.validate();
   }
@@ -141,7 +204,7 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
 export class CreateIdentityProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for binding an external identity provider.
+   * The request content for binding an external identity provider.
    */
   body?: CreateIdentityProviderRequestBody;
   static names(): { [key: string]: string } {

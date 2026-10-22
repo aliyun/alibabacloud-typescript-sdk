@@ -13,7 +13,7 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The MemoryStore description.
+   * The description of the MemoryStore.
    * 
    * @example
    * Used to store long-term user preferences
@@ -24,7 +24,7 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
    * The custom extraction instructions.
    * 
    * @example
-   * Extract only long-term preferences explicitly expressed by the user
+   * Extract only the long-term preferences explicitly expressed by the user
    */
   extractInstructions?: string;
   /**
@@ -37,7 +37,7 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreId?: string;
   /**
    * @remarks
-   * The MemoryStore name. It cannot be modified after creation.
+   * The name of the MemoryStore. It cannot be modified after creation.
    * 
    * @example
    * customer-memory

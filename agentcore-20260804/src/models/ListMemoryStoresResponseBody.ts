@@ -13,7 +13,7 @@ export class ListMemoryStoresResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The description of the MemoryStore.
+   * The MemoryStore description.
    * 
    * @example
    * Used to store long-term user preferences
@@ -37,7 +37,7 @@ export class ListMemoryStoresResponseBodyItems extends $dara.Model {
   memoryStoreId?: string;
   /**
    * @remarks
-   * The name of the MemoryStore. It cannot be modified after creation.
+   * The MemoryStore name. It cannot be modified after creation.
    * 
    * @example
    * customer-memory

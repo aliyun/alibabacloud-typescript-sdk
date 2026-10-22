@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMemoriesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The memory write request.
+   * The request body for writing to memory.
    * 
    * This parameter is required.
    */

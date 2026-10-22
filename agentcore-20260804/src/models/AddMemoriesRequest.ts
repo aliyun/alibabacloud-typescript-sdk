@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMemoriesRequestBodyMessages extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The content of the message.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class AddMemoriesRequestBodyMessages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The message role.
+   * The role of the message.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class AddMemoriesRequestBodyMessages extends $dara.Model {
 export class AddMemoriesRequestBodyScope extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+   * The ID of the agent. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * agent-001
@@ -59,7 +59,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The session ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+   * The ID of the session. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * session-001
@@ -67,7 +67,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+   * The ID of the user. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * user-001
@@ -101,7 +101,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
 export class AddMemoriesRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The list of messages. You must provide either this parameter or Text, but not both. You can specify 1 to 20 messages, and the total size of Content must not exceed 32,000 UTF-8 bytes.
+   * The list of messages. You must provide either this parameter or Text, but not both. The list must contain 1 to 20 messages, and the total size of the content must not exceed 32,000 UTF-8 bytes.
    */
   messages?: AddMemoriesRequestBodyMessages[];
   /**
@@ -111,7 +111,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
   metadata?: { [key: string]: string };
   /**
    * @remarks
-   * The time reference point for this batch of messages or text. The time must be in RFC 3339 format with a time zone and support fractional seconds.
+   * The time reference point for the batch of messages or text. The value must be in RFC 3339 format with a time zone and support fractional seconds.
    * 
    * @example
    * 2023-05-08T13:56:00+08:00
@@ -119,7 +119,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
   referenceTime?: string;
   /**
    * @remarks
-   * The write scope. UserId, AgentId, and SessionId are all optional.
+   * The scope of the write operation. UserId, AgentId, and SessionId are all optional.
    */
   scope?: AddMemoriesRequestBodyScope;
   /**
@@ -129,7 +129,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
   sync?: boolean;
   /**
    * @remarks
-   * The text to be written directly. You must provide either this parameter or Messages, but not both. The text size must not exceed 32,000 UTF-8 bytes.
+   * The text to be written directly. You must provide either this parameter or Messages, but not both. The size of the text must not exceed 32,000 UTF-8 bytes.
    * 
    * @example
    * The user likes hiking
@@ -178,7 +178,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
 export class AddMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The memory write request.
+   * The request body for writing to memory.
    * 
    * This parameter is required.
    */

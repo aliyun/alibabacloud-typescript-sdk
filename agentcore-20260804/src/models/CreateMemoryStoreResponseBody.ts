@@ -13,7 +13,7 @@ export class CreateMemoryStoreResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The memory store description.
+   * The MemoryStore description.
    * 
    * @example
    * Used to store long-term user preferences
@@ -24,12 +24,12 @@ export class CreateMemoryStoreResponseBodyData extends $dara.Model {
    * The custom extraction instructions.
    * 
    * @example
-   * Extract only long-term preferences explicitly expressed by the user
+   * Extract only explicitly expressed long-term user preferences
    */
   extractInstructions?: string;
   /**
    * @remarks
-   * The memory store ID.
+   * The MemoryStore ID.
    * 
    * @example
    * ms-2f5f9c5a8d0e4c3b
@@ -37,7 +37,7 @@ export class CreateMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreId?: string;
   /**
    * @remarks
-   * The name of the memory store. The name cannot be modified after creation.
+   * The name of the MemoryStore. The name cannot be modified after creation.
    * 
    * @example
    * customer-memory
@@ -45,7 +45,7 @@ export class CreateMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The lifecycle status of the memory store.
+   * The lifecycle state of the MemoryStore.
    * 
    * @example
    * Ready
@@ -53,7 +53,7 @@ export class CreateMemoryStoreResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last updated time.
+   * The last update time.
    * 
    * @example
    * 2026-09-23T10:05:00Z
@@ -113,7 +113,7 @@ export class CreateMemoryStoreResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The memory store details.
+   * The MemoryStore details.
    */
   data?: CreateMemoryStoreResponseBodyData;
   /**

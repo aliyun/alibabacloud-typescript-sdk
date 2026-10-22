@@ -181,7 +181,7 @@ export class ListMemoriesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The memory list.
+   * The list of memory records.
    */
   items?: ListMemoriesResponseBodyItems[];
   /**

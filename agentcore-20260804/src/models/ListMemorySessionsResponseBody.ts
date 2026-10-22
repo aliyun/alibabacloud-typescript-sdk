@@ -71,7 +71,7 @@ export class ListMemorySessionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The session list.
+   * The list of sessions.
    */
   items?: ListMemorySessionsResponseBodyItems[];
   /**

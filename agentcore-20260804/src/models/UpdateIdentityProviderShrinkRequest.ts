@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIdentityProviderShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for updating the external identity provider.
+   * The request content for updating the external identity provider.
    */
   bodyShrink?: string;
   static names(): { [key: string]: string } {

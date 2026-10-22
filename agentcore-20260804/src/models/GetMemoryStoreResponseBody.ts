@@ -16,7 +16,7 @@ export class GetMemoryStoreResponseBodyData extends $dara.Model {
    * The MemoryStore description.
    * 
    * @example
-   * Used to save long-term user preferences
+   * Used to store long-term user preferences
    */
   description?: string;
   /**
@@ -45,7 +45,7 @@ export class GetMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The MemoryStore lifecycle state.
+   * The lifecycle state of the MemoryStore.
    * 
    * @example
    * Ready
@@ -53,7 +53,7 @@ export class GetMemoryStoreResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time.
+   * The last updated time.
    * 
    * @example
    * 2026-09-23T10:05:00Z

@@ -45,7 +45,7 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The lifecycle state of the MemoryStore.
+   * The lifecycle status of the MemoryStore.
    * 
    * @example
    * Ready
