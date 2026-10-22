@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * SDK change log
+   * The SDK change log.
    * 
    * @example
    * - Test ProduceCommand ops tool.
@@ -13,7 +13,7 @@ export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
   changeLog?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1740479834
@@ -21,7 +21,7 @@ export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * logical value
+   * The logical value.
    * 
    * @example
    * 123
@@ -55,7 +55,7 @@ export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
 export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -71,7 +71,7 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b
@@ -79,7 +79,7 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * ERROR-oo1
@@ -87,8 +87,8 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * abc
@@ -96,12 +96,12 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: RollbackAppCodeSnapshotResponseBodyModule;
   /**
@@ -114,7 +114,7 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -122,15 +122,15 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the processing is synchronous.
    * 
    * @example
    * True

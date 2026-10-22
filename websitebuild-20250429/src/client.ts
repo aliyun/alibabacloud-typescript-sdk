@@ -13,8 +13,8 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      public: "websitebuild.aliyuncs.com",
       'cn-zhangjiakou': "websitebuild.aliyuncs.com",
+      'ap-southeast-1': "websitebuild-intl.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("websitebuild", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -34,10 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates a Supabase instance for resource allocation.
+   * Performs resource allocation for a Supabase instance.
    * 
    * @remarks
-   * Queries the Supabase instance information associated with a resource.
+   * Queries the information about the Supabase instance associated with a resource.
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92,10 +92,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates a Supabase instance for resource allocation.
+   * Performs resource allocation for a Supabase instance.
    * 
    * @remarks
-   * Queries the Supabase instance information associated with a resource.
+   * Queries the information about the Supabase instance associated with a resource.
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @returns AllocateSupabaseForAdminResponse
@@ -106,7 +106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予用户角色
+   * Grants a role to a user.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - AssignRbacUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -141,7 +144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予用户角色
+   * Grants a role to a user.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - AssignRbacUserRoleRequest
    * @returns AssignRbacUserRoleResponse
@@ -197,7 +203,7 @@ export default class Client extends OpenApi {
    * Checks resource usage in batches.
    * 
    * @remarks
-   * The Supabase instance information corresponding to the operated resources.
+   * Manages the Supabase instance information associated with the resources.
    * 
    * @param request - BatchCheckResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -251,7 +257,7 @@ export default class Client extends OpenApi {
    * Checks resource usage in batches.
    * 
    * @remarks
-   * The Supabase instance information corresponding to the operated resources.
+   * Manages the Supabase instance information associated with the resources.
    * 
    * @param request - BatchCheckResourceMeasureRequest
    * @returns BatchCheckResourceMeasureResponse
@@ -275,8 +281,16 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.deployType)) {
+      query["DeployType"] = request.deployType;
+    }
+
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.domainType)) {
+      query["DomainType"] = request.domainType;
     }
 
     if (!$dara.isNull(request.extend)) {
@@ -379,7 +393,7 @@ export default class Client extends OpenApi {
    * Checks resource usage.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - CheckResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -398,6 +412,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.desiredTotal)) {
+      query["DesiredTotal"] = request.desiredTotal;
     }
 
     if (!$dara.isNull(request.espBizId)) {
@@ -437,7 +455,7 @@ export default class Client extends OpenApi {
    * Checks resource usage.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - CheckResourceMeasureRequest
    * @returns CheckResourceMeasureResponse
@@ -448,10 +466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks user resource metering.
+   * Validates user resource metering.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - CheckUserResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -470,6 +488,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.desiredTotal)) {
+      query["DesiredTotal"] = request.desiredTotal;
     }
 
     if (!$dara.isNull(request.espBizId)) {
@@ -506,10 +528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks user resource metering.
+   * Validates user resource metering.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - CheckUserResourceMeasureRequest
    * @returns CheckUserResourceMeasureResponse
@@ -837,10 +859,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an SSO logon-free URL for an application assistant agent.
+   * Generates an SSO logon-free URL for the application assistant.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - CreateAppAssistantAgentSsoLoginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -879,10 +901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an SSO logon-free URL for an application assistant agent.
+   * Generates an SSO logon-free URL for the application assistant.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - CreateAppAssistantAgentSsoLoginRequest
    * @returns CreateAppAssistantAgentSsoLoginResponse
@@ -893,7 +915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Wan Xiaozhi initiates an AI conversation
+   * Initiates an AI conversation with WanXiaoZhi.
    * 
    * @param request - CreateAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -954,7 +976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Wan Xiaozhi initiates an AI conversation
+   * Initiates an AI conversation with WanXiaoZhi.
    * 
    * @param request - CreateAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,7 +1023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Wan Xiaozhi initiates an AI conversation
+   * Initiates an AI conversation with WanXiaoZhi.
    * 
    * @param request - CreateAppChatRequest
    * @returns CreateAppChatResponse
@@ -1122,7 +1144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a passwordless login ticket.
+   * Creates a logon-free ticket.
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1161,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a passwordless login ticket.
+   * Creates a logon-free ticket.
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @returns CreateAppInstanceTicketResponse
@@ -1172,10 +1194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an LLM gateway API key for an application instance
+   * Creates an LLM gateway API key for an application instance.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the code generation plugin configuration information.
    * 
    * @param request - CreateAppLlmApiKeyForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1218,10 +1240,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an LLM gateway API key for an application instance
+   * Creates an LLM gateway API key for an application instance.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the code generation plugin configuration information.
    * 
    * @param request - CreateAppLlmApiKeyForPartnerRequest
    * @returns CreateAppLlmApiKeyForPartnerResponse
@@ -1246,6 +1268,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.butlerChannelTypesJson)) {
+      query["ButlerChannelTypesJson"] = request.butlerChannelTypesJson;
+    }
+
+    if (!$dara.isNull(request.butlerFieldsJson)) {
+      query["ButlerFieldsJson"] = request.butlerFieldsJson;
     }
 
     if (!$dara.isNull(request.channelsJson)) {
@@ -1324,6 +1354,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an application plug-in.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - CreateAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppPluginResponse
+   */
+  async createAppPluginWithOptions(request: $_model.CreateAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.downloadUrl)) {
+      query["DownloadUrl"] = request.downloadUrl;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      query["Icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppPluginResponse({}));
+  }
+
+  /**
+   * Creates an application plug-in.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - CreateAppPluginRequest
+   * @returns CreateAppPluginResponse
+   */
+  async createAppPlugin(request: $_model.CreateAppPluginRequest): Promise<$_model.CreateAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppPluginWithOptions(request, runtime);
+  }
+
+  /**
    * Activates the Wanxiaozhi inspiration value service.
    * 
    * @remarks
@@ -1369,6 +1487,64 @@ export default class Client extends OpenApi {
   async createAppTokenService(request: $_model.CreateAppTokenServiceRequest): Promise<$_model.CreateAppTokenServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppTokenServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Distributes and generates channel drafts.
+   * 
+   * @remarks
+   * Distributes and generates channel drafts.
+   * 
+   * @param tmpReq - CreateDistributionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDistributionResponse
+   */
+  async createDistributionWithOptions(tmpReq: $_model.CreateDistributionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDistributionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDistributionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.channels)) {
+      request.channelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channels, "Channels", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.articleId)) {
+      query["ArticleId"] = request.articleId;
+    }
+
+    if (!$dara.isNull(request.channelsShrink)) {
+      query["Channels"] = request.channelsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDistribution",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDistributionResponse>(await this.callApi(params, req, runtime), new $_model.CreateDistributionResponse({}));
+  }
+
+  /**
+   * Distributes and generates channel drafts.
+   * 
+   * @remarks
+   * Distributes and generates channel drafts.
+   * 
+   * @param request - CreateDistributionRequest
+   * @returns CreateDistributionResponse
+   */
+  async createDistribution(request: $_model.CreateDistributionRequest): Promise<$_model.CreateDistributionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDistributionWithOptions(request, runtime);
   }
 
   /**
@@ -1438,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to create a logo.
+   * Submits a logo creation task.
    * 
    * @param request - CreateLogoTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1481,7 +1657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a task to create a logo.
+   * Submits a logo creation task.
    * 
    * @param request - CreateLogoTaskRequest
    * @returns CreateLogoTaskResponse
@@ -1492,7 +1668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subfolder under a parent folder.
+   * Creates a subfolder in a parent folder.
    * 
    * @param request - CreateMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1531,7 +1707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subfolder under a parent folder.
+   * Creates a subfolder in a parent folder.
    * 
    * @param request - CreateMaterialDirectoryRequest
    * @returns CreateMaterialDirectoryResponse
@@ -1542,7 +1718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建组织单元
+   * Creates an organizational unit.
+   * 
+   * @remarks
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - CreateRbacOrgUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1577,7 +1756,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建组织单元
+   * Creates an organizational unit.
+   * 
+   * @remarks
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - CreateRbacOrgUnitRequest
    * @returns CreateRbacOrgUnitResponse
@@ -1588,7 +1770,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RBAC权限
+   * Creates an RBAC permission.
+   * 
+   * @remarks
+   * Creates an AI conversation session through Wanxiaozhi 2.0.
    * 
    * @param request - CreateRbacPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RBAC权限
+   * Creates an RBAC permission.
+   * 
+   * @remarks
+   * Creates an AI conversation session through Wanxiaozhi 2.0.
    * 
    * @param request - CreateRbacPermissionRequest
    * @returns CreateRbacPermissionResponse
@@ -1686,7 +1874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes and unbinds the SSL certificate that is bound to a website.
+   * Deletes and unbinds the SSL certificate associated with a website.
    * 
    * @param request - DeleteAppDomainCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1721,7 +1909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes and unbinds the SSL certificate that is bound to a website.
+   * Deletes and unbinds the SSL certificate associated with a website.
    * 
    * @param request - DeleteAppDomainCertificateRequest
    * @returns DeleteAppDomainCertificateResponse
@@ -1732,7 +1920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes 301 redirect records bound to a website.
+   * Deletes an HTTP 301 status code redirect record bound to a website.
    * 
    * @param request - DeleteAppDomainRedirectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1743,6 +1931,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
     }
 
     if (!$dara.isNull(request.recordId)) {
@@ -1767,7 +1959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes 301 redirect records bound to a website.
+   * Deletes an HTTP 301 status code redirect record bound to a website.
    * 
    * @param request - DeleteAppDomainRedirectRequest
    * @returns DeleteAppDomainRedirectResponse
@@ -1882,10 +2074,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息通知场景
+   * Deletes a message notification scenario.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - DeleteAppNotificationSceneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1920,10 +2112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息通知场景
+   * Deletes a message notification scenario.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - DeleteAppNotificationSceneRequest
    * @returns DeleteAppNotificationSceneResponse
@@ -1931,6 +2123,104 @@ export default class Client extends OpenApi {
   async deleteAppNotificationScene(request: $_model.DeleteAppNotificationSceneRequest): Promise<$_model.DeleteAppNotificationSceneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppNotificationSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an application plugin.
+   * 
+   * @param request - DeleteAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppPluginResponse
+   */
+  async deleteAppPluginWithOptions(request: $_model.DeleteAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppPluginResponse({}));
+  }
+
+  /**
+   * Deletes an application plugin.
+   * 
+   * @param request - DeleteAppPluginRequest
+   * @returns DeleteAppPluginResponse
+   */
+  async deleteAppPlugin(request: $_model.DeleteAppPluginRequest): Promise<$_model.DeleteAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppPluginWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a scenario recipient.
+   * 
+   * @remarks
+   * Queries application instance information.
+   * 
+   * @param request - DeleteAppSceneRecipientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppSceneRecipientResponse
+   */
+  async deleteAppSceneRecipientWithOptions(request: $_model.DeleteAppSceneRecipientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppSceneRecipientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.recipientId)) {
+      query["RecipientId"] = request.recipientId;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppSceneRecipient",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppSceneRecipientResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppSceneRecipientResponse({}));
+  }
+
+  /**
+   * Deletes a scenario recipient.
+   * 
+   * @remarks
+   * Queries application instance information.
+   * 
+   * @param request - DeleteAppSceneRecipientRequest
+   * @returns DeleteAppSceneRecipientResponse
+   */
+  async deleteAppSceneRecipient(request: $_model.DeleteAppSceneRecipientRequest): Promise<$_model.DeleteAppSceneRecipientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppSceneRecipientWithOptions(request, runtime);
   }
 
   /**
@@ -2080,7 +2370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除组织单元
+   * Deletes an organizational unit.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - DeleteRbacOrgUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2115,7 +2408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除组织单元
+   * Deletes an organizational unit.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - DeleteRbacOrgUnitRequest
    * @returns DeleteRbacOrgUnitResponse
@@ -2126,7 +2422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RBAC权限
+   * Deletes an RBAC permission.
+   * 
+   * @remarks
+   * Creates an AI conversation session for WanXiaoZhi 2.0.
    * 
    * @param request - DeleteRbacPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2161,7 +2460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RBAC权限
+   * Deletes an RBAC permission.
+   * 
+   * @remarks
+   * Creates an AI conversation session for WanXiaoZhi 2.0.
    * 
    * @param request - DeleteRbacPermissionRequest
    * @returns DeleteRbacPermissionResponse
@@ -2274,7 +2576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls a general-purpose API operation.
+   * Calls a general API operation.
    * 
    * @param request - DispatchConsoleAPIForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2321,7 +2623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls a general-purpose API operation.
+   * Calls a general API operation.
    * 
    * @param request - DispatchConsoleAPIForPartnerRequest
    * @returns DispatchConsoleAPIForPartnerResponse
@@ -2390,7 +2692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a material file.
+   * Exports material files.
    * 
    * @param tmpReq - ExportMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2431,7 +2733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a material file.
+   * Exports material files.
    * 
    * @param request - ExportMaterialFileRequest
    * @returns ExportMaterialFileResponse
@@ -2542,10 +2844,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve code workspace details
+   * Retrieves the details of a code workspace.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - GetAppCodeWorkspaceDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2576,10 +2878,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve code workspace details
+   * Retrieves the details of a code workspace.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - GetAppCodeWorkspaceDetailRequest
    * @returns GetAppCodeWorkspaceDetailResponse
@@ -2593,7 +2895,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a conversation.
    * 
    * @remarks
-   * Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+   * The Wanxiaozhi 2.0 API operation for creating AI conversations.
    * 
    * @param request - GetAppConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2631,7 +2933,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a conversation.
    * 
    * @remarks
-   * Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+   * The Wanxiaozhi 2.0 API operation for creating AI conversations.
    * 
    * @param request - GetAppConversationRequest
    * @returns GetAppConversationResponse
@@ -2642,10 +2944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the session lock status.
+   * Retrieves the lock status of a session.
    * 
    * @remarks
-   * Creates an AI session through the WanXiaoZhi 2.0 interface.
+   * The API operation for creating an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - GetAppConversationLockStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2676,10 +2978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the session lock status.
+   * Retrieves the lock status of a session.
    * 
    * @remarks
-   * Creates an AI session through the WanXiaoZhi 2.0 interface.
+   * The API operation for creating an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - GetAppConversationLockStatusRequest
    * @returns GetAppConversationLockStatusResponse
@@ -2690,10 +2992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据库表结构
+   * Queries the table schema of a database.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - GetAppDatabaseTableSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2728,10 +3030,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据库表结构
+   * Queries the table schema of a database.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - GetAppDatabaseTableSchemasRequest
    * @returns GetAppDatabaseTableSchemasResponse
@@ -2742,10 +3044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves file content and modification time.
+   * Retrieves a file and its modification time.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppFileContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2780,10 +3082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves file content and modification time.
+   * Retrieves a file and its modification time.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppFileContentRequest
    * @returns GetAppFileContentResponse
@@ -2794,6 +3096,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a website builder application instance.
+   * 
+   * @remarks
    * Queries the details of a website builder application instance.
    * 
    * @param request - GetAppInstanceRequest
@@ -2825,6 +3130,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a website builder application instance.
+   * 
+   * @remarks
    * Queries the details of a website builder application instance.
    * 
    * @param request - GetAppInstanceRequest
@@ -2936,10 +3244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance details.
+   * Queries the details of an instance.
    * 
    * @remarks
-   * Retrieves the configuration information of a code generation plugin.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2970,10 +3278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance details.
+   * Queries the details of an instance.
    * 
    * @remarks
-   * Retrieves the configuration information of a code generation plugin.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @returns GetAppInstanceForPartnerResponse
@@ -2984,10 +3292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary short URL for an application.
+   * Retrieves the temporary short link for an application.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppInstanceTempShortUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3018,10 +3326,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary short URL for an application.
+   * Retrieves the temporary short link for an application.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetAppInstanceTempShortUrlRequest
    * @returns GetAppInstanceTempShortUrlResponse
@@ -3029,6 +3337,54 @@ export default class Client extends OpenApi {
   async getAppInstanceTempShortUrl(request: $_model.GetAppInstanceTempShortUrlRequest): Promise<$_model.GetAppInstanceTempShortUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppInstanceTempShortUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of a code generation plugin.
+   * 
+   * @param request - GetAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppPluginResponse
+   */
+  async getAppPluginWithOptions(request: $_model.GetAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.GetAppPluginResponse({}));
+  }
+
+  /**
+   * Queries the details of an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of a code generation plugin.
+   * 
+   * @param request - GetAppPluginRequest
+   * @returns GetAppPluginResponse
+   */
+  async getAppPlugin(request: $_model.GetAppPluginRequest): Promise<$_model.GetAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppPluginWithOptions(request, runtime);
   }
 
   /**
@@ -3143,7 +3499,7 @@ export default class Client extends OpenApi {
    * Queries recommended commodities.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppRecommendedCommoditiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3189,7 +3545,7 @@ export default class Client extends OpenApi {
    * Queries recommended commodities.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppRecommendedCommoditiesRequest
    * @returns GetAppRecommendedCommoditiesResponse
@@ -3248,10 +3604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain sandbox preview URL
+   * Retrieves the sandbox preview URL.
    * 
    * @remarks
-   * Wan Xiaozhi 2.0 - Obtain site preview URL
+   * Wanxiaozhi 2.0 - Retrieves the site preview URL.
    * 
    * @param request - GetAppSandboxPreviewUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3286,10 +3642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain sandbox preview URL
+   * Retrieves the sandbox preview URL.
    * 
    * @remarks
-   * Wan Xiaozhi 2.0 - Obtain site preview URL
+   * Wanxiaozhi 2.0 - Retrieves the site preview URL.
    * 
    * @param request - GetAppSandboxPreviewUrlRequest
    * @returns GetAppSandboxPreviewUrlResponse
@@ -3520,10 +3876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain Supabase instance information
+   * Retrieves information about a Supabase instance.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3554,10 +3910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain Supabase instance information
+   * Retrieves information about a Supabase instance.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @returns GetAppSupabaseInstanceResponse
@@ -3620,10 +3976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query template details
+   * Queries the details of a template.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the configuration information of a code generation plug-in.
    * 
    * @param request - GetAppTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3654,10 +4010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query template details
+   * Queries the details of a template.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the configuration information of a code generation plug-in.
    * 
    * @param request - GetAppTemplateRequest
    * @returns GetAppTemplateResponse
@@ -3708,7 +4064,7 @@ export default class Client extends OpenApi {
    * Retrieves the directory structure of a workspace.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information of an application instance.
    * 
    * @param request - GetAppWorkspaceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3750,7 +4106,7 @@ export default class Client extends OpenApi {
    * Retrieves the directory structure of a workspace.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information of an application instance.
    * 
    * @param request - GetAppWorkspaceDirectoryRequest
    * @returns GetAppWorkspaceDirectoryResponse
@@ -4001,10 +4357,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mini programs associated with a site.
+   * Queries the mini programs bound to a site.
    * 
    * @remarks
-   * Retrieves the configuration information of the QR code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param tmpReq - GetMiniAppBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4049,10 +4405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mini programs associated with a site.
+   * Queries the mini programs bound to a site.
    * 
    * @remarks
-   * Retrieves the configuration information of the QR code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetMiniAppBindingRequest
    * @returns GetMiniAppBindingResponse
@@ -4063,7 +4419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query for mini programs attached to an application instance.
+   * Queries the mini programs attached to an application instance by using a conditional query.
    * 
    * @param request - GetMiniAppBindingForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4102,7 +4458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query for mini programs attached to an application instance.
+   * Queries the mini programs attached to an application instance by using a conditional query.
    * 
    * @param request - GetMiniAppBindingForAdminRequest
    * @returns GetMiniAppBindingForAdminResponse
@@ -4161,10 +4517,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取临时下载地址
+   * Retrieves a temporary download URL.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetTempDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4195,10 +4551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取临时下载地址
+   * Retrieves a temporary download URL.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - GetTempDownloadUrlRequest
    * @returns GetTempDownloadUrlResponse
@@ -4209,7 +4565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exchanges a temporary AccessKey pair for an access token.
+   * Exchanges a temporary AccessKey for an access token.
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4244,7 +4600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exchanges a temporary AccessKey pair for an access token.
+   * Exchanges a temporary AccessKey for an access token.
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
    * @returns GetUserAccessTokenForPartnerResponse
@@ -4313,10 +4669,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Distributes promotional benefits from a partner.
+   * Grants promotional benefits to partners.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information for the code generation plugin.
    * 
    * @param request - GrantPromotionOfferForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4367,10 +4723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Distributes promotional benefits from a partner.
+   * Grants promotional benefits to partners.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information for the code generation plugin.
    * 
    * @param request - GrantPromotionOfferForPartnerRequest
    * @returns GrantPromotionOfferForPartnerResponse
@@ -4378,6 +4734,58 @@ export default class Client extends OpenApi {
   async grantPromotionOfferForPartner(request: $_model.GrantPromotionOfferForPartnerRequest): Promise<$_model.GrantPromotionOfferForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.grantPromotionOfferForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * Installs an application plugin to the current user account.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - InstallAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallAppPluginResponse
+   */
+  async installAppPluginWithOptions(request: $_model.InstallAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.InstallAppPluginResponse({}));
+  }
+
+  /**
+   * Installs an application plugin to the current user account.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - InstallAppPluginRequest
+   * @returns InstallAppPluginResponse
+   */
+  async installAppPlugin(request: $_model.InstallAppPluginRequest): Promise<$_model.InstallAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installAppPluginWithOptions(request, runtime);
   }
 
   /**
@@ -4427,10 +4835,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves incremental SSE events for an AI agent conversation.
+   * Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
    * 
    * @remarks
-   * Retrieves the streaming output results of an AI conversation.
+   * Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
    * 
    * @param request - ListAIStaffChatEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4475,10 +4883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves incremental SSE events for an AI agent conversation.
+   * Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
    * 
    * @remarks
-   * Retrieves the streaming output results of an AI conversation.
+   * Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
    * 
    * @param request - ListAIStaffChatEventsRequest
    * @returns ListAIStaffChatEventsResponse
@@ -4489,10 +4897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the conversation message list of an AI employee by paging.
+   * Performs a paging query on the list of conversation messages for an AI agent.
    * 
    * @remarks
-   * Queries the AI session history for WanXiaoZhi 2.0.
+   * Queries the AI conversation history for Wanxiaozhi 2.0.
    * 
    * @param request - ListAIStaffChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,10 +4945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the conversation message list of an AI employee by paging.
+   * Performs a paging query on the list of conversation messages for an AI agent.
    * 
    * @remarks
-   * Queries the AI session history for WanXiaoZhi 2.0.
+   * Queries the AI conversation history for Wanxiaozhi 2.0.
    * 
    * @param request - ListAIStaffChatMessagesRequest
    * @returns ListAIStaffChatMessagesResponse
@@ -4603,10 +5011,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the message list of a specified chat.
+   * Queries the messages in a specified chat.
    * 
    * @remarks
-   * Wanxiaozhi 2.0 - API for querying AI conversation history.
+   * Wanxiaozhi 2.0 - AI conversation history query API.
    * 
    * @param request - ListAppChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4653,10 +5061,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the message list of a specified chat.
+   * Queries the messages in a specified chat.
    * 
    * @remarks
-   * Wanxiaozhi 2.0 - API for querying AI conversation history.
+   * Wanxiaozhi 2.0 - AI conversation history query API.
    * 
    * @param request - ListAppChatMessagesRequest
    * @returns ListAppChatMessagesResponse
@@ -4762,10 +5170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged query of conversation message list
+   * Queries the list of conversation messages by paging.
    * 
    * @remarks
-   * Wan Xiaozhi 2.0 - AI session history information query API
+   * Wanxiaozhi 2.0 - API for querying AI session history information.
    * 
    * @param request - ListAppConversationMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4816,10 +5224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged query of conversation message list
+   * Queries the list of conversation messages by paging.
    * 
    * @remarks
-   * Wan Xiaozhi 2.0 - AI session history information query API
+   * Wanxiaozhi 2.0 - API for querying AI session history information.
    * 
    * @param request - ListAppConversationMessagesRequest
    * @returns ListAppConversationMessagesResponse
@@ -4830,10 +5238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches the conversation list.
+   * Queries the conversation list.
    * 
    * @remarks
-   * Creates an AI session by using Wanxiaozhi 2.0.
+   * Creates an AI conversation in Wanxiaozhi 2.0.
    * 
    * @param request - ListAppConversationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4892,10 +5300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches the conversation list.
+   * Queries the conversation list.
    * 
    * @remarks
-   * Creates an AI session by using Wanxiaozhi 2.0.
+   * Creates an AI conversation in Wanxiaozhi 2.0.
    * 
    * @param request - ListAppConversationsRequest
    * @returns ListAppConversationsResponse
@@ -4906,7 +5314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of HTTP 301 status code redirects for a website.
+   * Queries the list of HTTP 301 status codes for a website.
    * 
    * @param request - ListAppDomainRedirectRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4945,7 +5353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of HTTP 301 status code redirects for a website.
+   * Queries the list of HTTP 301 status codes for a website.
    * 
    * @param request - ListAppDomainRedirectRecordsRequest
    * @returns ListAppDomainRedirectRecordsResponse
@@ -4956,7 +5364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of domain names bound to a website.
+   * Queries the domain names bound to a website.
    * 
    * @param request - ListAppInstanceDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4971,6 +5379,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainKeyword)) {
       query["DomainKeyword"] = request.domainKeyword;
+    }
+
+    if (!$dara.isNull(request.domainType)) {
+      query["DomainType"] = request.domainType;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -4997,6 +5409,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.statusQueryMode)) {
+      query["StatusQueryMode"] = request.statusQueryMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5015,7 +5431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of domain names bound to a website.
+   * Queries the domain names bound to a website.
    * 
    * @param request - ListAppInstanceDomainsRequest
    * @returns ListAppInstanceDomainsResponse
@@ -5026,7 +5442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application instances.
+   * Queries a list of application instances.
    * 
    * @param tmpReq - ListAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5093,6 +5509,10 @@ export default class Client extends OpenApi {
       query["Query"] = request.query;
     }
 
+    if (!$dara.isNull(request.queryMode)) {
+      query["QueryMode"] = request.queryMode;
+    }
+
     if (!$dara.isNull(request.statusListShrink)) {
       query["StatusList"] = request.statusListShrink;
     }
@@ -5115,7 +5535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application instances.
+   * Queries a list of application instances.
    * 
    * @param request - ListAppInstancesRequest
    * @returns ListAppInstancesResponse
@@ -5126,10 +5546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of Code Farmer plugin configurations
+   * Retrieves the list of code generation plug-in configurations.
    * 
    * @remarks
-   * Retrieve the configuration information of the code generation plugin
+   * Retrieves the configuration information of code generation plug-ins.
    * 
    * @param request - ListAppPluginConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5168,10 +5588,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of Code Farmer plugin configurations
+   * Retrieves the list of code generation plug-in configurations.
    * 
    * @remarks
-   * Retrieve the configuration information of the code generation plugin
+   * Retrieves the configuration information of code generation plug-ins.
    * 
    * @param request - ListAppPluginConfigsRequest
    * @returns ListAppPluginConfigsResponse
@@ -5182,10 +5602,118 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of code generation plug-ins.
+   * Queries the list of application plugin files.
    * 
    * @remarks
-   * Retrieves the configuration information of code generation plug-ins.
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - ListAppPluginFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppPluginFilesResponse
+   */
+  async listAppPluginFilesWithOptions(request: $_model.ListAppPluginFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppPluginFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppPluginFiles",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppPluginFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListAppPluginFilesResponse({}));
+  }
+
+  /**
+   * Queries the list of application plugin files.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - ListAppPluginFilesRequest
+   * @returns ListAppPluginFilesResponse
+   */
+  async listAppPluginFiles(request: $_model.ListAppPluginFilesRequest): Promise<$_model.ListAppPluginFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppPluginFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the application plug-in versions.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - ListAppPluginVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppPluginVersionsResponse
+   */
+  async listAppPluginVersionsWithOptions(request: $_model.ListAppPluginVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppPluginVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppPluginVersions",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppPluginVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListAppPluginVersionsResponse({}));
+  }
+
+  /**
+   * Queries the application plug-in versions.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - ListAppPluginVersionsRequest
+   * @returns ListAppPluginVersionsResponse
+   */
+  async listAppPluginVersions(request: $_model.ListAppPluginVersionsRequest): Promise<$_model.ListAppPluginVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppPluginVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists application plugins.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plugins.
    * 
    * @param request - ListAppPluginsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5232,10 +5760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of code generation plug-ins.
+   * Lists application plugins.
    * 
    * @remarks
-   * Retrieves the configuration information of code generation plug-ins.
+   * Retrieves the configuration information of code generation plugins.
    * 
    * @param request - ListAppPluginsRequest
    * @returns ListAppPluginsResponse
@@ -5246,10 +5774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query publish history
+   * Queries the release history.
    * 
    * @remarks
-   * Query application instance information
+   * Queries the information about application instances.
    * 
    * @param request - ListAppPublishHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5324,10 +5852,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query publish history
+   * Queries the release history.
    * 
    * @remarks
-   * Query application instance information
+   * Queries the information about application instances.
    * 
    * @param request - ListAppPublishHistoryRequest
    * @returns ListAppPublishHistoryResponse
@@ -5338,10 +5866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query dictionary list
+   * Queries a list of dictionaries.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - ListAppTemplateDictsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5380,10 +5908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query dictionary list
+   * Queries a list of dictionaries.
    * 
    * @remarks
-   * Query application instance information
+   * Queries application instance information.
    * 
    * @param request - ListAppTemplateDictsRequest
    * @returns ListAppTemplateDictsResponse
@@ -5394,10 +5922,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of website templates.
+   * Queries a list of templates.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ListAppTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5428,6 +5956,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
     }
 
     if (!$dara.isNull(request.pageNum)) {
@@ -5464,10 +6000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of website templates.
+   * Queries a list of templates.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ListAppTemplatesRequest
    * @returns ListAppTemplatesResponse
@@ -5478,10 +6014,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Alipay ISV plugin configuration
+   * Queries the Alipay ISV plugin configuration.
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListIsvPaymentPluginConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5520,10 +6056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Alipay ISV plugin configuration
+   * Queries the Alipay ISV plugin configuration.
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListIsvPaymentPluginConfigsRequest
    * @returns ListIsvPaymentPluginConfigsResponse
@@ -5531,6 +6067,194 @@ export default class Client extends OpenApi {
   async listIsvPaymentPluginConfigs(request: $_model.ListIsvPaymentPluginConfigsRequest): Promise<$_model.ListIsvPaymentPluginConfigsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listIsvPaymentPluginConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of application plug-ins in the marketplace.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plug-ins.
+   * 
+   * @param request - ListMarketplaceAppPluginsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMarketplaceAppPluginsResponse
+   */
+  async listMarketplaceAppPluginsWithOptions(request: $_model.ListMarketplaceAppPluginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMarketplaceAppPluginsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMarketplaceAppPlugins",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMarketplaceAppPluginsResponse>(await this.callApi(params, req, runtime), new $_model.ListMarketplaceAppPluginsResponse({}));
+  }
+
+  /**
+   * Queries the list of application plug-ins in the marketplace.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plug-ins.
+   * 
+   * @param request - ListMarketplaceAppPluginsRequest
+   * @returns ListMarketplaceAppPluginsResponse
+   */
+  async listMarketplaceAppPlugins(request: $_model.ListMarketplaceAppPluginsRequest): Promise<$_model.ListMarketplaceAppPluginsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMarketplaceAppPluginsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of application plugins.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plugins.
+   * 
+   * @param request - ListMyAppPluginsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyAppPluginsResponse
+   */
+  async listMyAppPluginsWithOptions(request: $_model.ListMyAppPluginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMyAppPluginsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMyAppPlugins",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMyAppPluginsResponse>(await this.callApi(params, req, runtime), new $_model.ListMyAppPluginsResponse({}));
+  }
+
+  /**
+   * Queries the list of application plugins.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plugins.
+   * 
+   * @param request - ListMyAppPluginsRequest
+   * @returns ListMyAppPluginsResponse
+   */
+  async listMyAppPlugins(request: $_model.ListMyAppPluginsRequest): Promise<$_model.ListMyAppPluginsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMyAppPluginsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of application plug-ins that you have installed.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plug-ins.
+   * 
+   * @param request - ListMyInstalledAppPluginsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyInstalledAppPluginsResponse
+   */
+  async listMyInstalledAppPluginsWithOptions(request: $_model.ListMyInstalledAppPluginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMyInstalledAppPluginsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMyInstalledAppPlugins",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMyInstalledAppPluginsResponse>(await this.callApi(params, req, runtime), new $_model.ListMyInstalledAppPluginsResponse({}));
+  }
+
+  /**
+   * Queries the list of application plug-ins that you have installed.
+   * 
+   * @remarks
+   * Retrieves the configuration information of code generation plug-ins.
+   * 
+   * @param request - ListMyInstalledAppPluginsRequest
+   * @returns ListMyInstalledAppPluginsResponse
+   */
+  async listMyInstalledAppPlugins(request: $_model.ListMyInstalledAppPluginsRequest): Promise<$_model.ListMyInstalledAppPluginsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMyInstalledAppPluginsWithOptions(request, runtime);
   }
 
   /**
@@ -5597,7 +6321,7 @@ export default class Client extends OpenApi {
    * Queries the benefit issuance records of a partner.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ListPromotionOfferRecordsForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5659,7 +6383,7 @@ export default class Client extends OpenApi {
    * Queries the benefit issuance records of a partner.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ListPromotionOfferRecordsForPartnerRequest
    * @returns ListPromotionOfferRecordsForPartnerResponse
@@ -5960,6 +6684,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies the specifications of a website building application instance.
    * 
+   * @remarks
+   * Modifies the specifications of a website building application instance.
+   * 
    * @param request - ModifyAppInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAppInstanceSpecResponse
@@ -6015,6 +6742,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies the specifications of a website building application instance.
    * 
+   * @remarks
+   * Modifies the specifications of a website building application instance.
+   * 
    * @param request - ModifyAppInstanceSpecRequest
    * @returns ModifyAppInstanceSpecResponse
    */
@@ -6024,7 +6754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a material folder.
+   * Updates a material folder.
    * 
    * @param request - ModifyMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6063,7 +6793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a material folder.
+   * Updates a material folder.
    * 
    * @param request - ModifyMaterialDirectoryRequest
    * @returns ModifyMaterialDirectoryResponse
@@ -6074,7 +6804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a material file.
+   * Updates a material file.
    * 
    * @param request - ModifyMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6113,7 +6843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a material file.
+   * Updates a material file.
    * 
    * @param request - ModifyMaterialFileRequest
    * @returns ModifyMaterialFileResponse
@@ -6124,7 +6854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of a material file.
+   * Updates the status of material files.
    * 
    * @param tmpReq - ModifyMaterialFileStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6169,7 +6899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of a material file.
+   * Updates the status of material files.
    * 
    * @param request - ModifyMaterialFileStatusRequest
    * @returns ModifyMaterialFileStatusResponse
@@ -6180,7 +6910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a material file folder.
+   * Moves an asset folder.
    * 
    * @param request - MoveMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6223,7 +6953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a material file folder.
+   * Moves an asset folder.
    * 
    * @param request - MoveMaterialDirectoryRequest
    * @returns MoveMaterialDirectoryResponse
@@ -6234,7 +6964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves media asset files.
+   * Moves asset files.
    * 
    * @param tmpReq - MoveMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6279,7 +7009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves media asset files.
+   * Moves asset files.
    * 
    * @param request - MoveMaterialFileRequest
    * @returns MoveMaterialFileResponse
@@ -6290,7 +7020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a data change notification (for admin).
+   * Triggers a data change notification for administrators.
    * 
    * @remarks
    * Queries application instance information.
@@ -6336,7 +7066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a data change notification (for admin).
+   * Triggers a data change notification for administrators.
    * 
    * @remarks
    * Queries application instance information.
@@ -6350,7 +7080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+   * Takes a website offline by switching the CDN back-to-origin requests for all domain names under the site to an offline page.
    * 
    * @param request - OfflineAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6381,7 +7111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+   * Takes a website offline by switching the CDN back-to-origin requests for all domain names under the site to an offline page.
    * 
    * @param request - OfflineAppInstanceRequest
    * @returns OfflineAppInstanceResponse
@@ -6392,7 +7122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+   * Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
    * 
    * @param request - OnlineAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6423,7 +7153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+   * Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
    * 
    * @param request - OnlineAppInstanceRequest
    * @returns OnlineAppInstanceResponse
@@ -6586,10 +7316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operates on the Supabase instance information corresponding to a resource.
+   * Retrieves the Supabase instance information for the operated resource.
    * 
    * @remarks
-   * The Supabase instance information corresponding to the resource to operate on.
+   * The Supabase instance information for the operated resource.
    * 
    * @param request - OperateSupabaseForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6664,10 +7394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operates on the Supabase instance information corresponding to a resource.
+   * Retrieves the Supabase instance information for the operated resource.
    * 
    * @remarks
-   * The Supabase instance information corresponding to the resource to operate on.
+   * The Supabase instance information for the operated resource.
    * 
    * @param request - OperateSupabaseForAdminRequest
    * @returns OperateSupabaseForAdminResponse
@@ -6678,10 +7408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publish application instance
+   * Publishes an application instance.
    * 
    * @remarks
-   * Query application instance information
+   * Queries the application instance information.
    * 
    * @param request - PublishAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6732,10 +7462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publish application instance
+   * Publishes an application instance.
    * 
    * @remarks
-   * Query application instance information
+   * Queries the application instance information.
    * 
    * @param request - PublishAppInstanceRequest
    * @returns PublishAppInstanceResponse
@@ -6826,10 +7556,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+   * Queries the acquisition details of inspiration points, including the list of quota accounts and their expiration status.
    * 
    * @remarks
-   * Queries the Supabase instance information associated with a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - QueryInspirationAccountDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6884,10 +7614,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+   * Queries the acquisition details of inspiration points, including the list of quota accounts and their expiration status.
    * 
    * @remarks
-   * Queries the Supabase instance information associated with a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param request - QueryInspirationAccountDetailsRequest
    * @returns QueryInspirationAccountDetailsResponse
@@ -6898,10 +7628,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview of inspiration point balance.
+   * Queries the overview of the inspiration value balance.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryInspirationBalanceResponse
@@ -6923,10 +7653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview of inspiration point balance.
+   * Queries the overview of the inspiration value balance.
    * 
    * @remarks
-   * Queries the Supabase instance information corresponding to a resource.
+   * Queries the Supabase instance information corresponding to the resource.
    * @returns QueryInspirationBalanceResponse
    */
   async queryInspirationBalance(): Promise<$_model.QueryInspirationBalanceResponse> {
@@ -6935,10 +7665,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of inspiration point consumption.
+   * Queries the inspiration value for service providers.
+   * 
+   * @param request - QueryInspirationBalanceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInspirationBalanceForPartnerResponse
+   */
+  async queryInspirationBalanceForPartnerWithOptions(request: $_model.QueryInspirationBalanceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInspirationBalanceForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.belongIdType)) {
+      query["BelongIdType"] = request.belongIdType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInspirationBalanceForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInspirationBalanceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.QueryInspirationBalanceForPartnerResponse({}));
+  }
+
+  /**
+   * Queries the inspiration value for service providers.
+   * 
+   * @param request - QueryInspirationBalanceForPartnerRequest
+   * @returns QueryInspirationBalanceForPartnerResponse
+   */
+  async queryInspirationBalanceForPartner(request: $_model.QueryInspirationBalanceForPartnerRequest): Promise<$_model.QueryInspirationBalanceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInspirationBalanceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the consumption details of inspiration points.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - QueryInspirationConsumeRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6993,10 +7769,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of inspiration point consumption.
+   * Queries the consumption details of inspiration points.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - QueryInspirationConsumeRecordsRequest
    * @returns QueryInspirationConsumeRecordsResponse
@@ -7007,7 +7783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the material folder tree.
+   * Queries the asset folder tree.
    * 
    * @param request - QueryMaterialDirectoryTreeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7046,7 +7822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the material folder tree.
+   * Queries the asset folder tree.
    * 
    * @param request - QueryMaterialDirectoryTreeRequest
    * @returns QueryMaterialDirectoryTreeResponse
@@ -7057,7 +7833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a material file.
+   * Queries the details of an asset file.
    * 
    * @param request - QueryMaterialFileDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7092,7 +7868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a material file.
+   * Queries the details of an asset file.
    * 
    * @param request - QueryMaterialFileDetailRequest
    * @returns QueryMaterialFileDetailResponse
@@ -7103,7 +7879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of material files.
+   * Queries a list of asset files.
    * 
    * @param tmpReq - QueryMaterialFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7200,7 +7976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of material files.
+   * Queries a list of asset files.
    * 
    * @param request - QueryMaterialFileListRequest
    * @returns QueryMaterialFileListResponse
@@ -7337,7 +8113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Material Generation Task List
+   * Queries the list of material generation tasks.
+   * 
+   * @remarks
+   * Queries the list of material generation tasks.
    * 
    * @param tmpReq - QueryMaterialTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7356,6 +8135,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.bizGroupId)) {
+      query["BizGroupId"] = request.bizGroupId;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -7406,7 +8189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Material Generation Task List
+   * Queries the list of material generation tasks.
+   * 
+   * @remarks
+   * Queries the list of material generation tasks.
    * 
    * @param request - QueryMaterialTaskListRequest
    * @returns QueryMaterialTaskListResponse
@@ -7417,7 +8203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个RBAC角色
+   * Queries a single RBAC role.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - QueryRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7452,7 +8241,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个RBAC角色
+   * Queries a single RBAC role.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - QueryRbacRoleRequest
    * @returns QueryRbacRoleResponse
@@ -7463,7 +8255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询角色权限列表
+   * Queries the list of role permissions.
+   * 
+   * @remarks
+   * Creates an AI conversation session for Wan Xiaozhi 2.0.
    * 
    * @param request - QueryRbacRolePermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7514,7 +8309,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询角色权限列表
+   * Queries the list of role permissions.
+   * 
+   * @remarks
+   * Creates an AI conversation session for Wan Xiaozhi 2.0.
    * 
    * @param request - QueryRbacRolePermissionsRequest
    * @returns QueryRbacRolePermissionsResponse
@@ -7525,7 +8323,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户角色绑定
+   * Queries user role bindings.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - QueryRbacUserRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7576,7 +8377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户角色绑定
+   * Queries user role bindings.
+   * 
+   * @remarks
+   * Queries application instance information.
    * 
    * @param request - QueryRbacUserRolesRequest
    * @returns QueryRbacUserRolesResponse
@@ -7587,10 +8391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auth configuration of a Supabase instance associated with a resource.
+   * Queries the authentication configuration of the Supabase instance associated with the resource.
    * 
    * @remarks
-   * Queries the auth configuration of a Supabase instance associated with a resource.
+   * Queries the authentication configuration of the Supabase instance associated with the resource.
    * 
    * @param request - QuerySupabaseAuthConfigsForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7649,10 +8453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auth configuration of a Supabase instance associated with a resource.
+   * Queries the authentication configuration of the Supabase instance associated with the resource.
    * 
    * @remarks
-   * Queries the auth configuration of a Supabase instance associated with a resource.
+   * Queries the authentication configuration of the Supabase instance associated with the resource.
    * 
    * @param request - QuerySupabaseAuthConfigsForAdminRequest
    * @returns QuerySupabaseAuthConfigsForAdminResponse
@@ -7663,10 +8467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Supabase instance configuration information for a specified resource.
+   * Queries the configuration information of the Supabase instance associated with a resource.
    * 
    * @remarks
-   * Queries the Supabase instance configuration information for a specified resource.
+   * Queries the configuration information of the Supabase instance associated with a resource.
    * 
    * @param request - QuerySupabaseConfigsForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7721,10 +8525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Supabase instance configuration information for a specified resource.
+   * Queries the configuration information of the Supabase instance associated with a resource.
    * 
    * @remarks
-   * Queries the Supabase instance configuration information for a specified resource.
+   * Queries the configuration information of the Supabase instance associated with a resource.
    * 
    * @param request - QuerySupabaseConfigsForAdminRequest
    * @returns QuerySupabaseConfigsForAdminResponse
@@ -7735,10 +8539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Supabase instance information for a specified resource.
+   * Queries the information of the Supabase instance associated with a resource.
    * 
    * @remarks
-   * Queries the Supabase instance information for a specified resource.
+   * Queries the information of the Supabase instance associated with a resource.
    * 
    * @param request - QuerySupabaseInstanceInfoForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7793,10 +8597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Supabase instance information for a specified resource.
+   * Queries the information of the Supabase instance associated with a resource.
    * 
    * @remarks
-   * Queries the Supabase instance information for a specified resource.
+   * Queries the information of the Supabase instance associated with a resource.
    * 
    * @param request - QuerySupabaseInstanceInfoForAdminRequest
    * @returns QuerySupabaseInstanceInfoForAdminResponse
@@ -7807,10 +8611,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reconnects an AI conversation.
+   * Reconnects to an AI conversation.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ReconnectAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7829,6 +8633,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lastEventId)) {
       body["LastEventId"] = request.lastEventId;
+    }
+
+    if (!$dara.isNull(request.latestMessageCreateTime)) {
+      body["LatestMessageCreateTime"] = request.latestMessageCreateTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7863,10 +8671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reconnects an AI conversation.
+   * Reconnects to an AI conversation.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ReconnectAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7887,6 +8695,10 @@ export default class Client extends OpenApi {
       body["LastEventId"] = request.lastEventId;
     }
 
+    if (!$dara.isNull(request.latestMessageCreateTime)) {
+      body["LatestMessageCreateTime"] = request.latestMessageCreateTime;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -7905,10 +8717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reconnects an AI conversation.
+   * Reconnects to an AI conversation.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - ReconnectAppChatRequest
    * @returns ReconnectAppChatResponse
@@ -8189,7 +9001,126 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤销用户角色
+   * Reports the publishing result.
+   * 
+   * @remarks
+   * Reports the publishing result.
+   * 
+   * @param request - ReportChannelPublishResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReportChannelPublishResultResponse
+   */
+  async reportChannelPublishResultWithOptions(request: $_model.ReportChannelPublishResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportChannelPublishResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelAccountName)) {
+      query["ChannelAccountName"] = request.channelAccountName;
+    }
+
+    if (!$dara.isNull(request.draftId)) {
+      query["DraftId"] = request.draftId;
+    }
+
+    if (!$dara.isNull(request.externalId)) {
+      query["ExternalId"] = request.externalId;
+    }
+
+    if (!$dara.isNull(request.externalUrl)) {
+      query["ExternalUrl"] = request.externalUrl;
+    }
+
+    if (!$dara.isNull(request.failReason)) {
+      query["FailReason"] = request.failReason;
+    }
+
+    if (!$dara.isNull(request.success)) {
+      query["Success"] = request.success;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReportChannelPublishResult",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReportChannelPublishResultResponse>(await this.callApi(params, req, runtime), new $_model.ReportChannelPublishResultResponse({}));
+  }
+
+  /**
+   * Reports the publishing result.
+   * 
+   * @remarks
+   * Reports the publishing result.
+   * 
+   * @param request - ReportChannelPublishResultRequest
+   * @returns ReportChannelPublishResultResponse
+   */
+  async reportChannelPublishResult(request: $_model.ReportChannelPublishResultRequest): Promise<$_model.ReportChannelPublishResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reportChannelPublishResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Retries a publish operation.
+   * 
+   * @remarks
+   * Retries a publish operation.
+   * 
+   * @param request - RetryChannelPublishRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryChannelPublishResponse
+   */
+  async retryChannelPublishWithOptions(request: $_model.RetryChannelPublishRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryChannelPublishResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftId)) {
+      query["DraftId"] = request.draftId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryChannelPublish",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryChannelPublishResponse>(await this.callApi(params, req, runtime), new $_model.RetryChannelPublishResponse({}));
+  }
+
+  /**
+   * Retries a publish operation.
+   * 
+   * @remarks
+   * Retries a publish operation.
+   * 
+   * @param request - RetryChannelPublishRequest
+   * @returns RetryChannelPublishResponse
+   */
+  async retryChannelPublish(request: $_model.RetryChannelPublishRequest): Promise<$_model.RetryChannelPublishResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryChannelPublishWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes a user role.
+   * 
+   * @remarks
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - RevokeRbacUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8224,7 +9155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤销用户角色
+   * Revokes a user role.
+   * 
+   * @remarks
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - RevokeRbacUserRoleRequest
    * @returns RevokeRbacUserRoleResponse
@@ -8235,10 +9169,62 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Code snapshot rollback
+   * Rewrites a channel title using AI.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Rewrites a channel title.
+   * 
+   * @param request - RewriteChannelTitleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RewriteChannelTitleResponse
+   */
+  async rewriteChannelTitleWithOptions(request: $_model.RewriteChannelTitleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RewriteChannelTitleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftId)) {
+      query["DraftId"] = request.draftId;
+    }
+
+    if (!$dara.isNull(request.userRequirement)) {
+      query["UserRequirement"] = request.userRequirement;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RewriteChannelTitle",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RewriteChannelTitleResponse>(await this.callApi(params, req, runtime), new $_model.RewriteChannelTitleResponse({}));
+  }
+
+  /**
+   * Rewrites a channel title using AI.
+   * 
+   * @remarks
+   * Rewrites a channel title.
+   * 
+   * @param request - RewriteChannelTitleRequest
+   * @returns RewriteChannelTitleResponse
+   */
+  async rewriteChannelTitle(request: $_model.RewriteChannelTitleRequest): Promise<$_model.RewriteChannelTitleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rewriteChannelTitleWithOptions(request, runtime);
+  }
+
+  /**
+   * Rolls back a code snapshot.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - RollbackAppCodeSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8273,10 +9259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Code snapshot rollback
+   * Rolls back a code snapshot.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - RollbackAppCodeSnapshotRequest
    * @returns RollbackAppCodeSnapshotResponse
@@ -8290,7 +9276,7 @@ export default class Client extends OpenApi {
    * Rolls back the release of an application instance.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the details of an application instance.
    * 
    * @param request - RollbackAppInstancePublishRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8336,7 +9322,7 @@ export default class Client extends OpenApi {
    * Rolls back the release of an application instance.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the details of an application instance.
    * 
    * @param request - RollbackAppInstancePublishRequest
    * @returns RollbackAppInstancePublishResponse
@@ -8344,6 +9330,58 @@ export default class Client extends OpenApi {
   async rollbackAppInstancePublish(request: $_model.RollbackAppInstancePublishRequest): Promise<$_model.RollbackAppInstancePublishResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rollbackAppInstancePublishWithOptions(request, runtime);
+  }
+
+  /**
+   * Rolls back the version of an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - RollbackAppPluginVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackAppPluginVersionResponse
+   */
+  async rollbackAppPluginVersionWithOptions(request: $_model.RollbackAppPluginVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackAppPluginVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackAppPluginVersion",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RollbackAppPluginVersionResponse>(await this.callApi(params, req, runtime), new $_model.RollbackAppPluginVersionResponse({}));
+  }
+
+  /**
+   * Rolls back the version of an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - RollbackAppPluginVersionRequest
+   * @returns RollbackAppPluginVersionResponse
+   */
+  async rollbackAppPluginVersion(request: $_model.RollbackAppPluginVersionRequest): Promise<$_model.RollbackAppPluginVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rollbackAppPluginVersionWithOptions(request, runtime);
   }
 
   /**
@@ -8450,6 +9488,80 @@ export default class Client extends OpenApi {
   async saveAppSupabaseSecrets(request: $_model.SaveAppSupabaseSecretsRequest): Promise<$_model.SaveAppSupabaseSecretsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveAppSupabaseSecretsWithOptions(request, runtime);
+  }
+
+  /**
+   * Saves a channel draft.
+   * 
+   * @remarks
+   * Saves a channel draft.
+   * 
+   * @param tmpReq - SaveChannelDraftRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveChannelDraftResponse
+   */
+  async saveChannelDraftWithOptions(tmpReq: $_model.SaveChannelDraftRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveChannelDraftResponse> {
+    tmpReq.validate();
+    let request = new $_model.SaveChannelDraftShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.coverImages)) {
+      request.coverImagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.coverImages, "CoverImages", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adaptedContent)) {
+      query["AdaptedContent"] = request.adaptedContent;
+    }
+
+    if (!$dara.isNull(request.adaptedTitle)) {
+      query["AdaptedTitle"] = request.adaptedTitle;
+    }
+
+    if (!$dara.isNull(request.channelAccountName)) {
+      query["ChannelAccountName"] = request.channelAccountName;
+    }
+
+    if (!$dara.isNull(request.coverImagesShrink)) {
+      query["CoverImages"] = request.coverImagesShrink;
+    }
+
+    if (!$dara.isNull(request.draftId)) {
+      query["DraftId"] = request.draftId;
+    }
+
+    if (!$dara.isNull(request.websiteNavName)) {
+      query["WebsiteNavName"] = request.websiteNavName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveChannelDraft",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveChannelDraftResponse>(await this.callApi(params, req, runtime), new $_model.SaveChannelDraftResponse({}));
+  }
+
+  /**
+   * Saves a channel draft.
+   * 
+   * @remarks
+   * Saves a channel draft.
+   * 
+   * @param request - SaveChannelDraftRequest
+   * @returns SaveChannelDraftResponse
+   */
+  async saveChannelDraft(request: $_model.SaveChannelDraftRequest): Promise<$_model.SaveChannelDraftResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveChannelDraftWithOptions(request, runtime);
   }
 
   /**
@@ -8737,6 +9849,9 @@ export default class Client extends OpenApi {
   /**
    * Submits a material generation task.
    * 
+   * @remarks
+   * Submits a material generation task.
+   * 
    * @param request - SubmitMaterialTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitMaterialTaskResponse
@@ -8744,6 +9859,10 @@ export default class Client extends OpenApi {
   async submitMaterialTaskWithOptions(request: $_model.SubmitMaterialTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitMaterialTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizGroupId)) {
+      query["BizGroupId"] = request.bizGroupId;
+    }
+
     if (!$dara.isNull(request.taskParam)) {
       query["TaskParam"] = request.taskParam;
     }
@@ -8770,6 +9889,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a material generation task.
+   * 
+   * @remarks
    * Submits a material generation task.
    * 
    * @param request - SubmitMaterialTaskRequest
@@ -8901,7 +10023,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a domain name from a website and deletes the related DNS records.
+   * Translates a channel draft.
+   * 
+   * @remarks
+   * Translates a channel draft.
+   * 
+   * @param request - TranslateChannelDraftRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TranslateChannelDraftResponse
+   */
+  async translateChannelDraftWithOptions(request: $_model.TranslateChannelDraftRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TranslateChannelDraftResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftId)) {
+      query["DraftId"] = request.draftId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TranslateChannelDraft",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TranslateChannelDraftResponse>(await this.callApi(params, req, runtime), new $_model.TranslateChannelDraftResponse({}));
+  }
+
+  /**
+   * Translates a channel draft.
+   * 
+   * @remarks
+   * Translates a channel draft.
+   * 
+   * @param request - TranslateChannelDraftRequest
+   * @returns TranslateChannelDraftResponse
+   */
+  async translateChannelDraft(request: $_model.TranslateChannelDraftRequest): Promise<$_model.TranslateChannelDraftResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.translateChannelDraftWithOptions(request, runtime);
+  }
+
+  /**
+   * Unbinds a domain name from a website and deletes the associated DNS records.
    * 
    * @param request - UnbindAppDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8936,7 +10106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a domain name from a website and deletes the related DNS records.
+   * Unbinds a domain name from a website and deletes the associated DNS records.
    * 
    * @param request - UnbindAppDomainRequest
    * @returns UnbindAppDomainResponse
@@ -8947,10 +10117,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates message content.
+   * Uninstalls an application plug-in from the current user account.
    * 
    * @remarks
-   * Wanxiaozhi 2.0 - API for querying AI conversation history.
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - UninstallAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallAppPluginResponse
+   */
+  async uninstallAppPluginWithOptions(request: $_model.UninstallAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.UninstallAppPluginResponse({}));
+  }
+
+  /**
+   * Uninstalls an application plug-in from the current user account.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
+   * 
+   * @param request - UninstallAppPluginRequest
+   * @returns UninstallAppPluginResponse
+   */
+  async uninstallAppPlugin(request: $_model.UninstallAppPluginRequest): Promise<$_model.UninstallAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uninstallAppPluginWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the message content.
+   * 
+   * @remarks
+   * Queries the AI conversation history for Wanxiaozhi 2.0.
    * 
    * @param request - UpdateAppChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8993,10 +10211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates message content.
+   * Updates the message content.
    * 
    * @remarks
-   * Wanxiaozhi 2.0 - API for querying AI conversation history.
+   * Queries the AI conversation history for Wanxiaozhi 2.0.
    * 
    * @param request - UpdateAppChatMessageRequest
    * @returns UpdateAppChatMessageResponse
@@ -9219,6 +10437,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - UpdateAppPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppPluginResponse
+   */
+  async updateAppPluginWithOptions(request: $_model.UpdateAppPluginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAppPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.configItems)) {
+      query["ConfigItems"] = request.configItems;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.hooks)) {
+      query["Hooks"] = request.hooks;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      query["Icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    if (!$dara.isNull(request.skillHeader)) {
+      query["SkillHeader"] = request.skillHeader;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAppPlugin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAppPluginResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAppPluginResponse({}));
+  }
+
+  /**
+   * Updates an application plugin.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - UpdateAppPluginRequest
+   * @returns UpdateAppPluginResponse
+   */
+  async updateAppPlugin(request: $_model.UpdateAppPluginRequest): Promise<$_model.UpdateAppPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAppPluginWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the SEO index status.
    * 
    * @remarks
@@ -9283,10 +10593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Supabase authentication configuration
+   * Updates the Supabase authentication configuration.
    * 
    * @remarks
-   * Query the auth configuration information of the Supabase instance corresponding to the resource
+   * Queries the Supabase instance authentication configuration information corresponding to a resource.
    * 
    * @param request - UpdateAppSupabaseAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9321,10 +10631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Supabase authentication configuration
+   * Updates the Supabase authentication configuration.
    * 
    * @remarks
-   * Query the auth configuration information of the Supabase instance corresponding to the resource
+   * Queries the Supabase instance authentication configuration information corresponding to a resource.
    * 
    * @param request - UpdateAppSupabaseAuthConfigRequest
    * @returns UpdateAppSupabaseAuthConfigResponse
@@ -9399,7 +10709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update miniapp binding information
+   * Updates the binding information for a mini program.
    * 
    * @param request - UpdateMiniAppBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9442,7 +10752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update miniapp binding information
+   * Updates the binding information for a mini program.
    * 
    * @param request - UpdateMiniAppBindingRequest
    * @returns UpdateMiniAppBindingResponse
@@ -9453,7 +10763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新组织单元
+   * Updates an organizational unit.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - UpdateRbacOrgUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9492,7 +10805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新组织单元
+   * Updates an organizational unit.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - UpdateRbacOrgUnitRequest
    * @returns UpdateRbacOrgUnitResponse
@@ -9556,6 +10872,78 @@ export default class Client extends OpenApi {
   async updateRbacRole(request: $_model.UpdateRbacRoleRequest): Promise<$_model.UpdateRbacRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRbacRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * Uploads an application plugin version.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - UploadAppPluginVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadAppPluginVersionResponse
+   */
+  async uploadAppPluginVersionWithOptions(request: $_model.UploadAppPluginVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadAppPluginVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.changelog)) {
+      query["Changelog"] = request.changelog;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.downloadUrl)) {
+      query["DownloadUrl"] = request.downloadUrl;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginVersion)) {
+      query["PluginVersion"] = request.pluginVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadAppPluginVersion",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadAppPluginVersionResponse>(await this.callApi(params, req, runtime), new $_model.UploadAppPluginVersionResponse({}));
+  }
+
+  /**
+   * Uploads an application plugin version.
+   * 
+   * @remarks
+   * Retrieves the configuration information of the code generation plugin.
+   * 
+   * @param request - UploadAppPluginVersionRequest
+   * @returns UploadAppPluginVersionResponse
+   */
+  async uploadAppPluginVersion(request: $_model.UploadAppPluginVersionRequest): Promise<$_model.UploadAppPluginVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadAppPluginVersionWithOptions(request, runtime);
   }
 
   /**
@@ -9627,7 +11015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a material file.
+   * Uploads an asset file.
+   * 
+   * @remarks
+   * The Supabase instance information corresponding to the resource.
    * 
    * @param request - UploadMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9652,6 +11043,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9670,7 +11065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a material file.
+   * Uploads an asset file.
+   * 
+   * @remarks
+   * The Supabase instance information corresponding to the resource.
    * 
    * @param request - UploadMaterialFileRequest
    * @returns UploadMaterialFileResponse
@@ -9678,6 +11076,66 @@ export default class Client extends OpenApi {
   async uploadMaterialFile(request: $_model.UploadMaterialFileRequest): Promise<$_model.UploadMaterialFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadMaterialFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Uploads a material file as an administrator (AI-generated).
+   * 
+   * @remarks
+   * The Supabase instance information corresponding to the operation resource.
+   * 
+   * @param request - UploadMaterialFileForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMaterialFileForAdminResponse
+   */
+  async uploadMaterialFileForAdminWithOptions(request: $_model.UploadMaterialFileForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadMaterialFileForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadMaterialFileForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadMaterialFileForAdminResponse>(await this.callApi(params, req, runtime), new $_model.UploadMaterialFileForAdminResponse({}));
+  }
+
+  /**
+   * Uploads a material file as an administrator (AI-generated).
+   * 
+   * @remarks
+   * The Supabase instance information corresponding to the operation resource.
+   * 
+   * @param request - UploadMaterialFileForAdminRequest
+   * @returns UploadMaterialFileForAdminResponse
+   */
+  async uploadMaterialFileForAdmin(request: $_model.UploadMaterialFileForAdminRequest): Promise<$_model.UploadMaterialFileForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadMaterialFileForAdminWithOptions(request, runtime);
   }
 
 }

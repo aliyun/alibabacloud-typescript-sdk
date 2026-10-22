@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extends $dara.Model {
   /**
    * @remarks
-   * SDK change log
+   * The SDK change log.
    * 
    * @example
    * - Add Params.
@@ -13,7 +13,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extends $dara.
   changeLog?: string;
   /**
    * @remarks
-   * Creation UTC time in ISO8601 format.
+   * The creation time in UTC. The time is in the ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -23,7 +23,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extends $dara.
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Logical value
+   * The logical value.
    * 
    * @example
    * 111
@@ -63,6 +63,13 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
    * 111
    */
   activeLogicalNumber?: number;
+  /**
+   * @remarks
+   * The code commit hash.
+   * 
+   * @example
+   * 890243d5977e74d80eebd4734f7b05f626f84cb1
+   */
   commitHash?: string;
   /**
    * @remarks
@@ -82,7 +89,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
   maxLogicalNumber?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -90,7 +97,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * API Guide information.
+   * The operation description.
    */
   snapshots?: GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots[];
   static names(): { [key: string]: string } {
@@ -130,7 +137,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
 export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reasons for the access denial.
    * 
    * @example
    * {}
@@ -138,9 +145,9 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -148,7 +155,7 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -156,7 +163,7 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -164,8 +171,8 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -173,12 +180,12 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Faulty parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Application module
+   * The application module.
    */
   module?: GetAppCodeWorkspaceDetailResponseBodyModule;
   /**
@@ -191,7 +198,7 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -199,15 +206,15 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

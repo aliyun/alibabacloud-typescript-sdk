@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppTemplateResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Application type
+   * The application type.
    * 
    * @example
    * TRACE
@@ -13,7 +13,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -21,7 +21,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * color
+   * The color scheme.
    * 
    * @example
    * red
@@ -29,7 +29,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   colorScheme?: string;
   /**
    * @remarks
-   * Color name
+   * The color scheme name.
    * 
    * @example
    * red
@@ -37,7 +37,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   colorSchemeName?: string;
   /**
    * @remarks
-   * The actual data volume of the original table copied during DMS lockless change.
+   * The actual amount of data copied from the original table during a DMS lock-free schema change.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   copyCount?: number;
   /**
    * @remarks
-   * User ID of the creator.
+   * The user ID of the creator.
    * 
    * @example
    * 208614160512124381
@@ -53,7 +53,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Creation UTC time, in ISO 8601 date format.
+   * The creation time in UTC. The date format follows ISO 8601.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -63,7 +63,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Modify time
+   * The modification time in ISO 8601 format. The time zone is UTC (Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -73,7 +73,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Primary key
+   * The primary key.
    * 
    * @example
    * 16257
@@ -81,19 +81,19 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Industry. Default value: **common** (general industry). Valid values:
+   * The industry. Default value: **common** (general industry). Valid values:
    * 
-   * - **microVideo**: Short video industry.
+   * - **microVideo**: short video industry.
    * 
-   * - **common**: General industry.
+   * - **common**: general industry.
    * 
    * @example
-   * 通用
+   * common
    */
   industry?: string;
   /**
    * @remarks
-   * Industry name.
+   * The industry name.
    * 
    * @example
    * indextry
@@ -101,7 +101,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   industryName?: string;
   /**
    * @remarks
-   * Last modifier
+   * The last modifier.
    * 
    * @example
    * admin
@@ -109,7 +109,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * Like count.
+   * The number of likes.
    * 
    * @example
    * 100
@@ -117,27 +117,27 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   likeCount?: number;
   /**
    * @remarks
-   * Whether the current user has liked it
+   * Indicates whether the current user has liked the template.
    */
   liked?: boolean;
   /**
    * @remarks
    * <props="china">
    * 
-   * Map of metadata for text segmentation.
+   * The metadata map of the text chunk.
    * 
-   * > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+   * > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
    * 
-   * > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
+   * > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned in the `image_url` field of the metadata map, along with an expiration time.
    * 
    * 
    * <props="intl">
    * 
-   * Map of metadata for text segmentation.
+   * The metadata map of the text chunk.
    * 
-   * > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+   * > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
    * 
-   * > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
+   * > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned in the `image_url` field of the metadata map, along with an expiration time.
    * 
    * @example
    * {\\"operations\\":[{\\"operator\\":\\"replace\\",\\"oldMetaName\\":\\"character2_add\\",\\"newMetaType\\":\\"varchar(2)\\"}]}
@@ -145,7 +145,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * Preview URL
+   * The preview URL.
    * 
    * @example
    * https://preview-lyj.aliyuncs.com/preview/4825a3849c2e49e1b48804c7f90b766f?subSceneIds=807648
@@ -153,9 +153,9 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   previewUrl?: string;
   /**
    * @remarks
-   * Edition. Valid values:
-   * - **BasicVersion**: Basic Edition.
-   * - **EnterpriseVersion**: Enterprise Edition.
+   * The product version. Valid values:
+   * - **BasicVersion**: Basic edition.
+   * - **EnterpriseVersion**: Enterprise edition.
    * > This parameter is required only when ProductForm is set to IntegrationForm.
    * 
    * @example
@@ -164,7 +164,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * Edition Name.
+   * The edition name.
    * 
    * @example
    * 1.0.2
@@ -172,7 +172,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   productVersionName?: string;
   /**
    * @remarks
-   * Share count
+   * The number of shares.
    * 
    * @example
    * 100
@@ -180,7 +180,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   shareCount?: number;
   /**
    * @remarks
-   * trial, draft, live, refunded, expired, released
+   * trial,draft,live,refunded,expired,released
    * 
    * @example
    * NORMAL
@@ -188,7 +188,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Template ID
+   * The template ID.
    * 
    * @example
    * 7cc17da1-b670-4be7-a6b4-0b3cdf7bf5f7
@@ -196,7 +196,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Template Name
+   * The template name.
    * 
    * @example
    * siemProtect_All_
@@ -204,7 +204,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * application thumbnail
+   * The application thumbnail URL.
    * 
    * @example
    * placeHolder
@@ -212,7 +212,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   thumbnailUrl?: string;
   /**
    * @remarks
-   * View count.
+   * The number of views.
    * 
    * @example
    * 100
@@ -220,9 +220,9 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
   viewCount?: number;
   /**
    * @remarks
-   * Hot word weight, an integer in the range [1, 5].  
-   * Common value: 4.  
-   * If the effect is not obvious, you can moderately increase the weight. However, if the weight is too high, it may cause negative effects and reduce the accuracy of detecting other words.
+   * The weight of the hot word. Valid values: integers in the range of [1, 5].
+   * Common value: 4.
+   * If the effect is not obvious, increase the weight as needed. However, an excessively large weight may cause negative effects and lead to inaccurate recognition of other words.
    * 
    * @example
    * 100
@@ -300,7 +300,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
 export class GetAppTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * permission denied information
+   * The access denial details.
    * 
    * @example
    * {}
@@ -308,7 +308,7 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -316,7 +316,7 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -324,7 +324,7 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error Code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -332,8 +332,8 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -341,12 +341,12 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * whether deletion succeeded
+   * Indicates whether the deletion was successful.
    */
   module?: GetAppTemplateResponseBodyModule;
   /**
@@ -359,7 +359,7 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -367,15 +367,15 @@ export class GetAppTemplateResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

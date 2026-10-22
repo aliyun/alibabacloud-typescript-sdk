@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveMaterialFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: A retry is not allowed.
-   * - true: A retry is allowed.
+   * Indicates whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -47,7 +47,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -68,7 +68,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the files were moved successfully.
+   * Indicates whether the move operation was successful.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -95,7 +95,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

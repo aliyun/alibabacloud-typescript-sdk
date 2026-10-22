@@ -5,21 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The number of inspiration points consumed.
+   * The number of consumed inspiration points.
    * 
    * @example
    * 120
    */
   amount?: number;
+  /**
+   * @remarks
+   * The exact number of consumed inspiration points. The value is a string that supports decimal display.
+   * 
+   * @example
+   * 120
+   */
   amountStr?: string;
   /**
    * @remarks
-   * The consumption time.
+   * The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-06-01 12:00:00
    */
   consumeTime?: string;
+  /**
+   * @remarks
+   * The consumption type.
+   * 
+   * @example
+   * 1 round of conversation
+   */
   consumeType?: string;
   /**
    * @remarks
@@ -29,13 +43,20 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
    * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
    */
   metaData?: string;
+  /**
+   * @remarks
+   * The unique identifier of the consumption record.
+   * 
+   * @example
+   * RECORD_1
+   */
   recordKey?: string;
   /**
    * @remarks
-   * The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
+   * The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, and AI content creation.
    * 
    * @example
-   * 家装
+   * Home improvement
    */
   sceneName?: string;
   static names(): { [key: string]: string } {
@@ -74,21 +95,35 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
 export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The number of inspiration points consumed.
+   * The number of consumed inspiration points.
    * 
    * @example
    * 2
    */
   amount?: number;
+  /**
+   * @remarks
+   * The exact number of consumed inspiration points. The value is a string that supports decimal display.
+   * 
+   * @example
+   * 120
+   */
   amountStr?: string;
   /**
    * @remarks
-   * The consumption time.
+   * The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-06-01 12:00:00
    */
   consumeTime?: string;
+  /**
+   * @remarks
+   * The consumption type.
+   * 
+   * @example
+   * 1 round of conversation
+   */
   consumeType?: string;
   /**
    * @remarks
@@ -100,10 +135,10 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
   metaData?: string;
   /**
    * @remarks
-   * The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
+   * The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, and AI content creation.
    * 
    * @example
-   * 家装
+   * Home improvement
    */
   sceneName?: string;
   static names(): { [key: string]: string } {
@@ -166,7 +201,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   nextPage?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -182,7 +217,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -247,7 +282,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
 export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed cause of the access denial.
    * 
    * @example
    * {}
@@ -255,7 +290,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -263,7 +298,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -279,7 +314,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This field is not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -287,7 +322,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -313,15 +348,15 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AppMaterialTask extends $dara.Model {
   /**
    * @remarks
+   * The business group ID.
+   * 
+   * @example
+   * 111
+   */
+  bizGroupId?: string;
+  /**
+   * @remarks
    * The task completion time.
    * 
    * @example
@@ -16,7 +24,7 @@ export class AppMaterialTask extends $dara.Model {
    * The display format of the completion time.
    * 
    * @example
-   * 1分钟前
+   * 1 minute ago
    */
   completeTimeFormat?: string;
   /**
@@ -24,7 +32,7 @@ export class AppMaterialTask extends $dara.Model {
    * The failure reason.
    * 
    * @example
-   * 参数不合规
+   * Invalid parameters
    */
   failReason?: string;
   /**
@@ -66,13 +74,13 @@ export class AppMaterialTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task parameter.
+   * The task parameters.
    * 
    * @example
    * {
-   *     "brandName": "品牌名称",
+   *     "brandName": "Brand name",
    *     "direction": "HORIZONTAL",
-   *     "userPrompt": "设计要求"
+   *     "userPrompt": "Design requirements"
    * }
    */
   taskParam?: string;
@@ -86,6 +94,7 @@ export class AppMaterialTask extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizGroupId: 'BizGroupId',
       completeTime: 'CompleteTime',
       completeTimeFormat: 'CompleteTimeFormat',
       failReason: 'FailReason',
@@ -101,6 +110,7 @@ export class AppMaterialTask extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizGroupId: 'string',
       completeTime: 'string',
       completeTimeFormat: 'string',
       failReason: 'string',

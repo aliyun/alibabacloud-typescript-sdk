@@ -13,6 +13,13 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
    * WS20250801154628000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The environment identifier.
+   * 
+   * @example
+   * staging
+   */
   env?: string;
   /**
    * @remarks
@@ -40,7 +47,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   orderByClause?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * CreationTime
@@ -48,7 +55,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC and DESC.
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -64,7 +71,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

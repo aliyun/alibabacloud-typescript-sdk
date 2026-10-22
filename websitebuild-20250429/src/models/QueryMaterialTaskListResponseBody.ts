@@ -14,7 +14,7 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The request result.
    */
   data?: AppMaterialTask[];
   /**
@@ -43,7 +43,10 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes up to the 1000 most recent records for the current query. If the results exceed 1000 records, **ResultLimit** is set to **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+   * Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * 
+   * @example
+   * False
    */
   resultLimit?: boolean;
   /**
@@ -111,9 +114,9 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Indicates whether a retry is allowed. Valid values:
+   * - false: No retry is allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -137,7 +140,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is currently not in use. Ignore this parameter.
+   * The dynamic message. Currently not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -145,12 +148,12 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. The ErrorCode parameter is not returned if the request is successful. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes section.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -197,7 +200,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -205,15 +208,15 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -221,7 +224,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether synchronous processing is used.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

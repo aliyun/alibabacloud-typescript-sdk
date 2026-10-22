@@ -5,22 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class AppOperateAction extends $dara.Model {
   /**
    * @remarks
-   * 用于唯一标识一个操作行为
+   * The key used to uniquely identify an action.
+   * 
+   * @example
+   * BeginDialogue
    */
   actionKey?: string;
   /**
    * @remarks
-   * 用于在界面中展示操作名称
+   * The text used to display the action name in the user interface.
+   * 
+   * @example
+   * Renew
    */
   actionText?: string;
   /**
    * @remarks
-   * 标识该操作是否可用
+   * Indicates whether the action is available.
    */
   enable?: boolean;
   /**
    * @remarks
-   * 点击操作时跳转的URL地址
+   * The URL to redirect to when the action is clicked.
+   * 
+   * @example
+   * https://common-buy.aliyun.com/?orderType=RENEW&commodityCode=domain_website_public_cn&instanceId=12313213
    */
   href?: string;
   static names(): { [key: string]: string } {

@@ -11,10 +11,14 @@ export class ListAppInstancesRequest extends $dara.Model {
    * WS20250731233102000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The list of business IDs for the application instances.
+   */
   bizIds?: string[];
   /**
    * @remarks
-   * The start of the expiration time range.
+   * The expiration start time.
    * 
    * @example
    * 2025-12-18T14:30:00Z
@@ -22,7 +26,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   endTimeBegin?: string;
   /**
    * @remarks
-   * The end of the expiration time range.
+   * The expiration end time.
    * 
    * @example
    * 2025-12-31T14:30:00Z
@@ -38,7 +42,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The maximum number of results per query.
+   * The maximum number of results to return for each query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -48,7 +52,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. This parameter is empty if no subsequent query is required.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -56,7 +60,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The sort field.
    * 
    * @example
    * gmtCreated
@@ -64,7 +68,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DOWNGRADE
@@ -88,12 +92,20 @@ export class ListAppInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameter.
+   * The query parameters.
    * 
    * @example
    * {\\"RequestId\\":\\"\\"}
    */
   query?: string;
+  /**
+   * @remarks
+   * The query mode. A value of CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
+   * 
+   * @example
+   * CONTENT_CREATION
+   */
+  queryMode?: string;
   /**
    * @remarks
    * The status range.
@@ -113,6 +125,7 @@ export class ListAppInstancesRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       query: 'Query',
+      queryMode: 'QueryMode',
       statusList: 'StatusList',
     };
   }
@@ -131,6 +144,7 @@ export class ListAppInstancesRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       query: 'string',
+      queryMode: 'string',
       statusList: { 'type': 'array', 'itemType': 'string' },
     };
   }

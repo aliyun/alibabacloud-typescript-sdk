@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishAppInstanceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Publish order ID
+   * The publish order ID.
    * 
    * @example
    * 231
@@ -35,7 +35,7 @@ export class PublishAppInstanceResponseBodyModule extends $dara.Model {
 export class PublishAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denial information.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -59,7 +59,7 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Ignore this field.
+   * The dynamic message. This parameter is currently unused and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,12 +75,12 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: PublishAppInstanceResponseBodyModule;
   /**
@@ -93,7 +93,7 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,15 +101,15 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

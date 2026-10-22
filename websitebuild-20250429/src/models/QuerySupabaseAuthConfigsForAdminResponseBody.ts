@@ -6,18 +6,12 @@ export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Mo
   /**
    * @remarks
    * The configuration value. Valid values:
-   * - cc_rule: HTTP flood mitigation rule.
-   * 
+   * - cc_rule: CC rules.
    * - ddos_dispatch: DDoS interaction scheduling.
-   * 
-   * - edge_safe: edge application security.
-   * 
+   * - edge_safe: Edge application security.
    * - blocked_regions: Location Blacklist.
-   * 
    * - http_acl_policy: Accurate Access Control.
-   * 
-   * - bot_manager: bot traffic management.
-   * 
+   * - bot_manager: Bot traffic management.
    * - ip_reputation: IP reputation library.
    */
   configs?: { [key: string]: any };
@@ -48,7 +42,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Mo
 export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -56,7 +50,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -80,7 +74,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -88,7 +82,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -114,15 +108,15 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

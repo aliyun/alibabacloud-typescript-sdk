@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppNotificationSceneResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created scenario.
+   * The ID of the newly created scenario.
    * 
    * @example
    * 16257
@@ -35,7 +35,7 @@ export class CreateAppNotificationSceneResponseBodyModule extends $dara.Model {
 export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -101,15 +101,15 @@ export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

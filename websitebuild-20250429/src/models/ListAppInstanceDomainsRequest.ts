@@ -11,10 +11,25 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
    * WD20250718165839000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The domain name keyword for fuzzy match. This parameter is optional.
+   * 
+   * @example
+   * example.com
+   */
   domainKeyword?: string;
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX. If this parameter is not specified, the default value is CUSTOM.
+   * 
+   * @example
+   * CUSTOM
+   */
+  domainType?: string;
+  /**
+   * @remarks
+   * The number of entries to return for a single query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -24,7 +39,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this value is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -40,7 +55,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -62,16 +77,26 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
    * 0
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The query mode for the domain name status. Valid values: BASIC and REALTIME. BASIC returns only the persisted status. REALTIME refreshes the status from external services. If this parameter is not specified, the default value is REALTIME.
+   * 
+   * @example
+   * REALTIME
+   */
+  statusQueryMode?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       domainKeyword: 'DomainKeyword',
+      domainType: 'DomainType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderColumn: 'OrderColumn',
       orderType: 'OrderType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      statusQueryMode: 'StatusQueryMode',
     };
   }
 
@@ -79,12 +104,14 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
     return {
       bizId: 'string',
       domainKeyword: 'string',
+      domainType: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orderColumn: 'string',
       orderType: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      statusQueryMode: 'string',
     };
   }
 

@@ -25,12 +25,12 @@ export class ModifyMaterialFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The new name of the file after modification.
+   * The updated file name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试文件
+   * Test file
    */
   name?: string;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
   expireTime?: number;
   /**
    * @remarks
-   * The platform-specific extension field.
+   * The platform-specific extension fields.
    */
   extra?: { [key: string]: string };
   /**
@@ -65,7 +65,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
 export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -97,8 +97,8 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -135,12 +135,12 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

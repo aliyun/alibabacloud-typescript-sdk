@@ -13,10 +13,17 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
    * WS20250801154628000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The environment identifier.
+   * 
+   * @example
+   * staging
+   */
   env?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort column.
    * 
    * @example
    * gmtCreated
@@ -24,9 +31,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * - ASC: ascending order
-   * - DESC: descending order
+   * The sort order. Valid values: ASC, DESC.
    * 
    * @example
    * BUY

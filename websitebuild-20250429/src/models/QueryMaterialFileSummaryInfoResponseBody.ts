@@ -13,7 +13,7 @@ export class QueryMaterialFileSummaryInfoResponseBodyModule extends $dara.Model 
   fileNum?: number;
   /**
    * @remarks
-   * The occupied storage space.
+   * The amount of storage space used.
    * 
    * @example
    * 23M
@@ -45,7 +45,7 @@ export class QueryMaterialFileSummaryInfoResponseBodyModule extends $dara.Model 
 export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -61,7 +61,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
+   * The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -85,7 +85,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -114,12 +114,12 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

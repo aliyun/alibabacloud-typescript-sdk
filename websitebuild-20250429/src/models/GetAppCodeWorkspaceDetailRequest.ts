@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppCodeWorkspaceDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID
+   * The site ID.
    * 
    * @example
    * 1071596645435968

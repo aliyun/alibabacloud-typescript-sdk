@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppDomainRedirectRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance business ID.
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,15 @@ export class DeleteAppDomainRedirectRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Domain name redirect record ID.
+   * aliyun.com
+   * 
+   * @example
+   * www.aliyun.com
+   */
+  domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name redirect record.
    * 
    * @example
    * 803858889404426240
@@ -22,6 +30,7 @@ export class DeleteAppDomainRedirectRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      domainName: 'DomainName',
       recordId: 'RecordId',
     };
   }
@@ -29,6 +38,7 @@ export class DeleteAppDomainRedirectRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      domainName: 'string',
       recordId: 'number',
     };
   }

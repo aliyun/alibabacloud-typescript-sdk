@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackAppCodeSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * site ID
+   * The site ID.
    * 
    * @example
    * 1067072706415168
@@ -13,7 +13,7 @@ export class RollbackAppCodeSnapshotRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Target snapshot version number
+   * The target snapshot version number.
    * 
    * @example
    * 1231

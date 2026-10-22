@@ -5,21 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMaterialTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the task.
+   * The business group ID.
+   * 
+   * @example
+   * xxx
+   */
+  bizGroupId?: string;
+  /**
+   * @remarks
+   * The task parameters.
    * 
    * This parameter is required.
    * 
    * @example
    * {
-   *     "brandName": "品牌名称",
+   *     "brandName": "Brand name",
    *     "direction": "HORIZONTAL",
-   *     "userPrompt": "设计要求"
+   *     "userPrompt": "Design requirements"
    * }
    */
   taskParam?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * This parameter is required.
    * 
@@ -29,6 +37,7 @@ export class SubmitMaterialTaskRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizGroupId: 'BizGroupId',
       taskParam: 'TaskParam',
       taskType: 'TaskType',
     };
@@ -36,6 +45,7 @@ export class SubmitMaterialTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizGroupId: 'string',
       taskParam: 'string',
       taskType: 'string',
     };

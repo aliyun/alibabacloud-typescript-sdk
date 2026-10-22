@@ -16,7 +16,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBodyModuleRecords extend
    * The activity name.
    * 
    * @example
-   * IP网段过滤统计
+   * IP segment filtering statistics
    */
   activityName?: string;
   /**
@@ -37,7 +37,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBodyModuleRecords extend
   failReason?: string;
   /**
    * @remarks
-   * The issuance time.
+   * The issuance time. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-06-01
@@ -193,7 +193,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBody extends $dara.Model
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -217,7 +217,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBody extends $dara.Model
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s variable in the ErrMessage response parameter.
+   * The dynamic error message. This message is used to replace the %s variable in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -269,10 +269,10 @@ export class ListPromotionOfferRecordsForPartnerResponseBody extends $dara.Model
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

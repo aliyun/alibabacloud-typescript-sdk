@@ -21,7 +21,7 @@ export class GetMiniAppBindingShrinkRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The list of extension information keys.
+   * The list of extended information keys.
    * 
    * @example
    * SERVER_DOMAIN

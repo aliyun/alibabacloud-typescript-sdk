@@ -13,6 +13,22 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * The list of mobile butler delivery platform types in a JSON string array. Valid values: wechat, dingtalk, wecom, and feishu.
+   * 
+   * @example
+   * ["feishu"]
+   */
+  butlerChannelTypesJson?: string;
+  /**
+   * @remarks
+   * The list of mobile butler notification fields in a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported. The butler fields in JSON format.
+   * 
+   * @example
+   * ["id","phone","name","city","message","is_deleted","updated_at","created_at","status","budget"]
+   */
+  butlerFieldsJson?: string;
+  /**
+   * @remarks
    * The notification channels in a JSON array string, such as ["sms","email"].
    * 
    * @example
@@ -56,7 +72,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
    * The name of the scenario.
    * 
    * @example
-   * 设备能力手册
+   * Device Capability Manual
    */
   name?: string;
   /**
@@ -102,6 +118,8 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      butlerChannelTypesJson: 'ButlerChannelTypesJson',
+      butlerFieldsJson: 'ButlerFieldsJson',
       channelsJson: 'ChannelsJson',
       description: 'Description',
       emailFieldsJson: 'EmailFieldsJson',
@@ -119,6 +137,8 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      butlerChannelTypesJson: 'string',
+      butlerFieldsJson: 'string',
       channelsJson: 'string',
       description: 'string',
       emailFieldsJson: 'string',

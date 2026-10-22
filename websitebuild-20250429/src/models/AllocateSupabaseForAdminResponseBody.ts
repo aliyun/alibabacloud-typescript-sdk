@@ -45,7 +45,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbPublicUrl?: string;
   /**
    * @remarks
-   * The database type.
+   * The type of the database.
    * 
    * @example
    * ORACLE
@@ -85,7 +85,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * The password used to access the ApsaraDB RDS database.
+   * The access password of the RDS database.
    * 
    * @example
    * 111
@@ -101,9 +101,9 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   serviceKey?: string;
   /**
    * @remarks
-   * The instance status. Valid values:
-   * - 0: paused
-   * - 1: running
+   * The status of the instance. Valid values:
+   * - 0: Paused.
+   * - 1: Running.
    * 
    * @example
    * NORMAL
@@ -175,7 +175,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePublicUrl?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * GFCBAMJH-zh_CN
@@ -257,7 +257,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
 export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -265,7 +265,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -273,7 +273,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * or
@@ -297,7 +297,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -323,15 +323,15 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

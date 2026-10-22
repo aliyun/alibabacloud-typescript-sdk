@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
 export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -51,7 +51,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The application name used for the query.
    * 
    * @example
    * watermark
@@ -59,7 +59,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,10 +67,10 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/gl3d6l3817id8p1/gl3d6l3817id8p1.diff.zip?Expires=1750392068&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=Bcj3eohy8nmlSQ7AAGdq7JZoLjM%3D
+   * SYSTEM_ERROR
    */
   dynamicMessage?: string;
   /**
@@ -104,12 +104,12 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request was processed synchronously.
    * 
    * @example
    * True

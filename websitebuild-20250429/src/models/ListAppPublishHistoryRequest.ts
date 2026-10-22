@@ -5,26 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPublishHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The deployment channel.
+   * 
+   * @example
+   * PC
+   */
   deployChannel?: string;
   /**
    * @remarks
-   * Search keyword
+   * The search keyword.
    * 
    * @example
-   * 1_运营支持部_销售运营
+   * 1_Operations Support Department_Sales Operations
    */
   keyword?: string;
   /**
    * @remarks
-   * Number of results per query.  
-   * 
-   * Value range: 10 to 100. Default value: 20.
+   * The maximum number of entries to return for a single query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -32,7 +37,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. Empty if there is no next query.
+   * The token used to start the next query. This parameter is empty if no next query is available.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -40,7 +45,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -48,16 +53,23 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size
+   * The page size.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The release environment.
+   * 
+   * @example
+   * PROD
+   */
   publishEnv?: string;
   /**
    * @remarks
-   * Sorting method
+   * The sort order.
    * 
    * @example
    * EndTime
@@ -65,16 +77,23 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * Publish status
+   * The release status.
    * 
    * @example
    * NORMAL
    */
   status?: string;
+  /**
+   * @remarks
+   * The release subchannel.
+   * 
+   * @example
+   * current
+   */
   subchannel?: string;
   /**
    * @remarks
-   * Website domain name
+   * The website domain name.
    * 
    * @example
    * www.aliyun.com

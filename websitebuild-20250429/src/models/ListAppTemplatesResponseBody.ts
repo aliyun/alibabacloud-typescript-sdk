@@ -21,7 +21,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The color.
+   * The color scheme.
    * 
    * @example
    * Red
@@ -29,7 +29,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   colorScheme?: string;
   /**
    * @remarks
-   * The color name.
+   * The color scheme name.
    * 
    * @example
    * red
@@ -37,7 +37,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   colorSchemeName?: string;
   /**
    * @remarks
-   * The actual amount of data copied from the original table during a DMS lock-free schema change.
+   * The actual amount of data copied from the original table during a DMS lock-free change.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in ISO 8601 format in UTC (Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -63,7 +63,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The time is a UNIX timestamp in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -81,10 +81,10 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry so that the backend matches the applicable algorithm combination. Valid values: 
+   * The industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry so that the backend can match the applicable algorithm combination. Valid values: 
    * 
-   * - **microVideo**: short video industry.
-   * - **common**: general industry.
+   * - **microVideo**: short video industry
+   * - **common**: general industry
    * 
    * @example
    * NOUSE
@@ -100,7 +100,12 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   industryName?: string;
   /**
    * @remarks
-   * The ID of the last modifier.
+   * Specifies whether the template is recommended.
+   */
+  isRecommended?: boolean;
+  /**
+   * @remarks
+   * The last modifier ID.
    * 
    * @example
    * admin
@@ -116,12 +121,12 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   likeCount?: number;
   /**
    * @remarks
-   * Indicates whether the current user has liked this template.
+   * Indicates whether the current user has liked the item.
    */
   liked?: boolean;
   /**
    * @remarks
-   * The remediation action.
+   * The repair action.
    * 
    * @example
    * {\\"memFrom\\": \\"text\\", \\"uid\\": \\"text\\", \\"labels\\": \\"jsonb\\", \\"content\\": \\"text\\", \\"fromId\\": \\"text\\", \\"uuid\\": \\"text\\"}
@@ -138,8 +143,8 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
    * The product version. Valid values:
-   * - **BasicVersion**: Basic edition.
-   * - **EnterpriseVersion**: Enterprise edition.
+   * - **BasicVersion**: Basic Edition
+   * - **EnterpriseVersion**: Enterprise Edition
    * 
    * @example
    * EnterpriseVersion
@@ -147,7 +152,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * The Edition name.
+   * The edition name.
    * 
    * @example
    * 1.0.1
@@ -180,7 +185,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
    * The template name.
-   * - Maximum length: 128.
+   * - The maximum length is 128 characters.
    * 
    * @example
    * cfdna6
@@ -188,7 +193,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The application thumbnail URL.
+   * The application thumbnail.
    * 
    * @example
    * http://www.aliyun.com
@@ -223,6 +228,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
       id: 'Id',
       industry: 'Industry',
       industryName: 'IndustryName',
+      isRecommended: 'IsRecommended',
       lastModifier: 'LastModifier',
       likeCount: 'LikeCount',
       liked: 'Liked',
@@ -253,6 +259,7 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
       id: 'number',
       industry: 'string',
       industryName: 'string',
+      isRecommended: 'boolean',
       lastModifier: 'string',
       likeCount: 'number',
       liked: 'boolean',
@@ -290,7 +297,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The BizId of the associated application instance.
+   * The bizId of the associated application instance.
    * 
    * @example
    * WS20260502160409000001
@@ -298,7 +305,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The color.
+   * The color scheme.
    * 
    * @example
    * red
@@ -306,7 +313,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   colorScheme?: string;
   /**
    * @remarks
-   * The color name.
+   * The color scheme name.
    * 
    * @example
    * red
@@ -314,7 +321,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   colorSchemeName?: string;
   /**
    * @remarks
-   * The actual amount of data copied from the original table during a DMS lock-free schema change.
+   * The actual amount of data copied from the original table during a DMS lock-free change.
    * 
    * @example
    * 100
@@ -354,11 +361,11 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The industry. Default value: **common** (general industry). Valid values:
+   * The industry. Default value: **common** (General industry). Valid values:
    * 
-   * - **microVideo**: short video industry.
+   * - **microVideo**: Short video industry.
    * 
-   * - **common**: general industry.
+   * - **common**: General industry.
    * 
    * @example
    * NOUSE
@@ -372,6 +379,11 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
    * abc
    */
   industryName?: string;
+  /**
+   * @remarks
+   * Specifies whether the template is recommended.
+   */
+  isRecommended?: boolean;
   /**
    * @remarks
    * The ID of the last modifier.
@@ -390,12 +402,12 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   likeCount?: number;
   /**
    * @remarks
-   * Indicates whether the current user has liked this template.
+   * Indicates whether the current user has liked the item.
    */
   liked?: boolean;
   /**
    * @remarks
-   * The remediation content.
+   * The fix details.
    * 
    * @example
    * {\\"knowledge_point\\":\\"text\\",\\"trunk_id\\":\\"text\\",\\"doc_name\\":\\"text\\",\\"knowledge_point_id\\":\\"text\\",\\"doc_id\\":\\"text\\",\\"trunk_content\\":\\"text\\"}
@@ -412,9 +424,9 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
    * The product version. Valid values:
-   * - **BasicVersion**: Basic edition.
-   * - **EnterpriseVersion**: Enterprise edition.
-   * > This parameter is required only when ProductForm is set to IntegrationForm.
+   * - **BasicVersion**: Basic Edition.
+   * - **EnterpriseVersion**: Enterprise Edition.
+   * > Specify this parameter only when ProductForm is set to IntegrationForm.
    * 
    * @example
    * BasicVersion
@@ -422,7 +434,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * The Edition name.
+   * The edition name.
    * 
    * @example
    * 1.0.2
@@ -438,7 +450,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   shareCount?: number;
   /**
    * @remarks
-   * Valid values: unknown, init, testing, online.
+   * The status. Valid values: unknown, init, testing, and online.
    * 
    * @example
    * Succeeded
@@ -462,7 +474,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The application thumbnail URL.
+   * The application thumbnail.
    * 
    * @example
    * http://www.aliyun.com
@@ -497,6 +509,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
       id: 'Id',
       industry: 'Industry',
       industryName: 'IndustryName',
+      isRecommended: 'IsRecommended',
       lastModifier: 'LastModifier',
       likeCount: 'LikeCount',
       liked: 'Liked',
@@ -527,6 +540,7 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
       id: 'number',
       industry: 'string',
       industryName: 'string',
+      isRecommended: 'boolean',
       lastModifier: 'string',
       likeCount: 'number',
       liked: 'boolean',
@@ -564,7 +578,7 @@ export class ListAppTemplatesResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request result.
+   * The request results.
    */
   data?: ListAppTemplatesResponseBodyModuleData[];
   /**
@@ -598,7 +612,7 @@ export class ListAppTemplatesResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * Indicates whether the query result is truncated. In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    * 
    * @example
    * False
@@ -666,7 +680,7 @@ export class ListAppTemplatesResponseBodyModule extends $dara.Model {
 export class ListAppTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -674,7 +688,7 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -682,7 +696,7 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * or
@@ -698,7 +712,7 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -706,14 +720,12 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error arguments.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The number of results returned per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -726,7 +738,7 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
   module?: ListAppTemplatesResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. This parameter is empty if there is no next query.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -753,7 +765,7 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

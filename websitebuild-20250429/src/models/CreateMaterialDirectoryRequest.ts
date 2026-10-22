@@ -20,7 +20,7 @@ export class CreateMaterialDirectoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 图片管理
+   * Image management
    */
   name?: string;
   /**

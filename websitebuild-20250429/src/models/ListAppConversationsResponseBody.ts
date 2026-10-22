@@ -37,7 +37,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in ISO 8601 format, including the time zone offset.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -47,7 +47,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time in ISO 8601 format. The time zone is UTC (Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -139,7 +139,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
 export class ListAppConversationsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The request result.
+   * The request results.
    */
   data?: ListAppConversationsResponseBodyModuleData[];
   /**
@@ -160,7 +160,7 @@ export class ListAppConversationsResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource count that matches the conditional filter criteria.
+   * The resource count that meets the conditional filters.
    * 
    * @example
    * 30
@@ -199,7 +199,7 @@ export class ListAppConversationsResponseBodyModule extends $dara.Model {
 export class ListAppConversationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -207,7 +207,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -215,7 +215,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * dewuApp
@@ -239,14 +239,12 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error arguments.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return for a single query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -259,7 +257,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   module?: ListAppConversationsResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -286,7 +284,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

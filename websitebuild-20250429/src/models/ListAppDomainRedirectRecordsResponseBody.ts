@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The redirect record ID.
+   * The ID of the redirect record.
    * 
    * @example
    * f0379419-433d-410e-98d9-bf5c72f47227
@@ -21,7 +21,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * The destination domain name.
+   * The target domain name.
    * 
    * @example
    * aliyuncs.com
@@ -55,7 +55,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
 export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The redirect record ID.
+   * The ID of the redirect record.
    * 
    * @example
    * 936956504373539840
@@ -71,7 +71,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * The destination domain name.
+   * The target domain name.
    * 
    * @example
    * aliyuncs.com
@@ -141,7 +141,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    */
   resultLimit?: boolean;
   /**
@@ -206,7 +206,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
 export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reasons for the access denial.
    * 
    * @example
    * {}
@@ -214,7 +214,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -222,7 +222,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The frontend application name.
+   * The name of the frontend application.
    * 
    * @example
    * spring-cloud-b
@@ -238,7 +238,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. Currently not used. Ignore this parameter.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -251,7 +251,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -261,12 +261,12 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned object.
+   * The response object.
    */
   module?: ListAppDomainRedirectRecordsResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. This parameter is empty if no next query is available.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -290,10 +290,10 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
-   * 系统异常
+   * System error
    */
   rootErrorMsg?: string;
   /**

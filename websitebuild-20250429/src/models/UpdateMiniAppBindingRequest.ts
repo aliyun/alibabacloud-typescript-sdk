@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMiniAppBindingRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801154628000001
@@ -13,7 +13,7 @@ export class UpdateMiniAppBindingRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * WECHAT
@@ -21,7 +21,7 @@ export class UpdateMiniAppBindingRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Configuration key
+   * The configuration key.
    * 
    * @example
    * xxxx
@@ -29,7 +29,7 @@ export class UpdateMiniAppBindingRequest extends $dara.Model {
   settingKey?: string;
   /**
    * @remarks
-   * Configuration value
+   * The configuration value.
    * 
    * @example
    * xxxx

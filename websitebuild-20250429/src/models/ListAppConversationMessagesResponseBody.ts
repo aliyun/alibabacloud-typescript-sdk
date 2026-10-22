@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * Chat ID.
+   * The chat ID.
    * 
    * @example
    * chat-xrz3etcl2bsygwlx8g
@@ -21,7 +21,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * Current chat status.
+   * The current chat status.
    * 
    * @example
    * created
@@ -29,7 +29,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   chatStatus?: string;
   /**
    * @remarks
-   * The ID of the data class API invoked.
+   * The ID of the data API that is called.
    * 
    * @example
    * {\\"DeviceName\\": u\\"\\u667a\\u80fd\\u63d2\\u5ea716A\\", \\"BlidMac\\": \\"18bc5a53351c\\", \\"DeviceModel\\": \\"ABSP21-16M\\", \\"DeviceCategory\\": u\\"\\u63d2\\u5ea7\\", \\"DeviceManufacturer\\": \\"\\", \\"DeviceType\\": 140}
@@ -37,7 +37,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Content type
+   * The content type.
    * 
    * @example
    * image/png
@@ -45,7 +45,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
@@ -53,7 +53,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1740479834
@@ -61,7 +61,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -69,7 +69,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Message ID.
+   * The message ID.
    * 
    * @example
    * 5f9e88ce-f223-4447-a23e-cb574df6c97a
@@ -77,7 +77,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Business extension metadata (in Map format, must be a JSON string).
+   * The business extension metadata (in Map format, must be a JSON string).
    * 
    * @example
    * {\\"appId\\":\\"WS20260507200853000001\\",\\"inputTokens\\":1411,\\"outputTokens\\":51}
@@ -85,7 +85,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * Region ordinal number. This parameter is deprecated.
+   * **[Deprecated]** The region sequence number. This parameter is deprecated.
    * 
    * @example
    * 1
@@ -93,19 +93,18 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   no?: number;
   /**
    * @remarks
-   * Role of the conversation participant. Valid values include:
+   * The role of the conversation participant. Valid values:
    * 
-   * - user: User
+   * - user: User.
    * 
-   * - assistant: Assistant
+   * - assistant: Assistant.
    * 
-   * - system: System
+   * - system: System.
+   * - function: Function.
    * 
-   * - function: Function
+   * - plugin: Plugin.
    * 
-   * - plugin: Plugin
-   * 
-   * - tool: Tool
+   * - tool: Tool.
    * 
    * @example
    * user
@@ -113,7 +112,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Section ID of the inspection item.
+   * The section ID of the check item.
    * 
    * @example
    * 11
@@ -121,7 +120,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -129,7 +128,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * IMAGE
@@ -187,7 +186,7 @@ export class ListAppConversationMessagesResponseBodyModule extends $dara.Model {
 export class ListAppConversationMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * permission denied information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -195,7 +194,7 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -203,7 +202,7 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -211,7 +210,7 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -219,8 +218,8 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -228,14 +227,14 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameter(s).
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -243,12 +242,12 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Response Data
+   * The response data.
    */
   module?: ListAppConversationMessagesResponseBodyModule[];
   /**
    * @remarks
-   * Token for the start of the next query. It is empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -264,7 +263,7 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -272,15 +271,15 @@ export class ListAppConversationMessagesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception.
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

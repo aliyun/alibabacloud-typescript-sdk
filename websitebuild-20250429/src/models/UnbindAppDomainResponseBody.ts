@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindAppDomainResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class UnbindAppDomainResponseBodyModule extends $dara.Model {
 export class UnbindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -67,7 +67,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
+   * The dynamic error message used to replace the %s placeholder in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,7 +75,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -93,7 +93,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -104,12 +104,12 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

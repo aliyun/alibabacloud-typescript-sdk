@@ -13,7 +13,7 @@ export class DeleteMaterialDirectoryRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * @example
    * 68157a0a-769a-4364-bbdc-a0e2cf3d5ad

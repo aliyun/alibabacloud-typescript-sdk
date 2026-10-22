@@ -29,7 +29,7 @@ export class GetOssUploadPolicyResponseBodyModule extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The Security Token Service (STS) token. This parameter is null in non-STS scenarios.
+   * The Security Token Service (STS) token. This value is null in non-STS scenarios.
    * 
    * @example
    * ***
@@ -105,7 +105,7 @@ export class GetOssUploadPolicyResponseBodyModule extends $dara.Model {
 export class GetOssUploadPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -113,9 +113,9 @@ export class GetOssUploadPolicyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: No retry is allowed.
-   * - true: A retry is allowed.
+   * Indicates whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -123,7 +123,7 @@ export class GetOssUploadPolicyResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -147,7 +147,7 @@ export class GetOssUploadPolicyResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -176,12 +176,12 @@ export class GetOssUploadPolicyResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

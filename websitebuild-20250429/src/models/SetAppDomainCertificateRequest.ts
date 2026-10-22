@@ -13,7 +13,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The SSL certificate name.
+   * The name of the SSL certificate.
    * 
    * @example
    * 2024
@@ -21,7 +21,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The certificate type: default free certificate or customer-owned certificate.
+   * The certificate type. Valid values: default free certificate and customer-owned certificate.
    * 
    * @example
    * Server

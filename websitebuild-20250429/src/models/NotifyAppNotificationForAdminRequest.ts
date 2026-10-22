@@ -19,10 +19,17 @@ export class NotifyAppNotificationForAdminRequest extends $dara.Model {
    * staging
    */
   env?: string;
+  /**
+   * @remarks
+   * The notification content.
+   * 
+   * @example
+   * {"type":"UPDATE","record":{"name":"new","contact":null},"old_record":{"name":"old"}}
+   */
   payload?: string;
   /**
    * @remarks
-   * The scene ID.
+   * The scenario ID.
    * 
    * @example
    * 8c909373-6c33-41a7-aa38-3650e288a63e

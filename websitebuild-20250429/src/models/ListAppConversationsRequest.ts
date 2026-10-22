@@ -21,9 +21,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   endModifyTime?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return for a single query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -31,7 +29,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==

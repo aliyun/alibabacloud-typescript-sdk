@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserAccessTokenForPartnerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The website domain name.
+   * 
+   * @example
+   * abcd.scd.wanwang.xin
+   */
   siteHost?: string;
   /**
    * @remarks
-   * The credential for connecting to the cloud application.
+   * The credential used to connect to the cloud application.
    * > This parameter is displayed for non-initial calls.
    * 
    * This parameter is required.

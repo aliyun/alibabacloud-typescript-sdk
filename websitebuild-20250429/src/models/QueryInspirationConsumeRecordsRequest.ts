@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query.
+   * The end time of the query. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1762999521
@@ -48,12 +48,12 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
    * The scenario name.
    * 
    * @example
-   * 百灵鸟-人员认证
+   * Bailingniao-Personnel Authentication
    */
   sceneName?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query. The time is in ISO 8601 format and uses the UTC time zone (Z).
    * 
    * @example
    * 2025-10-19T16:00:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Dictionary Code
+   * The dictionary code.
    * 
    * @example
    * abc
@@ -13,7 +13,7 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   dictCode?: string;
   /**
    * @remarks
-   * Dictionary label
+   * The dictionary label.
    * 
    * @example
    * label
@@ -21,7 +21,7 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   dictLabel?: string;
   /**
    * @remarks
-   * Enumeration of template dictionary types
+   * The template dictionary type enumeration.
    * 
    * @example
    * product_version
@@ -29,7 +29,7 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   dictType?: string;
   /**
    * @remarks
-   * Dictionary value
+   * The dictionary value.
    * 
    * @example
    * abc
@@ -37,18 +37,18 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   dictValue?: string;
   /**
    * @remarks
-   * Indicates whether a template exists.
+   * Indicates whether templates exist.
    */
   hasTemplates?: boolean;
   /**
    * @remarks
-   * Sorting order. The default is descending.  
+   * The sort order. Default value: DESC.
    * 
-   * Enumeration values:  
+   * Valid values:
    * 
-   * ASC: ascending.  
+   * - ASC: Ascending order.
    * 
-   * DESC: descending.
+   * - DESC: Descending order.
    * 
    * @example
    * desc
@@ -88,7 +88,7 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
 export class ListAppTemplateDictsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -96,7 +96,7 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -104,7 +104,7 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * application name; queries the application with this name
+   * The application name to query.
    * 
    * @example
    * spring-cloud-b
@@ -112,7 +112,7 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -120,8 +120,8 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -129,14 +129,14 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -144,12 +144,12 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * response Data
+   * The response data.
    */
   module?: ListAppTemplateDictsResponseBodyModule[];
   /**
    * @remarks
-   * Token for the start of the next query. It is empty when there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -165,7 +165,7 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -173,15 +173,15 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception.
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processing synchronous
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The time when the inspiration points were acquired.
+   * The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-03-03 12:00:00
@@ -13,16 +13,23 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
   acquisitionTime?: string;
   /**
    * @remarks
-   * The remaining balance (initQuota - used).
+   * The balance, calculated by subtracting the used amount from the initial quota.
    * 
    * @example
    * 12
    */
   balance?: number;
+  /**
+   * @remarks
+   * The exact balance. The value is a string to support the display of decimal places.
+   * 
+   * @example
+   * 12
+   */
   balanceStr?: string;
   /**
    * @remarks
-   * The time when the quota expires.
+   * The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss Z format, where Z represents the time zone offset.
    * 
    * @example
    * 2025-04-11 10:26:27 +0800
@@ -30,7 +37,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
   endDate?: string;
   /**
    * @remarks
-   * Indicates whether the quota has expired (endDate is earlier than the current time). The frontend uses this flag to gray out expired entries.
+   * Indicates whether the quota has expired. A quota is expired if the expiration time is earlier than the current time. The frontend displays expired quotas in gray based on this value.
    * 
    * @example
    * False
@@ -38,12 +45,19 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
   expired?: boolean;
   /**
    * @remarks
-   * The quantity acquired (initial quota).
+   * The acquired amount, which is the initial quota.
    * 
    * @example
    * 123123
    */
   initQuota?: number;
+  /**
+   * @remarks
+   * The exact acquired amount. The value is a string to support the display of decimal places.
+   * 
+   * @example
+   * 123123
+   */
   initQuotaStr?: string;
   /**
    * @remarks
@@ -55,12 +69,19 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
   sourceType?: string;
   /**
    * @remarks
-   * The display name of the source type.
+   * The Chinese name of the source type.
    * 
    * @example
    * FREE_TRIAL_GIFT
    */
   sourceTypeName?: string;
+  /**
+   * @remarks
+   * The status of the inspiration point account.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,7 +125,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
 export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The time when the inspiration points were acquired.
+   * The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-03-03 12:00:00
@@ -112,16 +133,23 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
   acquisitionTime?: string;
   /**
    * @remarks
-   * The remaining balance (initQuota - used).
+   * The balance, calculated by subtracting the used amount from the initial quota.
    * 
    * @example
    * 12
    */
   balance?: number;
+  /**
+   * @remarks
+   * The exact balance. The value is a string to support the display of decimal places.
+   * 
+   * @example
+   * 12
+   */
   balanceStr?: string;
   /**
    * @remarks
-   * The time when the quota expires.
+   * The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-02-25 10:11:25
@@ -129,7 +157,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
   endDate?: string;
   /**
    * @remarks
-   * Indicates whether the quota has expired (endDate is earlier than the current time). The frontend uses this flag to gray out expired entries.
+   * Indicates whether the quota has expired. A quota is expired if the expiration time is earlier than the current time. The frontend displays expired quotas in gray based on this value.
    * 
    * @example
    * False
@@ -137,12 +165,19 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
   expired?: boolean;
   /**
    * @remarks
-   * The quantity acquired (initial quota).
+   * The acquired amount, which is the initial quota.
    * 
    * @example
    * 123123
    */
   initQuota?: number;
+  /**
+   * @remarks
+   * The exact acquired amount. The value is a string to support the display of decimal places.
+   * 
+   * @example
+   * 123123
+   */
   initQuotaStr?: string;
   /**
    * @remarks
@@ -154,7 +189,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
   sourceType?: string;
   /**
    * @remarks
-   * The display name of the source type.
+   * The Chinese name of the source type.
    * 
    * @example
    * FREE_TRIAL_GIFT
@@ -208,7 +243,7 @@ export class QueryInspirationAccountDetailsResponseBodyModule extends $dara.Mode
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request results.
    */
   data?: QueryInspirationAccountDetailsResponseBodyModuleData[];
   /**
@@ -242,7 +277,7 @@ export class QueryInspirationAccountDetailsResponseBodyModule extends $dara.Mode
   prePage?: boolean;
   /**
    * @remarks
-   * Indicates whether the result set exceeds the server-side limit of 1,000 records (excluding pagination). If the results exceed 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. If the results do not exceed 1,000 records, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -315,9 +350,9 @@ export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: Not allowed.
-   * - true: Allowed.
+   * Specifies whether to allow retries. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -325,7 +360,7 @@ export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -349,7 +384,7 @@ export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -375,10 +410,10 @@ export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System error
    */
   rootErrorMsg?: string;
   /**

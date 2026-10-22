@@ -25,7 +25,7 @@ export class MoveMaterialDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The parent folder ID after the move.
+   * The ID of the target parent folder.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class MoveMaterialDirectoryRequest extends $dara.Model {
   parentDirectoryId?: string;
   /**
    * @remarks
-   * The sort number.
+   * The sort order.
    * 
    * This parameter is required.
    * 

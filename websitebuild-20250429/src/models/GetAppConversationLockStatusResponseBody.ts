@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -29,7 +29,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not in use and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -37,8 +37,8 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -46,7 +46,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error arguments.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -75,15 +75,15 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

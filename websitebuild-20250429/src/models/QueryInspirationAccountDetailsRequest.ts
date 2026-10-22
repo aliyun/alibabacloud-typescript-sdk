@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query.
+   * The end time of the query. The time is in the ISO 8601 standard and the UTC (Z) time zone.
    * 
    * @example
    * 2025-07-23T16:00:00Z
@@ -21,9 +21,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * - ASC: ascending order
-   * - DESC: descending order
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -47,7 +45,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The source type used to filter results, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
+   * The source type filter, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
    * 
    * @example
    * MARKET_CLOUD_DREAM
@@ -55,7 +53,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query. The time is in the ISO 8601 standard and the UTC (Z) time zone.
    * 
    * @example
    * 2025-06-21T16:00:00Z

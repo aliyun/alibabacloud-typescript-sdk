@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * 2024
@@ -13,7 +13,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -21,7 +21,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * self-signed
@@ -29,7 +29,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The expiration time of the certificate. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 4885718400000
@@ -63,9 +63,37 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The host record.
+   * 
+   * @example
+   * www
+   */
   host?: string;
+  /**
+   * @remarks
+   * The record type.
+   * 
+   * @example
+   * A
+   */
   recordType?: string;
+  /**
+   * @remarks
+   * The status of the conflicting DNS record. A value of ENABLE indicates that the record is enabled.
+   * 
+   * @example
+   * ENABLE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * 192.0.2.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,9 +123,28 @@ export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords exte
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflict extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic override is supported. Valid values: true (the domain name belongs to the current Alibaba Cloud account) and false (the domain name belongs to another account).
+   */
   canAutoResolve?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a conflict exists.
+   */
   hasConflict?: boolean;
+  /**
+   * @remarks
+   * The user-facing prompt message. The message varies based on the scenario.
+   * 
+   * @example
+   * The domain name www.example.com has a conflicting DNS record (A 192.0.2.1). Delete the conflicting record at your DNS provider and try again
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of conflicting DNS records.
+   */
   records?: ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords[];
   static names(): { [key: string]: string } {
     return {
@@ -130,7 +177,21 @@ export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflict extends $da
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleDataMigration extends $dara.Model {
+  /**
+   * @remarks
+   * The migration status. Valid values: NOT_STARTED, IN_PROGRESS, and COMPLETED.
+   * 
+   * @example
+   * IN_PROGRESS
+   */
   migrationStatus?: string;
+  /**
+   * @remarks
+   * The complete status of the domain name before migration. The structure is the same as the current domain name DTO, allowing the frontend to reuse the rendering logic.
+   * 
+   * @example
+   * {"DomainName":"www.example.com","DomainType":"CUSTOM","DeployType":"CDN"}
+   */
   previousDomain?: any;
   static names(): { [key: string]: string } {
     return {
@@ -174,7 +235,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
   provider?: string;
   /**
    * @remarks
-   * The root domain name corresponding to the domain name.
+   * The name of the root domain name corresponding to the domain name.
    * 
    * @example
    * tjouya.cn
@@ -209,16 +270,25 @@ export class ListAppInstanceDomainsResponseBodyModuleDataQualification extends $
   /**
    * @remarks
    * The ICP entity filing number.
+   * 
+   * @example
+   * Zhe ICP No. 123456
    */
   icpRecordNumber?: string;
   /**
    * @remarks
    * The ICP website filing number.
+   * 
+   * @example
+   * Zhe ICP No. 123456-1
    */
   icpSiteRecordNumber?: string;
   /**
    * @remarks
    * The public security filing number.
+   * 
+   * @example
+   * Public Security Filing No. 11040102700048
    */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
@@ -399,7 +469,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $dara.Model {
   /**
    * @remarks
-   * The DNS record that the user needs to configure.
+   * The guide for DNS records to be configured by the user.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord;
   /**
@@ -420,7 +490,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
   verificationStatus?: string;
   /**
    * @remarks
-   * The ownership verification status code.
+   * The ownership verification status.
    * 
    * @example
    * NoAliyunServiceRoleForWebsiteBuildPublishAuth
@@ -459,17 +529,29 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The domain name SSL certificate information.
+   * The SSL certificate information of the domain name.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleDataCertificate;
   /**
    * @remarks
-   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
+   * The creation time of the instance. Format: yyyy-MM-dd HH:mm:ss. This parameter is required.
    * 
    * @example
    * 1683256054000
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The network hosting type. Valid values: CDN, INDEP_DEPLOY, and ESA_SAAS.
+   * 
+   * @example
+   * CDN
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * The DNS conflict information. This parameter is returned when resolveStatus is DNS_CONFLICT.
+   */
   dnsConflict?: ListAppInstanceDomainsResponseBodyModuleDataDnsConflict;
   /**
    * @remarks
@@ -479,7 +561,32 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
    * kaibaidu.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX.
+   * 
+   * @example
+   * CUSTOM
+   */
+  domainType?: string;
+  /**
+   * @remarks
+   * The ICP filing status of the domain name. Valid values: FILED, NOT_FILED, and NOT_REQUIRED.
+   * 
+   * @example
+   * FILED
+   */
+  icpFilingStatus?: string;
+  /**
+   * @remarks
+   * The domain name migration information. This parameter is returned when a region switch occurs.
+   */
   migration?: ListAppInstanceDomainsResponseBodyModuleDataMigration;
+  /**
+   * @remarks
+   * Indicates whether the website is currently offline. This status belongs to the application instance, and the value is the same for all domain names under the same instance.
+   */
+  offline?: boolean;
   /**
    * @remarks
    * The overall binding status.
@@ -490,14 +597,22 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   overallStatus?: string;
   /**
    * @remarks
-   * The domain name ownership information.
+   * The ownership information of the domain name.
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleDataOwnership;
   /**
    * @remarks
-   * The domain name qualification information.
+   * The qualification information of the domain name.
    */
   qualification?: ListAppInstanceDomainsResponseBodyModuleDataQualification;
+  /**
+   * @remarks
+   * www.aliyun.com
+   * 
+   * @example
+   * www.aliyun.com
+   */
+  redirectDomain?: string;
   /**
    * @remarks
    * The domain name resolution information.
@@ -512,12 +627,17 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
     return {
       certificate: 'Certificate',
       createTime: 'CreateTime',
+      deployType: 'DeployType',
       dnsConflict: 'DnsConflict',
       domainName: 'DomainName',
+      domainType: 'DomainType',
+      icpFilingStatus: 'IcpFilingStatus',
       migration: 'Migration',
+      offline: 'Offline',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
       qualification: 'Qualification',
+      redirectDomain: 'RedirectDomain',
       resolution: 'Resolution',
       verification: 'Verification',
     };
@@ -527,12 +647,17 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
     return {
       certificate: ListAppInstanceDomainsResponseBodyModuleDataCertificate,
       createTime: 'string',
+      deployType: 'string',
       dnsConflict: ListAppInstanceDomainsResponseBodyModuleDataDnsConflict,
       domainName: 'string',
+      domainType: 'string',
+      icpFilingStatus: 'string',
       migration: ListAppInstanceDomainsResponseBodyModuleDataMigration,
+      offline: 'boolean',
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleDataOwnership,
       qualification: ListAppInstanceDomainsResponseBodyModuleDataQualification,
+      redirectDomain: 'string',
       resolution: ListAppInstanceDomainsResponseBodyModuleDataResolution,
       verification: ListAppInstanceDomainsResponseBodyModuleDataVerification,
     };
@@ -571,7 +696,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
 export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * jfztkg202502
@@ -579,7 +704,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -587,7 +712,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * Server
@@ -595,7 +720,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The expiration date of the certificate. The date is in ISO 8601 format and the UTC (Z) time zone.
    * 
    * @example
    * 2025-01-15T02:04:00Z
@@ -629,8 +754,29 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The host record.
+   * 
+   * @example
+   * www
+   */
   host?: string;
+  /**
+   * @remarks
+   * The record type.
+   * 
+   * @example
+   * A
+   */
   recordType?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * 192.0.2.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -658,9 +804,28 @@ export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords exte
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflict extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic override is supported. Valid values: true (the domain name belongs to the current Alibaba Cloud account) and false (the domain name belongs to another account).
+   */
   canAutoResolve?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a conflict exists.
+   */
   hasConflict?: boolean;
+  /**
+   * @remarks
+   * The user-facing prompt message. The message varies based on the scenario.
+   * 
+   * @example
+   * The domain name www.example.com has a conflicting DNS record (A 192.0.2.1). Delete the conflicting record at your DNS provider and try again
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of conflicting DNS records.
+   */
   records?: ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords[];
   static names(): { [key: string]: string } {
     return {
@@ -693,7 +858,21 @@ export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflict extends $da
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleNextMigration extends $dara.Model {
+  /**
+   * @remarks
+   * The migration status. Valid values: NOT_STARTED, IN_PROGRESS, and COMPLETED.
+   * 
+   * @example
+   * IN_PROGRESS
+   */
   migrationStatus?: string;
+  /**
+   * @remarks
+   * The complete status of the domain name before migration. The structure is the same as the current domain name DTO, allowing the frontend to reuse the rendering logic.
+   * 
+   * @example
+   * {"DomainName":"www.example.com","DomainType":"CUSTOM","DeployType":"CDN"}
+   */
   previousDomain?: any;
   static names(): { [key: string]: string } {
     return {
@@ -724,7 +903,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
    * The account owner type. Valid values: CURRENT and OTHER.
    * 
    * @example
-   * 拾肆gavin
+   * ShisiGavin
    */
   account?: string;
   /**
@@ -735,6 +914,13 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
    * pai
    */
   provider?: string;
+  /**
+   * @remarks
+   * The primary domain name.
+   * 
+   * @example
+   * example.com
+   */
   rootDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -765,16 +951,25 @@ export class ListAppInstanceDomainsResponseBodyModuleNextQualification extends $
   /**
    * @remarks
    * The ICP entity filing number.
+   * 
+   * @example
+   * Zhe ICP No. 123456
    */
   icpRecordNumber?: string;
   /**
    * @remarks
    * The ICP website filing number.
+   * 
+   * @example
+   * Zhe ICP No. 123456-1
    */
   icpSiteRecordNumber?: string;
   /**
    * @remarks
    * The public security filing number.
+   * 
+   * @example
+   * Public Security Filing No. 11040102700048
    */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
@@ -955,7 +1150,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $dara.Model {
   /**
    * @remarks
-   * The DNS record that the user needs to configure.
+   * The guide for DNS records to be configured by the user.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord;
   /**
@@ -974,6 +1169,13 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
    * SUCCESSFUL
    */
   verificationStatus?: string;
+  /**
+   * @remarks
+   * The verification status code.
+   * 
+   * @example
+   * NoAliyunServiceRoleForWebsiteBuildPublishAuth
+   */
   verificationStatusCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1008,17 +1210,29 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The domain name SSL certificate information.
+   * The SSL certificate information of the domain name.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleNextCertificate;
   /**
    * @remarks
-   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
+   * The creation time of the instance. Format: yyyy-MM-dd HH:mm:ss. This parameter is required.
    * 
    * @example
    * 1741572465000
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The network hosting type: CDN / INDEP_DEPLOY / ESA_SAAS.
+   * 
+   * @example
+   * CDN
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * The DNS conflict information. This parameter is returned when resolveStatus is DNS_CONFLICT.
+   */
   dnsConflict?: ListAppInstanceDomainsResponseBodyModuleNextDnsConflict;
   /**
    * @remarks
@@ -1028,7 +1242,32 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
    * usdcoin.xin
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The domain name management type: CUSTOM / PLATFORM_PREFIX.
+   * 
+   * @example
+   * CUSTOM
+   */
+  domainType?: string;
+  /**
+   * @remarks
+   * The ICP filing status of the domain name. Valid values: FILED, NOT_FILED, and NOT_REQUIRED.
+   * 
+   * @example
+   * FILED
+   */
+  icpFilingStatus?: string;
+  /**
+   * @remarks
+   * The domain name migration information. This parameter is returned when a region switch occurs.
+   */
   migration?: ListAppInstanceDomainsResponseBodyModuleNextMigration;
+  /**
+   * @remarks
+   * Indicates whether the website is currently offline. This status belongs to the application instance, and the value is the same for all domain names under the same instance.
+   */
+  offline?: boolean;
   /**
    * @remarks
    * The overall binding status.
@@ -1039,12 +1278,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   overallStatus?: string;
   /**
    * @remarks
-   * The domain name ownership information.
+   * The ownership information of the domain name.
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleNextOwnership;
   /**
    * @remarks
-   * The domain name qualification information.
+   * The qualification information of the domain name.
    */
   qualification?: ListAppInstanceDomainsResponseBodyModuleNextQualification;
   /**
@@ -1061,9 +1300,13 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
     return {
       certificate: 'Certificate',
       createTime: 'CreateTime',
+      deployType: 'DeployType',
       dnsConflict: 'DnsConflict',
       domainName: 'DomainName',
+      domainType: 'DomainType',
+      icpFilingStatus: 'IcpFilingStatus',
       migration: 'Migration',
+      offline: 'Offline',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
       qualification: 'Qualification',
@@ -1076,9 +1319,13 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
     return {
       certificate: ListAppInstanceDomainsResponseBodyModuleNextCertificate,
       createTime: 'string',
+      deployType: 'string',
       dnsConflict: ListAppInstanceDomainsResponseBodyModuleNextDnsConflict,
       domainName: 'string',
+      domainType: 'string',
+      icpFilingStatus: 'string',
       migration: ListAppInstanceDomainsResponseBodyModuleNextMigration,
+      offline: 'boolean',
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleNextOwnership,
       qualification: ListAppInstanceDomainsResponseBodyModuleNextQualification,
@@ -1128,7 +1375,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The request result.
    */
   data?: ListAppInstanceDomainsResponseBodyModuleData[];
   /**
@@ -1156,7 +1403,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -1221,7 +1468,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
 export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -1229,7 +1476,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -1253,8 +1500,8 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -1262,12 +1509,12 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The number of entries to return for a single query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -1282,7 +1529,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   module?: ListAppInstanceDomainsResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this value is empty.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -1290,7 +1537,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique identifier of the request.
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -1306,15 +1553,15 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
-   * 系统异常
+   * System error
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

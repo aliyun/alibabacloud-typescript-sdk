@@ -20,10 +20,22 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
    */
   domain?: string;
   /**
+   * @remarks
+   * The authentication information.
+   * 
+   * Security authentication information.
+   * 
    * @example
    * 123123
    */
   seAuthInfo?: string;
+  /**
+   * @remarks
+   * The index status.
+   * 
+   * @example
+   * 0
+   */
   seIndexStatus?: number;
   /**
    * @remarks

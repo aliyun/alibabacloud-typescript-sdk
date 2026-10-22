@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250821161210000001
@@ -13,7 +13,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Deployment channel
+   * The deployment channel.
    * 
    * @example
    * PC
@@ -21,7 +21,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
   deployChannel?: string;
   /**
    * @remarks
-   * Publish description
+   * The publish description.
    * 
    * @example
    * CREATE_BY_NLB.nlb-jcvs5sm9l8um84zbfa
@@ -29,7 +29,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Logical version number
+   * The logical version number.
    * 
    * @example
    * 111
@@ -37,7 +37,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
   logicalNumber?: number;
   /**
    * @remarks
-   * Publish number
+   * The publish number.
    * 
    * @example
    * 123
@@ -45,7 +45,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
   publishNumber?: string;
   /**
    * @remarks
-   * action
+   * The action.
    * 
    * @example
    * BUILD

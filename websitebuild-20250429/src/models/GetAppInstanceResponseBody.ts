@@ -38,8 +38,8 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage response parameter.
+   * > If ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the request parameter DtsJobId is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -47,7 +47,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
@@ -76,10 +76,10 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialTaskListRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the business group.
+   * 
+   * @example
+   * xx
+   */
+  bizGroupId?: string;
+  /**
+   * @remarks
    * The number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
@@ -23,7 +31,7 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Sort field
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -31,7 +39,7 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sort type ASC|DESC
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -39,7 +47,7 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number. Default value: 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +55,7 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size. Default value: 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -55,16 +63,17 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Task status list
+   * The list of task statuses.
    */
   statusList?: string[];
   /**
    * @remarks
-   * Task type list
+   * The list of task types.
    */
   taskTypeList?: string[];
   static names(): { [key: string]: string } {
     return {
+      bizGroupId: 'BizGroupId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderColumn: 'OrderColumn',
@@ -78,6 +87,7 @@ export class QueryMaterialTaskListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizGroupId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orderColumn: 'string',

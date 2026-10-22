@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The error code when the check fails. This value is null when the check passes.
+   * The desired total returned only for APP_WORKSPACE. This is the target total for the current check, which is the sum of the existing usage in the saved configuration and ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The existing usage of issues is the sum of common and word-of-mouth issues in the saved configuration, and the existing usage of competitors is the number of competitors. This parameter is empty for APP and USER checks.
+   * 
+   * @example
+   * 21
+   */
+  desiredTotal?: number;
+  /**
+   * @remarks
+   * The error code returned when the check fails. This parameter is null when the check passes.
    * 
    * @example
    * Success
@@ -13,12 +21,20 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message when the check fails. This value is null when the check passes.
+   * The error message returned when the check fails. This parameter is null when the check passes.
    * 
    * @example
    * stream push failed
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The limit returned only for APP_WORKSPACE quantity pre-checks. This is the maximum number of issues or competitors allowed by the current commodity edition, not the remaining quota. This parameter is empty for APP and USER checks or when the edition benefits cannot be determined.
+   * 
+   * @example
+   * 20
+   */
+  limit?: number;
   /**
    * @remarks
    * Indicates whether the check is passed.
@@ -35,21 +51,35 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
    * TransitRouterVpcAttachment
    */
   resourceCode?: string;
+  /**
+   * @remarks
+   * Indicates whether a purchasable higher edition that can accommodate the DesiredTotal exists. This parameter is true only when the capacity of the current edition is insufficient and a higher edition meets the requirements. Otherwise, this parameter is false. This parameter may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
+   * 
+   * @example
+   * true
+   */
+  upgradeAvailable?: boolean;
   static names(): { [key: string]: string } {
     return {
+      desiredTotal: 'DesiredTotal',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      limit: 'Limit',
       passed: 'Passed',
       resourceCode: 'ResourceCode',
+      upgradeAvailable: 'UpgradeAvailable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      desiredTotal: 'number',
       errorCode: 'string',
       errorMessage: 'string',
+      limit: 'number',
       passed: 'boolean',
       resourceCode: 'string',
+      upgradeAvailable: 'boolean',
     };
   }
 
@@ -65,7 +95,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
 export class CheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -73,7 +103,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -97,8 +127,8 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -106,7 +136,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
@@ -124,7 +154,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -135,12 +165,12 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The backup parameter.
    * 
    * @example
    * True

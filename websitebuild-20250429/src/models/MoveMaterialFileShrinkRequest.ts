@@ -15,7 +15,7 @@ export class MoveMaterialFileShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * This parameter is required.
    * 

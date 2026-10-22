@@ -21,6 +21,14 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   currentStep?: string;
   /**
    * @remarks
+   * The code of the current publish step.
+   * 
+   * @example
+   * INIT
+   */
+  currentStepCode?: string;
+  /**
+   * @remarks
    * The deployment channel.
    * 
    * @example
@@ -45,7 +53,15 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   errorStep?: string;
   /**
    * @remarks
-   * Indicates whether the task is complete.
+   * The code of the publish step where the error occurred.
+   * 
+   * @example
+   * BUILDING
+   */
+  errorStepCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the task is completed.
    */
   isFinish?: boolean;
   /**
@@ -54,7 +70,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
    * 
    * - `true`: The call is successful.
    * 
-   * - `false`: The call failed.
+   * - `false`: The call fails.
    * 
    * @example
    * True
@@ -62,7 +78,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The additional description.
+   * The additional information.
    * 
    * @example
    * common notify successfully.
@@ -70,7 +86,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort type, such as ASC or DESC.
    * 
    * @example
    * DESC
@@ -78,7 +94,15 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The task completion percentage.
+   * The code of the publish order type.
+   * 
+   * @example
+   * DEPLOY
+   */
+  orderTypeCode?: string;
+  /**
+   * @remarks
+   * The completion percentage of the task.
    * 
    * @example
    * 20
@@ -102,7 +126,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   publishOrderId?: number;
   /**
    * @remarks
-   * The scheduled publish time.
+   * The scheduled publish time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -120,26 +144,39 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
+   * The list of publish step codes.
+   */
+  stepCodes?: string[];
+  /**
+   * @remarks
    * The error level. Valid values: FATAL, ERROR, WARNING, and CRITICAL.
    */
   steps?: string[];
+  /**
+   * @remarks
+   * The publish subchannel.
+   */
   subchannel?: string;
   static names(): { [key: string]: string } {
     return {
       canQuickRevert: 'CanQuickRevert',
       currentStep: 'CurrentStep',
+      currentStepCode: 'CurrentStepCode',
       deployChannel: 'DeployChannel',
       description: 'Description',
       errorStep: 'ErrorStep',
+      errorStepCode: 'ErrorStepCode',
       isFinish: 'IsFinish',
       isSuccess: 'IsSuccess',
       msg: 'Msg',
       orderType: 'OrderType',
+      orderTypeCode: 'OrderTypeCode',
       percent: 'Percent',
       publishNumber: 'PublishNumber',
       publishOrderId: 'PublishOrderId',
       publishTime: 'PublishTime',
       siteId: 'SiteId',
+      stepCodes: 'StepCodes',
       steps: 'Steps',
       subchannel: 'Subchannel',
     };
@@ -149,24 +186,31 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
     return {
       canQuickRevert: 'string',
       currentStep: 'string',
+      currentStepCode: 'string',
       deployChannel: 'string',
       description: 'string',
       errorStep: 'string',
+      errorStepCode: 'string',
       isFinish: 'boolean',
       isSuccess: 'boolean',
       msg: 'string',
       orderType: 'string',
+      orderTypeCode: 'string',
       percent: 'number',
       publishNumber: 'string',
       publishOrderId: 'number',
       publishTime: 'string',
       siteId: 'string',
+      stepCodes: { 'type': 'array', 'itemType': 'string' },
       steps: { 'type': 'array', 'itemType': 'string' },
       subchannel: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.stepCodes)) {
+      $dara.Model.validateArray(this.stepCodes);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }
@@ -181,7 +225,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
 export class GetAppPublishStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -189,7 +233,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -221,7 +265,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -250,7 +294,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

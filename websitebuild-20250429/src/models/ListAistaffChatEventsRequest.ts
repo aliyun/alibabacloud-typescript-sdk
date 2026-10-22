@@ -13,7 +13,7 @@ export class ListAIStaffChatEventsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The chat ID. This parameter is optional. If not specified, the latest chat ID is used.
+   * The chat ID. This parameter is optional. If you do not specify this parameter, the latest chat ID is used.
    * 
    * @example
    * 20833ba4-d189-4c50-9a44-a6bcbda2c93b
@@ -29,7 +29,7 @@ export class ListAIStaffChatEventsRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The ID of the last event, used for incremental retrieval.
+   * The ID of the last event. This parameter is used to retrieve incremental events.
    * 
    * @example
    * event-71ece53b7d474e01b755a9b5fa5305e6

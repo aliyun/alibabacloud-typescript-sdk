@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUserResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * The owner ID, which can be a website ID or an Alibaba Cloud account ID.
+   * The belong ID, such as the website ID or Alibaba Cloud user ID.
    * 
    * @example
    * 123456
@@ -13,9 +13,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   belongId?: string;
   /**
    * @remarks
-   * The type of the owner ID. Valid values:
-   * - siteId
-   * - uid.
+   * The belong ID type, such as siteId or uid.
    * 
    * @example
    * USER
@@ -31,6 +29,14 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
+   * The optional compatible total for APP_WORKSPACE. Valid values: 0 to 100000. If provided, it takes precedence over ResourceValue and does not repeatedly add the used quota. For new calls, only ResourceValue is required. This field is not used for APP/USER.
+   * 
+   * @example
+   * 21
+   */
+  desiredTotal?: number;
+  /**
+   * @remarks
    * The ESP business ID.
    * 
    * @example
@@ -39,7 +45,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   espBizId?: string;
   /**
    * @remarks
-   * The order module information. If this parameter is empty, espBizId and bizType cannot be empty.
+   * The order component information. If this field is empty, EspBizId and BizType cannot be empty.
    * 
    * @example
    * {"siteversion":"test"}
@@ -47,7 +53,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   orderComponentParams?: string;
   /**
    * @remarks
-   * The resource identifier.
+   * The resource code.
    * 
    * @example
    * InspirationTokens
@@ -55,9 +61,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * The resource value. This parameter is empty by default and is required only for feature-type resources. Valid values:
-   * - 0: Not supported.
-   * - 1: Supported.
+   * The resource value. Default is empty. Required only for feature resources. A value of 0 indicates not supported, and 1 indicates supported.
    * 
    * @example
    * 1
@@ -68,6 +72,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
       belongId: 'BelongId',
       belongIdType: 'BelongIdType',
       bizType: 'BizType',
+      desiredTotal: 'DesiredTotal',
       espBizId: 'EspBizId',
       orderComponentParams: 'OrderComponentParams',
       resourceCode: 'ResourceCode',
@@ -80,6 +85,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
       belongId: 'string',
       belongIdType: 'string',
       bizType: 'string',
+      desiredTotal: 'number',
       espBizId: 'string',
       orderComponentParams: 'string',
       resourceCode: 'string',

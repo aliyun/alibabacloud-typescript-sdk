@@ -13,7 +13,7 @@ export class ListRbacRolesRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The number of entries per query.
+   * The maximum number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -39,9 +39,7 @@ export class ListRbacRolesRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * - ASC
-   * - DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * anonymity key
+   * The anonymous key.
    * 
    * @example
    * 1111
@@ -13,7 +13,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   anonKey?: string;
   /**
    * @remarks
-   * application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WS20250915163734000001
@@ -21,7 +21,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * database instance ID
+   * The database instance ID.
    * 
    * @example
    * selectdb-cn-2bl4djolb02
@@ -29,7 +29,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Database public URL
+   * The public URL of the database.
    * 
    * @example
    * 111
@@ -37,7 +37,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   dbPublicUrl?: string;
   /**
    * @remarks
-   * instance creation status
+   * The instance creation status.
    * 
    * @example
    * 1111
@@ -45,7 +45,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   instanceCreateStatus?: string;
   /**
    * @remarks
-   * service key
+   * The service key.
    * 
    * @example
    * e80f5a7a08514709a2fb
@@ -53,7 +53,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   serviceKey?: string;
   /**
    * @remarks
-   * trial, draft, live, refunded, expired, released
+   * trial,draft,live,refunded,expired,released
    * 
    * @example
    * NORMAL
@@ -61,7 +61,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Supabase instance ID
+   * The Supabase instance ID.
    * 
    * @example
    * 1111
@@ -69,7 +69,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   supabaseInstanceId?: string;
   /**
    * @remarks
-   * Supabase public URL
+   * The public URL of the Supabase instance.
    * 
    * @example
    * 111
@@ -115,7 +115,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
 export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -123,7 +123,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -131,7 +131,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -139,7 +139,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -147,8 +147,8 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -156,12 +156,12 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Task object
+   * The task object.
    */
   module?: GetAppSupabaseInstanceResponseBodyModule;
   /**
@@ -174,7 +174,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -182,15 +182,15 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception.
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Spare parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

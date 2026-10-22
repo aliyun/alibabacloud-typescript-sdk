@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * or
@@ -50,7 +50,7 @@ export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request succeeds, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -66,7 +66,7 @@ export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the folder was modified successfully.
+   * Indicates whether the update was successful.
    * 
    * @example
    * true
@@ -90,10 +90,10 @@ export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
@@ -106,7 +106,7 @@ export class ModifyMaterialDirectoryResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was processed synchronously.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format in the UTC (Z) time zone.
    * 
    * @example
    * 2026-05-08T02:28:26Z
@@ -32,7 +32,7 @@ export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
    * The file name.
    * 
    * @example
-   * 文件名
+   * FileName
    */
   name?: string;
   /**
@@ -72,7 +72,7 @@ export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
 export class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The creation date.
+   * The creation date. The time is in ISO 8601 format in the UTC (Z) time zone.
    * 
    * @example
    * 2025-12-15T02:29:22Z
@@ -150,7 +150,7 @@ export class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The query results.
    */
   data?: ListRbacOrgTreeResponseBodyModuleData[];
   /**
@@ -184,7 +184,7 @@ export class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Indicates whether the server processes a maximum of 1,000 most recent records beyond the pagination limit. If the results exceed 1,000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -284,8 +284,8 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -340,7 +340,7 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

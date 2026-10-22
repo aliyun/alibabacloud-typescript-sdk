@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppTemplateDictsRequest extends $dara.Model {
   /**
    * @remarks
-   * Dictionary type
+   * The dictionary type.
    * 
    * @example
    * product_version
@@ -13,9 +13,9 @@ export class ListAppTemplateDictsRequest extends $dara.Model {
   dictType?: string;
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Valid range: 10 to 100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListAppTemplateDictsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. This value is empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=

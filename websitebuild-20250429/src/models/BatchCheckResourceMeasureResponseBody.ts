@@ -11,7 +11,7 @@ export class BatchCheckResourceMeasureResponseBodyModule extends $dara.Model {
   allPassed?: boolean;
   /**
    * @remarks
-   * The check result for each resource, where the key is resourceCode.
+   * The check results for each resource, where the key is the resourceCode.
    */
   results?: { [key: string]: ModuleResultsValue };
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class BatchCheckResourceMeasureResponseBodyModule extends $dara.Model {
 export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -51,7 +51,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -59,7 +59,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * watermark
@@ -83,12 +83,12 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    */
   module?: BatchCheckResourceMeasureResponseBodyModule;
   /**
@@ -101,7 +101,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -112,12 +112,12 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Specifies whether synchronous processing is used.
    * 
    * @example
    * True

@@ -3,26 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $dara.Model {
+  /**
+   * @remarks
+   * The click action type. Valid values: CONSULT, BUY, and AUTO.
+   * 
+   * @example
+   * CONSULT
+   */
   actionType?: string;
   /**
    * @remarks
-   * The commodity code. Applicable to both resource plans and marketing commodities.
+   * The commodity code. This parameter applies to both resource plans and marketing commodities.
    * 
    * @example
    * rds
    */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The display description of the recommendation.
+   * 
+   * @example
+   * Add a WeCom consultant to receive inspiration points for free
+   */
   description?: string;
   /**
    * @remarks
-   * The extension fields, such as unsupportedReason.
+   * The extended fields, such as unsupportedReason.
    */
   extend?: { [key: string]: string };
   /**
    * @remarks
-   * The order type. Valid values:
-   * - BUY: purchase.
-   * - UPGRADE: upgrade.
+   * The order type. Valid values: BUY and UPGRADE.
    * 
    * @example
    * DESC
@@ -38,16 +50,23 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   priority?: number;
   /**
    * @remarks
-   * The marketing commodity ID. Returned only for new purchases.
+   * The ID of the marketing commodity. This parameter is returned only for new purchases.
    * 
    * @example
    * 12345
    */
   promotionCommodityId?: string;
+  /**
+   * @remarks
+   * The recommendation type. Valid values: COMMODITY and ACTIVITY.
+   * 
+   * @example
+   * COMMODITY
+   */
   recommendType?: string;
   /**
    * @remarks
-   * The redirect URL. Returned when redirection is required, such as for upgrades.
+   * The redirect URL. This parameter is returned when a redirect is required in scenarios such as upgrades.
    * 
    * @example
    * https://ecs-workbench-disposable.aliyun.com/account/disposable/login/sst/1291612921555690/edvo2gevfh
@@ -55,12 +74,19 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   redirectUrl?: string;
   /**
    * @remarks
-   * The commodity status.
+   * The status of the commodity.
    * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The display title of the recommendation.
+   * 
+   * @example
+   * Add a consultant as a friend to receive an extra 1,000 inspiration points
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,7 +173,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -171,8 +197,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -180,18 +205,18 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
    * The data table module. Valid values:
    * 
-   * - ABTest: experiment data table
+   * - ABTest: Experiment data table.
    * 
-   * - ExperimentTool: experiment tool table
+   * - ExperimentTool: Experiment tool table.
    * 
-   * - DataDiagnosis: data modeling diagnostics
+   * - DataDiagnosis: Data diagnosis.
    */
   module?: GetAppRecommendedCommoditiesResponseBodyModule;
   /**
@@ -215,7 +240,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

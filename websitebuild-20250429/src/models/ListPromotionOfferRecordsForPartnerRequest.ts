@@ -13,7 +13,7 @@ export class ListPromotionOfferRecordsForPartnerRequest extends $dara.Model {
   activityCode?: string;
   /**
    * @remarks
-   * The belong ID.
+   * The belonging ID.
    * 
    * @example
    * 123456

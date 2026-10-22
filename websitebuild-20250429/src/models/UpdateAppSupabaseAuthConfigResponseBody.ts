@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission information unavailable
+   * The access denied detail.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code. Not currently used. Ignore it.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,12 +45,12 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error arguments.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Task object
+   * The task object.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,15 +74,15 @@ export class UpdateAppSupabaseAuthConfigResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception.
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether processing is synchronous
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

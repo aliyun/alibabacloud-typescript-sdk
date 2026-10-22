@@ -13,10 +13,17 @@ export class QuerySupabaseConfigsForAdminRequest extends $dara.Model {
    * WD20250703155602000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * The environment identifier.
+   * 
+   * @example
+   * staging
+   */
   env?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The sort field.
    * 
    * @example
    * gmtCreated
@@ -24,7 +31,7 @@ export class QuerySupabaseConfigsForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

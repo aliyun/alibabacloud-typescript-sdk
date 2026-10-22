@@ -35,7 +35,7 @@ export class DispatchConsoleAPIForPartnerResponseBodyModule extends $dara.Model 
 export class DispatchConsoleAPIForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -56,7 +56,7 @@ export class DispatchConsoleAPIForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

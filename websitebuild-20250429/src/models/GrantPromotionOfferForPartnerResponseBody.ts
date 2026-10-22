@@ -8,7 +8,7 @@ export class GrantPromotionOfferForPartnerResponseBodyModule extends $dara.Model
    * The message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   message?: string;
   /**
@@ -29,7 +29,7 @@ export class GrantPromotionOfferForPartnerResponseBodyModule extends $dara.Model
   recordId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -65,7 +65,7 @@ export class GrantPromotionOfferForPartnerResponseBodyModule extends $dara.Model
 export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * or
@@ -89,7 +89,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -105,7 +105,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -131,15 +131,15 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

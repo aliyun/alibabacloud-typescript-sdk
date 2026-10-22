@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
   /**
    * @remarks
+   * The business group ID.
+   * 
+   * @example
+   * xxx
+   */
+  bizGroupId?: string;
+  /**
+   * @remarks
    * The task ID.
    * 
    * @example
@@ -13,12 +21,14 @@ export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      bizGroupId: 'BizGroupId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizGroupId: 'string',
       taskId: 'string',
     };
   }
@@ -82,7 +92,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. The ErrorCode field is not returned if the request is successful. The ErrorCode field is returned if the request fails. For more information, see the error codes in this topic.
+   * The error code. The ErrorCode field is not returned if the request is successful. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -122,7 +132,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
    * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

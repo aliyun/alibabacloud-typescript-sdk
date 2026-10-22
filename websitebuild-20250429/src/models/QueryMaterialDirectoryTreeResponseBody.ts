@@ -36,7 +36,7 @@ export class QueryMaterialDirectoryTreeResponseBodyModule extends $dara.Model {
 export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -44,7 +44,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -52,7 +52,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * dewuApp
@@ -81,7 +81,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -121,12 +121,12 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -134,7 +134,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the processing is synchronous.
    * 
    * @example
    * True

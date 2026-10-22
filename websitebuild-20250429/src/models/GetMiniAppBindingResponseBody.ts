@@ -53,7 +53,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   productionQrCodeUrl?: string;
   /**
    * @remarks
-   * The extension information.
+   * The extended information.
    */
   settingValues?: { [key: string]: string };
   static names(): { [key: string]: string } {

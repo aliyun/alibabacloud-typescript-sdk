@@ -37,17 +37,17 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
-   * None
+   * 1740479834
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is in the ISO 8601 format and the UTC time zone (Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -92,7 +92,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
    * The user ID.
    * 
    * @example
-   * 用户id
+   * User ID
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -139,7 +139,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
 export class GetAppConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -155,7 +155,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -171,8 +171,8 @@ export class GetAppConversationResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -180,7 +180,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -206,15 +206,15 @@ export class GetAppConversationResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

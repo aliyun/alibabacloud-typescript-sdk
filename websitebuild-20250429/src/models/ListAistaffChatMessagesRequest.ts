@@ -21,7 +21,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The number of records per page. Valid values: 10 to 100.
+   * The number of entries per page. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The gmtCreate value of the last record on the previous page. Leave this parameter empty for the first page.
+   * The creation time of the last entry on the previous page. Do not specify this parameter when you query the first page.
    * 
    * @example
    * null

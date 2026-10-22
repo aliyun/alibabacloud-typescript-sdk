@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The activity code.
+   * 
+   * @example
+   * ACT202606001
+   */
   activityCode?: string;
   /**
    * @remarks
@@ -30,7 +37,7 @@ export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The employee code.
+   * The employee ID.
    * 
    * @example
    * WB02409424
@@ -38,7 +45,7 @@ export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
   employeeCode?: string;
   /**
    * @remarks
-   * The operation remarks (audit information).
+   * The operation remark (audit information).
    * 
    * @example
    * hz-maven

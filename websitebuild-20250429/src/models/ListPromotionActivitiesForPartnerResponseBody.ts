@@ -16,7 +16,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
    * The activity name.
    * 
    * @example
-   * IP网段过滤统计
+   * IP segment filtering statistics
    */
   activityName?: string;
   /**
@@ -37,7 +37,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   consumedQuota?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-02-14 11:57:51
@@ -61,7 +61,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   eligibilityConfig?: string;
   /**
    * @remarks
-   * The end date.
+   * The end date. The value is in the YYYY-MM-DD HH:mm:ss Z format, where Z is the time zone offset.
    * 
    * @example
    * 2026-04-22 10:18:51 +0800
@@ -93,7 +93,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   remainingQuota?: number;
   /**
    * @remarks
-   * The start date.
+   * The start date. The value is in the ISO 8601 format with the time zone set to UTC (Z).
    * 
    * @example
    * 2026-05-12T16:00:00.000Z
@@ -125,7 +125,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   touchpointConfig?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is in the ISO 8601 format with a time zone offset.
    * 
    * @example
    * 2025-10-11T21:13:38.164526965+08:00
@@ -332,12 +332,12 @@ export class ListPromotionActivitiesForPartnerResponseBody extends $dara.Model {
    * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

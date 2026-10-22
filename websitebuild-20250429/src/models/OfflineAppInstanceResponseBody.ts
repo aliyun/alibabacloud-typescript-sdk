@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deprecated parameter. You can ignore this parameter.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class OfflineAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -45,12 +45,12 @@ export class OfflineAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the shift was successful.
+   * Indicates whether the move succeeded.
    * 
    * @example
    * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
@@ -74,10 +74,10 @@ export class OfflineAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

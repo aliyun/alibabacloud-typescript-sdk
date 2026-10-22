@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time in UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -15,7 +15,7 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   expireAtTime?: string;
   /**
    * @remarks
-   * The temporary short URL.
+   * The temporary short link.
    * 
    * @example
    * http://www.aliyun.com
@@ -57,7 +57,7 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
 export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -65,7 +65,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -97,7 +97,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -123,10 +123,10 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppLlmApiKeyForPartnerResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * ciphertext of the API key encrypted by AES
+   * The AES-encrypted API key ciphertext.
    * 
    * @example
    * xxxx-xxxxxx
@@ -35,7 +35,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBodyModule extends $dara.Model 
 export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * watermark
@@ -59,7 +59,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM.ERROR
@@ -75,12 +75,12 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error arguments returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: CreateAppLlmApiKeyForPartnerResponseBodyModule;
   /**
@@ -93,7 +93,7 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.EROR
@@ -101,15 +101,15 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
-   * 系统异常
+   * System exception.
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserAccessTokenForPartnerResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The value of the exchanged access token.
+   */
   tokenValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,7 +32,7 @@ export class GetUserAccessTokenForPartnerResponseBodyModule extends $dara.Model 
 export class GetUserAccessTokenForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -49,7 +53,7 @@ export class GetUserAccessTokenForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

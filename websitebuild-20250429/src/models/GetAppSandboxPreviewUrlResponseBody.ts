@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed cause of access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic code; currently unused, please ignore
+   * The dynamic code. This field is not in use and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -37,8 +37,7 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace `%s` in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -46,12 +45,12 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * returned object.
+   * The returned object.
    * 
    * @example
    * true
@@ -67,7 +66,7 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -75,15 +74,15 @@ export class GetAppSandboxPreviewUrlResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

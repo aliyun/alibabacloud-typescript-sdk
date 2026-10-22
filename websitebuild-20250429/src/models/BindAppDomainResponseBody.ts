@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BindAppDomainResponseBodyModuleDnsConflictRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The host record.
+   * 
+   * @example
+   * www
+   */
   host?: string;
+  /**
+   * @remarks
+   * The record type.
+   * 
+   * @example
+   * A
+   */
   recordType?: string;
+  /**
+   * @remarks
+   * The status of the conflicting DNS record. A value of ENABLE indicates that the record is enabled.
+   * 
+   * @example
+   * ENABLE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * 192.0.2.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +63,28 @@ export class BindAppDomainResponseBodyModuleDnsConflictRecords extends $dara.Mod
 }
 
 export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic overwrite is supported. A value of true indicates the current Alibaba Cloud account, and a value of false indicates other accounts.
+   */
   canAutoResolve?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a conflict exists.
+   */
   hasConflict?: boolean;
+  /**
+   * @remarks
+   * The user-facing prompt message. Different guidance text is generated based on the scenario.
+   * 
+   * @example
+   * A conflicting DNS record (A 192.0.2.1) exists for the domain name www.example.com. Delete the conflicting record from your DNS provider and try again
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of conflicting DNS records. This reuses the existing AppDomainDnsRecordDTO.
+   */
   records?: BindAppDomainResponseBodyModuleDnsConflictRecords[];
   static names(): { [key: string]: string } {
     return {
@@ -70,10 +117,14 @@ export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
 }
 
 export class BindAppDomainResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The DNS conflict information. This parameter is returned when a conflict is detected during synchronous verification.
+   */
   dnsConflict?: BindAppDomainResponseBodyModuleDnsConflict;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -108,7 +159,7 @@ export class BindAppDomainResponseBodyModule extends $dara.Model {
 export class BindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -140,8 +191,8 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -149,23 +200,23 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The data table module. Valid values:
+   * The data table module.
    * 
    * - ABTest: experiment data table
    * 
    * - ExperimentTool: experiment tool table
    * 
-   * - DataDiagnosis: data modeling diagnostics
+   * - DataDiagnosis: data diagnostics
    */
   module?: BindAppDomainResponseBodyModule;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -184,12 +235,12 @@ export class BindAppDomainResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

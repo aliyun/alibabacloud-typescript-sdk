@@ -25,24 +25,34 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
+   * 
+   * @example
+   * gmtCreated
    */
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * - ASC: ascending order.
-   * - DESC: descending order.
+   * The sort order. Valid values: ASC, DESC.
+   * 
+   * @example
+   * ASC
    */
   orderType?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
    */
   pageNum?: number;
   /**
    * @remarks
    * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**

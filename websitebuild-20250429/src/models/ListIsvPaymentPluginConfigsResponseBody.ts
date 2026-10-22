@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250915163734000001
@@ -13,12 +13,12 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Extension information
+   * The extended information.
    */
   extend?: { [key: string]: string };
   /**
    * @remarks
-   * Creation Time
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -28,7 +28,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Updated At
+   * The update time. The value is in the ISO 8601 format and the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -38,7 +38,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Primary key
+   * The primary key.
    * 
    * @example
    * 16257
@@ -46,7 +46,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Plugin configuration
+   * The plugin configuration.
    * 
    * @example
    * {}
@@ -54,7 +54,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * Plugin description
+   * The plugin description.
    * 
    * @example
    * a simple test plugin
@@ -62,7 +62,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   pluginDesc?: string;
   /**
    * @remarks
-   * Plugin ID
+   * The plugin ID.
    * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
@@ -70,7 +70,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Plugin name
+   * The plugin name.
    * 
    * @example
    * tf_testaccapigatewayplugin29311
@@ -78,7 +78,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   pluginName?: string;
   /**
    * @remarks
-   * Site name
+   * The site name.
    * 
    * @example
    * jugaocai.com
@@ -86,7 +86,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 123456
@@ -139,7 +139,7 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
 export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reasons why access is denied.
    * 
    * @example
    * {}
@@ -147,7 +147,7 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -155,7 +155,7 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -163,7 +163,7 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code; currently unused. Ignore this field.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -171,8 +171,8 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -180,14 +180,14 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.  
+   * The maximum number of results to return per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -195,12 +195,12 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ListIsvPaymentPluginConfigsResponseBodyModule[];
   /**
    * @remarks
-   * Token for starting the next query. It is empty if there is no next query.
+   * The token that is used to start the next query. If no more results are available, this value is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -216,7 +216,7 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -224,15 +224,15 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

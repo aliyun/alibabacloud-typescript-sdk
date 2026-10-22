@@ -37,7 +37,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   aliyunPk?: string;
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {\\"resourceGroupId\\":\\"\\",\\"page\\":1,\\"size\\":10,\\"selected\\":\\"[\\\\\\"kvstore\\\\\\"]\\"}
@@ -45,7 +45,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The authorization grant type.
+   * The authorization code type.
    * 
    * @example
    * authorization_code
@@ -93,7 +93,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenValue?: string;
   /**
    * @remarks
-   * The external unique ID.
+   * The external unique identifier.
    * 
    * @example
    * hdm_33be9750d595b6cd7c93a80b46734b22
@@ -145,7 +145,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
 export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -153,7 +153,7 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -177,8 +177,7 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERRROR
@@ -186,7 +185,7 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -215,12 +214,12 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

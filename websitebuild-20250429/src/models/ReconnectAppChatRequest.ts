@@ -13,7 +13,7 @@ export class ReconnectAppChatRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
@@ -24,14 +24,23 @@ export class ReconnectAppChatRequest extends $dara.Model {
    * The ID of the last event.
    * 
    * @example
-   * event-71ece53b7d474e01b755a9b5fa5305e6
+   * 1
    */
   lastEventId?: number;
+  /**
+   * @remarks
+   * The creation time of the latest message.
+   * 
+   * @example
+   * 2025-08-28 10:25:41
+   */
+  latestMessageCreateTime?: string;
   static names(): { [key: string]: string } {
     return {
       chatId: 'ChatId',
       conversationId: 'ConversationId',
       lastEventId: 'LastEventId',
+      latestMessageCreateTime: 'LatestMessageCreateTime',
     };
   }
 
@@ -40,6 +49,7 @@ export class ReconnectAppChatRequest extends $dara.Model {
       chatId: 'string',
       conversationId: 'string',
       lastEventId: 'number',
+      latestMessageCreateTime: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPluginsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The plug-in code.
+   * The code of the plugin.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   configItems?: string;
   /**
    * @remarks
-   * The plug-in description.
+   * The description of the plugin.
    * 
    * @example
    * fail to decode json
@@ -29,7 +29,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The image display mode. Valid values:
+   * Specifies whether to display the image. Valid values:
    * 
    * - **0** (None): Not displayed.
    * - **1** (Always): Always displayed.
@@ -40,7 +40,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   display?: number;
   /**
    * @remarks
-   * Specifies whether scheduled delivery of resource snapshots is enabled.
+   * Specifies whether to enable scheduled delivery of resource snapshots.
    * 
    * Valid values:
    * - true: Enabled.
@@ -60,7 +60,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -70,7 +70,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time in ISO 8601 format in the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -88,7 +88,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   hooks?: string;
   /**
    * @remarks
-   * The plug-in description.
+   * The description of the plugin.
    * 
    * @example
    * @lALPM2AwTOg9IUHNAUDNAUA
@@ -104,7 +104,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the entry is deleted. Valid values: 0 (no) and 1 (yes).
+   * Indicates whether the item is deleted. Valid values: 0 (no) and 1 (yes).
    * 
    * @example
    * false
@@ -112,10 +112,10 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * The plug-in name.
+   * The name of the plugin.
    * 
    * @example
-   * 文件名
+   * Filename
    */
   name?: string;
   /**
@@ -128,7 +128,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   skillHeader?: string;
   /**
    * @remarks
-   * The category labels.
+   * The category tags.
    * 
    * @example
    * [{\\"Key\\": \\"kubernetes.io/cluster-id\\", \\"Value\\": \\"cc67198b13db948c9848599654da5586e\\"}, {\\"Key\\": \\"created-by\\", \\"Value\\": \\"alibabacloud-imagecache-controller\\"}]
@@ -186,7 +186,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
 export class ListAppPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -194,7 +194,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -202,7 +202,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name to query.
+   * The name of the application to query.
    * 
    * @example
    * dewuApp
@@ -218,8 +218,8 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the DtsJobId request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -227,12 +227,12 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error arguments.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -247,7 +247,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   module?: ListAppPluginsResponseBodyModule[];
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results are available.
+   * The token used to start the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -274,7 +274,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

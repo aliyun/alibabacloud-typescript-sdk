@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+   * The application name. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). It can be up to 36 characters in length.
    * 
    * @example
    * dewuApp
@@ -37,7 +37,7 @@ export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s variable in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,7 +45,7 @@ export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error arguments.
    */
   errorArgs?: any[];
   /**
@@ -77,12 +77,12 @@ export class NotifyAppNotificationForAdminResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

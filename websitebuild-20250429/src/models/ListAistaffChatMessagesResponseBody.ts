@@ -29,7 +29,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   chatStatus?: string;
   /**
    * @remarks
-   * The ID of the data API operation that is called.
+   * The ID of the invoked data API.
    * 
    * @example
    * domain cnamenwww.buyhao8.com www.buyhao8.com.a1.initrr.comn
@@ -61,7 +61,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 1591339051000
@@ -77,7 +77,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   messageId?: string;
   /**
    * @remarks
-   * The business extension metadata in Map format. The value must be a JSON string.
+   * The business extension metadata. The value must be a JSON string in map format.
    */
   metaData?: { [key: string]: any };
   /**
@@ -89,9 +89,10 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
    * - assistant: Assistant.
    * 
    * - system: System.
+   * 
    * - function: Function.
    * 
-   * - plugin: Plugin.
+   * - plugin: Plug-in.
    * 
    * - tool: Tool.
    * 
@@ -176,9 +177,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
 export class ListAIStaffChatMessagesResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The sender type.
-   * 
-   * Valid values:
+   * The sender type. Valid values:
    * - **ADMIN**: System.
    * - **CUSTOMER**: Visitor.
    * - **AGENT**: Agent.
@@ -211,7 +210,7 @@ export class ListAIStaffChatMessagesResponseBodyModule extends $dara.Model {
 export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -219,7 +218,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether a retry is allowed.
    * 
    * @example
    * False
@@ -227,7 +226,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * or
@@ -243,7 +242,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore it.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -251,7 +250,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -280,7 +279,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 系统异常
+   * System error
    */
   rootErrorMsg?: string;
   /**

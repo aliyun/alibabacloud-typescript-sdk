@@ -21,7 +21,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * The current conversation status.
+   * The current chat status.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   chatStatus?: string;
   /**
    * @remarks
-   * The ID of the data API operation that is called.
+   * The ID of the called data API.
    * 
    * @example
    * {\\"code\\": \\"200\\", \\"success\\": True, \\"content\\": True, \\"requestId\\": \\"4AF53F7B-FEA9-5966-B0F8-BAF9A1EEFE34\\", \\"businessError\\": False, \\"message\\": \\"success\\", \\"httpStatusCode\\": 200}
@@ -53,7 +53,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -63,7 +63,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time in ISO 8601 format in the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -81,7 +81,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The business extension metadata in Map format. The value must be a JSON string.
+   * The business extension metadata in map format. The value must be a JSON string.
    * 
    * @example
    * {\\"appId\\":\\"WS20260418211121000001\\",\\"inputTokens\\":273,\\"outputTokens\\":1}
@@ -89,7 +89,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * The probability of not wearing a mask, not wearing work clothes, or not wearing a hat.
+   * The probability of not wearing a mask, uniform, or hat.
    * 
    * @example
    * 1
@@ -99,16 +99,16 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
    * @remarks
    * The role of the conversation participant. Valid values:
    * 
-   * - user: user
+   * - user: User
    * 
-   * - assistant: assistant
+   * - assistant: Assistant
    * 
-   * - system: system
-   * - function: function
+   * - system: System
+   * - function: Function
    * 
-   * - plugin: plug-in
+   * - plugin: Plug-in
    * 
-   * - tool: tool
+   * - tool: Tool
    * 
    * @example
    * LoC
@@ -124,7 +124,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -190,7 +190,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
 export class UpdateAppChatMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -198,7 +198,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -206,7 +206,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b
@@ -214,7 +214,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not currently used. Ignore this parameter.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -222,8 +222,8 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -231,7 +231,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error arguments.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
@@ -257,10 +257,10 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

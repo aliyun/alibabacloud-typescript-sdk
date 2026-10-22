@@ -14,7 +14,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request result.
    */
   data?: AppMaterialFile[];
   /**
@@ -24,7 +24,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -37,7 +37,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    */
   resultLimit?: boolean;
   /**
@@ -97,7 +97,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
 export class QueryMaterialFileListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -105,9 +105,9 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether a retry is allowed. Valid values:
+   * - false: A retry is not allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -115,7 +115,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
    * 
    * @example
    * or
@@ -123,7 +123,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -139,12 +139,12 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. The ErrorCode parameter is not returned if the request is successful. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, this parameter is not returned. If the request fails, this parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -160,7 +160,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per query.
+   * The maximum number of entries to return for a single request.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -175,7 +175,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   module?: QueryMaterialFileListResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. If no next query is available, this parameter is left empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -199,15 +199,15 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

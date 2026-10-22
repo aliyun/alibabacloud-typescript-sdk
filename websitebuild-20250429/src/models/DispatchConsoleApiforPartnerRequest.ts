@@ -5,18 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DispatchConsoleAPIForPartnerRequest extends $dara.Model {
   /**
    * @remarks
+   * The access token obtained by calling GetUserAccessTokenForPartner.
+   * 
    * This parameter is required.
    */
   liveToken?: string;
   /**
    * @remarks
-   * The operation to perform on the alert. Valid values:
+   * Specifies the operation to perform on the alert. Valid values:
    * 
-   * - **deal**: handles the alert (quarantine).
-   * - **ignore**: ignores the alert.
-   * - **mark_mis_info**: marks the alert as a false positive (adds it to the whitelist).
-   * - **rm_mark_mis_info**: unmarks the alert as a false positive (removes it from the whitelist).
-   * - **offline_handled**: marks the alert as handled.
+   * - **deal**: Handles the alert (quarantine).
+   * - **ignore**: Ignores the alert.
+   * - **mark_mis_info**: Marks the alert as a false positive (adds to the whitelist).
+   * - **rm_mark_mis_info**: Unmarks the alert as a false positive (removes from the whitelist).
+   * - **offline_handled**: Marks the alert as handled.
    * 
    * This parameter is required.
    * 
@@ -42,6 +44,13 @@ export class DispatchConsoleAPIForPartnerRequest extends $dara.Model {
    * hbaseue
    */
   product?: string;
+  /**
+   * @remarks
+   * The website domain name.
+   * 
+   * @example
+   * abcd.scd.wanwang.xin
+   */
   siteHost?: string;
   static names(): { [key: string]: string } {
     return {

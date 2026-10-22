@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppSupabaseAuthConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class UpdateAppSupabaseAuthConfigRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Configuration JSON
+   * The configuration JSON.
    * 
    * @example
    * {"key":"value"}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConversationMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * Session ID.
+   * The conversation ID.
    * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
@@ -13,9 +13,9 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries per query.
    * 
-   * Valid values: 10 to 100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. This value is empty if there is no subsequent query.
+   * The token for the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -31,7 +31,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Number of entries per page (10–100).
+   * The number of entries per page (10-100).
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 734600510965856
@@ -47,7 +47,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Creation Time of the last entry on the previous page (in ISO 8601 format).
+   * The creation time of the last entry on the previous page (ISO 8601 format).
    * 
    * @example
    * null

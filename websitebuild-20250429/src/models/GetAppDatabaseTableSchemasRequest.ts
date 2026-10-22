@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppDatabaseTableSchemasRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * default.ai_advertising_material_rec_train_v1103
    */

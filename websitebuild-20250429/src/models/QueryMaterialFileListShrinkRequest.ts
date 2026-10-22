@@ -15,7 +15,7 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   maxFileSize?: number;
   /**
    * @remarks
-   * The maximum number of entries to return per query.
+   * The maximum number of entries to return for a single request.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -54,12 +54,12 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
    * The website name.
    * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. If no next query is available, this parameter is left empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -67,7 +67,7 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * gmtCreated
@@ -104,7 +104,7 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   statusListShrink?: string;
   /**
    * @remarks
-   * The list of file suffixes.
+   * The list of file extensions.
    */
   suffixListShrink?: string;
   /**

@@ -25,9 +25,7 @@ export class UploadMaterialFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The path of the file.
-   * 
-   * This parameter is required.
+   * The file path.
    * 
    * @example
    * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/4a7f_209934244261306272_14fd429b731245a79f291c64acf3ac77
@@ -35,18 +33,27 @@ export class UploadMaterialFileRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
-   * 测试文件
+   * Test file
    */
   name?: string;
+  /**
+   * @remarks
+   * The key of the OSS object.
+   * 
+   * @example
+   * backend/detection/objects/r-0008ujvfksltf5j45n81/task-000hckiuwyau0gwn17vq.jpg
+   */
+  ossKey?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       directoryId: 'DirectoryId',
       fileUrl: 'FileUrl',
       name: 'Name',
+      ossKey: 'OssKey',
     };
   }
 
@@ -56,6 +63,7 @@ export class UploadMaterialFileRequest extends $dara.Model {
       directoryId: 'string',
       fileUrl: 'string',
       name: 'string',
+      ossKey: 'string',
     };
   }
 

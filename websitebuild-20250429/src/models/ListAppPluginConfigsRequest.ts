@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPluginConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -13,9 +13,9 @@ export class ListAppPluginConfigsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries per query.
    * 
-   * Valid values: 10 to 100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListAppPluginConfigsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. It is empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=

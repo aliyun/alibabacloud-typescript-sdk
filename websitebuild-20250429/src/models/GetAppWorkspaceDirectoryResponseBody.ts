@@ -95,7 +95,7 @@ export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
 export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -127,7 +127,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -135,12 +135,12 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    */
   module?: GetAppWorkspaceDirectoryResponseBodyModule;
   /**
@@ -164,7 +164,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -13,7 +13,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   deployArea?: string;
   /**
    * @remarks
-   * The LingXiao instance ID.
+   * The Lingxiao instance ID.
    * 
    * @example
    * 12313213
@@ -101,7 +101,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Specifies whether the instance is logically deleted.
+   * Indicates whether the instance is logically deleted.
    * 
    * @example
    * fase
@@ -117,7 +117,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end time of the event, in UNIX timestamp format.
+   * The end time of the event. The value is a UNIX timestamp.
    * 
    * @example
    * 2024-08-23T02:14:00Z
@@ -133,7 +133,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   gmtDelete?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability was published, in milliseconds.
+   * The timestamp when the vulnerability was published. Unit: milliseconds.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -152,7 +152,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
    * The website name.
    * 
    * @example
-   * AI建站
+   * AI Website Builder
    */
   name?: string;
   /**
@@ -160,7 +160,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
    * The website configuration information.
    * 
    * @example
-   * 网站配置信息
+   * Website configuration information
    */
   profile?: SyncAppInstanceForPartnerRequestAppInstanceProfile;
   /**
@@ -181,7 +181,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried.
+   * The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC (Z) time zone.
    * 
    * @example
    * 2025-07-15T16:00:00Z
@@ -190,14 +190,15 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   /**
    * @remarks
    * The running status of the instance. Valid values:
-   * - NotRun: not running.
-   * - Running: running.
-   * - WaitTime: waiting for TriggerTime.
-   * - CheckingCondition: checking branch conditions.
-   * - WaitResource: waiting for resources.
-   * - Failure: execution failed.
-   * - Success: execution succeeded.
-   * - Checking: submitted for data quality check.
+   * 
+   * - NotRun: Not running.
+   * - Running: Running.
+   * - WaitTime: Waiting for the trigger time.
+   * - CheckingCondition: Checking branch conditions.
+   * - WaitResource: Waiting for resources.
+   * - Failure: Execution failed.
+   * - Success: Execution succeeded.
+   * - Checking: Submitted for data quality check.
    * 
    * @example
    * {\\"Phase\\": \\"Running\\", \\"SlotNum\\": 1, \\"UsedCapacity\\": \\"500.0Gi\\"}

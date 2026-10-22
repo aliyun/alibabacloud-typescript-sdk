@@ -25,15 +25,15 @@ export class QueryMaterialFileSummaryInfoShrinkRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
-   * 文件名
+   * File name
    */
   name?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used for sorting.
    * 
    * @example
    * CreationTime
@@ -41,7 +41,7 @@ export class QueryMaterialFileSummaryInfoShrinkRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC, DESC.
    * 
    * @example
    * BUY
@@ -65,12 +65,12 @@ export class QueryMaterialFileSummaryInfoShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The file status.
+   * The file statuses.
    */
   statusListShrink?: string;
   /**
    * @remarks
-   * The file type.
+   * The file types.
    */
   typeListShrink?: string;
   static names(): { [key: string]: string } {

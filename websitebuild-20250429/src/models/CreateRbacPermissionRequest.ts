@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRbacPermissionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business ID.
+   * 
+   * @example
+   * WD20250821161210000001
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * The permission parameter.
+   * 
+   * @example
+   * {"resource":"post","action":"read","description":"read post"}
+   */
   permissionData?: string;
   static names(): { [key: string]: string } {
     return {

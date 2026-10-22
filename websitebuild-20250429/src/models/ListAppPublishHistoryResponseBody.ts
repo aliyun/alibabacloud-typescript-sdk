@@ -11,10 +11,17 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
    * true
    */
   canQuickRevert?: string;
+  /**
+   * @remarks
+   * The commit hash of the code.
+   * 
+   * @example
+   * 890243d5977e74d80eebd4734f7b05f626f84cb1
+   */
   commitHash?: string;
   /**
    * @remarks
-   * Current step.
+   * The current step number.
    * 
    * @example
    * PRE_CHECK
@@ -22,7 +29,15 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   currentStep?: string;
   /**
    * @remarks
-   * Deployment channel.
+   * The code of the current release step.
+   * 
+   * @example
+   * INIT
+   */
+  currentStepCode?: string;
+  /**
+   * @remarks
+   * The deployment channel.
    * 
    * @example
    * PC
@@ -30,7 +45,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   deployChannel?: string;
   /**
    * @remarks
-   * Application description.
+   * The application description.
    * 
    * @example
    * PSKB
@@ -38,7 +53,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * Publishing procedure.
+   * The release process.
    * 
    * @example
    * error
@@ -46,14 +61,22 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   errorStep?: string;
   /**
    * @remarks
-   * Indicates whether the process is complete.
+   * The code of the release step where the error occurred.
+   * 
+   * @example
+   * BUILDING
+   */
+  errorStepCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is completed.
    */
   isFinish?: boolean;
   /**
    * @remarks
-   * Indicates whether resource allocation to the cost center succeeded.
-   * - true indicates success.
-   * - false indicates failure.
+   * Indicates whether the resource allocation for the financial unit is successful. Valid values:
+   * - true: The allocation is successful.
+   * - false: The allocation fails.
    * 
    * @example
    * True
@@ -61,7 +84,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   isSuccess?: boolean;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * SUCCESS
@@ -69,7 +92,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   msg?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC.
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -77,7 +100,15 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   orderType?: string;
   /**
    * @remarks
-   * Transcoding progress.
+   * The code of the release order type.
+   * 
+   * @example
+   * DEPLOY
+   */
+  orderTypeCode?: string;
+  /**
+   * @remarks
+   * The transcoding progress.
    * 
    * @example
    * true
@@ -85,7 +116,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   percent?: number;
   /**
    * @remarks
-   * Publish number.
+   * The release number.
    * 
    * @example
    * 123
@@ -93,7 +124,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   publishNumber?: string;
   /**
    * @remarks
-   * Publish order ID.
+   * The release order ID.
    * 
    * @example
    * 123
@@ -101,7 +132,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   publishOrderId?: number;
   /**
    * @remarks
-   * Published At.
+   * The release time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -111,26 +142,39 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   publishTime?: string;
   /**
    * @remarks
-   * Specific widget configuration.
+   * The list of release step codes.
+   */
+  stepCodes?: string[];
+  /**
+   * @remarks
+   * The specific configurations of the component.
    */
   steps?: string[];
+  /**
+   * @remarks
+   * The release subchannel.
+   */
   subchannel?: string;
   static names(): { [key: string]: string } {
     return {
       canQuickRevert: 'CanQuickRevert',
       commitHash: 'CommitHash',
       currentStep: 'CurrentStep',
+      currentStepCode: 'CurrentStepCode',
       deployChannel: 'DeployChannel',
       description: 'Description',
       errorStep: 'ErrorStep',
+      errorStepCode: 'ErrorStepCode',
       isFinish: 'IsFinish',
       isSuccess: 'IsSuccess',
       msg: 'Msg',
       orderType: 'OrderType',
+      orderTypeCode: 'OrderTypeCode',
       percent: 'Percent',
       publishNumber: 'PublishNumber',
       publishOrderId: 'PublishOrderId',
       publishTime: 'PublishTime',
+      stepCodes: 'StepCodes',
       steps: 'Steps',
       subchannel: 'Subchannel',
     };
@@ -141,23 +185,30 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
       canQuickRevert: 'string',
       commitHash: 'string',
       currentStep: 'string',
+      currentStepCode: 'string',
       deployChannel: 'string',
       description: 'string',
       errorStep: 'string',
+      errorStepCode: 'string',
       isFinish: 'boolean',
       isSuccess: 'boolean',
       msg: 'string',
       orderType: 'string',
+      orderTypeCode: 'string',
       percent: 'number',
       publishNumber: 'string',
       publishOrderId: 'number',
       publishTime: 'string',
+      stepCodes: { 'type': 'array', 'itemType': 'string' },
       steps: { 'type': 'array', 'itemType': 'string' },
       subchannel: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.stepCodes)) {
+      $dara.Model.validateArray(this.stepCodes);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }
@@ -172,7 +223,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
 export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current publish order ID
+   * The ID of the current release order.
    * 
    * @example
    * 123
@@ -180,16 +231,14 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   currentPublishOrderId?: number;
   /**
    * @remarks
-   * Indicates whether to display the history of applying the alert template to application groups. Valid values:
-   * 
+   * Specifies whether to display the history of applying alert templates to application groups. Valid values:
    * - true: Display.
-   * 
-   * - false (default): Do not display.
+   * - false: Do not display. This is the default value.
    */
   history?: ListAppPublishHistoryResponseBodyModuleHistory[];
   /**
    * @remarks
-   * Page number. Default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -197,7 +246,7 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Paging size.
+   * The page size.
    * 
    * @example
    * 10
@@ -205,7 +254,7 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 0
@@ -246,7 +295,7 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
 export class ListAppPublishHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -254,7 +303,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -262,7 +311,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * frontend application Name.
+   * The name of the frontend application.
    * 
    * @example
    * spring-cloud-b
@@ -270,7 +319,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -278,7 +327,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic message, not currently used. Please ignore.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * abc
@@ -286,14 +335,12 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * fault parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.  
-   * 
-   * Value range: 10 to 100. Default Value: 20.
+   * The maximum number of entries to return for a single query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -301,18 +348,15 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Data Table module.  
-   * 
-   * - ABTest: experiment Data Table  
-   * 
-   * - ExperimentTool: experiment tool table  
-   * 
-   * - DataDiagnosis: Data Diagnosis
+   * The data table module. Valid values:
+   * - ABTest: experiment data table
+   * - ExperimentTool: experiment tool table
+   * - DataDiagnosis: data diagnosis
    */
   module?: ListAppPublishHistoryResponseBodyModule;
   /**
    * @remarks
-   * Token for the start of the next query. It is empty if there is no next query.
+   * The token used to start the next query. This parameter is empty if no next query is available.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -328,7 +372,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -336,15 +380,15 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

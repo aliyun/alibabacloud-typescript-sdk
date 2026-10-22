@@ -22,7 +22,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name to query.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * or
@@ -46,7 +46,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -78,7 +78,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

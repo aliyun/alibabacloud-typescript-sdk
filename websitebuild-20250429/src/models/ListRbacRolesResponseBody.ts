@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The creation date.
+   * The creation date. The value is in ISO 8601 format with the time zone set to UTC (Z).
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -31,7 +31,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether this is a system-defined approval template. Valid values:
+   * Indicates whether the approval template is system-defined. Valid values:
    * - 1: Yes.
    * - 0: No.
    */
@@ -49,7 +49,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
    * The file name.
    * 
    * @example
-   * 文件名
+   * FileName
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -86,7 +86,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
 export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2020-11-27 16:02:28
@@ -102,7 +102,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether this is the default private gateway.
+   * Indicates whether this is the default dedicated gateway.
    * 
    * @example
    * false
@@ -110,7 +110,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether this is a system-defined approval template. Valid values:
+   * Indicates whether the approval template is system-defined. Valid values:
    * - 1: Yes.
    * - 0: No.
    */
@@ -207,7 +207,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Indicates whether the query results exceed the server-side limit of 1,000 records (excluding pagination limits). If the results exceed 1,000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * Indicates whether the server-side result limit is reached. The server processes up to 1,000 recent records beyond pagination limits. If the results exceed 1,000, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -320,7 +320,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The maximum number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -362,7 +362,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCheckResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * The owner ID, which can be a website ID or an Alibaba Cloud account ID.
+   * The ownership ID, which can be a website ID or an Alibaba Cloud user ID.
    * 
    * @example
    * 123456
@@ -13,7 +13,7 @@ export class BatchCheckResourceMeasureRequest extends $dara.Model {
   belongId?: string;
   /**
    * @remarks
-   * The type of the owner ID. Valid values: siteId and uid.
+   * The type of the ownership ID, such as siteId or uid.
    * 
    * @example
    * USER
@@ -37,7 +37,7 @@ export class BatchCheckResourceMeasureRequest extends $dara.Model {
   espBizId?: string;
   /**
    * @remarks
-   * The order module information. If this parameter is left empty, the information is automatically completed.
+   * The order component information. This parameter is automatically populated if left empty.
    * 
    * @example
    * {"siteversion":"test"}

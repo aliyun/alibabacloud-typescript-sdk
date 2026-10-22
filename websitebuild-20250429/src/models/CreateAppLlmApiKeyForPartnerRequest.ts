@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppLlmApiKeyForPartnerRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID of the application instance
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250814102215000001
@@ -13,7 +13,7 @@ export class CreateAppLlmApiKeyForPartnerRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Idempotent token (reserved)
+   * The idempotency token. This parameter is reserved for future use.
    * 
    * @example
    * xxxxx-xxxx
@@ -21,7 +21,7 @@ export class CreateAppLlmApiKeyForPartnerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Description of the API key usage
+   * The description of the API key usage.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class CreateAppLlmApiKeyForPartnerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Caller-defined IP address whitelist (the backend appends the system default IP segment)
+   * The custom IP address whitelist defined by the invoker. The system default IP ranges are appended by the backend.
    */
   ipWhiteList?: string[];
   static names(): { [key: string]: string } {

@@ -3,12 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AppAiStaff extends $dara.Model {
+  /**
+   * @remarks
+   * The employee ID.
+   * 
+   * @example
+   * 370196
+   */
   staffId?: string;
+  /**
+   * @remarks
+   * The employee name.
+   */
   staffName?: string;
+  /**
+   * @remarks
+   * The employee type.
+   */
   staffType?: string;
   /**
    * @remarks
-   * 可能的值：unknown, init, testing, online
+   * Valid values: unknown, init, testing, and online.
+   * 
+   * @example
+   * online
    */
   status?: string;
   static names(): { [key: string]: string } {

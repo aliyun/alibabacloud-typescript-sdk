@@ -37,9 +37,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The number of results returned per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -47,12 +45,22 @@ export class ListAppTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. This parameter is empty if there is no next query.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
    */
   nextToken?: string;
+  /**
+   * @example
+   * copyCount
+   */
+  orderColumn?: string;
+  /**
+   * @example
+   * DESC
+   */
+  orderType?: string;
   /**
    * @remarks
    * The page number.
@@ -71,7 +79,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The Edition.
+   * The edition.
    * 
    * @example
    * V2
@@ -93,6 +101,8 @@ export class ListAppTemplatesRequest extends $dara.Model {
       keyword: 'Keyword',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      orderColumn: 'OrderColumn',
+      orderType: 'OrderType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       productVersion: 'ProductVersion',
@@ -108,6 +118,8 @@ export class ListAppTemplatesRequest extends $dara.Model {
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      orderColumn: 'string',
+      orderType: 'string',
       pageNum: 'number',
       pageSize: 'number',
       productVersion: 'string',
