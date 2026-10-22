@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The comment. Fuzzy match is supported.
+   * The comment on the column. Fuzzy match is supported.
    * 
    * @example
    * test comment
@@ -13,7 +13,7 @@ export class ListColumnsRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Specifies whether to return extended properties. Set this parameter to `true` to return extended properties or `false` to not return them.
+   * Specifies whether to return extended properties. If you set this parameter to `true`, extended properties are returned. If you set this parameter to `false`, extended properties are not returned.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListColumnsRequest extends $dara.Model {
   includeExtendedProperties?: boolean;
   /**
    * @remarks
-   * The name. Fuzzy match is supported.
+   * The name of the column. Fuzzy match is supported.
    * 
    * @example
    * test_table
@@ -29,9 +29,9 @@ export class ListColumnsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort direction. Default value: Asc. Valid values:
-   * - Asc: ascending order.
-   * - Desc: descending order.
+   * The sort order. Default value: Asc. Valid values:
+   * - Asc: Ascending order.
+   * - Desc: Descending order.
    * 
    * @example
    * Asc
@@ -47,7 +47,7 @@ export class ListColumnsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -55,9 +55,9 @@ export class ListColumnsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. Default value: Position. Valid values:
-   * - Name: name.
-   * - Position: position.
+   * The field used for sorting. Default value: Position. Valid values:
+   * - Name: Name.
+   * - Position: Position.
    * 
    * @example
    * Position
@@ -65,7 +65,7 @@ export class ListColumnsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+   * The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
    * 
    * This parameter is required.
    * 

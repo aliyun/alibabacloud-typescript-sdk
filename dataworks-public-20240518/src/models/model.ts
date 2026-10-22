@@ -1,4 +1,5 @@
 export { ColumnBusinessMetadata } from './Column';
+export { ColumnTechnicalMetadata } from './Column';
 export { CrawlerTypeSupportedEntityTypes } from './CrawlerType';
 export { DataQualityEvaluationTaskHooks } from './DataQualityEvaluationTask';
 export { DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels } from './DataQualityEvaluationTask';
