@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field.
+   * **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify it.
    * 
    * @example
    * agent_***
@@ -13,7 +13,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field when calling the API.
+   * **[Optimized]** This field is now automatically retrieved in the background. You do not need to specify it when calling the API.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data source information. This parameter can be left empty. This parameter supports only one data source. Use the DataSources parameter instead.
+   * The data source information. This parameter can be left empty. You can specify only one data source for this parameter. Use the DataSources parameter instead.
    * 
    * @example
    * null
@@ -34,7 +34,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   dataSourcesShrink?: string;
   /**
    * @remarks
-   * The message content to send to the Agent.
+   * The content of the message sent to the agent.
    * 
    * This parameter is required.
    * 
@@ -44,15 +44,15 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message type. Default value: `[primary]`.  
+   * The message type. Default value: `primary`.  
    * 
-   * - For regular interactions with the Agent, set the message type to `[primary]`.
+   * - In normal interactions with the agent, the message type is `primary`.
    * 
-   * - When the message is a response to the Agent\\"s Human-in-Loop question, set the type to `[additional]`.
+   * - When the message is a response to a human-in-the-loop question from the agent, the type must be `additional`.
    * 
-   * - When the message is intended to trigger report generation, set the type to `[report]`.
+   * - When the message is intended to trigger report generation, the type must be `report`.
    * 
-   * - When the message is intended to cancel the current session, set the type to `[cancel]`.
+   * - When the message is intended to cancel the current session, the type must be `cancel`.
    * 
    * @example
    * primary
@@ -60,7 +60,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The parent session ID.
+   * The ID of the parent session.
    * 
    * @example
    * 20qrliuoo7p2vlsfg*****
@@ -68,15 +68,15 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through Human-in-Loop.
+   * Required when the message type is `additional`. Specifies the specific question asked by the agent to the user through human-in-the-loop.
    * 
    * @example
-   * Provide the criteria for calculating GMV
+   * Provide the calculation criteria for GMV
    */
   question?: string;
   /**
    * @remarks
-   * The quoted content. This is typically used during interactions with the Agent.
+   * The quoted content. This is typically used when interacting with the agent.
    * 
    * @example
    * {"version":"v0"}
@@ -86,9 +86,9 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
    * @remarks
    * **Important**
    * 
-   * When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after analysis is complete, you can leave reply_to empty or set it to "0".  
+   * When this message is a reply to an agent message, such as an agent asking for clarification through ASK_HUMAN, `reply_to` must exactly match the checkpoint sequence number carried by that agent message. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after the initial analysis is complete, you can leave `reply_to` empty or set it to "0".  
    * 
-   * This field affects how the Agent decides to process the message. Incorrect values may lead to analysis results that do not meet expectations.
+   * This field affects how the agent decides to process the message. Passing an incorrect value may lead to suboptimal analysis results.
    * 
    * @example
    * 0
@@ -96,7 +96,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   replyTo?: string;
   /**
    * @remarks
-   * The special configuration for the current session. For the same session, only the configuration included in the first SendMessage call takes effect.
+   * The special configurations for the current session. For the same session, only the configurations specified in the first SendMessage call take effect.
    * 
    * **if can be null:**
    * true
@@ -104,10 +104,10 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   sessionConfigShrink?: string;
   /**
    * @remarks
-   * The session ID. This is an optional field used for multi-turn sessions.
-   * - You can start a session without specifying this field. The response includes the SessionID of the current session.
+   * The session ID. This optional field is used for multi-turn sessions.
+   * - You can start a session without specifying this field. The response will include the session ID for the current session.
    * - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when initiating a session.
-   * - For multi-turn conversations (such as follow-up questions or confirming execution plans), specify the SessionID returned by the previous SendChatMessage call.
+   * - If you need multi-turn conversations, such as follow-up questions or confirming execution plans, specify the session ID returned by the previous SendChatMessage operation in this operation.
    * 
    * @example
    * sess_***
@@ -120,7 +120,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   taskConfigShrink?: string;
   /**
    * @remarks
-   * The OSS bucket of the user. If this parameter is not specified, the analysis data is securely stored in built-in storage.
+   * The Object Storage Service (OSS) bucket of the user. If this parameter is left empty, the analysis process is securely stored in the built-in storage.
    * 
    * @example
    * my-bucket

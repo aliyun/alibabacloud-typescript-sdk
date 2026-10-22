@@ -6908,14 +6908,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or cancels a session.
+   * Sends a user message to a specified session or cancels the session.
    * 
    * @remarks
    * ## Request description
-   * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
-   * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
+   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - `quoted_message` can be used to quote previous user messages.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7020,14 +7020,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or cancels a session.
+   * Sends a user message to a specified session or cancels the session.
    * 
    * @remarks
    * ## Request description
-   * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
-   * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
+   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - `quoted_message` can be used to quote previous user messages.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
