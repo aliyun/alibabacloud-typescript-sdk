@@ -37,7 +37,7 @@ export class DescribeApikeyAttributeResponseBodyItemsConsumer extends $dara.Mode
   consumerTag?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2021-07-18T07:32:30Z
@@ -53,7 +53,7 @@ export class DescribeApikeyAttributeResponseBodyItemsConsumer extends $dara.Mode
   gwClusterId?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2026-04-10T01:48:25Z
@@ -115,7 +115,7 @@ export class DescribeApikeyAttributeResponseBodyItemsConsumer extends $dara.Mode
 export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $dara.Model {
   /**
    * @remarks
-   * The dimension reference ID, which is the ConsumerId.
+   * The dimension reference ID, which is the consumer ID.
    * 
    * @example
    * c-xxxxxx
@@ -123,7 +123,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   dimensionRefId?: string;
   /**
    * @remarks
-   * The statistics dimension. The value is typically Consumer.
+   * The statistical dimension. The value is typically Consumer.
    * 
    * @example
    * Consumer
@@ -139,7 +139,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   gwClusterId?: string;
   /**
    * @remarks
-   * The number of cache tokens for the current month.
+   * The number of cached tokens for the current month.
    * 
    * @example
    * 10
@@ -147,7 +147,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   monthlyCacheToken?: string;
   /**
    * @remarks
-   * The cost points consumed for the current month.
+   * The number of consumed points for the current month.
    * 
    * @example
    * 10
@@ -179,7 +179,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   monthlyToken?: string;
   /**
    * @remarks
-   * The cumulative number of cache tokens.
+   * The total number of cached tokens.
    * 
    * @example
    * 10
@@ -187,7 +187,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   totalCacheToken?: string;
   /**
    * @remarks
-   * The cumulative cost points consumed.
+   * The total number of consumed points.
    * 
    * @example
    * 10
@@ -195,7 +195,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   totalCostPoints?: string;
   /**
    * @remarks
-   * The cumulative number of input tokens.
+   * The total number of input tokens.
    * 
    * @example
    * 10
@@ -203,7 +203,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   totalInputToken?: string;
   /**
    * @remarks
-   * The cumulative number of output tokens.
+   * The total number of output tokens.
    * 
    * @example
    * 10
@@ -211,7 +211,7 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
   totalOutputToken?: string;
   /**
    * @remarks
-   * The cumulative number of tokens.
+   * The total number of tokens.
    * 
    * @example
    * 10
@@ -270,7 +270,7 @@ export class DescribeApikeyAttributeResponseBodyItems extends $dara.Model {
   consumer?: DescribeApikeyAttributeResponseBodyItemsConsumer;
   /**
    * @remarks
-   * The usage statistics for the consumer.
+   * The usage statistics records for the consumer.
    */
   usageStatistics?: DescribeApikeyAttributeResponseBodyItemsUsageStatistics[];
   static names(): { [key: string]: string } {

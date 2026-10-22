@@ -31,7 +31,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project ID for exact match.
+   * The project ID used for exact matching.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -39,7 +39,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name for fuzzy match.
+   * The project name used for fuzzy matching.
    * 
    * @example
    * analytics
@@ -57,7 +57,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the project belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951

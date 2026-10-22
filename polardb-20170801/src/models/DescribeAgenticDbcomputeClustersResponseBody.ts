@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated branch.
+   * The associated branch ID.
    * 
    * @example
    * br-7g8h9i0j1k2l
@@ -13,7 +13,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   branchId?: string;
   /**
    * @remarks
-   * The name of the associated branch.
+   * The associated branch name.
    * 
    * @example
    * feature-analytics
@@ -29,7 +29,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   computeClusterId?: string;
   /**
    * @remarks
-   * The number of compute nodes. The value is fixed to 1 in the first phase.
+   * The number of compute nodes (fixed to 1 in the first phase).
    * 
    * @example
    * 1
@@ -37,9 +37,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   computeNodeCount?: number;
   /**
    * @remarks
-   * The time when the compute instance was created.
-   * 
-   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -47,7 +45,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The description of the compute instance.
+   * The description.
    * 
    * @example
    * Compute cluster for analytics
@@ -55,7 +53,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * Indicates whether the compute instance is the default branch.
+   * Indicates whether it is the default branch.
    * 
    * @example
    * false
@@ -63,7 +61,8 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   isDefaultBranch?: boolean;
   /**
    * @remarks
-   * The time when the compute instance was last activated.
+   * The last activation time.
+   * The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T12:30:00Z
@@ -95,17 +94,23 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   operatorType?: string;
   /**
    * @remarks
-   * The ID of the parent branch. This value is an empty string for the root branch.
+   * The parent branch ID. An empty string indicates the root branch.
+   * 
+   * @example
+   * br-1a2b3c4d5e6f
    */
   parentBranchId?: string;
   /**
    * @remarks
-   * The name of the parent branch. This value is an empty string for the root branch.
+   * The parent branch name. An empty string indicates the root branch.
+   * 
+   * @example
+   * main
    */
   parentBranchName?: string;
   /**
    * @remarks
-   * The ID of the associated project.
+   * The associated project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -113,7 +118,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * The name of the associated project.
+   * The associated project name.
    * 
    * @example
    * analytics-prod
@@ -121,7 +126,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   projectName?: string;
   /**
    * @remarks
-   * The status of the compute instance.
+   * The status.
    * 
    * @example
    * Running
@@ -129,7 +134,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The amount of data used, in bytes.
+   * The used data volume (in bytes).
    * 
    * @example
    * 1073741824
@@ -137,7 +142,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   storageSize?: number;
   /**
    * @remarks
-   * The ID of the associated tenant.
+   * The associated tenant ID.
    * 
    * @example
    * t-4b83e0da66674951
@@ -145,7 +150,7 @@ export class DescribeAgenticDBComputeClustersResponseBodyItems extends $dara.Mod
   tenantId?: string;
   /**
    * @remarks
-   * The name of the associated tenant.
+   * The associated tenant name.
    * 
    * @example
    * my-saas-app
@@ -240,7 +245,7 @@ export class DescribeAgenticDBComputeClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3

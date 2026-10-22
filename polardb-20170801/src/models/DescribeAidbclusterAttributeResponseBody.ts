@@ -76,17 +76,33 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis extend
   /**
    * @remarks
    * The name of the API supported by the database node.
+   * 
+   * @example
+   * Completions
    */
   apiName?: string;
+  /**
+   * @remarks
+   * The generation mode of the API.
+   * 
+   * @example
+   * stream
+   */
   generationMode?: string;
   /**
    * @remarks
    * The path of the supported API.
+   * 
+   * @example
+   * /v1/chat/completions
    */
   path?: string;
   /**
    * @remarks
    * The protocol type of the supported API.
+   * 
+   * @example
+   * HTTP
    */
   protocol?: string;
   static names(): { [key: string]: string } {
@@ -141,7 +157,8 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   /**
    * @remarks
    * The time when the node was created.
-   * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * 
+   * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -149,7 +166,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   creationTime?: string;
   /**
    * @remarks
-   * The node specifications.
+   * The cluster specifications.
    * 
    * @example
    * polar.pg.g8.8xlarge.gu30
@@ -177,12 +194,12 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * * **Creating**: The node is being created. 
    * * **Running**: The node is running. 
    * * **Deleting**: The node is being deleted.  
-   * * **Rebooting**: The node is restarting.  
+   * * **Rebooting**: The node is being restarted.  
    * * **DBNodeCreating**: Nodes are being added.  
    * * **DBNodeDeleting**: Nodes are being deleted. 
    * * **ClassChanging**: The node specifications are being changed.  
    * * **MinorVersionUpgrading**: The minor version is being upgraded.
-   * * **Maintaining**: The instance is under maintenance.  
+   * * **Maintaining**: The instance is being maintained.  
    * * **Switching**: A switchover is in progress.
    * 
    * @example
@@ -221,6 +238,13 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * 8192
    */
   memorySize?: string;
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * Qwen3-Embedding-8B
+   */
   modelName?: string;
   /**
    * @remarks
@@ -269,7 +293,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-hangzhou-d
@@ -343,7 +367,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
 export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems extends $dara.Model {
   /**
    * @remarks
-   * The database endpoint.
+   * The database connection address.
    * 
    * @example
    * pc-**********.rwlb.rds.aliyuncs.com
@@ -351,10 +375,10 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
   connectionString?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
-   * * **Public**: Public network endpoint.
-   * * **Private**: Private network endpoint.
-   * * **Inner**: Private network endpoint (classic network).
+   * The network type of the connection string. Valid values:
+   * * **Public**: Public network address.
+   * * **Private**: Private network address.
+   * * **Inner**: Private network address (classic network).
    * 
    * @example
    * Public
@@ -396,7 +420,7 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
 export class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.Model {
   /**
    * @remarks
-   * The list of network information for the instance.
+   * The list of network information of the instance.
    */
   netInfoItems?: DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems[];
   static names(): { [key: string]: string } {
@@ -424,7 +448,21 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices extends $dara.Model {
+  /**
+   * @remarks
+   * The start time of the time slice, in the HH:mm format.
+   * 
+   * @example
+   * 08:00
+   */
   beginTime?: string;
+  /**
+   * @remarks
+   * The end time of the time slice, in the HH:mm format.
+   * 
+   * @example
+   * 18:00
+   */
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -450,6 +488,10 @@ export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices ex
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of time slices for pay-as-you-go billing.
+   */
   timeSlices?: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices[];
   static names(): { [key: string]: string } {
     return {
@@ -476,7 +518,21 @@ export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo extends $dar
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the node label.
+   * 
+   * @example
+   * environment
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the node label.
+   * 
+   * @example
+   * production
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -502,8 +558,29 @@ export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduling effect of the node taint.
+   * 
+   * @example
+   * NoSchedule
+   */
   effect?: string;
+  /**
+   * @remarks
+   * The key of the node taint.
+   * 
+   * @example
+   * dedicated
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the node taint.
+   * 
+   * @example
+   * groupName
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -531,7 +608,15 @@ export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Kubernetes node labels.
+   */
   labels?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels[];
+  /**
+   * @remarks
+   * The list of Kubernetes node taints.
+   */
   taints?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints[];
   static names(): { [key: string]: string } {
     return {
@@ -636,9 +721,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - vnode: ACK-managed.
-   * - container: Logon-enabled container.
-   * - maas: Model service.
+   * - vnode: ACK-managed node.
+   * - container: container that supports logon.
+   * - maas: model service.
    * 
    * @example
    * vnode
@@ -663,7 +748,8 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the cluster was created.
-   * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * 
+   * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -679,7 +765,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   currentCapacity?: number;
   /**
    * @remarks
-   * The custom OSS path of the model currently used by the instance.
+   * The custom Object Storage Service (OSS) path of the model currently used by the instance.
    * 
    * @example
    * /my-model-bucket/models/qwen3
@@ -704,35 +790,50 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the cluster. Valid values:
+   * 
    * - **Creating**: The cluster is being created.
    * - **Running**: The cluster is running.
    * - **Deleting**: The cluster is being released.
    * - **DBNodeCreating**: Nodes are being added.
    * - **DBNodeDeleting**: Nodes are being deleted.
-   * - **ClassChanging**: The node specifications are being changed.
+   * - **ClassChanging**: The node specifications are being changed. 
    * - **Deleted**: The cluster is released.
    * 
    * @example
    * Running
    */
   DBClusterStatus?: string;
+  /**
+   * @remarks
+   * The database instance status description. A value of ACTIVATION indicates that the database instance is running.
+   * 
+   * @example
+   * ACTIVATION
+   */
   DBInstanceStatusDesc?: string;
   /**
    * @remarks
-   * The details of the nodes.
+   * The details of the node information.
    */
   DBNodes?: DescribeAIDBClusterAttributeResponseBodyDBNodes[];
   /**
    * @remarks
    * The cluster version. Valid values:
+   * 
    * **1.0**
+   * 
    * **2.0**
+   * 
    * **3.0**
    * 
    * @example
    * 1.0
    */
   DBVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether the dedicated host mode is used.
+   */
   dedicatedHostModel?: boolean;
   /**
    * @remarks
@@ -744,14 +845,16 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   ecsSecurityGroupId?: string;
   /**
    * @remarks
-   * The list of network endpoints for the instance.
+   * The list of network endpoint addresses of the instance.
    */
   endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
   /**
    * @remarks
    * The expiration time of the cluster.
+   * 
    * > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
-   * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * 
+   * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -760,14 +863,30 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cluster has expired. Valid values:
-   * - **true**: The cluster has expired.
-   * - **false**: The cluster has not expired.
+   * 
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
    */
   expired?: boolean;
+  /**
+   * @remarks
+   * The ID of the AI gateway instance.
+   * 
+   * @example
+   * pg-2ze24rr575j5b18cg
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The model inference engine.
+   * 
+   * @example
+   * sglang
+   */
   inferenceEngine?: string;
   /**
    * @remarks
@@ -795,7 +914,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   kubeClusterId?: string;
   /**
    * @remarks
-   * The lock mode of the instance. Valid value: **lock**. This value indicates that the instance is automatically locked due to expiration or overdue payments.
+   * The lock mode of the instance. A value of **lock** indicates that the instance has expired or has an overdue payment.
    * 
    * @example
    * Unlock
@@ -809,6 +928,13 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * 20
    */
   maxQPM?: string;
+  /**
+   * @remarks
+   * The maximum number of tokens allowed per minute.
+   * 
+   * @example
+   * 10000
+   */
   maxTPM?: string;
   /**
    * @remarks
@@ -818,6 +944,13 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * Qwen3-Embedding-8B
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The name of the workspace to which the model belongs.
+   * 
+   * @example
+   * my-model-space
+   */
   modelSpaceName?: string;
   /**
    * @remarks
@@ -830,8 +963,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - **Postpaid**: Pay-as-you-go.
-   * - **Prepaid**: Subscription.
+   * 
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -839,7 +973,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The custom OSS path of the model before the last change.
+   * The custom model OSS path before the last change.
    * 
    * @example
    * /my-model-bucket/models/qwen2
@@ -872,8 +1006,8 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The architecture type. Valid values:
-   * - container: AI container.
-   * - ainode: AI node.
+   * - container: AI container
+   * - ainode: AI node
    * 
    * @example
    * container
@@ -896,11 +1030,22 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * essdpl1
    */
   storageType?: string;
+  /**
+   * @remarks
+   * The time slice configuration for pay-as-you-go billing.
+   */
   timeSlicesInfo?: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo;
+  /**
+   * @remarks
+   * The cycle type of the time slice configuration.
+   * 
+   * @example
+   * daily
+   */
   timeSlicesType?: string;
   /**
    * @remarks
-   * The ID of the VPC specified for zone switchover.
+   * The VPC ID specified for zone switching.
    * 
    * @example
    * vpc-*******************
@@ -916,6 +1061,10 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * vsw-*********************
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The Kubernetes configuration of the virtual node.
+   */
   vnodeKubernetesConfig?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBComputeClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The compute instance ID for fuzzy match (pc-xxxx), such as pc-2ze8k.
+   * The compute instance ID for fuzzy matching (pc-xxxx), such as pc-2ze8k.
    * 
    * @example
    * pc-2ze8k
@@ -49,7 +49,7 @@ export class DescribeAgenticDBComputeClustersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Filters compute instances by status. Valid values: Running, Stopped, and Waiting.
+   * The status filter. Valid values: Running, Stopped, and Waiting.
    * 
    * @example
    * Running

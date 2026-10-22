@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticDBProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateAgenticDBProjectRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The default branch name. Default value: main.
+   * The name of the default branch. Default value: main.
    * 
    * @example
    * main
@@ -31,7 +31,15 @@ export class CreateAgenticDBProjectRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project name. The name must be unique within the same tenant.
+   * The retention period for historical data to support creating branches at specific points in time. Default value: 604800 seconds (7 days). Valid values: 3600 to 2592000 seconds (1 hour to 30 days), inclusive. The actual range is subject to the service configuration.
+   * 
+   * @example
+   * 604800
+   */
+  historyRetentionSeconds?: number;
+  /**
+   * @remarks
+   * The name of the project. The name must be unique within the tenant.
    * 
    * This parameter is required.
    * 
@@ -51,7 +59,7 @@ export class CreateAgenticDBProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the project belongs.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 
@@ -64,6 +72,7 @@ export class CreateAgenticDBProjectRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       defaultBranchName: 'DefaultBranchName',
       description: 'Description',
+      historyRetentionSeconds: 'HistoryRetentionSeconds',
       projectName: 'ProjectName',
       regionId: 'RegionId',
       tenantId: 'TenantId',
@@ -75,6 +84,7 @@ export class CreateAgenticDBProjectRequest extends $dara.Model {
       DBClusterId: 'string',
       defaultBranchName: 'string',
       description: 'string',
+      historyRetentionSeconds: 'number',
       projectName: 'string',
       regionId: 'string',
       tenantId: 'string',

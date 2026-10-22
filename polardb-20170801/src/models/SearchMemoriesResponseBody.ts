@@ -107,7 +107,15 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
 }
 
 export class SearchMemoriesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   page?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
   /**
    * @remarks
@@ -122,7 +130,15 @@ export class SearchMemoriesResponseBody extends $dara.Model {
    * The list of results.
    */
   results?: SearchMemoriesResponseBodyResults[];
+  /**
+   * @example
+   * 1
+   */
   total?: string;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: string;
   static names(): { [key: string]: string } {
     return {

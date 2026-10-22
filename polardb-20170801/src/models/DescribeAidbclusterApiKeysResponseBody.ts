@@ -15,7 +15,7 @@ export class DescribeAIDBClusterApiKeysResponseBodyApiKeys extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The time is displayed in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-04-09T03:19:19Z
@@ -77,10 +77,24 @@ export class DescribeAIDBClusterApiKeysResponseBodyApiKeys extends $dara.Model {
 export class DescribeAIDBClusterApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API Keys。
+   * The API keys.
    */
   apiKeys?: DescribeAIDBClusterApiKeysResponseBodyApiKeys[];
+  /**
+   * @remarks
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: string;
   /**
    * @remarks

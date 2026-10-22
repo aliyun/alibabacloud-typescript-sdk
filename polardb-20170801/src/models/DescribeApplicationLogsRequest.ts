@@ -15,7 +15,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The subcomponent instance ID.
+   * The instance ID of the subcomponent.
    * 
    * @example
    * pac-xxx
@@ -31,7 +31,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+   * The end time of the query. The time must be in the `yyyy-MM-ddTHH:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **30**. Valid values: 30 to 100.
+   * The number of entries per page. Valid values: 30 to 100. Default value: **30**.
    * 
    * @example
    * 100
@@ -86,7 +86,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+   * The start time of the query. The time must be in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
@@ -96,7 +96,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The log type. This parameter is used for polarclaw instances. Currently, only gateway is supported.
+   * The log type. This parameter is used for polarclaw instances. Valid value: gateway.
    * 
    * @example
    * gateway

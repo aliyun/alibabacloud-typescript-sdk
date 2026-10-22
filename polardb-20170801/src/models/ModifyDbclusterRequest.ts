@@ -14,6 +14,9 @@ export class ModifyDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The connection resource quota of the AgenticDB cluster.
+   * 
+   * @example
+   * 100
    */
   connectionResourceQuota?: number;
   /**

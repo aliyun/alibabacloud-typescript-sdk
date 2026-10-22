@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can filter clusters by tag. You can specify up to 20 tag key-value pairs. The number n in each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
+   * The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag key-value pairs. The number n in each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
    * 
    * @example
    * testKey
@@ -57,7 +57,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   aiNodeType?: string;
   /**
    * @remarks
-   * The description of the cluster. Fuzzy match is supported.
+   * The cluster description. Fuzzy match is supported.
    * 
    * @example
    * pc-****************
@@ -73,7 +73,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   DBClusterIds?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The cluster status. Valid values:
    * 
    * - **Creating**: The cluster is being created.
    * - **Running**: The cluster is running.
@@ -86,7 +86,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
    * - **NetAddressDeleting**: The network connectivity is being deleted.
    * - **NetAddressModifying**: The network connectivity is being modified. 
    * - **Deleted**: The cluster is released.
-   * - **ClassChanged**: Resources are being revoked after you upgrade or decrease the quota.
+   * - **ClassChanged**: Resources are being revoked after an upgrade or decrease the quota.
    * 
    * @example
    * Running
@@ -104,7 +104,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
    *                               
    * Default value: **30**.
    * 

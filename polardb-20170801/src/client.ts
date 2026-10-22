@@ -2776,6 +2776,10 @@ export default class Client extends OpenApi {
       query["ParentBranchId"] = request.parentBranchId;
     }
 
+    if (!$dara.isNull(request.parentTimestamp)) {
+      query["ParentTimestamp"] = request.parentTimestamp;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -2838,6 +2842,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.historyRetentionSeconds)) {
+      query["HistoryRetentionSeconds"] = request.historyRetentionSeconds;
+    }
+
     if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
@@ -2876,6 +2884,66 @@ export default class Client extends OpenApi {
   async createAgenticDBProject(request: $_model.CreateAgenticDBProjectRequest): Promise<$_model.CreateAgenticDBProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAgenticDBProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an AgenticDB tenant.
+   * 
+   * @remarks
+   * Creates an independent business tenant without creating an API key.
+   * 
+   * @param request - CreateAgenticDBTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticDBTenantResponse
+   */
+  async createAgenticDBTenantWithOptions(request: $_model.CreateAgenticDBTenantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticDBTenantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantName)) {
+      query["TenantName"] = request.tenantName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticDBTenant",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticDBTenantResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticDBTenantResponse({}));
+  }
+
+  /**
+   * Creates an AgenticDB tenant.
+   * 
+   * @remarks
+   * Creates an independent business tenant without creating an API key.
+   * 
+   * @param request - CreateAgenticDBTenantRequest
+   * @returns CreateAgenticDBTenantResponse
+   */
+  async createAgenticDBTenant(request: $_model.CreateAgenticDBTenantRequest): Promise<$_model.CreateAgenticDBTenantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticDBTenantWithOptions(request, runtime);
   }
 
   /**
@@ -3346,9 +3414,9 @@ export default class Client extends OpenApi {
    * Creates a full snapshot backup for a PolarDB cluster.
    * 
    * @remarks
-   * > * Each cluster can have up to three manually created backups at the same time.
-   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+   * > * Each cluster can have up to three manually created backups at a time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3406,9 +3474,9 @@ export default class Client extends OpenApi {
    * Creates a full snapshot backup for a PolarDB cluster.
    * 
    * @remarks
-   * > * Each cluster can have up to three manually created backups at the same time.
-   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+   * > * Each cluster can have up to three manually created backups at a time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` appears, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -7639,6 +7707,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an AgenticDB tenant.
+   * 
+   * @remarks
+   * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+   * 
+   * @param request - DeleteAgenticDBTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDBTenantResponse
+   */
+  async deleteAgenticDBTenantWithOptions(request: $_model.DeleteAgenticDBTenantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBTenantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDBTenant",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDBTenantResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDBTenantResponse({}));
+  }
+
+  /**
+   * Deletes an AgenticDB tenant.
+   * 
+   * @remarks
+   * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+   * 
+   * @param request - DeleteAgenticDBTenantRequest
+   * @returns DeleteAgenticDBTenantResponse
+   */
+  async deleteAgenticDBTenant(request: $_model.DeleteAgenticDBTenantRequest): Promise<$_model.DeleteAgenticDBTenantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDBTenantWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an API key of an AgenticDB tenant.
    * 
    * @param request - DeleteAgenticDBTenantApiKeyRequest
@@ -10243,7 +10367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API key of a model service.
+   * Queries the API keys for the model service.
    * 
    * @param request - DescribeAIDBClusterApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10278,7 +10402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API key of a model service.
+   * Queries the API keys for the model service.
    * 
    * @param request - DescribeAIDBClusterApiKeysRequest
    * @returns DescribeAIDBClusterApiKeysResponse
@@ -10703,12 +10827,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of model operators for a specified PolarDB database instance.
+   * Retrieves the list of model operators for a specified PolarDB instance.
    * 
    * @remarks
    * ## Request description
-   * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
-   * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+   * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10771,12 +10895,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of model operators for a specified PolarDB database instance.
+   * Retrieves the list of model operators for a specified PolarDB instance.
    * 
    * @remarks
    * ## Request description
-   * - This operation filters and returns a list of model operators based on the RelativeDBClusterId and KubeType parameters.
-   * - Note: Make sure that the RelativeDBClusterId provided in the request matches the instance ID of an existing PolarDB database instance. Otherwise, the data cannot be retrieved.
+   * - This operation allows you to filter and retrieve a list of model operators by using the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Make sure that the `RelativeDBClusterId` you provide matches the instance ID of an existing PolarDB database. Otherwise, the data cannot be retrieved.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
    * @returns DescribeAIDBClusterTasksResponse
@@ -11553,6 +11677,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 AgenticDB 分支最早可恢复时间
+   * 
+   * @param request - DescribeAgenticDBBranchRestoreWindowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBBranchRestoreWindowResponse
+   */
+  async describeAgenticDBBranchRestoreWindowWithOptions(request: $_model.DescribeAgenticDBBranchRestoreWindowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchRestoreWindowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBBranchRestoreWindow",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBBranchRestoreWindowResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchRestoreWindowResponse({}));
+  }
+
+  /**
+   * 查询 AgenticDB 分支最早可恢复时间
+   * 
+   * @param request - DescribeAgenticDBBranchRestoreWindowRequest
+   * @returns DescribeAgenticDBBranchRestoreWindowResponse
+   */
+  async describeAgenticDBBranchRestoreWindow(request: $_model.DescribeAgenticDBBranchRestoreWindowRequest): Promise<$_model.DescribeAgenticDBBranchRestoreWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBBranchRestoreWindowWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of AgenticDB branches.
    * 
    * @param request - DescribeAgenticDBBranchesRequest
@@ -11715,7 +11897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgenticDB compute instances.
+   * Queries a list of AgenticDB compute instances.
    * 
    * @param request - DescribeAgenticDBComputeClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11766,7 +11948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgenticDB compute instances.
+   * Queries a list of AgenticDB compute instances.
    * 
    * @param request - DescribeAgenticDBComputeClustersRequest
    * @returns DescribeAgenticDBComputeClustersResponse
@@ -11831,7 +12013,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgenticDB projects.
+   * 查询 AgenticDB 项目实际历史保留窗口
+   * 
+   * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBProjectHistoryRetentionResponse
+   */
+  async describeAgenticDBProjectHistoryRetentionWithOptions(request: $_model.DescribeAgenticDBProjectHistoryRetentionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBProjectHistoryRetentionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBProjectHistoryRetention",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBProjectHistoryRetentionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBProjectHistoryRetentionResponse({}));
+  }
+
+  /**
+   * 查询 AgenticDB 项目实际历史保留窗口
+   * 
+   * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
+   * @returns DescribeAgenticDBProjectHistoryRetentionResponse
+   */
+  async describeAgenticDBProjectHistoryRetention(request: $_model.DescribeAgenticDBProjectHistoryRetentionRequest): Promise<$_model.DescribeAgenticDBProjectHistoryRetentionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11886,7 +12122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of AgenticDB projects.
+   * Queries a list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @returns DescribeAgenticDBProjectsResponse
@@ -11955,7 +12191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified API key.
+   * Queries the details of the API key.
    * 
    * @param request - DescribeApikeyAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11998,7 +12234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified API key.
+   * Queries the details of the API key.
    * 
    * @param request - DescribeApikeyAttributeRequest
    * @returns DescribeApikeyAttributeResponse
@@ -12012,7 +12248,7 @@ export default class Client extends OpenApi {
    * Queries the details of a specified PolarDB instance application.
    * 
    * @remarks
-   * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+   * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12046,7 +12282,7 @@ export default class Client extends OpenApi {
    * Queries the details of a specified PolarDB instance application.
    * 
    * @remarks
-   * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+   * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @returns DescribeApplicationAttributeResponse
@@ -12553,7 +12789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications for all PolarDB instances in a specified region.
+   * Retrieves a list of applications for all PolarDB instances in a specified region.
    * 
    * @param request - DescribeApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12608,7 +12844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications for all PolarDB instances in a specified region.
+   * Retrieves a list of applications for all PolarDB instances in a specified region.
    * 
    * @param request - DescribeApplicationsRequest
    * @returns DescribeApplicationsResponse
@@ -12805,7 +13041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup logs and returns their download URLs.
+   * Queries the list of backup logs and retrieves their download URLs.
    * 
    * @param request - DescribeBackupLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12872,7 +13108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup logs and returns their download URLs.
+   * Queries the list of backup logs and retrieves their download URLs.
    * 
    * @param request - DescribeBackupLogsRequest
    * @returns DescribeBackupLogsResponse
@@ -13155,7 +13391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a batch task.
+   * Queries the status details of a batch task.
    * 
    * @param request - DescribeBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13186,7 +13422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a batch task.
+   * Queries the status details of a batch task.
    * 
    * @param request - DescribeBatchTaskRequest
    * @returns DescribeBatchTaskResponse
@@ -13265,7 +13501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cost budget policies.
+   * Queries budget policies.
    * 
    * @param request - DescribeBudgetPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13328,7 +13564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cost budget policies.
+   * Queries budget policies.
    * 
    * @param request - DescribeBudgetPoliciesRequest
    * @returns DescribeBudgetPoliciesResponse
@@ -13475,7 +13711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cold storage instances.
+   * Queries cold storage instance information.
    * 
    * @param request - DescribeColdStorageInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13562,7 +13798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cold storage instances.
+   * Queries cold storage instance information.
    * 
    * @param request - DescribeColdStorageInstanceRequest
    * @returns DescribeColdStorageInstanceResponse
@@ -13631,7 +13867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of consumers.
+   * Queries a list of consumers.
    * 
    * @param request - DescribeConsumersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13690,7 +13926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of consumers.
+   * Queries a list of consumers.
    * 
    * @param request - DescribeConsumersRequest
    * @returns DescribeConsumersResponse
@@ -15375,7 +15611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+   * Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
    * 
    * @param request - DescribeDBClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15486,7 +15722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of PolarDB clusters or the details of clusters with RAM authorization.
+   * Queries a list of PolarDB clusters or the details of clusters with RAM authorization.
    * 
    * @param request - DescribeDBClustersRequest
    * @returns DescribeDBClustersResponse
@@ -16519,7 +16755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an PolarDB on ENS cluster.
+   * Queries the details of an edge cluster.
    * 
    * @param request - DescribeDbClusterAttributeZonalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16570,7 +16806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an PolarDB on ENS cluster.
+   * Queries the details of an edge cluster.
    * 
    * @param request - DescribeDbClusterAttributeZonalRequest
    * @returns DescribeDbClusterAttributeZonalResponse
@@ -16783,7 +17019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of extensions.
+   * Queries plugin details.
    * 
    * @param request - DescribeExtensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16838,7 +17074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of extensions.
+   * Queries plugin details.
    * 
    * @param request - DescribeExtensionsRequest
    * @returns DescribeExtensionsResponse
@@ -24448,6 +24684,64 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTasks(request: $_model.ModifyActiveOperationTasksRequest): Promise<$_model.ModifyActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the history retention window of an AgenticDB project.
+   * 
+   * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAgenticDBProjectHistoryRetentionResponse
+   */
+  async modifyAgenticDBProjectHistoryRetentionWithOptions(request: $_model.ModifyAgenticDBProjectHistoryRetentionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAgenticDBProjectHistoryRetentionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.historyRetentionSeconds)) {
+      query["HistoryRetentionSeconds"] = request.historyRetentionSeconds;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAgenticDBProjectHistoryRetention",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAgenticDBProjectHistoryRetentionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAgenticDBProjectHistoryRetentionResponse({}));
+  }
+
+  /**
+   * Modifies the history retention window of an AgenticDB project.
+   * 
+   * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
+   * @returns ModifyAgenticDBProjectHistoryRetentionResponse
+   */
+  async modifyAgenticDBProjectHistoryRetention(request: $_model.ModifyAgenticDBProjectHistoryRetentionRequest): Promise<$_model.ModifyAgenticDBProjectHistoryRetentionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
   }
 
   /**

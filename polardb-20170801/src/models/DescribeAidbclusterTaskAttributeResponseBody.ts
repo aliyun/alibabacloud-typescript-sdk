@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo extends $dara.Model {
   /**
+   * @remarks
+   * The name of the custom OSS bucket.
+   * 
    * @example
    * my-bucket
    */
@@ -32,7 +35,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo extend
 export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.Model {
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * dataset02
@@ -40,7 +43,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   datasetName?: string;
   /**
    * @remarks
-   * The dataset path.
+   * The path of the dataset.
    * 
    * @example
    * polardb_ai/datasets/train/grpo/dataset02/test-**.jsonl#1000
@@ -48,7 +51,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   path?: string;
   /**
    * @remarks
-   * The ratio split from the training set.
+   * The split ratio from the training set.
    * 
    * @example
    * 0.1
@@ -57,9 +60,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * * **train**: training set.
-   * * **eval**: validation set.
+   * * **train**: training set
+   * * **eval**: validation set
    * 
    * @example
    * train
@@ -95,7 +97,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
 export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The task completion time.
+   * The completion time of the task.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-09-10T01:56:00Z
@@ -120,9 +124,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The model source. Valid values:
-   * 
-   * * **public**: pre-trained model.
-   * * **custom**: custom model.
+   * * **public**: preset model
+   * * **custom**: custom model
    * 
    * @example
    * public
@@ -138,7 +141,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   runningTimes?: string;
   /**
    * @remarks
-   * The task start time.
+   * The start time of the task.
+   * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-09-10T01:56:00Z
@@ -147,9 +152,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * * **sft**: SFT efficient training.
-   * * **grpo**: GRPO reinforcement learning.
+   * * **sft**: SFT - efficient training
+   * * **grpo**: GRPO - reinforcement learning
    * 
    * @example
    * stf
@@ -158,9 +162,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The training method. Valid values:
-   * 
    * * **lora**
-   * * **full**: full-parameter fine-tuning.
+   * * **full**: full-parameter training
    * 
    * @example
    * lora
@@ -204,7 +207,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
 export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access information of the model in the test deployment scenario.
+   * The access information of the model in test deployment scenarios.
    * 
    * @example
    * {\\"networkInterfaceId\\":\\"eni-2zea***\\",\\"port\\":\\"8000\\",\\"host\\":\\"192.**.**.**\\"}
@@ -222,10 +225,16 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2025-11-12T03:45:13Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The custom OSS bucket information.
+   */
   customBucketInfo?: DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo;
   /**
    * @remarks
@@ -246,10 +255,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The training status. Valid values:
-   * 
-   * * **ACTIVATION**: Training in progress.
-   * * **COMPLETED**: Training succeeded.
-   * * **FAILED**: Training failed.
+   * * **ACTIVATION**: training in progress
+   * * **COMPLETED**: training succeeded
+   * * **FAILED**: training failed
    * 
    * @example
    * COMPLETED
@@ -258,10 +266,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The training status. Valid values:
-   * 
-   * * **ACTIVATION**: Training in progress.
-   * * **COMPLETED**: Training succeeded.
-   * * **FAILED**: Training failed.
+   * * **ACTIVATION**: training in progress
+   * * **COMPLETED**: training succeeded
+   * * **FAILED**: training failed
    * 
    * @example
    * COMPLETED
@@ -278,8 +285,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The version. Valid values:
-   * 
-   * * **3.1**: model operator tuning.
+   * * **3.1**: model operator tuning
    * 
    * @example
    * 3.1
@@ -292,14 +298,13 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   dataSets?: DescribeAIDBClusterTaskAttributeResponseBodyDataSets[];
   /**
    * @remarks
-   * The additional information, including runtime parameters.
+   * The extra information, including runtime parameters.
    */
   extraInfo?: { [key: string]: any }[];
   /**
    * @remarks
-   * The type of the instance. Valid values:
-   * 
-   * - **18**.
+   * The instance type. Valid values:
+   * - **18**
    * 
    * @example
    * 18
@@ -308,9 +313,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The lock mode. Valid values:
-   * 
-   * * **0**: locked.
-   * * **1**: unlocked.
+   * * **0**: locked
+   * * **1**: unlocked
    * 
    * @example
    * 1
@@ -318,7 +322,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The maintenance end time.
+   * The end time of the maintenance window.
+   * 
+   * The time is displayed in UTC in the HH:mmZ format.
    * 
    * @example
    * 12:00Z
@@ -326,7 +332,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The maintenance start time.
+   * The start time of the maintenance window.
+   * 
+   * The time is displayed in UTC. Example: 8:00Z.
    * 
    * @example
    * 8:00Z
@@ -334,7 +342,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
-   * The list of model paths output in the model fine-tuning scenario.
+   * The list of output model paths in model fine-tuning scenarios.
    */
   modelPath?: string;
   /**
@@ -350,6 +358,13 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * The task information.
    */
   taskInfo?: DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo[];
+  /**
+   * @remarks
+   * The model fine-tuning architecture.
+   * 
+   * @example
+   * lora
+   */
   tuneArch?: string;
   /**
    * @remarks

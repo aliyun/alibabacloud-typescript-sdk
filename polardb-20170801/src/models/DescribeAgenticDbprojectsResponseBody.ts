@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the project was created.
-   * 
-   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is in ISO 8601 format and the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -23,7 +21,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The default branch ID.
+   * The ID of the default branch.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -31,7 +29,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   defaultBranchId?: string;
   /**
    * @remarks
-   * The default branch name.
+   * The name of the default branch.
    * 
    * @example
    * main
@@ -39,12 +37,20 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   defaultBranchName?: string;
   /**
    * @remarks
-   * The description of the project.
+   * The description.
    * 
    * @example
    * Production analytics database
    */
   description?: string;
+  /**
+   * @remarks
+   * The retention period for recent records of the project. This field may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+   * 
+   * @example
+   * 604800
+   */
+  historyRetentionSeconds?: number;
   /**
    * @remarks
    * Project ID
@@ -55,7 +61,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * analytics-prod
@@ -64,7 +70,6 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The project status. Valid values:
-   * 
    * - Active: Normal.
    * - Destroying: Being destroyed.
    * - Destroyed: Destroyed.
@@ -75,7 +80,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the project belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951
@@ -88,6 +93,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
       defaultBranchId: 'DefaultBranchId',
       defaultBranchName: 'DefaultBranchName',
       description: 'Description',
+      historyRetentionSeconds: 'HistoryRetentionSeconds',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       status: 'Status',
@@ -102,6 +108,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
       defaultBranchId: 'string',
       defaultBranchName: 'string',
       description: 'string',
+      historyRetentionSeconds: 'number',
       projectId: 'string',
       projectName: 'string',
       status: 'string',

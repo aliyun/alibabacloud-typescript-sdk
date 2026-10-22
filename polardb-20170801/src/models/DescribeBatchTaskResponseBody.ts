@@ -13,7 +13,7 @@ export class DescribeBatchTaskResponseBodySubTasks extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the application.
    * 
    * @example
    * pc-pz5f6mvi1p84t35d7
@@ -29,7 +29,7 @@ export class DescribeBatchTaskResponseBodySubTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the subtask started.
+   * The start time of the task.
    * 
    * @example
    * 2026/05/28T17:38:20Z
@@ -37,7 +37,7 @@ export class DescribeBatchTaskResponseBodySubTasks extends $dara.Model {
   taskBegin?: string;
   /**
    * @remarks
-   * The time when the subtask ended.
+   * The end time of the task.
    * 
    * @example
    * 2026/05/28T20:38:20Z
@@ -83,10 +83,17 @@ export class DescribeBatchTaskResponseBodySubTasks extends $dara.Model {
 }
 
 export class DescribeBatchTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The target application type of the batch task.
+   * 
+   * @example
+   * polarclaw
+   */
   applicationType?: string;
   /**
    * @remarks
-   * The ID of the batch task.
+   * The batch ID of the scheduled task execution.
    * 
    * @example
    * pcb-xxx
@@ -94,7 +101,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 25C70FF3-D49B-594D-BECE-0DE2BA1D8BBB
@@ -102,7 +109,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * RUNNING
@@ -110,12 +117,12 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A list of subtasks.
+   * The list of subtasks.
    */
   subTasks?: DescribeBatchTaskResponseBodySubTasks[];
   /**
    * @remarks
-   * The number of successful subtasks.
+   * The total number of domain names or DNS records that are successfully processed.
    * 
    * @example
    * 8
@@ -123,7 +130,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The time when the task started.
+   * The start time of the task.
    * 
    * @example
    * 2026/05/28T16:38:20Z
@@ -131,7 +138,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   taskBegin?: string;
   /**
    * @remarks
-   * The time when the task ended.
+   * The end time of the task.
    * 
    * @example
    * 2026/05/28T15:23:47Z
@@ -139,7 +146,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   taskEnd?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The description of the model service.
    * 
    * @example
    * batch_task_test
@@ -155,7 +162,7 @@ export class DescribeBatchTaskResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of subtasks.
+   * The number of entries in the list.
    * 
    * @example
    * 10

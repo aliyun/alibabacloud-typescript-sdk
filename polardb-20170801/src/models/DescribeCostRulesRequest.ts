@@ -13,7 +13,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The type of the effective target. Valid values: global, consumerGroup, and consumer.
+   * The effective target type used to filter the results. Valid values: global, consumerGroup, and consumer.
    * 
    * @example
    * global
@@ -21,7 +21,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   effectiveTargetType?: string;
   /**
    * @remarks
-   * The value of the effective target used to filter results.
+   * The effective target value used to filter the results.
    * 
    * @example
    * user
@@ -39,7 +39,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The input token tier used to filter results. Rules that include this tier are returned. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
+   * The input token tier used to filter the results. Returns rules that include this tier. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
    * 
    * @example
    * 0-32K

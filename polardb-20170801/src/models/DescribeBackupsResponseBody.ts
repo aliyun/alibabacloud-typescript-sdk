@@ -108,7 +108,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -126,8 +126,8 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * @remarks
    * The total size of level-2 backups in the specified region. Unit: bytes.
    * > - Only PSL4 and PSL5 storage types are supported.
-   * > - Only clusters with the level-2 backup feature enabled are supported.
-   * > - If this parameter is not returned, the level-2 backup size is 0.
+   * > - Only clusters that have the level-2 backup feature enabled are supported.
+   * > - If this parameter is not returned, the size of level-2 backups is 0.
    * 
    * @example
    * 4639948800
@@ -135,7 +135,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   totalLevel2BackupSize?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

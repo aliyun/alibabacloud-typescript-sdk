@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateBatchTaskShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The target application type of the batch task.
+   * 
+   * @example
+   * polarclaw
+   */
   applicationType?: string;
   /**
    * @remarks
@@ -13,7 +20,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The task parameters.
+   * The archive parameters.
    * 
    * @example
    * [{"skillName":"github","version":"1.0.0"},{"skillName":"skill-vetter","version":"1.0.1"}]
@@ -22,8 +29,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters in your account.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the target account.
    * 
    * This parameter is required.
    * 
@@ -33,7 +39,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the batch task.
+   * The description of the model service.
    * 
    * This parameter is required.
    * 

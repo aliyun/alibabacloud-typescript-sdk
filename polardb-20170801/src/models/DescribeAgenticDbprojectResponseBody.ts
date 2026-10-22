@@ -39,6 +39,14 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 项目最近记录的保留时长，旧项目可能为空。查询当前生效值请调用 DescribeAgenticDBProjectHistoryRetention。
+   * 
+   * @example
+   * 604800
+   */
+  historyRetentionSeconds?: number;
+  /**
+   * @remarks
    * Project ID
    * 
    * @example
@@ -87,6 +95,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
       defaultBranchId: 'DefaultBranchId',
       defaultBranchName: 'DefaultBranchName',
       description: 'Description',
+      historyRetentionSeconds: 'HistoryRetentionSeconds',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       requestId: 'RequestId',
@@ -101,6 +110,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
       defaultBranchId: 'string',
       defaultBranchName: 'string',
       description: 'string',
+      historyRetentionSeconds: 'number',
       projectId: 'string',
       projectName: 'string',
       requestId: 'string',

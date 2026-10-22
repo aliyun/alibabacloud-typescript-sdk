@@ -13,7 +13,21 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
    * Bucket1
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The AccessKey ID of the storage bucket.
+   * 
+   * @example
+   * xxx
+   */
   bucketAccessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the storage bucket.
+   * 
+   * @example
+   * xxx
+   */
   bucketAccessKeySecret?: string;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints extends $dara.Model {
   /**
    * @remarks
-   * The UNIX timestamp that indicates when the metric was collected. Unit: milliseconds.
+   * The specific time point of the monitoring metric. The format is a UNIX timestamp, and the unit is milliseconds.
    * 
    * @example
    * 1724206183
@@ -13,7 +13,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints ext
   timestamp?: number;
   /**
    * @remarks
-   * The value of the metric.
+   * The value of the monitoring metric.
    * 
    * @example
    * 42.38
@@ -45,7 +45,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints ext
 export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster node.
+   * The ID of the database cluster node.
    * 
    * @example
    * pi-*************
@@ -53,7 +53,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $
   DBNodeId?: string;
   /**
    * @remarks
-   * The performance metric.
+   * The performance metrics.
    * 
    * @example
    * PolarDBAIModelCall
@@ -61,7 +61,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $
   measurement?: string;
   /**
    * @remarks
-   * The name of the specific performance metric.
+   * The specific measurement name of the performance metrics.
    * 
    * @example
    * model_input_amount
@@ -105,7 +105,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $
 export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API key for the model service.
+   * An API key for the model service.
    * 
    * @example
    * xxx
@@ -129,9 +129,10 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version number of the database AI engine.
+   * The version number of the database AI DPI engine.
    * 
-   * Example: 3.0
+   * 
+   *   -3.0
    * 
    * @example
    * 3.0
@@ -139,7 +140,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The end of the time range that was queried. The time is in the `YYYY-MM-DDThh:mmZ` format and is in UTC.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
    * 
    * @example
    * 2022-11-16T16:00Z
@@ -147,7 +148,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity of the performance data. Valid values:
+   * The data granularity of performance. Valid values:
    * 
    * - 60
    * - 3600
@@ -158,7 +159,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The details of the instance performance parameters.
+   * The details of the instance performance metrics.
    */
   performanceKeys?: DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys[];
   /**
@@ -171,7 +172,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range that was queried. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+   * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
    * 
    * @example
    * 2022-11-15T16:00Z

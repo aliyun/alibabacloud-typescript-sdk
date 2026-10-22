@@ -14,8 +14,7 @@ export class DescribeAIDBClusterTaskAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The query mode. Valid values:
-   * 
-   * * **RelatedAITask**: queries task details.
+   * * **RelatedAITask**: queries task details
    * 
    * @example
    * RelatedAITask

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time of the cluster. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-05-10T17:01:16Z
@@ -13,7 +13,7 @@ export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $
   createdTime?: string;
   /**
    * @remarks
-   * The ID of the cold storage instance.
+   * The cold storage instance ID.
    * 
    * @example
    * pc-*****************
@@ -21,7 +21,7 @@ export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $
   ossClusterId?: string;
   /**
    * @remarks
-   * The ID of the region where the task is located.
+   * The region ID of the region where the task resides.
    * 
    * @example
    * cn-hangzhou
@@ -89,21 +89,15 @@ export class DescribeColdStorageInstanceResponseBodyTablesChildObjects extends $
   size?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
+   * * **Scheduled**: waiting for execution
+   * * **Running**: running
+   * * **Succeed**: succeeded
+   * * **Cancelling**: cancelling
+   * * **Canceled**: canceled
+   * * **Waiting**: waiting for the preset time
    * 
-   * - **Scheduled**: The task is waiting to be executed.
-   * 
-   * - **Running**: The task is in progress.
-   * 
-   * - **Succeed**: The task is successful.
-   * 
-   * - **Cancelling**: The task is being stopped.
-   * 
-   * - **Canceled**: The task is stopped.
-   * 
-   * - **Waiting**: The task is waiting for a preset time.
-   * 
-   * To query multiple statuses, separate them with commas (,). If you do not specify this parameter, all statuses are queried.
+   * To query multiple statuses, separate them with commas (,). The default value is empty, which indicates that all statuses are selected.
    * 
    * @example
    * Running
@@ -144,7 +138,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   childObjects?: DescribeColdStorageInstanceResponseBodyTablesChildObjects[];
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * test_db
@@ -152,7 +146,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   DB?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * test_db
@@ -160,7 +154,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The name of the large object (LOB) field.
+   * The name of the LOB field.
    * 
    * @example
    * user
@@ -168,7 +162,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The ID of the OSS-based cluster.
+   * The OSS cluster ID.
    * 
    * @example
    * pc-*****************
@@ -192,7 +186,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * Running
@@ -200,7 +194,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * user
@@ -208,7 +202,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * test_table
@@ -259,7 +253,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
 export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned. Default value: 10.
+   * The maximum number of data entries to read in this request. Default value: 10.
    * 
    * @example
    * 1000
@@ -267,7 +261,7 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
+   * The query token. Set the value to the NextToken value returned from the previous API call. If there are no more queries, do not specify this parameter.
    * 
    * @example
    * c2FpXzIwMjIwNjI5X2Jhay9zYWlfc3VtbWVyX3RyZWFzdXJlX3Bvb2xfbG9nLkNTVg==
@@ -283,10 +277,9 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * Indicates whether the OSS bucket is enabled.
+   * Specifies whether OSS storage space is enabled. Valid values:
    * 
    * - **true**: enabled
-   * 
    * - **false**: disabled
    * 
    * @example
@@ -295,12 +288,12 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   ossClusterEnabled?: string;
   /**
    * @remarks
-   * The list of OSS addresses for the cold storage instances.
+   * The list of OSS addresses for the cold storage instance.
    */
   ossClusterInfoList?: DescribeColdStorageInstanceResponseBodyOssClusterInfoList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -308,7 +301,7 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 1
@@ -332,7 +325,7 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cluster supports cold storage. If the cluster does not support cold storage, the switch is not displayed on the console.
+   * Specifies whether the current cluster supports enabling cold storage. For clusters that do not support this feature, the switch is not displayed on the page.
    * 
    * @example
    * true
@@ -345,7 +338,7 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   tables?: DescribeColdStorageInstanceResponseBodyTables[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1

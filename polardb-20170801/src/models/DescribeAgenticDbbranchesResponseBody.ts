@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compute cluster associated with the branch.
+   * The ID of the compute cluster for the branch.
    * 
    * @example
    * pc-g0lsayq8c5qe
@@ -21,7 +21,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   branchComputeNodeCount?: number;
   /**
    * @remarks
-   * The branch ID.
+   * The ID of the branch.
    * 
    * @example
    * br-7g8h9i0j1k2l
@@ -29,7 +29,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The branch name.
+   * The name of the branch.
    * 
    * @example
    * feature-analytics
@@ -37,9 +37,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * The time when the branch was created.
-   * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time when the branch was created. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -71,7 +69,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   lastActivatedAt?: string;
   /**
    * @remarks
-   * The maximum compute unit.
+   * The maximum number of compute units (CUs).
    * 
    * @example
    * 2
@@ -79,7 +77,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   maxCU?: string;
   /**
    * @remarks
-   * The minimum compute unit.
+   * The minimum number of compute units (CUs).
    * 
    * @example
    * 0.25
@@ -103,7 +101,15 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The historical time of the parent branch specified when the branch was created. The time is displayed in RFC 3339 format in UTC. This parameter may be empty if no historical time is specified or for legacy records.
+   * 
+   * @example
+   * 2026-10-15T07:32:00.123456Z
+   */
+  parentTimestamp?: string;
+  /**
+   * @remarks
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -119,11 +125,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The status of the branch. Valid values:
-   * 
-   * - Running
-   * - Pending
-   * - Paused
+   * The status of the branch. Valid values: Running, Pending, and Paused.
    * 
    * @example
    * Active
@@ -131,7 +133,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the branch belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951
@@ -151,6 +153,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
       minCU: 'MinCU',
       parentBranchId: 'ParentBranchId',
       parentBranchName: 'ParentBranchName',
+      parentTimestamp: 'ParentTimestamp',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       status: 'Status',
@@ -172,6 +175,7 @@ export class DescribeAgenticDBBranchesResponseBodyItems extends $dara.Model {
       minCU: 'string',
       parentBranchId: 'string',
       parentBranchName: 'string',
+      parentTimestamp: 'string',
       projectId: 'string',
       projectName: 'string',
       status: 'string',
@@ -212,7 +216,7 @@ export class DescribeAgenticDBBranchesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B2C3D4E5-F6A7-8901-BCDE-2345678901BC
@@ -220,7 +224,7 @@ export class DescribeAgenticDBBranchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

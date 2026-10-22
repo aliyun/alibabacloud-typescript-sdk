@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compute cluster associated with the branch.
+   * The ID of the compute cluster for the branch.
    * 
    * @example
    * pc-g0lsayq8c5qe
@@ -13,7 +13,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   branchComputeClusterId?: string;
   /**
    * @remarks
-   * The number of compute nodes. The value is fixed to 1 in the initial phase.
+   * The number of compute nodes. The value is fixed to 1 in the first phase.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The branch name.
+   * The name of the branch.
    * 
    * @example
    * feature-analytics
@@ -37,9 +37,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * The time when the branch was created.
-   * 
-   * The time is in the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time follows the ISO 8601 standard in the UTC time zone. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -47,7 +45,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the branch.
+   * The description.
    * 
    * @example
    * Feature branch for analytics
@@ -71,7 +69,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   lastActivatedAt?: string;
   /**
    * @remarks
-   * The maximum compute unit.
+   * The maximum number of compute units (CUs).
    * 
    * @example
    * 2
@@ -79,7 +77,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   maxCU?: string;
   /**
    * @remarks
-   * The minimum compute unit.
+   * The minimum number of compute units (CUs).
    * 
    * @example
    * 0.25
@@ -103,7 +101,15 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The historical time of the parent branch specified when the branch is created. The time follows the RFC 3339 standard in the UTC time zone. If no historical time is specified or for old records, this value may be empty.
+   * 
+   * @example
+   * 2026-10-15T07:32:00.123456Z
+   */
+  parentTimestamp?: string;
+  /**
+   * @remarks
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -119,7 +125,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C3D4E5F6-A7B8-9012-CDEF-345678901CDE
@@ -127,11 +133,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the branch. Valid values:
-   * 
-   * - Running
-   * - Pending
-   * - Paused
+   * The status of the branch. Valid values: Running, Pending, and Paused.
    * 
    * @example
    * Active
@@ -139,7 +141,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the branch belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951
@@ -159,6 +161,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
       minCU: 'MinCU',
       parentBranchId: 'ParentBranchId',
       parentBranchName: 'ParentBranchName',
+      parentTimestamp: 'ParentTimestamp',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       requestId: 'RequestId',
@@ -181,6 +184,7 @@ export class DescribeAgenticDBBranchResponseBody extends $dara.Model {
       minCU: 'string',
       parentBranchId: 'string',
       parentBranchName: 'string',
+      parentTimestamp: 'string',
       projectId: 'string',
       projectName: 'string',
       requestId: 'string',

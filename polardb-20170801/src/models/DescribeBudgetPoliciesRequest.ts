@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBudgetPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
+   * The ID of the dimension object. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
    * 
    * @example
    * cg-p3gk2oh55c**
@@ -13,10 +13,10 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
   budgetDimensionRefId?: string;
   /**
    * @remarks
-   * The policy type. Valid values:
+   * The type of the policy. Valid values:
    * 
-   * - **ConsumerGroup**: total budget for a user group
-   * - **Consumer**: total budget for a user
+   * - **ConsumerGroup**: Total budget for consumer groups.
+   * - **Consumer**: Total budget for consumers.
    * 
    * @example
    * ConsumerGroup
@@ -24,7 +24,7 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
   budgetDimensionType?: string;
   /**
    * @remarks
-   * The budget policy ID.
+   * The ID of the budget policy.
    * 
    * @example
    * 023aacc1effc4b56bb154bfbec6baxxx
@@ -69,13 +69,20 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the object associated with the scope of the budget policy.
+   * 
+   * @example
+   * test-group
+   */
   scopeRefName?: string;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * - **Enabled**: enabled
-   * - **Disenabled**: disabled
+   * - **Enabled**: Enabled.
+   * - **Disenabled**: Disabled.
    * 
    * @example
    * Enabled

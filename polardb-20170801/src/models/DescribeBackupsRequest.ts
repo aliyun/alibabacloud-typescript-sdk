@@ -14,8 +14,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values: 
-   * * **Automated**: automatic backup.
-   * * **Manual**: manual backup.
+   * * **Automated**: automatic backup
+   * * **Manual**: manual backup
    * 
    * @example
    * Automated
@@ -25,7 +25,7 @@ export class DescribeBackupsRequest extends $dara.Model {
    * @remarks
    * The destination region for cross-region backups.
    * 
-   * > Currently, only PolarDB for MySQL supports this parameter.
+   * > This parameter is supported only by PolarDB for MySQL.
    * 
    * @example
    * cn-hangzhou
@@ -34,7 +34,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The backup status. Valid values:
-   * * **Success**: The backup is complete.
+   * * **Success**: The backup is completed.
    * * **Failed**: The backup failed.
    * 
    * @example
@@ -53,7 +53,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+   * The end time of the query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Set the value to an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+   * The start time of the query. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 

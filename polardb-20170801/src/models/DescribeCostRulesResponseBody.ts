@@ -53,7 +53,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   cacheCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The cache creation or write cost points per million tokens.
+   * The cache creation cost points per million tokens.
    * 
    * @example
    * 400
@@ -69,7 +69,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The end time of the effective period.
+   * The end time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-10-01T00:00:00Z
@@ -77,7 +77,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveEndTime?: string;
   /**
    * @remarks
-   * The start time of the effective period.
+   * The start time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-09-01T00:00:00Z
@@ -157,7 +157,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   inputTokenTier?: string;
   /**
    * @remarks
-   * The non-cumulative tiered pricing for input tokens. Each element includes the tier and the input cost points per million tokens.
+   * The non-cumulative tiered pricing for input tokens. Each element contains Tier and InputCostPointsPerMillion.
    */
   inputTokenTiers?: DescribeCostRulesResponseBodyItemsInputTokenTiers[];
   /**
@@ -278,7 +278,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 30

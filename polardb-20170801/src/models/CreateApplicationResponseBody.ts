@@ -56,7 +56,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The generated order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 2148126708*****

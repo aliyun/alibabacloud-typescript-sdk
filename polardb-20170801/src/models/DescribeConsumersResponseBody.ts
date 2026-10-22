@@ -13,7 +13,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   allowedModels?: string;
   /**
    * @remarks
-   * The full API key, returned only in this response.
+   * The complete API key. This value is returned only in the current response.
    * 
    * @example
    * xxxxxxxx
@@ -21,7 +21,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * cg-xxxxxx
@@ -29,7 +29,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the consumer group.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the consumer.
    * 
    * @example
    * c-mqveroemc***
@@ -61,7 +61,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The total cumulative usage.
+   * The cumulative usage.
    * 
    * @example
    * 1000
@@ -85,7 +85,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdCostCount?: number;
   /**
    * @remarks
-   * The total cumulative cost.
+   * The cumulative total cost.
    * 
    * @example
    * 10000
@@ -93,7 +93,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdTokenCount?: number;
   /**
    * @remarks
-   * The username.
+   * The name of the consumer.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The nickname.
+   * The nickname of the consumer.
    * 
    * @example
    * yonghu
@@ -155,7 +155,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
 export class DescribeConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of users.
+   * The list of consumers.
    */
   items?: DescribeConsumersResponseBodyItems[];
   /**
@@ -168,7 +168,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

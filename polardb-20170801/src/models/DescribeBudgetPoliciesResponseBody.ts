@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The alert threshold percentage. Valid values: 0 to 100.
+   * The alert threshold percentage (0 to 100).
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   alertThresholdPct?: string;
   /**
    * @remarks
-   * Indicates whether the alert threshold has been triggered.
+   * Indicates whether the alert threshold is triggered.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   alertTriggered?: boolean;
   /**
    * @remarks
-   * The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
+   * The ID of the dimension object. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
    * 
    * @example
    * cg-p3gk2oh55c**
@@ -29,10 +29,10 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetDimensionRefId?: string;
   /**
    * @remarks
-   * The policy type. Valid values:
+   * The type of the policy. Valid values:
    * 
-   * - **ConsumerGroup**: total budget for a user group
-   * - **Consumer**: total budget for a user
+   * - **ConsumerGroup**: Total budget for consumer groups.
+   * - **Consumer**: Total budget for consumers.
    * 
    * @example
    * ConsumerGroup
@@ -48,7 +48,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetPoints?: string;
   /**
    * @remarks
-   * The budget policy ID.
+   * The ID of the budget policy.
    * 
    * @example
    * 023aacc1effc4b56bb154bfbec6ba9**
@@ -58,9 +58,9 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
    * @remarks
    * The budget type. Valid values:
    * 
-   * - **GlobalTotal**: global total budget
-   * - **ConsumerTotal**: total budget for a user
-   * - **ConsumerGroupTotal**: total budget for a user group
+   * - **GlobalTotal**: Global total budget.
+   * - **ConsumerTotal**: Total budget for consumers.
+   * - **ConsumerGroupTotal**: Total budget for consumer groups.
    * 
    * @example
    * GlobalTotal
@@ -68,7 +68,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * Indicates whether the quota has been exceeded.
+   * Indicates whether the quota is exceeded.
    * 
    * @example
    * false
@@ -76,7 +76,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   exceeded?: string;
   /**
    * @remarks
-   * The time when the policy was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-19T14:13:53+08:00
@@ -84,7 +84,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the policy was last modified.
+   * The update time.
    * 
    * @example
    * 2025-04-08T10:43:28+08:00
@@ -100,7 +100,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The day of the month on which the budget resets. Valid values: 1 to 28.
+   * The day of the month when the budget is reset (1 to 28).
    * 
    * @example
    * 2
@@ -108,10 +108,10 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   resetDayOfMonth?: string;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * - **Enabled**: enabled
-   * - **Disenabled**: disabled
+   * - **Enabled**: Enabled.
+   * - **Disenabled**: Disabled.
    * 
    * @example
    * Enabled

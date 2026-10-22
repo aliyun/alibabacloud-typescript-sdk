@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch name for fuzzy match.
+   * The branch name for fuzzy matching.
    * 
    * @example
    * feature
@@ -13,7 +13,7 @@ export class DescribeAgenticDBBranchesRequest extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeAgenticDBBranchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -57,11 +57,7 @@ export class DescribeAgenticDBBranchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status filter. Valid values:
-   * 
-   * - Running
-   * - Pending
-   * - Paused
+   * The status used to filter branches. Valid values: Running, Pending, and Paused.
    * 
    * @example
    * Active
@@ -69,7 +65,7 @@ export class DescribeAgenticDBBranchesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the branch belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951

@@ -78,12 +78,19 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N equivalent card.
+   * The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N card.
    * 
    * @example
    * 4000
    */
   capacity?: number;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the token on the client side. Ensure that the token is unique across different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
+   * 
+   * @example
+   * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
+   */
   clientToken?: string;
   /**
    * @remarks
@@ -222,10 +229,10 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * If the billing method is **Prepaid**, you must pass parameter. Specifies the upfront cluster as yearly or monthly. Valid values: 
+   * This parameter is required when the **PayType** parameter is set to **Prepaid**. Specifies the billing cycle of the subscription cluster. Valid values: 
    * 
-   * - **Year**: yearly. The unit is year.
-   * - **Month**: monthly. The unit is month.
+   * - **Year**: yearly subscription.
+   * - **Month**: monthly subscription.
    * 
    * @example
    * 5
@@ -282,9 +289,9 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   timeSlices?: CreateAIDBClusterRequestTimeSlices[];
   /**
    * @remarks
-   * The subscription duration. This parameter is required when the billing method is set to **Prepaid**.
-   * - If **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
-   * - If **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
+   * The subscription duration. This parameter is required when the **PayType** parameter is set to **Prepaid**.
+   * - If the **Period** parameter is set to **Month**, the value of **UsedTime** must be an integer in the range of `[1-9]`.
+   * - If the **Period** parameter is set to **Year**, the value of **UsedTime** must be an integer in the range of `[1-3]`.
    * 
    * @example
    * 1
@@ -292,7 +299,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * cg-xxxxxxxx
@@ -13,13 +13,24 @@ export class DescribeConsumersRequest extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the consumer.
    * 
    * @example
    * c-mqveroemc***
    */
   consumerId?: string;
+  /**
+   * @remarks
+   * The name used to filter consumers.
+   * 
+   * @example
+   * test
+   */
   consumerName?: string;
+  /**
+   * @remarks
+   * The list of names used to filter consumers.
+   */
   consumerNameList?: string;
   /**
    * @remarks

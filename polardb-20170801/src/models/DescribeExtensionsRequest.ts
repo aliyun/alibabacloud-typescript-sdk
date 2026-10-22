@@ -23,6 +23,13 @@ export class DescribeExtensionsRequest extends $dara.Model {
    * song
    */
   DBName?: string;
+  /**
+   * @remarks
+   * The name of the database plugin to query.
+   * 
+   * @example
+   * jueming
+   */
   extensionName?: string;
   /**
    * @example

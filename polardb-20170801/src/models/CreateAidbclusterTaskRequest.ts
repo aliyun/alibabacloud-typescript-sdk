@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the custom OSS bucket.
+   * 
    * @example
    * my-bucket
    */
@@ -27,6 +30,9 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    */
   DBInstanceClass?: string;
   /**
+   * @remarks
+   * The data service mode. A value of custom indicates that custom OSS is used, and a value of cold_storage indicates that cold storage is used.
+   * 
    * @example
    * cold_storage
    */
@@ -50,7 +56,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the model service. Valid values:
-   *  * **aitrain**: Model operator tuning.
+   *  * **aitrain**: model operator fine-tuning.
    * 
    * This parameter is required.
    * 
@@ -61,8 +67,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the model.
-   * * **For a preset model, specify the selected model name.**
-   * * **For a custom model, specify the path of the model (the trained model in a cold storage instance).**
+   * * **For a preset model, specify the name of the selected model.**
+   * * **For a custom model, specify the path of the model (the model trained in a cold storage instance).**
    * 
    * This parameter is required.
    * 
@@ -73,8 +79,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the model. Valid values:
-   * * **public**: Preset model.
-   * * **custom**: Custom model.
+   * * **public**: preset model.
+   * * **custom**: custom model.
    * 
    * This parameter is required.
    * 
@@ -128,6 +134,13 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    * xxxx
    */
   taskName?: string;
+  /**
+   * @remarks
+   * The model fine-tuning architecture.
+   * 
+   * @example
+   * lora
+   */
   tuneArch?: string;
   /**
    * @remarks

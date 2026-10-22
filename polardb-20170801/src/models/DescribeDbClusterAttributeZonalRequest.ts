@@ -15,7 +15,7 @@ export class DescribeDbClusterAttributeZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to obtain information about AI-related nodes.
+   * Specifies whether to retrieve AI-related node information.
    * 
    * @example
    * AI

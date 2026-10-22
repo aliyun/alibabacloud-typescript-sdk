@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Model {
   /**
    * @remarks
-   * The extension type.
+   * The plugin category.
    * 
    * @example
    * geography_space, self_develop
@@ -13,7 +13,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   category?: string;
   /**
    * @remarks
-   * The description of the extension.
+   * The plugin description.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   comment?: string;
   /**
    * @remarks
-   * The default version of the extension.
+   * The default version of the plugin.
    * 
    * @example
    * 7.7
@@ -29,7 +29,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   defaultVersion?: string;
   /**
    * @remarks
-   * The currently installed version of the extension.
+   * The currently installed version of the plugin.
    * 
    * @example
    * 7.7
@@ -37,7 +37,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   installedVersion?: string;
   /**
    * @remarks
-   * The extension name.
+   * The plugin name.
    * 
    * @example
    * jueming
@@ -45,7 +45,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The owner of the extension.
+   * The owner of the plugin.
    * 
    * @example
    * alton
@@ -53,7 +53,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   owner?: string;
   /**
    * @remarks
-   * The priority of the extension.
+   * The priority of the plugin.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   priority?: string;
   /**
    * @remarks
-   * The extensions on which this extension depends.
+   * The plugins that this plugin depends on during installation.
    * 
    * @example
    * ganos_networking
@@ -69,7 +69,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
   requires?: string;
   /**
    * @remarks
-   * Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
+   * Specifies whether to restart the application. Valid values: true: Restart. false: Do not restart.
    * 
    * @example
    * true
@@ -115,7 +115,7 @@ export class DescribeExtensionsResponseBodyInstalledExtensions extends $dara.Mod
 export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.Model {
   /**
    * @remarks
-   * The extension type.
+   * The plugin category.
    * 
    * @example
    * geography_space, self_develop
@@ -123,7 +123,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   category?: string;
   /**
    * @remarks
-   * The purpose of the extension.
+   * The purpose of the plugin.
    * 
    * @example
    * OK
@@ -131,7 +131,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   comment?: string;
   /**
    * @remarks
-   * The default version of the extension.
+   * The default version of the plugin.
    * 
    * @example
    * 7.7
@@ -139,7 +139,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   defaultVersion?: string;
   /**
    * @remarks
-   * The currently installed version of the extension.
+   * The currently installed version of the plugin.
    * 
    * @example
    * 7.7
@@ -147,7 +147,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   installedVersion?: string;
   /**
    * @remarks
-   * The extension name.
+   * The plugin name.
    * 
    * @example
    * jueming
@@ -155,7 +155,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The owner of the extension.
+   * The owner of the plugin.
    * 
    * @example
    * alton
@@ -163,7 +163,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   owner?: string;
   /**
    * @remarks
-   * The priority of the extension.
+   * The priority of the plugin.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   priority?: string;
   /**
    * @remarks
-   * The extensions on which this extension depends.
+   * The plugins that this plugin depends on during installation.
    * 
    * @example
    * ganos_networking
@@ -179,7 +179,7 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
   requires?: string;
   /**
    * @remarks
-   * Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
+   * Specifies whether to restart the application. Valid values: true: Restart. false: Do not restart.
    * 
    * @example
    * true
@@ -225,20 +225,20 @@ export class DescribeExtensionsResponseBodyUninstalledExtensions extends $dara.M
 export class DescribeExtensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The extensions that are installed in the specified database.
+   * The information about installed plugins in the specified database.
    */
   installedExtensions?: DescribeExtensionsResponseBodyInstalledExtensions[];
   /**
    * @remarks
-   * The overview of the extension.
+   * The plugin overview information.
    * 
    * @example
-   * 测试建单，请忽略
+   * Test ticket creation, please ignore
    */
   overview?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 309073D4-9C99-511C-AF84-0C67A6F52E67
@@ -246,7 +246,7 @@ export class DescribeExtensionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The extensions that are not installed in the specified database.
+   * The information about uninstalled plugins in the specified database.
    */
   uninstalledExtensions?: DescribeExtensionsResponseBodyUninstalledExtensions[];
   static names(): { [key: string]: string } {

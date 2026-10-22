@@ -108,7 +108,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The query mode for the list. A value of Simple indicates the brief mode, in which only the basic metadata of the clusters is returned.
+   * The query mode for the list. A value of Simple indicates the simplified mode, in which only the basic metadata of the clusters is returned.
    * > If this parameter is not specified, the detailed mode is used by default, and the detailed information of the clusters is returned.
    * 
    * @example
@@ -151,8 +151,8 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * @remarks
    * The billing method. Valid values: 
    * 
-   * - **Postpaid**: pay-as-you-go
-   * - **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Postpaid

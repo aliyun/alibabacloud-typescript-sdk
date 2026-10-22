@@ -15,7 +15,9 @@ export class DescribeApplicationSessionIdsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
+   * 
+   * The time follows the ISO 8601 standard and is in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
    * 
    * This parameter is required.
    * 
@@ -54,7 +56,7 @@ export class DescribeApplicationSessionIdsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
+   * The start time of the query. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 

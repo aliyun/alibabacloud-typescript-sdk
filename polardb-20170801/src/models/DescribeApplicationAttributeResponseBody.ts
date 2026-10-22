@@ -23,7 +23,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityGroups ex
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-*******************
@@ -31,7 +31,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityGroups ex
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the security group.
+   * The security group name.
    * 
    * @example
    * MyGroupName
@@ -195,7 +195,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentClass?: string;
   /**
    * @remarks
-   * The description of the specifications for the application subcomponent.
+   * The description of the application subcomponent specifications.
    * 
    * @example
    * 2C4GB
@@ -203,7 +203,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentClassDescription?: string;
   /**
    * @remarks
-   * The ID of the subcomponent.
+   * The subcomponent ID.
    * 
    * @example
    * pac-*******************
@@ -227,7 +227,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentReplica?: number;
   /**
    * @remarks
-   * The name of the replica group for the application subcomponent.
+   * The replica group name of the application subcomponent.
    * 
    * @example
    * default
@@ -257,7 +257,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   securityIPArrays?: DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays[];
   /**
    * @remarks
-   * The status of the component. The valid values are the same as those of the application status.
+   * The component status. The valid values are the same as the application status.
    * 
    * @example
    * Activated
@@ -337,7 +337,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   backendPort?: number;
   /**
    * @remarks
-   * The ID of the DNAT entry.
+   * The DNAT entry ID.
    * 
    * @example
    * fwd-xxx
@@ -353,7 +353,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   frontPort?: number;
   /**
    * @remarks
-   * The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
+   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
    * 
    * @example
    * webui
@@ -361,7 +361,7 @@ export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.
   portName?: string;
   /**
    * @remarks
-   * The status of the entry.
+   * The entry status.
    * 
    * @example
    * Available
@@ -407,10 +407,14 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
    * myendpoint
    */
   description?: string;
+  /**
+   * @remarks
+   * The domain name of the application endpoint.
+   */
   domain?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
    * @example
    * pa-**************
@@ -426,9 +430,9 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   IP?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The endpoint type. Valid values:
    * - Private: VPC address.
-   * - Public: public network address.
+   * - Public: Internet address.
    * 
    * @example
    * Private
@@ -444,7 +448,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   port?: string;
   /**
    * @remarks
-   * The description of the port.
+   * The port description.
    * 
    * @example
    * kong_http
@@ -486,7 +490,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
 export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore extends $dara.Model {
   /**
    * @remarks
-   * The account source. Valid values: reuse_vector and existing. This parameter is returned only when the status is ENABLED.
+   * The account source. Valid values: reuse_vector, existing. This parameter is returned only when the status is ENABLED.
    * 
    * @example
    * existing
@@ -510,7 +514,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
   DBName?: string;
   /**
    * @remarks
-   * The status of the session store. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+   * The session storage status. Valid values: DISABLED, ENABLING, ENABLED, DISABLING.
    * 
    * @example
    * ENABLED
@@ -546,7 +550,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSess
 export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test-database-name
@@ -554,7 +558,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   dbName?: string;
   /**
    * @remarks
-   * The name of the embedder model.
+   * The embedder model name.
    * 
    * @example
    * text-embedding-v4
@@ -570,7 +574,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   graphLlmModelName?: string;
   /**
    * @remarks
-   * The name of the LLM model.
+   * The LLM model name.
    * 
    * @example
    * qwen3-max
@@ -578,7 +582,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   llmModelName?: string;
   /**
    * @remarks
-   * The active memory type.
+   * The currently active memory type.
    * 
    * @example
    * MULTIMODAL_TEXT
@@ -586,7 +590,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   memoryType?: string;
   /**
    * @remarks
-   * Indicates whether the multimodal feature is enabled.
+   * Indicates whether multimodal capabilities are currently enabled.
    * 
    * @example
    * true
@@ -594,7 +598,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   multimodalEnabled?: boolean;
   /**
    * @remarks
-   * The name of the project, which corresponds to the schema in the database where project data is stored.
+   * The project name, which corresponds to the schema where project data is stored in the database.
    * 
    * @example
    * test-project-name
@@ -602,7 +606,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   projectName?: string;
   /**
    * @remarks
-   * The name of the reranker model.
+   * The name of the Reranker model.
    * 
    * @example
    * qwen3-rerank
@@ -623,7 +627,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   userName?: string;
   /**
    * @remarks
-   * The current dimensions of the VisualEmbedder.
+   * The current VisualEmbedder dimensions.
    * 
    * @example
    * 2560
@@ -706,7 +710,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
 export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttributeLangfuseBinding extends $dara.Model {
   /**
    * @remarks
-   * The effective period of the attach. The value is a UNIX timestamp.
+   * The effective period of the attachment. The value is a UNIX timestamp.
    * 
    * @example
    * 1788771141
@@ -730,7 +734,7 @@ export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribu
   bindingTaskId?: number;
   /**
    * @remarks
-   * The ID of the Langfuse application.
+   * The Langfuse application ID.
    * 
    * @example
    * pa-xxx
@@ -738,7 +742,7 @@ export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribu
   langfuseApplicationId?: string;
   /**
    * @remarks
-   * The phase of the binding.
+   * The binding phase.
    * 
    * @example
    * ACTIVE
@@ -746,7 +750,7 @@ export class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribu
   phase?: string;
   /**
    * @remarks
-   * The ID of the Langfuse project.
+   * The Langfuse project ID.
    * 
    * @example
    * project-xxx
@@ -822,10 +826,14 @@ export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAtt
    * http://8.xxx.xxx.xxx.xxx/xxx
    */
   authCallbackURL?: string;
+  /**
+   * @remarks
+   * The list of authentication providers for the application.
+   */
   authProviders?: string[];
   /**
    * @remarks
-   * The identifier of the Supabase cluster.
+   * The Supabase cluster identifier.
    * 
    * @example
    * pa-**************
@@ -880,7 +888,7 @@ export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-**************
@@ -888,7 +896,7 @@ export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dar
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the security group.
+   * The security group name.
    * 
    * @example
    * MyGroupName
@@ -1115,7 +1123,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of DNAT mapping entries for NAT mapping.
+   * The NAT mapping: the list of DNAT mapping entries.
    */
   dnatMappings?: DescribeApplicationAttributeResponseBodyDnatMappings[];
   /**
@@ -1163,8 +1171,8 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values:
    * 
-   * - Unlock: The application is not locked.
-   * - Lock: The application is locked.
+   * - Unlock: unlocked.
+   * - Lock: locked.
    * 
    * @example
    * Unlock
@@ -1205,7 +1213,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   minorVersion?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * pc-xxx
@@ -1213,7 +1221,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
+   * The NAT mapping: the SNAT IP address bound to the vSwitch where the application resides. This refers to a customer-managed SNAT entry that is discovered and returned in real time by the control plane, and is unrelated to the SNAT of the Internet NAT gateway.
    * 
    * @example
    * 10.64.0.20
@@ -1273,7 +1281,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
   /**
    * @remarks
-   * The serverless type. Valid values:
+   * The Serverless type. Valid values:
    * - 2: Agile.
    * - 3: Stable.
    * 
@@ -1283,7 +1291,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   serverlessType?: string;
   /**
    * @remarks
-   * The SNAT status. Valid values: on and off.
+   * The SNAT status. Valid values: on, off.
    * 
    * @example
    * off
@@ -1295,7 +1303,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * - Creating: The application is being created.
    * - Activated: The application is running.
    * - Maintaining: The application is under maintenance.
-   * - ClassChanging: The application specifications are being changed.
+   * - ClassChanging: The application configuration is being changed.
    * - Transing: The application is being migrated.
    * - MinorVersionUpgrading: The minor version of the application is being upgraded.
    * - NetCreating: The endpoint of the application is being created.
@@ -1313,12 +1321,12 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage resources.
+   * The storage resource description.
    */
   storages?: DescribeApplicationAttributeResponseBodyStorages[];
   /**
    * @remarks
-   * Specifies whether an upgrade is available.
+   * Indicates whether an upgrade is available.
    * 
    * @example
    * false
@@ -1350,7 +1358,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The customer-managed VPC NAT gateway ID for NAT mapping.
+   * The NAT mapping: the customer-managed VPC NAT gateway ID.
    * 
    * @example
    * ngw-xxx

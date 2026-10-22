@@ -45,7 +45,7 @@ export class DescribeApplicationsRequestTag extends $dara.Model {
 export class DescribeApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs. If specified, only the information of these applications is returned.
+   * The list of application IDs. If specified, only the information about these applications is returned.
    * 
    * @example
    * pa-**************
@@ -54,6 +54,9 @@ export class DescribeApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * The application engine filter.
+   * 
+   * @example
+   * polardb_polarclaw
    */
   applicationTypes?: string;
   /**

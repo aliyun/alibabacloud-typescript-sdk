@@ -41,6 +41,14 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
+   * 基于父分支在指定时间点的数据创建分支；不传则使用最新数据。采用带时区的 RFC3339 格式，最多支持 9 位小数秒；不支持空字符串或未来时间。
+   * 
+   * @example
+   * 2026-10-15T07:32:00.123456Z
+   */
+  parentTimestamp?: string;
+  /**
+   * @remarks
    * The ID of the project to which the branch belongs.
    * 
    * This parameter is required.
@@ -75,6 +83,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       description: 'Description',
       parentBranchId: 'ParentBranchId',
+      parentTimestamp: 'ParentTimestamp',
       projectId: 'ProjectId',
       regionId: 'RegionId',
       tenantId: 'TenantId',
@@ -87,6 +96,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
       DBClusterId: 'string',
       description: 'string',
       parentBranchId: 'string',
+      parentTimestamp: 'string',
       projectId: 'string',
       regionId: 'string',
       tenantId: 'string',

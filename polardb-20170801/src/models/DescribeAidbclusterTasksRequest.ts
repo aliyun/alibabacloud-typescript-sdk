@@ -15,12 +15,18 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page.
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
    */
   pageSize?: number;
   /**
@@ -33,7 +39,7 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The PolarDB instance ID.
+   * The instance ID of the associated PolarDB instance.
    * 
    * @example
    * pc-2ze88***

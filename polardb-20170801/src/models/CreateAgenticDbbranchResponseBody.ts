@@ -53,6 +53,14 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
+   * 创建分支时指定的父分支历史时间，采用 UTC RFC3339 格式。未指定历史时间或旧记录可能为空。
+   * 
+   * @example
+   * 2026-10-15T07:32:00.123456Z
+   */
+  parentTimestamp?: string;
+  /**
+   * @remarks
    * The ID of the project to which the branch belongs.
    * 
    * @example
@@ -91,6 +99,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
       DBClusterId: 'DBClusterId',
       parentBranchId: 'ParentBranchId',
       parentBranchName: 'ParentBranchName',
+      parentTimestamp: 'ParentTimestamp',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       requestId: 'RequestId',
@@ -106,6 +115,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
       DBClusterId: 'string',
       parentBranchId: 'string',
       parentBranchName: 'string',
+      parentTimestamp: 'string',
       projectId: 'string',
       projectName: 'string',
       requestId: 'string',

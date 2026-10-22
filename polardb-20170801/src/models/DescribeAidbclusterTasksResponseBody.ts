@@ -7,7 +7,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The task completion time.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-06-09T18:00:00Z
@@ -17,7 +17,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -33,7 +33,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   DBNodeDescription?: string;
   /**
    * @remarks
-   * The model operator instance ID.
+   * The instance ID of the model operator.
    * 
    * @example
    * pm-2ze***
@@ -41,7 +41,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   DBNodeId?: string;
   /**
    * @remarks
-   * The instance status. This parameter may not be returned.
+   * The instance status. This field may not be returned.
    * 
    * @example
    * RUNNING
@@ -73,7 +73,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version.
+   * The database engine version.
    * 
    * @example
    * 3.1
@@ -115,7 +115,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The task start time.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-06-09T18:00:00Z
@@ -139,7 +139,10 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   trainType?: string;
   /**
    * @remarks
-   * The fine-tuning framework.
+   * The tuning framework.
+   * 
+   * @example
+   * lora
    */
   tuneArch?: string;
   static names(): { [key: string]: string } {
@@ -206,7 +209,7 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version.
+   * The database engine version.
    * 
    * @example
    * 3.1
@@ -219,22 +222,31 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   items?: DescribeAIDBClusterTasksResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
+   * 
+   * @example
+   * 0
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of records on the page.
+   * The total number of entries on the current page.
+   * 
+   * @example
+   * 1
    */
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
    */
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the PolarDB cluster.
+   * The ID of the associated PolarDB cluster.
    * 
    * @example
    * pc-2ze***
@@ -258,7 +270,10 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
+   * 
+   * @example
+   * 2
    */
   totalRecordCount?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterAttributeResponseBodyBranchChildBranch extends $dara.Model {
   branchLsn?: string;
   branchTime?: string;
+  /**
+   * @example
+   * test
+   */
   DBClusterDescription?: string;
   hasChild?: boolean;
   insName?: string;
@@ -235,8 +239,20 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
    * off
    */
   orca?: string;
+  /**
+   * @example
+   * 0
+   */
   remoteMemoryMax?: number;
+  /**
+   * @example
+   * 0
+   */
   remoteMemoryMin?: number;
+  /**
+   * @example
+   * 0
+   */
   remoteMemoryRecommended?: number;
   /**
    * @remarks
@@ -528,11 +544,17 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The connection resource quota (AgenticDB exclusive).
+   * 
+   * @example
+   * 0
    */
   connectionResourceQuota?: number;
   /**
    * @remarks
    * The number of connection resources used (AgenticDB exclusive).
+   * 
+   * @example
+   * 0
    */
   connectionResourceUsed?: number;
   /**
@@ -948,6 +970,10 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * OFF
    */
   standbyHAMode?: string;
+  /**
+   * @example
+   * Enable
+   */
   storageAutoScale?: string;
   /**
    * @remarks
@@ -984,6 +1010,10 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * HighPerformance
    */
   storageType?: string;
+  /**
+   * @example
+   * 800
+   */
   storageUpperBound?: number;
   /**
    * @remarks

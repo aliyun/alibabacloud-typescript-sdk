@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compute instance associated with the default branch.
+   * The ID of the compute instance bound to the default branch.
    * 
    * @example
    * pc-g0lsayq8c5qe
@@ -13,9 +13,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   branchComputeClusterId?: string;
   /**
    * @remarks
-   * The time when the project was created.
-   * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time when the project was created. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -23,7 +21,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The default branch ID.
+   * The ID of the default branch.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -31,12 +29,20 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   defaultBranchId?: string;
   /**
    * @remarks
-   * The default branch name.
+   * The name of the default branch.
    * 
    * @example
    * main
    */
   defaultBranchName?: string;
+  /**
+   * @remarks
+   * The retention period for recent records of the project. This parameter may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+   * 
+   * @example
+   * 604800
+   */
+  historyRetentionSeconds?: number;
   /**
    * @remarks
    * The ID of the new project.
@@ -47,7 +53,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * analytics-prod
@@ -55,7 +61,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E5F6A7B8-C9D0-1234-EFAB-345678901234
@@ -63,7 +69,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * t-4b83e0da66674951
@@ -75,6 +81,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
       createTime: 'CreateTime',
       defaultBranchId: 'DefaultBranchId',
       defaultBranchName: 'DefaultBranchName',
+      historyRetentionSeconds: 'HistoryRetentionSeconds',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       requestId: 'RequestId',
@@ -88,6 +95,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
       createTime: 'string',
       defaultBranchId: 'string',
       defaultBranchName: 'string',
+      historyRetentionSeconds: 'number',
       projectId: 'string',
       projectName: 'string',
       requestId: 'string',

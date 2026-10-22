@@ -163,6 +163,10 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * 2020-02-24T11:57:54Z
    */
   createTime?: string;
+  /**
+   * @example
+   * 2.0.0
+   */
   currentVersion?: string;
   /**
    * @remarks
@@ -215,6 +219,10 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * xxx
    */
   gwDescription?: string;
+  /**
+   * @example
+   * 2.0.1
+   */
   latestVersion?: string;
   /**
    * @remarks
@@ -252,6 +260,10 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
+  /**
+   * @example
+   * 2.0.0
+   */
   runningVersion?: string;
   /**
    * @remarks

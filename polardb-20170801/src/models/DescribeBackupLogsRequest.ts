@@ -23,7 +23,7 @@ export class DescribeBackupLogsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeBackupLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. The default value is **1**.
+   * The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -43,15 +43,12 @@ export class DescribeBackupLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
+   * * **30** 
+   * * **50**
+   * * **100**
    * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
-   * 
-   * The default value is **30**.
+   * Default value: **30**.
    * 
    * @example
    * 30
@@ -61,7 +58,7 @@ export class DescribeBackupLogsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+   * The start time of the query. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
