@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MultiModalGuardAsyncResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The moderation service type.
+   * The moderation service.
    * 
    * @example
    * audio_security_check
@@ -13,7 +13,7 @@ export class MultiModalGuardAsyncResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The set of parameters required by the moderation service. The value is a JSON string.
    * 
    * @example
    * {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
+   * The confidence score, which ranges from 0 to 100 and is accurate to two decimal places.
    * 
    * @example
    * 90
@@ -16,12 +16,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
    * The label description.
    * 
    * @example
-   * drugs.
+   * Drugs
    */
   description?: string;
   /**
    * @remarks
-   * The extended information of the moderation result.
+   * The extended information of the detection result.
    * 
    * @example
    * {}
@@ -38,7 +38,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -80,7 +80,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -91,16 +91,16 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   level?: string;
   /**
    * @remarks
-   * The list of moderation results.
+   * The list of detection results.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetailResult[];
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -109,12 +109,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   suggestion?: string;
   /**
    * @remarks
-   * The moderation type. Valid values:
-   * - contentModeration: content compliance moderation
-   * - promptAttack: prompt attack detection
-   * - sensitiveData: sensitive content detection
-   * - modelHallucination: model hallucination detection
-   * - maliciousFile: malicious file detection
+   * The detection type. Valid values:
+   * - contentModeration: Content compliance detection.
+   * - promptAttack: Prompt attack detection.
+   * - sensitiveData: Sensitive content detection.
+   * - modelHallucination: Model hallucination detection.
+   * - maliciousFile: Malicious file detection.
    * 
    * @example
    * contentModeration
@@ -153,7 +153,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
 export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
   /**
    * @remarks
-   * The moderation details.
+   * The detection details.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetail[];
   /**
@@ -174,11 +174,11 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails e
   startTime?: number;
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -190,7 +190,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails e
    * The transcribed text of the audio segment.
    * 
    * @example
-   * The weather is really nice today.
+   * The weather is really nice today
    */
   text?: string;
   /**
@@ -251,7 +251,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResult extends $dara
   sliceNum?: number;
   /**
    * @remarks
-   * The recommended action.
+   * The suggestion.
    * 
    * @example
    * pass
@@ -288,7 +288,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResult extends $dara
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
+   * The confidence score, which ranges from 0 to 100 and is accurate to two decimal places.
    * 
    * @example
    * 80
@@ -299,12 +299,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailRe
    * The label description.
    * 
    * @example
-   * advertisement.
+   * Advertisement
    */
   description?: string;
   /**
    * @remarks
-   * The extended information of the moderation result.
+   * The extended information of the detection result.
    * 
    * @example
    * {}
@@ -321,7 +321,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailRe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -363,7 +363,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom keyword library is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -374,16 +374,16 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   level?: string;
   /**
    * @remarks
-   * The moderation result.
+   * The detection result.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult[];
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -392,12 +392,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   suggestion?: string;
   /**
    * @remarks
-   * The moderation type. Valid values:
-   * - contentModeration: content compliance moderation
-   * - promptAttack: prompt attack detection
-   * - sensitiveData: sensitive content detection
-   * - modelHallucination: model hallucination detection
-   * - maliciousFile: malicious file detection
+   * The detection type. Valid values:
+   * - contentModeration: Content compliance detection.
+   * - promptAttack: Prompt attack detection.
+   * - sensitiveData: Sensitive content detection.
+   * - modelHallucination: Model hallucination detection.
+   * - maliciousFile: Malicious file detection.
    * 
    * @example
    * contentModeration
@@ -436,7 +436,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The list of moderation results.
+   * The list of detection results.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail[];
   /**
@@ -457,7 +457,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
   errorMsg?: string;
   /**
    * @remarks
-   * The frame capture position.
+   * The offset of the captured frame.
    * 
    * @example
    * 1.5
@@ -465,11 +465,11 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
   offset?: number;
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -531,7 +531,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara.Model {
   /**
    * @remarks
-   * The frame moderation results.
+   * The frame detection results.
    */
   frames?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames[];
   /**
@@ -544,11 +544,11 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara
   sliceNum?: number;
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -583,15 +583,105 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara
   }
 }
 
+export class MultiModalGuardAsyncResultResponseBodyDataRedactResult extends $dara.Model {
+  /**
+   * @remarks
+   * The processing type.
+   * 
+   * @example
+   * faceBlur
+   */
+  processType?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket that stores the masked object.
+   * 
+   * @example
+   * test_bucket
+   */
+  resultOssBucketName?: string;
+  /**
+   * @remarks
+   * The name of the masked OSS object.
+   * 
+   * @example
+   * video.mp4
+   */
+  resultOssObjectName?: string;
+  /**
+   * @remarks
+   * The region of the masked OSS object.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  resultOssRegionId?: string;
+  /**
+   * @remarks
+   * The temporary URL of the masked object.
+   * 
+   * @example
+   * https://XX
+   */
+  resultUrl?: string;
+  /**
+   * @remarks
+   * The original URL.
+   * 
+   * @example
+   * https://XX
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processType: 'ProcessType',
+      resultOssBucketName: 'ResultOssBucketName',
+      resultOssObjectName: 'ResultOssObjectName',
+      resultOssRegionId: 'ResultOssRegionId',
+      resultUrl: 'ResultUrl',
+      sourceUrl: 'SourceUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processType: 'string',
+      resultOssBucketName: 'string',
+      resultOssObjectName: 'string',
+      resultOssRegionId: 'string',
+      resultUrl: 'string',
+      sourceUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The audio moderation segment results.
+   * The segmented results of audio moderation.
    */
   audioResult?: MultiModalGuardAsyncResultResponseBodyDataAudioResult;
   /**
    * @remarks
-   * The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
+   * The value of dataId passed in the API request. If dataId is not passed in the request, this field is not returned.
    * 
    * @example
    * data1234
@@ -612,11 +702,16 @@ export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
   liveId?: string;
   /**
    * @remarks
-   * The recommended action. Valid values:
+   * The data masking result.
+   */
+  redactResult?: MultiModalGuardAsyncResultResponseBodyDataRedactResult;
+  /**
+   * @remarks
+   * The suggestion. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
-   * - watch: Manually review the content.
+   * - watch: Review the content.
    * - mask: Mask the content.
    * 
    * @example
@@ -637,6 +732,7 @@ export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
       dataId: 'DataId',
       frameResult: 'FrameResult',
       liveId: 'LiveId',
+      redactResult: 'RedactResult',
       suggestion: 'Suggestion',
       taskId: 'TaskId',
     };
@@ -648,6 +744,7 @@ export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
       dataId: 'string',
       frameResult: MultiModalGuardAsyncResultResponseBodyDataFrameResult,
       liveId: 'string',
+      redactResult: MultiModalGuardAsyncResultResponseBodyDataRedactResult,
       suggestion: 'string',
       taskId: 'string',
     };
@@ -659,6 +756,9 @@ export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
     }
     if(this.frameResult && typeof (this.frameResult as any).validate === 'function') {
       (this.frameResult as any).validate();
+    }
+    if(this.redactResult && typeof (this.redactResult as any).validate === 'function') {
+      (this.redactResult as any).validate();
     }
     super.validate();
   }

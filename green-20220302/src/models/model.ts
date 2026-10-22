@@ -102,6 +102,7 @@ export { MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult
 export { MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail } from './MultiModalGuardAsyncResultResponseBody';
 export { MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames } from './MultiModalGuardAsyncResultResponseBody';
 export { MultiModalGuardAsyncResultResponseBodyDataFrameResult } from './MultiModalGuardAsyncResultResponseBody';
+export { MultiModalGuardAsyncResultResponseBodyDataRedactResult } from './MultiModalGuardAsyncResultResponseBody';
 export { MultiModalGuardAsyncResultResponseBodyData } from './MultiModalGuardAsyncResultResponseBody';
 export { MultiModalGuardForBase64ResponseBodyDataDetailResult } from './MultiModalGuardForBase64responseBody';
 export { MultiModalGuardForBase64ResponseBodyDataDetail } from './MultiModalGuardForBase64responseBody';
