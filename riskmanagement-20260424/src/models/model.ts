@@ -49,6 +49,7 @@ export { GetNotificationClickRecordResponseBodyData } from './GetNotificationCli
 export { GetNotificationContactsResponseBodyDataChannelConfigs } from './GetNotificationContactsResponseBody';
 export { GetNotificationContactsResponseBodyDataContactInfoList } from './GetNotificationContactsResponseBody';
 export { GetNotificationContactsResponseBodyData } from './GetNotificationContactsResponseBody';
+export { GetResourceControlEventResponseBodyDataApplyRecordListAnomalyHours } from './GetResourceControlEventResponseBody';
 export { GetResourceControlEventResponseBodyDataApplyRecordListEventTimeRecord } from './GetResourceControlEventResponseBody';
 export { GetResourceControlEventResponseBodyDataApplyRecordList } from './GetResourceControlEventResponseBody';
 export { GetResourceControlEventResponseBodyData } from './GetResourceControlEventResponseBody';
@@ -79,6 +80,9 @@ export { QueryAccountSafetyIncidentResponseBodyDataListDateExtras } from './Quer
 export { QueryAccountSafetyIncidentResponseBodyDataList } from './QueryAccountSafetyIncidentResponseBody';
 export { QueryAccountSafetyIncidentResponseBodyDataPageInfo } from './QueryAccountSafetyIncidentResponseBody';
 export { QueryAccountSafetyIncidentResponseBodyData } from './QueryAccountSafetyIncidentResponseBody';
+export { QueryForOperationResponseBodyDataList } from './QueryForOperationResponseBody';
+export { QueryForOperationResponseBodyDataPageInfo } from './QueryForOperationResponseBody';
+export { QueryForOperationResponseBodyData } from './QueryForOperationResponseBody';
 export { QueryPenetrationTestDetailResponseBodyData } from './QueryPenetrationTestDetailResponseBody';
 export { QueryPenetrationTestListResponseBodyDataList } from './QueryPenetrationTestListResponseBody';
 export { QueryPenetrationTestListResponseBodyDataPageInfo } from './QueryPenetrationTestListResponseBody';
@@ -196,6 +200,9 @@ export { QueryAccountSafetyIncidentRequest } from './QueryAccountSafetyIncidentR
 export { QueryAccountSafetyIncidentShrinkRequest } from './QueryAccountSafetyIncidentShrinkRequest';
 export { QueryAccountSafetyIncidentResponseBody } from './QueryAccountSafetyIncidentResponseBody';
 export { QueryAccountSafetyIncidentResponse } from './QueryAccountSafetyIncidentResponse';
+export { QueryForOperationRequest } from './QueryForOperationRequest';
+export { QueryForOperationResponseBody } from './QueryForOperationResponseBody';
+export { QueryForOperationResponse } from './QueryForOperationResponse';
 export { QueryGuideSubStatusRequest } from './QueryGuideSubStatusRequest';
 export { QueryGuideSubStatusResponseBody } from './QueryGuideSubStatusResponseBody';
 export { QueryGuideSubStatusResponse } from './QueryGuideSubStatusResponse';
@@ -222,6 +229,9 @@ export { SubmitApplyRecordRequest } from './SubmitApplyRecordRequest';
 export { SubmitApplyRecordShrinkRequest } from './SubmitApplyRecordShrinkRequest';
 export { SubmitApplyRecordResponseBody } from './SubmitApplyRecordResponseBody';
 export { SubmitApplyRecordResponse } from './SubmitApplyRecordResponse';
+export { SubmitAutoAuditUnblockRequest } from './SubmitAutoAuditUnblockRequest';
+export { SubmitAutoAuditUnblockResponseBody } from './SubmitAutoAuditUnblockResponseBody';
+export { SubmitAutoAuditUnblockResponse } from './SubmitAutoAuditUnblockResponse';
 export { SubmitPenetrationTestRequest } from './SubmitPenetrationTestRequest';
 export { SubmitPenetrationTestResponseBody } from './SubmitPenetrationTestResponseBody';
 export { SubmitPenetrationTestResponse } from './SubmitPenetrationTestResponse';

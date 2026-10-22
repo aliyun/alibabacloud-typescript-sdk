@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceControlEventShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values:
+   * The language environment.
    * 
-   * - **zh** (default): Chinese
-   * - **en**: English
+   * - Chinese (default): **zh**
+   * - English: **en**
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class GetResourceControlEventShrinkRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * The alert event ID.
+   * The ID of the alert event.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class GetResourceControlEventShrinkRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The list of specified event IDs.
+   * The list of event IDs.
    */
   eventIdListShrink?: string;
   static names(): { [key: string]: string } {

@@ -619,7 +619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately ends a penetration test.
+   * Immediately terminates a penetration test.
    * 
    * @param request - EndPenetrationTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -650,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately ends a penetration test.
+   * Immediately terminates a penetration test.
    * 
    * @param request - EndPenetrationTestRequest
    * @returns EndPenetrationTestResponse
@@ -1650,6 +1650,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解封申请列表及分页信息
+   * 
+   * @param request - QueryForOperationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryForOperationResponse
+   */
+  async queryForOperationWithOptions(request: $_model.QueryForOperationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryForOperationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applyTimeEnd)) {
+      query["ApplyTimeEnd"] = request.applyTimeEnd;
+    }
+
+    if (!$dara.isNull(request.applyTimeStart)) {
+      query["ApplyTimeStart"] = request.applyTimeStart;
+    }
+
+    if (!$dara.isNull(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
+    if (!$dara.isNull(request.auditTimeEnd)) {
+      query["AuditTimeEnd"] = request.auditTimeEnd;
+    }
+
+    if (!$dara.isNull(request.auditTimeStart)) {
+      query["AuditTimeStart"] = request.auditTimeStart;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.customerUid)) {
+      query["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryForOperation",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryForOperationResponse>(await this.callApi(params, req, runtime), new $_model.QueryForOperationResponse({}));
+  }
+
+  /**
+   * 解封申请列表及分页信息
+   * 
+   * @param request - QueryForOperationRequest
+   * @returns QueryForOperationResponse
+   */
+  async queryForOperation(request: $_model.QueryForOperationRequest): Promise<$_model.QueryForOperationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryForOperationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the subscription status of the cloud security guide.
    * 
    * @param request - QueryGuideSubStatusRequest
@@ -1727,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询渗透测试申请列表
+   * Queries the list of penetration test applications.
    * 
    * @param request - QueryPenetrationTestListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1762,7 +1840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询渗透测试申请列表
+   * Queries the list of penetration test applications.
    * 
    * @param request - QueryPenetrationTestListRequest
    * @returns QueryPenetrationTestListResponse
@@ -2138,6 +2216,72 @@ export default class Client extends OpenApi {
   async submitApplyRecord(request: $_model.SubmitApplyRecordRequest): Promise<$_model.SubmitApplyRecordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitApplyRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交 TCP25端口免审解封申请
+   * 
+   * @param request - SubmitAutoAuditUnblockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAutoAuditUnblockResponse
+   */
+  async submitAutoAuditUnblockWithOptions(request: $_model.SubmitAutoAuditUnblockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAutoAuditUnblockResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetList)) {
+      query["AssetList"] = request.assetList;
+    }
+
+    if (!$dara.isNull(request.auditor)) {
+      query["Auditor"] = request.auditor;
+    }
+
+    if (!$dara.isNull(request.customerUid)) {
+      query["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.emailType)) {
+      query["EmailType"] = request.emailType;
+    }
+
+    if (!$dara.isNull(request.hasUnsubscribe)) {
+      query["HasUnsubscribe"] = request.hasUnsubscribe;
+    }
+
+    if (!$dara.isNull(request.sendCount)) {
+      query["SendCount"] = request.sendCount;
+    }
+
+    if (!$dara.isNull(request.useDesc)) {
+      query["UseDesc"] = request.useDesc;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAutoAuditUnblock",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAutoAuditUnblockResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAutoAuditUnblockResponse({}));
+  }
+
+  /**
+   * 提交 TCP25端口免审解封申请
+   * 
+   * @param request - SubmitAutoAuditUnblockRequest
+   * @returns SubmitAutoAuditUnblockResponse
+   */
+  async submitAutoAuditUnblock(request: $_model.SubmitAutoAuditUnblockRequest): Promise<$_model.SubmitAutoAuditUnblockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAutoAuditUnblockWithOptions(request, runtime);
   }
 
   /**

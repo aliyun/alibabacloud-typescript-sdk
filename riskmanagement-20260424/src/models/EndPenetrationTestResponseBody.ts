@@ -7,7 +7,7 @@ export class EndPenetrationTestResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > 200: Success. Other values (such as 500 and 400): Error codes.
+   * > 200: Success. Other values (such as 500 and 400): error codes.
    * 
    * @example
    * 200
@@ -33,7 +33,7 @@ export class EndPenetrationTestResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful. Valid values:
    * - **true**: The call is successful.                                
-   * - **false**: The call failed.
+   * - **false**: The call fails.
    * 
    * @example
    * true

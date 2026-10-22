@@ -2,10 +2,80 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetResourceControlEventResponseBodyDataApplyRecordListAnomalyHours extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic exceptions in bytes.
+   * 
+   * @example
+   * 150323855
+   */
+  abnormalBytes?: number;
+  /**
+   * @remarks
+   * The anomaly description.
+   * 
+   * @example
+   * The traffic for the domain name cdn-newfile.stomics.tech increased to 54.78 GB between 03:00 and 04:00 on October 22, 2026, approximately 386 times the historical baseline of 0.14 GB. During this period, about 99.7% of the traffic was concentrated in the 14.22.49 CIDR block. Approximately 160 IP addresses accessed the domain, with no single IP accounting for a large proportion. The traffic involved 258 large files, primarily in tar.gz format, with an empty Referer header, indicating batch downloads or abnormal data pulling. Verify whether this was caused by a version release, image synchronization, or partner downloads. If the cause cannot be confirmed, temporarily throttle or block this CIDR block and implement access control for large files
+   */
+  anomalyDesc?: string;
+  /**
+   * @remarks
+   * The baseline traffic in bytes.
+   * 
+   * @example
+   * 58819577119
+   */
+  baselineBytes?: number;
+  /**
+   * @remarks
+   * The anomaly hour.
+   * 
+   * @example
+   * 2026-10-22 03:00:23
+   */
+  hour?: string;
+  /**
+   * @remarks
+   * The traffic multiplier.
+   * 
+   * @example
+   * 391.29
+   */
+  trafRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalBytes: 'AbnormalBytes',
+      anomalyDesc: 'AnomalyDesc',
+      baselineBytes: 'BaselineBytes',
+      hour: 'Hour',
+      trafRatio: 'TrafRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalBytes: 'number',
+      anomalyDesc: 'string',
+      baselineBytes: 'number',
+      hour: 'string',
+      trafRatio: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeRecord extends $dara.Model {
   /**
    * @remarks
-   * The time when the alert ended.
+   * The end time of the alert.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -14,7 +84,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   alertEndTime?: string;
   /**
    * @remarks
-   * The time when the first alert was triggered.
+   * The time of the first alert.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -23,7 +93,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   alertStartTime?: string;
   /**
    * @remarks
-   * The time when the control action was lifted.
+   * The time when the restriction is lifted.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -41,7 +111,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   applyTime?: string;
   /**
    * @remarks
-   * The time when the alert was ignored.
+   * The time when the alert is ignored.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -50,7 +120,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   ignoreAlertTime?: string;
   /**
    * @remarks
-   * The time when the instance was shut down.
+   * The time when the instance is shut down.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -59,7 +129,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   instanceCloseTime?: string;
   /**
    * @remarks
-   * The time when the instance was scanned.
+   * The time when the instance is scanned.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -68,7 +138,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   instanceScanTime?: string;
   /**
    * @remarks
-   * The time of the latest detection.
+   * The time of the latest check.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -77,7 +147,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   lastCheckTime?: string;
   /**
    * @remarks
-   * The time when the mining alert was processed.
+   * The processing time of the mining alert.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -105,7 +175,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   processTime?: string;
   /**
    * @remarks
-   * The time when the control action ended.
+   * The end time of the restriction.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -114,7 +184,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   punishEndTime?: string;
   /**
    * @remarks
-   * The time when the control action started.
+   * The start time of the restriction.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -132,7 +202,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   rejectTime?: string;
   /**
    * @remarks
-   * The removal time.
+   * The time when the restriction is removed.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -141,7 +211,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
   removeTime?: string;
   /**
    * @remarks
-   * The time when the risk check succeeded.
+   * The time when the risk check succeeds.
    * > Format: yyyy-MM-dd HH:mm:ss
    * 
    * @example
@@ -202,6 +272,11 @@ export class GetResourceControlEventResponseBodyDataApplyRecordListEventTimeReco
 export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dara.Model {
   /**
    * @remarks
+   * The details of abnormal hours for CDN traffic exceptions.
+   */
+  anomalyHours?: GetResourceControlEventResponseBodyDataApplyRecordListAnomalyHours[];
+  /**
+   * @remarks
    * The reason for approval.
    * 
    * @example
@@ -223,7 +298,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
   rejectReason?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * Test Desc for Draft
@@ -231,13 +306,13 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
   remark?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task status.
    * 
-   * - **Executing**: executing
-   * - **Removed**: removed
-   * - **Alerting**: alerting
-   * - **Ended**: ended
-   * - **Processed**: processed by the user and under platform review
+   * - **Executing**: In progress.
+   * - **Removed**: Removed.
+   * - **Alerting**: Alerting.
+   * - **Ended**: Ended.
+   * - **Processed**: Processed by the user and under platform review.
    * 
    * @example
    * Executing
@@ -245,6 +320,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      anomalyHours: 'AnomalyHours',
       approvalReason: 'ApprovalReason',
       eventTimeRecord: 'EventTimeRecord',
       rejectReason: 'RejectReason',
@@ -255,6 +331,7 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      anomalyHours: { 'type': 'array', 'itemType': GetResourceControlEventResponseBodyDataApplyRecordListAnomalyHours },
       approvalReason: 'string',
       eventTimeRecord: GetResourceControlEventResponseBodyDataApplyRecordListEventTimeRecord,
       rejectReason: 'string',
@@ -264,6 +341,9 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
   }
 
   validate() {
+    if(Array.isArray(this.anomalyHours)) {
+      $dara.Model.validateArray(this.anomalyHours);
+    }
     if(this.eventTimeRecord && typeof (this.eventTimeRecord as any).validate === 'function') {
       (this.eventTimeRecord as any).validate();
     }
@@ -278,12 +358,12 @@ export class GetResourceControlEventResponseBodyDataApplyRecordList extends $dar
 export class GetResourceControlEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of application records.
+   * The list of application record information.
    */
   applyRecordList?: GetResourceControlEventResponseBodyDataApplyRecordList[];
   /**
    * @remarks
-   * The recommended action from the assistant.
+   * The handling suggestions from the assistant.
    * 
    * @example
    * assistant tip
@@ -300,8 +380,8 @@ export class GetResourceControlEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The traffic direction. Valid values:
-   * - **in**: inbound to the cloud. 
-   * - **out**: outbound from the cloud.
+   *  - **in**: Inbound to the cloud. 
+   * - **out**: Outbound from the cloud.
    * 
    * @example
    * out
@@ -373,7 +453,7 @@ export class GetResourceControlEventResponseBodyData extends $dara.Model {
   snapshotUrl?: string;
   /**
    * @remarks
-   * The attack source IP address.
+   * The source IP address of the attack.
    * 
    * @example
    * 36.134.124.185
@@ -389,7 +469,7 @@ export class GetResourceControlEventResponseBodyData extends $dara.Model {
   srcPort?: string;
   /**
    * @remarks
-   * The recommended action.
+   * The handling suggestions.
    * 
    * @example
    * Suggestion
@@ -458,12 +538,12 @@ export class GetResourceControlEventResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data list.
+   * The list of returned data.
    */
   data?: GetResourceControlEventResponseBodyData;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * successful‌
@@ -479,10 +559,10 @@ export class GetResourceControlEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

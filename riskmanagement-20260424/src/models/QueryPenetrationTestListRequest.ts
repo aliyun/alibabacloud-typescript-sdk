@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryPenetrationTestListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
+   * > Default value: 1
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * > Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
