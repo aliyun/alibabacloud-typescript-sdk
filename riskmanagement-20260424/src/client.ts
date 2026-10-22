@@ -1650,7 +1650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解封申请列表及分页信息
+   * Queries the list of port unblocking applications and pagination information.
    * 
    * @param request - QueryForOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +1717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解封申请列表及分页信息
+   * Queries the list of port unblocking applications and pagination information.
    * 
    * @param request - QueryForOperationRequest
    * @returns QueryForOperationResponse
@@ -2219,7 +2219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 TCP25端口免审解封申请
+   * Claims privileges.
    * 
    * @param request - SubmitAutoAuditUnblockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2274,7 +2274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交 TCP25端口免审解封申请
+   * Claims privileges.
    * 
    * @param request - SubmitAutoAuditUnblockRequest
    * @returns SubmitAutoAuditUnblockResponse
