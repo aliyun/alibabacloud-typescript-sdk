@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to locate the request during troubleshooting.
+   * The request ID, which is used to locate the request when troubleshooting issues.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -13,7 +13,7 @@ export class UpdateContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The strategy version number that takes effect after the update for the memory type. If the strategy remains unchanged, the version number is the same as that before the update.
+   * The strategy version that takes effect after the update for the memory type. If the strategy remains unchanged, the version is the same as the one before the update.
    * 
    * @example
    * 2

@@ -65,7 +65,7 @@ export class SearchContextRequestScope extends $dara.Model {
 export class SearchContextRequest extends $dara.Model {
   /**
    * @remarks
-   * The structured filter conditions. The key is the field name, and the value is the expected matching value.
+   * The structured filter conditions. The key is the field name, and the value is the expected match value.
    * 
    * @example
    * {"userId":"alice"}
@@ -73,7 +73,7 @@ export class SearchContextRequest extends $dara.Model {
   filter?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to structurally format the returned results.
+   * Specifies whether to apply structured formatting to the returned results.
    * 
    * @example
    * true
@@ -81,7 +81,7 @@ export class SearchContextRequest extends $dara.Model {
   formatted?: boolean;
   /**
    * @remarks
-   * Specifies whether to include memories with sourceState=inactive. Default value: false.
+   * Specifies whether to include memories whose sourceState is inactive. Default value: false.
    * 
    * @example
    * false
@@ -89,7 +89,7 @@ export class SearchContextRequest extends $dara.Model {
   includeInactive?: boolean;
   /**
    * @remarks
-   * The maximum number of returned results, which corresponds to the Top-N similarity.
+   * The maximum number of returned results, which corresponds to the top N results by similarity.
    * 
    * @example
    * 10
@@ -120,7 +120,15 @@ export class SearchContextRequest extends $dara.Model {
   scope?: SearchContextRequestScope;
   /**
    * @remarks
-   * The similarity threshold. Results with a similarity score lower than this value are filtered out. Valid values: 0 to 1.
+   * Filters results by extraction strategy ID. Multiple IDs in the list are evaluated with an OR condition. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. If the format is valid but no matching IDs are found, an empty result is returned. IDs of historically removed strategies are supported.
+   * 
+   * @example
+   * ["preferences","profile"]
+   */
+  strategyIds?: string[];
+  /**
+   * @remarks
+   * The similarity threshold. Results with a similarity score below this value are filtered out. Valid values: 0 to 1.
    * 
    * @example
    * 0.5
@@ -135,6 +143,7 @@ export class SearchContextRequest extends $dara.Model {
       query: 'query',
       retrievalOption: 'retrievalOption',
       scope: 'scope',
+      strategyIds: 'strategyIds',
       threshold: 'threshold',
     };
   }
@@ -148,6 +157,7 @@ export class SearchContextRequest extends $dara.Model {
       query: 'string',
       retrievalOption: 'string',
       scope: SearchContextRequestScope,
+      strategyIds: { 'type': 'array', 'itemType': 'string' },
       threshold: 'number',
     };
   }
@@ -158,6 +168,9 @@ export class SearchContextRequest extends $dara.Model {
     }
     if(this.scope && typeof (this.scope as any).validate === 'function') {
       (this.scope as any).validate();
+    }
+    if(Array.isArray(this.strategyIds)) {
+      $dara.Model.validateArray(this.strategyIds);
     }
     super.validate();
   }

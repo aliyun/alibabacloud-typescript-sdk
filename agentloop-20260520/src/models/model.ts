@@ -1,5 +1,7 @@
 export { AuditTaskStateRuntimeError } from './AuditTaskState';
 export { CreateContextStoreRequestConfigAudit } from './CreateContextStoreRequest';
+export { CreateContextStoreRequestConfigExtractionPoliciesModel } from './CreateContextStoreRequest';
+export { CreateContextStoreRequestConfigExtractionPolicies } from './CreateContextStoreRequest';
 export { CreateContextStoreRequestConfigExtractionPolicyModel } from './CreateContextStoreRequest';
 export { CreateContextStoreRequestConfigExtractionPolicy } from './CreateContextStoreRequest';
 export { CreateContextStoreRequestConfigScopePolicy } from './CreateContextStoreRequest';
@@ -42,6 +44,8 @@ export { ExecuteQueryResponseBodyMetaTruncation } from './ExecuteQueryResponseBo
 export { ExecuteQueryResponseBodyMeta } from './ExecuteQueryResponseBody';
 export { GetAgentSpaceResponseBodyMseNamespace } from './GetAgentSpaceResponseBody';
 export { GetContextStoreResponseBodyConfigAudit } from './GetContextStoreResponseBody';
+export { GetContextStoreResponseBodyConfigExtractionPoliciesModel } from './GetContextStoreResponseBody';
+export { GetContextStoreResponseBodyConfigExtractionPolicies } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigExtractionPolicyModel } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigExtractionPolicy } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigInnerSource } from './GetContextStoreResponseBody';
@@ -131,6 +135,8 @@ export { PreviewPipelineResponseBodyMeta } from './PreviewPipelineResponseBody';
 export { RunPipelineRequestOutput } from './RunPipelineRequest';
 export { SearchContextRequestScope } from './SearchContextRequest';
 export { UpdateContextStoreRequestConfigAudit } from './UpdateContextStoreRequest';
+export { UpdateContextStoreRequestConfigExtractionPoliciesModel } from './UpdateContextStoreRequest';
+export { UpdateContextStoreRequestConfigExtractionPolicies } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfigExtractionPolicyModel } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfigExtractionPolicy } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfigScopePolicy } from './UpdateContextStoreRequest';

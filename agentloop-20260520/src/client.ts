@@ -1634,7 +1634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an AgentSpace.
+   * Queries the AgentSpace.
    * 
    * @param request - GetAgentSpaceRequest
    * @param headers - map
@@ -1661,7 +1661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an AgentSpace.
+   * Queries the AgentSpace.
    * 
    * @param request - GetAgentSpaceRequest
    * @returns GetAgentSpaceResponse
@@ -1673,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the context store.
+   * Queries a context store.
    * 
    * @param request - GetContextStoreRequest
    * @param headers - map
@@ -1700,7 +1700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the context store.
+   * Queries a context store.
    * 
    * @param request - GetContextStoreRequest
    * @returns GetContextStoreResponse
@@ -3389,6 +3389,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scope)) {
       body["scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.strategyIds)) {
+      body["strategyIds"] = request.strategyIds;
     }
 
     if (!$dara.isNull(request.threshold)) {

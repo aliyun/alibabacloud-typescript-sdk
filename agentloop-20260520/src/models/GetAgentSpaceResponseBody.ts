@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
+  /**
+   * @remarks
+   * The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+   * 
+   * @example
+   * AutoCreated
+   */
   bindType?: string;
   /**
    * @remarks
@@ -56,7 +63,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The CloudMonitor workspace.
+   * The CMS workspace.
    * 
    * @example
    * test-cms-workspace

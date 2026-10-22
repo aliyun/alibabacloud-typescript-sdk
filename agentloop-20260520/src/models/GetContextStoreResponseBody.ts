@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextStoreResponseBodyConfigAudit extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to write item events for candidates dropped during retrieval. Default value: false.
+   * Specifies whether to write item events for dropped recall candidates. Default value: false.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetContextStoreResponseBodyConfigAudit extends $dara.Model {
   droppedCandidates?: boolean;
   /**
    * @remarks
-   * The recording mode for retrieval queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+   * The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
    * 
    * @example
    * raw
@@ -52,10 +52,148 @@ export class GetContextStoreResponseBodyConfigAudit extends $dara.Model {
   }
 }
 
+export class GetContextStoreResponseBodyConfigExtractionPoliciesModel extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the extraction model. Currently, only qwen3.8-flash is supported. Internal platform credentials are used.
+   * 
+   * @example
+   * qwen3.8-flash
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of memory categories.
+   * 
+   * @example
+   * ["preference","profile"]
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
+   * 
+   * @example
+   * Extract only user product preferences
+   */
+  customInstructions?: string;
+  /**
+   * @remarks
+   * Specifies whether to apply this policy to new inputs. Default value: true. Disabling the policy does not delete historical memories.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The list of exclusion rules. Content that matches these rules is not extracted.
+   * 
+   * @example
+   * ["Password","ID number"]
+   */
+  excludeRules?: string[];
+  /**
+   * @remarks
+   * The extraction model configuration.
+   */
+  model?: GetContextStoreResponseBodyConfigExtractionPoliciesModel;
+  /**
+   * @remarks
+   * The display name of the extraction policy.
+   * 
+   * @example
+   * User preferences
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
+   * 
+   * @example
+   * fact
+   */
+  preset?: string;
+  /**
+   * @remarks
+   * The stable ID of the extraction policy. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. It can be up to 64 characters in length. The ID must be unique within the same context library. Modifying the name or instructions does not change this ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * preferences
+   */
+  strategyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      customInstructions: 'customInstructions',
+      enabled: 'enabled',
+      excludeRules: 'excludeRules',
+      model: 'model',
+      name: 'name',
+      preset: 'preset',
+      strategyId: 'strategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customInstructions: 'string',
+      enabled: 'boolean',
+      excludeRules: { 'type': 'array', 'itemType': 'string' },
+      model: GetContextStoreResponseBodyConfigExtractionPoliciesModel,
+      name: 'string',
+      preset: 'string',
+      strategyId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.excludeRules)) {
+      $dara.Model.validateArray(this.excludeRules);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetContextStoreResponseBodyConfigExtractionPolicyModel extends $dara.Model {
   /**
    * @remarks
-   * The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
+   * The name of the extraction model. Currently, only qwen3.8-flash is supported. Internal platform credentials are used.
    * 
    * @example
    * qwen3.8-flash
@@ -93,7 +231,7 @@ export class GetContextStoreResponseBodyConfigExtractionPolicy extends $dara.Mod
   categories?: string[];
   /**
    * @remarks
-   * The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8,000 characters.
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
    * 
    * @example
    * Extract only user product preferences
@@ -217,7 +355,7 @@ export class GetContextStoreResponseBodyConfigObservability extends $dara.Model 
   eventsLogstore?: string;
   /**
    * @remarks
-   * The SLS project where both resources are located, which is the project bound to the AgentSpace.
+   * The Simple Log Service (SLS) project to which both belong, which is bound to the AgentSpace.
    * 
    * @example
    * agentloop-xxx
@@ -251,7 +389,7 @@ export class GetContextStoreResponseBodyConfigObservability extends $dara.Model 
 export class GetContextStoreResponseBodyConfigOutputDataset extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace where the dataset is located.
+   * The AgentSpace to which the dataset belongs.
    * 
    * @example
    * my-agent-space
@@ -311,7 +449,7 @@ export class GetContextStoreResponseBodyConfigOutputDataset extends $dara.Model 
 export class GetContextStoreResponseBodyConfigScopePolicy extends $dara.Model {
   /**
    * @remarks
-   * At least one of the specified scope fields must be non-empty. Valid element values: userId, agentId, appId, and runId.
+   * Specifies that at least one of the scope fields must be non-empty. Valid values: userId, agentId, appId, and runId.
    * 
    * @example
    * ["userId"]
@@ -352,7 +490,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetCustomFields extends 
   description?: string;
   /**
    * @remarks
-   * Specifies whether the field is sensitive.
+   * Specifies whether the field is a sensitive field.
    * 
    * @example
    * false
@@ -368,7 +506,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetCustomFields extends 
   sourceField?: string;
   /**
    * @remarks
-   * The target path for writing data, such as metadata.customerTier.
+   * The target path for writing, such as metadata.customerTier.
    * 
    * @example
    * metadata.customerTier
@@ -376,9 +514,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetCustomFields extends 
   target?: string;
   /**
    * @remarks
-   * The usage of the field. Valid values:
-   * - extraction-input: Participates in extraction.
-   * - ignore: Ignored.
+   * The usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
    * 
    * @example
    * extraction-input
@@ -416,7 +552,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetCustomFields extends 
 export class GetContextStoreResponseBodyConfigSourceDatasetFilter extends $dara.Model {
   /**
    * @remarks
-   * The subset of the Pipeline where clause, which is pushed down to SQL.
+   * The subset of the pipeline where clause, which is pushed down to SQL.
    * 
    * @example
    * appId = \\"crm-service\\"
@@ -446,9 +582,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetFilter extends $dara.
 export class GetContextStoreResponseBodyConfigSourceDatasetVersionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The consumption mode. Valid values:
-   * - follow: Consumes data incrementally based on __dataset_seq.
-   * - fixed: Consumes the specified ACTIVE version in full at once.
+   * The consumption mode. Valid values: follow (incremental consumption based on __dataset_seq) and fixed (full consumption of the specified ACTIVE version at once).
    * 
    * @example
    * follow
@@ -464,7 +598,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetVersionPolicy extends
   startSeq?: number;
   /**
    * @remarks
-   * The Dataset version specified for the fixed mode.
+   * The dataset version specified for the fixed mode.
    * 
    * @example
    * v3
@@ -503,7 +637,7 @@ export class GetContextStoreResponseBodyConfigSourceDataset extends $dara.Model 
   customFields?: GetContextStoreResponseBodyConfigSourceDatasetCustomFields[];
   /**
    * @remarks
-   * The name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
+   * The name of the dataset in the same AgentSpace. This parameter cannot be modified after creation.
    * 
    * @example
    * trajectory-with-crm-profile
@@ -511,7 +645,7 @@ export class GetContextStoreResponseBodyConfigSourceDataset extends $dara.Model 
   datasetName?: string;
   /**
    * @remarks
-   * The row filter conditions.
+   * The row filter condition.
    */
   filter?: GetContextStoreResponseBodyConfigSourceDatasetFilter;
   /**
@@ -524,7 +658,7 @@ export class GetContextStoreResponseBodyConfigSourceDataset extends $dara.Model 
   pollIntervalSeconds?: number;
   /**
    * @remarks
-   * The row schema contract of the Dataset. The value is fixed to MemorySourceV1 in the current phase.
+   * The row schema contract of the dataset. In the current phase, this parameter is fixed to MemorySourceV1.
    * 
    * @example
    * MemorySourceV1
@@ -532,7 +666,7 @@ export class GetContextStoreResponseBodyConfigSourceDataset extends $dara.Model 
   schemaContract?: string;
   /**
    * @remarks
-   * The version consumption policy of the Dataset.
+   * The version consumption policy of the dataset.
    */
   versionPolicy?: GetContextStoreResponseBodyConfigSourceDatasetVersionPolicy;
   static names(): { [key: string]: string } {
@@ -578,7 +712,7 @@ export class GetContextStoreResponseBodyConfigSourceDataset extends $dara.Model 
 export class GetContextStoreResponseBodyConfigSourceTrajectoryFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of agent names. An explicitly empty list returns a 400 error.
+   * The list of agent names. An explicit empty list returns a 400 error.
    * 
    * @example
    * ["sales-copilot"]
@@ -594,7 +728,7 @@ export class GetContextStoreResponseBodyConfigSourceTrajectoryFilter extends $da
   excludeDegraded?: boolean;
   /**
    * @remarks
-   * The minimum number of steps. The value must be greater than or equal to 0.
+   * The minimum step count, which must be greater than or equal to 0.
    * 
    * @example
    * 2
@@ -602,7 +736,7 @@ export class GetContextStoreResponseBodyConfigSourceTrajectoryFilter extends $da
   minStepCount?: number;
   /**
    * @remarks
-   * The native Simple Log Service (SLS) query statement, which is combined with the preceding conditions using AND.
+   * The native Simple Log Service (SLS) query statement. This statement is combined with the preceding conditions using the AND operator.
    * 
    * @example
    * tool_names:"search_order"
@@ -610,7 +744,7 @@ export class GetContextStoreResponseBodyConfigSourceTrajectoryFilter extends $da
   query?: string;
   /**
    * @remarks
-   * The list of service names. A single trailing asterisk (*) is supported. An explicitly empty list returns a 400 error.
+   * The list of service names. A single trailing asterisk (*) is supported. An explicit empty list returns a 400 error.
    * 
    * @example
    * ["crm-service","app-*"]
@@ -714,7 +848,7 @@ export class GetContextStoreResponseBodyConfigSourceTrajectoryScopeMapping exten
 export class GetContextStoreResponseBodyConfigSourceTrajectory extends $dara.Model {
   /**
    * @remarks
-   * The trajectory filter conditions. Conditions are combined with AND, while items within a list are combined with OR.
+   * The trajectory filter condition. Multiple conditions are combined with AND, and conditions within a list are combined with OR.
    */
   filter?: GetContextStoreResponseBodyConfigSourceTrajectoryFilter;
   /**
@@ -786,7 +920,7 @@ export class GetContextStoreResponseBodyConfigSourceTrajectory extends $dara.Mod
 export class GetContextStoreResponseBodyConfigSourceVersionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The continuous consumption mode, which is fixed to follow.
+   * The continuous consumption mode. The value is fixed to follow.
    * 
    * @example
    * follow
@@ -794,7 +928,7 @@ export class GetContextStoreResponseBodyConfigSourceVersionPolicy extends $dara.
   mode?: string;
   /**
    * @remarks
-   * The initial consumed append sequence, which is a decimal string of a non-negative int64. The default is 0. It uses __dataset_seq. Business timestamps are not used as consumption checkpoints.
+   * The initial consumed append sequence number. The value is a decimal string of a non-negative int64 integer. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
    * 
    * @example
    * 0
@@ -826,7 +960,7 @@ export class GetContextStoreResponseBodyConfigSourceVersionPolicy extends $dara.
 export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace where the trace data source resides. It must be the same as the AgentSpace specified during creation.
+   * The AgentSpace to which the trace data source belongs, which is the same as the AgentSpace to which it belonged when it was created.
    * 
    * @example
    * my-agent-space
@@ -842,12 +976,12 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   binding?: { [key: string]: any };
   /**
    * @remarks
-   * The Dataset datasource config for the memory type. This parameter is required when the type is memory and source.type is dataset.
+   * The data source configuration for the memory type dataset. This parameter is required when the type is memory and source.type is dataset.
    */
   dataset?: GetContextStoreResponseBodyConfigSourceDataset;
   /**
    * @remarks
-   * The name of the source Dataset for the experience type in the current AgentSpace.
+   * The name of the source dataset for the experience type in the current AgentSpace.
    * 
    * @example
    * reviewed_trajectories
@@ -855,7 +989,7 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The input format of the Dataset. For Datasets from the experience library, the value is atif.
+   * The input format of the dataset. For the experience base dataset, the source is atif.
    * 
    * @example
    * atif
@@ -863,7 +997,7 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The maximum number of records to read from the Dataset at a time. Valid values: 1 to 1000.
+   * The maximum number of records to read from the dataset at a time. Valid values: 1 to 1000.
    * 
    * @example
    * 1000
@@ -881,12 +1015,12 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trajectory datasource config for the memory type. This parameter is required when the type is memory and source.type is trajectory.
+   * The data source configuration for the memory type trajectory. This parameter is required when the type is memory and source.type is trajectory.
    */
   trajectory?: GetContextStoreResponseBodyConfigSourceTrajectory;
   /**
    * @remarks
-   * The source type, which can be trajectory or dataset. For experience, if not specified, it inherits the trajectory configuration. For Dataset, it uses the datasetName, format, and binding at this level. The default is manual. If versionPolicy.mode is follow, it continuously processes and automatically applies changes to this experience store. For memory, if not specified, it indicates manual, meaning only AddContexts writes data. Otherwise, it uses the sub-configuration of the trajectory or dataset with the same name. This property cannot be modified after creation.
+   * The source type, which can be trajectory or dataset. For experience, if not specified, the trajectory configuration is used. For Dataset, the datasetName, format, and binding at the current level are used. The default mode is manual. If versionPolicy.mode is set to follow, continuous processing is performed and automatically applied to the experience library. For memory, if not specified, the mode is manual (only written by AddContexts). Otherwise, the trajectory or dataset sub-configuration with the same name is used. This parameter cannot be modified after creation.
    * 
    * @example
    * dataset
@@ -894,7 +1028,7 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The continuous consumption configuration for the native experience store Dataset. The default is manual. The follow mode only allows binding.selection.mode=all and consumes by append sequence. This cannot be changed after creation.
+   * The continuous consumption configuration for the native experience library Dataset. The default mode is manual. The follow mode only allows binding.selection.mode to be set to all, and consumes data by append sequence number. This parameter cannot be modified after creation.
    */
   versionPolicy?: GetContextStoreResponseBodyConfigSourceVersionPolicy;
   static names(): { [key: string]: string } {
@@ -951,25 +1085,25 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
 export class GetContextStoreResponseBodyConfigSourceStatus extends $dara.Model {
   /**
    * @remarks
-   * The processing progress. For memory trajectory, it includes processTimeNs and watermarkMs. For dataset, it includes seq. For manual, it is empty. For experience Dataset follow mode, seq uses an exact int64 decimal string.
+   * The processing progress. For memory trajectory, the format is {processTimeNs, watermarkMs}. For dataset, the format is {seq}. For manual, the format is {}. For experience Dataset follow, the seq field uses an exact int64 decimal string.
    */
   checkpoint?: { [key: string]: any };
   /**
    * @remarks
-   * The current scheduled sequence window for experience Dataset follow mode, including after, until, and runId. All sequences are decimal strings. Failures do not advance the submitted checkpoint.
+   * The current reserved sequence window for experience Dataset follow, in the format of {after, until, runId}. All sequence numbers are decimal strings. If a failure occurs, the submitted checkpoint is not advanced.
    */
   currentWindow?: { [key: string]: string };
   /**
    * @remarks
-   * The desensitized latest error message. It is empty when the status is normal.
+   * The last desensitized error message. This field is empty when the status is normal.
    * 
    * @example
-   * Timeout reading the data source
+   * Data source read timeout
    */
   lastError?: string;
   /**
    * @remarks
-   * The run ID of the last successful automatic application to the native experience store. This is for audit purposes only.
+   * The run ID of the last successful automatic application to the native experience library. This field is for audit purposes only.
    * 
    * @example
    * opr-example
@@ -985,7 +1119,7 @@ export class GetContextStoreResponseBodyConfigSourceStatus extends $dara.Model {
   lastWindowAt?: string;
   /**
    * @remarks
-   * The consecutive retry count.
+   * The number of consecutive retries.
    * 
    * @example
    * 0
@@ -993,7 +1127,7 @@ export class GetContextStoreResponseBodyConfigSourceStatus extends $dara.Model {
   retryCount?: number;
   /**
    * @remarks
-   * The data source status. Valid values: Validating, Ready, Running, Retrying, Paused, SourceSchemaChanged, and Failed.
+   * The state of the data source. Valid values: Validating, Ready, Running, Retrying, Paused, SourceSchemaChanged, and Failed.
    * 
    * @example
    * Running
@@ -1041,7 +1175,7 @@ export class GetContextStoreResponseBodyConfigSourceStatus extends $dara.Model {
 export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model {
   /**
    * @remarks
-   * The allowed storage actions. The default is all: ADD, UPDATE, MERGE, and DELETE.
+   * The allowed storage actions. Default value: all actions. Valid values: ADD, UPDATE, MERGE, and DELETE.
    * 
    * @example
    * ["ADD","UPDATE","MERGE","DELETE"]
@@ -1049,7 +1183,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   allowedActions?: string[];
   /**
    * @remarks
-   * Specifies whether to deduplicate in event mode. The default is true.
+   * Specifies whether to enable deduplication in event mode. Default value: true.
    * 
    * @example
    * true
@@ -1057,7 +1191,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   dedupe?: boolean;
   /**
    * @remarks
-   * The human edit protection. The default is true. When enabled, automatic extraction does not overwrite manually modified memories.
+   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
    * 
    * @example
    * true
@@ -1065,7 +1199,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   humanEditProtection?: boolean;
   /**
    * @remarks
-   * The upsert merge key. Valid values: factKey, semantic, and both. The default is semantic.
+   * The merge key for upsert operations. Default value: semantic. Valid values: factKey, semantic, and both.
    * 
    * @example
    * semantic
@@ -1073,7 +1207,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   mergeKey?: string;
   /**
    * @remarks
-   * The storage mode. Valid values: event for event appending, and upsert for merge updating. The default is upsert.
+   * The storage mode. Default value: upsert. Valid values: event (event append) and upsert (merge update).
    * 
    * @example
    * upsert
@@ -1081,7 +1215,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   mode?: string;
   /**
    * @remarks
-   * The semantic merge similarity threshold. Valid values: 0 to 1. The default is 0.4.
+   * The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
    * 
    * @example
    * 0.4
@@ -1089,7 +1223,7 @@ export class GetContextStoreResponseBodyConfigStoragePolicy extends $dara.Model 
   similarityThreshold?: number;
   /**
    * @remarks
-   * The memory expiration days. A value of 0 indicates no expiration.
+   * The number of days before memories expire. A value of 0 indicates that memories do not expire.
    * 
    * @example
    * 0
@@ -1139,17 +1273,22 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   audit?: GetContextStoreResponseBodyConfigAudit;
   /**
    * @remarks
+   * The extraction policies. You can configure 1 to 10 policies. The strategyVersion parameter indicates the snapshot version of the entire library configuration.
+   */
+  extractionPolicies?: GetContextStoreResponseBodyConfigExtractionPolicies[];
+  /**
+   * @remarks
    * The extraction policy for the memory type.
    */
   extractionPolicy?: GetContextStoreResponseBodyConfigExtractionPolicy;
   /**
    * @remarks
-   * The system-assigned coordinates of the event Logstore for the memory type, located in the Simple Log Service (SLS) project bound to the AgentSpace.
+   * The system-assigned coordinates of the event Logstore for the memory type. The Logstore is located in the Simple Log Service (SLS) project bound to the AgentSpace.
    */
   innerSource?: GetContextStoreResponseBodyConfigInnerSource;
   /**
    * @remarks
-   * The metadata field mapping, where the key is the business field and the value is the storage field.
+   * The metadata field mapping. The key is the business field and the value is the storage field.
    * 
    * @example
    * {"userId":"user_id","sessionId":"session_id"}
@@ -1165,7 +1304,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   miningInterval?: string;
   /**
    * @remarks
-   * The name of the internal running task associated with the server. Continuous libraries use this for read-only viewing of consumption records, while manual libraries can run limited mining. This is not inferred by the client and cannot replace the ingestion and retrieval criteria of the native experience library.
+   * The name of the internal running task associated with the server. For continuous libraries, it is used to view consumption records in read-only mode. For manual libraries, it can run limited mining. It is not inferred by the client and cannot replace the ingestion and recall criteria of the native experience library.
    * 
    * @example
    * experience-review-library
@@ -1173,12 +1312,12 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   miningTaskName?: string;
   /**
    * @remarks
-   * The coordinates of observability resources for the memory type.
+   * The observability resource coordinates (memory type).
    */
   observability?: GetContextStoreResponseBodyConfigObservability;
   /**
    * @remarks
-   * The location of the memory output dataset for the memory type.
+   * The location of the memory output dataset (memory type).
    */
   outputDataset?: GetContextStoreResponseBodyConfigOutputDataset;
   /**
@@ -1188,7 +1327,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   scopePolicy?: GetContextStoreResponseBodyConfigScopePolicy;
   /**
    * @remarks
-   * The list of service names, which are used together with source.agentSpace to locate the trace data source. This parameter cannot be modified in the current phase.
+   * The list of service names used to locate the trace data source together with source.agentSpace. This parameter cannot be modified in the current phase.
    * 
    * @example
    * ["order-service","payment-service"]
@@ -1196,12 +1335,12 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   serviceNames?: string[];
   /**
    * @remarks
-   * The datasource config provided by the user, which serves only as the root identity for the data source.
+   * The data source configuration provided by the user, which serves only as the root identifier of the data source.
    */
   source?: GetContextStoreResponseBodyConfigSource;
   /**
    * @remarks
-   * The data source running status for memory type and experience Dataset follow mode. The experience store submits a checkpoint only after successful publishing and automatic application. Pausing and restarting retain the checkpoint.
+   * The running status of the data source, applicable to the memory type and experience Dataset follow mode. The experience library submits a checkpoint only after it is published and automatically applied successfully. Pausing and restarting retain the checkpoint.
    */
   sourceStatus?: GetContextStoreResponseBodyConfigSourceStatus;
   /**
@@ -1211,7 +1350,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   storagePolicy?: GetContextStoreResponseBodyConfigStoragePolicy;
   /**
    * @remarks
-   * The current effective strategy version number for the memory type.
+   * The currently effective strategy version number for the memory type.
    * 
    * @example
    * 1
@@ -1220,6 +1359,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       audit: 'audit',
+      extractionPolicies: 'extractionPolicies',
       extractionPolicy: 'extractionPolicy',
       innerSource: 'innerSource',
       metadataField: 'metadataField',
@@ -1239,6 +1379,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       audit: GetContextStoreResponseBodyConfigAudit,
+      extractionPolicies: { 'type': 'array', 'itemType': GetContextStoreResponseBodyConfigExtractionPolicies },
       extractionPolicy: GetContextStoreResponseBodyConfigExtractionPolicy,
       innerSource: GetContextStoreResponseBodyConfigInnerSource,
       metadataField: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -1258,6 +1399,9 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   validate() {
     if(this.audit && typeof (this.audit as any).validate === 'function') {
       (this.audit as any).validate();
+    }
+    if(Array.isArray(this.extractionPolicies)) {
+      $dara.Model.validateArray(this.extractionPolicies);
     }
     if(this.extractionPolicy && typeof (this.extractionPolicy as any).validate === 'function') {
       (this.extractionPolicy as any).validate();
@@ -1313,7 +1457,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   config?: GetContextStoreResponseBodyConfig;
   /**
    * @remarks
-   * The context store name.
+   * The name of the context store.
    * 
    * @example
    * my-context-store
@@ -1321,7 +1465,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The context store type, such as experience for experience store and memory for memory store.
+   * The type of the context store, such as experience or memory.
    * 
    * @example
    * experience
@@ -1329,7 +1473,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The context store creation time in ISO 8601 UTC format.
+   * The time when the context store was created, in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -1339,7 +1483,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The context store description.
+   * The description of the context store.
    * 
    * @example
    * My context store
@@ -1347,7 +1491,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The region ID of the context store.
+   * The ID of the region where the context store is located.
    * 
    * @example
    * cn-hangzhou
@@ -1363,7 +1507,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The context store status. Valid values: ACTIVE, INITIALIZING, and FAILED.
+   * The status of the context store, such as ACTIVE, INITIALIZING, or FAILED.
    * 
    * @example
    * ACTIVE
@@ -1371,7 +1515,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time of the context store in ISO 8601 UTC format.
+   * The time when the context store was last updated, in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
