@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemovalProAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The node ID used to query the asynchronous task result.
+   * The ID of the task. You can use this ID to query the asynchronous task result.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class ImageRemovalProAsyncResponseBodyData extends $dara.Model {
 export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned when the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   data?: ImageRemovalProAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned when the call is successful. Example: "The parameters contain sensitive information. Try other inputs."
+   * The error message. This parameter is not returned for successful calls. Example: "The parameters contain sensitive information. Try other inputs."
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to identify a unique request.
+   * The ID of the request. This ID is used to uniquely identify the request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,7 +64,9 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * True

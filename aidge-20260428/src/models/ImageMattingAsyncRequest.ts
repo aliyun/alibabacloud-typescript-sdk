@@ -25,7 +25,15 @@ export class ImageMattingAsyncRequest extends $dara.Model {
   bgColor?: string;
   /**
    * @remarks
-   * The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
+   * The business order ID of the caller. It is recorded upon acceptance and returned as is when you query the result of the asynchronous task.
+   * 
+   * @example
+   * order-20260928-001
+   */
+  bizId?: string;
+  /**
+   * @remarks
+   * The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size must not exceed 10 MB.
    * 
    * This parameter is required.
    * 
@@ -53,6 +61,7 @@ export class ImageMattingAsyncRequest extends $dara.Model {
     return {
       backGroundType: 'BackGroundType',
       bgColor: 'BgColor',
+      bizId: 'BizId',
       imageUrl: 'ImageUrl',
       targetHeight: 'TargetHeight',
       targetWidth: 'TargetWidth',
@@ -63,6 +72,7 @@ export class ImageMattingAsyncRequest extends $dara.Model {
     return {
       backGroundType: 'string',
       bgColor: 'string',
+      bizId: 'string',
       imageUrl: 'string',
       targetHeight: 'number',
       targetWidth: 'number',

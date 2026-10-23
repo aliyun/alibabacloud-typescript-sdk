@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageMattingAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task that is used to query the asynchronous task result.
+   * The task ID used to query the result of the asynchronous task.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class ImageMattingAsyncResponseBodyData extends $dara.Model {
 export class ImageMattingAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code, such as success.
+   * The status code, such as "success". This parameter is not returned for normal calls.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The commit result of the intelligent image matting asynchronous task node.
+   * The submission result of the asynchronous task for intelligent image matting.
    */
   data?: ImageMattingAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned when the call is successful.
+   * The error message. This parameter is not returned for normal calls.
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to identify a unique request.
+   * The ID of the request. It is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F

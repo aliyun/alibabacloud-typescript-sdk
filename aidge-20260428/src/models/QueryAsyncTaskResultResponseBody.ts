@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The business ID.
+   * 
+   * @example
+   * order-20260928-001
+   */
+  bizId?: string;
+  /**
+   * @remarks
    * The task result.
    * 
    * @example
@@ -21,7 +29,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The downstream task ID.
+   * The ID of the downstream task.
    * 
    * @example
    * task-xxxxx
@@ -34,6 +42,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       result: 'Result',
       status: 'Status',
       taskId: 'TaskId',
@@ -43,6 +52,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       result: 'string',
       status: 'string',
       taskId: 'string',
@@ -65,7 +75,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
 export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -73,12 +83,12 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task result.
+   * The result of the asynchronous task.
    */
   data?: QueryAsyncTaskResultResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -94,9 +104,7 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
    * 
    * @example
    * True

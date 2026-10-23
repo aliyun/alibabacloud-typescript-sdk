@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The business order ID of the caller. It is recorded upon acceptance and returned as-is when querying the asynchronous task result.
+   * 
+   * @example
+   * order-20260928-001
+   */
+  bizId?: string;
+  /**
+   * @remarks
    * The intervention glossary.
    * 
    * @example
@@ -23,7 +31,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to include the product area in the translation.
+   * Specifies whether to include the translation of the product area.
    * 
    * @example
    * false
@@ -51,7 +59,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand text in the product area.
+   * Specifies whether to translate the brand text in the product area.
    * 
    * @example
    * false
@@ -67,6 +75,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   useImageEditor?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       glossary: 'Glossary',
       imageUrl: 'ImageUrl',
       includingProductArea: 'IncludingProductArea',
@@ -79,6 +88,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       glossary: 'string',
       imageUrl: 'string',
       includingProductArea: 'boolean',

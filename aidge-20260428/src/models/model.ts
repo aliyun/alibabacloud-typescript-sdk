@@ -26,6 +26,7 @@ export { GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions } f
 export { GeneralRephotographyDetectionResponseBodyDataResultGrounding } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponseBodyDataResult } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponseBodyData } from './GeneralRephotographyDetectionResponseBody';
+export { GenerateProductContentResponseBodyData } from './GenerateProductContentResponseBody';
 export { ImageCroppingResponseBodyData } from './ImageCroppingResponseBody';
 export { ImageMattingResponseBodyData } from './ImageMattingResponseBody';
 export { ImageMattingAsyncResponseBodyData } from './ImageMattingAsyncResponseBody';
@@ -168,6 +169,9 @@ export { EcomVideoRecreationResponse } from './EcomVideoRecreationResponse';
 export { GeneralRephotographyDetectionRequest } from './GeneralRephotographyDetectionRequest';
 export { GeneralRephotographyDetectionResponseBody } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponse } from './GeneralRephotographyDetectionResponse';
+export { GenerateProductContentRequest } from './GenerateProductContentRequest';
+export { GenerateProductContentResponseBody } from './GenerateProductContentResponseBody';
+export { GenerateProductContentResponse } from './GenerateProductContentResponse';
 export { ImageCroppingRequest } from './ImageCroppingRequest';
 export { ImageCroppingResponseBody } from './ImageCroppingResponseBody';
 export { ImageCroppingResponse } from './ImageCroppingResponse';

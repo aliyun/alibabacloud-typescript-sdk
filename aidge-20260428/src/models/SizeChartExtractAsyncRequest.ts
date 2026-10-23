@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartExtractAsyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The business order number of the caller. It is recorded when the request is accepted and returned as is when you query the asynchronous task result.
+   * 
+   * @example
+   * order-20260928-001
+   */
+  bizId?: string;
+  /**
+   * @remarks
    * The list of column names to extract, such as Size, Bust, and Length.
    */
   columnNameList?: string[];
   /**
    * @remarks
-   * The image URL. The image must be in the JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 pixels and 3000 × 3000 pixels. The file size cannot exceed 10 MB.
+   * The image URL. The image must be in the JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 pixels and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
    * 
    * This parameter is required.
    * 
@@ -28,6 +36,7 @@ export class SizeChartExtractAsyncRequest extends $dara.Model {
   languageModel?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       columnNameList: 'ColumnNameList',
       imageUrl: 'ImageUrl',
       languageModel: 'LanguageModel',
@@ -36,6 +45,7 @@ export class SizeChartExtractAsyncRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       columnNameList: { 'type': 'array', 'itemType': 'string' },
       imageUrl: 'string',
       languageModel: 'string',

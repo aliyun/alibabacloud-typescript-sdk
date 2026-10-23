@@ -43,12 +43,12 @@ export class ImageRemoveAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result struct.
+   * The returned result struct information.
    */
   data?: ImageRemoveAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message, such as "The parameters contain sensitive information. Please try another input."
+   * The error message, such as "The parameters contain sensitive information. Try another input."
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageRemoveAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to identify a unique request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,7 +64,9 @@ export class ImageRemoveAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values: true (success) and false (failure).
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

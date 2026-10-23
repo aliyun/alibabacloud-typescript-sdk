@@ -5,38 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class VideoTranslationRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of translation features. Valid values: `speech` and `visual`. You can select both. At least one feature must be specified. Duplicate values are not allowed.
+   * The list of translation features. Valid values: speech and visual. You can select both. At least one feature is required. Duplicate values are not accepted.
    * 
    * This parameter is required.
    */
   capabilities?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the quality check for on-screen text processing. Default value: `false`. The quality check is enabled only when `visual` is included and this parameter is explicitly set to `true`. If only `speech` is selected, this parameter is ignored. No quality check is performed, no quality check fields are returned, and no errors are reported due to this parameter. Enabling the quality check may increase the waiting time. Do not enable it unless necessary.
+   * Specifies whether to enable quality inspection for on-screen text processing. Effective only when visual is included and this parameter is explicitly set to true. If only speech is selected, this parameter is ignored, no quality inspection is performed, no quality inspection fields are returned, and no error is reported due to this parameter. Enabling quality inspection may increase the processing time. Do not enable it unless necessary. Default value: false.
    * 
    * @example
-   * true
+   * false
    */
   enableQualityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to only erase the source language text on the screen without translating it. This parameter is valid only when `visual` is included. Valid values: `true` (only erases the text) and `false` (translates the on-screen text). Default value: `false`.
+   * Applicable only when visual is included. Specifies whether to erase on-screen text without translation. Valid values: true: erases on-screen text without translation. false: translates on-screen text. Default value: false.
    * 
    * @example
-   * true
+   * false
    */
   eraseOnly?: boolean;
   /**
    * @remarks
-   * Specifies whether to remove the brand logo. This parameter is valid only when `visual` is included. Valid values: `true` (removes the brand logo) and `false` (retains the logo). Default value: `false`. This parameter is independent of `EraseOnly`.
+   * Applicable only when visual is included. Specifies whether to erase brand logos. Valid values: true: erases brand logos. false: retains brand logos. Default value: false. This parameter is independent of EraseOnly.
    * 
    * @example
-   * true
+   * false
    */
   removeLogo?: boolean;
   /**
    * @remarks
-   * The source language. For supported languages, see Language support.
+   * The original language of the video (source language). For supported languages, see Language support.
    * 
    * @example
    * zh
@@ -44,18 +44,18 @@ export class VideoTranslationRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The subtitle processing mode. This parameter is valid only when `speech` is included. Valid values: `erase` (removes only the original subtitles) and `replace` (removes the original subtitles and adds new subtitles). If this parameter is omitted, the original subtitles are not processed and no new subtitles are added.
+   * Applicable only when speech is included. Valid values: erase: erases the original subtitles only. replace: replaces the original subtitles with translated subtitles, which means erasing the original subtitles and adding subtitles synchronized with the translated speech. If not specified, the original subtitles are not processed, which means neither erasing the original subtitles nor adding new subtitles.
    * 
    * @example
-   * erase
+   * replace
    */
   subtitleMode?: string;
   /**
    * @remarks
-   * The target language. This parameter is required.
+   * Required when speech is included. Optional when only visual is included and EraseOnly is set to true. If specified in this case, it is ignored. Required in other cases.
    * 
    * @example
-   * ru
+   * en
    */
   targetLanguage?: string;
   /**
