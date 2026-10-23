@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstanceImageResponseBodyTasksChildTasks extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * acp-xxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The child task ID.
+   * 
    * @example
    * t-xxxx
    */
@@ -37,8 +43,15 @@ export class UpdateInstanceImageResponseBodyTasksChildTasks extends $dara.Model 
 }
 
 export class UpdateInstanceImageResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The child tasks.
+   */
   childTasks?: UpdateInstanceImageResponseBodyTasksChildTasks[];
   /**
+   * @remarks
+   * The parent task ID.
+   * 
    * @example
    * t-xxxx
    */
@@ -86,6 +99,10 @@ export class UpdateInstanceImageResponseBody extends $dara.Model {
    * t-1ljew7on6ay0j****
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The task information.
+   */
   tasks?: UpdateInstanceImageResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Internet bandwidth throttling rule (applies only to premium bandwidth).
+   * The ID of the Internet bandwidth throttling rule. This rule applies only to premium bandwidth.
    * 
    * @example
    * qos-3kh93uu0vdbka****
@@ -45,12 +45,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules extends $dara.Model {
   /**
    * @remarks
-   * The Internet bandwidth throttling rules bound to the instances.
+   * The information about the Internet bandwidth throttling rules bound to the instance.
    */
   instanceQosRule?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule[];
   /**
    * @remarks
-   * The total number of Internet bandwidth throttling rules for the instance group.
+   * The total number of Internet bandwidth throttling rules bound to the instance group.
    * 
    * @example
    * 2
@@ -165,7 +165,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags ext
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the delivery group.
    * 
    * @example
    * aig-48xr63m4dybjk****
@@ -182,6 +182,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   /**
    * @remarks
    * The number of available instances.
+   * 
    * > Available indicates that the instance status is neither Deleting nor Deleted.
    * 
    * @example
@@ -200,12 +201,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * @remarks
    * The status of the bandwidth plan.
    * Valid values:
-   * - Creating: creating
-   * - Releasing: releasing
-   * - InUse: in use
-   * - Failed: failed
-   * - Expired: expired
-   * - Available: available and unbound, billing in progress
+   * - Creating: The bandwidth plan is being created.
+   * - Releasing: The bandwidth plan is being released.
+   * - InUse: The bandwidth plan is in use.
+   * - Failed: The operation failed.
+   * - Expired: The bandwidth plan has expired.
+   * - Available: The bandwidth plan is unbound and being billed.
    * 
    * @example
    * Creating
@@ -221,12 +222,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The Internet bandwidth throttling rules for the instance group.
+   * The information about the Internet bandwidth throttling rules bound to the instance group.
    */
   bindQosRules?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules;
   /**
    * @remarks
-   * The order source. CLOUDPHONE indicates AI Cloud Phone.
+   * The order source. A value of CLOUDPHONE indicates AI Cloud Phone.
    * 
    * @example
    * CLOUDPHONE
@@ -255,7 +256,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
   /**
    * @remarks
-   * > This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * true
@@ -295,7 +296,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   gmtModified?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * @example
    * imgc-06zyt9m93zwax****
@@ -319,7 +320,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   installedAppList?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-h67a2cs0zprfdh****
@@ -335,7 +336,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupName?: string;
   /**
    * @remarks
-   * The instance group specifications.
+   * The specifications of the instance group.
    * 
    * @example
    * acp.basic.small
@@ -359,7 +360,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupStatus?: string;
   /**
    * @remarks
-   * > This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 50
@@ -376,7 +377,8 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   /**
    * @remarks
    * The network type of the instance.
-   * > Currently, this field is returned only for instance groups in the standard network.
+   * 
+   * > This field is returned only for instance groups in the standard network.
    * 
    * @example
    * network_pro_ecd
@@ -400,7 +402,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the plan package for the AI Cloud Phone.
+   * The ID of the plan for the AI Cloud Phone.
    * 
    * @example
    * cmag-bp1bpyt7sfeleukh****
@@ -408,7 +410,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   packageId?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-c6n38xucps8kl****
@@ -456,6 +458,14 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   saleMode?: string;
   /**
    * @remarks
+   * Indicates whether the single-instance mode is enabled.
+   * 
+   * @example
+   * true
+   */
+  singleInstanceMode?: boolean;
+  /**
+   * @remarks
    * The system version.
    * 
    * @example
@@ -469,7 +479,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   tags?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags[];
   /**
    * @remarks
-   * The vSwitch ID in the VPC.
+   * The ID of the vSwitch in the VPC.
    * 
    * @example
    * vsw-t4n0yqs009ho024wt****
@@ -521,6 +531,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
       saleMode: 'SaleMode',
+      singleInstanceMode: 'SingleInstanceMode',
       systemVersion: 'SystemVersion',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -566,6 +577,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       resolutionHeight: 'number',
       resolutionWidth: 'number',
       saleMode: 'string',
+      singleInstanceMode: 'boolean',
       systemVersion: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags },
       vSwitchId: 'string',
@@ -599,7 +611,7 @@ export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
   /**
    * @remarks
-   * The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
+   * The token that indicates the position of the current read. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****

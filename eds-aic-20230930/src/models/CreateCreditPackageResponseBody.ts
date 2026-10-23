@@ -5,16 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCreditPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credit top-up package.
+   * The ID of the credit package.
    * 
    * @example
    * crp-bt7e2t4anbq50****
    */
   creditPackageId?: string;
+  /**
+   * @remarks
+   * The IDs of the credit packages created in this request.
+   */
   creditPackageIds?: string[];
   /**
    * @remarks
-   * The effective period of the credit top-up package. The time format is YYYY-MM-DD HH:mm:ss.
+   * The effective time of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-04-30 00:00:00
@@ -22,7 +26,7 @@ export class CreateCreditPackageResponseBody extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The expiration time of the credit top-up package. The time format is YYYY-MM-DD HH:mm:ss.
+   * The expiration time of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-10-30 00:00:00

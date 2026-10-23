@@ -101,10 +101,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The source of the digest. Valid values:
-   * - PROMPT_AUTO: Automatically generated.
-   * - RESULT_AUTO: Refined from the result.
-   * - USER: Edited by the user.
+   * The source of the digest. Valid values: PROMPT_AUTO (automatically generated), RESULT_AUTO (refined from the result), and USER (edited by the user).
    * 
    * @example
    * PROMPT_AUTO
@@ -118,6 +115,10 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
    * acp-anzzuho371azi44xr
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The reason for the task status.
+   */
   reason?: string;
   /**
    * @remarks
@@ -137,12 +138,15 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   steps?: string;
   /**
    * @remarks
-   * The task digest text, with a maximum of 25 characters.
+   * The task digest text, up to 25 characters in length.
+   * 
+   * @example
+   * Download DingTalk
    */
   taskDigest?: string;
   /**
    * @remarks
-   * The time consumed by the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
+   * The duration of the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
    * 
    * @example
    * 50
@@ -158,7 +162,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The node task result (desired state). This field is returned only when CurrentStatus is COMPLETED or FAILED.
+   * The task result (desired state) of the node. This field is returned only when CurrentStatus is COMPLETED or FAILED.
    * 
    * @example
    * DingTalk downloaded successfully
@@ -166,7 +170,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskResult?: string;
   /**
    * @remarks
-   * The user instruction in natural language based on which the agent performs operations.
+   * The user prompt in natural language that instructs the agent to perform operations.
    * 
    * @example
    * Download DingTalk from the app store

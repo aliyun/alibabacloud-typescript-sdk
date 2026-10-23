@@ -11,7 +11,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
    * - COMPLETED: The task is completed.
    * - FAILED: The task failed.
    * - TIMEOUT: The task execution timed out.
-   * - CALL_FOR_USER: The task is waiting for user operations.
+   * - CALL_FOR_USER: The task is waiting for user action.
    * - PAUSING: The task is being paused.
    * - PAUSED: The task is paused.
    * - CANCELLING: The task is being canceled.
@@ -25,7 +25,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The ID of the Mobile node.
+   * The Mobile node ID.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -33,7 +33,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is in the ISO 8601 format.
+   * The time when the task was created, in ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -49,7 +49,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The globally unique ID of the task.
+   * The globally unique task ID.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -57,7 +57,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The user prompt in natural language. The agent performs operations based on this prompt.
+   * The user prompt in natural language based on which the agent performs operations.
    * 
    * @example
    * Download DingTalk from the app store
@@ -97,10 +97,10 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
 export class RunAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API operation.
+   * The status code.
    * 
    * @example
-   * "200" indicates success
+   * For example, "200" indicates success
    */
   code?: string;
   /**

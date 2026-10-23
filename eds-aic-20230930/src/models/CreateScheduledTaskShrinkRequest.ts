@@ -41,12 +41,12 @@ export class CreateScheduledTaskShrinkRequest extends $dara.Model {
   runConfigShrink?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * This parameter is required.
    * 
    * @example
-   * Auto-reply to DingTalk messages
+   * Automatically reply to DingTalk messages
    */
   taskName?: string;
   /**

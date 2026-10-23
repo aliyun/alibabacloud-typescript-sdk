@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * @example
    * acp-fkuit0cmyfvzz****
@@ -13,7 +13,7 @@ export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
@@ -53,7 +53,15 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
   connectionMode?: string;
   /**
    * @remarks
-   * The ID of the user to whom the cloud phone instance is assigned.
+   * The ID of the assigned user. If you do not specify this parameter, the system user assigned in the background is used to obtain the ticket.
+   * 
+   * <props="china">
+   * The usage of this parameter varies based on the Cloud Phone edition and the instance streaming mode:
+   * 
+   * - Cloud Phone Instance Edition or Cloud Phone Matrix Edition (preemptive mode): You can obtain a `Ticket` only by using the same `EnduserId`.
+   * - Cloud Phone Matrix Edition (collaborative mode): You can pass different `EnduserId` values to obtain `Ticket` values and stream for different users (up to 5) at the same time. You can pass only one `EnduserId` at a time.
+   * 
+   * > You can define the instance streaming mode by using the `StreamMode` parameter of the `ModifyCloudPhoneNode` operation.
    * 
    * @example
    * user
@@ -61,7 +69,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-25nt4kk9whjh****
@@ -69,14 +77,18 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
   instanceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the cloud phone instances. You can specify 1 to 100 IDs of cloud phone instances.
+   * The list of Cloud Phone instance IDs. You can specify 1 to 100 IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The instance connection task, which is used to query whether the ticket retrieval task is completed.
+   * The instance connection tasks. This parameter is used to query whether the ticket retrieval task is completed.
    */
   instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
+  /**
+   * @remarks
+   * The list of custom connection ports.
+   */
   ports?: string[];
   static names(): { [key: string]: string } {
     return {

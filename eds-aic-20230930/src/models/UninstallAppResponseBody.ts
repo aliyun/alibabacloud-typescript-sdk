@@ -6,11 +6,14 @@ export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The application ID.
+   * 
+   * @example
+   * 1234
    */
   appId?: string;
   /**
    * @remarks
-   * The subtask ID.
+   * The child task ID.
    * 
    * @example
    * t-ybde48cevxxxx
@@ -52,7 +55,7 @@ export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
 export class UninstallAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of subtasks.
+   * The child task information.
    */
   childTaskInfo?: UninstallAppResponseBodyChildTaskInfo[];
   /**

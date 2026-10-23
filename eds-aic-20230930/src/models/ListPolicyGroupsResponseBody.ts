@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModelAccessPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The access policy rule ID.
+   * 
+   * @example
+   * 7
+   */
   accessPolicyRuleId?: number;
+  /**
+   * @remarks
+   * The CIDR IP address block to which the rule applies.
+   * 
+   * @example
+   * 10.0.0.0/8
+   */
   cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the access policy rule.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * The access policy action. ALLOW indicates that access is allowed, and DENY indicates that access is denied.
+   * 
+   * @example
+   * ALLOW
+   */
   policy?: string;
+  /**
+   * @remarks
+   * The priority of the access policy rule.
+   * 
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -88,7 +123,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   customProxy?: string;
   /**
    * @remarks
-   * The proxy IP address of the transparent proxy. The value must be in IPv4 format.
+   * The transparent proxy IP address. The format is an IPv4 address.
    * 
    * @example
    * 47.100.XX.XX
@@ -96,7 +131,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   hostAddr?: string;
   /**
    * @remarks
-   * Indicates whether network redirection is enabled. After this feature is enabled, traffic is redirected to the client-side network by default.
+   * Indicates whether network redirection is enabled. If enabled, traffic is redirected to the client-side network by default.
    * 
    * @example
    * off
@@ -104,7 +139,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   netRedirect?: string;
   /**
    * @remarks
-   * The port of the transparent proxy. Valid values: 1 to 65535.
+   * The transparent proxy port. Valid values: 1 to 65535.
    * 
    * @example
    * 1145
@@ -112,7 +147,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   port?: string;
   /**
    * @remarks
-   * The proxy password. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
+   * The proxy password. The length ranges from 1 to 256 characters. Chinese characters and whitespace characters are not allowed.
    * 
    * @example
    * password
@@ -128,7 +163,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   proxyType?: string;
   /**
    * @remarks
-   * The proxy username. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
+   * The proxy username. The length ranges from 1 to 256 characters. Chinese characters and whitespace characters are not allowed.
    * 
    * @example
    * username
@@ -136,7 +171,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   proxyUserName?: string;
   /**
    * @remarks
-   * The list of proxy rules.
+   * The proxy rule list.
    */
   rules?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules[];
   static names(): { [key: string]: string } {
@@ -228,7 +263,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark extends $dara
   watermarkColor?: number;
   /**
    * @remarks
-   * The custom watermark content. The value can be up to 10 characters in length and does not support emoji characters.
+   * The custom watermark content. The length cannot exceed 10 characters, and emoji characters are not supported.
    * 
    * @example
    * custom text
@@ -298,6 +333,10 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark extends $dara
 }
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
+  /**
+   * @remarks
+   * The list of access policy rules.
+   */
   accessPolicies?: ListPolicyGroupsResponseBodyPolicyGroupModelAccessPolicies[];
   /**
    * @remarks
@@ -309,7 +348,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The clipboard permission.
+   * The clipboard permissions.
    * 
    * @example
    * readwrite
@@ -325,7 +364,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The file transfer policy for the HTML5 client.
+   * The HTML5 client file transfer policy.
    * 
    * @example
    * download
@@ -333,7 +372,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The local disk mapping permission.
+   * The local disk mapping permissions.
    * 
    * @example
    * off
@@ -349,7 +388,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   lockResolution?: string;
   /**
    * @remarks
-   * The network redirection settings.
+   * The network redirection.
    */
   netRedirectPolicy?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy;
   /**
@@ -365,7 +404,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * The policy name.
    * 
    * @example
-   * Default policy.
+   * Default policy
    */
   policyGroupName?: string;
   /**
@@ -375,7 +414,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   policyRelatedResources?: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources;
   /**
    * @remarks
-   * The height of the resolution.
+   * The resolution height.
    * 
    * @example
    * 1080
@@ -383,7 +422,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   sessionResolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution.
+   * The resolution width.
    * 
    * @example
    * 1920
@@ -391,7 +430,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   sessionResolutionWidth?: number;
   /**
    * @remarks
-   * The screen watermark settings.
+   * The screen watermark.
    */
   watermark?: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark;
   static names(): { [key: string]: string } {
@@ -456,7 +495,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
 export class ListPolicyGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+   * The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****

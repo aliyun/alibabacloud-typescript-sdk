@@ -7,18 +7,22 @@ export class CreateCreditPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
-   * - **false** (default): Generates an order without deducting payment.
+   * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+   * - **false** (default): generates an unpaid order without deducting fees.
    * 
-   * 
-   * 
-   * 
-   * > If the balance of your payment method is insufficient, set this parameter to false. An unpaid order is generated. You can log on to the WUYING Cloud Phone console to complete the payment.
+   * > If the balance of your payment method is insufficient, you can change the Settings of this parameter to false to generate an unpaid order. Then, you can log on to the WUYING Cloud Phone console to complete the payment.
    * 
    * @example
    * false
    */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The channel cookie. This parameter is passed through to the sales system when you place an order.
+   * 
+   * @example
+   * channel-cookie-credit
+   */
   channelCookie?: string;
   /**
    * @remarks
@@ -28,10 +32,17 @@ export class CreateCreditPackageRequest extends $dara.Model {
    * 1000
    */
   creditAmount?: string;
+  /**
+   * @remarks
+   * The number of credit packages to purchase.
+   * 
+   * @example
+   * 1
+   */
   packageAmount?: string;
   /**
    * @remarks
-   * The subscription duration of the purchased resource. The unit is specified by PeriodUnit.
+   * The subscription period of the resource. The unit is specified by PeriodUnit.
    * 
    * @example
    * 6
@@ -39,9 +50,9 @@ export class CreateCreditPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration for the purchased resource. Valid values:
-   * - **Month**: Month.
-   * - **Year**: Year.
+   * The unit of the subscription period. Valid values:
+   * - **Month**: months.
+   * - **Year**: years.
    * 
    * @example
    * Month

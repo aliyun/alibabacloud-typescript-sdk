@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance group IDs.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 22326560487****

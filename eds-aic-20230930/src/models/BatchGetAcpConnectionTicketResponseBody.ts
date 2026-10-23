@@ -5,38 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-1uzb6heg797z3****
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The physical instance ID.
+   * 
    * @example
    * ai-0caoetkqi8kj****
    */
   appInstanceId?: string;
   /**
+   * @remarks
+   * The error cause.
+   * 
    * @example
    * InvalidResourceId.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * @example
    * acp-ajxvwo1u0hqvd****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The persistent session ID.
+   * 
    * @example
    * p-abdywvcksdb****
    */
   persistentAppInstanceId?: string;
   /**
    * @remarks
-   * The port used for establishing a connection.
+   * The connection port.
    * 
    * @example
    * 10000
@@ -44,7 +53,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   port?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
@@ -52,7 +61,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   taskId?: string;
   /**
    * @remarks
-   * The state of the task. If FINISHED is returned, it indicates that a value can be retrieved from the Ticket field. If the returned value is not FINISHED, you still need to use this operation to query the Ticket generation result by using TaskId.
+   * The task status. A value of FINISHED indicates that you can obtain the ticket from the Ticket field. Otherwise, you must use the TaskId to call this operation and query the ticket generation result.
    * 
    * @example
    * FINISHED
@@ -60,7 +69,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   taskStatus?: string;
   /**
    * @remarks
-   * The ticket used to connect to the cloud phone instance.
+   * The ticket used to connect to the user instance.
    * 
    * @example
    * piVE58_AdmVSVW7SEW3*AE5*p8mmO5gvItsNOmv4S_f_cNpoU_BOTwChTBoNM1ZJeedfK9zxYnbN5hossqIZCr6t7SGxRigm2Cb4fGaCdBZWIzmgdHq6sXXZQg4KFWufyvpeV*0*Cm58slMT1tJw3****
@@ -106,12 +115,12 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
 export class BatchGetAcpConnectionTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The results of the instance connection tasks.
+   * The instance connection task results.
    */
   instanceConnectionModels?: BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****

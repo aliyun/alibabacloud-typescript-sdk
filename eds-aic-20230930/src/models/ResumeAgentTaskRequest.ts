@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResumeAgentTaskRequestClarificationAnswers extends $dara.Model {
+  /**
+   * @remarks
+   * The custom input content in the clarification answer.
+   * 
+   * @example
+   * Simply ****
+   */
   customValue?: string;
+  /**
+   * @remarks
+   * The ID of the clarification item.
+   * 
+   * @example
+   * cl*****-1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The list of selected option IDs in the clarification answer.
+   */
   selectedIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,12 +55,16 @@ export class ResumeAgentTaskRequestClarificationAnswers extends $dara.Model {
 export class ResumeAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional prompt to append. This parameter takes effect only when the task is passively paused, such as when the task is paused and waiting for user confirmation.
+   * The additional prompt. This parameter takes effect only when the task is passively paused, such as pausing to wait for user confirmation.
    * 
    * @example
-   * 验证码为***。
+   * The verification code is ***
    */
   additionalPrompt?: string;
+  /**
+   * @remarks
+   * The list of clarification answers submitted when resuming the task.
+   */
   clarificationAnswers?: ResumeAgentTaskRequestClarificationAnswers[];
   /**
    * @remarks
@@ -51,6 +73,13 @@ export class ResumeAgentTaskRequest extends $dara.Model {
    * This parameter is required.
    */
   taskIds?: string[];
+  /**
+   * @remarks
+   * The ID of the tool invoke to resume.
+   * 
+   * @example
+   * ca*****01
+   */
   toolCallId?: string;
   static names(): { [key: string]: string } {
     return {

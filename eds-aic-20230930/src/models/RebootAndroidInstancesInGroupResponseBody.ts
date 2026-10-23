@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RebootAndroidInstancesInGroupResponseBodyTasksChildTasks extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * acp-xxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The child task ID.
+   * 
    * @example
    * t-xxxx
    */
@@ -37,8 +43,15 @@ export class RebootAndroidInstancesInGroupResponseBodyTasksChildTasks extends $d
 }
 
 export class RebootAndroidInstancesInGroupResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The child tasks.
+   */
   childTasks?: RebootAndroidInstancesInGroupResponseBodyTasksChildTasks[];
   /**
+   * @remarks
+   * The parent task ID.
+   * 
    * @example
    * t-xxxx
    */
@@ -78,6 +91,10 @@ export class RebootAndroidInstancesInGroupResponseBody extends $dara.Model {
    * 227CBB4C-F5DC-589D-A667-C5CA3D52****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task information.
+   */
   tasks?: RebootAndroidInstancesInGroupResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {

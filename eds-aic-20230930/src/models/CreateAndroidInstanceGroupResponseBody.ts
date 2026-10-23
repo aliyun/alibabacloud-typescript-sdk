@@ -43,7 +43,21 @@ export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $d
 }
 
 export class CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Internet Shared Bandwidth.
+   * 
+   * @example
+   * cbwp-uf63gsv8j0ir53*****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The bandwidth plan order ID.
+   * 
+   * @example
+   * 25954415983*****
+   */
   bandwidthPackageOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,6 +93,10 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
    * The instance group information.
    */
   instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
+  /**
+   * @remarks
+   * The bandwidth plan order information.
+   */
   networkPackageOrderModel?: CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel;
   /**
    * @remarks

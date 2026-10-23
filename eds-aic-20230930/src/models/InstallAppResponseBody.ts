@@ -6,6 +6,9 @@ export class InstallAppResponseBodyChildTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The application ID.
+   * 
+   * @example
+   * 1234
    */
   appId?: string;
   /**
@@ -52,7 +55,7 @@ export class InstallAppResponseBodyChildTaskInfo extends $dara.Model {
 export class InstallAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The child task objects.
+   * The child task information.
    */
   childTaskInfo?: InstallAppResponseBodyChildTaskInfo[];
   /**

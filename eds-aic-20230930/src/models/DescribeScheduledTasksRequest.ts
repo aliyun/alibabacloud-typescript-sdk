@@ -18,7 +18,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+   * The token that specifies the starting position for the current read operation. An empty value indicates that the read operation starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -42,7 +42,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by scheduled task IDs.
+   * The filter for scheduled task IDs.
    * 
    * @example
    * ["scheduled-abcd1234"]
@@ -50,7 +50,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   scheduledIds?: string[];
   /**
    * @remarks
-   * Filters by status: ACTIVE/DISABLED.
+   * The status filter. Valid values: ACTIVE, DISABLED.
    * 
    * @example
    * ACTIVE
@@ -61,7 +61,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * DataSync
+   * Data synchronization
    */
   taskName?: string;
   static names(): { [key: string]: string } {

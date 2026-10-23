@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeJVSInstanceResponseBodyDataAgentVersion extends $dara.Model {
+  /**
+   * @remarks
+   * The AI Engine version upgrade status.
+   */
   upgradeStatus?: string;
+  /**
+   * @remarks
+   * The AI Engine version number.
+   * 
+   * @example
+   * 2607W1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +42,7 @@ export class DescribeJVSInstanceResponseBodyDataAgentVersion extends $dara.Model
 export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model {
   /**
    * @remarks
-   * The limit value.
+   * The credit limit.
    * 
    * @example
    * -1
@@ -69,11 +80,50 @@ export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model
 }
 
 export class DescribeJVSInstanceResponseBodyDataInstalledSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The skill description.
+   * 
+   * @example
+   * Current weather and forecasts with wttr.in via curl for locations, rain, temperature, travel planning.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The skill icon URL.
+   * 
+   * @example
+   * https://www.example.com/icon.png
+   */
   iconUrl?: string;
+  /**
+   * @remarks
+   * The skill installation time.
+   */
   installedAt?: string;
+  /**
+   * @remarks
+   * The skill ID.
+   * 
+   * @example
+   * s-04zzrgosj6xd1****
+   */
   skillId?: string;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * weather
+   */
   skillName?: string;
+  /**
+   * @remarks
+   * The skill type.
+   * 
+   * @example
+   * System
+   */
   skillType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,6 +197,10 @@ export class DescribeJVSInstanceResponseBodyDataUsedCredit extends $dara.Model {
 }
 
 export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AI Engine version and upgrade status.
+   */
   agentVersion?: DescribeJVSInstanceResponseBodyDataAgentVersion;
   /**
    * @remarks
@@ -158,7 +212,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
+   * The credit limit configuration. If multiple configurations are delivered, the subsequent configurations overwrite the previous ones.
    */
   creditConfig?: DescribeJVSInstanceResponseBodyDataCreditConfig[];
   /**
@@ -169,6 +223,10 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
    * 2026-04-10T01:31:32Z
    */
   expireTime?: string;
+  /**
+   * @remarks
+   * The list of skills installed on the instance.
+   */
   installedSkills?: DescribeJVSInstanceResponseBodyDataInstalledSkills[];
   /**
    * @remarks
@@ -204,7 +262,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The used credit.
+   * The used credits.
    */
   usedCredit?: DescribeJVSInstanceResponseBodyDataUsedCredit[];
   static names(): { [key: string]: string } {
@@ -274,12 +332,19 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
+   * The token that indicates the starting position of the current query. If this parameter is empty, the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The number of pending upgrades.
+   * 
+   * @example
+   * 0
+   */
   pendingUpgradeCount?: number;
   /**
    * @remarks

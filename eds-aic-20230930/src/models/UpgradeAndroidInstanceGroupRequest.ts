@@ -30,11 +30,17 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The redirect URL for the payment success page.
+   * 
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
    */
   paidCallBackUrl?: string;
   /**
    * @remarks
    * The ID of the promotion.
+   * 
+   * @example
+   * 50003308011****
    */
   promotionId?: string;
   static names(): { [key: string]: string } {

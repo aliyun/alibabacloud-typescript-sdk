@@ -85,7 +85,7 @@ export class ResetAndroidInstancesInGroupResponseBodyTasks extends $dara.Model {
 export class ResetAndroidInstancesInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID for storage reduction. This parameter is returned only when you reduce storage while resetting instances in a cloud phone matrix. It is not returned in other scenarios.
+   * For instances in a cloud phone matrix, if storage capacity reduction is performed during the reset, the order ID for the storage capacity reduction is returned. This parameter is not returned in other scenarios.
    * 
    * @example
    * 22365781890****

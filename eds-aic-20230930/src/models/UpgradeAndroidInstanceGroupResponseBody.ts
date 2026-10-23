@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAndroidInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs created by the scale-out.
+   * The instance IDs created during the scale-out.
    * 
    * @example
    * [\\"acp-2iowaqjyw9nrd****\\", \\"acp-2iowaqjyw9nrd****\\"]

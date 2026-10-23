@@ -55,7 +55,7 @@ export class ModifyScheduledTaskResponseBodyTasksInstanceResults extends $dara.M
 export class ModifyScheduledTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The list of batch delivery results for instance scheduled tasks.
+   * The list of results for batch delivery of scheduled tasks to instances.
    */
   instanceResults?: ModifyScheduledTaskResponseBodyTasksInstanceResults[];
   /**
@@ -68,7 +68,7 @@ export class ModifyScheduledTaskResponseBodyTasks extends $dara.Model {
   newVersion?: number;
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * @example
    * sch-260705-agbx*****
@@ -113,7 +113,7 @@ export class ModifyScheduledTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success.
@@ -129,7 +129,7 @@ export class ModifyScheduledTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of modification results.
+   * The list of update results.
    */
   tasks?: ModifyScheduledTaskResponseBodyTasks[];
   /**

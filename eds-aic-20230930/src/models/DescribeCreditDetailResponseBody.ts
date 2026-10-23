@@ -13,7 +13,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
    * default
@@ -37,7 +37,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
   changeTime?: string;
   /**
    * @remarks
-   * The credit change amount.
+   * The amount of credit change.
    * 
    * @example
    * 0.7637
@@ -224,7 +224,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of detail records.
    * 
    * @example
    * 100
@@ -232,7 +232,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total credit change.
+   * The total amount of credit change.
    * 
    * @example
    * 100
@@ -275,7 +275,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
 export class DescribeCreditDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The response object.
    */
   data?: DescribeCreditDetailResponseBodyData;
   /**

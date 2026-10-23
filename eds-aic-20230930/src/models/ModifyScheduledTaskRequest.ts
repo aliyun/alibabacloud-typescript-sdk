@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The extended parameter JSON string.
+   * The JSON string of extended parameters.
    * 
    * @example
    * {"batchSize":"1000"}
@@ -21,7 +21,7 @@ export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
   maxSteps?: number;
   /**
    * @remarks
-   * The list of skill IDs. A maximum of 1 skill ID is supported. The value overwrites aim_task_config.run_config after modification.
+   * The list of skill IDs. You can specify up to one skill ID. The value overwrites aim_task_config.run_config after the modification.
    * 
    * @example
    * ["sk-abc"]
@@ -32,7 +32,7 @@ export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
   skills?: string[];
   /**
    * @remarks
-   * The timeout period, in seconds.
+   * The timeout period in seconds.
    * 
    * @example
    * 3600
@@ -95,7 +95,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   runConfig?: ModifyScheduledTaskRequestRunConfig;
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * This parameter is required.
    * 
@@ -105,7 +105,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * Switches the status. Valid values: ACTIVE and DISABLED.
+   * The status toggle. Valid values: ACTIVE and DISABLED.
    * 
    * @example
    * ACTIVE
@@ -113,10 +113,10 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
-   * NewTaskName
+   * New task name
    */
   taskName?: string;
   /**

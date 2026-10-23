@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel type for running the command.
+   * The channel type used to execute the command.
    * 
    * @example
    * EdsAgent
@@ -13,7 +13,7 @@ export class RunCommandRequest extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The content of the command.
+   * The command content.
    * 
    * @example
    * ls
@@ -21,9 +21,9 @@ export class RunCommandRequest extends $dara.Model {
   commandContent?: string;
   /**
    * @remarks
-   * The encoding method for the command content (`CommandContent`). This value is not case-sensitive.
+   * The encoding method of the command content (`CommandContent`). This parameter is case-insensitive.
    * 
-   * > An invalid value defaults to `PlainText`.
+   * > If the specified value is not within the valid values, it is processed as `PlainText`.
    * 
    * @example
    * PlainText
@@ -31,12 +31,12 @@ export class RunCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * A list of instance IDs. You can specify up to 50 instances per request.
+   * The list of instance IDs. A single request supports up to 50 instances.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The execution timeout in seconds. The command times out if it does not complete within this period. Defaults to 60 seconds.
+   * The timeout period. Unit: seconds. If the command is not completed within this period, the command execution status is set to timeout. If this parameter is not specified, the default value is 60 seconds.
    * 
    * @example
    * 60

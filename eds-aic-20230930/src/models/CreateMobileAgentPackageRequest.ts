@@ -55,13 +55,13 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false** (default): Only an order is generated and no payment is deducted.
+   * - **true**: Automatic payment. You must ensure that your account balance is sufficient.
+   * - **false** (default): Generates an order without deducting fees.
    * 
    * 
    * 
    * 
-   * > If the balance of your payment method is insufficient, you can set this parameter to false. In this case, an unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
+   * > If your payment method has an insufficient balance, you can set this parameter to false. An unpaid order will be generated, and you can log on to the WUYING Cloud Phone console to pay the order.
    * >
    * 
    * @example
@@ -79,6 +79,14 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The bandwidth package ID, which is used to associate an existing bandwidth package when creating an instance. The value must be prefixed with np- and followed by lowercase letters and digits. The bandwidth package must be an AI premium bandwidth package (CBWP_ECD) that belongs to the current account. If this parameter is left empty, the default bandwidth package allocation logic applies.
+   * 
+   * @example
+   * np-791ncq8qcuoop9hta
+   */
+  bandwidthPackageId?: string;
   /**
    * @remarks
    * The region where the instance resides. Only cn-hangzhou is supported.
@@ -107,6 +115,9 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   /**
    * @remarks
    * The image ID.
+   * 
+   * @example
+   * imgc-075cllfeuazh0****
    */
   imageId?: string;
   /**
@@ -144,9 +155,9 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration of the resource. Valid values:
-   * - **Month**: Month.
-   * - **Year**: Year.
+   * The unit of the subscription duration. Valid values:
+   * - **Month**: Months.
+   * - **Year**: Years.
    * 
    * @example
    * Month
@@ -170,6 +181,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      bandwidthPackageId: 'BandwidthPackageId',
       bizRegionId: 'BizRegionId',
       channelCookie: 'ChannelCookie',
       creditAmount: 'CreditAmount',
@@ -191,6 +203,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       amount: 'string',
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      bandwidthPackageId: 'string',
       bizRegionId: 'string',
       channelCookie: 'string',
       creditAmount: 'string',

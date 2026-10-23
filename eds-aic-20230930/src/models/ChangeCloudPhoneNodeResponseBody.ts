@@ -13,7 +13,7 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos extends $dar
   instanceId?: string;
   /**
    * @remarks
-   * The independent device storage capacity.
+   * The dedicated local storage capacity.
    * 
    * @example
    * 200
@@ -45,12 +45,12 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos extends $dar
 export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
   /**
    * @remarks
-   * The cloud phone instance information.
+   * The information about the cloud phone instances.
    */
   instanceInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos[];
   /**
    * @remarks
-   * The cloud phone matrix ID.
+   * The ID of the cloud phone matrix.
    * 
    * @example
    * cpn-e5kxgjyt8s1mb****
@@ -58,7 +58,7 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * When the matrix uses independent device storage, 64 GiB of shared storage space is allocated by default (not modifiable) for storing images and other matrix-wide files. When the matrix uses shared device storage (with the size set at purchase), this storage space is shared among all instances.
+   * When the matrix uses dedicated local storage, 64 GiB of shared storage space is allocated by default and cannot be modified. This space is used to store global files for the matrix, such as images. When the matrix uses shared local storage, the size is specified during purchase and the storage space is shared among all instances.
    * 
    * @example
    * 100
@@ -95,12 +95,12 @@ export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
 export class ChangeCloudPhoneNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud phone matrix information.
+   * The information about the cloud phone matrix.
    */
   nodeInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfos[];
   /**
    * @remarks
-   * The generated order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 223684716098****
@@ -108,7 +108,7 @@ export class ChangeCloudPhoneNodeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4610632D-D661-5982-B3D7-5D3FD183F****

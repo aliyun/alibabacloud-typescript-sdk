@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunAgentTaskRequestRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of skill IDs. You can specify up to 10 skill IDs. Only the first skill ID is passed through when the command is delivered. All skill IDs are stored in the task_skill_relation table for reverse lookup.
+   * The list of skill IDs. A maximum of 10 skills are supported. Only the first skill ID is passed through when the command is delivered. All skill IDs are stored in the task_skill_relation table for reverse lookup.
    * 
    * @example
    * ["sk-abc","sk-def"]
@@ -38,7 +38,7 @@ export class RunAgentTaskRequestRunConfig extends $dara.Model {
 export class RunAgentTaskRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Mobile node, such as acp-xxx.
+   * The Mobile node ID, such as acp-xxx.
    * 
    * @example
    * acp-5hh4a31emkt6u****
@@ -78,7 +78,7 @@ export class RunAgentTaskRequestTargets extends $dara.Model {
 export class RunAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the Mobile node resides.
+   * The region ID of the Mobile node.
    * 
    * @example
    * cn-shanghai
@@ -99,7 +99,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   maxSteps?: number;
   /**
    * @remarks
-   * The runtime configuration that contains the runtime parameters such as skills for the current task.
+   * The runtime configuration that carries the runtime parameters such as skills for the current task.
    * 
    * @example
    * {"Skills":["sk-abc","sk-def"]}
@@ -107,7 +107,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   runConfig?: RunAgentTaskRequestRunConfig;
   /**
    * @remarks
-   * Specifies whether to save the task artifacts to your OSS.
+   * Specifies whether to write the task artifacts to the user\\"s OSS.
    * 
    * @example
    * true
@@ -115,7 +115,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   saveArtifacts?: boolean;
   /**
    * @remarks
-   * The ID of the scheduling plan. When specified, the execute record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling aggregation dimension.
+   * The scheduling plan ID. If specified, the execute record is associated with the corresponding scheduled node to facilitate aggregate query by scheduling dimension aggregation.
    * 
    * @example
    * sch-260625-pbj2****
@@ -123,12 +123,12 @@ export class RunAgentTaskRequest extends $dara.Model {
   scheduleId?: string;
   /**
    * @remarks
-   * The list of targets. Each element is an object that contains an InstanceId and a SessionId.
+   * The Targets array. Each element is an object that contains InstanceId and SessionId.
    */
   targets?: RunAgentTaskRequestTargets[];
   /**
    * @remarks
-   * The ID of the task configuration. This parameter is used to trigger a task with the specified configuration.
+   * The task configuration ID used to trigger a task with the specified configuration.
    * 
    * @example
    * tsk-260625-49be****
@@ -136,7 +136,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   taskConfigId?: string;
   /**
    * @remarks
-   * The timeout period of the task in seconds. Valid values: 300 to 3600. Default value: 3600.
+   * The timeout period for the task in seconds. Valid values: 300 to 3600. Default value: 3600.
    * 
    * @example
    * 3600
@@ -144,7 +144,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   timeoutSeconds?: number;
   /**
    * @remarks
-   * The user prompt in natural language. The agent performs operations based on this prompt.
+   * The user prompt in natural language based on which the agent performs operations.
    * 
    * @example
    * Download DingTalk from the app store

@@ -77,7 +77,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GB.
+   * The size of the system cloud disk. Unit: GB.
    * 
    * @example
    * 32
@@ -125,7 +125,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
 export class DescribeSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that indicates the position up to which the data is retrieved. An empty value indicates that all data has been retrieved.
+   * The token that specifies the position to which the current call has read. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****

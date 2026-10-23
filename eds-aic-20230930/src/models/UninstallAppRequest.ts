@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAppRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of application IDs.
+   * The list of application IDs.
    */
   appIdList?: string[];
   /**
    * @remarks
-   * A list of instance group IDs. You must specify either this parameter or `InstanceIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
+   * The list of instance group IDs. You must specify either this parameter or the InstanceIdList parameter. If both parameters are specified, only the InstanceGroupIdList parameter takes effect.
    */
   instanceGroupIdList?: string[];
   /**
    * @remarks
-   * A list of instance IDs. You must specify either this parameter or `InstanceGroupIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
+   * The list of instance IDs. You must specify either this parameter or the InstanceGroupIdList parameter. If both parameters are specified, only the InstanceGroupIdList parameter takes effect.
    */
   instanceIdList?: string[];
   static names(): { [key: string]: string } {

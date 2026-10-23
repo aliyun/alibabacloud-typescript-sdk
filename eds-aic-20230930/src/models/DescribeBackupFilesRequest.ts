@@ -21,7 +21,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Specifies whether the backup is a full-device backup.
+   * Specifies whether the backup is a full device backup.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   instanceGroupId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paging query. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which the query starts. If this parameter is left empty, the query starts from the beginning.
+   * The token that specifies the starting position of the query. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -93,7 +93,10 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sales mode. Valid values: Instance (cloud phone instance mode) and Node (cloud phone matrix mode).
+   * The sales mode. Instance indicates the cloud phone instance mode, and Node indicates the cloud phone matrix mode.
+   * 
+   * @example
+   * Instance
    */
   saleMode?: string;
   /**

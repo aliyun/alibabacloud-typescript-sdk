@@ -55,12 +55,12 @@ export class CreateScheduledTaskResponseBodyTasksInstanceResults extends $dara.M
 export class CreateScheduledTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The list of batch delivery results for instance scheduled tasks.
+   * The list of batch delivery results for the scheduled tasks of instances.
    */
   instanceResults?: CreateScheduledTaskResponseBodyTasksInstanceResults[];
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * @example
    * sch-260705-agb*****
@@ -68,7 +68,7 @@ export class CreateScheduledTaskResponseBodyTasks extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The task configuration ID.
+   * The ID of the task configuration.
    * 
    * @example
    * tsk-260705-0jj*****
@@ -105,7 +105,7 @@ export class CreateScheduledTaskResponseBodyTasks extends $dara.Model {
 export class CreateScheduledTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status code.
+   * The status code of the API operation.
    * 
    * @example
    * 200
@@ -113,7 +113,7 @@ export class CreateScheduledTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Success.

@@ -21,12 +21,15 @@ export class ExpandDataVolumeRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The list of cloud phone matrix IDs.
+   * The IDs of the cloud phone matrices.
    */
   nodeIds?: string[];
   /**
    * @remarks
    * The redirect URL for the payment success page.
+   * 
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
    */
   paidCallBackUrl?: string;
   /**
@@ -39,7 +42,7 @@ export class ExpandDataVolumeRequest extends $dara.Model {
   phoneDataVolume?: number;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * 50003308011****

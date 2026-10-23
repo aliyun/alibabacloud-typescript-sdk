@@ -13,13 +13,20 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The instance group IDs.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
+  /**
+   * @remarks
+   * The redirect URL to the payment success page.
+   * 
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
+   */
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The renewal duration.
+   * Specifies the renewal duration. The unit is specified by the PeriodUnit parameter.
    * 
    * @example
    * 6
@@ -27,12 +34,19 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration specified by `Period`. Default value: Month.
+   * The unit of the renewal duration, which is the unit of the Period parameter. Default value: Month.
    * 
    * @example
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * The promotion ID.
+   * 
+   * @example
+   * 50003308011****
+   */
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {

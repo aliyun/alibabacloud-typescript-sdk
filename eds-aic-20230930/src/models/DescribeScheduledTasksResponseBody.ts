@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScheduledTasksResponseBodyTasksRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The extra parameters.
+   * The extended parameters.
    * 
    * @example
    * {"batchSize":"1000"}
@@ -84,7 +84,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2026-06-12T10:00:00
@@ -145,7 +145,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
    * The task name.
    * 
    * @example
-   * DailyDataSyncTask
+   * Daily data synchronization task
    */
   taskName?: string;
   /**
@@ -169,7 +169,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
    * The user prompt or task description.
    * 
    * @example
-   * Execute daily data sync task
+   * Execute the daily data synchronization task
    */
   userPrompt?: string;
   /**
@@ -238,7 +238,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
 export class DescribeScheduledTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The API status code.
    * 
    * @example
    * 200
@@ -254,7 +254,7 @@ export class DescribeScheduledTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success.
@@ -262,7 +262,7 @@ export class DescribeScheduledTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+   * The token that specifies the starting position for the current read operation. An empty value indicates that the read operation starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

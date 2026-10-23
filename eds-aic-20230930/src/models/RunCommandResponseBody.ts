@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunCommandResponseBodyRunCommandInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The instance-level child task ID.
+   * 
+   * @example
+   * t-bp67acfmxazb4p****
+   */
   childTaskId?: string;
+  /**
+   * @remarks
+   * The cloud phone instance ID.
+   * 
+   * @example
+   * acp-uto81vfd8t8z****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The command execution ID.
+   * 
+   * @example
+   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
+   */
   invokeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +55,7 @@ export class RunCommandResponseBodyRunCommandInfos extends $dara.Model {
 export class RunCommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The command execution ID. Use this ID to query the execution result.
+   * The command execution ID. You can use this ID to query the command execution result.
    * 
    * @example
    * t-gov2ujrk32v4****
@@ -48,7 +69,18 @@ export class RunCommandResponseBody extends $dara.Model {
    * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of command execution information for each cloud phone instance.
+   */
   runCommandInfos?: RunCommandResponseBodyRunCommandInfos[];
+  /**
+   * @remarks
+   * The batch task ID.
+   * 
+   * @example
+   * t-bp67acfmxazb4p****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

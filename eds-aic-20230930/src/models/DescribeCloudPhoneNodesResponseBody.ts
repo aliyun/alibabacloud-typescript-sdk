@@ -77,7 +77,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $d
   networkType?: string;
   /**
    * @remarks
-   * The vSwitch ID in the VPC.
+   * The ID of the vSwitch in the virtual private cloud (VPC).
    * 
    * @example
    * vsw-j6cjgev6fv3ftw4f0****
@@ -115,7 +115,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $d
 export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the independent device storage.
+   * The ID of the dedicated internal storage.
    * 
    * @example
    * pd-dhusabisshj****
@@ -123,7 +123,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
   phoneDataId?: string;
   /**
    * @remarks
-   * The storage capacity of the independent device storage. Unit: GiB.
+   * The storage capacity of the dedicated internal storage. Unit: GiB.
    * 
    * @example
    * 20
@@ -153,7 +153,21 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
 }
 
 export class DescribeCloudPhoneNodesResponseBodyNodeModelTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * phone
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 2025
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,7 +203,10 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The status of the bandwidth plan. Valid values: 0: initializing. 1: normal. 2: deleted.
+   * The status of the bandwidth plan. Valid values:
+   * - 0: Initialized.
+   * - 1: Normal.
+   * - 2: Deleted.
    * 
    * @example
    * 1
@@ -208,6 +225,13 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * The array of tag information.
    */
   bizTags?: DescribeCloudPhoneNodesResponseBodyNodeModelBizTags[];
+  /**
+   * @remarks
+   * The order source. A value of CLOUDPHONE indicates an AI cloud phone.
+   * 
+   * @example
+   * CLOUDPHONE
+   */
   channel?: string;
   /**
    * @remarks
@@ -243,7 +267,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   gmtExpired?: string;
   /**
    * @remarks
-   * The most recent modification time.
+   * The last modification time.
    * 
    * @example
    * 2025-02-13 02:03:14
@@ -288,7 +312,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The cloud phone matrix ID.
+   * The ID of the cloud phone matrix.
    * 
    * @example
    * cpn-ehs0yoedq8ntm****
@@ -302,10 +326,17 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  /**
+   * @remarks
+   * The ID of the package.
+   * 
+   * @example
+   * cmag-bp19i1yxu60r7twy****
+   */
   packageId?: string;
   /**
    * @remarks
-   * The number of instances under the cloud phone matrix.
+   * The number of instances provisioned under the cloud phone matrix.
    * 
    * @example
    * 25
@@ -313,7 +344,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The independent device storage information.
+   * The dedicated internal storage information.
    */
   phoneDataInfo?: DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo;
   /**
@@ -350,7 +381,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The size of the shared device storage. Unit: GiB.
+   * The size of the shared internal storage. Unit: GiB.
    * 
    * @example
    * 100
@@ -364,7 +395,18 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  /**
+   * @remarks
+   * The size of the swap space.
+   * 
+   * @example
+   * 0
+   */
   swapSize?: number;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeCloudPhoneNodesResponseBodyNodeModelTags[];
   /**
    * @remarks
@@ -466,7 +508,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
 export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -474,9 +516,9 @@ export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates whether a next query token exists. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a return value, the value is the token for the next query.
+   * Indicates whether a token for the next query is available. Valid values:
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** returns a value, the value is the token used to start the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

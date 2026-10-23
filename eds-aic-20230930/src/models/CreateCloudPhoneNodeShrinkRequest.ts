@@ -85,10 +85,17 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The channel cookie that is passed through to the sales system when an order is placed.
+   * 
+   * @example
+   * channel-cookie-node
+   */
   channelCookie?: string;
   /**
    * @remarks
-   * The billing method. Only subscription is supported.
+   * The billing method. Only the subscription billing method is supported.
    * 
    * @example
    * PrePaid
@@ -125,16 +132,21 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance type. > To purchase more instance types, you can [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
+   * The instance type.
+   * > To purchase additional specifications, [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
    * 
    * @example
    * ac.max
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a single image disk. Default value: false. A value of false indicates that the system disk and the shared internal storage image disk are used.
+   */
   isSingleImgDisk?: boolean;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-5mwr9azebliva****
@@ -142,7 +154,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The network mapping information of the instance.
+   * The network mapping information for the instance.
    */
   networkInfoShrink?: string;
   /**
@@ -163,15 +175,18 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The redirect URL for the payment success page.
+   * The redirect URL of the payment success page.
+   * 
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
    */
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription period of the resource. The unit is specified by `PeriodUnit`.
+   * The subscription period. The unit is specified by PeriodUnit.
    * 
-   * - If `PeriodUnit` is set to **year**, the only valid value is 1.
-   * - If `PeriodUnit` is set to **month**, valid values are 1, 2, 3, and 6.
+   * - If PeriodUnit is set to **year**, the only valid value is 1.
+   * - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
    * 
    * @example
    * 1
@@ -195,7 +210,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The size of the independent device storage. Unit: GiB.
+   * The size of the independent internal storage. Unit: GiB.
    * 
    * @example
    * 10
@@ -203,12 +218,15 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   phoneDataVolume?: number;
   /**
    * @remarks
-   * The ID of the promotion.
+   * The promotion ID.
+   * 
+   * @example
+   * 50003308011****
    */
   promotionId?: string;
   /**
    * @remarks
-   * The height of the resolution. Unit: pixels.
+   * The resolution height. Unit: pixels.
    * 
    * @example
    * 1280
@@ -216,7 +234,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution. Unit: pixels.
+   * The resolution width. Unit: pixels.
    * 
    * @example
    * 720
@@ -224,9 +242,9 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   resolutionWidth?: number;
   /**
    * @remarks
-   * The size of the shared device storage. Unit: GiB.
+   * The size of the shared internal storage. Unit: GiB.
    * 
-   * > The minimum size of the shared device storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
+   * > The minimum size of the shared internal storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
    * 
    * @example
    * 200
@@ -244,16 +262,23 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The streaming mode for instances in the cloud phone matrix. If this parameter is not specified, the default value is preemptive mode.
+   * The streaming mode for instances in the cloud phone matrix. If this parameter is not specified, the preemptive mode is used by default.
    * 
    * @example
    * 1
    */
   streamMode?: number;
+  /**
+   * @remarks
+   * The size of the swap space.
+   * 
+   * @example
+   * 0
+   */
   swapSize?: number;
   /**
    * @remarks
-   * The tags of the resource.
+   * The resource tags.
    */
   tag?: CreateCloudPhoneNodeShrinkRequestTag[];
   /**
@@ -266,7 +291,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   upBandwidthLimit?: number;
   /**
    * @remarks
-   * Specifies whether to use a template during creation. If you want to use a random template from the template list, set the value to `Random`. If you specify a template ID, the specified template is used.
+   * Specifies whether to use a template during creation. To use a random template from the template list, set the value to Random. To use a specific template, specify the template ID.
    * 
    * @example
    * Random
@@ -274,7 +299,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   useTemplate?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-2zeekryyc1q3sm72l****

@@ -26,12 +26,15 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
   nodeIds?: string[];
   /**
    * @remarks
-   * The redirect URL for the payment success page.
+   * The redirect URL after a successful payment.
+   * 
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
    */
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription period. The unit is specified by PeriodUnit.
+   * The subscription period of the resource. The unit is specified by PeriodUnit.
    * 
    * - If PeriodUnit is set to **year**, the only valid value is 1.
    * - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
@@ -50,7 +53,10 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the promotion.
+   * The promotion ID.
+   * 
+   * @example
+   * 50003308011****
    */
   promotionId?: string;
   static names(): { [key: string]: string } {

@@ -53,12 +53,12 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   expiredAt?: string;
   /**
    * @remarks
-   * The list of node instance IDs.
+   * The node instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The credit quota of the package.
+   * The package credit quota.
    * 
    * @example
    * 8000
@@ -74,12 +74,16 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   packageId?: string;
   /**
    * @remarks
-   * The package specifications.
+   * The package specification.
    * 
    * @example
    * advanced
    */
   packageSpec?: string;
+  /**
+   * @remarks
+   * The name of the package specification.
+   */
   packageSpecName?: string;
   /**
    * @remarks
@@ -89,7 +93,15 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
    * ACTIVE
    */
   packageStatus?: string;
+  /**
+   * @remarks
+   * The end time of the package period.
+   */
   periodEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the package period.
+   */
   periodStartTime?: string;
   /**
    * @remarks
@@ -98,7 +110,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   tags?: DescribeMobileAgentPackageResponseBodyPackageListTags[];
   /**
    * @remarks
-   * The number of used credits.
+   * The number of credits used.
    * 
    * @example
    * 1000
@@ -162,7 +174,7 @@ export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned by the API operation.
+   * The returned message.
    * 
    * @example
    * Success.

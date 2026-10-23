@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateInstanceImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip parameter validation. A value of true indicates that validation is skipped. A value of false or an empty value indicates that validation is performed.
+   */
   ignoreParamValidation?: boolean;
   /**
    * @remarks
-   * The ID of the image. Call [](t2730769.xdita#)to query the list of images for cloud phones.
+   * The image ID. You can call the [DescribeImageList](https://help.aliyun.com/document_detail/2807324.html) operation to query the image list of cloud phones.
    * 
    * @example
    * imgc-075cllfeuazh0****
@@ -19,7 +23,7 @@ export class UpdateInstanceImageRequest extends $dara.Model {
   instanceIdList?: string[];
   /**
    * @remarks
-   * Specifies whether to reset the instance. If you reset the instance, all user data on the instance is cleared.
+   * Specifies whether to reset the instance. A reset clears all user data on the instance.
    * 
    * @example
    * false

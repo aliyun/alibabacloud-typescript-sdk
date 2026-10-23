@@ -11,6 +11,13 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
    * false
    */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The display settings.
+   * 
+   * @example
+   * {"dpi":320}
+   */
   displayConfig?: string;
   /**
    * @remarks
@@ -30,7 +37,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The cloud phone matrix ID.
+   * The ID of the cloud phone matrix.
    * 
    * @example
    * cpn-0ugbptfu473fy****
@@ -38,7 +45,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The number of cloud phone instances. You can call [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) to query the maximum and minimum instance count limits.
+   * The number of cloud phone instances. You can call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the maximum and minimum limits on the number of instances.
    * 
    * @example
    * 20
@@ -46,7 +53,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The device storage size. Valid range: 10 GiB to 4000 GiB. If this parameter is left empty, the original size is retained.
+   * The local storage size. Valid values: 10 to 4000. Unit: GiB. If this parameter is left empty, the original size is retained.
    * 
    * @example
    * 10
@@ -54,7 +61,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   phoneDataVolume?: number;
   /**
    * @remarks
-   * The promotional activity ID.
+   * The ID of the promotion.
    * 
    * @example
    * 50003308011****
@@ -62,9 +69,19 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The shared storage size. Unit: GiB.
+   * The size of the shared storage. Unit: GiB.
+   * 
+   * @example
+   * 100
    */
   shareDataVolume?: number;
+  /**
+   * @remarks
+   * The size of the swap space.
+   * 
+   * @example
+   * 0
+   */
   swapSize?: number;
   /**
    * @remarks

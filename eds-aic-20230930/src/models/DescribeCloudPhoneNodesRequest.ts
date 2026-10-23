@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudPhoneNodesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * phone
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 2025
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,7 +61,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing method. Only subscription is supported.
+   * The billing method. Only the subscription billing method is supported.
    * 
    * @example
    * PrePaid
@@ -55,7 +69,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
+   * The maximum number of entries to return per page in a paging query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -63,7 +77,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can include the returned NextToken in the next request to continue the query.
+   * The pagination token for the next query. If a query does not return all results, the returned NextToken is not empty. You can use the returned NextToken in a subsequent query to obtain more results.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -71,7 +85,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of cloud phone matrix IDs.
+   * The IDs of the cloud phone matrices.
    */
   nodeIds?: string[];
   /**
@@ -82,6 +96,10 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  /**
+   * @remarks
+   * The list of names used to filter cloud phone matrices.
+   */
   nodeNameList?: string[];
   /**
    * @remarks
@@ -91,7 +109,21 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
    * cpm.gx7.10xlarge
    */
   serverType?: string;
+  /**
+   * @remarks
+   * The field used for sorting. A value of CreationTime indicates the creation time, and a value of ExpiredTime indicates the expiration time.
+   * 
+   * @example
+   * CreationTime
+   */
   sortKey?: string;
+  /**
+   * @remarks
+   * The sort order. A value of ASC indicates ascending order, and a value of DESC indicates descending order.
+   * 
+   * @example
+   * ASC
+   */
   sortType?: string;
   /**
    * @remarks
@@ -101,6 +133,10 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
    * CREATING
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the node.
+   */
   tags?: DescribeCloudPhoneNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {

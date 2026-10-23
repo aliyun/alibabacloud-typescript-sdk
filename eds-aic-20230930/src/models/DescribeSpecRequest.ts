@@ -14,6 +14,9 @@ export class DescribeSpecRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. A value of PrePaid indicates subscription. A value of PostPaid indicates pay-as-you-go.
+   * 
+   * @example
+   * PrePaid
    */
   chargeType?: string;
   /**
@@ -34,7 +37,7 @@ export class DescribeSpecRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which the query starts. If you leave this parameter empty, the query starts from the beginning.
+   * The token that specifies the position from which to start reading. An empty value indicates that the reading starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -42,7 +45,7 @@ export class DescribeSpecRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The purchase mode for cloud phones.
+   * The purchasing mode of the cloud phone.
    * 
    * @example
    * Instance

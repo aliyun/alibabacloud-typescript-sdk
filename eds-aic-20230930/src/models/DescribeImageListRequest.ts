@@ -66,7 +66,7 @@ export class DescribeImageListRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * > This parameter is not yet available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -92,7 +92,7 @@ export class DescribeImageListRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of entries to return per page during paging in a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class DescribeImageListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
+   * The token that specifies the starting position for the query. If this parameter is empty, the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -120,6 +120,9 @@ export class DescribeImageListRequest extends $dara.Model {
   /**
    * @remarks
    * The operating system type.
+   * 
+   * @example
+   * Android 12
    */
   systemType?: string;
   static names(): { [key: string]: string } {

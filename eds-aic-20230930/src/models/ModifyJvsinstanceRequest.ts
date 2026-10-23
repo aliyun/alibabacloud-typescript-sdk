@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   /**
    * @remarks
-   * The quota limit.
+   * The credit limit.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   creditLimit?: number;
   /**
    * @remarks
-   * The period of the current credit.
+   * The time dimension for the current credit.
    * 
    * @example
    * day
@@ -61,12 +61,15 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
   applyToAll?: boolean;
   /**
    * @remarks
-   * The credit limit configuration. Subsequent quota configurations overwrite previous ones.
+   * The credit limit configuration. Subsequent configurations overwrite previous ones.
    */
   creditConfig?: ModifyJVSInstanceRequestCreditConfig[];
   /**
    * @remarks
    * The image ID.
+   * 
+   * @example
+   * imgc-075cllfeuazh0****
    */
   imageId?: string;
   /**

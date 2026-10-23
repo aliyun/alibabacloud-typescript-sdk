@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-payment. The default value is `false`.
+   * Specifies whether to enable automatic payment. Default value: false.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. The default value is `false`.
+   * Specifies whether to enable auto-renewal. Default value: false.
    * 
    * @example
    * false
@@ -21,9 +21,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The new billing method for the instance groups.
-   * 
-   * > You can only change the billing method from pay-as-you-go to subscription.
+   * The billing method of the instance. Currently, only switching from **pay-as-you-go to subscription** is supported.
    * 
    * This parameter is required.
    * 
@@ -33,14 +31,14 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The instance group IDs.
+   * The list of instance group IDs.
    * 
    * This parameter is required.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The subscription duration. The PeriodUnit parameter specifies the unit. Valid subscription durations are 1, 2, 3, and 6 months, and 1 year.
+   * The purchase duration of the resource. The unit is specified by PeriodUnit. Valid values: 1 month, 2 months, 3 months, 6 months, and 1 year.
    * 
    * @example
    * 1
@@ -48,11 +46,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit for the subscription duration. Valid values:
-   * 
-   * - **Month**
-   * 
-   * - **Year**
+   * The unit of the purchase duration. Valid values:
+   * - **Month**: month.
+   * - **Year**: year.
    * 
    * @example
    * Month
@@ -60,7 +56,10 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion or coupon ID.
+   * The promotion ID.
+   * 
+   * @example
+   * 50003308011****
    */
   promotionId?: string;
   static names(): { [key: string]: string } {

@@ -6,7 +6,7 @@ export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag key. You can specify 1 to 20 tag keys.
-   * >Notice: A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * phone
@@ -15,7 +15,7 @@ export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag value.
-   * >Notice: A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * 2025
@@ -56,7 +56,6 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method.
-   * [_single.params.ChargeType.enum. PrePaid]Subscription.
    * 
    * @example
    * PostPaid
@@ -64,20 +63,23 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The name of the instance group. Fuzzy match is supported.
+   * The instance group name. Fuzzy match is supported.
    * 
    * @example
-   * Cloud Phone
+   * CloudPhone
    */
   instanceGroupName?: string;
   /**
    * @remarks
    * The instance version. A value of basic indicates a Wuying Cloud Phone instance, and a value of EnterpriseAi indicates a JVS Mobile instance.
+   * 
+   * @example
+   * EnterpriseAi
    */
   instanceVersion?: string;
   /**
@@ -90,7 +92,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paging query. Valid values: 1 to 100. Default value: 100.
+   * The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 10
@@ -98,7 +100,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the starting position for the query. If this parameter is left empty, the query starts from the beginning.
+   * The pagination token that specifies the starting position of the query. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -106,7 +108,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-1b77w6xrqfubi****
@@ -123,11 +125,17 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field. A value of CreationTime indicates the creation time, and a value of ExpiredTime indicates the expiration time.
+   * 
+   * @example
+   * CreationTime
    */
   sortKey?: string;
   /**
    * @remarks
    * The sort order. A value of ASC indicates ascending order, and a value of DESC indicates descending order.
+   * 
+   * @example
+   * ASC
    */
   sortType?: string;
   /**

@@ -99,7 +99,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The image distribution region information. The key is the region and the value is the distribution information.
+   * The image distribution information by region. The key is the region, and the value is the distribution information.
    */
   imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
   /**
@@ -231,7 +231,7 @@ export class DescribeImageListResponseBody extends $dara.Model {
   data?: DescribeImageListResponseBodyData[];
   /**
    * @remarks
-   * The position from which the current call returns the read data. An empty value indicates that all data has been read.
+   * The token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****

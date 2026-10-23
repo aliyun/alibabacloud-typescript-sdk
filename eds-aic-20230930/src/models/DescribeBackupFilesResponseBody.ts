@@ -21,7 +21,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Specifies whether the backup is a full-device backup.
+   * Specifies whether the backup is a full device backup.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The directory where the backup file is saved.
+   * The directory where the backup file is stored.
    * 
    * @example
    * oss://cloudphone-saved-bucket-cn-shanghai/backup/aic-58ftsoo90p0qa****.ab
@@ -53,7 +53,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFilePath?: string;
   /**
    * @remarks
-   * The order source. A value of CLOUDPHONE indicates AI cloud phone.
+   * The order source. CLOUDPHONE indicates AI cloud phone.
    * 
    * @example
    * CLOUDPHONE
@@ -122,7 +122,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   sourceAppInfoList?: string[];
   /**
    * @remarks
-   * The list of directories of the source backup files.
+   * The list of directories for the source backup files.
    */
   sourceFilePathList?: string[];
   /**
@@ -235,12 +235,12 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
 export class DescribeBackupFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of returned result objects.
+   * The list of returned results.
    */
   data?: DescribeBackupFilesResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of entries returned in this query.
+   * The maximum number of entries returned in the current call.
    * 
    * @example
    * 10
@@ -248,7 +248,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The token that specifies the position from which the next query starts. An empty value indicates that all data has been read.
+   * The token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -256,7 +256,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique ID of the request. If you encounter any issues, provide this request ID to the technical support team for troubleshooting.
+   * The unique ID of the request. If you encounter any issues, provide this request ID for troubleshooting.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent types. This parameter is used to filter credit change details by agent type.
+   * The list of agent types. This parameter is used to filter credit change details by agent type.
    */
   agentTypes?: string[];
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp in milliseconds.
+   * The end time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782906240000
@@ -18,12 +18,12 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return for this query.
+   * The maximum number of entries to return for this request.
    * 
    * @example
    * 100
@@ -39,7 +39,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The package IDs.
+   * The list of package IDs.
    */
   packageIds?: string[];
   /**
@@ -60,12 +60,17 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp in milliseconds.
+   * The start time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782819840000
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The list of task IDs. This parameter is used to filter credit details by task.
+   */
+  taskIds?: string[];
   static names(): { [key: string]: string } {
     return {
       agentTypes: 'AgentTypes',
@@ -77,6 +82,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       startTime: 'StartTime',
+      taskIds: 'TaskIds',
     };
   }
 
@@ -91,6 +97,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
       pageNum: 'string',
       pageSize: 'string',
       startTime: 'number',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -103,6 +110,9 @@ export class DescribeCreditDetailRequest extends $dara.Model {
     }
     if(Array.isArray(this.packageIds)) {
       $dara.Model.validateArray(this.packageIds);
+    }
+    if(Array.isArray(this.taskIds)) {
+      $dara.Model.validateArray(this.taskIds);
     }
     super.validate();
   }

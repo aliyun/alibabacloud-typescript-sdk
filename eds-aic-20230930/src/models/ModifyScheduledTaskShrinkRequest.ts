@@ -29,7 +29,7 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
   runConfigShrink?: string;
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * Switches the status. Valid values: ACTIVE and DISABLED.
+   * The status toggle. Valid values: ACTIVE and DISABLED.
    * 
    * @example
    * ACTIVE
@@ -47,10 +47,10 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
-   * NewTaskName
+   * New task name
    */
   taskName?: string;
   /**
