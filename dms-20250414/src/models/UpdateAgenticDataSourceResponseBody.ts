@@ -30,10 +30,10 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The authentication method. Valid values:
-   * - -1: No authentication required.
-   * - 0: Username and password.
-   * - 1: Password only.
-   * - 2: Password-free.
+   * - -1: no authentication required
+   * - 0: username and password
+   * - 1: password only
+   * - 2: password-free
    * 
    * @example
    * 0
@@ -50,8 +50,8 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The registration method of the data source. Valid values:
-   * - INSTANCE_ID: Select an existing cloud instance.
-   * - HOST_PORT: Register by endpoint and port.
+   * - INSTANCE_ID: select an existing cloud instance
+   * - HOST_PORT: register by endpoint and port
    * 
    * @example
    * HOST_PORT
@@ -116,11 +116,11 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source of the data source. Valid values:
-   * - RDS: ApsaraDB instance.
-   * - PUBLIC_OWN: Self-managed database on the Internet.
-   * - ECS_OWN: Self-managed database on an ECS instance.
-   * - GATEWAY: Connected through Database Gateway.
-   * - VPC_IDC: Connected through a VPC or IDC.
+   * - RDS: ApsaraDB instance
+   * - PUBLIC_OWN: self-managed database on the Internet
+   * - ECS_OWN: self-managed database on an ECS instance
+   * - GATEWAY: connected through Database Gateway
+   * - VPC_IDC: connected through a VPC or IDC
    * 
    * @example
    * RDS
@@ -168,7 +168,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   resourceAccountId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role used to access the data source. This parameter is empty if role-based authorization is not used.
+   * The ARN of the RAM role used to access the data source. This parameter is empty if role authorization is not used.
    * 
    * @example
    * acs:ram::123456789012****:role/DataSourceRole
@@ -185,9 +185,9 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the data source. Valid values:
-   * - 0: Normal.
-   * - -1: Deleted.
-   * - -2: Disabled.
+   * - 0: normal
+   * - -1: deleted
+   * - -2: disabled
    * 
    * @example
    * 0
@@ -196,8 +196,8 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the cloud instance name as the data source name. Valid values:
-   * - 1: Yes.
-   * - 0: No.
+   * - 1: yes
+   * - 0: no
    * 
    * @example
    * 0
@@ -206,9 +206,9 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The SSL settings. Valid values:
-   * - 1: Enabled.
-   * - 0: Disabled.
-   * - -1: Use default settings.
+   * - 1: enabled
+   * - 0: disabled
+   * - -1: default settings
    * 
    * @example
    * 1
@@ -305,7 +305,7 @@ export class UpdateAgenticDataSourceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the call.
+   * The ID of the request.
    * 
    * @example
    * request-1234567890

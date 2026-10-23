@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   /**
    * @remarks
-   * The skill description.
-   * - Optional. If not specified, the system parses the ZIP package specified by UploadLocation to obtain the skill description.
+   * The skill description. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill description.
    * 
    * @example
    * This is a demo skill description.
@@ -14,8 +13,15 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The skill name.
-   * - Optional. If not specified, the system parses the ZIP package specified by UploadLocation to obtain the skill name.
+   * The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill and replaces the original skill content. Note: The name of the original skill and the newly uploaded skill must be identical.
+   * 
+   * @example
+   * ski-04pomiln*************j0
+   */
+  skillId?: string;
+  /**
+   * @remarks
+   * The skill name. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill name.
    * 
    * @example
    * data-query-skill
@@ -23,8 +29,8 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The full path to the uploaded skill ZIP file.
-   * - Format: Concatenate the file name to the UploadDir value returned by the DescribeSkillFileUploadSignature operation.
+   * The full path for the skill ZIP file upload.
+   * - Format: The UploadDir field returned by the DescribeSkillFileUploadSignature operation concatenated with the file name.
    * - Example: ${UploadDir}/${Filename}
    */
   uploadLocation?: string;
@@ -39,6 +45,7 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      skillId: 'SkillId',
       skillName: 'SkillName',
       uploadLocation: 'UploadLocation',
       workspaceId: 'WorkspaceId',
@@ -48,6 +55,7 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      skillId: 'string',
       skillName: 'string',
       uploadLocation: 'string',
       workspaceId: 'string',

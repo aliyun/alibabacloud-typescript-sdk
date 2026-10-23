@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * The ID of the parent Alibaba Cloud account.
    * 
    * @example
    * 16738266********
@@ -13,7 +13,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   aliyunParentUid?: string;
   /**
    * @remarks
-   * The Alibaba Cloud user ID.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 20372822********
@@ -37,9 +37,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the skill is available. Valid values:
-   * - true: The skill is available.
-   * - false: The skill is not available.
+   * Indicates whether the skill is available. Valid values: true and false.
    * 
    * @example
    * true
@@ -55,7 +53,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -63,8 +61,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The skill parsing error message.
-   * - This message is returned when the skill status is INVALID.
+   * The error message for skill parsing. This message is returned when the skill status is INVALID.
    * 
    * @example
    * SKILL.md file not exist.

@@ -1171,6 +1171,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
     if (!$dara.isNull(request.skillName)) {
       query["SkillName"] = request.skillName;
     }
@@ -7461,7 +7465,7 @@ export default class Client extends OpenApi {
    * Updates the connection, authentication, or display information of an existing data source.
    * 
    * @remarks
-   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+   * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
    * 
    * @param request - UpdateAgenticDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7571,7 +7575,7 @@ export default class Client extends OpenApi {
    * Updates the connection, authentication, or display information of an existing data source.
    * 
    * @remarks
-   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+   * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
    * 
    * @param request - UpdateAgenticDataSourceRequest
    * @returns UpdateAgenticDataSourceResponse
