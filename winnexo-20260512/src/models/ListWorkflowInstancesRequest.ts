@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * 精确需求编号
+   * The exact requirement ID.
    * 
    * @example
    * REQ-1001
@@ -13,7 +13,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration space ID.
    * 
    * This parameter is required.
    * 
@@ -23,23 +23,23 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 精确外部发起人标签
+   * The exact external initiator tag.
    * 
    * @example
-   * 外部发起人张三
+   * External initiator Zhang San
    */
   initiator?: string;
   /**
    * @remarks
-   * 标题或需求编号关键词
+   * The keyword for the title or requirement ID.
    * 
    * @example
-   * 季度报告
+   * Quarterly report
    */
   keyword?: string;
   /**
    * @remarks
-   * 页码，从 1 开始
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量 1-100
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 排序字段
+   * The sort field.
    * 
    * @example
    * GMT_CREATE
@@ -63,7 +63,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * 排序方向
+   * The sort order.
    * 
    * @example
    * DESC
@@ -71,7 +71,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * Running/Completed/Failed/Terminated 筛选
+   * Filters the instances by status. Valid values: Running, Completed, Failed, and Terminated.
    * 
    * @example
    * Running
@@ -79,7 +79,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. If you use winnexo-cli, pass this parameter explicitly by using --tenant-id.
    * 
    * @example
    * 10000

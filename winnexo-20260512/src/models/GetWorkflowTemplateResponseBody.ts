@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   /**
    * @remarks
-   * 模型档位
+   * The model tier.
    * 
    * @example
    * standard
@@ -13,7 +13,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   modelMode?: string;
   /**
    * @remarks
-   * 步骤名称
+   * The name of the step.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 智能体负责人名称
+   * The name of the agent owner.
    * 
    * @example
    * example
@@ -29,7 +29,9 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * 负责人类型：MEMBER 人工 / AGENT 智能体
+   * The owner type. Valid values:
+   * - MEMBER: Human.
+   * - AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -37,7 +39,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * 人工负责人用户ID
+   * The user ID of the human owner.
    * 
    * @example
    * 1
@@ -45,7 +47,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 审核人用户ID列表
+   * The list of user IDs of the reviewers.
    * 
    * @example
    * example
@@ -53,7 +55,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * 步骤顺序
+   * The order of the step.
    * 
    * @example
    * 1
@@ -61,7 +63,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * 步骤处理说明
+   * The processing instructions for the step.
    * 
    * @example
    * example
@@ -69,7 +71,15 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   specification?: string;
   /**
    * @remarks
-   * 步骤ID
+   * The array of structured segments for the step instructions. Supported segment types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are preserved exactly as returned by the backend.
+   * 
+   * @example
+   * [{"type":"text","content":"Organize input materials"}]
+   */
+  specificationJson?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The ID of the step.
    * 
    * @example
    * collect
@@ -85,6 +95,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
+      specificationJson: 'specificationJson',
       stepId: 'stepId',
     };
   }
@@ -99,6 +110,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
+      specificationJson: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       stepId: 'string',
     };
   }
@@ -106,6 +118,9 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   validate() {
     if(Array.isArray(this.reviewerUserIds)) {
       $dara.Model.validateArray(this.reviewerUserIds);
+    }
+    if(Array.isArray(this.specificationJson)) {
+      $dara.Model.validateArray(this.specificationJson);
     }
     super.validate();
   }
@@ -118,7 +133,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
 export class GetWorkflowTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -126,7 +141,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 创建人用户ID
+   * The user ID of the creator.
    * 
    * @example
    * 1
@@ -134,7 +149,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   createdByUserId?: number;
   /**
    * @remarks
-   * 模板描述
+   * The description of the template.
    * 
    * @example
    * example
@@ -142,7 +157,15 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 创建时间(ISO8601)
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
+   * 
+   * @example
+   * v1
+   */
+  effectiveVersion?: string;
+  /**
+   * @remarks
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * example
@@ -150,7 +173,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 修改时间(ISO8601)
+   * The modification time in ISO 8601 format.
    * 
    * @example
    * example
@@ -158,15 +181,15 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 模板名称
+   * The name of the template.
    * 
    * @example
    * example
@@ -174,7 +197,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -182,7 +205,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 有序步骤
+   * The ordered steps.
    * 
    * @example
    * example
@@ -190,17 +213,44 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   steps?: GetWorkflowTemplateResponseBodySteps[];
   /**
    * @remarks
-   * 模板ID
+   * The ID of the template.
    * 
    * @example
    * tpl_example
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The version number to which the returned content belongs.
+   * 
+   * @example
+   * v1
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The change description for this version. If this field is empty for v1, the template description can be displayed.
+   * 
+   * @example
+   * Added a review step
+   */
+  versionDescription?: string;
+  /**
+   * @remarks
+   * The version status. Valid values:
+   * - DRAFT: Draft.
+   * - SUBMITTED: Submitted.
+   * 
+   * @example
+   * SUBMITTED
+   */
+  versionStatus?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
       createdByUserId: 'createdByUserId',
       description: 'description',
+      effectiveVersion: 'effectiveVersion',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       message: 'message',
@@ -208,6 +258,9 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
       requestId: 'requestId',
       steps: 'steps',
       templateId: 'templateId',
+      version: 'version',
+      versionDescription: 'versionDescription',
+      versionStatus: 'versionStatus',
     };
   }
 
@@ -216,6 +269,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
       code: 'string',
       createdByUserId: 'number',
       description: 'string',
+      effectiveVersion: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       message: 'string',
@@ -223,6 +277,9 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
       requestId: 'string',
       steps: { 'type': 'array', 'itemType': GetWorkflowTemplateResponseBodySteps },
       templateId: 'string',
+      version: 'string',
+      versionDescription: 'string',
+      versionStatus: 'string',
     };
   }
 

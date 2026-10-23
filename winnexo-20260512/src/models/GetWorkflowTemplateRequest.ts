@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkflowTemplateRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 模板 ID
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,26 @@ export class GetWorkflowTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The version number of the template to read. The format is a lowercase v followed by a positive integer, such as v1. If not specified, the effective version is used. If no effective version exists, the latest version is used.
+   * 
+   * @example
+   * v1
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       collaborationGroupId: 'collaborationGroupId',
       templateId: 'templateId',
       tenantId: 'tenantId',
+      version: 'version',
     };
   }
 
@@ -44,6 +53,7 @@ export class GetWorkflowTemplateRequest extends $dara.Model {
       collaborationGroupId: 'string',
       templateId: 'string',
       tenantId: 'string',
+      version: 'string',
     };
   }
 

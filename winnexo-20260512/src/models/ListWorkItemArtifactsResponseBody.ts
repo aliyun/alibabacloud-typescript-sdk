@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkItemArtifactsResponseBodyItemsRef extends $dara.Model {
   /**
    * @remarks
-   * 产物ID
+   * The artifact ID.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class ListWorkItemArtifactsResponseBodyItemsRef extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 引用类型
+   * The reference data type.
    * 
    * @example
    * WORK_ITEM_ARTIFACT
@@ -21,7 +21,7 @@ export class ListWorkItemArtifactsResponseBodyItemsRef extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * OpenAPI 产物访问入口
+   * The OpenAPI artifact access endpoint.
    * 
    * @example
    * example
@@ -55,7 +55,7 @@ export class ListWorkItemArtifactsResponseBodyItemsRef extends $dara.Model {
 export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 产物ID
+   * The artifact ID.
    * 
    * @example
    * example
@@ -63,7 +63,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   artifactId?: string;
   /**
    * @remarks
-   * 产物键
+   * The artifact key.
    * 
    * @example
    * example
@@ -71,7 +71,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   artifactKey?: string;
   /**
    * @remarks
-   * 节点尝试序号
+   * The node attempt sequence number.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   attemptSeq?: number;
   /**
    * @remarks
-   * 内容类型
+   * The content type.
    * 
    * @example
    * example
@@ -87,7 +87,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 创建时间(ISO8601)
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * example
@@ -95,7 +95,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 节点键
+   * The node key.
    * 
    * @example
    * example
@@ -103,7 +103,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   nodeKey?: string;
   /**
    * @remarks
-   * 计划ID
+   * The plan ID.
    * 
    * @example
    * example
@@ -111,7 +111,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * 引用信息
+   * The reference information.
    * 
    * @example
    * example
@@ -119,7 +119,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   ref?: ListWorkItemArtifactsResponseBodyItemsRef;
   /**
    * @remarks
-   * 运行ID
+   * The run ID.
    * 
    * @example
    * example
@@ -127,7 +127,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * 内容SHA-256
+   * The SHA-256 hash of the content.
    * 
    * @example
    * example
@@ -135,7 +135,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   sha256?: string;
   /**
    * @remarks
-   * 产物大小(字节)
+   * The artifact size in bytes.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   sizeBytes?: number;
   /**
    * @remarks
-   * 产物摘要
+   * The artifact summary.
    * 
    * @example
    * example
@@ -151,7 +151,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * 产物标题
+   * The artifact title.
    * 
    * @example
    * example
@@ -159,7 +159,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * 会话轮次序号
+   * The session turn sequence number.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   turnSeq?: number;
   /**
    * @remarks
-   * 产物类型
+   * The artifact type.
    * 
    * @example
    * example
@@ -175,7 +175,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * 工作项ID
+   * The work item ID.
    * 
    * @example
    * example
@@ -238,7 +238,7 @@ export class ListWorkItemArtifactsResponseBodyItems extends $dara.Model {
 export class ListWorkItemArtifactsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -246,7 +246,7 @@ export class ListWorkItemArtifactsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 历史产物列表
+   * The list of historical artifacts.
    * 
    * @example
    * example
@@ -254,15 +254,15 @@ export class ListWorkItemArtifactsResponseBody extends $dara.Model {
   items?: ListWorkItemArtifactsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -270,7 +270,7 @@ export class ListWorkItemArtifactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 返回产物数量
+   * The total number of returned artifacts.
    * 
    * @example
    * 1

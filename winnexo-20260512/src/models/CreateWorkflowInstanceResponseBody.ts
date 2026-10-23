@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstanceResponseBodyCurrentNode extends $dara.Model {
   /**
    * @remarks
-   * 当前处理人展示名
+   * The display name of the current handler.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   handler?: string;
   /**
    * @remarks
-   * 处理人或数字员工标识
+   * The identifier of the handler or digital worker.
    * 
    * @example
    * user_10086
@@ -21,7 +21,7 @@ export class CreateWorkflowInstanceResponseBodyCurrentNode extends $dara.Model {
   handlerId?: string;
   /**
    * @remarks
-   * 真实运行节点 nodeKey
+   * The nodeKey of the actual running node.
    * 
    * @example
    * node_key_confirm
@@ -29,15 +29,15 @@ export class CreateWorkflowInstanceResponseBodyCurrentNode extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 节点展示名
+   * The display name of the node.
    * 
    * @example
-   * 需求确认
+   * Requirement Confirmation
    */
   nodeName?: string;
   /**
    * @remarks
-   * 真实节点类型 AGENT/HUMAN/CONDITION
+   * The actual node type. Valid values: AGENT, HUMAN, and CONDITION.
    * 
    * @example
    * AGENT
@@ -45,7 +45,7 @@ export class CreateWorkflowInstanceResponseBodyCurrentNode extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * 节点运行状态
+   * The running status of the node.
    * 
    * @example
    * Running
@@ -85,15 +85,15 @@ export class CreateWorkflowInstanceResponseBodyCurrentNode extends $dara.Model {
 export class CreateWorkflowInstanceResponseBodyCurrentNodes extends $dara.Model {
   /**
    * @remarks
-   * 当前处理人展示名
+   * The display name of the current handler.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   handler?: string;
   /**
    * @remarks
-   * 处理人或数字员工标识
+   * The identifier of the handler or digital worker.
    * 
    * @example
    * user_10086
@@ -101,7 +101,7 @@ export class CreateWorkflowInstanceResponseBodyCurrentNodes extends $dara.Model 
   handlerId?: string;
   /**
    * @remarks
-   * 真实运行节点 nodeKey
+   * The nodeKey of the actual running node.
    * 
    * @example
    * node_key_confirm
@@ -109,15 +109,15 @@ export class CreateWorkflowInstanceResponseBodyCurrentNodes extends $dara.Model 
   nodeId?: string;
   /**
    * @remarks
-   * 节点展示名
+   * The display name of the node.
    * 
    * @example
-   * 需求确认
+   * Requirement Confirmation
    */
   nodeName?: string;
   /**
    * @remarks
-   * 真实节点类型 AGENT/HUMAN/CONDITION
+   * The actual node type. Valid values: AGENT, HUMAN, and CONDITION.
    * 
    * @example
    * AGENT
@@ -125,7 +125,7 @@ export class CreateWorkflowInstanceResponseBodyCurrentNodes extends $dara.Model 
   nodeType?: string;
   /**
    * @remarks
-   * 节点运行状态
+   * The running status of the node.
    * 
    * @example
    * Running
@@ -165,7 +165,7 @@ export class CreateWorkflowInstanceResponseBodyCurrentNodes extends $dara.Model 
 export class CreateWorkflowInstanceResponseBodyProgress extends $dara.Model {
   /**
    * @remarks
-   * 已成功或跳过的可见节点数
+   * The number of visible nodes that have succeeded or been skipped.
    * 
    * @example
    * 3
@@ -173,7 +173,7 @@ export class CreateWorkflowInstanceResponseBodyProgress extends $dara.Model {
   completedCount?: number;
   /**
    * @remarks
-   * 当前图可见节点总数，非固定六节点
+   * The total number of visible nodes in the current graph. This is not fixed to six nodes.
    * 
    * @example
    * 5
@@ -205,7 +205,7 @@ export class CreateWorkflowInstanceResponseBodyProgress extends $dara.Model {
 export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 空间内唯一外部需求编号
+   * The unique external requirement ID in the workspace.
    * 
    * @example
    * REQ-1001
@@ -213,7 +213,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * 业务状态码，来自统一 POP 响应包装
+   * The business status code from the unified POP response wrapper.
    * 
    * @example
    * 200
@@ -221,7 +221,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration workspace ID.
    * 
    * @example
    * cg_20261016_abc123
@@ -229,7 +229,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 逻辑实例创建时间，ISO8601
+   * The creation time of the logical instance in ISO 8601 format.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -237,17 +237,17 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 首个活动节点，终态为 null
+   * The first active node. This value is null in the desired state.
    */
   currentNode?: CreateWorkflowInstanceResponseBodyCurrentNode;
   /**
    * @remarks
-   * 全部活动节点，支持并行 DAG
+   * All active nodes. Parallel DAGs are supported.
    */
   currentNodes?: CreateWorkflowInstanceResponseBodyCurrentNodes[];
   /**
    * @remarks
-   * 当前计划终态时间，未结束为 null
+   * The time when the current plan reached the desired state. This value is null if the plan has not ended.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -255,15 +255,15 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   endedAt?: string;
   /**
    * @remarks
-   * 外部发起人标签，不参与鉴权
+   * The external initiator label. This label is not used for authentication.
    * 
    * @example
-   * 外部发起人张三
+   * External Initiator Zhang San
    */
   initiator?: string;
   /**
    * @remarks
-   * 稳定逻辑实例 ID，工作项重启不改变
+   * The stable logical instance ID. This ID does not change when the work item is restarted.
    * 
    * @example
    * wfi_20261016_abc123
@@ -271,15 +271,15 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 用户可见错误描述，来自统一 POP 响应包装
+   * The user-visible error description from the unified POP response wrapper.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 原始计划暂停范围
+   * The raw plan pause scope.
    * 
    * @example
    * ALL
@@ -287,7 +287,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   pauseScope?: string;
   /**
    * @remarks
-   * 当前物理计划修订 ID
+   * The current physical plan revision ID.
    * 
    * @example
    * plan_20261016_abc123
@@ -295,12 +295,12 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * 可见图进度
+   * The visible graph progress.
    */
   progress?: CreateWorkflowInstanceResponseBodyProgress;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -308,7 +308,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 原始计划审核状态
+   * The raw plan review status.
    * 
    * @example
    * APPROVED
@@ -316,7 +316,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   reviewStatus?: string;
   /**
    * @remarks
-   * 当前物理计划修订号
+   * The current physical plan revision number.
    * 
    * @example
    * 3
@@ -324,7 +324,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   revision?: number;
   /**
    * @remarks
-   * 当前运行 ID，重启后会改变
+   * The current run ID. This ID changes after a restart.
    * 
    * @example
    * run_20261016_abc123
@@ -332,7 +332,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * 原始 BUILDING/RUNNING/SUCCEEDED/FAILED/CANCELLED
+   * The raw runtime status. Valid values: BUILDING, RUNNING, SUCCEEDED, FAILED, and CANCELLED.
    * 
    * @example
    * RUNNING
@@ -340,7 +340,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   runtimeStatus?: string;
   /**
    * @remarks
-   * 当前计划节点首次开始时间，未执行为 null
+   * The time when the current plan node started for the first time. This value is null if the node has not been executed.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -348,7 +348,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * 运行状态版本
+   * The runtime status version.
    * 
    * @example
    * 7
@@ -364,7 +364,7 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 创建时绑定的工作流模板 ID
+   * The workflow template ID bound during creation.
    * 
    * @example
    * wft_20261016_abc123
@@ -372,15 +372,15 @@ export class CreateWorkflowInstanceResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 当前需求标题
+   * The current requirement title.
    * 
    * @example
-   * 季度经营分析报告
+   * Quarterly Business Analysis Report
    */
   title?: string;
   /**
    * @remarks
-   * 关联工作项 ID
+   * The associated work item ID.
    * 
    * @example
    * wi_20261016_abc123

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTodoDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class GetTodoDetailRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do item.
    * 
    * This parameter is required.
    * 

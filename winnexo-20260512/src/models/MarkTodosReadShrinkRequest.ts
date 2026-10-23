@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MarkTodosReadShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 全部标记已读（优先于 todoIds）
+   * Specifies whether to mark all to-do items as read. This parameter takes precedence over the todoIds parameter.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class MarkTodosReadShrinkRequest extends $dara.Model {
   markAllRead?: boolean;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class MarkTodosReadShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID列表（≤100；markAllRead=true 时忽略）
+   * The list of to-do item IDs. You can specify up to 100 IDs. This parameter is ignored if markAllRead is set to true.
    * 
    * @example
    * todo_abc123

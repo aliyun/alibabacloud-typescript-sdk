@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, and ARTIFACT.
    * 
    * @example
    * REPLY
@@ -13,15 +13,15 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved raw record content. Tool invocations and artifact metadata are represented as JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * The data query for the current round is completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The duration of this operation record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -29,7 +29,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the node to which the record belongs. This is not the session ID.
    * 
    * @example
    * query.amount
@@ -37,7 +37,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event was recorded, in ISO 8601 format. If the source record has no time, an empty string is returned.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -75,7 +75,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
 export class GetAgentWorkLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -83,7 +83,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 按时间倒序的 Agent 工作记录，未保存记录时为空列表
+   * The agent operation records in reverse chronological order. If no records are saved, an empty list is returned.
    * 
    * @example
    * []
@@ -91,15 +91,15 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   logs?: GetAgentWorkLogResponseBodyLogs[];
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码，从1开始
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数，取值1至100
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -115,7 +115,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -123,7 +123,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 筛选后的工作日志总条数
+   * The total number of filtered operation log entries.
    * 
    * @example
    * 1

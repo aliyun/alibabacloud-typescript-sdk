@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTodosResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 处理人数量
+   * The number of assignees.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   assigneeCount?: number;
   /**
    * @remarks
-   * 完成时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -21,7 +21,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   completedAt?: string;
   /**
    * @remarks
-   * 完成人用户ID；未完成为空
+   * The user ID of the user who completed the item. This field is empty if the item is not completed.
    * 
    * @example
    * 42
@@ -29,15 +29,15 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   completedByUserId?: string;
   /**
    * @remarks
-   * 完成人姓名；未完成为空
+   * The name of the user who completed the item. This field is empty if the item is not completed.
    * 
    * @example
-   * 张三
+   * John Doe
    */
   completedByUserName?: string;
   /**
    * @remarks
-   * 创建时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -45,7 +45,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 最后修改时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -53,7 +53,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 调用者是否已读
+   * Indicates whether the caller has read the item.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   isRead?: boolean;
   /**
    * @remarks
-   * 发出该待办的 assistant 消息ID；无会话来源为空
+   * The message ID of the assistant that sent the to-do item. This field is empty if there is no conversation source.
    * 
    * @example
    * msg-1
@@ -69,7 +69,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 调用者的处理人行状态
+   * The action status of the caller as an assignee.
    * 
    * @example
    * PENDING
@@ -77,7 +77,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   myAssigneeStatus?: string;
   /**
    * @remarks
-   * 调用者的列表展示状态
+   * The list display status for the caller.
    * 
    * @example
    * TODO
@@ -85,7 +85,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   myDisplayState?: string;
   /**
    * @remarks
-   * 优先级
+   * The priority.
    * 
    * @example
    * HIGH
@@ -93,7 +93,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 问题数量
+   * The number of questions.
    * 
    * @example
    * 1
@@ -101,12 +101,12 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   questionCount?: number;
   /**
    * @remarks
-   * 问题摘要列表
+   * The list of question summaries.
    */
   questionSummaries?: string[];
   /**
    * @remarks
-   * 来源上下文（创建时原样透传）
+   * The source context. This context is passed through as-is during creation.
    * 
    * @example
    * source=openapi
@@ -114,7 +114,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   sourceContext?: { [key: string]: any };
   /**
    * @remarks
-   * 待办来源类型
+   * The source type of the to-do item.
    * 
    * @example
    * WORKFLOW
@@ -122,7 +122,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 待办主状态
+   * The primary status of the to-do item.
    * 
    * @example
    * PENDING
@@ -130,15 +130,15 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 待办标题
+   * The to-do title.
    * 
    * @example
-   * 治理审批
+   * Governance approval
    */
   title?: string;
   /**
    * @remarks
-   * 待办ID
+   * The to-do ID.
    * 
    * @example
    * todo_abc123
@@ -208,7 +208,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
 export class ListTodosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -216,7 +216,7 @@ export class ListTodosResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否还有更多数据
+   * Indicates whether more data is available.
    * 
    * @example
    * false
@@ -224,12 +224,12 @@ export class ListTodosResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * 当前页待办列表
+   * The list of to-do items on the current page.
    */
   items?: ListTodosResponseBodyItems[];
   /**
    * @remarks
-   * 本次生效的单页最大返回数量
+   * The effective maximum number of entries to return per page for the current request.
    * 
    * @example
    * 20
@@ -237,15 +237,15 @@ export class ListTodosResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 下一页翻页令牌；无更多数据时为空字符串
+   * The pagination token for the next page. This field is an empty string if no more data is available.
    * 
    * @example
    * example
@@ -253,7 +253,7 @@ export class ListTodosResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -261,7 +261,7 @@ export class ListTodosResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 生效单页条数
+   * The effective number of entries per page.
    * 
    * @example
    * 20
@@ -269,7 +269,7 @@ export class ListTodosResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -277,7 +277,7 @@ export class ListTodosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 筛选条件下可见总数
+   * The total number of visible items under the filter conditions.
    * 
    * @example
    * 1

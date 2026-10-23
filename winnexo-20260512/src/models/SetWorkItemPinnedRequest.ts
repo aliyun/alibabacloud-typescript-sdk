@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetWorkItemPinnedRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetWorkItemPinnedRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 置顶状态
+   * The pin status.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SetWorkItemPinnedRequest extends $dara.Model {
   pinned?: boolean;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,7 +33,7 @@ export class SetWorkItemPinnedRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项 ID
+   * The ID of the work item.
    * 
    * This parameter is required.
    * 

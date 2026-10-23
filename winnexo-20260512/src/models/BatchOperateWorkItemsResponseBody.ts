@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchOperateWorkItemsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 跳过或失败原因
+   * The reason for skipping or failure.
    * 
    * @example
    * example
@@ -15,7 +15,7 @@ export class BatchOperateWorkItemsResponseBodyItems extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * 是否执行成功
+   * Indicates whether the execution was successful.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class BatchOperateWorkItemsResponseBodyItems extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * 工作项ID
+   * The ID of the work item.
    * 
    * @example
    * example
@@ -57,7 +57,7 @@ export class BatchOperateWorkItemsResponseBodyItems extends $dara.Model {
 export class BatchOperateWorkItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -65,7 +65,7 @@ export class BatchOperateWorkItemsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 逐项结果，顺序与请求一致
+   * The results for each item. The order of the results matches the order of the items in the request.
    * 
    * @example
    * example
@@ -73,15 +73,15 @@ export class BatchOperateWorkItemsResponseBody extends $dara.Model {
   items?: BatchOperateWorkItemsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -89,7 +89,7 @@ export class BatchOperateWorkItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 跳过或失败数量
+   * The number of skipped or failed operations.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class BatchOperateWorkItemsResponseBody extends $dara.Model {
   skipped?: number;
   /**
    * @remarks
-   * 成功数量
+   * The number of successful operations.
    * 
    * @example
    * 1

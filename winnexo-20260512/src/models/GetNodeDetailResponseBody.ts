@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeDetailResponseBodyAgentWorkProcessArtifacts extends $dara.Model {
   /**
    * @remarks
-   * 登记产物ID；仅来自结果摘要的产物可能为空
+   * The registered artifact ID. This parameter may be empty for artifacts derived only from the result summary.
    * 
    * @example
    * artifact_example
@@ -13,7 +13,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessArtifacts extends $dara.Mo
   artifactId?: string;
   /**
    * @remarks
-   * 产物在节点结果中的唯一key
+   * The unique key of the artifact in the node result.
    * 
    * @example
    * amount_report
@@ -21,7 +21,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessArtifacts extends $dara.Mo
   artifactKey?: string;
   /**
    * @remarks
-   * 产物稳定引用，包含kind、id、url；登记产物URL为重新鉴权入口，可为空
+   * The stable reference of the artifact, including kind, id, and url. The URL of a registered artifact is a re-authentication entry point and can be empty.
    * 
    * @example
    * {"kind":"INLINE","id":"amount_report","url":"inline://amount_report"}
@@ -29,23 +29,23 @@ export class GetNodeDetailResponseBodyAgentWorkProcessArtifacts extends $dara.Mo
   ref?: { [key: string]: string };
   /**
    * @remarks
-   * 产物摘要，不含inline正文
+   * The artifact summary, excluding inline content.
    * 
    * @example
-   * 已完成签单金额统计
+   * Signed amount statistics completed
    */
   summary?: string;
   /**
    * @remarks
-   * 产物展示标题
+   * The display title of the artifact.
    * 
    * @example
-   * 签单金额统计报告
+   * Signed amount statistics report
    */
   title?: string;
   /**
    * @remarks
-   * 产物类型
+   * The artifact type.
    * 
    * @example
    * TEXT
@@ -88,7 +88,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessArtifacts extends $dara.Mo
 export class GetNodeDetailResponseBodyAgentWorkProcessReplies extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
    * 
    * @example
    * REPLY
@@ -96,15 +96,15 @@ export class GetNodeDetailResponseBodyAgentWorkProcessReplies extends $dara.Mode
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved original record content. Tool invocation and artifact metadata are JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * Data query for this turn completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The time taken for this work record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -112,7 +112,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessReplies extends $dara.Mode
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the parent node, not the conversation ID.
    * 
    * @example
    * query.amount
@@ -120,7 +120,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessReplies extends $dara.Mode
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -158,7 +158,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessReplies extends $dara.Mode
 export class GetNodeDetailResponseBodyAgentWorkProcessSkillCalls extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
    * 
    * @example
    * SKILL_CALL
@@ -166,15 +166,15 @@ export class GetNodeDetailResponseBodyAgentWorkProcessSkillCalls extends $dara.M
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved original record content. Tool invocation and artifact metadata are JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * Data query for this turn completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The time taken for this work record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -182,7 +182,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessSkillCalls extends $dara.M
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the parent node, not the conversation ID.
    * 
    * @example
    * query.amount
@@ -190,7 +190,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessSkillCalls extends $dara.M
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -228,7 +228,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessSkillCalls extends $dara.M
 export class GetNodeDetailResponseBodyAgentWorkProcessThoughts extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
    * 
    * @example
    * THINK
@@ -236,15 +236,15 @@ export class GetNodeDetailResponseBodyAgentWorkProcessThoughts extends $dara.Mod
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved original record content. Tool invocation and artifact metadata are JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * Data query for this turn completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The time taken for this work record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -252,7 +252,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessThoughts extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the parent node, not the conversation ID.
    * 
    * @example
    * query.amount
@@ -260,7 +260,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessThoughts extends $dara.Mod
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -298,7 +298,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessThoughts extends $dara.Mod
 export class GetNodeDetailResponseBodyAgentWorkProcessToolCalls extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
    * 
    * @example
    * TOOL_CALL
@@ -306,15 +306,15 @@ export class GetNodeDetailResponseBodyAgentWorkProcessToolCalls extends $dara.Mo
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved original record content. Tool invocation and artifact metadata are JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * Data query for this turn completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The time taken for this work record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -322,7 +322,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessToolCalls extends $dara.Mo
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the parent node, not the conversation ID.
    * 
    * @example
    * query.amount
@@ -330,7 +330,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessToolCalls extends $dara.Mo
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -368,7 +368,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcessToolCalls extends $dara.Mo
 export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
   /**
    * @remarks
-   * 节点产物摘要与稳定引用，与顶层artifacts一致；无产物时为空列表
+   * The artifacts: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -376,7 +376,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
   artifacts?: GetNodeDetailResponseBodyAgentWorkProcessArtifacts[];
   /**
    * @remarks
-   * 已保存的回复记录，action为REPLY；无记录时为空列表
+   * The replies: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -384,7 +384,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
   replies?: GetNodeDetailResponseBodyAgentWorkProcessReplies[];
   /**
    * @remarks
-   * 已保存的技能调用记录，action为SKILL_CALL；无记录时为空列表
+   * The skill calls: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -392,7 +392,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
   skillCalls?: GetNodeDetailResponseBodyAgentWorkProcessSkillCalls[];
   /**
    * @remarks
-   * 已保存的思考记录，action为THINK；无记录时为空列表
+   * The thoughts: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -400,7 +400,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
   thoughts?: GetNodeDetailResponseBodyAgentWorkProcessThoughts[];
   /**
    * @remarks
-   * 已保存的工具调用记录，action为TOOL_CALL；无记录时为空列表
+   * The tool calls: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -453,7 +453,7 @@ export class GetNodeDetailResponseBodyAgentWorkProcess extends $dara.Model {
 export class GetNodeDetailResponseBodyArtifacts extends $dara.Model {
   /**
    * @remarks
-   * 登记产物ID；仅来自结果摘要的产物可能为空
+   * The registered artifact ID. This parameter may be empty for artifacts derived only from the result summary.
    * 
    * @example
    * artifact_example
@@ -461,7 +461,7 @@ export class GetNodeDetailResponseBodyArtifacts extends $dara.Model {
   artifactId?: string;
   /**
    * @remarks
-   * 产物在节点结果中的唯一key
+   * The unique key of the artifact in the node result.
    * 
    * @example
    * amount_report
@@ -469,7 +469,7 @@ export class GetNodeDetailResponseBodyArtifacts extends $dara.Model {
   artifactKey?: string;
   /**
    * @remarks
-   * 产物稳定引用，包含kind、id、url；登记产物URL为重新鉴权入口，可为空
+   * The stable reference of the artifact, including kind, id, and url. The URL of a registered artifact is a re-authentication entry point and can be empty.
    * 
    * @example
    * {"kind":"INLINE","id":"amount_report","url":"inline://amount_report"}
@@ -477,23 +477,23 @@ export class GetNodeDetailResponseBodyArtifacts extends $dara.Model {
   ref?: { [key: string]: string };
   /**
    * @remarks
-   * 产物摘要，不含inline正文
+   * The artifact summary, excluding inline content.
    * 
    * @example
-   * 已完成签单金额统计
+   * Signed amount statistics completed
    */
   summary?: string;
   /**
    * @remarks
-   * 产物展示标题
+   * The display title of the artifact.
    * 
    * @example
-   * 签单金额统计报告
+   * Signed amount statistics report
    */
   title?: string;
   /**
    * @remarks
-   * 产物类型
+   * The artifact type.
    * 
    * @example
    * TEXT
@@ -536,7 +536,7 @@ export class GetNodeDetailResponseBodyArtifacts extends $dara.Model {
 export class GetNodeDetailResponseBodyRunLog extends $dara.Model {
   /**
    * @remarks
-   * 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+   * The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
    * 
    * @example
    * REPLY
@@ -544,15 +544,15 @@ export class GetNodeDetailResponseBodyRunLog extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+   * The saved original record content. Tool invocation and artifact metadata are JSON strings.
    * 
    * @example
-   * 已完成本轮数据查询
+   * Data query for this turn completed
    */
   detail?: string;
   /**
    * @remarks
-   * 该条工作记录耗时，单位毫秒；产物记录为0
+   * The time taken for this work record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -560,7 +560,7 @@ export class GetNodeDetailResponseBodyRunLog extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the parent node, not the conversation ID.
    * 
    * @example
    * query.amount
@@ -568,7 +568,7 @@ export class GetNodeDetailResponseBodyRunLog extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+   * The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -606,7 +606,7 @@ export class GetNodeDetailResponseBodyRunLog extends $dara.Model {
 export class GetNodeDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 按思考、技能、工具、回复和产物分组的实际工作过程
+   * The actual work process grouped by thoughts, skills, tools, replies, and artifacts.
    * 
    * @example
    * {"thoughts":[],"skillCalls":[],"toolCalls":[],"replies":[],"artifacts":[]}
@@ -614,7 +614,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   agentWorkProcess?: GetNodeDetailResponseBodyAgentWorkProcess;
   /**
    * @remarks
-   * 已保存的节点产物摘要与稳定引用，不包含inline正文；无产物时为空列表
+   * The artifacts: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -622,7 +622,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   artifacts?: GetNodeDetailResponseBodyArtifacts[];
   /**
    * @remarks
-   * 节点执行尝试序号
+   * The sequence number of the node execution attempt.
    * 
    * @example
    * 1
@@ -630,7 +630,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   attemptSeq?: number;
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -638,7 +638,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 节点会话ID，未创建时为空
+   * The node conversation ID. This parameter is empty if no conversation is created.
    * 
    * @example
    * conversation_example
@@ -646,7 +646,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 当前节点会话是否可以继续输入
+   * Indicates whether the current node conversation can continue to receive input.
    * 
    * @example
    * true
@@ -654,23 +654,23 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   conversationWritable?: boolean;
   /**
    * @remarks
-   * 节点负责人展示名称，未知时为空
+   * The display name of the node owner. This parameter is empty if the owner is unknown.
    * 
    * @example
-   * 数字员工
+   * Digital worker
    */
   handler?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 节点 key（nodeKey）
+   * The node key.
    * 
    * @example
    * query.amount
@@ -678,15 +678,15 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 节点展示名称，与节点列表同源
+   * The display name of the node, which shares the same source as the node list.
    * 
    * @example
-   * 查询签单金额
+   * Query signed amount
    */
   nodeName?: string;
   /**
    * @remarks
-   * 节点类型，返回实际枚举
+   * The node type. The actual enum value is returned.
    * 
    * @example
    * AGENT
@@ -694,7 +694,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -702,7 +702,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 节点结果摘要，不含inline正文
+   * The node result summary, excluding inline content.
    * 
    * @example
    * {}
@@ -710,7 +710,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   result?: { [key: string]: any };
   /**
    * @remarks
-   * 是否有待派发续轮
+   * Indicates whether there are pending follow-up turns to be dispatched.
    * 
    * @example
    * false
@@ -718,7 +718,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   resumePending?: boolean;
   /**
    * @remarks
-   * 节点AI工作记录时间线，与GetAgentWorkLog同源，duration单位毫秒；无记录时为空列表
+   * The run log: saved node work records and artifacts.
    * 
    * @example
    * []
@@ -734,7 +734,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   stateVersion?: number;
   /**
    * @remarks
-   * 节点运行状态，返回实际枚举
+   * The node running status. The actual enum value is returned.
    * 
    * @example
    * RUNNING
@@ -742,7 +742,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 当前节点关联的待办ID列表，元素为待办ID字符串
+   * The list of to-do IDs associated with the current node.
    * 
    * @example
    * []
@@ -750,7 +750,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   todoIds?: string[];
   /**
    * @remarks
-   * 当前尝试的对话轮序号
+   * The sequence number of the conversation turn in the current attempt.
    * 
    * @example
    * 2
@@ -758,7 +758,7 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   turnSeq?: number;
   /**
    * @remarks
-   * 节点等待原因，未等待时为空
+   * The reason why the node is waiting. This parameter is empty if the node is not waiting.
    * 
    * @example
    * HUMAN_INPUT

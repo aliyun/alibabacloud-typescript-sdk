@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TerminateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class TerminateInstanceRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 物理工作流实例ID（planId）
+   * The physical workflow instance ID (planId).
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,17 @@ export class TerminateInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 终止原因
+   * The reason for termination.
    * 
    * This parameter is required.
    * 
    * @example
-   * 用户终止
+   * Terminated by user
    */
   reason?: string;
   /**
    * @remarks
-   * 租户ID，缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

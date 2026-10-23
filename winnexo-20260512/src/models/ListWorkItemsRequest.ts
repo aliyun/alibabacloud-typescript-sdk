@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务状态筛选（七态）
+   * The business statuses used for filtering.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   businessStatuses?: string[];
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 工作项类型筛选
+   * The work item types used for filtering.
    * 
    * @example
    * example
@@ -31,7 +31,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   itemTypes?: string[];
   /**
    * @remarks
-   * 标题/描述模糊搜索关键词
+   * The keyword for fuzzy search in the title or description.
    * 
    * @example
    * example
@@ -39,7 +39,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * 单页最大返回数量（1~100）；传入时优先于 pageSize
+   * The maximum number of entries to return per page. Valid values: 1 to 100. This parameter takes precedence over pageSize if both are specified.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 翻页令牌，取上次响应返回的 nextToken；传入时优先于 page
+   * The pagination token. Obtain the token from the nextToken parameter in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
    * example
@@ -55,7 +55,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 页码；传入 nextToken 时忽略
+   * The page number. This parameter is ignored if nextToken is specified.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数（1~100）
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -71,7 +71,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 优先级筛选
+   * The priorities used for filtering.
    * 
    * @example
    * example
@@ -79,7 +79,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   priorities?: string[];
   /**
    * @remarks
-   * 个人范围筛选
+   * The personal scope used for filtering.
    * 
    * @example
    * ASSIGNED_TO_ME
@@ -87,7 +87,7 @@ export class ListWorkItemsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

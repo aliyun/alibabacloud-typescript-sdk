@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloseWorkflowTodosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 关闭条数（幂等重复调用为 0）
+   * The number of closed to-do items. The value is 0 for idempotent repeated calls.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class CloseWorkflowTodosResponseBody extends $dara.Model {
   cancelledCount?: number;
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,15 +21,15 @@ export class CloseWorkflowTodosResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -37,7 +37,7 @@ export class CloseWorkflowTodosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 工作流 ID（原样回显）
+   * The workflow ID, returned as provided.
    * 
    * @example
    * wf-1

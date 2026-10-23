@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * 是否有权限
+   * Indicates whether the user has the permission.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
   allowed?: boolean;
   /**
    * @remarks
-   * 目标权限点
+   * The target permission.
    * 
    * @example
    * APP/VIEW
@@ -21,7 +21,7 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
   permission?: string;
   /**
    * @remarks
-   * 首段为 APP 应用键的点分资源键
+   * The dot-separated resource key whose first segment is the APP application key.
    * 
    * @example
    * app.demo.resource_1
@@ -29,7 +29,7 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
   resourceKey?: string;
   /**
    * @remarks
-   * 固定为 APP_RESOURCE
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * @example
    * APP_RESOURCE
@@ -65,7 +65,7 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
 export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为 200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -73,15 +73,15 @@ export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述；成功时为空
+   * The error message. This field is empty if the request is successful.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -89,7 +89,7 @@ export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 与请求顺序一致的结果
+   * The results, returned in the same order as the requested items.
    */
   results?: CheckAppResourcePermissionsBatchResponseBodyResults[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportWorkflowTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ImportWorkflowTemplateShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 可移植模板 JSON（stepId/sortOrder 可省略）
+   * The portable template JSON. The stepId and sortOrder fields can be omitted.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ImportWorkflowTemplateShrinkRequest extends $dara.Model {
   templateShrink?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTodoRequestAnswers extends $dara.Model {
   /**
    * @remarks
-   * 作答值数组
+   * The array of answer values.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class SubmitTodoRequestAnswers extends $dara.Model {
   answer?: string[];
   /**
    * @remarks
-   * 对应 questions[].question 原文
+   * The original text that corresponds to questions[].question.
    * 
    * This parameter is required.
    * 
    * @example
-   * 是否通过审批
+   * Whether to approve
    */
   question?: string;
   static names(): { [key: string]: string } {
@@ -52,7 +52,7 @@ export class SubmitTodoRequestAnswers extends $dara.Model {
 export class SubmitTodoRequest extends $dara.Model {
   /**
    * @remarks
-   * 作答数组（question 原文须与待办问题对齐）
+   * The array of answers. The original text of the question must match the to-do question.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class SubmitTodoRequest extends $dara.Model {
   answers?: SubmitTodoRequestAnswers[];
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -70,7 +70,7 @@ export class SubmitTodoRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do item.
    * 
    * This parameter is required.
    * 

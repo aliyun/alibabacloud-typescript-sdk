@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TerminateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class TerminateInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 物理实例ID
+   * The physical instance ID.
    * 
    * @example
    * plan_example
@@ -21,7 +21,7 @@ export class TerminateInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 终止后状态
+   * The status after termination.
    * 
    * @example
    * Terminated
@@ -29,15 +29,15 @@ export class TerminateInstanceResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -45,7 +45,7 @@ export class TerminateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 状态版本
+   * The state version.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class TerminateInstanceResponseBody extends $dara.Model {
   stateVersion?: number;
   /**
    * @remarks
-   * 终止成功为 true；失败通过 Code 和 Message 返回
+   * Indicates whether the termination was successful. A value of true indicates success. If the termination fails, the error code and message are returned.
    * 
    * @example
    * true

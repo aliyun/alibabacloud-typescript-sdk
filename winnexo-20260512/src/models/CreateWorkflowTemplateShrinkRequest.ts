@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The write action. Valid values: SAVE: Saves the template as a draft without taking effect. SUBMIT: Saves and submits the template and sets it as the only effective version. Default value: SUBMIT.
+   * 
+   * @example
+   * SUBMIT
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +23,7 @@ export class CreateWorkflowTemplateShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 完整模板定义 JSON（name/description/steps）
+   * The complete JSON definition of the template, including name, description, and steps.
    * 
    * This parameter is required.
    * 
@@ -25,7 +33,7 @@ export class CreateWorkflowTemplateShrinkRequest extends $dara.Model {
   definitionShrink?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,6 +41,7 @@ export class CreateWorkflowTemplateShrinkRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      action: 'action',
       collaborationGroupId: 'collaborationGroupId',
       definitionShrink: 'definition',
       tenantId: 'tenantId',
@@ -41,6 +50,7 @@ export class CreateWorkflowTemplateShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      action: 'string',
       collaborationGroupId: 'string',
       definitionShrink: 'string',
       tenantId: 'string',

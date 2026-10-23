@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.Model {
   /**
    * @remarks
-   * 模型档位
+   * The model tier.
    * 
    * @example
    * standard
@@ -13,7 +13,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   modelMode?: string;
   /**
    * @remarks
-   * 步骤名称
+   * The name of the step.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   name?: string;
   /**
    * @remarks
-   * 智能体负责人名称
+   * The name of the responsible agent.
    * 
    * @example
    * example
@@ -29,7 +29,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   ownerAgentName?: string;
   /**
    * @remarks
-   * 负责人类型：MEMBER 人工 / AGENT 智能体
+   * The type of the owner. Valid values: MEMBER: Human. AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -37,7 +37,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   ownerType?: string;
   /**
    * @remarks
-   * 人工负责人用户ID
+   * The user ID of the human owner.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   ownerUserId?: number;
   /**
    * @remarks
-   * 审核人用户ID列表
+   * The list of user IDs of the reviewers.
    * 
    * @example
    * example
@@ -53,7 +53,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * 步骤顺序
+   * The order of the step.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   sortOrder?: number;
   /**
    * @remarks
-   * 步骤处理说明
+   * The processing instructions for the step.
    * 
    * @example
    * example
@@ -69,7 +69,15 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   specification?: string;
   /**
    * @remarks
-   * 步骤ID
+   * The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as returned by the backend.
+   * 
+   * @example
+   * [{"type":"text","content":"Organize input materials"}]
+   */
+  specificationJson?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The ID of the step.
    * 
    * @example
    * collect
@@ -85,6 +93,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
+      specificationJson: 'specificationJson',
       stepId: 'stepId',
     };
   }
@@ -99,6 +108,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
+      specificationJson: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       stepId: 'string',
     };
   }
@@ -106,6 +116,9 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   validate() {
     if(Array.isArray(this.reviewerUserIds)) {
       $dara.Model.validateArray(this.reviewerUserIds);
+    }
+    if(Array.isArray(this.specificationJson)) {
+      $dara.Model.validateArray(this.specificationJson);
     }
     super.validate();
   }
@@ -118,7 +131,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
 export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model {
   /**
    * @remarks
-   * 模板描述
+   * The description of the template.
    * 
    * @example
    * example
@@ -126,7 +139,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * 模板名称
+   * The name of the template.
    * 
    * @example
    * example
@@ -134,7 +147,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * 有序步骤
+   * The ordered steps.
    * 
    * @example
    * example
@@ -171,7 +184,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model 
 export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -179,7 +192,7 @@ export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 生成的非持久化模板草稿
+   * The generated non-persistent template draft.
    * 
    * @example
    * example
@@ -187,15 +200,15 @@ export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
   draft?: GenerateWorkflowTemplateDraftResponseBodyDraft;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

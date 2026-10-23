@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentWorkLogRequest extends $dara.Model {
   /**
    * @remarks
-   * 可选节点 key
+   * The optional node key.
    * 
    * @example
    * step_1
@@ -13,7 +13,7 @@ export class GetAgentWorkLogRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 页码，从 1 开始
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetAgentWorkLogRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数，最大 100
+   * The number of entries per page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class GetAgentWorkLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 租户ID，缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -37,7 +37,7 @@ export class GetAgentWorkLogRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项ID
+   * The work item ID.
    * 
    * This parameter is required.
    * 

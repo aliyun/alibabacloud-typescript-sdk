@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGraphResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateGraphResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 创建时绑定的数据源 ID
+   * The data source ID.
    * 
    * @example
    * 198001
@@ -21,7 +21,7 @@ export class CreateGraphResponseBody extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * 图谱名称
+   * The graph name.
    * 
    * @example
    * crm_graph
@@ -29,7 +29,7 @@ export class CreateGraphResponseBody extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
    * 
    * @example
    * ok
@@ -37,7 +37,7 @@ export class CreateGraphResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -45,7 +45,7 @@ export class CreateGraphResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Schema 版本；快建路径固定 0.0.0，正式版本经控制台发布产生
+   * The version.
    * 
    * @example
    * 0.0.0
@@ -53,7 +53,10 @@ export class CreateGraphResponseBody extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * 同步状态，快建成功为 SUCCESS
+   * The OSS synchronization and extraction status. Valid values:
+   * - -1: Not set (default).
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * SUCCESS

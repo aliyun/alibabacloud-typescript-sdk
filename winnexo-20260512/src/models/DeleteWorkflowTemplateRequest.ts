@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkflowTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteWorkflowTemplateRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 模板 ID
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteWorkflowTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

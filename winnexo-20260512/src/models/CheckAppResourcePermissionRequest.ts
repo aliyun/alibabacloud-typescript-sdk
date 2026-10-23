@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAppResourcePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * 需要检查的权限点
+   * The permission to check.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * 首段为 APP 应用键的点分资源键
+   * The dot-separated resource key. The first segment is the APP application key.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * 资源所属租户 ID；省略为调用人当前租户
+   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,7 +33,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * 固定为 APP_RESOURCE
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * 目标平台用户 ID
+   * The ID of the target platform user.
    * 
    * @example
    * 10086
@@ -51,7 +51,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   targetUserId?: number;
   /**
    * @remarks
-   * 目标用户所属租户；跨租户目标必填
+   * The ID of the tenant to which the target user belongs. This parameter is required for cross-tenant targets.
    * 
    * @example
    * 10000
@@ -59,7 +59,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   targetUserTenantId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

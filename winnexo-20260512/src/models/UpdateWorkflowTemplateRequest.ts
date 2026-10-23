@@ -5,7 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID
+   * The write action. Valid values:
+   * - SAVE: Saves the template as a draft without taking effect.
+   * - SUBMIT: Saves and submits the template, setting it as the only effective version.
+   * Default value: SUBMIT.
+   * 
+   * @example
+   * SUBMIT
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +26,7 @@ export class UpdateWorkflowTemplateRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 完整模板定义 JSON（整体覆盖）
+   * The complete JSON definition of the template to overwrite the existing one.
    * 
    * This parameter is required.
    * 
@@ -25,7 +36,15 @@ export class UpdateWorkflowTemplateRequest extends $dara.Model {
   definition?: { [key: string]: any };
   /**
    * @remarks
-   * 模板 ID
+   * The submitted version number on which the new version is based. This parameter is mutually exclusive with the version parameter. If not specified, the current effective version is used as the fallback.
+   * 
+   * @example
+   * v1
+   */
+  sourceVersion?: string;
+  /**
+   * @remarks
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
@@ -35,27 +54,51 @@ export class UpdateWorkflowTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The draft template version number to write. The format is a lowercase v followed by a positive integer, such as v1. Submitted versions cannot be written. If not specified, a new version is generated.
+   * 
+   * @example
+   * v2
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The version description. The maximum length is 500 characters. When writing a draft, if this parameter is not specified or is null, the original value is retained. An empty string clears the value.
+   * 
+   * @example
+   * Add a review step
+   */
+  versionDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      action: 'action',
       collaborationGroupId: 'collaborationGroupId',
       definition: 'definition',
+      sourceVersion: 'sourceVersion',
       templateId: 'templateId',
       tenantId: 'tenantId',
+      version: 'version',
+      versionDescription: 'versionDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      action: 'string',
       collaborationGroupId: 'string',
       definition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sourceVersion: 'string',
       templateId: 'string',
       tenantId: 'string',
+      version: 'string',
+      versionDescription: 'string',
     };
   }
 

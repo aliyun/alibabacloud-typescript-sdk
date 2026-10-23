@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearAutoMemoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 本次成功删除的自动记忆文件数量；无可清空记忆时为 0
+   * The number of automatic memory files successfully deleted in this request. The value is 0 if no memory is available to be cleared.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class ClearAutoMemoryResponseBody extends $dara.Model {
   clearedCount?: number;
   /**
    * @remarks
-   * 业务状态码；成功为 200，失败时为对应错误码
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,15 +21,15 @@ export class ClearAutoMemoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述；成功时为空字符串，失败时返回具体原因
+   * The error description.
    * 
    * @example
-   * 当前用户不是群组 cg_12345 的活跃成员
+   * The current user is not an active member of the group cg_12345
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID，用于定位本次调用
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -37,7 +37,7 @@ export class ClearAutoMemoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次清空的自动记忆类型；取值为 user、feedback、reference、project 或 all
+   * The type of automatic memory cleared in this request. Valid values: user, feedback, reference, project, and all.
    * 
    * @example
    * project

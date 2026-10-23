@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelTodoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 作废条数
+   * The number of canceled to-do items.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CancelTodoResponseBody extends $dara.Model {
   cancelledCount?: number;
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,15 +21,15 @@ export class CancelTodoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -37,7 +37,7 @@ export class CancelTodoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 作废后状态
+   * The status after cancellation.
    * 
    * @example
    * CANCELLED
@@ -45,7 +45,7 @@ export class CancelTodoResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 作废的待办ID（按 workItemId 定位时为空）
+   * The ID of the canceled to-do item. This parameter is empty if the to-do item is located by workItemId.
    * 
    * @example
    * todo_abc123

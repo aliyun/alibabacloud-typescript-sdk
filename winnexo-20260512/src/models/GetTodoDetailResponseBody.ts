@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   /**
    * @remarks
-   * 处理时间（北京时间）；未处理为空
+   * The action time in UTC+8. This field is empty if the item is not processed.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -13,7 +13,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   actedAt?: string;
   /**
    * @remarks
-   * 处理人来源：ORIGINAL/TRANSFERRED
+   * The source of the assignee. Valid values: ORIGINAL and TRANSFERRED.
    * 
    * @example
    * ORIGINAL
@@ -21,7 +21,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   assigneeSource?: string;
   /**
    * @remarks
-   * 处理人用户ID
+   * The user ID of the assignee.
    * 
    * @example
    * 42
@@ -29,7 +29,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   assigneeUserId?: string;
   /**
    * @remarks
-   * 已读时间（北京时间）；未读为空
+   * The read time in UTC+8. This field is empty if the item is unread.
    * 
    * @example
    * 2026-10-12 10:01:00
@@ -37,7 +37,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   readAt?: string;
   /**
    * @remarks
-   * 处理人行状态
+   * The action status of the assignee.
    * 
    * @example
    * PENDING
@@ -45,7 +45,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 转出人用户ID；仅转办产生
+   * The user ID of the user who transferred the task. This field is populated only when the task is transferred.
    * 
    * @example
    * 43
@@ -85,23 +85,23 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
 export class GetTodoDetailResponseBodyQuestionsOptions extends $dara.Model {
   /**
    * @remarks
-   * 选项补充说明
+   * The supplementary description of the option.
    * 
    * @example
-   * 选项补充说明
+   * Supplementary description of the option
    */
   description?: string;
   /**
    * @remarks
-   * 选项文案（引用键）
+   * The option text (reference key).
    * 
    * @example
-   * 通过
+   * Approve
    */
   label?: string;
   /**
    * @remarks
-   * 是否推荐
+   * Indicates whether the option is recommended.
    * 
    * @example
    * false
@@ -135,7 +135,7 @@ export class GetTodoDetailResponseBodyQuestionsOptions extends $dara.Model {
 export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   /**
    * @remarks
-   * 是否允许自定义输入
+   * Indicates whether custom input is allowed.
    * 
    * @example
    * false
@@ -143,15 +143,15 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   allowCustom?: boolean;
   /**
    * @remarks
-   * 自定义输入项文案
+   * The text for the custom input field.
    * 
    * @example
-   * 其他
+   * Other
    */
   customLabel?: string;
   /**
    * @remarks
-   * 自定义输入长度上限
+   * The maximum length for custom input.
    * 
    * @example
    * 200
@@ -159,15 +159,15 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   customMaxLength?: number;
   /**
    * @remarks
-   * 自定义输入占位符
+   * The placeholder for custom input.
    * 
    * @example
-   * 请说明
+   * Please specify
    */
   customPlaceholder?: string;
   /**
    * @remarks
-   * TEXT 题长度上限
+   * The maximum length for text questions.
    * 
    * @example
    * 500
@@ -175,7 +175,7 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   maxLength?: number;
   /**
    * @remarks
-   * 作答形态：SINGLE_CHOICE/MULTI_CHOICE/TEXT
+   * The response mode. Valid values: SINGLE_CHOICE, MULTI_CHOICE, and TEXT.
    * 
    * @example
    * SINGLE_CHOICE
@@ -183,28 +183,28 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * 选项（选择类必有）
+   * The options. This field is required for choice questions.
    */
   options?: GetTodoDetailResponseBodyQuestionsOptions[];
   /**
    * @remarks
-   * TEXT 题占位符
+   * The placeholder for text questions.
    * 
    * @example
-   * 请输入
+   * Please enter
    */
   placeholder?: string;
   /**
    * @remarks
-   * 问题正文（引用键）
+   * The question text (reference key).
    * 
    * @example
-   * 是否通过审批
+   * Whether to approve
    */
   question?: string;
   /**
    * @remarks
-   * 是否必答
+   * Indicates whether the question is required.
    * 
    * @example
    * true
@@ -255,7 +255,7 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
 export class GetTodoDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 处理人数量
+   * The number of assignees.
    * 
    * @example
    * 2
@@ -263,12 +263,12 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   assigneeCount?: number;
   /**
    * @remarks
-   * 全部处理人
+   * All assignees.
    */
   assignees?: GetTodoDetailResponseBodyAssignees[];
   /**
    * @remarks
-   * 附件策略（当前版本附件不落库）
+   * The attachment policy. Attachments are not stored in the database in the current version.
    * 
    * @example
    * allowUpload=true
@@ -276,7 +276,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   attachmentPolicy?: { [key: string]: any };
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -284,7 +284,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 完成时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The completion time in UTC+8 (YYYY-MM-DD HH:mm:ss).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -292,7 +292,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   completedAt?: string;
   /**
    * @remarks
-   * 完成人用户ID；未完成为空
+   * The user ID of the user who completed the item. This field is empty if the item is not completed.
    * 
    * @example
    * 42
@@ -300,15 +300,15 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   completedByUserId?: string;
   /**
    * @remarks
-   * 完成人姓名；未完成为空
+   * The name of the user who completed the item. This field is empty if the item is not completed.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   completedByUserName?: string;
   /**
    * @remarks
-   * 创建时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The creation time in UTC+8 (YYYY-MM-DD HH:mm:ss).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -316,7 +316,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 最后修改时间（北京时间 YYYY-MM-DD HH:mm:ss）
+   * The last modification time in UTC+8 (YYYY-MM-DD HH:mm:ss).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -324,7 +324,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 调用者是否已读
+   * Indicates whether the caller has read the item.
    * 
    * @example
    * false
@@ -332,15 +332,15 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   isRead?: boolean;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 发出该待办的 assistant 消息ID；无会话来源为空
+   * The ID of the assistant message that generated the to-do item. This field is empty if there is no conversation source.
    * 
    * @example
    * msg-1
@@ -348,7 +348,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 调用者的处理人行状态
+   * The action status of the caller as the assignee.
    * 
    * @example
    * PENDING
@@ -356,7 +356,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   myAssigneeStatus?: string;
   /**
    * @remarks
-   * 调用者的列表展示状态
+   * The list display status for the caller.
    * 
    * @example
    * TODO
@@ -364,7 +364,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   myDisplayState?: string;
   /**
    * @remarks
-   * 调用者权限（canSubmit/canTransfer）
+   * The permissions of the caller, such as canSubmit and canTransfer.
    * 
    * @example
    * APP/VIEW=true
@@ -372,7 +372,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   myPermissions?: { [key: string]: any };
   /**
    * @remarks
-   * 优先级
+   * The priority.
    * 
    * @example
    * HIGH
@@ -380,12 +380,12 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 问题清单（结构化投影）
+   * The list of questions (structured projection).
    */
   questions?: GetTodoDetailResponseBodyQuestions[];
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -393,15 +393,15 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 作答内容（JSONB 原样；未提交为空对象缺省）
+   * The response content in JSONB format as-is. Defaults to an empty object if not submitted.
    * 
    * @example
-   * result=同意
+   * result=Approved
    */
   resultPayload?: { [key: string]: any };
   /**
    * @remarks
-   * 来源上下文（创建时原样透传）
+   * The source context. This context is passed through as-is during creation.
    * 
    * @example
    * source=openapi
@@ -409,7 +409,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   sourceContext?: { [key: string]: any };
   /**
    * @remarks
-   * 待办来源类型
+   * The source type of the to-do item.
    * 
    * @example
    * WORKFLOW
@@ -417,7 +417,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 工作流ID（sourceType=WORKFLOW 时必有）
+   * The workflow ID. This field is required when sourceType is set to WORKFLOW.
    * 
    * @example
    * wf-1
@@ -425,7 +425,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   sourceWorkflowId?: string;
   /**
    * @remarks
-   * 待办主状态
+   * The primary status of the to-do item.
    * 
    * @example
    * PENDING
@@ -433,23 +433,23 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 待办摘要
+   * The summary of the to-do item.
    * 
    * @example
-   * 请审批以下事项
+   * Please approve the following items
    */
   summary?: string;
   /**
    * @remarks
-   * 待办标题
+   * The title of the to-do item.
    * 
    * @example
-   * 治理审批
+   * Governance approval
    */
   title?: string;
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do item.
    * 
    * @example
    * todo_abc123

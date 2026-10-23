@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkItemArtifactAccessRequest extends $dara.Model {
   /**
    * @remarks
-   * 产物 ID
+   * The ID of the artifact.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkItemArtifactAccessRequest extends $dara.Model {
   artifactId?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetWorkItemArtifactAccessRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,7 +33,7 @@ export class GetWorkItemArtifactAccessRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项 ID
+   * The ID of the work item.
    * 
    * This parameter is required.
    * 

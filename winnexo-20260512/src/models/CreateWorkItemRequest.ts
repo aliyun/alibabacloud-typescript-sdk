@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkItemRequestAttachments extends $dara.Model {
   /**
    * @remarks
-   * 内容类型
+   * The content type.
    * 
    * @example
    * application/pdf
@@ -13,7 +13,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 附件引用地址
+   * The reference URL of the attachment.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
   refUrl?: string;
   /**
    * @remarks
-   * 附件资源ID
+   * The resource ID of the attachment.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * 附件资源类型
+   * The resource type of the attachment.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
   resourceKind?: string;
   /**
    * @remarks
-   * 附件大小(字节)，上限 20MB
+   * The size of the attachment in bytes. The maximum size is 20 MB.
    * 
    * @example
    * 1024
@@ -49,7 +49,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
   sizeBytes?: number;
   /**
    * @remarks
-   * 附件标题
+   * The title of the attachment.
    * 
    * @example
    * example
@@ -89,7 +89,7 @@ export class CreateWorkItemRequestAttachments extends $dara.Model {
 export class CreateWorkItemRequest extends $dara.Model {
   /**
    * @remarks
-   * 验收标准
+   * The acceptance criteria.
    * 
    * @example
    * example
@@ -97,7 +97,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
-   * 输入附件稳定引用
+   * The stable references of the input attachments.
    * 
    * @example
    * example
@@ -105,7 +105,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   attachments?: CreateWorkItemRequestAttachments[];
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 协作人用户ID列表
+   * The list of user IDs of the collaborators.
    * 
    * @example
    * example
@@ -123,7 +123,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   collaboratorUserIds?: number[];
   /**
    * @remarks
-   * 关联会话ID
+   * The ID of the associated conversation.
    * 
    * @example
    * example
@@ -131,7 +131,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 工作项描述
+   * The description of the work item.
    * 
    * @example
    * example
@@ -139,7 +139,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 工作项类型；仅接受 WORKFLOW
+   * The type of the work item. Only WORKFLOW is supported.
    * 
    * This parameter is required.
    * 
@@ -149,7 +149,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 负责人用户ID；缺省为调用者本人
+   * The user ID of the owner. If this parameter is not specified, the ID of the caller is used.
    * 
    * @example
    * 1
@@ -157,7 +157,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 排产优先级
+   * The scheduling priority.
    * 
    * @example
    * HIGH
@@ -165,7 +165,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -173,7 +173,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项标题
+   * The title of the work item.
    * 
    * This parameter is required.
    * 
@@ -183,7 +183,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * 绑定的工作流模板ID列表
+   * The list of IDs of the bound workflow templates.
    * 
    * @example
    * example

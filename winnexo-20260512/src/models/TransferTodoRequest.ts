@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class TransferTodoRequest extends $dara.Model {
   /**
    * @remarks
-   * 交接说明
+   * The handover description.
    * 
    * @example
-   * 请继续处理
+   * Please continue processing
    */
   comment?: string;
   /**
    * @remarks
-   * 转办目标用户ID列表（1~100）
+   * The list of target user IDs to whom the task is reassigned. You can specify 1 to 100 user IDs.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class TransferTodoRequest extends $dara.Model {
   targetUserIds?: string[];
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -31,7 +31,7 @@ export class TransferTodoRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do task.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkItemAttachmentAccessRequest extends $dara.Model {
   /**
    * @remarks
-   * 附件 ID
+   * The attachment ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkItemAttachmentAccessRequest extends $dara.Model {
   attachmentId?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetWorkItemAttachmentAccessRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,7 +33,7 @@ export class GetWorkItemAttachmentAccessRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项 ID
+   * The work item ID.
    * 
    * This parameter is required.
    * 

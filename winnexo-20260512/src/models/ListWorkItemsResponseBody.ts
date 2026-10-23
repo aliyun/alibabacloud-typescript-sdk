@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   /**
    * @remarks
-   * 附件ID
+   * The ID of the attachment.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   attachmentId?: string;
   /**
    * @remarks
-   * 内容类型
+   * The content type.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 附件访问入口（OpenAPI 302 前置）
+   * The access URL of the attachment.
    * 
    * @example
    * example
@@ -29,7 +29,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   refUrl?: string;
   /**
    * @remarks
-   * 附件资源ID
+   * The resource ID of the attachment.
    * 
    * @example
    * example
@@ -37,7 +37,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * 附件资源类型
+   * The resource type of the attachment.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   resourceKind?: string;
   /**
    * @remarks
-   * 附件大小(字节)
+   * The size of the attachment in bytes.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   sizeBytes?: number;
   /**
    * @remarks
-   * 附件标题
+   * The title of the attachment.
    * 
    * @example
    * example
@@ -95,7 +95,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
 export class ListWorkItemsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 验收标准
+   * The acceptance criteria.
    * 
    * @example
    * example
@@ -103,7 +103,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
-   * 已应用的状态版本
+   * The applied status version.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   appliedStatusVersion?: number;
   /**
    * @remarks
-   * 输入附件列表
+   * The list of input attachments.
    * 
    * @example
    * example
@@ -119,7 +119,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   attachments?: ListWorkItemsResponseBodyItemsAttachments[];
   /**
    * @remarks
-   * 业务状态（七态）
+   * The business status.
    * 
    * @example
    * PROCESSING
@@ -127,7 +127,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * 调用者是否可删除
+   * Indicates whether the caller can delete the item.
    * 
    * @example
    * false
@@ -135,7 +135,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * 调用者是否可管理
+   * Indicates whether the caller can manage the item.
    * 
    * @example
    * false
@@ -143,7 +143,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   canManage?: boolean;
   /**
    * @remarks
-   * 是否可独立调整可见范围
+   * Indicates whether the visibility scope can be adjusted independently.
    * 
    * @example
    * false
@@ -151,7 +151,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   canManageVisibility?: boolean;
   /**
    * @remarks
-   * 调用者是否可重命名
+   * Indicates whether the caller can rename the item.
    * 
    * @example
    * false
@@ -159,7 +159,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   canRename?: boolean;
   /**
    * @remarks
-   * 协作空间ID
+   * The ID of the collaboration workspace.
    * 
    * @example
    * example
@@ -167,7 +167,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 协作人用户ID列表
+   * The list of user IDs of the collaborators.
    * 
    * @example
    * example
@@ -175,7 +175,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   collaboratorUserIds?: number[];
   /**
    * @remarks
-   * 关联会话ID
+   * The ID of the associated conversation.
    * 
    * @example
    * example
@@ -183,7 +183,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 创建时间(ISO8601)
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * example
@@ -191,7 +191,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 创建人用户ID
+   * The user ID of the creator.
    * 
    * @example
    * 1
@@ -199,7 +199,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   createdByUserId?: number;
   /**
    * @remarks
-   * 创建来源：DEFAULT/TASK
+   * The creation source. Valid values: DEFAULT and TASK.
    * 
    * @example
    * DEFAULT
@@ -207,7 +207,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   creationType?: string;
   /**
    * @remarks
-   * 当前物理计划ID
+   * The ID of the current physical plan.
    * 
    * @example
    * example
@@ -215,7 +215,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentPlanId?: string;
   /**
    * @remarks
-   * 当前修订号
+   * The current revision number.
    * 
    * @example
    * 1
@@ -223,7 +223,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRevision?: number;
   /**
    * @remarks
-   * 当前运行ID
+   * The ID of the current run.
    * 
    * @example
    * example
@@ -231,7 +231,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRunId?: string;
   /**
    * @remarks
-   * 当前运行序号
+   * The sequence number of the current run.
    * 
    * @example
    * 1
@@ -239,7 +239,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRunSeq?: number;
   /**
    * @remarks
-   * 当前步骤名称
+   * The name of the current step.
    * 
    * @example
    * example
@@ -247,7 +247,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentStepName?: string;
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
    * example
@@ -255,7 +255,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 输入快照版本
+   * The version of the input snapshot.
    * 
    * @example
    * 1
@@ -263,7 +263,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   inputVersion?: number;
   /**
    * @remarks
-   * 工作项类型
+   * The type of the work item.
    * 
    * @example
    * WORKFLOW
@@ -271,7 +271,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 最近进入处理中的时间(ISO8601)
+   * The time when the item last entered the processing state in ISO 8601 format.
    * 
    * @example
    * example
@@ -279,7 +279,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   lastProcessingAt?: string;
   /**
    * @remarks
-   * 是否为兼容期自由探索话题
+   * Indicates whether the topic is a free exploration topic during the compatibility period.
    * 
    * @example
    * false
@@ -287,7 +287,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   legacyTopic?: boolean;
   /**
    * @remarks
-   * 可见成员用户ID列表
+   * The list of user IDs of visible members.
    * 
    * @example
    * example
@@ -295,7 +295,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   memberUserIds?: number[];
   /**
    * @remarks
-   * 修改时间(ISO8601)
+   * The modification time in ISO 8601 format.
    * 
    * @example
    * example
@@ -303,7 +303,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   modifiedAt?: string;
   /**
    * @remarks
-   * 负责人用户ID
+   * The user ID of the owner.
    * 
    * @example
    * 1
@@ -311,7 +311,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 调用者个人置顶状态
+   * Indicates whether the item is pinned by the caller.
    * 
    * @example
    * false
@@ -319,7 +319,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   pinned?: boolean;
   /**
    * @remarks
-   * 优先级
+   * The priority.
    * 
    * @example
    * HIGH
@@ -327,7 +327,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 已完成进度
+   * The completed progress.
    * 
    * @example
    * 1
@@ -335,7 +335,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   progressCompleted?: number;
   /**
    * @remarks
-   * 总进度
+   * The total progress.
    * 
    * @example
    * 1
@@ -343,7 +343,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   progressTotal?: number;
   /**
    * @remarks
-   * 任务执行ID
+   * The execution ID of the task.
    * 
    * @example
    * example
@@ -351,7 +351,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   sourceExecutionId?: string;
   /**
    * @remarks
-   * 任务来源ID
+   * The source ID of the task.
    * 
    * @example
    * example
@@ -359,7 +359,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   sourceTaskId?: string;
   /**
    * @remarks
-   * 任务来源名称
+   * The source name of the task.
    * 
    * @example
    * example
@@ -367,7 +367,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   sourceTaskName?: string;
   /**
    * @remarks
-   * 任务触发键
+   * The trigger key of the task.
    * 
    * @example
    * example
@@ -375,7 +375,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   sourceTriggerKey?: string;
   /**
    * @remarks
-   * 任务来源类型
+   * The source type of the task.
    * 
    * @example
    * example
@@ -383,7 +383,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 标题
+   * The title.
    * 
    * @example
    * example
@@ -391,7 +391,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * 任务触发时区
+   * The time zone when the task is triggered.
    * 
    * @example
    * example
@@ -399,7 +399,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   triggerTimezone?: string;
   /**
    * @remarks
-   * 任务触发时间(ISO8601)
+   * The trigger time of the task in ISO 8601 format.
    * 
    * @example
    * example
@@ -407,7 +407,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   triggeredAt?: string;
   /**
    * @remarks
-   * 乐观版本号
+   * The optimistic version number.
    * 
    * @example
    * 1
@@ -415,7 +415,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * 可见范围
+   * The visibility scope.
    * 
    * @example
    * example
@@ -423,7 +423,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * 可见范围来源：SELF/TASK/TEMPLATE
+   * The source of the visibility scope. Valid values: SELF, TASK, and TEMPLATE.
    * 
    * @example
    * SELF
@@ -431,7 +431,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   visibilitySource?: string;
   /**
    * @remarks
-   * 工作项ID
+   * The ID of the work item.
    * 
    * @example
    * example
@@ -439,7 +439,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   workItemId?: string;
   /**
    * @remarks
-   * Workflow四态投影
+   * The workflow status projection.
    * 
    * @example
    * example
@@ -447,7 +447,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   workflowStatus?: string;
   /**
    * @remarks
-   * 绑定的工作流模板ID列表
+   * The list of IDs of the bound workflow templates.
    * 
    * @example
    * example
@@ -577,7 +577,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
 export class ListWorkItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -585,7 +585,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否还有更多数据
+   * Indicates whether more data is available.
    * 
    * @example
    * false
@@ -593,7 +593,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * 当前页工作项列表
+   * The list of work items on the current page.
    * 
    * @example
    * example
@@ -601,7 +601,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   items?: ListWorkItemsResponseBodyItems[];
   /**
    * @remarks
-   * 本次生效的单页最大返回数量
+   * The maximum number of items returned per page in the current request.
    * 
    * @example
    * 1
@@ -609,15 +609,15 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 下一页翻页令牌；无更多数据时为空字符串
+   * The pagination token for the next page. An empty string indicates that no more data is available.
    * 
    * @example
    * example
@@ -625,7 +625,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -633,7 +633,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 生效单页条数
+   * The number of items per page.
    * 
    * @example
    * 1
@@ -641,7 +641,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -649,7 +649,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 筛选条件下可见总数
+   * The total number of visible items under the filter conditions.
    * 
    * @example
    * 1

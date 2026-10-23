@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   /**
    * @remarks
-   * GRANTEE 主体 ID 列表
+   * The list of grantee principal IDs.
    */
   granteeIds?: string[];
   /**
    * @remarks
-   * GRANTEE USER 所属租户；同资源租户可省略，跨租户 USER 必填
+   * The ID of the tenant to which the grantee user belongs. This parameter is optional if the user and the resource belong to the same tenant, and is required for cross-tenant users.
    * 
    * @example
    * 10000
@@ -18,7 +18,7 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   granteeTenantId?: string;
   /**
    * @remarks
-   * GRANTEE 主体类型
+   * The grantee principal type.
    * 
    * @example
    * USER
@@ -26,7 +26,7 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   granteeType?: string;
   /**
    * @remarks
-   * RESOURCE 是否包含点分后代资源；省略为 false
+   * Specifies whether to include dot-separated descendant resources for the RESOURCE. Default value: false.
    * 
    * @example
    * false
@@ -34,7 +34,7 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   includeDescendants?: boolean;
   /**
    * @remarks
-   * 首段为 APP 应用键的点分资源键
+   * The dot-separated resource key whose first segment is the application key of the APP.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * 固定为 APP_RESOURCE
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * 删除范围：按资源或按主体
+   * The deletion scope: by resource or by principal.
    * 
    * This parameter is required.
    * 
@@ -101,14 +101,14 @@ export class DeleteAppResourcePermissionsRequestItems extends $dara.Model {
 export class DeleteAppResourcePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * 撤权范围
+   * The scope of the permissions to be revoked.
    * 
    * This parameter is required.
    */
   items?: DeleteAppResourcePermissionsRequestItems[];
   /**
    * @remarks
-   * 资源所属租户 ID；省略为调用人当前租户
+   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -116,7 +116,7 @@ export class DeleteAppResourcePermissionsRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

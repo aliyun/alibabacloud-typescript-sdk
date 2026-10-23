@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppResourceUserPermissionsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 实际存储且有效的权限点
+   * The stored and valid permission points.
    */
   permissions?: string[];
   /**
    * @remarks
-   * 资源键
+   * The resource key.
    * 
    * @example
    * app.demo.resource_1
@@ -18,7 +18,7 @@ export class ListAppResourceUserPermissionsResponseBodyItems extends $dara.Model
   resourceKey?: string;
   /**
    * @remarks
-   * 资源类型
+   * The resource type.
    * 
    * @example
    * APP_RESOURCE
@@ -55,7 +55,7 @@ export class ListAppResourceUserPermissionsResponseBodyItems extends $dara.Model
 export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为 200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -63,20 +63,20 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 当前页资源与权限
+   * The resources and permissions on the current page.
    */
   items?: ListAppResourceUserPermissionsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述；成功时为空
+   * The error description. This parameter is empty if the request is successful.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 页码
+   * The page number.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -92,7 +92,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -100,7 +100,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 总资源数
+   * The total number of resources.
    * 
    * @example
    * 100

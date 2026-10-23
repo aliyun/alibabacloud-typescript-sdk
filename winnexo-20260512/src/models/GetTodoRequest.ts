@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTodoRequest extends $dara.Model {
   /**
    * @remarks
-   * assistant 消息ID（按消息反查多条）
+   * The ID of the assistant message. This parameter is used to query multiple to-do items by message.
    * 
    * @example
    * msg-1
@@ -13,7 +13,7 @@ export class GetTodoRequest extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class GetTodoRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID（单条查询）
+   * The ID of the to-do item (get).
    * 
    * @example
    * todo_abc123
@@ -29,7 +29,7 @@ export class GetTodoRequest extends $dara.Model {
   todoId?: string;
   /**
    * @remarks
-   * 工作项ID（按来源反查多条）
+   * The ID of the work item. This parameter is used to query multiple to-do items by source.
    * 
    * @example
    * wi_1

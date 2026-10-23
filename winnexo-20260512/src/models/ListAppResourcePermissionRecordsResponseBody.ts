@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -13,7 +13,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   createdAt?: string;
   /**
    * @remarks
-   * 到期时间
+   * The expiration time.
    * 
    * @example
    * 2026-12-31T23:59:59+08:00
@@ -21,7 +21,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   expireAt?: string;
   /**
    * @remarks
-   * 授权人平台用户 ID
+   * The platform user ID of the grantor.
    * 
    * @example
    * 10086
@@ -29,7 +29,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   grantedBy?: string;
   /**
    * @remarks
-   * 主体 ID
+   * The grantee ID.
    * 
    * @example
    * 10086
@@ -37,15 +37,15 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeId?: string;
   /**
    * @remarks
-   * 主体名称
+   * The grantee name.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   granteeName?: string;
   /**
    * @remarks
-   * 跨租户 USER 所属租户
+   * The ID of the tenant to which the cross-tenant user belongs.
    * 
    * @example
    * 10000
@@ -53,7 +53,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeTenantId?: string;
   /**
    * @remarks
-   * 主体类型
+   * The grantee type.
    * 
    * @example
    * USER
@@ -61,7 +61,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeType?: string;
   /**
    * @remarks
-   * 权限点
+   * The permission.
    * 
    * @example
    * APP/VIEW
@@ -69,7 +69,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   permission?: string;
   /**
    * @remarks
-   * 权限记录 ID
+   * The ID of the permission record.
    * 
    * @example
    * 1001
@@ -77,7 +77,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   permissionId?: number;
   /**
    * @remarks
-   * 资源键
+   * The resource key.
    * 
    * @example
    * app.demo.resource_1
@@ -85,7 +85,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   resourceKey?: string;
   /**
    * @remarks
-   * 资源类型
+   * The resource type.
    * 
    * @example
    * APP_RESOURCE
@@ -93,7 +93,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   resourceType?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -145,7 +145,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
 export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为 200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -153,20 +153,20 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 当前页授权记录
+   * The authorization records on the current page.
    */
   items?: ListAppResourcePermissionRecordsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述；成功时为空
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 页码
+   * The page number.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -182,7 +182,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -190,7 +190,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 记录总数
+   * The total number of records.
    * 
    * @example
    * 100

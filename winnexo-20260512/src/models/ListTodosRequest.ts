@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTodosRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间 ID（可选过滤；不传 = 全部空间）
+   * The collaboration workspace ID. This is an optional filter. If not specified, items from all workspaces are returned.
    * 
    * @example
    * cg_123
@@ -13,15 +13,15 @@ export class ListTodosRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 标题/摘要模糊搜索关键词
+   * The keyword for fuzzy search in the title or summary.
    * 
    * @example
-   * 审批
+   * Approval
    */
   keyword?: string;
   /**
    * @remarks
-   * 单页最大返回数量（1~100）；传入时优先于 pageSize
+   * The maximum number of entries to return per page. Valid values: 1 to 100. This parameter takes precedence over pageSize if both are specified.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListTodosRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 翻页令牌，取上次响应返回的 nextToken；传入时优先于 page
+   * The pagination token. Use the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
    * example
@@ -37,7 +37,7 @@ export class ListTodosRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 页码；传入 nextToken 时忽略
+   * The page number. This parameter is ignored if nextToken is specified.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListTodosRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数（1~100）
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class ListTodosRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 优先级筛选（HIGH/MEDIUM/LOW）
+   * The priority filter. Valid values: HIGH, MEDIUM, and LOW.
    * 
    * @example
    * HIGH
@@ -61,7 +61,7 @@ export class ListTodosRequest extends $dara.Model {
   priorities?: string[];
   /**
    * @remarks
-   * 读取状态筛选（UNREAD/READ，按处理人 readAt 判定）
+   * The read status filter. Valid values: UNREAD and READ. The status is determined by the readAt field of the assignee.
    * 
    * @example
    * UNREAD
@@ -69,7 +69,7 @@ export class ListTodosRequest extends $dara.Model {
   readStatus?: string[];
   /**
    * @remarks
-   * 排序方式
+   * The sorting method.
    * 
    * @example
    * DEFAULT
@@ -77,7 +77,7 @@ export class ListTodosRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * 待办类型筛选（WORKFLOW/OPEN_API）
+   * The to-do type filter. Valid values: WORKFLOW and OPEN_API.
    * 
    * @example
    * WORKFLOW
@@ -85,7 +85,7 @@ export class ListTodosRequest extends $dara.Model {
   sourceTypes?: string[];
   /**
    * @remarks
-   * 待办状态筛选（PENDING/COMPLETED/CANCELLED）
+   * The to-do status filter. Valid values: PENDING, COMPLETED, and CANCELLED.
    * 
    * @example
    * PENDING
@@ -93,7 +93,7 @@ export class ListTodosRequest extends $dara.Model {
   statuses?: string[];
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

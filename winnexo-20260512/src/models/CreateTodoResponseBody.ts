@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTodoResponseBodyAssignees extends $dara.Model {
   /**
    * @remarks
-   * 处理人用户ID
+   * The user ID of the assignee.
    * 
    * @example
    * 43
@@ -13,7 +13,7 @@ export class CreateTodoResponseBodyAssignees extends $dara.Model {
   assigneeUserId?: string;
   /**
    * @remarks
-   * 处理人行状态
+   * The processing status of the assignee.
    * 
    * @example
    * PENDING
@@ -45,12 +45,12 @@ export class CreateTodoResponseBodyAssignees extends $dara.Model {
 export class CreateTodoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 处理人列表
+   * The list of assignees.
    */
   assignees?: CreateTodoResponseBodyAssignees[];
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -58,7 +58,7 @@ export class CreateTodoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 创建时间（ISO8601 带时区；与列表/详情的北京时间格式串不同）
+   * The creation time in ISO 8601 format with a time zone. This format differs from the UTC+8 format string used in the list and details.
    * 
    * @example
    * 2026-10-12T15:00:00+08:00
@@ -66,15 +66,15 @@ export class CreateTodoResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -82,7 +82,7 @@ export class CreateTodoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 待办状态
+   * The status of the to-do item.
    * 
    * @example
    * PENDING
@@ -90,7 +90,7 @@ export class CreateTodoResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 新建待办ID
+   * The ID of the created to-do item.
    * 
    * @example
    * todo_abc123

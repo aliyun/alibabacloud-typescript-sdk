@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * 节点结果结论，无结论时为空
+   * The conclusion of the node result. This field is empty if there is no conclusion.
    * 
    * @example
-   * 分析完成
+   * Analysis completed
    */
   conclusion?: string;
   /**
    * @remarks
-   * 从首次运行到终态的整秒数，缺时间时为空
+   * The total number of seconds from the first run to the desired state. This field is empty if the time is missing.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * 节点首次运行时间，历史或未运行节点为空
+   * The time when the node was first run. This field is empty for historical or unrun nodes.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -29,7 +29,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   enteredAt?: string;
   /**
    * @remarks
-   * 节点实际进入终态的时间，未结束时为空
+   * The time when the node actually entered the desired state. This field is empty if the node has not finished.
    * 
    * @example
    * 2026-10-14T08:02:03Z
@@ -37,15 +37,15 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * 节点负责人展示名称，未知时为空
+   * The display name of the node assignee. This field is empty if the assignee is unknown.
    * 
    * @example
-   * 客户成功经理助理
+   * Assistant Customer Success Manager (CSM)
    */
   handler?: string;
   /**
    * @remarks
-   * 节点在工作流图中的泳道位置
+   * The lane position of the node in the workflow graph.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   lane?: number;
   /**
    * @remarks
-   * 所属节点key（nodeKey），不是会话ID
+   * The key of the node (nodeKey). This is not the session ID.
    * 
    * @example
    * query.amount
@@ -61,15 +61,15 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 节点展示名称
+   * The display name of the node.
    * 
    * @example
-   * 查询签单金额
+   * Query signed contract amount
    */
   nodeName?: string;
   /**
    * @remarks
-   * 节点在返回拓扑列表中的展示序号，从1开始
+   * The display sequence number of the node in the returned topology list, starting from 1.
    * 
    * @example
    * 3
@@ -77,7 +77,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   nodeOrder?: number;
   /**
    * @remarks
-   * 实际节点类型，例如AGENT或HUMAN
+   * The actual node type, such as AGENT or HUMAN.
    * 
    * @example
    * AGENT
@@ -85,7 +85,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * 节点在工作流图中的层级，从0开始
+   * The level of the node in the workflow graph, starting from 0.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   rank?: number;
   /**
    * @remarks
-   * 原始节点运行状态，例如READY、RUNNING、WAITING、SUCCEEDED或FAILED
+   * The original running status of the node, such as READY, RUNNING, WAITING, SUCCEEDED, or FAILED.
    * 
    * @example
    * RUNNING
@@ -101,7 +101,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 等待原因：HUMAN_INPUT、HUMAN_STEP、REVIEW、MANUAL_PAUSE或UNBLOCK；未等待时为空
+   * The reason for waiting, such as HUMAN_INPUT, HUMAN_STEP, REVIEW, MANUAL_PAUSE, or UNBLOCK. This field is empty if the node is not waiting.
    * 
    * @example
    * REVIEW
@@ -155,7 +155,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
 export class ListInstanceNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 物理实例ID
+   * The physical instance ID.
    * 
    * @example
    * plan_example
@@ -171,15 +171,15 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 按拓扑顺序排列的可见节点，数量由实际动态图决定
+   * The visible nodes arranged in topological order. The number of nodes is determined by the actual dynamic graph.
    * 
    * @example
    * []
@@ -187,7 +187,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   nodes?: ListInstanceNodesResponseBodyNodes[];
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -195,7 +195,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 状态版本
+   * The state version.
    * 
    * @example
    * 2

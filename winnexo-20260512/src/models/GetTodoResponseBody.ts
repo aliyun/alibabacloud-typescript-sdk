@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   /**
    * @remarks
-   * 处理时间（北京时间）；未处理为空
+   * The processing time in UTC+8. This field is empty if the item is unprocessed.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -13,7 +13,7 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   actedAt?: string;
   /**
    * @remarks
-   * 处理人来源：ORIGINAL/TRANSFERRED
+   * The source of the assignee. Valid values: ORIGINAL and TRANSFERRED.
    * 
    * @example
    * ORIGINAL
@@ -21,7 +21,7 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   assigneeSource?: string;
   /**
    * @remarks
-   * 处理人用户ID
+   * The user ID of the assignee.
    * 
    * @example
    * 42
@@ -29,7 +29,7 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   assigneeUserId?: string;
   /**
    * @remarks
-   * 已读时间（北京时间）；未读为空
+   * The read time in UTC+8. This field is empty if the item is unread.
    * 
    * @example
    * 2026-10-12 10:01:00
@@ -37,7 +37,7 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   readAt?: string;
   /**
    * @remarks
-   * 处理人行状态
+   * The action status of the assignee.
    * 
    * @example
    * PENDING
@@ -45,7 +45,7 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 转出人用户ID；仅转办产生
+   * The user ID of the person who transferred the task. This field is populated only when the task is transferred.
    * 
    * @example
    * 43
@@ -85,12 +85,12 @@ export class GetTodoResponseBodyTodosAssignees extends $dara.Model {
 export class GetTodoResponseBodyTodos extends $dara.Model {
   /**
    * @remarks
-   * 全部处理人
+   * The assignees.
    */
   assignees?: GetTodoResponseBodyTodosAssignees[];
   /**
    * @remarks
-   * 完成时间（北京时间）
+   * The completion time in UTC+8.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -98,7 +98,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   completedAt?: string;
   /**
    * @remarks
-   * 完成人用户ID
+   * The user ID of the person who completed the to-do item.
    * 
    * @example
    * 42
@@ -106,7 +106,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   completedByUserId?: string;
   /**
    * @remarks
-   * 创建时间（北京时间）
+   * The creation time in UTC+8.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -114,7 +114,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 最后修改时间（北京时间）
+   * The last modification time in UTC+8.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -122,7 +122,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * assistant 消息ID；无会话来源为空
+   * The ID of the assistant message. This field is empty if there is no conversation source.
    * 
    * @example
    * msg-1
@@ -130,7 +130,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 优先级
+   * The priority.
    * 
    * @example
    * MEDIUM
@@ -138,23 +138,23 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 问题清单（JSONB 原样）
+   * The list of questions in the original JSONB format.
    * 
    * @example
-   * q1=示例问题
+   * q1=Sample question
    */
   questions?: { [key: string]: any };
   /**
    * @remarks
-   * 作答内容（JSONB 原样）
+   * The response content in the original JSONB format.
    * 
    * @example
-   * result=同意
+   * result=Approved
    */
   resultPayload?: { [key: string]: any };
   /**
    * @remarks
-   * 来源上下文（原样透传）
+   * The source context passed through in its original format.
    * 
    * @example
    * source=openapi
@@ -162,7 +162,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   sourceContext?: { [key: string]: any };
   /**
    * @remarks
-   * 待办主状态
+   * The primary status of the to-do item.
    * 
    * @example
    * PENDING
@@ -170,23 +170,23 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 待办摘要
+   * The summary of the to-do item.
    * 
    * @example
-   * 待办事项摘要
+   * To-do item summary
    */
   summary?: string;
   /**
    * @remarks
-   * 待办标题
+   * The title of the to-do item.
    * 
    * @example
-   * 治理审批
+   * Governance approval
    */
   title?: string;
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do item.
    * 
    * @example
    * todo_abc123
@@ -254,7 +254,7 @@ export class GetTodoResponseBodyTodos extends $dara.Model {
 export class GetTodoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -262,15 +262,15 @@ export class GetTodoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -278,15 +278,15 @@ export class GetTodoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * todoId 查询时的单条结果（其余查询为空）；字段集同 getTodoDetail 平铺结构
+   * The single result returned when you query by todoId. This field is empty for other query types. The field set is the same as the flattened structure of getTodoDetail.
    * 
    * @example
-   * 示例待办键值对
+   * Sample to-do key-value pair
    */
   todo?: { [key: string]: any };
   /**
    * @remarks
-   * workItemId/messageId 查询时的多条结果（todoId 查询为空）
+   * The multiple results returned when you query by workItemId or messageId. This field is empty for todoId queries.
    */
   todos?: GetTodoResponseBodyTodos[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchAliDingGroupChatsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 阿里钉群聊 ID
+   * The conversation ID. This ID is typically used for JSSDK.
    * 
    * @example
    * cid-example
@@ -13,7 +13,11 @@ export class SearchAliDingGroupChatsResponseBodyItems extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * 会话类型
+   * The conversation type. Valid values:
+   * - **0**: one-on-one chat.
+   * - **1**: group chat.
+   * 
+   * > For a one-on-one chat, you do not need to specify **openConversationId**. Specify the employee ID in **receiverUserIdList**. For a one-on-one chat between two users, specify the employee ID of either user. For a one-on-one chat between a user and a bot, specify the employee ID of the user.
    * 
    * @example
    * INTERNAL_GROUP
@@ -21,7 +25,7 @@ export class SearchAliDingGroupChatsResponseBodyItems extends $dara.Model {
   conversationType?: string;
   /**
    * @remarks
-   * 当前用户是否开启免打扰
+   * Indicates whether the current user has enabled the Do Not Disturb mode.
    * 
    * @example
    * false
@@ -29,10 +33,10 @@ export class SearchAliDingGroupChatsResponseBodyItems extends $dara.Model {
   muted?: boolean;
   /**
    * @remarks
-   * 群聊标题
+   * The title of the scheduled meeting.
    * 
    * @example
-   * 客户项目群
+   * Customer project group
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -65,7 +69,7 @@ export class SearchAliDingGroupChatsResponseBodyItems extends $dara.Model {
 export class SearchAliDingGroupChatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码
+   * The status code.
    * 
    * @example
    * 200
@@ -73,16 +77,20 @@ export class SearchAliDingGroupChatsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否还有下一页
+   * Indicates whether more pages are available.
    * 
    * @example
    * false
    */
   hasMore?: boolean;
+  /**
+   * @remarks
+   * The user group tree node information.
+   */
   items?: SearchAliDingGroupChatsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -90,7 +98,7 @@ export class SearchAliDingGroupChatsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 下一页分页游标，末页为空
+   * The starting cursor for the next page.
    * 
    * @example
    * 1
@@ -98,7 +106,7 @@ export class SearchAliDingGroupChatsResponseBody extends $dara.Model {
   nextCursor?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * request-id

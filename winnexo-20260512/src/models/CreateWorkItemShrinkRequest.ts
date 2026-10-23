@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkItemShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 验收标准
+   * The acceptance criteria.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
-   * 输入附件稳定引用
+   * The stable references of the input attachments.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   attachmentsShrink?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 协作人用户ID列表
+   * The list of user IDs of the collaborators.
    * 
    * @example
    * example
@@ -39,7 +39,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   collaboratorUserIdsShrink?: string;
   /**
    * @remarks
-   * 关联会话ID
+   * The ID of the associated conversation.
    * 
    * @example
    * example
@@ -47,7 +47,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 工作项描述
+   * The description of the work item.
    * 
    * @example
    * example
@@ -55,7 +55,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 工作项类型；仅接受 WORKFLOW
+   * The type of the work item. Only WORKFLOW is supported.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 负责人用户ID；缺省为调用者本人
+   * The user ID of the owner. If this parameter is not specified, the ID of the caller is used.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 排产优先级
+   * The scheduling priority.
    * 
    * @example
    * HIGH
@@ -81,7 +81,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -89,7 +89,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项标题
+   * The title of the work item.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class CreateWorkItemShrinkRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * 绑定的工作流模板ID列表
+   * The list of IDs of the bound workflow templates.
    * 
    * @example
    * example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * 稳定逻辑实例 ID
+   * The stable logical instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkflowInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. If you use winnexo-cli, pass this parameter explicitly by using --tenant-id.
    * 
    * @example
    * 10000

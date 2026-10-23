@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorkItemFeedRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务状态筛选（七态）
+   * The business status filter (seven states).
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   businessStatuses?: string[];
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 翻页游标，取上次响应的 nextCursor
+   * The pagination cursor. Use the nextCursor value from the previous response.
    * 
    * @example
    * example
@@ -31,7 +31,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   cursor?: string;
   /**
    * @remarks
-   * 工作项类型筛选
+   * The work item type filter.
    * 
    * @example
    * example
@@ -39,7 +39,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   itemTypes?: string[];
   /**
    * @remarks
-   * 标题/描述模糊搜索关键词
+   * The keyword for fuzzy search in the title or description.
    * 
    * @example
    * example
@@ -47,7 +47,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * 单页条数（1~100）
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 优先级筛选
+   * The priority filter.
    * 
    * @example
    * example
@@ -63,7 +63,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   priorities?: string[];
   /**
    * @remarks
-   * 个人范围筛选
+   * The personal scope filter.
    * 
    * @example
    * ASSIGNED_TO_ME
@@ -71,7 +71,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * 来源任务ID；指定时返回该任务平铺子项
+   * The ID of the source task. If specified, the flat sub-items of the task are returned.
    * 
    * @example
    * example
@@ -79,7 +79,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   sourceTaskId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -87,7 +87,7 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 视图：FLAT 平铺 / TREE 任务分组
+   * The view type. Valid values: FLAT (flat view) and TREE (task grouping).
    * 
    * @example
    * FLAT

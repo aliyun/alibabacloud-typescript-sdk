@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppResourcePermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为 200
+   * The business status code. The value 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteAppResourcePermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 删除的权限记录数
+   * The number of deleted permission records.
    * 
    * @example
    * 2
@@ -21,15 +21,15 @@ export class DeleteAppResourcePermissionsResponseBody extends $dara.Model {
   deletedCount?: number;
   /**
    * @remarks
-   * 错误描述；成功时为空
+   * The error message. This field is empty if the request is successful.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

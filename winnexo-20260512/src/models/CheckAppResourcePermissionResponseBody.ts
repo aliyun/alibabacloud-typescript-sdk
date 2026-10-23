@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 目标用户是否拥有该资源权限
+   * Indicates whether the target user has the permission on the resource.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   allowed?: boolean;
   /**
    * @remarks
-   * 业务状态码；成功为 200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,15 +21,15 @@ export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述；成功时为空
+   * The error description. This field is empty if the request is successful.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 目标权限点
+   * The target permission.
    * 
    * @example
    * APP/VIEW
@@ -37,7 +37,7 @@ export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -45,7 +45,7 @@ export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 首段为 APP 应用键的点分资源键
+   * The dot-separated resource key. The first segment is the APP application key.
    * 
    * @example
    * app.demo.resource_1
@@ -53,7 +53,7 @@ export class CheckAppResourcePermissionResponseBody extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * 固定为 APP_RESOURCE
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * @example
    * APP_RESOURCE

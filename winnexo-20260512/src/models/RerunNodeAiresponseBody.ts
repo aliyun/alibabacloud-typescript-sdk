@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunNodeAIResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class RerunNodeAIResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 物理实例ID
+   * The physical instance ID.
    * 
    * @example
    * plan_example
@@ -21,15 +21,15 @@ export class RerunNodeAIResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 已安排重跑的节点 key
+   * The key of the node scheduled for rerun.
    * 
    * @example
    * query.amount
@@ -37,7 +37,7 @@ export class RerunNodeAIResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -45,7 +45,7 @@ export class RerunNodeAIResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 重跑事实接受为 true，不表示 AI 已完成；失败通过 Code 和 Message 返回
+   * Indicates whether the rerun request is accepted. A value of true indicates that the rerun is accepted, but does not mean that the AI has completed the task. Failures are returned through the Code and Message fields.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class RerunNodeAIResponseBody extends $dara.Model {
   rerunAccepted?: boolean;
   /**
    * @remarks
-   * 状态版本
+   * The state version.
    * 
    * @example
    * 2

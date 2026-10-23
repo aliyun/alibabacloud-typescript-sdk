@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 模板描述
+   * The description of the template.
    * 
    * @example
    * example
@@ -13,7 +13,15 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 最近修改时间(ISO8601)
+   * The current effective version number. An empty value indicates that only a draft exists and the template cannot be used for work items.
+   * 
+   * @example
+   * v1
+   */
+  effectiveVersion?: string;
+  /**
+   * @remarks
+   * The time when the template was last modified. The time is in the ISO 8601 standard.
    * 
    * @example
    * example
@@ -21,7 +29,25 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 模板名称
+   * The latest version number.
+   * 
+   * @example
+   * v2
+   */
+  latestVersion?: string;
+  /**
+   * @remarks
+   * The status of the latest version. Valid values:
+   * - DRAFT: Draft. The version contains uncommitted edits.
+   * - SUBMITTED: Submitted.
+   * 
+   * @example
+   * DRAFT
+   */
+  latestVersionStatus?: string;
+  /**
+   * @remarks
+   * The name of the template.
    * 
    * @example
    * example
@@ -29,7 +55,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 去重后的负责人数量
+   * The number of unique owners.
    * 
    * @example
    * 1
@@ -37,7 +63,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   ownerCount?: number;
   /**
    * @remarks
-   * 配置了审核人的步骤数
+   * The number of steps configured with reviewers.
    * 
    * @example
    * 1
@@ -45,7 +71,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   reviewStepCount?: number;
   /**
    * @remarks
-   * 步骤数
+   * The number of steps.
    * 
    * @example
    * 1
@@ -53,7 +79,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   stepCount?: number;
   /**
    * @remarks
-   * 模板ID
+   * The ID of the template.
    * 
    * @example
    * example
@@ -62,7 +88,10 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      effectiveVersion: 'effectiveVersion',
       gmtModified: 'gmtModified',
+      latestVersion: 'latestVersion',
+      latestVersionStatus: 'latestVersionStatus',
       name: 'name',
       ownerCount: 'ownerCount',
       reviewStepCount: 'reviewStepCount',
@@ -74,7 +103,10 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      effectiveVersion: 'string',
       gmtModified: 'string',
+      latestVersion: 'string',
+      latestVersionStatus: 'string',
       name: 'string',
       ownerCount: 'number',
       reviewStepCount: 'number',
@@ -95,7 +127,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
 export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -103,7 +135,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否还有更多数据
+   * Indicates whether more data is available.
    * 
    * @example
    * false
@@ -111,7 +143,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * 当前页模板摘要列表
+   * The list of template summaries on the current page.
    * 
    * @example
    * example
@@ -119,7 +151,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   items?: ListWorkflowTemplatesResponseBodyItems[];
   /**
    * @remarks
-   * 本次生效的单页最大返回数量
+   * The maximum number of entries returned per page in the current request.
    * 
    * @example
    * 1
@@ -127,15 +159,15 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 错误描述
+   * The error message.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 下一页翻页令牌；无更多数据时为空字符串
+   * The pagination token for the next page. An empty string indicates that no more data is available.
    * 
    * @example
    * example
@@ -143,7 +175,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -151,7 +183,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 生效单页条数
+   * The number of entries per page in the current request.
    * 
    * @example
    * 1
@@ -159,7 +191,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -167,7 +199,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 筛选条件下可见总数
+   * The total number of visible entries that match the filter conditions.
    * 
    * @example
    * 1

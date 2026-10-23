@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Workflow 必填验收标准
+   * The required acceptance criteria for the workflow.
    * 
    * This parameter is required.
    * 
    * @example
-   * 完成全部审批节点并产出报告
+   * Complete all approval nodes and generate the report
    */
   acceptanceCriteria?: string;
   /**
    * @remarks
-   * 空间内唯一需求编号，重复请求幂等
+   * The unique requirement ID in the workspace. Repeated requests are idempotent.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateWorkflowInstanceRequest extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -35,15 +35,15 @@ export class CreateWorkflowInstanceRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 外部发起人展示标签
+   * The display label of the external initiator.
    * 
    * @example
-   * 外部发起人张三
+   * External Initiator Zhang San
    */
   initiator?: string;
   /**
    * @remarks
-   * 工作项优先级
+   * The work item priority.
    * 
    * @example
    * HIGH
@@ -51,7 +51,7 @@ export class CreateWorkflowInstanceRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * 工作流模板 ID，最多 64 字符
+   * The workflow template ID. Maximum length: 64 characters.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CreateWorkflowInstanceRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter explicitly passed by using --tenant-id in winnexo-cli.
    * 
    * @example
    * 10000
@@ -69,20 +69,20 @@ export class CreateWorkflowInstanceRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 需求标题
+   * The requirement title.
    * 
    * This parameter is required.
    * 
    * @example
-   * 季度经营分析报告
+   * Quarterly Business Analysis Report
    */
   title?: string;
   /**
    * @remarks
-   * 业务变量对象，tags 可为字符串标签列表
+   * The business variable object. The tags field can be a list of string tags.
    * 
    * @example
-   * tags=季度报告
+   * tags=Quarterly Report
    */
   variables?: { [key: string]: any };
   static names(): { [key: string]: string } {

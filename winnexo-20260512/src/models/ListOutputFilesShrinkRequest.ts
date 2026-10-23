@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutputFilesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 精确业务编号，来自文件登记或工作流实例关联
+   * The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from the businessId of the file registration or associated workflow instance.
    * 
    * @example
    * REQ-20261012-001
@@ -13,7 +13,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * 可选协作空间 ID；未传保持当前用户个人产出范围
+   * The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
    * 
    * @example
    * cg_123e4567-e89b-42d3-a456-426614174001
@@ -21,31 +21,31 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The type of the output item. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+   * The output item type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
    * 
    * @example
-   * ppt
+   * document
    */
   itemType?: string;
   /**
    * @remarks
-   * The keyword for searching. Matches the output title or item name.
+   * The keyword used to match the output title or detail name.
    * 
    * @example
-   * string_value
+   * Quarterly operations
    */
   keyword?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object). Used to filter results by name.
+   * The name of the digital employee (operating object). Filters outputs by name.
    * 
    * @example
-   * string_value
+   * Business Analysis Assistant
    */
   operatingObjectName?: string;
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of items per page. Valid values: 1 to 100.
+   * The number of items per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 精确会话 ID，覆盖普通会话、技能会话与任务 executionId
+   * The session ID used for exact filtering. The length is 1 to 128 characters. This parameter applies to regular sessions, skill sessions, and the executionId of task executions.
    * 
    * @example
    * session_123e4567-e89b-42d3-a456-426614174008
@@ -69,7 +69,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to display only outputs and output items with sharing enabled.
+   * Specifies whether to display only shared outputs and output details.
    * 
    * @example
    * False
@@ -77,12 +77,12 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   sharedOnly?: boolean;
   /**
    * @remarks
-   * 全部匹配的标签列表，来自文件登记或实例 variables.tags
+   * The tags used for exact filtering. All specified tags must be matched simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
    * 
    * @example
    * 10000

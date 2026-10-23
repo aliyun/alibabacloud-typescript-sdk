@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchOperateWorkItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * 批量动作
+   * The batch action.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BatchOperateWorkItemsRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * 协作空间 ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BatchOperateWorkItemsRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 幂等键
+   * The idempotency key.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class BatchOperateWorkItemsRequest extends $dara.Model {
   idempotencyKey?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -43,7 +43,7 @@ export class BatchOperateWorkItemsRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 目标工作项 ID 列表（1~100 个）
+   * The IDs of the target work items. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    * 

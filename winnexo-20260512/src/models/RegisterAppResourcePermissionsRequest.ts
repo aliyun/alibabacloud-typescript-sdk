@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Model {
   /**
    * @remarks
-   * 主体 ID；ALL_USERS 省略
+   * The principal ID. Omit this parameter for ALL_USERS.
    * 
    * @example
    * 10086
@@ -13,7 +13,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
   granteeId?: string;
   /**
    * @remarks
-   * 跨租户 USER 所属租户
+   * The tenant to which the cross-tenant USER belongs.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
   granteeTenantId?: string;
   /**
    * @remarks
-   * 主体类型
+   * The principal type.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
 export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   /**
    * @remarks
-   * 带时区的到期时间；省略表示永久
+   * The expiration time with the time zone. If not specified, the permissions never expire.
    * 
    * @example
    * 2026-12-31T23:59:59+08:00
@@ -65,21 +65,21 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   expireAt?: string;
   /**
    * @remarks
-   * 被授权主体
+   * The authorized principals.
    * 
    * This parameter is required.
    */
   grantees?: RegisterAppResourcePermissionsRequestItemsGrantees[];
   /**
    * @remarks
-   * 授权权限点
+   * The granted permissions.
    * 
    * This parameter is required.
    */
   permissions?: string[];
   /**
    * @remarks
-   * 首段为 APP 应用键的点分资源键
+   * The dot-separated resource key, where the first segment is the APP application key.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * 固定为 APP_RESOURCE
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * This parameter is required.
    * 
@@ -135,14 +135,14 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
 export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * 批量授权项
+   * The batch authorization items.
    * 
    * This parameter is required.
    */
   items?: RegisterAppResourcePermissionsRequestItems[];
   /**
    * @remarks
-   * 资源所属租户 ID；省略为调用人当前租户
+   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -150,7 +150,7 @@ export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

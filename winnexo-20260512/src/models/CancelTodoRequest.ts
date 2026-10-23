@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelTodoRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数；缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class CancelTodoRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 待办ID（与 workItemId 二选一）
+   * The ID of the to-do item. You must specify either this parameter or workItemId.
    * 
    * @example
    * todo_abc123
@@ -21,7 +21,7 @@ export class CancelTodoRequest extends $dara.Model {
   todoId?: string;
   /**
    * @remarks
-   * 工作项ID（按来源批量作废；与 todoId 二选一）
+   * The ID of the work item. You can use this parameter to cancel to-do items in batches by source. You must specify either this parameter or todoId.
    * 
    * @example
    * wi_1

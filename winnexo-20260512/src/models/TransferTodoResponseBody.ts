@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransferTodoResponseBodyTargets extends $dara.Model {
   /**
    * @remarks
-   * 处理结果：CREATED/REVIVED/ALREADY_PENDING
+   * The processing result. Valid values: CREATED, REVIVED, and ALREADY_PENDING.
    * 
    * @example
    * CREATED
@@ -13,7 +13,7 @@ export class TransferTodoResponseBodyTargets extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * 目标用户ID
+   * The ID of the target user.
    * 
    * @example
    * 43
@@ -45,7 +45,7 @@ export class TransferTodoResponseBodyTargets extends $dara.Model {
 export class TransferTodoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -53,15 +53,15 @@ export class TransferTodoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -69,12 +69,12 @@ export class TransferTodoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 逐目标处理结果
+   * The processing results for each target.
    */
   targets?: TransferTodoResponseBodyTargets[];
   /**
    * @remarks
-   * 待办ID
+   * The ID of the to-do task.
    * 
    * @example
    * todo_abc123

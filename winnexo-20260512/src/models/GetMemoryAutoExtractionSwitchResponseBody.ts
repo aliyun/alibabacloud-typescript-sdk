@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemoryAutoExtractionSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码；成功为 200，失败时为对应错误码
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetMemoryAutoExtractionSwitchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 当前记忆范围的自动记忆拾取开关状态；true 表示已开启，false 表示已关闭
+   * The status of the automatic memory collection switch for the current memory scope. A value of true indicates that the switch is enabled, and a value of false indicates that the switch is disabled.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class GetMemoryAutoExtractionSwitchResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 错误描述；成功时为空字符串，失败时返回具体原因
+   * The error description.
    * 
    * @example
-   * 当前用户不是群组 cg_12345 的活跃成员
+   * The current user is not an active member of the group cg_12345
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID，用于定位本次调用
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
