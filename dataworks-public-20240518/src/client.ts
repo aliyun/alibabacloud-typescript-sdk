@@ -9254,7 +9254,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a specified column in a DataWorks Data Map table.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetColumnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9284,7 +9284,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a specified column in a DataWorks Data Map table.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - GetColumnRequest
    * @returns GetColumnResponse
@@ -13361,7 +13361,7 @@ export default class Client extends OpenApi {
    * Queries the columns of a specified table in DataWorks Data Map.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or later to use this API.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13391,7 +13391,7 @@ export default class Client extends OpenApi {
    * Queries the columns of a specified table in DataWorks Data Map.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or later to use this API.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListColumnsRequest
    * @returns ListColumnsResponse
@@ -16216,7 +16216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
+   * Queries the upstream and downstream lineage entities for a specified entity in Data Map, with an option to include detailed lineage relationship information.
    * 
    * @remarks
    * 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.
@@ -16247,7 +16247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
+   * Queries the upstream and downstream lineage entities for a specified entity in Data Map, with an option to include detailed lineage relationship information.
    * 
    * @remarks
    * 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.

@@ -16,7 +16,7 @@ export class LineageEntity extends $dara.Model {
    * The entity ID.
    * 
    * @example
-   * maxcompute-table:123456::test_project::test_tbl
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   id?: string;
   /**
