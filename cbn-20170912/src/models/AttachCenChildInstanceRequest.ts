@@ -15,7 +15,7 @@ export class AttachCenChildInstanceRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the network instance to attach.
+   * The ID of the network instance to be attached.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class AttachCenChildInstanceRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID to which the network instance belongs.
    * 
-   * >This parameter is required if you want to attach a cross-account network instance.
+   * > This parameter is required if you want to load a cross-account network instance.
    * 
    * @example
    * 1688000000000000
@@ -35,9 +35,9 @@ export class AttachCenChildInstanceRequest extends $dara.Model {
   childInstanceOwnerId?: number;
   /**
    * @remarks
-   * The region of the network instance.
+   * The region ID of the network instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -49,11 +49,11 @@ export class AttachCenChildInstanceRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: virtual private cloud.
+   * - **VPC**: VPC.
    * 
-   * - **VBR**: border router.
+   * - **VBR**: VBR.
    * 
-   * - **CCN**: Cloud Connect Network.
+   * - **CCN**: CCN.
    * 
    * This parameter is required.
    * 

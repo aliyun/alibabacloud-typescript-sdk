@@ -7,7 +7,7 @@ export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
    * You can specify up to 20 tag keys at a time.
    * 
@@ -19,9 +19,9 @@ export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource.
    * 
-   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
-   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
+   * Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -53,7 +53,7 @@ export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The Cloud Enterprise Network (CEN) instance ID. If you specify this parameter, you must also specify RegionId.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -61,7 +61,7 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Default value: **20**.
+   * The number of entries to return per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -69,9 +69,9 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values: 
-   * - If **NextToken** is empty, no next query exists. 
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token used to start the next query. Valid values: 
+   * - If **NextToken** is empty, no next query is available. 
+   * - If **NextToken** returns a value, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -81,7 +81,7 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the transit router instance.
+   * The region ID of the transit router. If you specify this parameter, you must also specify CenId.
    * 
    * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
@@ -100,7 +100,7 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   tag?: ListTransitRouterEcrAttachmentsRequestTag[];
   /**
    * @remarks
-   * The ECR connection ID.
+   * The ID of the ECR connection.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****

@@ -13,7 +13,7 @@ export class CreateTransitRouterVpcAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the VPC connection.
+   * The ID of the VPC attachment.
    * 
    * @example
    * tr-attach-ia340z7xis7t5s****

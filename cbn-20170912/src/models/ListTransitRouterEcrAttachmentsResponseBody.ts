@@ -45,9 +45,9 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Enterprise Edition transit router automatically publishes route entries to the ECR instance.
+   * Specifies whether the Enterprise Edition transit router is configured to publish route entry to the ECR instance. Valid value:
    * 
-   * The value is **true** only, which indicates that route entries are automatically published.
+   * - **true**: The transit router is configured to publish route entry.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The CEN instance ID.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -65,7 +65,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The time when the ECR connection was created.
    * 
-   * The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mmZ.
+   * The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
    * 
    * @example
    * 2021-06-15T02:14Z
@@ -73,7 +73,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   creationTime?: string;
   /**
    * @remarks
-   * The instance ID of the associated Express Connect Router (ECR).
+   * The associated Express Connect Router (ECR) instance ID.
    * 
    * @example
    * ecr-n78omt2qsko06y****
@@ -91,8 +91,8 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The payer of the network instance. Valid values:
    * 
-   * - **PayByCenOwner**: The connection fee and data processing fee of the ECR instance are paid by the account that owns the transit router instance.
-   * - **PayByResourceOwner**: The connection fee and data processing fee of the ECR instance are paid by the account that owns the ECR instance.
+   * - **PayByCenOwner**: The connection fee and data transfer fee of the ECR instance are paid by the account to which the transit router belongs.
+   * - **PayByResourceOwner**: The connection fee and data transfer fee of the ECR instance are paid by the account to which the ECR instance belongs.
    * 
    * @example
    * PayByCenOwner
@@ -100,9 +100,9 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   orderType?: string;
   /**
    * @remarks
-   * The resource type of the connection.
+   * The resource type of the connection. Valid value:
    * 
-   * The value is **ECR** only, which indicates an Express Connect Router (ECR) instance.
+   * - **ECR**: Express Connect Router (ECR) instance.
    * 
    * @example
    * ECR
@@ -110,11 +110,11 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   resourceType?: string;
   /**
    * @remarks
-   * The status of the ECR connection.
+   * The status of the ECR connection. Valid values:
    * 
-   * - **Attached**: attached.
-   * - **Attaching**: being attached.
-   * - **Detaching**: being detached.
+   * - **Attached**: The connection is attached.
+   * - **Attaching**: The connection is being attached.
+   * - **Detaching**: The connection is being detached.
    * 
    * @example
    * Attached
@@ -135,7 +135,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The ECR connection ID.
+   * The ID of the ECR connection.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -161,7 +161,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The region ID of the transit router.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region information corresponding to the region ID.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region information represented by the region ID.
    * 
    * @example
    * cn-shanghai
@@ -220,7 +220,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -228,7 +228,7 @@ export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next paged query.
+   * The token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
