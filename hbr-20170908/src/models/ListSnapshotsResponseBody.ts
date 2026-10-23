@@ -13,7 +13,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   actualBytes?: number;
   /**
    * @remarks
-   * The actual number of nodes.
+   * The actual number of items.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   actualItems?: number;
   /**
    * @remarks
-   * The time when the backup was archived.
+   * The archive time.
    * 
    * @example
    * 1640334062
@@ -29,7 +29,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   archiveTime?: number;
   /**
    * @remarks
-   * The backup type. The value is **COMPLETE**, which indicates a full backup.
+   * The backup type. A value of **COMPLETE** indicates a full backup.
    * 
    * @example
    * COMPLETE
@@ -37,7 +37,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The amount of data that has been backed up, in bytes.
+   * The amount of backed up data, in bytes.
    * 
    * @example
    * 800
@@ -53,7 +53,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   bytesTotal?: number;
   /**
    * @remarks
-   * When **SourceType** is set to **ECS_FILE** or **File**, this parameter indicates the backup client ID. In other cases, it indicates the ID of the backup data source.
+   * The ID of the backup client when the value of **SourceType** is **ECS_FILE** or **File**. In other cases, this parameter indicates the ID of the backup data source.
    * 
    * @example
    * c-*********************
@@ -61,7 +61,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The backup completion time. A UNIX timestamp, in seconds.
+   * The backup completion time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1642496679
@@ -69,7 +69,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   completeTime?: number;
   /**
    * @remarks
-   * The time when the backup point was created, in seconds.
+   * The creation time of the backup point, in seconds.
    * 
    * @example
    * 1607436917
@@ -77,7 +77,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The time when the backup was created.
+   * The backup creation time.
    * 
    * @example
    * 1642496679
@@ -101,7 +101,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   exclude?: string;
   /**
    * @remarks
-   * The backup expiration time.
+   * The expiration time of the backup.
    * 
    * @example
    * 1771901707
@@ -125,7 +125,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Tablestore instance name.
+   * The name of the Tablestore instance.
    * 
    * @example
    * instancename
@@ -133,7 +133,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of nodes that have been backed up.
+   * The number of backed up items.
    * 
    * @example
    * 8
@@ -141,7 +141,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   itemsDone?: number;
   /**
    * @remarks
-   * The total number of nodes to back up.
+   * The total number of items to back up.
    * 
    * @example
    * 10
@@ -149,7 +149,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   itemsTotal?: number;
   /**
    * @remarks
-   * The backup job ID.
+   * The ID of the backup job.
    * 
    * @example
    * job-00030j3chkt******2
@@ -157,7 +157,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The source path.
+   * The backup path.
    * 
    * @example
    * /home
@@ -165,12 +165,12 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The list of source paths.
+   * The list of backup paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The backup plan ID.
+   * The ID of the backup plan.
    * 
    * @example
    * po-123***7890
@@ -178,7 +178,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * The protected source data size, in bytes. When SourceType is set to ECS_FILE, this indicates the protected cloud disk capacity.
+   * The size of the protected source data, in bytes. When the value of SourceType is ECS_FILE, this parameter indicates the capacity of the protected cloud disk.
    * 
    * @example
    * 42949672960
@@ -186,7 +186,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   protectedDataSize?: number;
   /**
    * @remarks
-   * The end time of the Tablestore backup job execution. A UNIX timestamp, in milliseconds.
+   * The end time of the Tablestore backup job. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1642521709966
@@ -194,7 +194,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   rangeEnd?: number;
   /**
    * @remarks
-   * The start time of the Tablestore backup job execution. A UNIX timestamp, in milliseconds.
+   * The start time of the Tablestore backup job. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1642492553038
@@ -218,7 +218,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotHash?: string;
   /**
    * @remarks
-   * The backup point ID.
+   * The ID of the backup point.
    * 
    * @example
    * s-00047mxg17p26*****b
@@ -229,11 +229,11 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
    * The data source type. Valid values:
    * 
    * - **ECS_FILE**: ECS file backup
-   * - **File**: On-premises file backup
+   * - **File**: on-premises file backup
    * - **OSS**: OSS backup
    * - **NAS**: Alibaba Cloud NAS backup
-   * - **COMMON_NAS**: On-premises NAS backup
-   * - **CONTAINER**: Container backup
+   * - **COMMON_NAS**: on-premises NAS backup
+   * - **CONTAINER**: container backup
    * - **OTS_TABLE**: Tablestore backup
    * - **COMMON_FILE_SYSTEM**: CPFS backup
    * 
@@ -243,7 +243,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The backup point status.
+   * The status of the backup point. Valid values:
    * 
    * @example
    * COMPLETE
@@ -251,7 +251,7 @@ export class ListSnapshotsResponseBodySnapshots extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class.
+   * The storage class. Valid values:
    * 
    * @example
    * STANDARD
@@ -372,7 +372,7 @@ export class ListSnapshotsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of results returned.
+   * The maximum number of returned results.
    * 
    * @example
    * 10
@@ -380,7 +380,7 @@ export class ListSnapshotsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The return message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
+   * The returned message. A value of successful indicates success. If an error occurs, the corresponding error message is returned.
    * 
    * @example
    * successful
@@ -388,7 +388,7 @@ export class ListSnapshotsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty NextToken indicates that no more pages are available.
+   * The token for the next page. If NextToken is empty, no more pages exist.
    * 
    * @example
    * aWQj********MCMy
@@ -409,10 +409,10 @@ export class ListSnapshotsResponseBody extends $dara.Model {
   snapshots?: ListSnapshotsResponseBodySnapshots[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

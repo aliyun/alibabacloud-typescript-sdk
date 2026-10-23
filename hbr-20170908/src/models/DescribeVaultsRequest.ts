@@ -45,7 +45,7 @@ export class DescribeVaultsRequestTag extends $dara.Model {
 export class DescribeVaultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The page number. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   replication?: boolean;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-*********************
@@ -78,7 +78,6 @@ export class DescribeVaultsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the backup vault. Valid values:
-   * 
    * - **UNKNOWN**: unknown
    * - **INITIALIZING**: initializing
    * - **CREATED**: created
@@ -98,7 +97,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   tag?: DescribeVaultsRequestTag[];
   /**
    * @remarks
-   * The backup vault ID.
+   * The ID of the backup vault.
    * 
    * @example
    * v-*********************
@@ -122,7 +121,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   vaultOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the backup vault.
+   * The ID of the region to which the backup vault belongs.
    * 
    * @example
    * cn-shanghai
@@ -130,7 +129,9 @@ export class DescribeVaultsRequest extends $dara.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * The type of the backup vault. Valid values.
+   * The type of the backup vault. Valid values:
+   * - **STANDARD**: A standard vault. It can be used for ECS File Backup Standard Edition, OSS backup, and NAS backup.
+   * - **OTS_BACKUP**: A Tablestore vault. It can only be used for Tablestore backup. Tablestore requires this type of vault.
    * 
    * @example
    * STANDARD

@@ -6,7 +6,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The product capability to which the resource belongs. Valid values:
-   * - **HBR**: Cloud Backup standard capability.
+   * - **HBR**: Cloud Backup standard capabilities.
    * - **BASIC**: ECS File Backup Essential Edition.
    * 
    * @example
@@ -15,7 +15,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   createdByProduct?: string;
   /**
    * @remarks
-   * Specifies whether the resource has backup points.
+   * Specifies whether backup points exist.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   hasSnapshot?: boolean;
   /**
    * @remarks
-   * The number of results per query.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 10.
    * 
@@ -33,7 +33,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If this parameter is empty, no more pages are available.
+   * The pagination token for the next page. If NextToken is empty, no next page exists.
    * 
    * @example
    * aWQj********MCMy
@@ -41,11 +41,11 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The resource ID. The meaning of this parameter varies based on the value of SourceType:
    * - **SourceType=ECS_FILE**: the ECS instance ID.
    * - **SourceType=COMMON_FILE_SYSTEM**: the CPFS data source ID.
    * - **SourceType=COMMON_NAS**: the on-premises NAS data source ID.
-   * - **SourceType=File**: the local service client ID.
+   * - **SourceType=File**: the on-premises server client ID.
    * - **SourceType=NAS**: the Alibaba Cloud NAS file system ID.
    * - **SourceType=OSS**: the OSS bucket.
    * 
@@ -55,8 +55,8 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The number of entries to skip for paging.
-   * If the number of skipped entries exceeds the total number of conditional entries, an empty list is returned. The number of skipped entries must be a multiple of MaxResults.
+   * The number of entries to skip for a paged query.
+   * If the number of skipped entries exceeds the total number of matched entries, an empty list is returned. The number of skipped entries must be a multiple of MaxResults.
    * 
    * @example
    * 10
@@ -64,11 +64,11 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   skip?: number;
   /**
    * @remarks
-   * The backup feature type. Valid values:
+   * The type of backup feature. Valid values:
    * - **ECS_FILE**: ECS file backup.
-   * - **COMMON_FILE_SYSTEM**: Cloud Parallel File Storage (CPFS) backup.
-   * - **COMMON_NAS**: on-premises NAS backup.
-   * - **File**: on-premises file backup.
+   * - **COMMON_FILE_SYSTEM**: CPFS backup.
+   * - **COMMON_NAS**: On-premises NAS backup.
+   * - **File**: On-premises file backup.
    * - **NAS**: Alibaba Cloud NAS backup.
    * - **OSS**: OSS backup.
    * 

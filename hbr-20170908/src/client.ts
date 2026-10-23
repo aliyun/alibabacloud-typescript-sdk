@@ -4302,7 +4302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about one or more backup vaults that meet the specified conditions.
+   * Queries the information of one or more backup vaults that meet the specified conditions.
    * 
    * @param request - DescribeVaultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4375,7 +4375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about one or more backup vaults that meet the specified conditions.
+   * Queries the information of one or more backup vaults that meet the specified conditions.
    * 
    * @param request - DescribeVaultsRequest
    * @returns DescribeVaultsResponse
@@ -5134,7 +5134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup points.
+   * Queries backup points.
    * 
    * @param request - ListSnapshotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5197,7 +5197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup points.
+   * Queries backup points.
    * 
    * @param request - ListSnapshotsRequest
    * @returns ListSnapshotsResponse

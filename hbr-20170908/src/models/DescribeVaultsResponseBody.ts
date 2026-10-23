@@ -6,6 +6,11 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
   archive?: number;
   commonFileSystem?: number;
   commonNas?: number;
+  /**
+   * @example
+   * 3
+   */
+  cpfs?: number;
   csg?: number;
   ecsFile?: number;
   ecsHana?: number;
@@ -23,6 +28,7 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
       archive: 'Archive',
       commonFileSystem: 'CommonFileSystem',
       commonNas: 'CommonNas',
+      cpfs: 'Cpfs',
       csg: 'Csg',
       ecsFile: 'EcsFile',
       ecsHana: 'EcsHana',
@@ -43,6 +49,7 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
       archive: 'number',
       commonFileSystem: 'number',
       commonNas: 'number',
+      cpfs: 'number',
       csg: 'number',
       ecsFile: 'number',
       ecsHana: 'number',
@@ -437,7 +444,7 @@ export class DescribeVaultsResponseBodyVaults extends $dara.Model {
 export class DescribeVaultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success.
+   * The return code. 200 indicates success.
    * 
    * @example
    * 200
@@ -445,7 +452,7 @@ export class DescribeVaultsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
+   * The returned message. "successful" is returned for a successful request, and the corresponding error message is returned if an error occurs.
    * 
    * @example
    * successful
@@ -453,7 +460,7 @@ export class DescribeVaultsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The page number. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -477,7 +484,9 @@ export class DescribeVaultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

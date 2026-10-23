@@ -57,7 +57,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The return code. 200 indicates success.
    * 
    * @example
    * 200
@@ -65,7 +65,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The returned message. "successful" is returned for a successful request. An error message is returned for a failed request.
    * 
    * @example
    * successful
@@ -84,8 +84,8 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

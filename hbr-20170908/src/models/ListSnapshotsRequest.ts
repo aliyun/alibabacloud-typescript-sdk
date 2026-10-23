@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end completion time. A UNIX timestamp, in seconds. Only backup points with a completion time earlier than this value are returned.
+   * The end completion time. The value is a UNIX timestamp in seconds. Only backup points whose completion time is less than this value are returned.
    * 
    * @example
    * 1776059382
@@ -13,7 +13,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   completeTimeEnd?: number;
   /**
    * @remarks
-   * The start completion time. A UNIX timestamp, in seconds. Only backup points with a completion time greater than or equal to this value are returned.
+   * The start completion time. The value is a UNIX timestamp in seconds. Only backup points whose completion time is greater than or equal to this value are returned.
    * 
    * @example
    * 1776059082
@@ -21,7 +21,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   completeTimeStart?: number;
   /**
    * @remarks
-   * The maximum number of results to return in a paged query. Default value: 10. The value must be greater than 1.
+   * The maximum number of results to return for a paged query. Default value: 10. The value must be greater than 1.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. You do not need to specify this parameter for the first request. For subsequent pages, pass in the **NextToken** value returned from the previous request. An empty **NextToken** indicates that no more pages are available. This parameter cannot be used together with **Skip**.
+   * The pagination token. You do not need to specify this parameter for the first query. When you query the next page, set this parameter to the **NextToken** value returned from the previous page. If **NextToken** is empty, no more pages exist. This parameter cannot be used together with **Skip**.
    * 
    * @example
    * eyJJbmRleCI6NjUwMX0=
@@ -37,7 +37,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The backup plan ID. This is an optional filter condition. If specified, only backup points under the specified backup plan are returned.
+   * The ID of the backup plan. This is an optional filter. If you specify this parameter, only the backup points under the specified backup plan are returned.
    * 
    * @example
    * po-0000****123
@@ -45,7 +45,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * The ID of the protected resource. The protected resource must exist, and its data source type must match the **SourceType** parameter.
+   * The ID of the protected resource. The protected resource must exist, and its data source type must be the same as the value of the **SourceType** parameter.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   skip?: number;
   /**
    * @remarks
-   * The data source type. The value must match the data source type of the protected resource (ProtectedResourceId). The supported data source types are listed in the valid values.
+   * The data source type. It must be the same as the data source type of the protected resource specified by ProtectedResourceId. Valid values:
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class ListSnapshotsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The vault ID. This is an optional filter condition. If specified, only backup points in the specified vault are returned.
+   * The ID of the vault. This is an optional filter. If you specify this parameter, only the backup points in the specified vault are returned.
    * 
    * @example
    * v-00030j3c******sn

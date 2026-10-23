@@ -14,7 +14,7 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   /**
    * @remarks
    * The product capability to which the resource belongs. Valid values:
-   * - **HBR**: Cloud Backup standard capability.
+   * - **HBR**: Cloud Backup standard capabilities.
    * - **BASIC**: ECS File Backup Essential Edition.
    * 
    * @example
@@ -23,8 +23,8 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   createdByProduct?: string;
   /**
    * @remarks
-   * The amount of protected data, in bytes. Currently, only ECS File Backup Essential Edition is supported.
-   * - **SourceType=ECS_FILE**: the backed-up block storage capacity.
+   * The protected data volume, in bytes. This parameter is supported only for ECS File Backup Essential Edition.
+   * - **SourceType=ECS_FILE**: the storage capacity of the backed-up block storage.
    * 
    * @example
    * 107374182400
@@ -40,11 +40,11 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   protectedResourceId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The resource ID. The meaning of this parameter varies based on the value of SourceType:
    * - **SourceType=ECS_FILE**: the ECS instance ID.
    * - **SourceType=COMMON_FILE_SYSTEM**: the CPFS data source ID.
    * - **SourceType=COMMON_NAS**: the on-premises NAS data source ID.
-   * - **SourceType=File**: the local service client ID.
+   * - **SourceType=File**: the on-premises server client ID.
    * - **SourceType=NAS**: the Alibaba Cloud NAS file system ID.
    * - **SourceType=OSS**: the OSS bucket.
    * 
@@ -54,7 +54,7 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * The UID of the user who owns the resource.
+   * The UID of the user to whom the resource belongs.
    * 
    * @example
    * 1024********0703
@@ -62,7 +62,7 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -70,7 +70,7 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   resourceRegionId?: string;
   /**
    * @remarks
-   * The number of backups.
+   * The number of backup snapshots.
    * 
    * @example
    * 30
@@ -78,11 +78,11 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   snapshotCount?: number;
   /**
    * @remarks
-   * The backup feature type. Valid values:
+   * The type of backup feature. Valid values:
    * - **ECS_FILE**: ECS file backup.
-   * - **COMMON_FILE_SYSTEM**: Cloud Parallel File Storage (CPFS) backup.
-   * - **COMMON_NAS**: on-premises NAS backup.
-   * - **File**: on-premises file backup.
+   * - **COMMON_FILE_SYSTEM**: CPFS backup.
+   * - **COMMON_NAS**: On-premises NAS backup.
+   * - **File**: On-premises file backup.
    * - **NAS**: Alibaba Cloud NAS backup.
    * - **OSS**: OSS backup.
    * 
@@ -138,7 +138,7 @@ export class ListProtectedResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of results per query.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 10.
    * 
@@ -148,7 +148,7 @@ export class ListProtectedResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
+   * The return message. A value of successful indicates success. If an error occurs, the corresponding error message is returned.
    * 
    * @example
    * successful
@@ -156,7 +156,7 @@ export class ListProtectedResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. If this parameter is empty, no more pages are available.
+   * The pagination token for the next page. If NextToken is empty, no next page exists.
    * 
    * @example
    * eyJJ************MX0=
@@ -177,9 +177,9 @@ export class ListProtectedResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
-   * - true: The request was successful.
+   * - true: The request is successful.
    * - false: The request failed.
    * 
    * @example
