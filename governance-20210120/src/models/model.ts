@@ -61,6 +61,9 @@ export { GetAccountFactoryBaselineResponse } from './GetAccountFactoryBaselineRe
 export { GetEnrolledAccountRequest } from './GetEnrolledAccountRequest';
 export { GetEnrolledAccountResponseBody } from './GetEnrolledAccountResponseBody';
 export { GetEnrolledAccountResponse } from './GetEnrolledAccountResponse';
+export { GetGovernanceServiceStatusRequest } from './GetGovernanceServiceStatusRequest';
+export { GetGovernanceServiceStatusResponseBody } from './GetGovernanceServiceStatusResponseBody';
+export { GetGovernanceServiceStatusResponse } from './GetGovernanceServiceStatusResponse';
 export { ListAccountFactoryBaselineItemsRequest } from './ListAccountFactoryBaselineItemsRequest';
 export { ListAccountFactoryBaselineItemsResponseBody } from './ListAccountFactoryBaselineItemsResponseBody';
 export { ListAccountFactoryBaselineItemsResponse } from './ListAccountFactoryBaselineItemsResponse';
