@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHpcClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,7 +13,8 @@ export class DescribeHpcClustersRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The IDs of HPC clusters. The value can be a JSON array that consists of up to 100 HPC cluster IDs. Separate the IDs with commas (,).
+   * The IDs of the HPC clusters.
+   * The value can be a JSON array that consists of up to 100 HPC cluster IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["hpc-xxxxxxxxx", "hpc-yyyyyyyyy", … "hpc-zzzzzzzzz"]
@@ -25,7 +26,7 @@ export class DescribeHpcClustersRequest extends $dara.Model {
    * @remarks
    * The page number of the HPC cluster list.
    * 
-   * Minimum value: 1.
+   * Starting value: 1.
    * 
    * Default value: 1.
    * 
@@ -35,7 +36,7 @@ export class DescribeHpcClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for paging Settings in a paged query.
    * 
    * Maximum value: 100.
    * 
@@ -47,7 +48,7 @@ export class DescribeHpcClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPlanMaintenanceWindowRequestTargetResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to which the O&M window applies.
+   * The key of the tag to which the window applies.
    * 
    * @example
    * tagKey
@@ -13,7 +13,7 @@ export class ModifyPlanMaintenanceWindowRequestTargetResourceTags extends $dara.
   key?: string;
   /**
    * @remarks
-   * The value of the tag to which the O&M window applies.
+   * The value of the tag to which the window applies.
    * 
    * @example
    * tagValue
@@ -53,7 +53,7 @@ export class ModifyPlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of resource to which the O&M window applies.
+   * The type of resources to which the O&M window is configured to apply.
    * 
    * @example
    * Tag
@@ -97,9 +97,9 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
    * @remarks
    * The end time of the O&M window.
    * 
-   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
-   * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, which currently supports only 00.
+   * - If PeriodUnit is set to Weekly, the time range is in the format of Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Daily, the time range is in the format of 22:00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
    * 
    * @example
    * Tuesday,03:00
@@ -109,9 +109,9 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
    * @remarks
    * The start time of the O&M window.
    * 
-   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
-   * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, which currently supports only 00.
+   * - If PeriodUnit is set to Weekly, the time range is in the format of Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Daily, the time range is in the format of 22:00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
    * 
    * @example
    * Monday,22:00
@@ -143,7 +143,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
 export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The type of the cycle. Valid values: Daily and Weekly.
+   * The type of the recurrence cycle. Valid values: Daily and Weekly.
    * 
    * @example
    * Year
@@ -151,7 +151,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges of the recurring O&M window cycle (UTC time zone).
+   * The time ranges of the O&M window recurrence cycle in the UTC time zone.
    */
   rangeList?: ModifyPlanMaintenanceWindowRequestTimePeriodRangeList[];
   static names(): { [key: string]: string } {
@@ -183,16 +183,23 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
 export class ModifyPlanMaintenanceWindowRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable or disable the O&M window. Leave this parameter empty if no modification is needed.
+   * Specifies whether to enable or disable the window. Leave this parameter empty if no modification is required.
    * 
    * @example
    * false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The minimum time interval between the publish time and the scheduled time to execute scheduled O&M events for the same instance. Valid values: 1 to 48. Unit: hours.
+   * 
+   * @example
+   * 24
+   */
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The ID of the O&M window to modify. This parameter is required.
+   * The ID of the O&M window to be modified. This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -202,7 +209,7 @@ export class ModifyPlanMaintenanceWindowRequest extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
-   * The name of the O&M window. Leave this parameter empty if no modification is needed.
+   * The name of the O&M window. Leave this parameter empty if no modification is required.
    * 
    * @example
    * WIndowName
@@ -210,7 +217,7 @@ export class ModifyPlanMaintenanceWindowRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call DescribeRegions to query the most recent region list.
+   * The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation makes no difference. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
    * 
    * This parameter is required.
    * 
@@ -220,7 +227,7 @@ export class ModifyPlanMaintenanceWindowRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The supported O&M actions. Leave this parameter empty if no modification is needed.
+   * The supported O&M actions. Leave this parameter empty if no modification is required.
    * 
    * @example
    * Reboot
@@ -228,12 +235,12 @@ export class ModifyPlanMaintenanceWindowRequest extends $dara.Model {
   supportMaintenanceAction?: string;
   /**
    * @remarks
-   * The resource to which the O&M window applies. Leave this parameter empty if no modification is needed.
+   * The resources to which the O&M window applies. Leave this parameter empty if no modification is required.
    */
   targetResource?: ModifyPlanMaintenanceWindowRequestTargetResource;
   /**
    * @remarks
-   * The recurring cycle of the O&M window. Leave this parameter empty if no modification is needed.
+   * The recurrence cycle of the window. Leave this parameter empty if no modification is required.
    */
   timePeriod?: ModifyPlanMaintenanceWindowRequestTimePeriod;
   static names(): { [key: string]: string } {

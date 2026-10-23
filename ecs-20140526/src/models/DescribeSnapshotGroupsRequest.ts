@@ -45,7 +45,7 @@ export class DescribeSnapshotGroupsRequestTag extends $dara.Model {
 export class DescribeSnapshotGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    * 
    * @example
    * hide
@@ -61,7 +61,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The number of entries per page for a paged query.
    * 
    * Maximum value: 100.
    * 
@@ -81,7 +81,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned in the last API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -91,7 +91,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the snapshot-consistent group. Valid values of N: 1 to 10.
+   * The IDs of the snapshot-consistent groups. Valid values of N: 1 to 10.
    * 
    * @example
    * ssg-j6ciyh3k52qp7ovm****
@@ -125,7 +125,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
    * 
    * - accomplished: The snapshot-consistent group is created.
    * 
-   * - failed: The snapshot-consistent group failed to be created.
+   * - failed: The snapshot-consistent group fails to be created.
    * 
    * @example
    * accomplished
@@ -133,7 +133,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The tag key-value pairs of the snapshot-consistent group.
+   * The tags of the snapshot-consistent group.
    */
   tag?: DescribeSnapshotGroupsRequestTag[];
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class CreateLaunchTemplateVersionResponseBody extends $dara.Model {
    * @remarks
    * The launch template ID. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
    * 
-   * When you use a launch template to create an instance, you must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template.
+   * When you use a launch template to create an instance, you must specify `LaunchTemplateId` or `LaunchTemplateName` to identify the launch template.
    * 
    * @example
    * lt-bp1apo0bbbkuy0rj****
@@ -15,7 +15,7 @@ export class CreateLaunchTemplateVersionResponseBody extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * The version number of the launch template that is created.
+   * The version number of the created launch template.
    * 
    * @example
    * 2

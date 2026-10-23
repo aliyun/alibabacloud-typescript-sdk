@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePortRangeListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the port list that was created.
+   * The ID of the created port list.
    * 
    * @example
    * prl-2ze9743****

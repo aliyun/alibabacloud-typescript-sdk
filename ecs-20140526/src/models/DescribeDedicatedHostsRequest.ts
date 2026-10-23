@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the dedicated host. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key of the dedicated host. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDedicatedHostsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the dedicated host. If you specify this parameter, the value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The tag value of the dedicated host. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -53,7 +53,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostClusterId?: string;
   /**
    * @remarks
-   * The list of dedicated host IDs. You can specify up to 100 IDs, separated by commas (,).
+   * The IDs of the dedicated hosts. You can specify up to 100 IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
@@ -69,7 +69,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostName?: string;
   /**
    * @remarks
-   * The type of the dedicated host. You can call [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) to query the most recent list of dedicated host types.
+   * The dedicated host type. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent dedicated host type list.
    * 
    * @example
    * ddh.g5
@@ -79,7 +79,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The reason why the dedicated host is locked. Valid values:
    * - financial: The dedicated host is locked due to overdue payments.
-   * - security: The dedicated host is locked for security reasons.
+   * - security: The dedicated host is locked due to security reasons.
    * 
    * @example
    * financial
@@ -87,7 +87,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   lockReason?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. If you set this parameter, it indicates that the paging method using the MaxResults and NextToken parameters is used.
+   * The maximum number of entries per page for a paged query. If you specify this parameter, the query is performed by using the combination of MaxResults and NextToken.
    * 
    * Maximum value: 100.
    * 
@@ -99,7 +99,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The detailed information of the dedicated host.
+   * Specifies whether to return the details of the dedicated host.
    * 
    * @example
    * false
@@ -107,7 +107,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   needHostDetail?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
+   * The query token. Set the value to the NextToken value returned from the previous call to this operation. You do not need to specify this parameter when you call this operation for the first time.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -117,7 +117,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use NextToken and MaxResults to perform paged query operations for paging.
+   * > This parameter will soon be deprecated. We recommend that you use NextToken and MaxResults for pagination.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use NextToken and MaxResults to perform paged query operations for paging.
+   * > This parameter will soon be deprecated. We recommend that you use NextToken and MaxResults for pagination.
    * 
    * @example
    * 10
@@ -134,7 +134,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   queryInventory?: boolean;
   /**
    * @remarks
-   * The region ID of the dedicated host. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -144,7 +144,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the dedicated host belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The ID of the resource group to which the dedicated host belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
    * > Filtering by the default resource group is not supported.
    * 
@@ -156,17 +156,17 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to display socket-level capacity information. You can use socket-level capacity information to view remaining resources (vCPUs, memory usage, remaining capacity, and total capacity) to determine whether an ECS instance of a specific instance type can be created. Valid values:
+   * Specifies whether to display the capacity information at the socket level. You can view the remaining resource information (vCPU and memory usage, remaining amount, and total amount) at the socket level to determine whether ECS instances of the corresponding types can be created. Valid values:
    * 
-   * - true: Display socket-level capacity information. Only specific dedicated host types support displaying socket-level resource information. For more information, see [View and export DDH information](https://help.aliyun.com/document_detail/68989.html).
-   * - false: Do not display socket-level capacity information.
+   * - true: Display the information. Only dedicated hosts of specific types support displaying socket-level resource information. For more information, see [View and export dedicated host information](https://help.aliyun.com/document_detail/68989.html).
+   * - false: Do not display the information.
    * 
    * >Notice: 
    * 
-   * Each dedicated host typically has two CPUs, numbered Socket 0 and Socket 1. On a dedicated host, ECS instances are not created across sockets to ensure maximum performance. An ECS instance is created based on a single socket only.
+   * Generally, each dedicated host has two CPUs, and the ID of each CPU is Socket 0 or Socket 1. On an exclusive dedicated host, to ensure that the ECS instances on the dedicated host deliver maximum performance, ECS instances are not created across sockets. This means that an ECS instance is created based on only one socket.
    * 
-   * - If the remaining computing resources of one socket are greater than or equal to the ECS instance type to be created, the ECS instance is created.
-   * - If the remaining computing resources of each socket are less than the ECS instance type to be created, the ECS instance fails to be created, even if the combined remaining resources of both sockets exceed the ECS instance type requirements.
+   * - If the remaining computing resources of one socket are greater than or equal to the requirements of the ECS instance type to be created, the ECS instance is created.
+   * - If the remaining computing resources of each socket are less than the requirements of the ECS instance type to be created, the ECS instance fails to be created. Even if the total remaining resources of the two sockets on the dedicated host meet the requirements of the ECS instance type, the ECS instance still cannot be created.
    * </notice>
    * 
    * @example
@@ -177,15 +177,15 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The usage status of the dedicated host. Valid values:
    * 
-   * - Available: The dedicated host is running as expected.
+   * - Available: The dedicated host is running. This is the normal running status of the dedicated host.
    * 
-   * - UnderAssessment: The physical machine has potential risks. The physical machine is available but may cause issues for ECS instances on the dedicated host.
+   * - UnderAssessment: The physical machine has risks and is in the incubation period of a fault. The physical machine is available, but may cause issues for the ECS instances on the dedicated host.
    * 
-   * - PermanentFailure: The dedicated host has a permanent failure and is unavailable.
+   * - PermanentFailure: A permanent failure occurred and the dedicated host is unavailable.
    * 
    * - TempUnavailable: The dedicated host is temporarily unavailable.
    * 
-   * - Redeploying: The dedicated host is being restored.
+   * - Redeploying: The dedicated host is being recovered.
    * 
    * Default value: Available.
    * 
@@ -195,12 +195,12 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags. Valid values of N: 0 to 20.
+   * The list of tags. The list can contain 0 to 20 tags.
    */
   tag?: DescribeDedicatedHostsRequestTag[];
   /**
    * @remarks
-   * The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the most recent zone list.
+   * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
    * 
    * @example
    * cn-hangzhou-g

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageRequestDiskDeviceMapping extends $dara.Model {
   /**
    * @remarks
-   * The device name in the custom image. Valid values:
+   * The device name of the disk in the custom image. Valid values:
    * 
    * - The device name of the system disk must be /dev/xvda.
    * 
-   * - The device names of data disks are in alphabetical order from /dev/xvdb to /dev/xvdz and cannot be duplicated.
+   * - The device names of data disks range from /dev/xvdb to /dev/xvdz and cannot be duplicate.
    * 
    * @example
    * /dev/xvdb
@@ -17,7 +17,7 @@ export class CreateImageRequestDiskDeviceMapping extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The type of the disk in the new image. You can use this parameter to set a data disk snapshot as the system disk of the image. If you do not specify this parameter, the disk type defaults to the type of the disk corresponding to the snapshot. Valid values:
+   * The disk type in the new image. You can use this parameter to use a data disk snapshot as the system disk of the image. If you do not specify this parameter, the default value is the disk type corresponding to the snapshot. Valid values:
    * 
    * - system: system disk. Only one system disk snapshot can be specified.
    * - data: data disk. Up to 16 data disk snapshots can be specified.
@@ -30,10 +30,10 @@ export class CreateImageRequestDiskDeviceMapping extends $dara.Model {
    * @remarks
    * The size of the disk. Unit: GiB. The valid values and default value of DiskDeviceMapping.N.Size depend on DiskDeviceMapping.N.SnapshotId:
    * 
-   * - If SnapshotId is not specified, the valid values and default value of Size are:
+   * - If SnapshotId is not specified, the valid values and default value of Size are as follows:
    *     - Basic disk: 5 to 2000 GiB. Default value: 5.
    *     - Other disks: 20 to 32768 GiB. Default value: 20.
-   * - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot. The default value is the size of the snapshot.
+   * - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot specified by SnapshotId. The default value is the size of the snapshot.
    * 
    * @example
    * 2000
@@ -78,10 +78,10 @@ export class CreateImageRequestFeatures extends $dara.Model {
   /**
    * @remarks
    * The metadata access mode of the image. Valid values:
-   * - v1: When you use this image to create an ECS instance, you cannot set the metadata access mode to hardened mode only.
-   * - v2: When you use this image to create an ECS instance, you can set the metadata access mode to hardened mode only.
+   * - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to Reinforced.
+   * - v2: When you create an ECS instance from this image, you can set the metadata access mode to Reinforced.
    * 
-   * Default value: When a snapshot is used to create the image, the default value is v1. When an instance is used to create the image, the default value is the ImdsSupport property of the image used to create the instance.
+   * Default value: If you create an image from a snapshot, the default value is v1. If you create an image from an instance, the default value is the ImdsSupport attribute value of the image used when the instance was created.
    * 
    * @example
    * v2
@@ -111,10 +111,10 @@ export class CreateImageRequestFeatures extends $dara.Model {
 export class CreateImageRequestSecureBootOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the image supports Secure Boot. Valid values:
-   * - supported: Secure Boot is supported.
-   * - unsupported: Secure Boot is not supported.
-   * > Secure Boot supports only the UEFI or UEFI-Preferred boot mode.
+   * Specifies whether the image supports secure boot. Valid values:
+   * - supported: The image supports secure boot.
+   * - unsupported: The image does not support secure boot.
+   * > Secure Boot only supports the UEFI or UEFI-Preferred boot mode.
    */
   secureBootSupport?: string;
   static names(): { [key: string]: string } {
@@ -141,7 +141,7 @@ export class CreateImageRequestSecureBootOptions extends $dara.Model {
 export class CreateImageRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key of the image. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:` or contain `http://` or `https://`.
    * 
    * @example
    * KeyTest
@@ -149,7 +149,7 @@ export class CreateImageRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * The tag value of the image. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:` or contain `http://` or `https://`.
    * 
    * @example
    * ValueTest
@@ -181,7 +181,7 @@ export class CreateImageRequestTag extends $dara.Model {
 export class CreateImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The system architecture. After a data disk snapshot is used as the system disk of the image, specify the system architecture of the system disk by using this parameter. Valid values:
+   * The system architecture. After you specify a data disk snapshot as the system disk of the image, you must use Architecture to determine the system architecture of the system disk. Valid values:
    * 
    * - i386.
    * - x86_64.
@@ -199,11 +199,11 @@ export class CreateImageRequest extends $dara.Model {
    * 
    * - BIOS: BIOS boot mode.
    * - UEFI: UEFI boot mode.
-   * - UEFI-Preferred: dual boot mode.  
+   * - UEFI-Preferred: Dual boot mode.  
    * 
    * <notice>
    * 
-   * To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before specifying this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
+   * To prevent the instance from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before you select this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
    * 
    * </notice>
    * 
@@ -213,7 +213,7 @@ export class CreateImageRequest extends $dara.Model {
   bootMode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -221,7 +221,7 @@ export class CreateImageRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the image. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The image description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * ImageTestDescription
@@ -229,9 +229,9 @@ export class CreateImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image detection strategy. If this parameter is not specified, detection is not triggered. Only the Standard detection mode is supported. 
+   * The image detection strategy. If you do not configure this parameter, detection is not triggered. Only the standard (Standard) detection mode is supported. 
    * 
-   * > Most Linux and Windows versions are supported. For more information about image detection items and operating system limitations, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limitations for image detection](https://help.aliyun.com/document_detail/475800.html).
+   * > Most Linux and Windows versions are supported. For more information about image detection items and operating system limits, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limits for image detection](https://help.aliyun.com/document_detail/475800.html).
    * 
    * @example
    * Standard
@@ -239,18 +239,18 @@ export class CreateImageRequest extends $dara.Model {
   detectionStrategy?: string;
   /**
    * @remarks
-   * The collection of disk and snapshot information used to create the custom image. If you want to create a custom image from system disk and data disk snapshots, use this parameter to specify the snapshots.
+   * The disks and snapshots used to create the custom image. If you want to create a custom image from a system disk snapshot and data disk snapshots, use this parameter to specify the snapshots.
    */
   diskDeviceMapping?: CreateImageRequestDiskDeviceMapping[];
   dryRun?: boolean;
   /**
    * @remarks
-   * The image feature-related properties.
+   * The image feature attributes.
    */
   features?: CreateImageRequestFeatures;
   /**
    * @remarks
-   * The image family name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with aliyun or acs:. The name cannot contain http:// or https://. The name can contain digits, colons (:), underscores (_), or hyphens (-).
+   * The name of the image family. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with aliyun or acs:, and cannot contain http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * hangzhou-daily-update
@@ -258,7 +258,7 @@ export class CreateImageRequest extends $dara.Model {
   imageFamily?: string;
   /**
    * @remarks
-   * The image name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. The name can contain digits, colons (:), underscores (_), or hyphens (-).
+   * The image name. It must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * TestCentOS
@@ -268,7 +268,7 @@ export class CreateImageRequest extends $dara.Model {
    * @remarks
    * The image version.
    * 
-   * > If you specify an instance ID (`InstanceId`) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be the same as the `ImageVersion` of the current instance image or left empty.
+   * > If you specify the instance ID (`InstanceId`) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be the same as the `ImageVersion` of the current instance image or left empty.
    * 
    * @example
    * 2017011017
@@ -286,7 +286,7 @@ export class CreateImageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The operating system distribution. After a data disk snapshot is used as the system disk of the image, specify the operating system distribution of the system disk by using this parameter. Valid values:
+   * The operating system. After you specify a data disk snapshot as the system disk of the image, you must use Platform to determine the operating system distribution of the system disk. Valid values:
    * 
    * - Aliyun
    * - Anolis
@@ -323,7 +323,7 @@ export class CreateImageRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -333,9 +333,9 @@ export class CreateImageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the custom image belongs. If you do not set this parameter to a specific value, the created image belongs to the default resource group.
+   * The ID of the resource group to which the custom image belongs. If you do not specify this parameter, the created image belongs to the default resource group.
    * 
-   * > If you invoke this operation as a Resource Access Management (RAM) user and `ResourceGroupId` is left empty, note that when the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Set a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group by using the corresponding Alibaba Cloud account before invoking this operation again.
+   * > If you use a Resource Access Management (RAM) user to invoke this operation and `ResourceGroupId` is left empty, note that if the RAM user does not have permissions on the default resource group, the operation returns the error message `Forbidden: User not authorized to operate on the specified resource`. Specify the ID of a resource group that the RAM user has permissions on, or use the corresponding Alibaba Cloud account to grant the RAM user permissions on the default resource group in the RAM Settings before you invoke this operation again.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -345,14 +345,14 @@ export class CreateImageRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The Secure Boot-related parameters.
+   * The secure boot parameters.
    */
   secureBootOptions?: CreateImageRequestSecureBootOptions;
   /**
    * @remarks
-   * The snapshot ID used to create the custom image.
+   * The ID of the snapshot used to create the custom image.
    * 
-   * > If you want to create a custom image only from the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. To include data disk snapshots, use only the `DiskDeviceMapping.N.SnapshotId` parameter to specify snapshots.
+   * > If you create a custom image only from the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. If you add data disk snapshots, you can only use the `DiskDeviceMapping.N.SnapshotId` parameter to specify the snapshots.
    * 
    * @example
    * s-bp17441ohwkdca0****

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature for disks that support burst. Valid values:
+   * Specifies whether to enable the performance burst feature for a cloud disk that supports this feature. Valid values:
    * 
-   * - true: Enabled.
-   * - false: Disabled.
+   * - true: Yes.
+   * - false: No.
    * 
-   * > An error is returned if you specify any value for a disk that does not support the burst feature.
+   * > An error is returned if you specify this parameter for a cloud disk that does not support the performance burst feature.
    * 
    * @example
    * false
@@ -18,13 +18,13 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to delete the automatic snapshots of the disk when the disk is deleted. Valid values:
+   * Specifies whether to delete the automatic snapshots of the cloud disk when the cloud disk is deleted. Valid values:
    * 
    * - true: Enabled.
    * 
    * - false: Disabled.
    * 
-   * Default value: null, which indicates that the current value remains unchanged.
+   * Default value: null. A value of null indicates that the current value is not changed.
    * 
    * @example
    * false
@@ -32,16 +32,16 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   deleteAutoSnapshot?: boolean;
   /**
    * @remarks
-   * Specifies whether to release the disk when the associated instance is released. Default value: null, which indicates that the current value remains unchanged.
+   * Specifies whether to release the cloud disk when the instance is released. Default value: null. A value of null indicates that the current value is not changed.
    * 
-   * <props="china">Disks that have the multi-attach feature enabled do not support this parameter.
+   * <props="china">This parameter is not supported for cloud disks that have the multi-attach feature enabled.
    * 
-   * An error is returned if you set `DeleteWithInstance` to `false` in the following cases: 
+   * An error is returned if you set the `DeleteWithInstance` parameter to `false` in the following scenarios: 
    *          
-   * - The category of the disk is local disk (ephemeral).  
-   * - The category of the disk is basic disk (cloud) and the disk is not detachable (Portable=false).  
+   * - The category of the cloud disk is local disk (ephemeral).  
+   * - The category of the cloud disk is basic cloud disk (cloud) and the cloud disk is not removable (Portable=false).  
    * 
-   * >Warning: If you set DeleteWithInstance to false and the ECS instance to which the disk is attached is security-locked with "LockReason" : "security" in OperationLocks, the DeleteWithInstance setting is ignored and the disk is released together with the instance.
+   * >Warning: If you set this parameter to false, the cloud disk is not released when the instance is released. However, if the ECS instance to which the cloud disk is attached is locked for security reasons and the "LockReason" : "security" state is added to OperationLocks, the DeleteWithInstance attribute of the cloud disk is ignored and the cloud disk is released along with the instance.</warning>
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   deleteWithInstance?: boolean;
   /**
    * @remarks
-   * The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the cloud disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * TestDescription
@@ -57,8 +57,8 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the disk whose attributes you want to modify.
-   * > The DiskId and DiskIds.N parameters cannot be specified at the same time. Specify one of them as needed.
+   * The ID of the cloud disk whose attributes you want to modify.
+   * > You cannot specify both the `DiskId` and `DiskIds.N` parameters. Specify one of them based on your business requirements.
    * 
    * @example
    * d-bp1famypsnar20bv****
@@ -66,8 +66,8 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The IDs of the disks whose attributes you want to modify. Valid values of N: 0 to 100.
-   * > The DiskId and DiskIds.N parameters cannot be specified at the same time. Specify one of them as needed.
+   * The IDs of the cloud disks whose attributes you want to modify. Valid values of N: 0 to 100.
+   * > You cannot specify both the `DiskId` and `DiskIds.N` parameters. Specify one of them based on your business requirements.
    * 
    * @example
    * d-bp1famypsnar20bv****
@@ -75,7 +75,7 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   diskIds?: string[];
   /**
    * @remarks
-   * The name of the disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters categorized as letter in Unicode, including Chinese characters. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the cloud disk. The name must be 2 to 128 characters in length and can contain letters and digits in Unicode. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * MyDiskName
@@ -83,14 +83,14 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic snapshot policy for the disk. Valid values:
+   * Specifies whether to enable the automatic snapshot policy feature for the cloud disk. Valid values:
    * 
    * - true: Enabled.
    * - false: Disabled.
    * 
-   * Default value: null, which indicates that the current value remains unchanged.
+   * Default value: null. A value of null indicates that the current value is not changed.
    * 
-   * > **[Deprecated]** This parameter is deprecated. The automatic snapshot policy feature is enabled by default for disks after they are created. You only need to associate an automatic snapshot policy with the disk.
+   * > This parameter is deprecated. The automatic snapshot policy feature is enabled by default for newly created cloud disks. You only need to apply an automatic snapshot policy to the cloud disk to use the feature.
    * 
    * @example
    * true
@@ -100,7 +100,7 @@ export class ModifyDiskAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou

@@ -182,7 +182,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   invocationResults?: DescribeInvocationResultsResponseBodyInvocationInvocationResults;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -198,7 +198,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page set for paging queries.
+   * The number of rows per page for paging.
    * 
    * @example
    * 1
@@ -207,6 +207,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   /**
    * @remarks
    * The total number of commands.
+   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

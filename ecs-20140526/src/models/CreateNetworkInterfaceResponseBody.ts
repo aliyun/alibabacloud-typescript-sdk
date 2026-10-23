@@ -320,7 +320,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The ID of the account that owns the network interface controller (NIC).
+   * The ID of the account to which the network interface controller (NIC) belongs.
    * 
    * @example
    * 123456****
@@ -345,7 +345,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-2ze88m67qx5z****
@@ -354,7 +354,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) corresponds.
+   * The ID of the Virtual Network Operator (VNO) associated with the network interface controller (NIC).
    * 
    * @example
    * 12345678910
@@ -362,7 +362,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   serviceID?: number;
   /**
    * @remarks
-   * Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
+   * Indicates whether the user of the network interface controller (NIC) is a cloud service or a VNO.
    * 
    * @example
    * true
@@ -370,7 +370,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitational preview and is not yet available.
    * 
    * @example
    * false
@@ -378,7 +378,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The status of the network interface controller (NIC).
+   * The status of the elastic network interface (ENI).
    * 
    * @example
    * Available
@@ -403,7 +403,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the ENI belongs.
+   * The ID of the virtual private cloud (VPC) to which the ENI belongs.
    * 
    * @example
    * vpc-bp1j7w3gc1cexjqd****

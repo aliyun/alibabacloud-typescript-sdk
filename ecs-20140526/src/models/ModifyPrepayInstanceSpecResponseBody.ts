@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayInstanceSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 1234567890

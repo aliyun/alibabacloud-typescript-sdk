@@ -7,8 +7,8 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values: 
    *          
-   * - true (default): Automatic payment is enabled. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated, and you can only void the order. 
-   * - false: An order is generated but payment is not automatically completed. If your account balance is insufficient, an unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and go to the <props="china"><ph>[Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page to complete the payment.
+   * - true: enables automatic payment. This is the default value. You must ensure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled. 
+   * - false: generates an order without deducting fees. If your account balance is insufficient, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -24,12 +24,12 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The billing method of the disk. Valid values: 
+   * The billing method of the cloud disk. Valid values: 
    *          
-   * - PrePaid (default): Converts pay-as-you-go data disks to subscription data disks. 
-   * - PostPaid: Converts subscription data disks to pay-as-you-go data disks.
+   * - PrePaid: changes the billing method of the data cloud disk from pay-as-you-go to subscription. This is the default value. 
+   * - PostPaid: changes the billing method of the data cloud disk from subscription to pay-as-you-go.
    * 
-   * > When you convert pay-as-you-go disks to subscription, the billing cycle of the capacity fee is automatically synchronized with the associated ECS instance.
+   * > When you change the billing method of a pay-as-you-go cloud disk to subscription, the billing cycle of the capacity fee is automatically synchronized with that of the associated ECS instance.
    * 
    * @example
    * PostPaid
@@ -37,7 +37,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   diskChargeType?: string;
   /**
    * @remarks
-   * The list of disk IDs. The value is a JSON array that contains up to 16 disk IDs. Separate multiple IDs with commas (,).
+   * The list of cloud disk IDs. The value is a JSON array. You can specify up to 16 IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The instance ID of the instance to which the disks are attached.
+   * The ID of the instance to which the cloud disk is attached.
    * 
    * This parameter is required.
    * 

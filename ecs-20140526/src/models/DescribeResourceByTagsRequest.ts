@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceByTagsRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length.
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length.
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,63 +30,16 @@ export class DescribeResourceByTagsRequestTag extends $dara.Model {
 
 export class DescribeResourceByTagsRequest extends $dara.Model {
   ownerId?: number;
-  /**
-   * @remarks
-   * The page number of the results. Minimum value: 1.
-   * 
-   * Default value: 1.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Maximum value: 100.
-   * 
-   * Default value: 50.
-   * 
-   * @example
-   * 50
-   */
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  /**
-   * @remarks
-   * The resource type. Valid values:
-   * 
-   * - instance: ECS instance.
-   * - disk: cloud disk.
-   * - snapshot: snapshot.
-   * - image: image.
-   * - securitygroup: security group.
-   * - volume: storage volume.
-   * - eni: Elastic Network Interface (ENI).
-   * - ddh: dedicated host.
-   * - keypair: SSH key pair.
-   * - launchtemplate: launch template.
-   * 
-   * All valid values are in lowercase.
-   * 
-   * @example
-   * instance
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
   tag?: DescribeResourceByTagsRequestTag[];
   static names(): { [key: string]: string } {
     return {

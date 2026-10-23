@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the publication time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-12-01T06:32:31Z
@@ -13,7 +14,8 @@ export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.
   end?: string;
   /**
    * @remarks
-   * The start of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the publication time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-11-30T06:32:31Z
@@ -45,7 +47,8 @@ export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.
 export class DescribeInstanceHistoryEventsRequestNotBefore extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the scheduled execution time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-12-01T06:32:31Z
@@ -53,7 +56,8 @@ export class DescribeInstanceHistoryEventsRequestNotBefore extends $dara.Model {
   end?: string;
   /**
    * @remarks
-   * The start of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the scheduled execution time of the system event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-11-30T06:32:31Z
@@ -127,15 +131,15 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   notBefore?: DescribeInstanceHistoryEventsRequestNotBefore;
   /**
    * @remarks
-   * The lifecycle status of the system event. EventCycleStatus takes effect only when InstanceEventCycleStatus.N is not specified. Valid values: 
+   * The lifecycle status of the system event. The EventCycleStatus parameter is valid only when the InstanceEventCycleStatus.N parameter is not specified. Valid values: 
    * 
    * - Scheduled: The event is waiting to be executed.
-   * - Avoided: The event has been avoided.
+   * - Avoided: The event is avoided.
    * - Executing: The event is being executed.
-   * - Executed: The event has been executed.
-   * - Canceled: The event has been canceled.
-   * - Failed: The event failed to be executed.
-   * - Inquiring: The event is being inquired.
+   * - Executed: The event execution is completed.
+   * - Canceled: The event is canceled.
+   * - Failed: The event execution failed.
+   * - Inquiring: The event is in the inquiring state.
    * 
    * @example
    * Executed
@@ -143,7 +147,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   eventCycleStatus?: string;
   /**
    * @remarks
-   * One or more system event IDs. Valid values of N: 1 to 100. Specify multiple values in a repeated list format.
+   * The IDs of one or more system events. Valid values of N: 1 to 100. Specify multiple values in a repeated list.
    * 
    * @example
    * e-uf64yvznlao4jl2c****
@@ -151,20 +155,20 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   eventId?: string[];
   /**
    * @remarks
-   * The type of the system event. EventType takes effect only when InstanceEventType.N is not specified. Valid values: 
+   * The type of the system event. The EventType parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values: 
    * 
    * - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
    * - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-   * - SystemFailure.Reboot: The instance is restarted due to a system error.
-   * - SystemFailure.Redeploy: The instance is redeployed due to a system error.
+   * - SystemFailure.Reboot: The instance is restarted due to a system failure.
+   * - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
    * - SystemFailure.Delete: The instance is released due to an instance creation failure.
-   * - InstanceFailure.Reboot: The instance is restarted due to an instance error.
-   * - InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
-   * - InstanceExpiration.Delete: The instance is released due to subscription expiration.
+   * - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+   * - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+   * - InstanceExpiration.Delete: The subscription instance is released due to expiration.
    * - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
    * - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
    * 
-   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
+   * > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
    * 
    * @example
    * SystemMaintenance.Reboot
@@ -172,7 +176,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * > This parameter is not yet available for use.
+   * > This parameter is not available.
    * 
    * @example
    * null
@@ -180,15 +184,15 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   impactLevel?: string;
   /**
    * @remarks
-   * One or more lifecycle statuses of system events. Valid values of N: 1 to 7. Specify multiple values in a repeated list format. Valid values:
+   * The lifecycle statuses of one or more system events. Valid values of N: 1 to 7. Specify multiple values in a repeated list. Valid values:
    * 
    * - Scheduled: The event is waiting to be executed.
-   * - Avoided: The event has been avoided.
+   * - Avoided: The event is avoided.
    * - Executing: The event is being executed.
-   * - Executed: The event has been executed.
-   * - Canceled: The event has been canceled.
-   * - Failed: The event failed to be executed.
-   * - Inquiring: The event is being inquired.
+   * - Executed: The event execution is completed.
+   * - Canceled: The event is canceled.
+   * - Failed: The event execution failed.
+   * - Inquiring: The event is in the inquiring state.
    * 
    * @example
    * Executed
@@ -196,20 +200,20 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   instanceEventCycleStatus?: string[];
   /**
    * @remarks
-   * One or more types of system events. Valid values of N: 1 to 30. Specify multiple values in a repeated list format. Valid values:
+   * The types of one or more system events. Valid values of N: 1 to 30. Specify multiple values in a repeated list. Valid values:
    * 
    * - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
    * - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-   * - SystemFailure.Reboot: The instance is restarted due to a system error.
-   * - SystemFailure.Redeploy: The instance is redeployed due to a system error.
+   * - SystemFailure.Reboot: The instance is restarted due to a system failure.
+   * - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
    * - SystemFailure.Delete: The instance is released due to an instance creation failure.
-   * - InstanceFailure.Reboot: The instance is restarted due to an instance error.
-   * - InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
-   * - InstanceExpiration.Delete: The instance is released due to subscription expiration.
+   * - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+   * - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+   * - InstanceExpiration.Delete: The subscription instance is released due to expiration.
    * - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
    * - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
    * 
-   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
+   * > For more information about event types, see [Overview of system events](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
    * 
    * @example
    * SystemMaintenance.Reboot
@@ -217,7 +221,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   instanceEventType?: string[];
   /**
    * @remarks
-   * The instance ID. If you do not specify an instance ID, the system events of all instances in the specified region are queried.
+   * The instance ID. If you do not specify this parameter, the system events of all instances in the specified region are queried.
    * 
    * @example
    * i-uf678mass4zvr9n1****
@@ -225,12 +229,12 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paging query. Valid values: 10 to 100.
+   * The maximum number of entries per page for paging. Valid values: 10 to 100.
    * 
    * Default value:
    * 
-   * * When the settings value is greater than 0 but less than 10, the default value is 10.
-   * * When the settings value is greater than 100, the default value is 100.
+   * * If the specified value is greater than 0 and less than 10, the default value is 10.
+   * * If the specified value is greater than 100, the default value is 100.
    * 
    * @example
    * 100
@@ -238,7 +242,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * f1c9fa9de5752***
@@ -248,7 +252,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
+   * > This parameter will be deprecated soon. Use the MaxResults or NextToken parameter for pagination.
    * 
    * @example
    * 1
@@ -256,7 +260,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
+   * > This parameter will be deprecated soon. Use the MaxResults or NextToken parameter for pagination.
    * 
    * @example
    * 10
@@ -264,7 +268,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -282,15 +286,15 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * One or more resource IDs. Valid values of N: 1 to 100. Specify multiple values in a repeated list format. Valid values:
+   * The IDs of one or more resources. Valid values of N: 1 to 100. Specify multiple values in a repeated list. Valid values:
    * 
-   * - When `ResourceType=instance`, the resource ID is the ECS instance ID.
-   * - When `ResourceType=ddh`, the resource ID is the dedicated host ID.
-   * - When `ResourceType=managedhost`, the resource ID is the physical machine ID in an intelligent fully managed resource pool.
+   * - When `ResourceType` is set to `instance`, the resource ID is the ECS instance ID.
+   * - When `ResourceType` is set to `ddh`, the resource ID is the dedicated host ID.
+   * - When `ResourceType` is set to `managedhost`, the resource ID is the physical machine ID in an intelligent fully managed resource pool.
    * 
    * If you do not specify this parameter, the system events of all resources of the specified resource type (`ResourceType`) in the specified region (`RegionId`) are queried.
    * 
-   * > Use `ResourceId.N` to specify one or more resource IDs. If you specify both `ResourceId.N` and `InstanceId`, `ResourceId.N` takes precedence by default.
+   * > Use the `ResourceId.N` parameter to specify one or more resource IDs. If you specify both the `ResourceId.N` and `InstanceId` parameters, the `ResourceId.N` parameter takes precedence by default.
    * 
    * @example
    * i-uf678mass4zvr9n1****
@@ -300,7 +304,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
    * - instance: ECS instance.
    * - ddh: dedicated host.
@@ -314,7 +318,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags supported by system events.
+   * The list of tags supported by the system event.
    */
   tag?: DescribeInstanceHistoryEventsRequestTag[];
   static names(): { [key: string]: string } {

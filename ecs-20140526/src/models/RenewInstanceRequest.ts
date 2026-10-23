@@ -13,9 +13,9 @@ export class RenewInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Renews the instance to a [unified expiration date](https://help.aliyun.com/document_detail/63396.html). Valid values: 1 to 28.
+   * The day on which to renew the instance to a [unified expiration date](https://help.aliyun.com/document_detail/63396.html). Valid values: 1 to 28.
    * 
-   * To use this parameter, you must [set a unified expiration date for ECS instances](~~63396#694cb636c0rp6~~). The value of this parameter must match the unified expiration date that you have set. Otherwise, the call fails.
+   * To use this parameter, you must first [set a unified expiration date for ECS instances](~~63396#694cb636c0rp6~~). The value of this parameter must match the unified expiration date that you have set. Otherwise, the call fails.
    * 
    * > You must specify either the renewal period parameters (Period and PeriodUnit) or the unified expiration date parameter (ExpectedRenewDay), but not both.
    * 
@@ -25,7 +25,7 @@ export class RenewInstanceRequest extends $dara.Model {
   expectedRenewDay?: number;
   /**
    * @remarks
-   * The instance ID of the instance that you want to renewal.
+   * The ID of the instance that you want to renew.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class RenewInstanceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal period. This parameter specifies the unit of Period. Valid values:
+   * The unit of the renewal period. This parameter specifies the unit for the Period parameter. Valid values:
    * 
    * <props="china">
    * - Week.

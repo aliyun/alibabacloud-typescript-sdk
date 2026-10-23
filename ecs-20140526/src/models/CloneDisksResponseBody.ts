@@ -13,7 +13,7 @@ export class CloneDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task group ID of the disk cloning task. You can call [DescribeTasks](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-describetasks) to query the task execution result.
+   * The ID of the task group for cloud disk cloning. You can call the [DescribeTasks](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-describetasks) operation to query the task execution result.
    * 
    * @example
    * g-2ze2op2grqpclwu7****

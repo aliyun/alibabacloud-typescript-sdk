@@ -8,7 +8,7 @@ export class CreateDiagnosticMetricSetRequest extends $dara.Model {
    * The description of the diagnostic metric set.
    * 
    * @example
-   * 远程连接问题诊断
+   * Remote connection issue diagnosis
    */
   description?: string;
   /**
@@ -23,12 +23,12 @@ export class CreateDiagnosticMetricSetRequest extends $dara.Model {
    * The name of the diagnostic metric set.
    * 
    * @example
-   * 远程连接问题诊断
+   * Remote connection issue diagnosis
    */
   metricSetName?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateDiagnosticMetricSetRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource to diagnose.
+   * The resource type.
    * 
    * Default value: instance.
    * 

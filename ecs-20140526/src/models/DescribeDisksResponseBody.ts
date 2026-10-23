@@ -491,7 +491,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   disks?: DescribeDisksResponseBodyDisks;
   /**
    * @remarks
-   * The query token returned in this call.
+   * The pagination token returned by this request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -499,7 +499,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use `NextToken` and `MaxResults` to perform paging query operations.
+   * > **[Deprecated]** This parameter will soon go offline. We recommend that you use the NextToken and MaxResults parameters for paging to complete the paged query.
    * 
    * @example
    * 1
@@ -507,7 +507,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be offline soon. Use `NextToken` and `MaxResults` to perform paging query operations.
+   * > **[Deprecated]** This parameter will soon go offline. We recommend that you use the NextToken and MaxResults parameters for paging to complete the paged query.
    * 
    * @example
    * 1
@@ -523,8 +523,8 @@ export class DescribeDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
-   * > When you use `MaxResults` and `NextToken` parameters to perform a paging query, the returned `TotalCount` parameter value is invalid.
+   * The total number of queried results.
+   * > When you use the MaxResults and NextToken parameters for paging to perform a paged query, the returned value of TotalCount is invalid.
    * 
    * @example
    * 15

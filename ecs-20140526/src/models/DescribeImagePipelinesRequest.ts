@@ -45,7 +45,7 @@ export class DescribeImagePipelinesRequestTag extends $dara.Model {
 export class DescribeImagePipelinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The image template ID. Valid values of N: 1 to 20.
+   * The ID of the image template. Valid values of N: 1 to 20.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****
@@ -53,7 +53,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   imagePipelineId?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query. Valid values: 1 to 500.
+   * The number of entries per page in a paging query. Valid values: 1 to 500.
    * 
    * Default value: 50.
    * 
@@ -63,7 +63,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * testImagePipeline
@@ -71,7 +71,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set the value to the `NextToken` value returned in the previous call to this operation. You do not need to set this parameter for the first request.
+   * The query token. Set the value to the NextToken value returned from the previous call. You do not need to specify this parameter for the first call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -81,7 +81,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
    * @remarks
    * The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
-   * >Filtering by the default resource group is not supported.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -103,7 +103,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeImagePipelinesRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (certified ISV) account or individual user account.
+   * The account ID of the Alibaba Cloud partner (certified ISV) or the individual user.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The ID of the network interface controller (NIC).
+   * The ID of the Elastic network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The network interface controller (NIC) permission action. Only InstanceAttach is supported.
+   * The Elastic network interface controller (NIC) permission action. Only InstanceAttach is supported.
    * 
-   * InstanceAttach: allows the authorized user to attach your NIC to their ECS instance. The ECS instance must be in the same zone as the NIC.
+   * InstanceAttach: allows the authorized user to attach your Elastic network interface controller (NIC) to their ECS instance. The ECS instance and the Elastic network interface controller (NIC) must reside in the same active zone.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The region of the network interface controller (NIC) permission. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region of the Elastic network interface controller (NIC) permission. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

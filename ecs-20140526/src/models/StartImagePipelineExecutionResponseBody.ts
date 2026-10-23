@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartImagePipelineExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the building task.
+   * The ID of the build task.
    * 
    * @example
    * exec-5fb8facb8ed7427c****

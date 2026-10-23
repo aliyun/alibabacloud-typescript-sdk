@@ -17,7 +17,7 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the dedicated host. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -29,10 +29,10 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to release an expired subscription dedicated host.
+   * Specifies whether to release an expired subscription dedicated host. Valid values:
    * 
-   * - true: Releases the host.
-   * - false: Does not release the host.
+   * - true: Releases the expired subscription dedicated host.
+   * - false: Does not release the expired subscription dedicated host.
    * 
    * Default value: false.
    * 

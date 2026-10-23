@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    * 
    * @example
    * 1000000000
@@ -13,7 +13,7 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn ext
   assumeRoleFor?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    * 
    * @example
    * hide
@@ -21,7 +21,7 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn ext
   roleType?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    * 
    * @example
    * hide
@@ -55,15 +55,15 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn ext
 export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    */
   arn?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn[];
   /**
    * @remarks
-   * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
+   * Specifies whether to enable encrypted cross-region snapshot replication. Valid values:
    * 
-   * - true: Encryption is enabled. 
-   * - false: Encryption is not enabled. 
+   * - true: Yes. 
+   * - false: No. 
    * 
    * Default value: false.
    * 
@@ -73,7 +73,7 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
   encrypted?: boolean;
   /**
    * @remarks
-   * The key ID of the Key Management Service (KMS) key used for encrypted cross-region snapshot replication.
+   * The KMS key ID used for encrypted cross-region snapshot replication.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40826X
@@ -110,22 +110,14 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
 export class ModifyAutoSnapshotPolicyExRequestTargetTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
-   * 
-   * Valid values of N: 1 to 5.
-   * 
-   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain `http://` or `https://`.
+   * The tag key. Valid values of N: 1 to 5. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with aliyun or acs: or contain http:// or https://.
    */
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value. Valid values of N: 1 to 5. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
-   * Valid values of N: 1 to 5.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
-   * 
-   * > If you pass in an empty value or an empty string, the tag value matches any value.
+   * > If this parameter is left empty or set to an empty string, it indicates any value.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -154,10 +146,10 @@ export class ModifyAutoSnapshotPolicyExRequestTargetTags extends $dara.Model {
 export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   /**
    * @remarks
-   * The retention period of cross-region snapshot replicas. Unit: days. Valid values:
+   * The retention period of cross-region replicated snapshots. Unit: days. Valid values:
    * 
-   * - -1: Snapshot replicas are permanently retained.
-   * - 1 to 65535: the number of days for which snapshot replicas are retained.
+   * - -1: The snapshots are permanently retained.
+   * - 1 to 65535: The snapshots are retained for the specified number of days.
    * 
    * Default value: -1.
    * 
@@ -167,15 +159,15 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   copiedSnapshotsRetentionDays?: number;
   /**
    * @remarks
-   * The encryption parameter object for cross-region snapshot replication.
+   * The encryption parameters for cross-region snapshot replication.
    */
   copyEncryptionConfiguration?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to allow automatic cross-region replication.
+   * Specifies whether to enable automatic cross-region replication. Valid values:
    * 
-   * - true: allowed.
-   * - false: not allowed.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -186,7 +178,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination region to which snapshots are replicated. Currently, you can set only one destination region.
+   * The destination region for cross-region snapshot replication. You can specify only one destination region.
    * 
    * @example
    * ["cn-hangzhou"]
@@ -199,7 +191,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   targetTags?: ModifyAutoSnapshotPolicyExRequestTargetTags[];
   /**
    * @remarks
-   * The ID of the automatic snapshot policy. You can call [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) to query available automatic snapshot policies.
+   * The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) operation to query the available automatic snapshot policies.
    * 
    * This parameter is required.
    * 
@@ -217,7 +209,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   autoSnapshotPolicyName?: string;
   /**
    * @remarks
-   * The region ID of the automatic snapshot policy. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -227,12 +219,12 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7. For example, 1 indicates Monday.
+   * The days of the week on which automatic snapshots are created. Valid values: 1 to 7, which represent Monday to Sunday. For example, 1 indicates Monday.
    * 
-   * To create multiple automatic snapshots within a week, you can specify multiple days:
+   * If you want to create automatic snapshots on multiple days within a week, you can specify multiple days:
    * 
    * - You can specify up to 7 days.
-   * - Multiple days are specified in a JSON array in the format of `"1", "2", … "7"`. Separate the days with commas (,).
+   * - Specify multiple days in a JSON array, such as `["1", "2", ... "7"]`. Separate the days with commas (,).
    * 
    * @example
    * ["1", "7"]
@@ -242,8 +234,8 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * @remarks
    * The retention period of automatic snapshots. Unit: days. Valid values:
    * 
-   * - -1: Automatic snapshots are permanently retained.
-   * - 1 to 65536: the number of days for which automatic snapshots are retained.
+   * - -1: The snapshots are permanently retained.
+   * - 1 to 65536: The snapshots are retained for the specified number of days.
    * 
    * Default value: -1.
    * 
@@ -253,12 +245,12 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The points in time at which automatic snapshots are created. The time is displayed in UTC+8. Unit: hours. Valid values: 0 to 23, which correspond to the 24 points in time from 00:00 to 23:00. For example, 1 indicates 01:00.
+   * The points in time at which automatic snapshots are created. The time is in UTC+8 and measured in hours. Valid values: 0 to 23, which represent 24 points in time from 00:00 to 23:00. For example, 1 indicates 01:00.
    * 
-   * To create multiple automatic snapshots within a day, you can specify multiple points in time:
+   * If you want to create multiple automatic snapshots within a day, you can specify multiple points in time:
    * 
    * - You can specify up to 24 points in time.
-   * - Multiple points in time are specified in a JSON array in the format of `"0", "1", … "23"`. Separate the points in time with commas (,).
+   * - Specify multiple points in time in a JSON array, such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
    * 
    * @example
    * ["0", "1"]

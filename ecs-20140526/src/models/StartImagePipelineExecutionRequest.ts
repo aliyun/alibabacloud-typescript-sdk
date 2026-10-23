@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartImagePipelineExecutionRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class StartImagePipelineExecutionRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class StartImagePipelineExecutionRequestTag extends $dara.Model {
 export class StartImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * >This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * null
@@ -53,7 +53,7 @@ export class StartImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * >This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * null
@@ -85,7 +85,7 @@ export class StartImagePipelineExecutionRequestTemplateTag extends $dara.Model {
 export class StartImagePipelineExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -105,7 +105,7 @@ export class StartImagePipelineExecutionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -117,12 +117,12 @@ export class StartImagePipelineExecutionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: StartImagePipelineExecutionRequestTag[];
   /**
    * @remarks
-   * >This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @deprecated
    */

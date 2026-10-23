@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommandsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the command. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * The tag key of the command. Valid values of N: 1 to 20. The value cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * When you use a single tag to filter resources, the resource count for that tag cannot exceed 1,000. When you use multiple tags to filter resources, the resource count for resources attached to all the specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
-   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -17,9 +17,9 @@ export class DescribeCommandsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the command. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the command. Valid values of N: 1 to 20. The value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -60,8 +60,8 @@ export class DescribeCommandsRequest extends $dara.Model {
   /**
    * @remarks
    * The encoding mode of the CommandContent and Output fields in the response. Valid values:
-   * - PlainText: returns the original script content and output.
-   * - Base64: returns Base64-encoded script content and output.
+   * - PlainText: Returns the original script content and output information.
+   * - Base64: Returns the Base64-encoded script content and output information.
    * 
    * Default value: Base64.
    * 
@@ -73,9 +73,9 @@ export class DescribeCommandsRequest extends $dara.Model {
    * @remarks
    * The description of the command.
    * 
-   * - If you specify the `Provider` parameter parameter query public commands, fuzzy search is supported by default.
+   * - When you specify the Provider parameter parameter query public commands, fuzzy search is supported by default.
    * 
-   * - If you do not specify the `Provider` parameter parameter query private commands, fuzzy search is supported. For example, enter `test*` to search for all commands whose descriptions start with `test`, enter `*test` to search for all commands whose descriptions end with `test`, or enter `*test*` to search for all commands whose descriptions contain `test`.
+   * - When you do not specify the Provider parameter parameter query private commands, fuzzy search is supported. For example, if you enter test*, the system searches for all commands whose descriptions start with test. If you enter *test, the system searches for all commands whose descriptions end with test. If you enter *test*, the system searches for all commands whose descriptions contain test.
    * 
    * @example
    * testDescription
@@ -83,11 +83,11 @@ export class DescribeCommandsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to query only the latest version of public commands when the query results include public commands. This parameter does not affect the query of private commands.
+   * Specifies whether to query only the latest version of public commands if the query result includes public commands. This parameter does not affect the query of private commands. Valid values:
    * 
-   * - true: queries only the latest version of public commands.
+   * - true: Queries only the latest version of public commands.
    * 
-   * - false: queries all versions of public commands.
+   * - false: Queries all versions of public commands.
    * 
    * Default value: false.
    * 
@@ -111,9 +111,9 @@ export class DescribeCommandsRequest extends $dara.Model {
    * @remarks
    * The name of the command.
    * 
-   * - If you specify the `Provider` parameter parameter query public commands, fuzzy search is supported by default.
+   * - When you specify the Provider parameter parameter query public commands, fuzzy search is supported by default.
    * 
-   * - If you do not specify the `Provider` parameter parameter query private commands, fuzzy search is supported. For example, enter `command*` to search for all commands whose names start with `command`, enter `*command` to search for all commands whose names end with `command`, or enter `*command*` to search for all commands whose names contain `command`.
+   * - When you do not specify the Provider parameter parameter query private commands, fuzzy search is supported. For example, if you enter command*, the system searches for all commands whose names start with command. If you enter *command, the system searches for all commands whose names end with command. If you enter *command*, the system searches for all commands whose names contain command.
    * 
    * @example
    * testName
@@ -121,7 +121,7 @@ export class DescribeCommandsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -131,7 +131,7 @@ export class DescribeCommandsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
+   * > This parameter will be deprecated soon. Use the NextToken and MaxResults parameters for paging.
    * 
    * @example
    * 1
@@ -139,7 +139,7 @@ export class DescribeCommandsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
+   * > This parameter will be deprecated soon. Use the NextToken and MaxResults parameters for paging.
    * 
    * @example
    * 10
@@ -147,13 +147,13 @@ export class DescribeCommandsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The provider of the public command. The following list describes the valid values of this parameter:
+   * The provider of the public command. Valid values:
    * 
-   * - If you do not specify this parameter, all Cloud Assistant commands that you manually created are queried by default.
-   * - If you set this parameter to `AlibabaCloud`, all public commands provided by Alibaba Cloud are queried.
-   * - If you set this parameter to a specific public command provider, all public commands provided by the provider are queried. Examples:
-   *     - If you set `Provider=AlibabaCloud.ECS.GuestOS`, all public commands provided by `AlibabaCloud.ECS.GuestOS` are queried.
-   *     - If you set `Provider=AlibabaCloud.ECS.GuestOSDiagnose`, all public commands provided by `AlibabaCloud.ECS.GuestOSDiagnose` are queried.
+   * - If you do not specify this parameter, the system queries all Cloud Assistant commands that you manually created by default.
+   * - If you set this parameter to AlibabaCloud, the system queries all public commands provided by Alibaba Cloud.
+   * - If you set this parameter to a specific public command provider, the system queries all public commands provided by the provider. Examples:
+   *     - If you set this parameter to AlibabaCloud.ECS.GuestOS, the system queries the public commands provided by AlibabaCloud.ECS.GuestOS.
+   *     - If you set this parameter to AlibabaCloud.ECS.GuestOSDiagnose, the system queries the public commands provided by AlibabaCloud.ECS.GuestOSDiagnose.
    * 
    * @example
    * AlibabaCloud
@@ -161,7 +161,7 @@ export class DescribeCommandsRequest extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -181,16 +181,16 @@ export class DescribeCommandsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeCommandsRequestTag[];
   /**
    * @remarks
    * The type of the command. Valid values: 
    * 
-   * - RunBatScript: Bat script that runs on Windows instances.
-   * - RunPowerShellScript: PowerShell script that runs on Windows instances.
-   * - RunShellScript: shell script that runs on Linux instances.
+   * - RunBatScript: a Bat script that runs on a Windows instance.
+   * - RunPowerShellScript: a PowerShell script that runs on a Windows instance.
+   * - RunShellScript: a shell script that runs on a Linux instance.
    * 
    * @example
    * RunShellScript

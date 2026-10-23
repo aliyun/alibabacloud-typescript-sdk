@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticityAssuranceAutoRenewAttributeRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The list of elasticity assurance service IDs.
+   * The list of elasticity assurance IDs. This parameter is required. If this parameter is not specified, the API returns MissingParameter.PrivatePoolOptionsId.
    * 
-   * 
-   * **Limit**: You can query up to 50 elasticity assurance services at a time.
+   * **Limits**: You can query up to 50 elasticity assurances at a time.
    */
   id?: string[];
   static names(): { [key: string]: string } {
@@ -41,7 +40,7 @@ export class DescribeElasticityAssuranceAutoRenewAttributeRequest extends $dara.
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the elasticity assurance service. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

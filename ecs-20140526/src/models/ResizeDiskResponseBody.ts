@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the generated order.
    * 
-   * > An order ID is returned only when you expand a subscription disk.
+   * > The order ID is returned only when you resize a subscription cloud disk.
    * 
    * @example
    * 20413515388****

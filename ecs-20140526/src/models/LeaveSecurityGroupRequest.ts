@@ -7,7 +7,7 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > If you specify this parameter, leave NetworkInterfaceId empty.
+   * > If you specify this parameter, you must leave NetworkInterfaceId empty.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -15,9 +15,9 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Elastic Network Interface (ENI) ID.
+   * The ID of the network interface controller (NIC).
    * 
-   * > If you specify this parameter, leave InstanceId empty.
+   * > If you specify this parameter, you must leave InstanceId empty.
    * 
    * @example
    * eni-bp13kd656hxambfe****
@@ -27,10 +27,10 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
-   * - You do not need to specify the region ID when removing an instance from a security group.
-   * - You must specify the region ID of the Elastic Network Interface (ENI) when removing an ENI from a security group.
+   * - You do not need to specify the region ID when you remove an instance from a security group.
+   * - You must specify the region ID of the network interface controller (NIC) when you remove a network interface controller (NIC) from a security group.
    * 
    * @example
    * cn-hangzhou
@@ -40,7 +40,7 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * This parameter is required.
    * 

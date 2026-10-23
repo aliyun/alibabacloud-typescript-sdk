@@ -7,9 +7,9 @@ export class DescribeReservedInstanceAutoRenewAttributeRequest extends $dara.Mod
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the reserved instances.
+   * The region ID of the reserved instance.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to obtain the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeReservedInstanceAutoRenewAttributeRequest extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the reserved instances.
+   * The IDs of the reserved instances. This parameter is required. If you do not specify this parameter, the MissingParamter.InstanceId error is returned.
    */
   reservedInstanceId?: string[];
   resourceOwnerAccount?: string;

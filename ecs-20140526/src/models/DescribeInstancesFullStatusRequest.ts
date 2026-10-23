@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesFullStatusRequestEventPublishTime extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the event publication time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-12-07T00:00:00Z
@@ -13,7 +14,8 @@ export class DescribeInstancesFullStatusRequestEventPublishTime extends $dara.Mo
   end?: string;
   /**
    * @remarks
-   * The start of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the event publication time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-11-30T00:00:00Z
@@ -45,7 +47,8 @@ export class DescribeInstancesFullStatusRequestEventPublishTime extends $dara.Mo
 export class DescribeInstancesFullStatusRequestNotBefore extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the scheduled execution time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-11-30T00:00:00Z
@@ -53,7 +56,8 @@ export class DescribeInstancesFullStatusRequestNotBefore extends $dara.Model {
   end?: string;
   /**
    * @remarks
-   * The start of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the scheduled execution time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2017-12-07T00:00:00Z
@@ -95,7 +99,7 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
   eventId?: string[];
   /**
    * @remarks
-   * The type of a system event. The EventType parameter takes effect only when InstanceEventType.N is not specified. Valid values: 
+   * The type of the event. The EventType parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values: 
    * 
    * - SystemMaintenance.Reboot: The instance is restarted due to system maintenance. 
    * - SystemFailure.Reboot: The instance is restarted due to a system failure.
@@ -113,11 +117,11 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
    * @remarks
    * The health status of the instance. Valid values: 
    * 
-   * - Impaired: The service is impaired. 
-   * - Warning: The instance performance may be degraded due to maintenance.
-   * - Maintaining: The instance is under maintenance.
+   * - Impaired: The service is damaged. 
+   * - Warning: A warning is issued. Instance performance may be degraded due to maintenance.
+   * - Maintaining: The instance is being maintained.
    * - Initializing: The instance is being initialized. 
-   * - InsufficientData: The data is insufficient. 
+   * - InsufficientData: Data is insufficient. 
    * - NotApplicable: Not applicable.
    * 
    * The values are case-sensitive.
@@ -128,7 +132,7 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The list of instance system event types. You can specify up to 30 instance event types.
+   * The list of instance event types. You can specify up to 30 instance event types.
    * 
    * @example
    * InstanceExpiration.Stop
@@ -146,7 +150,7 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the results. Valid values: positive integers.
+   * The page number of the query result. Valid values: positive integers.
    * 
    * Default value: 1.
    * 
@@ -166,7 +170,7 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

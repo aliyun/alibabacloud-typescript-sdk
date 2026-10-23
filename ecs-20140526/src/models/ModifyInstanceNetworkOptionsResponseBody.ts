@@ -15,7 +15,7 @@ export class ModifyInstanceNetworkOptionsResponseBody extends $dara.Model {
    * @remarks
    * The ID of the task for modifying the bandwidth weight.
    * 
-   * You can call [DescribeTaskAttribute](https://help.aliyun.com/document_detail/2679968.html) to query the result of the bandwidth weight modification.
+   * You can call the [DescribeTaskAttribute](https://help.aliyun.com/document_detail/2679968.html) operation to query the result of the bandwidth weight modification.
    * 
    * @example
    * t-bp198jigq7l0h5ac****

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SendDiagnosticInterruptRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. Valid values: ● true: Sends a check request without sending the NMI command. ● false (default): Sends a normal NMI request to trigger a crash dump.
+   * Specifies whether to only precheck the request. Valid values:
+   * - true: Sends a check request without sending the NMI command.
+   * - false: Sends a normal NMI request to trigger a crash dump. Default value: false.
    * 
    * @example
    * false
@@ -13,7 +15,7 @@ export class SendDiagnosticInterruptRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The instance ID of the instance to which you want to send a diagnostic break.
+   * The instance ID to which you want to send a diagnostic break.
    * 
    * This parameter is required.
    * 

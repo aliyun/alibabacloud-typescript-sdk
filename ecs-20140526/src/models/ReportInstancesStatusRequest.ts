@@ -5,21 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ReportInstancesStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The detailed description of the anomalous issue.
+   * The detailed description of the exception.
    * 
    * This parameter is required.
    * 
    * @example
-   * 本地盘不可用，挂载点拒绝访问，无法加载文件。
+   * The local disk is unavailable, access to the mount point is denied, and files cannot be loaded
    */
   description?: string;
   /**
    * @remarks
-   * The list of device names of the disks that have the same anomalous issue and are attached to the instance. You can specify up to 100 device names.
+   * The device names of the attached disks that have the same exception. You can specify up to 100 device names. If you use ECS Bare Metal instances, specify the slot information of the disk devices.
    * 
-   * If you are using an ECS Bare Metal server instance, specify the SLOT information list of the disk devices.
-   * 
-   * > For ECS bare metal instances, this parameter is required when the `Reason` parameter is set to `abnormal-local-disk` or `abnormal-cloud-disk`, or when the `IssueCategory` parameter is set to `hardware-disk-error`.
+   * > For ECS Bare Metal instances, this parameter is required when the Reason parameter is set to abnormal-local-disk or abnormal-cloud-disk, or when the IssueCategory parameter is set to hardware-disk-error.
    * 
    * @example
    * /dev/xvdb
@@ -27,9 +25,9 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   device?: string[];
   /**
    * @remarks
-   * The list of IDs of the disks that have the same anomalous issue. You can specify up to 100 disk IDs. If you are using an ECS Bare Metal server instance, specify the SN list of the disk devices.
+   * The IDs of the disks that have the same exception. You can specify up to 100 disk IDs. If you use ECS Bare Metal instances, specify the serial numbers (SNs) of the disk devices.
    * 
-   * > This parameter is required when the `Reason` parameter is set to `abnormal-local-disk` or `abnormal-cloud-disk`, or when the `IssueCategory` parameter is set to `hardware-disk-error`.
+   * > This parameter is required when the Reason parameter is set to abnormal-local-disk or abnormal-cloud-disk, or when the IssueCategory parameter is set to hardware-disk-error.
    * 
    * @example
    * d-bp1aeljlfad7x6u1****
@@ -37,7 +35,7 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   diskId?: string[];
   /**
    * @remarks
-   * The time when the instance failures ended. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the instance failures. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-11-31T06:32:31Z
@@ -45,7 +43,7 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of ECS instance IDs. You can specify up to 100 instance IDs.
+   * The IDs of the ECS instances. You can specify up to 100 instance IDs.
    * 
    * This parameter is required.
    * 
@@ -55,16 +53,16 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The category of the anomalous issue. This parameter is applicable only to Elastic Compute Service Bare Metal Instance instances. Valid values:
-   * - hardware-cpu-error: CPU failure.
-   * - hardware-motherboard-error: Motherboard failure.
-   * - hardware-mem-error: Memory failure.
-   * - hardware-power-error: Power failure.
-   * - hardware-disk-error: Disk failure.
-   * - hardware-networkcard-error: Network interface controller (NIC) failure.
-   * - hardware-raidcard-error: SAS/RAID card failure.
-   * - hardware-fan-error: Fan failure.
-   * - others: Other failures.
+   * The category of the exception. This parameter is applicable only to ECS Bare Metal instances. Valid values:
+   * - hardware-cpu-error: CPU failure
+   * - hardware-motherboard-error: Motherboard failure
+   * - hardware-mem-error: Memory failure
+   * - hardware-power-error: Power supply failure
+   * - hardware-disk-error: Disk failure
+   * - hardware-networkcard-error: Network interface controller (NIC) failure
+   * - hardware-raidcard-error: SAS/RAID card failure
+   * - hardware-fan-error: Fan failure
+   * - others: Other exceptions
    * 
    * @example
    * hardware-cpu-error
@@ -74,14 +72,14 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The impact of the anomalous issue on the ECS instance. Valid values:
+   * The impact of the exception on the ECS instance. Valid values:
    * 
-   * - instance-hang: The ECS instance is unavailable or cannot be connected to.
-   * - instance-stuck-in-status: The ECS instance is stuck in a specific state, such as Starting or Stopping, for an extended period of time.
-   * - abnormal-network: A network exception occurred on the ECS instance.
-   * - abnormal-local-disk: A local disk attached to the ECS instance is abnormal.
-   * - abnormal-cloud-disk: A cloud disk or Shared Block Storage device attached to the ECS instance is abnormal.
-   * - others: Other exception types. If none of the preceding values apply, set `Reason=others` and provide more information in `Description`.
+   * - instance-hang: The ECS instance is unavailable or unreachable.
+   * - instance-stuck-in-status: The ECS instance remains in a specific state, such as Starting or Stopping, for an extended period.
+   * - abnormal-network: A network exception occurs on the ECS instance.
+   * - abnormal-local-disk: An exception occurs on the local disk attached to the ECS instance.
+   * - abnormal-cloud-disk: An exception occurs on the disk or Shared Block Storage attached to the ECS instance.
+   * - others: Other exception types. If none of the preceding impact types apply, you can set Reason to others and provide more information in Description.
    * 
    * @example
    * abnormal-local-disk
@@ -89,7 +87,7 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -101,7 +99,7 @@ export class ReportInstancesStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The time when the instance failures started. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the instance failures. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-11-30T06:32:31Z

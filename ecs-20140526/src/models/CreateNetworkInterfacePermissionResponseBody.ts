@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (certified ISV) account.
+   * The account ID of the Alibaba Cloud partner (certified ISV).
    * 
    * @example
    * 1234567890
@@ -13,7 +13,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   accountId?: number;
   /**
    * @remarks
-   * The ID of the network interface controller (NIC).
+   * The ID of the Elastic network interface controller (NIC).
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -21,7 +21,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the network interface controller (NIC) permission.
+   * The ID of the Elastic network interface controller (NIC) permission.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -29,7 +29,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfacePermissionId?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) permission.
+   * The Elastic network interface controller (NIC) permission.
    * 
    * @example
    * InstanceAttach
@@ -37,12 +37,12 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   permission?: string;
   /**
    * @remarks
-   * The status of the network interface controller (NIC) permission. Valid values:
+   * The state of the Elastic network interface controller (NIC) permission. Valid values:
    * 
-   * - Pending: Authorization in progress.
-   * - Granted: Authorization granted.
-   * - Revoking: Authorization being revoked.
-   * - Revoked: Authorization revoked.
+   * - Pending: The authorization is in progress.
+   * - Granted: The authorization is granted.
+   * - Revoking: The authorization is being revoked.
+   * - Revoked: The authorization is revoked.
    * 
    * @example
    * Granted
@@ -90,7 +90,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
 export class CreateNetworkInterfacePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the network interface controller (NIC) permissions.
+   * The collection of information composed of the Elastic network interface controller (NIC) permission list.
    */
   networkInterfacePermission?: CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission;
   /**

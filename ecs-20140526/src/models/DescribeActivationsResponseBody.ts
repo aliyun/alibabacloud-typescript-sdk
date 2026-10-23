@@ -53,7 +53,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -85,7 +85,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The maximum number of times that the activation code can be used to register managed instances.
+   * The maximum number of times the activation code can be used to register managed instances.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The IP addresses of hosts that are allowed to use the activation code.
+   * The IP addresses of the hosts that are allowed to use the activation code.
    * 
    * @example
    * 0.0.0.0/0
@@ -125,7 +125,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the managed instance activation code.
+   * The tag information of the managed instance activation code.
    */
   tags?: DescribeActivationsResponseBodyActivationListTags[];
   /**
@@ -190,7 +190,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   activationList?: DescribeActivationsResponseBodyActivationList[];
   /**
    * @remarks
-   * The pagination token returned in this response.
+   * The query token returned in the current response.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -198,7 +198,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -206,7 +206,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The Settings for the number of entries returned per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -222,7 +222,8 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records that meet the conditional query criteria.
+   * > When you perform paging in a paged query by using the MaxResults and NextToken parameters, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

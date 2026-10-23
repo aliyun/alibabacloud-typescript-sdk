@@ -5,21 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrefixListRequestEntry extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block in entry N. Valid values of N: 0 to 200. Notes:
+   * The Classless Inter-Domain Routing of the prefix list entry. Valid values of N: 0 to 200. Precautions:
    * 
-   * - The total number of entries cannot exceed the `MaxEntries` value.
+   * - The number of entries in the prefix list cannot exceed the maximum number of entries (`MaxEntries`).
+   * - The type of the Classless Inter-Domain Routing in an entry is determined by the address family. A prefix list cannot contain both IPv4 and IPv6 Classless Inter-Domain Routing.
+   * - Classless Inter-Domain Routing in multiple entries cannot be duplicate. For example, you cannot specify two Settings such as 192.168.1.0/24.
+   * - You can specify a single IP address in the Settings, and the system automatically transforms it into a Classless Inter-Domain Routing. For example, if you specify 192.168.1.100 in the Settings, the system automatically transforms it into 192.168.1.100/32.
+   * - If you use an IPv6 Classless Inter-Domain Routing, the system automatically transforms it into a zero-compressed format and transforms letters to lowercase. For example, if you specify 2001:0DB8:0000:0000:0000:0000:0000:0000/32 in the Settings, the system automatically transforms it into 2001:db8::/32.
    * 
-   * - CIDR block types are determined by the IP address family. You cannot combine IPv4 and IPv6 CIDR blocks in a single prefix list.
+   * For more information about Classless Inter-Domain Routing, see [What is CIDR](~~185311#598efe6ef1v00~~).
    * 
-   * - CIDR blocks must be unique across all entries in a prefix list. For example, you cannot specify 192.168.1.0/24 twice in the entries of the prefix list.
-   * 
-   * - You can set a single IP address. The system automatically converts the IP address to a CIDR block. For example, if you set 192.168.1.100, the system automatically converts it to 192.168.1.100/32.
-   * 
-   * - If you use an IPv6 CIDR block, the system automatically converts the CIDR block to zero and the letters to lowercase. For example, if you specify 2001:0DB8:0000:0000:0000:0000:0000:0000/32, the system converts it to 2001:db8::/32.
-   * 
-   * For more information about CIDR blocks, see [What is CIDR?](~~185311#598efe6ef1v00~~)
-   * 
-   * This parameter is left empty by default.
+   * Default value: empty.
    * 
    * This parameter is required.
    * 
@@ -29,7 +25,7 @@ export class CreatePrefixListRequestEntry extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The description in entry N. The description must be 2 to 32 characters in length and cannot start with `http://` or `https://`. Valid values of N: 0 to 200.
+   * The description of the prefix list entry. The description must be 2 to 32 characters in length, and cannot start with `http://` or `https://`. Valid values of N: 0 to 200.
    * 
    * @example
    * Description Sample 01
@@ -61,7 +57,7 @@ export class CreatePrefixListRequestEntry extends $dara.Model {
 export class CreatePrefixListRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key of the prefix list. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -69,9 +65,9 @@ export class CreatePrefixListRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the prefix list. Valid values of N: 1 to 20. This parameter can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain` http:// or https://`.
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -103,11 +99,10 @@ export class CreatePrefixListRequestTag extends $dara.Model {
 export class CreatePrefixListRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address family. Valid values:
+   * The address family of the prefix list. Valid values:
    * 
-   * - IPv4
-   * 
-   * - IPv6
+   * - IPv4.
+   * - IPv6.
    * 
    * This parameter is required.
    * 
@@ -117,7 +112,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   addressFamily?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -125,7 +120,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the prefix list. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the prefix list. The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is description.
@@ -133,12 +128,12 @@ export class CreatePrefixListRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The details of entries in the prefix list.
+   * The prefix list entry information.
    */
   entry?: CreatePrefixListRequestEntry[];
   /**
    * @remarks
-   * The maximum number of entries that the prefix list can contain. Valid values: 1 to 200.
+   * The maximum number of entries supported by the prefix list. Valid values: 1 to 200.
    * 
    * This parameter is required.
    * 
@@ -150,7 +145,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the prefix list. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`.
+   * The name of the prefix list. The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -160,7 +155,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   prefixListName?: string;
   /**
    * @remarks
-   * The ID of the region in which to create the prefix list.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -170,7 +165,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which to assign the prefix list.
+   * The ID of the resource group to which the prefix list belongs.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -180,7 +175,7 @@ export class CreatePrefixListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags to add to the prefix list.
+   * The tags.
    */
   tag?: CreatePrefixListRequestTag[];
   static names(): { [key: string]: string } {

@@ -55,7 +55,7 @@ export class DescribeElasticityAssuranceInstancesResponseBody extends $dara.Mode
   elasticityAssuranceItem?: DescribeElasticityAssuranceInstancesResponseBodyElasticityAssuranceItem;
   /**
    * @remarks
-   * The maximum number of entries per page for a paging query.
+   * The number of entries returned per page for paging.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeElasticityAssuranceInstancesResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query of the elasticity assurance.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -79,7 +79,7 @@ export class DescribeElasticityAssuranceInstancesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 2

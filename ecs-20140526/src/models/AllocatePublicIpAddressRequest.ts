@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AllocatePublicIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the instance to which you want to allocate a public IP address.
+   * The ID of the instance to which you want to assign an IP address.
    * 
-   * >The public bandwidth of the instance must be greater than 0.
+   * > The bandwidth of the instance must be greater than 0.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class AllocatePublicIpAddressRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The public IP address of the instance. If this parameter is left empty, the system randomly assigns an IP address.
+   * The public IP address of the instance. If this parameter is empty, the system randomly assigns an IP address by default.
    * 
-   * >Only users in the whitelist can specify this parameter. Regular users cannot specify an IP address.
+   * > Only whitelisted users can specify this parameter. Regular users cannot specify an IP address.
    * 
    * @example
    * ``112.124.**.**``
@@ -32,7 +32,7 @@ export class AllocatePublicIpAddressRequest extends $dara.Model {
   /**
    * @remarks
    * The VLAN ID of the instance.
-   * > This parameter will be deprecated. For better compatibility, use other parameters.
+   * > This parameter is deprecated. To improve compatibility, use other parameters instead.
    * 
    * @example
    * 720

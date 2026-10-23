@@ -21,7 +21,7 @@ export class GetInstanceScreenshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance screenshot in JPG image format, returned as a Base64-encoded image.
+   * The instance screenshot in JPG format, returned as a Base64-encoded string.
    * 
    * @example
    * iVBORw0KGgoA...AAABJRU5ErkJggg==

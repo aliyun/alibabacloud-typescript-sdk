@@ -123,6 +123,10 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
    * @remarks
    * The currency unit. Valid values:
    * 
+   * - China site: CNY.
+   * 
+   * - International site: USD.
+   * 
    * @example
    * CNY
    */
@@ -188,6 +192,10 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
   /**
    * @remarks
    * The currency unit.
+   * 
+   * China site: CNY.
+   * 
+   * International site: USD.
    * 
    * @example
    * CNY
@@ -375,7 +383,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and discount rule details.
+   * The price information, including the price and discount rule information.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

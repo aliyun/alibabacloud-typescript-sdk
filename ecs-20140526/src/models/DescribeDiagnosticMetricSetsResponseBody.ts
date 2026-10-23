@@ -8,7 +8,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The description of the diagnostic metric set.
    * 
    * @example
-   * Remote connection diagnostics
+   * Remote connection issue diagnosis
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The name of the diagnostic metric set.
    * 
    * @example
-   * Remote connection diagnostics
+   * Remote connection issue diagnosis
    */
   metricSetName?: string;
   /**
@@ -44,8 +44,8 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * @remarks
    * The type of the diagnostic metric set. Valid values:
    * 
-   * - User: user.
-   * - Common: common.
+   * - User: user-created.
+   * - Common: public.
    * 
    * @example
    * User
@@ -93,7 +93,7 @@ export class DescribeDiagnosticMetricSetsResponseBody extends $dara.Model {
   metricSets?: DescribeDiagnosticMetricSetsResponseBodyMetricSets[];
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

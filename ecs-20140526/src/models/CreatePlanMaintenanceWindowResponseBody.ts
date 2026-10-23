@@ -13,7 +13,7 @@ export class CreatePlanMaintenanceWindowResponseBody extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7D5B1188-3F08-56D1-A6B2-91B267452633

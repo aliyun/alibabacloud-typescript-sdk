@@ -13,7 +13,7 @@ export class CreateVscResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the Virtual Storage Channel.
+   * The ID of the virtual storage channel.
    * 
    * @example
    * vsc-b*d31dq

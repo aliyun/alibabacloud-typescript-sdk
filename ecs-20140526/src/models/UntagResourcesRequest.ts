@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the resources. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
+   * Specifies whether to remove all tags from the resources. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
    * - true
    * - false
    * 
@@ -19,7 +19,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resources. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
    * - instance: ECS instance.
    * - disk: cloud disk.

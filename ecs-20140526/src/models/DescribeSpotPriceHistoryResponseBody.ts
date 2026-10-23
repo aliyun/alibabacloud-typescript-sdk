@@ -84,7 +84,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The start row of the next page. Set the `Offset` parameter to this value to query the next page of data.
+   * The starting row of the next page. You can use this value to query the next page of data by setting the `Offset` parameter to this value.
    * 
    * @example
    * 1000

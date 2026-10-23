@@ -225,7 +225,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The query token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -233,7 +233,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned results.
+   * The current page number of the query result.
    * 
    * @example
    * 1
@@ -257,7 +257,8 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of scripts.
+   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount parameter value is meaningless.
    * 
    * @example
    * 2

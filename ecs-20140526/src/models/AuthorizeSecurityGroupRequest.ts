@@ -13,9 +13,9 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 CIDR block. CIDR blocks and IPv4 address ranges are supported.
+   * The destination IPv4 CIDR block. Both CIDR format and IPv4 format address ranges are supported.
    * 
-   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Quintuple rules for security groups](https://help.aliyun.com/document_detail/97439.html).
    * 
    * @example
    * 10.0.0.0/8
@@ -23,20 +23,20 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The network-layer or transport-layer protocol. Two types of values are supported:
+   * The network layer or transport layer protocol. Two types of values are supported:
    * 1. Case-insensitive protocol names. Valid values:
    * - ICMP
    * - GRE
    * - TCP
    * - UDP
-   * - ALL: All protocols are supported.
-   * 2. Protocol numbers that comply with IANA specifications, which are integers from 0 to 255. The following regions currently support this feature:
+   * - ALL: all protocols.
+   * 2. IANA-standard protocol numbers, which are integers from 0 to 255. This is available in the following regions:
    * - Philippines
    * - UK
    * - Malaysia
-   * - Hohhot
-   * - Qingdao
-   * - US West
+   * - China (Hohhot)
+   * - China (Qingdao)
+   * - US (Silicon Valley)
    * - Singapore
    * 
    * @example
@@ -45,11 +45,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The destination IPv6 CIDR block. Settings support CIDR format and IPv6 format address ranges.
+   * The destination IPv6 CIDR block. Both CIDR format and IPv6 format address ranges are supported.
    * 
-   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Quintuple rules for security groups](https://help.aliyun.com/document_detail/97439.html).
    * 
-   * > This parameter takes effect only for VPC-connected ECS instances that support IPv6. This parameter and `DestCidrIp` cannot be specified at the same time.
+   * > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify both this parameter and the DestCidrIp parameter in the same settings.
    * 
    * @example
    * 2001:250:6000::***
@@ -57,9 +57,9 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block for which you want to set access permissions. Settings support CIDR format and IPv6 format address ranges.
+   * The source IPv6 CIDR block for access permission settings. Both CIDR format and IPv6 format address ranges are supported.
    * 
-   * > This parameter takes effect only for VPC-connected ECS instances that support IPv6. This parameter and `SourceCidrIp` cannot be specified at the same time.
+   * > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify both this parameter and the SourceCidrIp parameter in the same settings.
    * 
    * @example
    * 2001:250:6000::***
@@ -67,15 +67,15 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) type for a classic network security group rule. Settings include the following valid values:
+   * The NIC type for security group rules in the classic network. Valid values:
    * 
-   * - internet: public network interface controller (NIC).
+   * - internet: public NIC.
    * 
-   * - intranet: internal network interface controller (NIC).
+   * - intranet: internal NIC.
    * 
-   * For VPC security group rules, you do not need to set the network interface controller (NIC) type. The default value is intranet, and only intranet is supported.
+   * No NIC type settings are required for security group rules in a VPC. The default value is intranet, and it can only be set to intranet.
    * 
-   * When you set security groups to access each other, meaning only the DestGroupId parameter is specified, only intranet is supported.
+   * When you configure mutual access between security groups, which means only the DestGroupId parameter is specified, this parameter can only be set to intranet.
    * 
    * Default value: internet.
    * 
@@ -85,11 +85,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   nicType?: string;
   /**
    * @remarks
-   * Settings for access permissions. Valid values:
+   * The access permission settings. Valid values:
    * 
-   * - accept: Accepts access.
+   * - accept: allows access.
    * 
-   * - drop: Denies access without returning a deny response. The request appears to timeout or the connection cannot be established.
+   * - drop: denies access without returning a rejection message. The initiator experiences a request timeout or a connection failure.
    * 
    * Default value: accept.
    * 
@@ -99,14 +99,14 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the protocol for the security group. Valid values:
+   * The destination port range for the specified protocol opened in the security group. Valid values:
    * 
-   * - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the stop port with a forward slash (/). Example: 1/200.
+   * - TCP or UDP: 1 to 65535. Use a forward slash (/) to separate the start port and the stop port. Example: 1/200.
    * - ICMP: -1/-1.
    * - GRE: -1/-1.
-   * - If IpProtocol is set to ALL: -1/-1.
+   * - ALL: -1/-1.
    * 
-   * For more information about common scenarios of ports, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information about common scenarios, see [Common ports used by typical applications](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 80/80
@@ -114,10 +114,10 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   portRange?: string;
   /**
    * @remarks
-   * The port address book ID.
-   * You can invoke `DescribePortRangeLists` to query available port address book IDs.
-   * - If you specify `Permissions.N.PortRange`, this parameter is ignored.
-   * - Port address books are not supported when the security group network type is classic network. For more information about security group and port address book limits, see [Security group limits](~~25412#SecurityGroupQuota1~~). Settings for port address books are subject to these limits.
+   * The ID of the port list.
+   * You can call the DescribePortRangeLists operation to query available port list IDs.
+   * - If you specify the Permissions.N.PortRange parameter, this parameter is ignored.
+   * - Port lists are not supported when the network type of the security group is classic network. For more information about the limits on security groups and port lists, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * @example
    * prl-2ze9743****
@@ -135,7 +135,7 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block for which you want to set access permissions. Settings support CIDR format and IPv4 format address ranges.
+   * The source IPv4 CIDR block for access permission settings. Both CIDR format and IPv4 format address ranges are supported.
    * 
    * @example
    * 10.0.0.0/8
@@ -143,13 +143,13 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The ID of the source security group for which you want to set access permissions.
+   * The ID of the source security group for access permission settings.
    * 
-   * - Specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourcePrefixListId`.
+   * - You must specify at least one of the following parameters: SourceGroupId, SourceCidrIp, Ipv6SourceCidrIp, and SourcePrefixListId.
    * 
-   * - If `SourceGroupId` is specified but `SourceCidrIp` or `Ipv6SourceCidrIp` is not specified, the `NicType` parameter can only be set to `intranet`.
+   * - If you specify SourceGroupId but do not specify SourceCidrIp or Ipv6SourceCidrIp, you must set NicType to intranet.
    * 
-   * - If both `SourceGroupId` and `SourceCidrIp` are specified, `SourceCidrIp` takes precedence.
+   * - If you specify both SourceGroupId and SourceCidrIp, SourceCidrIp takes precedence by default.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -157,11 +157,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   sourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the source security group when you set a cross-account security group rule. Settings apply as follows:
+   * The Alibaba Cloud account that owns the source security group for cross-account security group rule settings.
    * 
-   * - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is set, the rule is created to set access permissions for another security group within your account.
+   * - If neither SourceGroupOwnerAccount nor SourceGroupOwnerId is specified, the rule applies to the access permission settings for your other security groups.
    * 
-   * - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is ignored.
+   * - If SourceCidrIp is specified, the SourceGroupOwnerAccount parameter is invalid.
    * 
    * @example
    * test@aliyun.com
@@ -169,11 +169,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   sourceGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the source security group when you set a cross-account security group rule. Settings apply as follows:
+   * The ID of the Alibaba Cloud account that owns the source security group for cross-account security group rule settings.
    * 
-   * - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is set, the rule is created to set access permissions for another security group within your account.
+   * - If neither SourceGroupOwnerAccount nor SourceGroupOwnerId is specified, the rule applies to the access permission settings for your other security groups.
    * 
-   * - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is ignored.
+   * - If SourceCidrIp is specified, the SourceGroupOwnerAccount parameter is invalid.
    * 
    * @example
    * 1234567890
@@ -181,14 +181,14 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   sourceGroupOwnerId?: number;
   /**
    * @remarks
-   * The range of source ports that correspond to the protocol for the security group. Valid values:
+   * The source port range for the specified protocol. Valid values:
    * 
-   * - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+   * - TCP or UDP: 1 to 65535. Use a forward slash (/) to separate the start port and the end port. Example: 1/200.
    * - ICMP: -1/-1.
    * - GRE: -1/-1.
-   * - If IpProtocol is set to ALL: -1/-1.
+   * - ALL: -1/-1.
    * 
-   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Quintuple rules for security groups](https://help.aliyun.com/document_detail/97439.html).
    * 
    * @example
    * 7000/8000
@@ -196,11 +196,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The ID of the source prefix list for which you want to set access permissions. You can call [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
+   * The ID of the source prefix list for access permission settings. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query available prefix list IDs.
    * 
-   * Usage notes:
+   * Precautions:
    * 
-   * If you specify one of the `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId` parameters, this parameter is ignored.
+   * If you specify SourceCidrIp, Ipv6SourceCidrIp, or SourceGroupId, this parameter is ignored.
    * 
    * For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
@@ -262,7 +262,7 @@ export class AuthorizeSecurityGroupRequestPermissions extends $dara.Model {
 export class AuthorizeSecurityGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -270,7 +270,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.Description` to specify the description of the security group rule.
+   * **[Deprecated]** Use Permissions.N.Description to specify the description of the security group rule.
    * 
    * @example
    * This is description.
@@ -280,7 +280,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
+   * **[Deprecated]** Use Permissions.N.DestCidrIp to specify the destination IPv4 CIDR block.
    * 
    * @example
    * 10.0.0.0/8
@@ -290,7 +290,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.IpProtocol` to specify the protocol type.
+   * **[Deprecated]** Use Permissions.N.IpProtocol to specify the protocol type.
    * 
    * @example
    * ALL
@@ -300,7 +300,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+   * **[Deprecated]** Use Permissions.N.Ipv6DestCidrIp to specify the destination IPv6 CIDR block.
    * 
    * @example
    * null
@@ -310,7 +310,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 Classless Inter-Domain Routing block.
+   * **[Deprecated]** Use Permissions.N.Ipv6SourceCidrIp to specify the source IPv6 CIDR block.
    * 
    * @example
    * 2001:250:6000::***
@@ -320,7 +320,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.NicType` to specify the NIC type.
+   * **[Deprecated]** Use Permissions.N.NicType to specify the NIC type.
    * 
    * @example
    * intranet
@@ -332,12 +332,12 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The security group rules. Array length: 1 to 100.
+   * The array of security group rules. Valid values for the array length: 1 to 100.
    */
   permissions?: AuthorizeSecurityGroupRequestPermissions[];
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.Policy` to set access permissions. Settings configured through this parameter are no longer supported.
+   * **[Deprecated]** Use Permissions.N.Policy for access permission settings.
    * 
    * @example
    * accept
@@ -347,7 +347,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.PortRange` to specify the port range.
+   * **[Deprecated]** Use Permissions.N.PortRange to specify the port range.
    * 
    * @example
    * 22/22
@@ -357,7 +357,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   portRange?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.Priority` to specify the priority of the security group rule.
+   * **[Deprecated]** Use Permissions.N.Priority to specify the priority of the security group rule.
    * 
    * @example
    * 1
@@ -367,7 +367,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The region ID of the security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -379,7 +379,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * This parameter is required.
    * 
@@ -389,7 +389,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 Classless Inter-Domain Routing block.
+   * **[Deprecated]** Use Permissions.N.SourceCidrIp to specify the source IPv4 CIDR block.
    * 
    * @example
    * 10.0.0.0/8
@@ -399,7 +399,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourceGroupId` to specify the source security group ID.
+   * **[Deprecated]** Use Permissions.N.SourceGroupId to specify the source security group ID.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -409,7 +409,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   sourceGroupId?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourceGroupOwnerAccount` to specify the Alibaba Cloud account that owns the source security group.
+   * **[Deprecated]** Use Permissions.N.SourceGroupOwnerAccount to specify the Alibaba Cloud account that owns the source security group.
    * 
    * @example
    * test@aliyun.com
@@ -419,7 +419,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   sourceGroupOwnerAccount?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourceGroupOwnerId` to specify the ID of the Alibaba Cloud account that owns the source security group.
+   * **[Deprecated]** Use Permissions.N.SourceGroupOwnerId to specify the ID of the Alibaba Cloud account that owns the source security group.
    * 
    * @example
    * 1234567890
@@ -429,7 +429,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   sourceGroupOwnerId?: number;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourcePortRange` to specify the source port range.
+   * **[Deprecated]** Use Permissions.N.SourcePortRange to specify the source port range.
    * 
    * @example
    * 22/22
@@ -439,7 +439,7 @@ export class AuthorizeSecurityGroupRequest extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * Deprecated. Use `Permissions.N.SourcePrefixListId` to specify the source prefix list ID.
+   * **[Deprecated]** Use Permissions.N.SourcePrefixListId to specify the source prefix list ID.
    * 
    * @example
    * pl-x1j1k5ykzqlixdcy****

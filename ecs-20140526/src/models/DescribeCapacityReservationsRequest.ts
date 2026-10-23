@@ -35,9 +35,9 @@ export class DescribeCapacityReservationsRequestPrivatePoolOptions extends $dara
 export class DescribeCapacityReservationsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. N indicates that you can set multiple tag keys for filtering. Valid values of N: 1 to 20.
+   * The tag key. N specifies that you can set multiple tag keys for filtering. Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * If you use a single tag to filter resources, the resource count with the tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * @example
    * TestKey
@@ -45,7 +45,7 @@ export class DescribeCapacityReservationsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. N indicates that you can specify multiple tag values for filtering. Valid values of N: 1 to 20.
+   * The tag value. N specifies that you can set multiple tag values for filtering. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -91,7 +91,7 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance type. You can use the instance type to query only active capacity reservations. Released capacity reservations can only be queried by using PrivatePoolOptions.Ids.
+   * The instance type. You can use the instance type to query only active capacity reservations. Released capacity reservations can be queried only by using PrivatePoolOptions.Ids.
    * 
    * @example
    * ecs.c6.large

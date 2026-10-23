@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlanMaintenanceWindowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable or disable the O&M window.
-   * 
+   * Specifies whether to enable the window. Valid values:
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 
@@ -16,10 +15,17 @@ export class CreatePlanMaintenanceWindowShrinkRequest extends $dara.Model {
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The minimum interval between two scheduled O&M events for the same instance. Valid values: 1 to 48. Unit: hours.
+   * 
+   * @example
+   * 24
+   */
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
+   * The name of the O&M window. You can customize the name. The name can be up to 200 characters in length.
    * 
    * This parameter is required.
    * 
@@ -29,7 +35,7 @@ export class CreatePlanMaintenanceWindowShrinkRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the most recent region list.
+   * The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation yields the same result. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
    * 
    * This parameter is required.
    * 
@@ -49,14 +55,14 @@ export class CreatePlanMaintenanceWindowShrinkRequest extends $dara.Model {
   supportMaintenanceAction?: string;
   /**
    * @remarks
-   * The resources on which the O&M window takes effect.
+   * The resources to which the O&M window applies.
    * 
    * This parameter is required.
    */
   targetResourceShrink?: string;
   /**
    * @remarks
-   * The recurring cycle of the O&M window.
+   * The recurrence cycle of the window.
    * 
    * This parameter is required.
    */

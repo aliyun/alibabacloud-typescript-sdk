@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the bandwidth package to delete.
+   * 
    * This parameter is required.
    */
   bandwidthPackageId?: string;
@@ -12,6 +14,8 @@ export class DeleteBandwidthPackageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID of the bandwidth package. You can call the DescribeRegions operation to query the latest region list.
+   * 
    * This parameter is required.
    */
   regionId?: string;

@@ -61,9 +61,9 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
-   * >Filtering by the default resource group is not supported.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-aek2zex4ehdyjvq
@@ -73,11 +73,11 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
    * @remarks
    * The status of the VSC. Valid values:
    * 
-   * - In_use: in use.
-   * - Attaching: being attached.
-   * - Detaching: being detached.
-   * - AttachFailed: failed to attach.
-   * - DetachFailed: failed to detach.
+   * - In_use: In use.
+   * - Attaching: Attaching.
+   * - Detaching: Detaching.
+   * - AttachFailed: Attachment failed.
+   * - DetachFailed: Detachment failed.
    * 
    * @example
    * In_use
@@ -85,12 +85,12 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag keys of snapshots in the snapshot-consistent group. The default values of Key and Value provide the snapshot source information.
+   * The tag keys of the snapshots in the snapshot consistency group. The default values of Key and Value provide the snapshot source information.
    */
   tags?: DescribeVscsResponseBodyVscsTags[];
   /**
    * @remarks
-   * VSC ID。
+   * The VSC ID.
    * 
    * @example
    * vsc-hp34ue**g0wmycb27bwal
@@ -106,7 +106,7 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * The type of the VSC. Valid values: Primary or Secondary.
+   * The type of the VSC. Valid values: Primary and Secondary.
    * 
    * @example
    * Primary
@@ -153,7 +153,7 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
 export class DescribeVscsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token. The value is the NextToken parameter value returned by the previous API call.
+   * The query token. The value is the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAdDWBF2

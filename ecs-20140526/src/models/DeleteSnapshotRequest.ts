@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to force delete the snapshot that has been used to create cloud disks. Valid values:
+   * Specifies whether to force delete a snapshot that has been used to create a cloud disk. Valid values:
    * 
-   * - true: Force deletes the snapshot. After the snapshot is forcibly deleted, the cloud disk created from the snapshot cannot be reinitialized.
+   * - true: force deletes the snapshot. After the snapshot is forcibly deleted, the cloud disk cannot be reinitialized.
    * 
-   * - false: Does not force delete the snapshot.
+   * - false: does not force delete the snapshot.
    * 
    * Default value: false.
    * 

@@ -58,38 +58,10 @@ export class DescribeResourceByTagsResponseBodyResources extends $dara.Model {
 }
 
 export class DescribeResourceByTagsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number of the results.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1C1E5359-71D7-44D8-8FAA-0327B549157X
-   */
   requestId?: string;
   resources?: DescribeResourceByTagsResponseBodyResources;
-  /**
-   * @remarks
-   * The total number of returned resources.
-   * 
-   * @example
-   * 8
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

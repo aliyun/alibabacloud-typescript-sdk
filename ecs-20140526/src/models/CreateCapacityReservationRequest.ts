@@ -7,8 +7,8 @@ export class CreateCapacityReservationRequestPrivatePoolOptions extends $dara.Mo
    * @remarks
    * The type of the private pool generated after the capacity reservation takes effect. Valid values:
    * 
-   * - Open: open mode. The system automatically matches the open private pool capacity when an instance is started. If no matching private pool capacity is available, the system uses public pool resources to start the instance.
-   * - Target: targeted mode. The instance is started by using the specified private pool capacity. If the specified private pool capacity is unavailable, the instance fails to start.
+   * - Open: open mode. When an instance is started, the system automatically matches the capacity of an open private pool. If no eligible private pool capacity is available, the instance is started by using public pool resources.
+   * - Target: targeted mode. The instance is started by using the capacity of the specified private pool. If the capacity of the private pool is unavailable, the instance fails to be started.
    * 
    * Default value: Open.
    * 
@@ -18,7 +18,7 @@ export class CreateCapacityReservationRequestPrivatePoolOptions extends $dara.Mo
   matchCriteria?: string;
   /**
    * @remarks
-   * The name of the capacity reservation. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the capacity reservation. The name must be 2 to 128 characters in length, and can contain letters and Chinese characters. It must start with a letter or a Chinese character, and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * crpTestName
@@ -50,7 +50,7 @@ export class CreateCapacityReservationRequestPrivatePoolOptions extends $dara.Mo
 export class CreateCapacityReservationRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the capacity reservation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key of the capacity reservation. Valid values of N: 1 to 20. If this parameter is specified, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -58,7 +58,7 @@ export class CreateCapacityReservationRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the capacity reservation. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * The tag value of the capacity reservation. Valid values of N: 1 to 20. If this parameter is specified, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs:, or contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -91,7 +91,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   privatePoolOptions?: CreateCapacityReservationRequestPrivatePoolOptions;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -99,7 +99,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the capacity reservation. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the capacity reservation. The description must be 2 to 256 characters in length, and can contain letters and Chinese characters. It cannot start with http:// or https://.
    * 
    * Default value: empty.
    * 
@@ -109,7 +109,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expiration time of the capacity reservation. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The expiration time of the capacity reservation. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be displayed in UTC+0. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2021-10-30T06:32:00Z
@@ -117,10 +117,10 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The release mode of the capacity reservation. Valid values:
+   * The expiration pattern of the capacity reservation. Valid values:
    * 
-   * - Limited: released at a specified time. You must also specify the `EndTime` parameter.
-   * - Unlimited: manual release. No time limit is imposed.
+   * - Limited: releases the reservation at a specified time. You must also specify the EndTime parameter.
+   * - Unlimited: manual release. The expiration time is not limited.
    * 
    * @example
    * Unlimited
@@ -128,7 +128,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   endTimeType?: string;
   /**
    * @remarks
-   * The total number of instances to reserve for a single instance type.
+   * The total number of instances to be reserved for the instance type.
    * 
    * This parameter is required.
    * 
@@ -136,10 +136,17 @@ export class CreateCapacityReservationRequest extends $dara.Model {
    * 2
    */
   instanceAmount?: number;
+  /**
+   * @remarks
+   * The billing method for the instance. Currently, only PostPaid (pay-as-you-go) is supported. Default value: PostPaid.
+   * 
+   * @example
+   * PostPaid
+   */
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance type. Currently, you can set a capacity reservation for only one instance type. You can invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the instance types provided by Elastic Compute Service (ECS).
+   * The instance type. Currently, you can configure the settings for a capacity reservation for only one instance type. You can invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the instance types of servers provided by Elastic Compute Service (ECS).
    * 
    * This parameter is required.
    * 
@@ -151,14 +158,14 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The operating system type of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system type of the capacity reservation matches that of a regional reserved instance, the regional reserved instance can be used to offset the bill for unused capacity in the capacity reservation. Valid values:
+   * The operating system type of the image used by the instance. This parameter corresponds to the Platform parameter of a regional reserved instance. If the operating system type of the capacity reservation matches that of the regional reserved instance, you can use the regional reserved instance to offset the bills for the unused capacity of the capacity reservation. Valid values:
    * 
-   * - Windows: Windows Server operating system.
-   * - Linux: Linux and Unix-like operating system.
+   * - Windows: Windows Server operating systems.
+   * - Linux: Linux and Unix-like operating systems.
    * 
    * Default value: Linux.
    * 
-   * > This parameter is not available for use.
+   * > This parameter is not available.
    * 
    * @example
    * Linux
@@ -186,9 +193,9 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The effective mode of the capacity reservation. Currently, only the immediate mode is supported when you call this API operation.
+   * The effective mode of the capacity reservation. Currently, calling this API operation only supports setting the reservation to take effect immediately. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be displayed in UTC.
    * 
-   * > If you leave this parameter empty, the capacity reservation immediately takes effect.
+   * > If this parameter is not specified, the capacity reservation takes effect immediately.
    * 
    * @example
    * 2021-10-30T05:32:00Z
@@ -196,12 +203,12 @@ export class CreateCapacityReservationRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The list of tag pairs bound to the capacity reservation.
+   * The list of tags bound to the capacity reservation.
    */
   tag?: CreateCapacityReservationRequestTag[];
   /**
    * @remarks
-   * The zone ID of the capacity reservation. Currently, you can create a capacity reservation in only one zone.
+   * The zone ID of the region to which the capacity reservation belongs. Currently, you can create a capacity reservation in only one zone.
    * 
    * This parameter is required.
    * 

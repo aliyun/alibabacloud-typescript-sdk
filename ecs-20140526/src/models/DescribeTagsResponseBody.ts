@@ -117,38 +117,10 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
 }
 
 export class DescribeTagsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number of the tag list.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page settings for the paged query. This is the paging size.
-   * 
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B04B8CF3-4489-432D-83BA-6F128E4F2295
-   */
   requestId?: string;
   tags?: DescribeTagsResponseBodyTags;
-  /**
-   * @remarks
-   * The total number of tags.
-   * 
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

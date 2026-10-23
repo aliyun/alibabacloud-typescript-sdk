@@ -8,12 +8,12 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
    * The description of the diagnostic metric.
    * 
    * @example
-   * CPU诊断
+   * CPU diagnostics
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether a script needs to be executed in the guest OS.
+   * Specifies whether a script needs to be executed in the guest OS.
    * 
    * @example
    * true
@@ -40,12 +40,12 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
    * The name of the diagnostic metric.
    * 
    * @example
-   * CPU诊断
+   * CPU diagnostics
    */
   metricName?: string;
   /**
    * @remarks
-   * The resource type supported by the diagnostic metric.
+   * The resource supported by the diagnostic metric.
    * 
    * @example
    * instance
@@ -53,11 +53,11 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The supported operating system. Valid values:
+   * The supported operating systems. Valid values:
    * 
    * - Windows: Windows operating systems are supported.
    * - Linux: Linux operating systems are supported.
-   * - All: both Windows and Linux operating systems are supported.
+   * - All: Both Windows and Linux operating systems are supported.
    * 
    * @example
    * ALL

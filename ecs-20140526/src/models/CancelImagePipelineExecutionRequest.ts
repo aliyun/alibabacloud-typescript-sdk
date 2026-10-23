@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * null
@@ -45,7 +45,7 @@ export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model 
 export class CancelImagePipelineExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the building task.
+   * The ID of the build task.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CancelImagePipelineExecutionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CancelImagePipelineExecutionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    */
   templateTag?: CancelImagePipelineExecutionRequestTemplateTag[];
   static names(): { [key: string]: string } {

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlanMaintenanceWindowRequestTargetResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag on which the O&M window takes effect.
+   * The key of the tag to which the window applies.
    * 
    * @example
-   * vms_qualification_孙总身份证_e5590864-1fef-4db2-b2a7-bd2d657fed43.png
+   * vms_qualification_Mr. Sun ID card_e5590864-1fef-4db2-b2a7-bd2d657fed43.png
    */
   key?: string;
   /**
    * @remarks
-   * The value of the tag on which the O&M window takes effect.
+   * The value of the tag to which the window applies.
    * 
    * @example
    * 21.137.18.60
@@ -53,7 +53,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of resources for which the O&M window is configured.
+   * The type of resources configured for the O&M window.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   scope?: string;
   /**
    * @remarks
-   * The tags on which the O&M window takes effect. This parameter is required when Scope is set to Tag.
+   * The tags to which the O&M window applies. This parameter is required when Scope is set to Tag.
    */
   tags?: CreatePlanMaintenanceWindowRequestTargetResourceTags[];
   static names(): { [key: string]: string } {
@@ -98,10 +98,9 @@ export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
   /**
    * @remarks
    * The end time of the O&M window.
-   * 
-   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. You can replace Monday with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
    * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
    * 
    * @example
    * Tuesday,03:00
@@ -110,9 +109,9 @@ export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
   /**
    * @remarks
    * The start time of the O&M window.
-   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. You can replace Monday with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
    * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
    * 
    * @example
    * Monday,22:00
@@ -144,7 +143,7 @@ export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
 export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The cycle type. Valid values: Daily and Weekly.
+   * The type of the recurrence cycle. Valid values: Daily and Weekly.
    * 
    * This parameter is required.
    * 
@@ -154,7 +153,7 @@ export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges of the recurring cycle of the O&M window (in UTC).
+   * The time ranges of the O&M window recurrence cycle in the UTC time zone.
    * 
    * This parameter is required.
    */
@@ -188,8 +187,7 @@ export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
 export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable or disable the O&M window.
-   * 
+   * Specifies whether to enable the window. Valid values:
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 
@@ -199,10 +197,17 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The minimum interval between two scheduled O&M events for the same instance. Valid values: 1 to 48. Unit: hours.
+   * 
+   * @example
+   * 24
+   */
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
+   * The name of the O&M window. You can customize the name. The name can be up to 200 characters in length.
    * 
    * This parameter is required.
    * 
@@ -212,7 +217,7 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the most recent region list.
+   * The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation yields the same result. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
    * 
    * This parameter is required.
    * 
@@ -232,14 +237,14 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   supportMaintenanceAction?: string;
   /**
    * @remarks
-   * The resources on which the O&M window takes effect.
+   * The resources to which the O&M window applies.
    * 
    * This parameter is required.
    */
   targetResource?: CreatePlanMaintenanceWindowRequestTargetResource;
   /**
    * @remarks
-   * The recurring cycle of the O&M window.
+   * The recurrence cycle of the window.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopySnapshotRequestArn extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CopySnapshotRequestArn extends $dara.Model {
   assumeRoleFor?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class CopySnapshotRequestArn extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * null
@@ -55,7 +55,7 @@ export class CopySnapshotRequestArn extends $dara.Model {
 export class CopySnapshotRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the new snapshot. Once specified, the tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * The tag key of the new snapshot. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CopySnapshotRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the new snapshot. Once specified, the tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * The tag value of the new snapshot. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -95,12 +95,12 @@ export class CopySnapshotRequestTag extends $dara.Model {
 export class CopySnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * >This parameter is in invitational preview and is not supported.
    */
   arn?: CopySnapshotRequestArn[];
   /**
    * @remarks
-   * Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -120,7 +120,7 @@ export class CopySnapshotRequest extends $dara.Model {
    * @remarks
    * The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
    * This parameter is required.
    * 
@@ -130,9 +130,9 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationSnapshotDescription?: string;
   /**
    * @remarks
-   * The name of the new snapshot. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with http:// or https://. The name can contain characters that are classified as letter in Unicode, including Chinese characters, digits, and others. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the new snapshot. The name must be 2 to 128 characters in length, must start with a letter or a Chinese character, and cannot start with http:// or https://. It supports characters in the Letter category of Unicode, including English letters, Chinese characters, and digits. It can contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
    * This parameter is required.
    * 
@@ -142,7 +142,7 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationSnapshotName?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not available.
    * 
    * @example
    * null
@@ -152,8 +152,8 @@ export class CopySnapshotRequest extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the cloud disk. Valid values:
    * 
-   * - true: encrypts the cloud disk.
-   * - false: does not encrypt the cloud disk.
+   * - true: yes.
+   * - false: no.
    * 
    * Default value: false.
    * 
@@ -163,7 +163,7 @@ export class CopySnapshotRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The customer master key (CMK) in the destination region.
+   * The KMS customer master key (CMK) in the destination region.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -172,7 +172,7 @@ export class CopySnapshotRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the source snapshot. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region where the source snapshot resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -182,7 +182,7 @@ export class CopySnapshotRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -192,9 +192,9 @@ export class CopySnapshotRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The retention period of the new snapshot, in days. The snapshot undergoes automatic release when the retention period expires. Valid values: 1 to 65536.
+   * The retention period of the new snapshot. Unit: days. The snapshot is subject to automatic release when the retention period expires. Valid values: 1 to 65536.
    * 
-   * Default value: null, which indicates that the snapshot is not subject to automatic release.
+   * Default value: empty, which indicates that the snapshot is not subject to automatic release.
    * 
    * @example
    * 60

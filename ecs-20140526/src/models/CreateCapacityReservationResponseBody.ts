@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCapacityReservationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The capacity reservation ID.
+   * The ID of the capacity reservation.
    * 
    * @example
    * crp-bp67acfmxazb4****

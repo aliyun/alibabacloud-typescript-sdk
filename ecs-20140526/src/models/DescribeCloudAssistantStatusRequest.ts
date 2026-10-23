@@ -13,7 +13,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. If **InstanceId** is set, this parameter is ignored.
+   * The maximum number of entries to return on each page during a paged query. This parameter is invalid if the **InstanceId** parameter Settings are configured.
    * 
    * Maximum value: 50.
    * 
@@ -25,7 +25,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -47,7 +47,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
+   * > This parameter will be taken offline soon. We recommend that you use NextToken and MaxResults to perform paged queries.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
+   * > This parameter will be taken offline soon. We recommend that you use NextToken and MaxResults to perform paged queries.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

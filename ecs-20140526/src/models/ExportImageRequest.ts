@@ -3,10 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to only precheck the request. Valid values:
+   * - true: The request is checked, but the image is not exported.
+   * - false: The image is exported.
+   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The format in which to export the image. Valid values:
+   * The export format of the image file. Valid values:
    * - raw
    * - vhd
    * - qcow2
@@ -31,7 +37,7 @@ export class ExportImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The OSS bucket in which to store the exported image.
+   * The OSS bucket used to store the exported image.
    * 
    * This parameter is required.
    * 
@@ -41,7 +47,7 @@ export class ExportImageRequest extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The prefix for the OSS object. The prefix can contain digits and letters and must be 1 to 30 characters in length.
+   * The prefix of the OSS object. The prefix must be 1 to 30 characters in length and can contain digits and letters.
    * 
    * @example
    * EcsExport
@@ -50,7 +56,7 @@ export class ExportImageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

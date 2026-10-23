@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableNetworkInterfaceQoSRequest extends $dara.Model {
   /**
    * @remarks
-   * The network interface controller (NIC) ID.
+   * The ID of the elastic network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DisableNetworkInterfaceQoSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

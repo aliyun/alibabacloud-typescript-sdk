@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostAutoRenewRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of dedicated hosts. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
+   * The ID of the dedicated host. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDedicatedHostAutoRenewRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the dedicated host.
+   * The ID of the region where the dedicated host resides.
    * 
    * This parameter is required.
    * 

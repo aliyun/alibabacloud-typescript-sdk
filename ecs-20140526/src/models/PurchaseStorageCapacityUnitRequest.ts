@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PurchaseStorageCapacityUnitRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the SCU. If you specify this parameter, the tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key of the SCU. The tag key cannot be an empty string. It can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class PurchaseStorageCapacityUnitRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the SCU. If you specify this parameter, the tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value of the SCU. The tag value can be an empty string. It can be up to 128 characters in length, and cannot start with `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class PurchaseStorageCapacityUnitRequestTag extends $dara.Model {
 export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of SCUs to purchase. Valid values: 1 to 20.
+   * The number of SCUs that you want to purchase. Valid values: 1 to 20.
    * 
    * Default value: 1.
    * 
@@ -65,7 +65,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -81,7 +81,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The source of the request. The default value is OpenAPI. You do not need to manually set this parameter.
+   * The source of the request. Default value: OpenAPI. You do not need to manually specify this parameter.
    * 
    * @example
    * OpenAPI
@@ -89,7 +89,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   fromApp?: string;
   /**
    * @remarks
-   * The name of the SCU. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
+   * The name of the SCU. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
    * 
    * @example
    * ScuPurchaseDemo
@@ -101,8 +101,8 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * @remarks
    * The validity period of the SCU. Valid values:
    * 
-   * - When PeriodUnit is set to Month, valid values of Period are 1, 2, 3, and 6.
-   * - When PeriodUnit is set to Year, valid values of Period are 1, 3, and 5.
+   * - Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
+   * - Valid values when PeriodUnit is set to Year: 1, 3, and 5.
    * 
    * Default value: 1.
    * 
@@ -114,8 +114,8 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * @remarks
    * The unit of the validity period of the SCU. Valid values:
    * 
-   * - Month: month.
-   * - Year: year.
+   * - Month
+   * - Year
    * 
    * Default value: Month.
    * 
@@ -125,7 +125,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID of the SCU. After you specify a region, the SCU can only offset pay-as-you-go bills for cloud disks in that region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+   * The region ID of the SCU. After the region is specified, the SCU can be used to offset only the pay-as-you-go bills of disks in this region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -135,7 +135,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the storage capacity unit (SCU) belongs. You can specify only a resource group ID to which you have permissions.
+   * The ID of the resource group to which the storage capacity unit (SCU) belongs. You can specify only the ID of a resource group to which you have permissions.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -147,7 +147,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * @remarks
    * The effective period of the SCU. The effective period cannot be more than 180 days after the creation time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHHZ format. The time must be in UTC.
    * 
-   * Default value: null, which indicates that the SCU takes effect immediately after it is created.
+   * Default value: none, which indicates that the SCU takes effect from the creation time.
    * 
    * @example
    * 2020-09-09T02Z

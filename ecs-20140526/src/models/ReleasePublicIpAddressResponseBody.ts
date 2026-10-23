@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReleasePublicIpAddressResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * > This parameter is not yet available.
-   * 
-   * @example
-   * hide
-   */
   remainTimes?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

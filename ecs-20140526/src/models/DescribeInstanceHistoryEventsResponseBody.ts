@@ -317,8 +317,8 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   instanceSystemEventSet?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSet;
   /**
    * @remarks
-   * The query token returned in this invocation.
-   * > When you use MaxResults and NextToken parameters for paging queries and no NextToken is returned, no more data is available.
+   * The query token returned by this call.
+   * > If the NextToken value is not returned when you use the MaxResults and NextToken parameters for paging, no more data is to be returned.
    * 
    * @example
    * f1c9fa9de5752***
@@ -328,8 +328,8 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
    * @remarks
    * The page number of the instance event list.
    * 
-   * > * When you use MaxResults and NextToken for paging queries, the returned PageNumber parameter value is meaningless.
-   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging queries instead.
+   * > * If you use the MaxResults and NextToken parameters for paging, the returned PageNumber value is meaningless.
+   * > * This parameter will be deprecated soon. Use the NextToken and MaxResults parameters for paging.
    * 
    * @example
    * 1
@@ -337,10 +337,10 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page as settings in the request.
+   * The number of entries per page specified in the request.
    * 
-   * > * When you use MaxResults and NextToken for paging queries, the returned PageSize parameter value is meaningless.
-   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging queries instead.
+   * > * If you use the MaxResults and NextToken parameters for paging, the returned PageSize value is meaningless.
+   * > * This parameter will be deprecated soon. Use the NextToken and MaxResults parameters for paging.
    * 
    * @example
    * 10
@@ -358,7 +358,7 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
    * @remarks
    * The total number of instance events.
    * 
-   * > When you use MaxResults and NextToken parameters for paging queries, the returned TotalCount parameter value is meaningless.
+   * > If you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * @example
    * 5EC38E7D-389F-1925-ABE2-D7925A8F****
@@ -13,7 +13,7 @@ export class LockSnapshotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cool-off period. In compliance mode, you can set a cool-off period or skip the cool-off period to directly lock the snapshot. 
+   * The cool-off period. In compliance mode, you can set a cool-off period or skip the cool-off period to lock the snapshot directly. 
    * 
    * During the cool-off period, users with the required RAM permissions can unlock the snapshot, extend or shorten the cool-off period, and extend or shorten the lock duration. The snapshot cannot be deleted during the cool-off period. 
    * 
@@ -21,9 +21,9 @@ export class LockSnapshotRequest extends $dara.Model {
    * 
    * Unit: hours. 
    * 
-   * Valid values: 0 to 72. A value of 0 indicates that the cool-off period is skipped and the snapshot is directly locked. 
+   * Valid values: 0 to 72. A value of 0 indicates that the cool-off period is skipped and the snapshot is locked directly. 
    * 
-   * If the snapshot has already entered the compliance mode lock period, set this parameter to 0 to extend the lock duration.
+   * If the snapshot has entered the compliance mode lock period, you must set this parameter to 0 to extend the lock duration.
    * 
    * This parameter is required.
    * 
@@ -33,9 +33,9 @@ export class LockSnapshotRequest extends $dara.Model {
   coolOffPeriod?: number;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. Valid values: 
-   * - true: performs only a dry run. The system checks whether required parameters are specified, whether the request format is valid, and whether business restrictions are met. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. 
-   * - false (default): performs a dry run and sends the request. If the check succeeds, the operation is performed.
+   * Specifies whether to only precheck the request. Valid values: 
+   * - true: sends a check request. The operation is not performed. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. 
+   * - false (default): sends a normal request. The request is executed after the check succeeds.
    * 
    * @example
    * false
@@ -58,7 +58,7 @@ export class LockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
    * The lock mode. Valid values: 
-   * - compliance: Locks the snapshot in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When locking a snapshot in compliance mode, you can optionally specify a cool-off period.
+   * - compliance: locks the snapshot in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
    * 
    * This parameter is required.
    * 
@@ -78,7 +78,7 @@ export class LockSnapshotRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-describeregions) to query the most recent list of Alibaba Cloud regions.
+   * The region ID. You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-describeregions) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

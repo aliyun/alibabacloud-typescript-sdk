@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInvocationRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances on which you want to stop the command. You can specify up to 50 instance IDs. Valid values of N: 1 to 50.
+   * The IDs of the instances on which to stop the command execution. You can specify up to 50 instance IDs. Valid values of N: 1 to 50.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -13,7 +13,7 @@ export class StopInvocationRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The command execution ID. You can call [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) to query all InvokeId values.
+   * The command execution ID. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query all execution IDs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class StopInvocationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

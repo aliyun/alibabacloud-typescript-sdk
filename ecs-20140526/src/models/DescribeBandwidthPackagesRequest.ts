@@ -3,14 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBandwidthPackagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the bandwidth package.
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The ID of the NAT gateway. If specified, only bandwidth packages associated with the NAT gateway are returned.
+   */
   natGatewayId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Starting value: 1. Default value: 1.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID of the bandwidth package.
+   * 
    * This parameter is required.
    */
   regionId?: string;

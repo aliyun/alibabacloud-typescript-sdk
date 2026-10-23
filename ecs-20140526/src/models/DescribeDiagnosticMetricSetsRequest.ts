@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100.
+   * The maximum number of entries per page for a paging query. Maximum value: 100.
    * 
    * Default value:
    * 
-   * - If this parameter is not specified, the default value is 10.
-   * - If the specified value is greater than 100, the default value is 100.
+   * - If no Settings are specified, the default value is 10.
+   * - If the Settings value is greater than 100, the default value is 100.
    * 
    * @example
    * 10
@@ -18,12 +18,12 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The list of diagnostic metric set IDs.
+   * The IDs of the diagnostic metric sets.
    */
   metricSetIds?: string[];
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set the value to the `NextToken` value returned from the previous call. Leave this parameter empty for the first call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -31,7 +31,7 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -51,8 +51,8 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
    * @remarks
    * The type of the diagnostic metric set. Valid values:
    * 
-   * - User: user.
-   * - Common: common.
+   * - User: user-created.
+   * - Common: public.
    * 
    * Default value: User.
    * 

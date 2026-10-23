@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfacesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the network interface controller (NIC). Valid values of N: 1 to 20.
+   * The tag key of the Elastic Network Interface (ENI). Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,9 +13,9 @@ export class DescribeNetworkInterfacesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the network interface controller (NIC). Valid values of N: 1 to 20.
+   * The tag value of the Elastic Network Interface (ENI). Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the number of resources that match the tag cannot exceed 1,000. If you use multiple tags to filter resources, the number of resources that are attached with multiple tags cannot exceed 1,000. If the number of resources exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * @example
    * TestValue
@@ -47,7 +47,7 @@ export class DescribeNetworkInterfacesRequestTag extends $dara.Model {
 export class DescribeNetworkInterfacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the instance to which the network interface controller (NIC) is attached.
+   * The instance ID to which the Elastic Network Interface (ENI) is currently attached.
    * 
    * @example
    * i-bp1e2l6djkndyuli****
@@ -55,7 +55,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv6 address of the network interface controller (NIC). N indicates that you can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+   * The IPv6 address of the Elastic Network Interface (ENI). N indicates that multiple IPv6 addresses can be configured. Valid values of N: 1 to 100.
    * 
    * @example
    * 2408:4321:180:1701:94c7:bc38:3bfa:****
@@ -63,12 +63,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   ipv6Address?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page for paging. Valid values: 10 to 500.
+   * The maximum number of entries per page for a paging query. Valid values: 10 to 500.
    * 
    * Default value:
    * 
-   * - If you do not set this parameter or set it to a value less than 10, the default value is 10.
-   * - If you set this parameter to a value greater than 500, the default value is 500.
+   * - If this parameter is not specified or the specified value is less than 10, the default value is 10.
+   * - If the specified value is greater than 500, the default value is 500.
    * 
    * @example
    * 50
@@ -76,7 +76,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The network interface controller (NIC) ID. Valid values of N: 1 to 100.
+   * The Elastic Network Interface (ENI) ID. Valid values of N: 1 to 100.
    * 
    * @example
    * eni-bp125p95hhdhn3ot****
@@ -84,7 +84,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceId?: string[];
   /**
    * @remarks
-   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain characters from the Unicode letter categorization (which includes English letters, Chinese characters, and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the Elastic Network Interface (ENI). The name must be 2 to 128 characters in length, and can contain characters in the letter categorization of Unicode (including English, Chinese, and digits). It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * test-eni-name
@@ -92,9 +92,9 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the `NextToken` value returned in the previous API call.
+   * The pagination token. Set the value to the `NextToken` value returned from the previous API call.
    * 
-   * For information about how to view the returned data, refer to the operation description above.
+   * For more information about how to configure the pagination parameters, see the "Operation description" section.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -104,7 +104,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. Use the MaxResults and NextToken parameters for pagination.
+   * > **[Deprecated]** We recommend that you use the `MaxResults` and `NextToken` parameters for pagination.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. Use the MaxResults and NextToken parameters for pagination.
+   * > **[Deprecated]** We recommend that you use the `MaxResults` and `NextToken` parameters for pagination.
    * 
    * @example
    * 100
@@ -124,7 +124,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The primary private IP address of the network interface controller (NIC).
+   * The primary private network IPv4 address of the Elastic Network Interface (ENI).
    * 
    * @example
    * ``192.168.**.**``
@@ -132,7 +132,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   primaryIpAddress?: string;
   /**
    * @remarks
-   * The secondary private IP address of the network interface controller (NIC). Valid values of N: 1 to 100.
+   * The secondary private IP IPv4 address of the Elastic Network Interface (ENI). Valid values of N: 1 to 100.
    * 
    * @example
    * ``192.168.**.**``
@@ -140,7 +140,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   privateIpAddress?: string[];
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -150,9 +150,9 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * The resource group ID. When you use this parameter to filter resources, the number of resources cannot exceed 1,000.
    * 
-   * >Filtering by the default resource group is not supported.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -164,8 +164,8 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
    * @remarks
    * The security group ID of the secondary ENI.
    * 
-   * - To query information about a secondary ENI by security group ID, specify this parameter.
-   * - To query information about a primary ENI by security group ID, call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) and specify the `SecurityGroupId` parameter.
+   * - To query the information about secondary ENIs by security group ID, specify this parameter.
+   * - To query the information about primary ENIs by security group ID, call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation and specify the `SecurityGroupId` parameter.
    * 
    * @example
    * sg-bp144yr32sx6ndw****
@@ -173,7 +173,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a Virtual Network Operator (VNO).
+   * Specifies whether the Elastic Network Interface (ENI) is used by an Alibaba Cloud service or a Virtual Network Operator (VNO).
    * 
    * @example
    * true
@@ -181,15 +181,15 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The status of the network interface controller (NIC). Valid values:
+   * The status of the Elastic Network Interface (ENI). Valid values:
    * 
-   * * Available: available.
+   * * Available: active.
    * * Attaching: being attached.
    * * InUse: attached.
    * * Detaching: being detached.
    * * Deleting: being deleted.
    * 
-   * Default value: null, which indicates that all statuses are queried.
+   * Default value: empty, which indicates that Elastic Network Interfaces (ENIs) in all states are queried.
    * 
    * @example
    * Available
@@ -202,12 +202,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   tag?: DescribeNetworkInterfacesRequestTag[];
   /**
    * @remarks
-   * The type of the Elastic Network Interface (ENI). Valid values:
+   * The Elastic Network Interface (ENI) type. Valid values:
    * 
    * - Primary: primary network interface controller (NIC).
    * - Secondary: secondary ENI.
    * 
-   * Default value: null, which indicates that all types are queried.
+   * Default value: empty, which indicates that Elastic Network Interfaces (ENIs) of all types are queried.
    * 
    * @example
    * Secondary
@@ -215,7 +215,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The vSwitch ID of the network interface controller (NIC).
+   * The vSwitch ID of the Elastic Network Interface (ENI).
    * 
    * @example
    * vsw-bp16usj2p27htro3****
@@ -223,7 +223,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the network interface controller (NIC).
+   * The VPC ID of the Elastic Network Interface (ENI).
    * 
    * @example
    * vpc-bp1j7w3gc1cexjqd****

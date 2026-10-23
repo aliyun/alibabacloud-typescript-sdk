@@ -141,9 +141,28 @@ export class DescribeEipAddressesResponseBodyEipAddresses extends $dara.Model {
 
 export class DescribeEipAddressesResponseBody extends $dara.Model {
   eipAddresses?: DescribeEipAddressesResponseBodyEipAddresses;
+  /**
+   * @remarks
+   * The current page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
