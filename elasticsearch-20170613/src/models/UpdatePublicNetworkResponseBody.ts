@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublicNetworkResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of the public network address switch.
+   * The status of the public endpoint switch.
    * 
    * @example
    * false

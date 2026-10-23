@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogstashDescriptionResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * logstash_name
@@ -35,7 +35,7 @@ export class UpdateLogstashDescriptionResponseBodyResult extends $dara.Model {
 export class UpdateLogstashDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****

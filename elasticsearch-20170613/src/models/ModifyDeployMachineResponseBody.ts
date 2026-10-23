@@ -13,10 +13,10 @@ export class ModifyDeployMachineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the update is successful. Valid values:
+   * Indicates whether the update was successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The update was successful.
+   * - false: The update failed.
    * 
    * @example
    * true

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UninstallLogstashPluginResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response headers of this call.
+   */
   headers?: { [key: string]: any };
   /**
    * @remarks
@@ -12,6 +16,10 @@ export class UninstallLogstashPluginResponseBody extends $dara.Model {
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the Logstash plugins uninstalled by this request.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

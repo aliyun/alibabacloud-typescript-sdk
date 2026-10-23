@@ -6,7 +6,10 @@ import { WhiteIpGroup } from "./WhiteIpGroup";
 export class NetworkConfigLoadBalanceConfig extends $dara.Model {
   /**
    * @remarks
-   * 可用区信息，如: cn-hangzhou-i
+   * The zone information, such as cn-hangzhou-i.
+   * 
+   * @example
+   * cn-hangzhou-i
    */
   vsArea?: string;
   /**
@@ -41,7 +44,18 @@ export class NetworkConfigLoadBalanceConfig extends $dara.Model {
 }
 
 export class NetworkConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The number of load balancing instances in a single zone. This parameter is supported only for the HP_ALILB type.
+   * 
+   * @example
+   * 2
+   */
   lbReplica?: number;
+  /**
+   * @remarks
+   * The list of vSwitch and load balancing configurations for each zone in the Network Load Balancer (NLB) architecture.
+   */
   loadBalanceConfig?: NetworkConfigLoadBalanceConfig[];
   /**
    * @remarks
@@ -53,7 +67,7 @@ export class NetworkConfig extends $dara.Model {
   loadBalanceType?: string;
   /**
    * @remarks
-   * The network type. Only Virtual Private Cloud (VPC) is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -69,7 +83,7 @@ export class NetworkConfig extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the network.
+   * The ID of the zone to which the network belongs.
    * 
    * @example
    * cn-hangzhou-e
@@ -85,7 +99,7 @@ export class NetworkConfig extends $dara.Model {
   vswitchId?: string;
   /**
    * @remarks
-   * The IP whitelist group configuration. You do not need to set this parameter when you call the createInstance operation to create an instance because the setting does not take effect during instance creation. Use a separate API operation to configure whitelists for different roles.
+   * The IP whitelist group configuration. You do not need to specify this parameter when creating an instance, and it does not take effect during instance creation. You must use a separate API operation to configure whitelists for different roles.
    */
   whiteIpGroupList?: WhiteIpGroup[];
   static names(): { [key: string]: string } {

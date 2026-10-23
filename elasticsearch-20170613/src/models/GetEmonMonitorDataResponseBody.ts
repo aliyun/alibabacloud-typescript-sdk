@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The real-time metric monitoring data. Format: `{timestamp:data}`.
+   * The real-time metric monitoring data. The format is `{timestamp:data}`.
    * 
    * @example
    * { "1586249280": 465.1980465119913, "1586249300": 213.45243650423305 }
@@ -13,7 +13,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   dps?: { [key: string]: any };
   /**
    * @remarks
-   * The completeness of time series data points in the metric query result. A value of 1.0 indicates 100% completeness.
+   * The completeness of the time series curve data points in the result returned by the metric query. A value of 1.0 indicates 100% completeness.
    * 
    * @example
    * 1.0
@@ -21,7 +21,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   integrity?: number;
   /**
    * @remarks
-   * The timestamp when the request reaches the server. This is used for troubleshooting.
+   * The timestamp when the request reaches the server. This parameter is used for troubleshooting.
    * 
    * @example
    * 1522127381471
@@ -37,7 +37,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * If the queries contain wildcards, the result includes multiple matching time series data sequences. The summary is the aggregation of the values across these time series at each time point, based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
+   * If the queries contain wildcards, the result includes multiple matched time series data records. The summary is the aggregation of the value sets of these time series at each time point based on the aggregator type provided in the query. Currently, only the avg aggregation method is supported.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
 export class GetEmonMonitorDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -120,9 +120,9 @@ export class GetEmonMonitorDataResponseBody extends $dara.Model {
   result?: GetEmonMonitorDataResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Specifies whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Unsuccessful.
    * 
    * @example
    * true

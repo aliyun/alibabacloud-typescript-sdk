@@ -29,9 +29,9 @@ export class GetEmonGrafanaDashboardsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Grafana dashboard list is retrieved. Valid values:
+   * Indicates whether the list of Grafana dashboards is successfully retrieved. Valid values:
    * 
-   * - true: The list is retrieved.
+   * - true: The retrieval succeeded.
    * - false: The retrieval failed.
    * 
    * @example

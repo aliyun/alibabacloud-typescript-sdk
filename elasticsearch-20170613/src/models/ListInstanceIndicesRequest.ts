@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceIndicesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to retrieve all indexes. Valid values:
+   * Specifies whether to retrieve all indices. Valid values:
    * 
-   * - true: Returns the index list including system indexes.
+   * - true: returns a list of indices including system indices.
    * 
-   * - false (default): Returns the index list excluding system indexes.
+   * - false: returns a list of indices excluding system indices. Default value: false.
    * 
    * @example
    * false
@@ -17,11 +17,11 @@ export class ListInstanceIndicesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * Specifies whether to display only managed indexes. Valid values:
+   * Specifies whether to view only managed indices. Valid values:
    * 
-   * - true: Displays only managed indexes.
+   * - true: views only managed indices.
    * 
-   * - false (default): Displays all indexes.
+   * - false: views all indices. Default value: false.
    * 
    * @example
    * false
@@ -29,11 +29,11 @@ export class ListInstanceIndicesRequest extends $dara.Model {
   isManaged?: boolean;
   /**
    * @remarks
-   * Specifies whether to display only OpenStore cold-phase indexes. Valid values:
+   * Specifies whether to view only OpenStore cold-phase indices. Valid values:
    * 
-   * - true: Displays only OpenStore cold-phase indexes.
+   * - true: views only OpenStore cold-phase indices.
    * 
-   * - false (default): Displays all indexes.
+   * - false: views all indices. Default value: false.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class ListInstanceIndicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number of the instance list. Minimum value: 1. Default value: 1.
+   * The page number. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListInstanceIndicesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Maximum value: 100. Default value: 20.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 15

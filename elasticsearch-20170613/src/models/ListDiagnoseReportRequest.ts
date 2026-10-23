@@ -13,7 +13,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   detail?: boolean;
   /**
    * @remarks
-   * The end timestamp of the query. Unit: milliseconds.
+   * The end timestamp for the query. Unit: milliseconds.
    * - Minimum value: 1000000000000
    * - Maximum value: 2000000000000
    * 
@@ -55,7 +55,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The start timestamp of the query. Unit: milliseconds.
+   * The start timestamp for the query. Unit: milliseconds.
    * 
    * - Minimum value: 1000000000000
    * - Maximum value: 2000000000000
@@ -68,7 +68,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The trigger method of the health diagnostics. Valid values:
+   * The trigger method for health diagnostics. Valid values:
    * 
    * - SYSTEM (default): automatically triggered by the system
    * - INNER: internally triggered

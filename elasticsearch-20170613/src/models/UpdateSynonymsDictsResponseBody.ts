@@ -23,7 +23,7 @@ export class UpdateSynonymsDictsResponseBodyResult extends $dara.Model {
    * @remarks
    * The source type of the dictionary file. Valid values:
    * 
-   * - OSS: OSS open storage.
+   * - OSS: OSS.
    * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
@@ -32,7 +32,7 @@ export class UpdateSynonymsDictsResponseBodyResult extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The dictionary type. Valid values: SYNONYMS (synonym).
+   * The dictionary type. Valid value: SYNONYMS (synonyms).
    * 
    * @example
    * SYNONYMS

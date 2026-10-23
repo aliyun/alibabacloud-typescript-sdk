@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCollectorResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collector that is created.
+   * The ID of the created collector.
    * 
    * @example
    * ct-cn-4135is2tj194p****
@@ -35,7 +35,7 @@ export class CreateCollectorResponseBodyResult extends $dara.Model {
 export class CreateCollectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8466BDFB-C513-4B8D-B4E3-5AB256AB****

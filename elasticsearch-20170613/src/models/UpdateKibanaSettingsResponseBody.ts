@@ -15,7 +15,7 @@ export class UpdateKibanaSettingsResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The Kibana language is modified.
+   * - true: The Kibana language was modified.
    * - false: The Kibana language failed to be modified.
    * 
    * @example

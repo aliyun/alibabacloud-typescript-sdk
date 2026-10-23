@@ -35,7 +35,7 @@ export class ListPipelineResponseBodyHeaders extends $dara.Model {
 export class ListPipelineResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the pipeline was created.
+   * The time when the pipeline was created. The format is YYYY-MM-DDTHH:mm:ss.SSSZ, where the trailing Z indicates UTC.
    * 
    * @example
    * 2020-08-05T03:10:38.188Z
@@ -43,7 +43,7 @@ export class ListPipelineResponseBodyResult extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the pipeline was last updated.
+   * The time when the pipeline was updated. The format is YYYY-MM-DDTHH:mm:ss.SSSZ, where the trailing Z indicates UTC.
    * 
    * @example
    * 2020-08-05T08:43:31.757Z
@@ -51,7 +51,7 @@ export class ListPipelineResponseBodyResult extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The pipeline ID.
+   * The ID of the pipeline.
    * 
    * @example
    * pipeline_test
@@ -59,11 +59,10 @@ export class ListPipelineResponseBodyResult extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The pipeline status. Valid values:
-   * 
-   * - NOT_DEPLOYED: not deployed.
-   * - RUNNING: running.
-   * - DELETED: deleted. This status is not displayed in the console.
+   * The status of the pipeline. Valid values:
+   * - NOT_DEPLOYED: not deployed
+   * - RUNNING: running
+   * - DELETED: deleted (this status is not displayed in the console)
    * 
    * @example
    * NOT_DEPLOYED
@@ -104,7 +103,7 @@ export class ListPipelineResponseBody extends $dara.Model {
   headers?: ListPipelineResponseBodyHeaders;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -112,7 +111,7 @@ export class ListPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   result?: ListPipelineResponseBodyResult[];
   static names(): { [key: string]: string } {

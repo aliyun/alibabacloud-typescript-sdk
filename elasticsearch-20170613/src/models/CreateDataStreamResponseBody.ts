@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataStreamResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The data stream name.
+   * The name of the data stream.
    * 
    * @example
    * ds-

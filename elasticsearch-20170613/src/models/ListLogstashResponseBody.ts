@@ -75,7 +75,7 @@ export class ListLogstashResponseBodyResultTags extends $dara.Model {
 export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -83,7 +83,7 @@ export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-abc
@@ -91,7 +91,7 @@ export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone where the instance resides.
+   * The zone where the instance is deployed.
    * 
    * @example
    * cn-hangzhou-*
@@ -99,7 +99,7 @@ export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   vsArea?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-def
@@ -143,10 +143,9 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled. Valid values:
-   * 
-   * - true: Enabled.
-   * - false: Disabled.
+   * Specifies whether disk encryption is enabled. Valid values:
+   * - true: enabled.
+   * - false: disabled.
    * 
    * @example
    * false
@@ -162,7 +161,7 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The instance specification.
+   * The instance type.
    * 
    * @example
    * logstash.n4.small
@@ -211,13 +210,16 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * ls-cn-abc
    */
   description?: string;
   /**
+   * @remarks
+   * The expiration time of the subscription instance.
+   * 
    * @example
    * 4928745600000
    */
@@ -232,7 +234,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The network configuration.
+   * The network configurations.
    */
   networkConfig?: ListLogstashResponseBodyResultNetworkConfig;
   /**
@@ -245,21 +247,34 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The configuration information of data nodes.
+   * The configurations of the data node.
    */
   nodeSpec?: ListLogstashResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
+   * The billing method of the instance. Valid values:
+   * - prepaid: subscription.
+   * - postpaid: pay-as-you-go.
    * 
    * @example
    * postpaid
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the Logstash instance belongs.
+   * 
+   * @example
+   * rg-acfm2h5vbzd****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance status. Valid values: active (Normal), activating (taking effect), inactive (frozen), and invalid (expired).
+   * The status of the instance. Valid values:
+   * - active: normal.
+   * - activating: activating.
+   * - inactive: frozen.
+   * - invalid: invalid.
    * 
    * @example
    * active
@@ -275,7 +290,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The instance version. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
+   * The version of the instance. Only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
    * 
    * @example
    * 6.7.0_with_X-Pack
@@ -338,12 +353,12 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
 export class ListLogstashResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request header information.
+   * The request headers.
    */
   headers?: ListLogstashResponseBodyHeaders;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * AC442F2F-5068-4434-AA21-E78947A9****

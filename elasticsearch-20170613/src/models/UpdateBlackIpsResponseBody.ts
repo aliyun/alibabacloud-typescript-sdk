@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateBlackIpsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of IP addresses in the access blacklist of the Elasticsearch instance.
+   */
   esIPBlacklist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +33,18 @@ export class UpdateBlackIpsResponseBodyResult extends $dara.Model {
 }
 
 export class UpdateBlackIpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5FFD9ED4-C2EC-4E89-B22B-1ACB6F******
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The updated access blacklist information.
+   */
   result?: UpdateBlackIpsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

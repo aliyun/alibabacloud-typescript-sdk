@@ -6,23 +6,30 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether X-Pack monitoring is enabled. Valid values:
-   * 
    * - true: Enabled.
-   * - false: Not enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The list of access endpoints for the Elasticsearch instance associated with X-Pack monitoring.
+   */
   endpoints?: string[];
   /**
    * @remarks
-   * The instance ID of the Elasticsearch instance associated with X-Pack monitoring.
+   * The Elasticsearch instance ID associated with X-Pack monitoring.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
    */
   esInstanceId?: string;
+  /**
+   * @remarks
+   * The list of Kibana-managed pipelines associated with X-Pack monitoring.
+   */
   pipelineIds?: string[];
   /**
    * @remarks
@@ -70,7 +77,7 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
 export class DescribeXpackMonitorConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****

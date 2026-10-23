@@ -6,14 +6,13 @@ export class InitModelRequestModels extends $dara.Model {
   /**
    * @remarks
    * The model type. Valid values:
-   * 
-   * - text_embedding: text embedding
-   * - rerank: reranking
-   * - doc_split: document splitting
-   * - completion: large language model service
-   * - query_analyze: query analysis
-   * - doc_analyze: document content parsing
-   * - img_analyze: image content parsing
+   * - text_embedding: Text embedding.
+   * - rerank: Reranking.
+   * - doc_split: Document splitting.
+   * - completion: Large language model service.
+   * - query_analyze: Query analysis. 
+   * - doc_analyze: Document content parsing.
+   * - img_analyze: Image content parsing.
    * 
    * @example
    * text_embedding
@@ -21,7 +20,7 @@ export class InitModelRequestModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The service ID of the AISearch open platform.
+   * The service ID for the Search Open Platform.
    * 
    * @example
    * ops-text-embedding-**
@@ -53,7 +52,7 @@ export class InitModelRequestModels extends $dara.Model {
 export class InitModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key for the AISearch open platform.
+   * The API key for the AI Search Open Platform.
    * 
    * This parameter is required.
    * 
@@ -63,7 +62,7 @@ export class InitModelRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The service registration address of the AISearch open platform.
+   * The service registration address for the AI Search Open Platform.
    * 
    * This parameter is required.
    * 
@@ -83,7 +82,7 @@ export class InitModelRequest extends $dara.Model {
   httpSchema?: string;
   /**
    * @remarks
-   * The models to initialize. If this parameter is left empty, all built-in models are initialized.
+   * Specifies the models to initialize. If this parameter is left empty, all built-in models are initialized.
    */
   models?: InitModelRequestModels[];
   /**

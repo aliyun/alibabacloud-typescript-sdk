@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest extends $dara.Model {
   /**
    * @remarks
-   * The suggested action.
+   * The recommended actions.
    */
   suggestActions?: string[];
   /**
    * @remarks
-   * The text of the suggested action.
+   * The text of the recommended action.
    * 
    * @example
    * “”
@@ -18,7 +18,7 @@ export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest ex
   suggestText?: string;
   /**
    * @remarks
-   * The type of the suggested action.
+   * The type of the recommended action.
    * 
    * @example
    * promptText
@@ -55,7 +55,7 @@ export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest ex
 export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.Model {
   /**
    * @remarks
-   * The suggested action.
+   * The recommended actions.
    */
   actionSuggest?: ListEventRecordsResponseBodyResultResultShowContentActionSuggest;
   /**
@@ -76,7 +76,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   eventStatus?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event occurred. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-08 18:31:01
@@ -84,7 +84,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   eventTime?: string;
   /**
    * @remarks
-   * The end time of the O&M execution for the event.
+   * The end time of the O&M execution for the event. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -92,7 +92,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   executeFinishTime?: string;
   /**
    * @remarks
-   * The start time of the O&M execution for the event.
+   * The start time of the O&M execution for the event. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-08 18:31:00
@@ -100,7 +100,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   executeStartTime?: string;
   /**
    * @remarks
-   * The instance ID of the instance on which the event occurred.
+   * The instance ID where the event occurred.
    * 
    * @example
    * es-cn-a5cb2dece****
@@ -155,7 +155,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
 export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic alerting is enabled.
+   * Indicates whether automatic alerting is triggered.
    * 
    * @example
    * false
@@ -203,7 +203,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The scheduled execution time.
+   * The scheduled execution time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -211,7 +211,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   scheduleExecuteTime?: string;
   /**
    * @remarks
-   * The scheduled end time.
+   * The scheduled end time of the execution. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -295,7 +295,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
 export class ListEventRecordsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The returned content.
+   * The response content.
    */
   result?: ListEventRecordsResponseBodyResultResult[];
   /**
@@ -343,7 +343,7 @@ export class ListEventRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result.
    */
   result?: ListEventRecordsResponseBodyResult;
   static names(): { [key: string]: string } {

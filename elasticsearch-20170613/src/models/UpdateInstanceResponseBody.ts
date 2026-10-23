@@ -2,6 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateInstanceResponseBodyResultIndexNodeConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 3
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The disk size.
+   * 
+   * @example
+   * 500
+   */
+  disk?: number;
+  /**
+   * @remarks
+   * The disk type, such as cloud_essd.
+   * 
+   * @example
+   * cloud_essd
+   */
+  diskType?: string;
+  /**
+   * @remarks
+   * The disk performance level (PL), such as PL0.
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The node specifications.
+   * 
+   * @example
+   * elasticsearch.turbo1.ci.xlarge
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+      performanceLevel: 'string',
+      spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.Model {
   /**
    * @remarks
@@ -13,7 +83,7 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
   amount?: number;
   /**
    * @remarks
-   * The storage size of the node.
+   * The storage space size of the node.
    * 
    * @example
    * 20
@@ -73,7 +143,7 @@ export class UpdateInstanceResponseBodyResultMasterConfiguration extends $dara.M
   amount?: number;
   /**
    * @remarks
-   * The storage size of the node. Unit: GB.
+   * The storage space size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -125,7 +195,7 @@ export class UpdateInstanceResponseBodyResultMasterConfiguration extends $dara.M
 export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The storage size of the node. Unit: GB.
+   * The storage space size of the node. Unit: GB.
    * 
    * @example
    * 40
@@ -175,10 +245,80 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   }
 }
 
+export class UpdateInstanceResponseBodyResultSearchNodeConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 3
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The disk size.
+   * 
+   * @example
+   * 500
+   */
+  disk?: number;
+  /**
+   * @remarks
+   * The disk type, such as cloud_essd.
+   * 
+   * @example
+   * cloud_essd
+   */
+  diskType?: string;
+  /**
+   * @remarks
+   * The disk performance level (PL), such as PL0.
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The node specifications.
+   * 
+   * @example
+   * elasticsearch.turbo1.ci.xlarge
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+      performanceLevel: 'string',
+      spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard.
    * 
    * @example
    * 2018-07-13T03:58:07.253Z
@@ -194,7 +334,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The internal-facing access domain name of the instance for private network access.
+   * The internal-facing access domain name of the instance on the private network.
    * 
    * @example
    * es-cn-abc.elasticsearch.aliyuncs.com
@@ -208,6 +348,11 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * 5.5.3_with_X-Pack
    */
   esVersion?: string;
+  /**
+   * @remarks
+   * The index node configuration. This parameter is supported only by AI engine instances.
+   */
+  indexNodeConfiguration?: UpdateInstanceResponseBodyResultIndexNodeConfiguration;
   /**
    * @remarks
    * The instance ID.
@@ -243,8 +388,8 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: Subscription.
-   * - postpaid: Pay-as-you-go.
+   * - prepaid: subscription.
+   * - postpaid: pay-as-you-go.
    * 
    * @example
    * postpaid
@@ -252,11 +397,16 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
+   * The search node configuration. This parameter is supported only by AI engine instances.
+   */
+  searchNodeConfiguration?: UpdateInstanceResponseBodyResultSearchNodeConfiguration;
+  /**
+   * @remarks
    * The status of the instance. Valid values:
    * 
    * - active: Normal.
-   * - activating: Taking effect.
-   * - inactive: Frozen.
+   * - activating: Activating.
+   * - inactive: Inactive.
    * - invalid: Invalid.
    * 
    * @example
@@ -269,12 +419,14 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
       description: 'description',
       domain: 'domain',
       esVersion: 'esVersion',
+      indexNodeConfiguration: 'indexNodeConfiguration',
       instanceId: 'instanceId',
       kibanaConfiguration: 'kibanaConfiguration',
       masterConfiguration: 'masterConfiguration',
       nodeAmount: 'nodeAmount',
       nodeSpec: 'nodeSpec',
       paymentType: 'paymentType',
+      searchNodeConfiguration: 'searchNodeConfiguration',
       status: 'status',
     };
   }
@@ -285,17 +437,22 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
       description: 'string',
       domain: 'string',
       esVersion: 'string',
+      indexNodeConfiguration: UpdateInstanceResponseBodyResultIndexNodeConfiguration,
       instanceId: 'string',
       kibanaConfiguration: UpdateInstanceResponseBodyResultKibanaConfiguration,
       masterConfiguration: UpdateInstanceResponseBodyResultMasterConfiguration,
       nodeAmount: 'number',
       nodeSpec: UpdateInstanceResponseBodyResultNodeSpec,
       paymentType: 'string',
+      searchNodeConfiguration: UpdateInstanceResponseBodyResultSearchNodeConfiguration,
       status: 'string',
     };
   }
 
   validate() {
+    if(this.indexNodeConfiguration && typeof (this.indexNodeConfiguration as any).validate === 'function') {
+      (this.indexNodeConfiguration as any).validate();
+    }
     if(this.kibanaConfiguration && typeof (this.kibanaConfiguration as any).validate === 'function') {
       (this.kibanaConfiguration as any).validate();
     }
@@ -304,6 +461,9 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
     }
     if(this.nodeSpec && typeof (this.nodeSpec as any).validate === 'function') {
       (this.nodeSpec as any).validate();
+    }
+    if(this.searchNodeConfiguration && typeof (this.searchNodeConfiguration as any).validate === 'function') {
+      (this.searchNodeConfiguration as any).validate();
     }
     super.validate();
   }

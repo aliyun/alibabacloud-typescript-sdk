@@ -45,9 +45,9 @@ export class DescribeLogstashResponseBodyResultTags extends $dara.Model {
 export class DescribeLogstashResponseBodyResultZoneInfos extends $dara.Model {
   /**
    * @remarks
-   * The zone status. Valid values:
+   * The status of the zone. Valid values:
    * 
-   * - ISOLATION: offline.
+   * - ISOLATION: Offline.
    * - NORMAL: Normal.
    * 
    * @example
@@ -138,7 +138,7 @@ export class DescribeLogstashResponseBodyResultEndpointList extends $dara.Model 
 export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -154,7 +154,7 @@ export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model
   vpcId?: string;
   /**
    * @remarks
-   * The zone in which the instance resides.
+   * The zone where the instance is deployed.
    * 
    * @example
    * cn-hangzhou-*
@@ -206,10 +206,10 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * Indicates whether cloud disk encryption is enabled. Valid values:
+   * Specifies whether cloud disk encryption is used. Valid values:
    * 
-   * - true: Enabled.
-   * - false: Disabled.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -225,7 +225,7 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The node specification.
+   * The specifications of the node.
    * 
    * @example
    * elasticsearch.sn1ne.large
@@ -259,6 +259,10 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
 }
 
 export class DescribeLogstashResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The extended configurations of the Logstash instance.
+   */
   extendConfigs?: { [key: string]: any }[];
   /**
    * @remarks
@@ -270,7 +274,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance tags.
+   * The instance labels.
    */
   tags?: DescribeLogstashResponseBodyResultTags[];
   /**
@@ -280,7 +284,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   zoneInfos?: DescribeLogstashResponseBodyResultZoneInfos[];
   /**
    * @remarks
-   * The instance configuration information.
+   * The configuration information of the instance.
    * 
    * @example
    * {"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" }
@@ -296,12 +300,19 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * ls-cn-abc
    */
   description?: string;
+  /**
+   * @remarks
+   * The time when the instance expires. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1715826092044
+   */
   endTime?: number;
   /**
    * @remarks
@@ -318,7 +329,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The network configuration.
+   * The network configurations.
    */
   networkConfig?: DescribeLogstashResponseBodyResultNetworkConfig;
   /**
@@ -338,8 +349,8 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: subscription
-   * - postpaid: pay-as-you-go
+   * - prepaid: Subscription.
+   * - postpaid: Pay-as-you-go.
    * 
    * @example
    * prepaid
@@ -350,9 +361,9 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
    * The status of the instance. Valid values:
    * 
    * - active: Normal.
-   * - activating: Taking effect.
+   * - activating: Activating.
    * - inactive: Frozen.
-   * - invalid: Expired.
+   * - invalid: Invalid.
    * 
    * @example
    * active
@@ -368,7 +379,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The instance version.
+   * The version of the instance.
    * 
    * @example
    * 7.4.0_with_X-Pack

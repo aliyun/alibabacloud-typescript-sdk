@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCollectorResponseBodyResultConfigs extends $dara.Model {
   /**
    * @remarks
-   * The file content.
+   * The content of the file.
    * 
    * @example
    * filebeat.inputs:xxx
@@ -13,7 +13,7 @@ export class UpdateCollectorResponseBodyResultConfigs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * filebeat.yml
@@ -47,10 +47,10 @@ export class UpdateCollectorResponseBodyResultExtendConfigsMachines extends $dar
    * @remarks
    * The status of each collector on the ECS instance. Valid values:
    * 
-   * - heartOk: Normal heartbeat.
-   * - heartLost: Abnormal heartbeat.
-   * - uninstalled: Not installed.
-   * - failed: Installation failed.
+   * - heartOk: The heartbeat is normal.
+   * - heartLost: The heartbeat is abnormal.
+   * - uninstalled: The collector is not installed.
+   * - failed: The installation failed.
    * 
    * @example
    * heartOk
@@ -92,9 +92,9 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
    * @remarks
    * The configuration type. Valid values:
    * 
-   * - collectorTargetInstance: the collector Output.
-   * - collectorDeployMachine: the deployment machine of the collector.
-   * - collectorElasticsearchForKibana: the Elasticsearch instance information that supports Kibana Dashboard.
+   * - collectorTargetInstance: the output of the collector.
+   * - collectorDeployMachine: the machine on which the collector is deployed.
+   * - collectorElasticsearchForKibana: the information about the Elasticsearch instance that supports Kibana Dashboard.
    * 
    * @example
    * collectorDeployMachine
@@ -102,7 +102,9 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   configType?: string;
   /**
    * @remarks
-   * Indicates whether Monitoring is enabled. Displayed when **configType** is **collectorTargetInstance** and **instanceType** is **elasticsearch**. Valid values: true (enabled) and false (disabled).
+   * Specifies whether to enable monitoring. This parameter is displayed when **configType** is set to **collectorTargetInstance** and **instanceType** is set to **elasticsearch**. Valid values:
+   * - true: Enables monitoring.
+   * - false: Disables monitoring.
    * 
    * @example
    * true
@@ -110,7 +112,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   enableMonitoring?: boolean;
   /**
    * @remarks
-   * The machine group ID. Displayed when **configType** is **collectorDeployMachine**.
+   * The ID of the machine group. This parameter is displayed when **configType** is set to **collectorDeployMachine**.
    * 
    * @example
    * default_ct-cn-5i2l75bz4776****
@@ -118,16 +120,20 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   groupId?: string;
   /**
    * @remarks
-   * The internal-facing access address of Kibana on the private network after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
+   * The internal-facing access address of Kibana over the private network after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601
    */
   host?: string;
+  /**
+   * @remarks
+   * The list of host addresses of the target instance for the collector.
+   */
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the instance associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK (Container Kubernetes) cluster ID.
+   * Instance ID of the instance associated with the collector. If **configType** is set to **collectorTargetInstance**, this parameter indicates instance ID of the instance specified by the collector output. If **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this parameter indicates instance ID of the ACK cluster.
    * 
    * @example
    * es-cn-nif1z89fz003i****
@@ -135,7 +141,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance specified by the collector Output. Valid values: elasticsearch and logstash. Displayed when **configType** is **collectorTargetInstance**.
+   * The type of the instance specified by the collector output. Valid values: elasticsearch and logstash. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * elasticsearch
@@ -143,7 +149,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   instanceType?: string;
   /**
    * @remarks
-   * The public network access address of Kibana after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
+   * The public network access address of Kibana after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
    * 
    * @example
    * https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601
@@ -153,12 +159,12 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
    * @remarks
    * Specific to the collectorDeployMachine type:
    * 
-   * The deployment ECS machine or ACK cluster information.
+   * The information about the ECS instances or ACK cluster on which the collector is deployed.
    */
   machines?: UpdateCollectorResponseBodyResultExtendConfigsMachines[];
   /**
    * @remarks
-   * The transport protocol, which must be consistent with the access protocol of the instance specified by the collector Output. Valid values: HTTP and HTTPS. Displayed when **configType** is **collectorTargetInstance**.
+   * The transmission protocol, which must be consistent with the access protocol of the instance specified by the collector output. Valid values: HTTP and HTTPS. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -166,7 +172,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   protocol?: string;
   /**
    * @remarks
-   * The number of pods that are successfully collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
+   * The number of pods from which data is successfully collected in the ACK cluster. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
    * 
    * @example
    * 8
@@ -174,7 +180,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   successPodsCount?: string;
   /**
    * @remarks
-   * The total number of pods collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
+   * The total number of pods from which data is collected in the ACK cluster. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
    * 
    * @example
    * 10
@@ -182,11 +188,11 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   totalPodsCount?: string;
   /**
    * @remarks
-   * The type of machine on which the collector is deployed. Displayed when **configType** is **collectorDeployMachine**. Valid values:
+   * The type of the machine on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
    * 
-   * - ECSInstanceId: ECS.
+   * - ECSInstanceId: ECS instance.
    * 
-   * - ACKCluster: Container Kubernetes.
+   * - ACKCluster: ACK cluster.
    * 
    * @example
    * ECSInstanceId
@@ -194,7 +200,7 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The username used to access the instance specified by the collector Output. Default value: elastic. Displayed when **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+   * The username used to access the instance specified by the collector output. Default value: elastic. This parameter is displayed when **configType** is set to **collectorTargetInstance** or **collectorElasticsearchForKibana**.
    * 
    * @example
    * elastic
@@ -254,6 +260,10 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $dara.Model 
 }
 
 export class UpdateCollectorResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Filebeat collection paths.
+   */
   collectorPaths?: string[];
   /**
    * @remarks
@@ -262,10 +272,10 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   configs?: UpdateCollectorResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Indicates whether the collector is validated and created. Valid values:
+   * Specifies whether to verify and create the collector. Valid values:
    * 
-   * - true: Only validated, not created.
-   * - false: Validated and created.
+   * - true: Only verifies the configuration and does not create the collector.
+   * - false: Verifies the configuration and creates the collector.
    * 
    * @example
    * false
@@ -273,7 +283,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The extended configuration information.
+   * The extended parameter information.
    */
   extendConfigs?: UpdateCollectorResponseBodyResultExtendConfigs[];
   /**
@@ -286,7 +296,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the collector was last updated.
+   * The time when the collector was updated.
    * 
    * @example
    * 2020-06-20T07:26:47.000+0000
@@ -294,7 +304,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The collector name.
+   * The name of the collector.
    * 
    * @example
    * ct-test
@@ -302,7 +312,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 16852099488*****
@@ -310,7 +320,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The collector instance ID.
+   * The instance ID of the collector.
    * 
    * @example
    * ct-cn-0v3xj86085dvq****
@@ -318,7 +328,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   resId?: string;
   /**
    * @remarks
-   * The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+   * The type of the collector. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
    * 
    * @example
    * fileBeat
@@ -326,7 +336,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   resType?: string;
   /**
    * @remarks
-   * The collector version.
+   * The version of the collector.
    * 
    * @example
    * 6.8.5_with_community
@@ -334,11 +344,11 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
   resVersion?: string;
   /**
    * @remarks
-   * The collector status. Valid values:
+   * The status of the collector. Valid values:
    * 
-   * - activing: Taking effect.
+   * - activing: taking effect
    * 
-   * - active: Active.
+   * - active: effective
    * 
    * @example
    * active
@@ -409,7 +419,7 @@ export class UpdateCollectorResponseBodyResult extends $dara.Model {
 export class UpdateCollectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***

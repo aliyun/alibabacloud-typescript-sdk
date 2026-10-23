@@ -23,11 +23,11 @@ export class UpgradeEngineVersionResponseBodyResultValidateResult extends $dara.
    * @remarks
    * The error type. Valid values:
    * 
-   * - clusterStatus: cluster health status.
-   * - clusterConfigYml: cluster YML file.
-   * - clusterConfigPlugins: cluster configuration file.
-   * - clusterResource: cluster resources.
-   * - clusterSnapshot: cluster snapshot.
+   * - clusterStatus: Cluster health status.
+   * - clusterConfigYml: Cluster YML file.
+   * - clusterConfigPlugins: Cluster configuration file.
+   * - clusterResource: Cluster resources.
+   * - clusterSnapshot: Cluster snapshot.
    * 
    * @example
    * clusterStatus
@@ -61,10 +61,10 @@ export class UpgradeEngineVersionResponseBodyResultValidateResult extends $dara.
 export class UpgradeEngineVersionResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the check is passed. Valid values:
+   * Specifies whether the check is passed. Valid values:
    * 
-   * - success: passed.
-   * - failed: not passed.
+   * - success: Passed.
+   * - failed: Failed.
    * 
    * @example
    * success
@@ -79,10 +79,10 @@ export class UpgradeEngineVersionResponseBodyResult extends $dara.Model {
    * @remarks
    * The check type. Valid values:
    * 
-   * - checkClusterHealth: cluster health status.
-   * - checkConfigCompatible: configuration compatibility status.
-   * - checkClusterResource: resource space status.
-   * - checkClusterSnapshot: whether a snapshot exists.
+   * - checkClusterHealth: Cluster health status.
+   * - checkConfigCompatible: Configuration compatibility status.
+   * - checkClusterResource: Resource space status.
+   * - checkClusterSnapshot: Snapshot existence.
    * 
    * @example
    * checkClusterHealth

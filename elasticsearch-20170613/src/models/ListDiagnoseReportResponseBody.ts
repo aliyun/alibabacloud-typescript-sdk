@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseReportResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of records returned.
+   * The total number of returned records.
    * 
    * @example
    * 15
@@ -70,8 +70,8 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $da
    * The type of the diagnostic result. Valid values:
    * 
    * - TEXT: text description
-   * - CONSOLE_API: console-triggered
-   * - ES_API: API-triggered
+   * - CONSOLE_API: triggered by the console
+   * - ES_API: triggered by the API
    * 
    * @example
    * ES_API
@@ -157,11 +157,50 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItems extends $dara.Mod
 }
 
 export class ListDiagnoseReportResponseBodyResultItems extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the diagnostic conclusion.
+   * 
+   * @example
+   * Everything is normal
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The diagnostic details. This field is empty if details are not requested.
+   */
   detail?: { [key: string]: any };
+  /**
+   * @remarks
+   * The code of the diagnostic item.
+   * 
+   * @example
+   * cluster.health
+   */
   item?: string;
+  /**
+   * @remarks
+   * The name of the diagnostic item.
+   * 
+   * @example
+   * Cluster health
+   */
   name?: string;
+  /**
+   * @remarks
+   * The health status of the diagnostic item. Valid values: GREEN, YELLOW, and RED.
+   * 
+   * @example
+   * GREEN
+   */
   state?: string;
+  /**
+   * @remarks
+   * The handling suggestion.
+   * 
+   * @example
+   * Monitor GC
+   */
   suggest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -208,9 +247,16 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The list of diagnostic items in the report.
+   * The list of diagnostic item information in the report.
    */
   diagnoseItems?: ListDiagnoseReportResponseBodyResultDiagnoseItems[];
+  /**
+   * @remarks
+   * The diagnostic mode. Valid values: RULE and AGENT.
+   * 
+   * @example
+   * RULE
+   */
   diagnosisMode?: string;
   /**
    * @remarks
@@ -222,12 +268,16 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The instance ID of the diagnosed instance.
+   * The instance ID.
    * 
    * @example
    * es-cn-abc
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of diagnostic item details. This list may be empty if details are not requested.
+   */
   items?: ListDiagnoseReportResponseBodyResultItems[];
   /**
    * @remarks
@@ -247,7 +297,7 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The trigger method of the health diagnostics. Valid values:
+   * The trigger method for health diagnostics. Valid values:
    * 
    * - SYSTEM: automatically triggered by the system
    * - INNER: internally triggered
@@ -316,7 +366,7 @@ export class ListDiagnoseReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   result?: ListDiagnoseReportResponseBodyResult[];
   static names(): { [key: string]: string } {

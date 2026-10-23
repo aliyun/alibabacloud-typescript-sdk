@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEcsInstancesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of returned records.
+   * The number of returned records.
    * 
    * @example
    * 11
@@ -35,7 +35,7 @@ export class ListEcsInstancesResponseBodyHeaders extends $dara.Model {
 export class ListEcsInstancesResponseBodyResultCollectorsConfigs extends $dara.Model {
   /**
    * @remarks
-   * The file content.
+   * The content of the file.
    * 
    * @example
    * - key: log\\n title: Log file content\\n description: >\\n Contains log file lines.\\n ....
@@ -43,7 +43,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsConfigs extends $dara.M
   content?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * fields.yml
@@ -77,10 +77,10 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigsMachines e
    * @remarks
    * The status of each collector on the ECS instance. Valid values:
    * 
-   * - heartOk: normal heartbeat.
-   * - heartLost: abnormal heartbeat.
-   * - uninstalled: not installed.
-   * - failed: installation failed.
+   * - heartOk: normal heartbeat
+   * - heartLost: abnormal heartbeat
+   * - uninstalled: not installed
+   * - failed: installation failed
    * 
    * @example
    * heartOk
@@ -88,7 +88,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigsMachines e
   agentStatus?: string;
   /**
    * @remarks
-   * The list of ECS machine IDs.
+   * The list of ECS instance IDs.
    * 
    * @example
    * i-bp13y63575oypr9d****
@@ -122,9 +122,9 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
    * @remarks
    * The configuration type. Valid values:
    * 
-   * - collectorTargetInstance: the collector Output.
-   * - collectorDeployMachine: the deployment machine of the collector.
-   * - collectorElasticsearchForKibana: the Elasticsearch instance information that supports Kibana dashboards.
+   * - collectorTargetInstance: the collector output
+   * - collectorDeployMachine: the machine on which the collector is deployed
+   * - collectorElasticsearchForKibana: the information about the Elasticsearch instance that supports Kibana dashboards
    * 
    * @example
    * collectorDeployMachine
@@ -132,10 +132,10 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   configType?: string;
   /**
    * @remarks
-   * Indicates whether Monitoring is enabled. This parameter is displayed when configType is set to collectorTargetInstance and instanceType is set to elasticsearch. Valid values:
+   * Specifies whether to enable monitoring. This parameter is displayed when **configType** is set to **collectorTargetInstance** and **instanceType** is set to **elasticsearch**. Valid values:
    * 
-   * - true: Enabled.
-   * - false: Not enabled.
+   * - true: Enables monitoring.
+   * - false: Disables monitoring.
    * 
    * @example
    * true
@@ -143,16 +143,20 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   enableMonitoring?: boolean;
   /**
    * @remarks
-   * The machine group ID. This parameter is displayed when configType is set to collectorDeployMachine.
+   * The ID of the machine group. This parameter is displayed when **configType** is set to **collectorDeployMachine**.
    * 
    * @example
    * default_ct-cn-5i2l75bz4776****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The list of host addresses of the collector target instance.
+   */
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the instance associated with the collector. When configType is set to collectorTargetInstance, this is the instance ID of the collector Output. When configType is set to collectorDeployMachines and type is set to ACKCluster, this is the ACK (Container Kubernetes) cluster ID.
+   * Instance ID of the instance associated with the collector. When **configType** is set to **collectorTargetInstance**, this parameter indicates instance ID of the collector output instance. When **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this parameter indicates instance ID of the ACK cluster.
    * 
    * @example
    * es-cn-nif1z89fz003i****
@@ -160,7 +164,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   instanceId?: string;
   /**
    * @remarks
-   * The instance type specified in the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when configType is set to collectorTargetInstance.
+   * The type of the instance specified by the collector output. Valid values: elasticsearch and logstash. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * elasticsearch
@@ -168,12 +172,12 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   instanceType?: string;
   /**
    * @remarks
-   * The list of ECS machines on which the collector is deployed. This parameter is displayed when configType is set to collectorDeployMachines and type is set to ECSInstanceId.
+   * The list of ECS instances on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ECSInstanceId**.
    */
   machines?: ListEcsInstancesResponseBodyResultCollectorsExtendConfigsMachines[];
   /**
    * @remarks
-   * The transport protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when configType is set to collectorTargetInstance.
+   * The transmission protocol, which must be consistent with the access protocol of the instance specified by the collector output. Valid values: HTTP and HTTPS. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -181,10 +185,10 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   protocol?: string;
   /**
    * @remarks
-   * The type of machine on which the collector is deployed. This parameter is displayed when configType is set to collectorDeployMachine. Valid values:
+   * The type of the machine on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
    * 
-   * - ECSInstanceId: ECS.
-   * - ACKCluster: Container Kubernetes.
+   * - ECSInstanceId: ECS instance
+   * - ACKCluster: ACK cluster
    * 
    * @example
    * ECSInstanceId
@@ -192,7 +196,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   type?: string;
   /**
    * @remarks
-   * The username used to access the instance specified in the collector Output. Default value: elastic. This parameter is displayed when configType is set to collectorTargetInstance or collectorElasticsearchForKibana.
+   * The username used to access the instance specified by the collector output. Default value: elastic. This parameter is displayed when **configType** is set to **collectorTargetInstance** or **collectorElasticsearchForKibana**.
    * 
    * @example
    * elastic
@@ -244,6 +248,10 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
 }
 
 export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Filebeat collection paths.
+   */
   collectorPaths?: string[];
   /**
    * @remarks
@@ -252,10 +260,10 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   configs?: ListEcsInstancesResponseBodyResultCollectorsConfigs[];
   /**
    * @remarks
-   * Indicates whether to only validate without creating the collector. Valid values:
+   * Specifies whether to verify and create the collector. Valid values:
    * 
-   * - true: Only validates without creating.
-   * - false: Validates and creates.
+   * - true: Verifies the collector but does not create it.
+   * - false: Verifies and creates the collector.
    * 
    * @example
    * false
@@ -263,7 +271,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The extended configuration information.
+   * The extended parameter information.
    */
   extendConfigs?: ListEcsInstancesResponseBodyResultCollectorsExtendConfigs[];
   /**
@@ -276,7 +284,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the collector was last updated.
+   * The time when the collector was updated.
    * 
    * @example
    * 2020-06-20T07:26:47.000+0000
@@ -284,7 +292,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The collector name.
+   * The name of the collector.
    * 
    * @example
    * ct-testAbc
@@ -292,7 +300,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 16852***488*****
@@ -308,7 +316,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   resId?: string;
   /**
    * @remarks
-   * The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+   * The type of the collector. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
    * 
    * @example
    * fileBeat
@@ -316,7 +324,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   resType?: string;
   /**
    * @remarks
-   * The collector version. When the deployment machine type is ECS, only **6.8.5_with_community** is supported.
+   * The version of the collector. When the machine type is ECS, only **6.8.5_with_community** is supported.
    * 
    * @example
    * 6.8.5_with_community
@@ -324,10 +332,10 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   resVersion?: string;
   /**
    * @remarks
-   * The collector status. Valid values:
+   * The status of the collector. Valid values:
    * 
-   * - activing: taking effect.
-   * - active: active.
+   * - activing: taking effect
+   * - active: effective
    * 
    * @example
    * activing
@@ -335,7 +343,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VPC ID of the collector.
+   * The ID of the VPC where the collector resides.
    * 
    * @example
    * vpc-bp16k1dvzxtm******
@@ -406,10 +414,10 @@ export class ListEcsInstancesResponseBodyResultIpAddress extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The IP address type. Valid values:
+   * The type of the IP address. Valid values:
    * 
-   * - public: public IP address.
-   * - private: private network address.
+   * - public: public IP address
+   * - private: private network IP address
    * 
    * @example
    * private
@@ -441,10 +449,10 @@ export class ListEcsInstancesResponseBodyResultIpAddress extends $dara.Model {
 export class ListEcsInstancesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Cloud Assistant installation status. Valid values:
+   * The installation status of Cloud Assistant. Valid values:
    * 
-   * - true: Installed.
-   * - false: Not installed.
+   * - true: installed
+   * - false: not installed
    * 
    * @example
    * true
@@ -452,7 +460,7 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
   cloudAssistantStatus?: string;
   /**
    * @remarks
-   * The list of collectors deployed on the ECS instance.
+   * The list of collectors on the ECS instance.
    */
   collectors?: ListEcsInstancesResponseBodyResultCollectors[];
   /**
@@ -465,7 +473,7 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The ECS instance name.
+   * The name of the ECS instance.
    * 
    * @example
    * ecsTestName
@@ -480,8 +488,8 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
    * @remarks
    * The operating system type of the ECS instance. Valid values:
    * 
-   * - windows: Windows operating system.
-   * - linux: Linux operating system.
+   * - windows: Windows operating system
+   * - linux: Linux operating system
    * 
    * @example
    * linux
@@ -491,10 +499,10 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the ECS instance. Valid values:
    * 
-   * - running: running.
-   * - starting: starting.
-   * - stopping: stopping.
-   * - stopped: stopped.
+   * - running: running
+   * - starting: starting
+   * - stopping: stopping
+   * - stopped: stopped
    * 
    * @example
    * running
@@ -557,7 +565,7 @@ export class ListEcsInstancesResponseBody extends $dara.Model {
   headers?: ListEcsInstancesResponseBodyHeaders;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***

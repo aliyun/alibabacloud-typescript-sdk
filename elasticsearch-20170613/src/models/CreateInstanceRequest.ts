@@ -2,18 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 import { ClientNodeConfiguration } from "./ClientNodeConfiguration";
 import { ElasticDataNodeConfiguration } from "./ElasticDataNodeConfiguration";
+import { IndexNodeConfiguration } from "./IndexNodeConfiguration";
 import { KibanaNodeConfiguration } from "./KibanaNodeConfiguration";
 import { MasterNodeConfiguration } from "./MasterNodeConfiguration";
 import { NetworkConfig } from "./NetworkConfig";
 import { NodeSpec } from "./NodeSpec";
 import { PaymentInfo } from "./PaymentInfo";
+import { SearchNodeConfiguration } from "./SearchNodeConfiguration";
 import { WarmNodeConfiguration } from "./WarmNodeConfiguration";
 
 
 export class CreateInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance.
+   * The key of the tag.
    * 
    * @example
    * KeyTest
@@ -21,7 +23,7 @@ export class CreateInstanceRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the instance.
+   * The value of the tag.
    * 
    * @example
    * KeyValue
@@ -71,7 +73,7 @@ export class CreateInstanceRequest extends $dara.Model {
   elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
   /**
    * @remarks
-   * The access password of the instance. The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (!@#$%^&*()_+-=). The password must be 8 to 32 characters in length.
+   * The access password of the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include !@#$%^&*()_+-=.
    * 
    * This parameter is required.
    * 
@@ -91,7 +93,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * - 5.6_with_X-Pack
    * - 5.5.3_with_X-Pack
    * 
-   * > The versions listed above may not include all versions supported by Elasticsearch instances. Call the [GetRegionConfiguration](https://help.aliyun.com/document_detail/254099.html) operation to view the actual supported versions.
+   * > The preceding versions may not include all versions supported by Elasticsearch instances. To view the actual supported versions, call the [GetRegionConfiguration](https://help.aliyun.com/document_detail/254099.html) operation.
    * 
    * This parameter is required.
    * 
@@ -101,9 +103,14 @@ export class CreateInstanceRequest extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
+   * The index node configuration. Only instances with the AI engine type support index node configuration.
+   */
+  indexNodeConfiguration?: IndexNodeConfiguration;
+  /**
+   * @remarks
    * The edition type. Valid values:
-   * - x-pack: Creates a commercial edition instance, or a kernel-enhanced edition instance without Indexing Service or OpenStore enabled.
-   * - IS: Creates a kernel-enhanced edition instance with Indexing Service or OpenStore enabled.
+   * - x-pack: Creates a Commercial Edition instance, or an Advanced Edition instance with Indexing Service and OpenStore disabled.
+   * - IS: Creates an Advanced Edition instance with Indexing Service or OpenStore enabled.
    * 
    * @example
    * advanced
@@ -113,20 +120,20 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The Kibana node configuration.
    * 
-   * > We strongly recommend that you enable Kibana nodes.
+   * > Enable the Kibana node.
    */
   kibanaConfiguration?: KibanaNodeConfiguration;
   /**
    * @remarks
    * The dedicated master node configuration.
-   * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call createInstance to create an instance with next-generation cloud disk-based dedicated master nodes, specify the instance family followed by the `.new` suffix. For example, elasticsearch.sn1ne.large.new.
+   * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based dedicated master node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
    */
   masterConfiguration?: MasterNodeConfiguration;
   /**
    * @remarks
    * The network configuration.
    * 
-   * > You cannot specify an IP whitelist when creating an instance.
+   * > You cannot specify an IP address whitelist when you create an instance.
    * 
    * This parameter is required.
    */
@@ -145,12 +152,12 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The data node configuration.
    * 
-   * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call createInstance to create an instance with next-generation cloud disk-based data nodes, specify the instance family followed by the `.new` suffix. For example, elasticsearch.sn1ne.large.new.
+   * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based data node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
    */
   nodeSpec?: NodeSpec;
   /**
    * @remarks
-   * The billing details of the subscription instance. This parameter is required when you create a subscription instance.
+   * The payment details of the subscription instance. This parameter is required when you create a subscription instance.
    */
   paymentInfo?: PaymentInfo;
   /**
@@ -174,12 +181,17 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance tags.
+   * The query node configuration. Only instances with the AI engine type support query node configuration.
+   */
+  searchNodeConfiguration?: SearchNodeConfiguration;
+  /**
+   * @remarks
+   * The instance label group.
    */
   tags?: CreateInstanceRequestTags[];
   /**
    * @remarks
-   * The cold data node configuration.
+   * The warm data node configuration.
    */
   warmNodeConfiguration?: WarmNodeConfiguration;
   /**
@@ -192,7 +204,7 @@ export class CreateInstanceRequest extends $dara.Model {
   zoneCount?: number;
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
@@ -205,6 +217,7 @@ export class CreateInstanceRequest extends $dara.Model {
       elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
       esAdminPassword: 'esAdminPassword',
       esVersion: 'esVersion',
+      indexNodeConfiguration: 'indexNodeConfiguration',
       instanceCategory: 'instanceCategory',
       kibanaConfiguration: 'kibanaConfiguration',
       masterConfiguration: 'masterConfiguration',
@@ -214,6 +227,7 @@ export class CreateInstanceRequest extends $dara.Model {
       paymentInfo: 'paymentInfo',
       paymentType: 'paymentType',
       resourceGroupId: 'resourceGroupId',
+      searchNodeConfiguration: 'searchNodeConfiguration',
       tags: 'tags',
       warmNodeConfiguration: 'warmNodeConfiguration',
       zoneCount: 'zoneCount',
@@ -228,6 +242,7 @@ export class CreateInstanceRequest extends $dara.Model {
       elasticDataNodeConfiguration: ElasticDataNodeConfiguration,
       esAdminPassword: 'string',
       esVersion: 'string',
+      indexNodeConfiguration: IndexNodeConfiguration,
       instanceCategory: 'string',
       kibanaConfiguration: KibanaNodeConfiguration,
       masterConfiguration: MasterNodeConfiguration,
@@ -237,6 +252,7 @@ export class CreateInstanceRequest extends $dara.Model {
       paymentInfo: PaymentInfo,
       paymentType: 'string',
       resourceGroupId: 'string',
+      searchNodeConfiguration: SearchNodeConfiguration,
       tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
       warmNodeConfiguration: WarmNodeConfiguration,
       zoneCount: 'number',
@@ -250,6 +266,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(this.elasticDataNodeConfiguration && typeof (this.elasticDataNodeConfiguration as any).validate === 'function') {
       (this.elasticDataNodeConfiguration as any).validate();
+    }
+    if(this.indexNodeConfiguration && typeof (this.indexNodeConfiguration as any).validate === 'function') {
+      (this.indexNodeConfiguration as any).validate();
     }
     if(this.kibanaConfiguration && typeof (this.kibanaConfiguration as any).validate === 'function') {
       (this.kibanaConfiguration as any).validate();
@@ -265,6 +284,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(this.paymentInfo && typeof (this.paymentInfo as any).validate === 'function') {
       (this.paymentInfo as any).validate();
+    }
+    if(this.searchNodeConfiguration && typeof (this.searchNodeConfiguration as any).validate === 'function') {
+      (this.searchNodeConfiguration as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

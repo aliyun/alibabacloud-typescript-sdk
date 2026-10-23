@@ -63,7 +63,7 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   ecsId?: string;
   /**
    * @remarks
-   * The event creation time.
+   * The creation time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2017-12-07T00:00:00Z
@@ -82,7 +82,7 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   eventCycleStatus?: string;
   /**
    * @remarks
-   * The event execution time.
+   * The execution time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2017-12-07T00:00:00Z
@@ -90,7 +90,7 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   eventExecuteTime?: string;
   /**
    * @remarks
-   * The event completion time.
+   * The completion time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2017-12-07T00:00:00Z
@@ -110,12 +110,12 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The event type. Valid values:
-   * - ECS:AUTO_RESTART: ECS node automatic restart.
-   * - Instance:InstanceFailure.Reboot:Executed: ECS instance restart completed (ECS instance error).
-   * - Instance:InstanceFailure.Reboot:Executing: ECS instance restart started (instance error).
-   * - Instance:SystemFailure.Reboot:Executed: ECS instance restart completed (system error).
-   * - Instance:SystemFailure.Reboot:Executing: ECS instance restart started (system error).
-   * - Instance:SystemFailure.Reboot:Failed: ECS instance restart failed (system error).
+   * - ECS:AUTO_RESTART: The ECS node is automatically restarted.
+   * - Instance:InstanceFailure.Reboot:Executed: The restart of the ECS instance is complete due to an instance error.
+   * - Instance:InstanceFailure.Reboot:Executing: The restart of the ECS instance starts due to an instance error.
+   * - Instance:SystemFailure.Reboot:Executed: The restart of the ECS instance is complete due to a system error.
+   * - Instance:SystemFailure.Reboot:Executing: The restart of the ECS instance starts due to a system error.
+   * - Instance:SystemFailure.Reboot:Failed: The restart of the ECS instance fails due to a system error.
    * 
    * @example
    * ECS:AUTO_RESTART
@@ -139,7 +139,7 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   nodeIP?: string;
   /**
    * @remarks
-   * The region ID where the event occurred.
+   * The ID of the region where the event occurred.
    * 
    * @example
    * cn-hangzhou
@@ -192,7 +192,7 @@ export class ListInstanceHistoryEventsResponseBody extends $dara.Model {
   headers?: ListInstanceHistoryEventsResponseBodyHeaders;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D1A6830A-F59B-4E05-BFAC-9496C21DBBA7

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PluginAnalysisResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The plug-in description.
+   * The plugin description.
    * 
    * @example
    * plugin description
@@ -13,7 +13,7 @@ export class PluginAnalysisResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The plug-in version.
+   * The plugin version.
    * 
    * @example
    * 8.17.0
@@ -21,7 +21,7 @@ export class PluginAnalysisResponseBodyResult extends $dara.Model {
   elasticsearchVersion?: string;
   /**
    * @remarks
-   * The plug-in name.
+   * The plugin name.
    * 
    * @example
    * plugin_name
@@ -29,7 +29,7 @@ export class PluginAnalysisResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The security policy of the plug-in.
+   * The security policy of the plugin.
    * 
    * @example
    * null
@@ -37,7 +37,7 @@ export class PluginAnalysisResponseBodyResult extends $dara.Model {
   securityPolicy?: string;
   /**
    * @remarks
-   * The plug-in version.
+   * The plugin version.
    * 
    * @example
    * 8.17.0

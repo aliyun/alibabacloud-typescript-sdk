@@ -13,10 +13,10 @@ export class DeactivateZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result. Valid values:
    * 
-   * - true: The zones are taken offline.
-   * - false: The zones failed to be taken offline.
+   * - true: The zones are taken offline successfully.
+   * - false: The zones fail to be taken offline.
    * 
    * @example
    * true

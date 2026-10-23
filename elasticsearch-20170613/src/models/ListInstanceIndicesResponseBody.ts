@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceIndicesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of managed indexes in the cloud.
+   * The total number of indices in cloud-managed storage.
    * 
    * @example
    * 15
@@ -13,7 +13,7 @@ export class ListInstanceIndicesResponseBodyHeaders extends $dara.Model {
   xManagedCount?: number;
   /**
    * @remarks
-   * The total size of managed indexes in the cloud. Unit: bytes.
+   * The total size of indices in cloud-managed storage. Unit: bytes.
    * 
    * @example
    * 18093942932
@@ -21,7 +21,7 @@ export class ListInstanceIndicesResponseBodyHeaders extends $dara.Model {
   xManagedStorageSize?: number;
   /**
    * @remarks
-   * The total number of OpenStore cold-phase indexes.
+   * The total number of OpenStore cold-phase indices.
    * 
    * @example
    * 5
@@ -29,7 +29,7 @@ export class ListInstanceIndicesResponseBodyHeaders extends $dara.Model {
   xOSSCount?: number;
   /**
    * @remarks
-   * The total size of OpenStore cold-phase indexes for the instance. Unit: bytes.
+   * The total size of OpenStore cold-phase indices for the instance. Unit: bytes.
    * 
    * @example
    * 9093942932
@@ -65,7 +65,7 @@ export class ListInstanceIndicesResponseBodyHeaders extends $dara.Model {
 export class ListInstanceIndicesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the index list was queried.
+   * The creation time of the index, in ISO 8601 format and UTC time.
    * 
    * @example
    * 2021-01-11T05:49:41.114Z
@@ -75,11 +75,11 @@ export class ListInstanceIndicesResponseBodyResult extends $dara.Model {
    * @remarks
    * The health status of the index. Valid values:
    * 
-   * - green: Healthy.
+   * - green: healthy.
    * 
-   * - yellow: Warning.
+   * - yellow: warning.
    * 
-   * - red: Abnormal.
+   * - red: unhealthy.
    * 
    * @example
    * green
@@ -95,7 +95,7 @@ export class ListInstanceIndicesResponseBodyResult extends $dara.Model {
   ilmExplain?: string;
   /**
    * @remarks
-   * This parameter is deprecated and can be ignored.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * false
@@ -103,13 +103,13 @@ export class ListInstanceIndicesResponseBodyResult extends $dara.Model {
   isManaged?: string;
   /**
    * @remarks
-   * The index management status. Valid values:
+   * The management status of the index. Valid values:
    * 
-   * - following: Managed.
+   * - following: managed.
    * 
-   * - closing: Being unmanaged.
+   * - closing: unmanaging.
    * 
-   * - closed: Not managed.
+   * - closed: unmanaged.
    * 
    * @example
    * closing
@@ -127,15 +127,15 @@ export class ListInstanceIndicesResponseBodyResult extends $dara.Model {
    * @remarks
    * The current storage lifecycle phase. Valid values:
    * 
-   * - warm: Warm phase.
+   * - warm: the warm phase.
    * 
-   * - cold: Cold phase.
+   * - cold: the cold phase.
    * 
-   * - hot: Hot phase.
+   * - hot: the hot phase.
    * 
-   * - delete: Delete phase.
+   * - delete: the delete phase.
    * 
-   * > If this value is empty, the index is not managed by a lifecycle policy.
+   * An empty value indicates that the index is not managed by a lifecycle policy.
    * 
    * @example
    * warm
@@ -200,7 +200,7 @@ export class ListInstanceIndicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The index list details.
+   * The details of the index list.
    */
   result?: ListInstanceIndicesResponseBodyResult[];
   static names(): { [key: string]: string } {

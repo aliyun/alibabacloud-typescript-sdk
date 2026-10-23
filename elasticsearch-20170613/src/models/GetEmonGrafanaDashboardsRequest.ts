@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEmonGrafanaDashboardsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This GET operation does not require a request body.
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {

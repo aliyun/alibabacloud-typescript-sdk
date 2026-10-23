@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name. Fuzzy match is supported. For example, if you search for an instance named abc, instances named abc, abcde, xyabc, and xabcy may all be returned.
+   * The name of the instance. Fuzzy match is supported. For example, if you search for instances named abc, the system may return all instances whose names are abc, abcde, xyabc, or xabcy.
    * 
    * @example
    * ls-cn-abc
@@ -29,7 +29,7 @@ export class ListLogstashRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm2h5vbzd****
@@ -37,7 +37,7 @@ export class ListLogstashRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page in Settings for paging. Default value: 20.
+   * The number of entries per page in a paging query. Default value: 20.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListLogstashRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The instance version.
+   * The version of the instance.
    * 
    * @example
    * 5.5.3_with_X-Pack

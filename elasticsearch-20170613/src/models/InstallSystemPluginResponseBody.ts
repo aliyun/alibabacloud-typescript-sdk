@@ -11,6 +11,10 @@ export class InstallSystemPluginResponseBody extends $dara.Model {
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the Elasticsearch plugins installed in this request.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

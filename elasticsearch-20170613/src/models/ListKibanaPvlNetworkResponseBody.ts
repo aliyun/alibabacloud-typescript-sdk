@@ -45,7 +45,7 @@ export class ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone extends $dara.
 export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the Kibana private network connection was created.
+   * The time when the Kibana private network connection was created. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2024-03-07T06:26:28Z
@@ -70,18 +70,21 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The endpoint status. Valid values:
-   * 
-   * - Disconnected: disconnected
-   * - Connected: connected
+   * - Disconnected: Not connected.
+   * - Connected: Connected.
    * 
    * @example
    * Connected
    */
   endpointStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the security group is a managed security group.
+   */
   managedSecurityGroup?: boolean;
   /**
    * @remarks
-   * The Kibana private network connection ID.
+   * The ID of the Kibana private network connection.
    * 
    * @example
    * es-cn-27a3mul6l***-kibana-internal
@@ -89,7 +92,7 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
   pvlId?: string;
   /**
    * @remarks
-   * The list of security groups.
+   * The security groups.
    */
   securityGroups?: string[];
   /**

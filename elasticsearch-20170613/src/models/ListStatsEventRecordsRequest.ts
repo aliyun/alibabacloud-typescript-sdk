@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListStatsEventRecordsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the statistical window. The value is a UNIX timestamp in seconds. This parameter must be specified together with startTime and must be later than the start time.
+   * 
+   * @example
+   * 4600
+   */
   endTime?: number;
   /**
    * @remarks
@@ -20,6 +27,13 @@ export class ListStatsEventRecordsRequest extends $dara.Model {
    * Info
    */
   level?: string;
+  /**
+   * @remarks
+   * The start time of the statistical window. The value is a UNIX timestamp in seconds. This parameter must be specified together with endTime.
+   * 
+   * @example
+   * 1000
+   */
   startTime?: number;
   /**
    * @remarks

@@ -13,7 +13,7 @@ export class UpdateILMPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result.
    * 
    * @example
    * my-policy

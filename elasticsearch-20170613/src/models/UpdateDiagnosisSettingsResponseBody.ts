@@ -13,9 +13,9 @@ export class UpdateDiagnosisSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * Indicates whether the update was successful. Valid values:
    * 
-   * - true: The update was successful.
+   * - true: The update succeeded.
    * - false: The update failed.
    * 
    * @example

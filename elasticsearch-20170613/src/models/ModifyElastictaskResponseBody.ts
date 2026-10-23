@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $dara.Model {
   /**
    * @remarks
-   * The trigger cycle, specified as a Quartz Cron expression.
+   * The trigger cycle, specified by a Quartz cron expression.
    * 
    * @example
    * 0 0 0 ? * MON
@@ -13,7 +13,7 @@ export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $da
   cronExpression?: string;
   /**
    * @remarks
-   * The number of elastic data nodes during peak hours.
+   * The target number of elastic data nodes during peak hours.
    * 
    * @example
    * 2
@@ -27,10 +27,14 @@ export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $da
    * 2
    */
   replicaCount?: number;
+  /**
+   * @remarks
+   * The list of target index names for the elastic scaling task. Wildcards are supported.
+   */
   targetIndices?: string[];
   /**
    * @remarks
-   * The cause. The value is fixed as crontab, which indicates scheduled triggering.
+   * The Cause. The value is fixed to crontab, which indicates scheduled triggering.
    * 
    * @example
    * crontab
@@ -71,7 +75,7 @@ export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $da
 export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $dara.Model {
   /**
    * @remarks
-   * The trigger cycle, specified as a Quartz Cron expression.
+   * The trigger cycle, specified by a Quartz cron expression.
    * 
    * @example
    * 4 4 4 ? * WED
@@ -79,7 +83,7 @@ export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $dara.
   cronExpression?: string;
   /**
    * @remarks
-   * The number of elastic data nodes during off-peak hours.
+   * The target number of elastic data nodes during off-peak hours.
    * 
    * @example
    * 2
@@ -93,10 +97,14 @@ export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $dara.
    * 2
    */
   replicaCount?: number;
+  /**
+   * @remarks
+   * The list of target index names for the elastic scaling task. Wildcards are supported.
+   */
   targetIndices?: string[];
   /**
    * @remarks
-   * The cause. Valid values: crontab, which indicates scheduled triggering.
+   * The Cause. Valid value: crontab, which indicates scheduled triggering.
    * 
    * @example
    * crontab
@@ -137,12 +145,12 @@ export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $dara.
 export class ModifyElastictaskResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The elastic node scale-out rule.
+   * The scale-out rules for elastic nodes.
    */
   elasticExpansionTask?: ModifyElastictaskResponseBodyResultElasticExpansionTask;
   /**
    * @remarks
-   * The elastic node scale-in rule.
+   * The scale-in rules for elastic nodes.
    */
   elasticShrinkTask?: ModifyElastictaskResponseBodyResultElasticShrinkTask;
   static names(): { [key: string]: string } {

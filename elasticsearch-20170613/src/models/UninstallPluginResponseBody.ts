@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the Elasticsearch plug-ins uninstalled by this request.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -15,7 +15,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The renewal was successful.
+   * - true: The renewal succeeded.
    * - false: The renewal failed.
    * 
    * @example

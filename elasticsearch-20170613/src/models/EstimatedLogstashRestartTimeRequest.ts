@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EstimatedLogstashRestartTimeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The restart parameters, including the restart type, target nodes, blue-green deployment options, and concurrency settings.
+   * 
+   * @example
+   * {"restartType":"nodeIp","nodes":["172.16.xx.xx"],"blueGreenDep":true}
+   */
   body?: string;
   /**
    * @remarks

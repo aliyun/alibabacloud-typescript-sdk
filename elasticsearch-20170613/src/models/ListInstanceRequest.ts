@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name. Fuzzy match is supported. For example, if you search for **abc**, all instances whose names contain **abc** may be returned, such as **abc**, **abcde**, **xyabc**, and **xabcy**.
+   * The instance name. Fuzzy search is supported. For example, if you search for **abc**, instances such as **abc**, **abcde**, **xyabc**, and **xabcy** may be returned.
    * 
    * @example
    * aliyunes_test1
@@ -13,7 +13,7 @@ export class ListInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance version.
+   * The Elasticsearch version of the instance.
    * 
    * @example
    * 6.7_with_X-Pack
@@ -22,6 +22,12 @@ export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The edition of the instance. Valid values:
+   * 
+   * - x-pack: Commercial Edition
+   * 
+   * - advanced/IS: Advanced Edition
+   * 
+   * - community: Basic Edition
    * 
    * @example
    * advanced
@@ -37,7 +43,7 @@ export class ListInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the instance list.
+   * The page number of the instance list. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -46,6 +52,10 @@ export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
+   * 
+   * - postpaid: pay-as-you-go
+   * 
+   * - prepaid: subscription
    * 
    * @example
    * postpaid
@@ -61,12 +71,19 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Settings the number of entries per page for paging. Maximum value: **100**. Default value: **10**.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: **100**. Default value: **10**.
    * 
    * @example
    * 10
    */
   size?: number;
+  /**
+   * @remarks
+   * The instance status used for filtering. Valid values: active, activating, inactive, invalid, and unknown.
+   * 
+   * @example
+   * active
+   */
   status?: string;
   /**
    * @remarks
@@ -78,7 +95,7 @@ export class ListInstanceRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the instance resides.
+   * The ID of the virtual private cloud (VPC) to which the instance belongs.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -86,7 +103,7 @@ export class ListInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone to which the instance belongs.
    * 
    * @example
    * cn-hangzhou-i

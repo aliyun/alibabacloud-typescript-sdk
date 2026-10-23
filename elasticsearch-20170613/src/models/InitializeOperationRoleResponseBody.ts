@@ -13,10 +13,10 @@ export class InitializeOperationRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result. Valid values:
    * 
-   * - true: Created.
-   * - false: Failed to create.
+   * - true: The creation succeeded.
+   * - false: The creation failed.
    * 
    * @example
    * true

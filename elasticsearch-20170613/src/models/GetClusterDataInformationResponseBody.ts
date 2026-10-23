@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetClusterDataInformationResponseBodyResultMetaInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The fields corresponding to the index mapping.
+   */
   fields?: string[];
+  /**
+   * @remarks
+   * The list of indexes in the cluster.
+   */
   indices?: string[];
   /**
    * @remarks
@@ -21,6 +29,10 @@ export class GetClusterDataInformationResponseBodyResultMetaInfo extends $dara.M
    * {\\n  \\"index\\": {\\n    \\"replication\\": {\\n}.....}}
    */
   settings?: string;
+  /**
+   * @remarks
+   * The type of the specified index.
+   */
   typeName?: string[];
   static names(): { [key: string]: string } {
     return {

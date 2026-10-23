@@ -13,10 +13,10 @@ export class UpdateAdvancedSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result:
+   * The returned result. Valid values:
    * 
-   * - true: The garbage collector configuration was changed successfully.
-   * - false: The garbage collector configuration failed to be changed.
+   * - true: The garbage collector configuration was updated.
+   * - false: The garbage collector configuration failed to be updated.
    * 
    * @example
    * true

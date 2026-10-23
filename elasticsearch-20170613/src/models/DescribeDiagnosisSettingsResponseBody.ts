@@ -3,22 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether intelligent diagnostics is authorized to access the Elasticsearch API.
+   */
   authorizationStatus?: boolean;
+  /**
+   * @remarks
+   * The maximum number of diagnostic executions allowed per day.
+   * 
+   * @example
+   * 0
+   */
   dailyLimit?: number;
+  /**
+   * @remarks
+   * Indicates whether daily scheduled diagnostics are enabled.
+   */
   dailyScheduleEnabled?: boolean;
+  /**
+   * @remarks
+   * The running mode of intelligent diagnostics, such as AGENT.
+   * 
+   * @example
+   * AGENT
+   */
   diagnosisMode?: string;
   /**
    * @remarks
-   * The common scenarios of intelligent diagnosis and optimization.
+   * The common scenarios for intelligent O&M.
    * 
    * @example
    * Business Search
    */
   scene?: string;
+  /**
+   * @remarks
+   * The list of identifiers for the selected intelligent diagnostics items.
+   */
   selectedItems?: string[];
   /**
    * @remarks
-   * The UNIX timestamp when the intelligent diagnosis and optimization common scenarios were last updated.
+   * The UNIX timestamp when the common scenarios for intelligent O&M were last updated.
    * 
    * @example
    * 1588994035385

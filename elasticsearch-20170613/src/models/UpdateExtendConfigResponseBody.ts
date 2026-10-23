@@ -15,8 +15,8 @@ export class UpdateExtendConfigResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The scenario-based configuration template was modified successfully.
-   * - false: The scenario-based configuration template failed to be modified.
+   * - true: The scenario-based configuration template was updated.
+   * - false: The scenario-based configuration template failed to be updated.
    * 
    * @example
    * true

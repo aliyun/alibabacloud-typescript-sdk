@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePrivateNetworkWhiteIpsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The VPC private network access whitelist.
+   */
   privateNetworkIpWhiteList?: string[];
   static names(): { [key: string]: string } {
     return {

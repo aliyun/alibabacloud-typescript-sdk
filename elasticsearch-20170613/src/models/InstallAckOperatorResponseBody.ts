@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAckOperatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EFA88951-7A6F-4A8E-AB8F-2BB7132BA751

@@ -37,7 +37,7 @@ export class DescribeDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends
   suggest?: string;
   /**
    * @remarks
-   * The type of the diagnostic result. Valid values: TEXT (text description), CONSOLE_API (console-triggered), and ES_API (API-triggered).
+   * The type of the diagnostic result. Valid values: TEXT (text description), CONSOLE_API (triggered by the console), and ES_API (triggered by the API).
    * 
    * @example
    * ES_API
@@ -123,11 +123,50 @@ export class DescribeDiagnoseReportResponseBodyResultDiagnoseItems extends $dara
 }
 
 export class DescribeDiagnoseReportResponseBodyResultItems extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the diagnostic conclusion.
+   * 
+   * @example
+   * Everything is normal
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The diagnostic details. This parameter is empty if details are not required.
+   */
   detail?: { [key: string]: any };
+  /**
+   * @remarks
+   * The code of the diagnostic item.
+   * 
+   * @example
+   * cluster.health
+   */
   item?: string;
+  /**
+   * @remarks
+   * The name of the diagnostic item.
+   * 
+   * @example
+   * Cluster health
+   */
   name?: string;
+  /**
+   * @remarks
+   * The health status of the diagnostic item. Valid values: GREEN, YELLOW, and RED.
+   * 
+   * @example
+   * GREEN
+   */
   state?: string;
+  /**
+   * @remarks
+   * The handling suggestion.
+   * 
+   * @example
+   * Pay attention to GC
+   */
   suggest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,7 +205,7 @@ export class DescribeDiagnoseReportResponseBodyResultItems extends $dara.Model {
 export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the report was created. Unit: ms.
+   * The timestamp when the report was created. Unit: milliseconds.
    * 
    * @example
    * 1535745731000
@@ -177,10 +216,17 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
    * The list of diagnostic items in the report.
    */
   diagnoseItems?: DescribeDiagnoseReportResponseBodyResultDiagnoseItems[];
+  /**
+   * @remarks
+   * The diagnosis mode. Valid values: RULE and AGENT.
+   * 
+   * @example
+   * RULE
+   */
   diagnosisMode?: string;
   /**
    * @remarks
-   * The overall health of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
+   * The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
    * 
    * @example
    * YELLOW
@@ -188,12 +234,16 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The instance ID of the diagnosed instance.
+   * The instance ID.
    * 
    * @example
    * es-cn-abc
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of diagnostic item details. This parameter may be empty if details are not required.
+   */
   items?: DescribeDiagnoseReportResponseBodyResultItems[];
   /**
    * @remarks
@@ -205,7 +255,7 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The diagnostic status. Valid values: SUCCESS, FAILED, and RUNNING.
+   * The diagnosis status. Valid values: SUCCESS, FAILED, and RUNNING.
    * 
    * @example
    * SUCCESS
@@ -213,7 +263,7 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The method used to trigger the health diagnostics. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
+   * The trigger method of the health diagnosis. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
    * 
    * @example
    * SYSTEM

@@ -53,7 +53,7 @@ export class EstimatedLogstashRestartTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: EstimatedLogstashRestartTimeResponseBodyResult;
   static names(): { [key: string]: string } {

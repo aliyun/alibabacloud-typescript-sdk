@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceHistoryEventsRequestBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort in descending order. Valid values:
-   * 
-   * - true (default): yes
-   * - false: no
+   * Specifies whether to sort the results in descending order. Valid values:
+   * - true: Sorts the results in descending order. This is the default value.
+   * - false: Sorts the results in ascending order.
    * 
    * @example
    * true
@@ -16,11 +15,10 @@ export class ListInstanceHistoryEventsRequestBody extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * The field by which the results are sorted. Valid values:
-   * 
-   * - event_time: event creation time
-   * - event_execute_start_time: event execution time
-   * - event_execute_finish_time: event completion time
+   * The field by which to sort the returned results. Valid values:
+   * - event_time: the creation time of the event
+   * - event_execute_start_time: the execution time of the event
+   * - event_execute_finish_time: the completion time of the event
    * 
    * @example
    * event_time
@@ -57,7 +55,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   body?: ListInstanceHistoryEventsRequestBody[];
   /**
    * @remarks
-   * The end time for querying by event creation time. Specify a timestamp in milliseconds.
+   * The end time for querying events by creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000
@@ -65,7 +63,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventCreateEndTime?: string;
   /**
    * @remarks
-   * The start time for querying by event creation time. Specify a timestamp in milliseconds.
+   * The start time for querying events by creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000
@@ -78,7 +76,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventCycleStatus?: string[];
   /**
    * @remarks
-   * The end time for querying by event execution time. Specify a timestamp in milliseconds.
+   * The end time for querying events by execution time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000
@@ -86,7 +84,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventExecuteEndTime?: string;
   /**
    * @remarks
-   * The start time for querying by event execution time. Specify a timestamp in milliseconds.
+   * The start time for querying events by execution time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000
@@ -94,7 +92,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventExecuteStartTime?: string;
   /**
    * @remarks
-   * The end time for querying by event completion time. Specify a timestamp in milliseconds.
+   * The end time for querying events by completion time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000
@@ -102,7 +100,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventFinashEndTime?: string;
   /**
    * @remarks
-   * The start time for querying by event completion time. Specify a timestamp in milliseconds.
+   * The start time for querying events by completion time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1645596516000

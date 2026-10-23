@@ -23,8 +23,8 @@ export class MoveResourceGroupResponseBodyResultDictList extends $dara.Model {
    * @remarks
    * The source type. Valid values:
    * 
-   * - OSS: OSS open storage (the OSS bucket must be publicly readable).
-   * - ORIGIN: retains the previously uploaded dictionary.
+   * - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+   * - ORIGIN: The previously uploaded dictionary is retained.
    * 
    * @example
    * ORIGIN
@@ -34,10 +34,10 @@ export class MoveResourceGroupResponseBodyResultDictList extends $dara.Model {
    * @remarks
    * The dictionary type. Valid values:
    * 
-   * - STOP: stopword.
-   * - MAIN: main dictionary.
-   * - SYNONYMS: synonym dictionary.
-   * - ALI_WS: Alibaba dictionary.
+   * - STOP: Stopword dictionary.
+   * - MAIN: Main dictionary.
+   * - SYNONYMS: Synonym dictionary.
+   * - ALI_WS: Alibaba Cloud dictionary.
    * 
    * @example
    * MAIN
@@ -81,7 +81,7 @@ export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage space size of the node. Unit: GB.
+   * The storage space of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -141,7 +141,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage space size of the node. Unit: GB.
+   * The storage space of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -253,7 +253,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
 export class MoveResourceGroupResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The storage space size of the node. Unit: GB.
+   * The storage space of the node. Unit: GB.
    * 
    * @example
    * 50
@@ -321,8 +321,8 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
    * @remarks
    * The source type. Valid values:
    * 
-   * - OSS: OSS open storage (the OSS bucket must be publicly readable).
-   * - ORIGIN: retains the previously uploaded dictionary.
+   * - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+   * - ORIGIN: The previously uploaded dictionary is retained.
    * 
    * @example
    * ORIGIN
@@ -332,10 +332,10 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
    * @remarks
    * The dictionary type. Valid values:
    * 
-   * - STOP: stopword.
-   * - MAIN: main dictionary.
-   * - SYNONYMS: synonym dictionary.
-   * - ALI_WS: Alibaba dictionary.
+   * - STOP: Stopword dictionary.
+   * - MAIN: Main dictionary.
+   * - SYNONYMS: Synonym dictionary.
+   * - ALI_WS: Alibaba Cloud dictionary.
    * 
    * @example
    * STOP
@@ -371,7 +371,7 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
 export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The time follows the YYYY-MM-DDTHH:mm:ss.SSSZ format, where Z indicates UTC.
    * 
    * @example
    * 2020-07-06T10:18:48.662Z
@@ -379,7 +379,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * es-cn-abc
@@ -387,12 +387,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IK dictionary configuration.
+   * The IK dictionary configurations.
    */
   dictList?: MoveResourceGroupResponseBodyResultDictList[];
   /**
    * @remarks
-   * The internal network access address of the instance.
+   * The internal endpoint of the instance.
    * 
    * @example
    * es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
@@ -400,7 +400,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The instance version.
+   * The version of the instance.
    * 
    * @example
    * 6.7.0_with_X-Pack
@@ -416,7 +416,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Kibana node configuration.
+   * The Kibana node configurations.
    */
   kibanaConfiguration?: MoveResourceGroupResponseBodyResultKibanaConfiguration;
   /**
@@ -429,7 +429,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaDomain?: string;
   /**
    * @remarks
-   * The Kibana public network port.
+   * The public port of Kibana.
    * 
    * @example
    * 5601
@@ -437,12 +437,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaPort?: number;
   /**
    * @remarks
-   * The master node configuration.
+   * The master node configurations.
    */
   masterConfiguration?: MoveResourceGroupResponseBodyResultMasterConfiguration;
   /**
    * @remarks
-   * The network configuration.
+   * The network configurations.
    */
   networkConfig?: MoveResourceGroupResponseBodyResultNetworkConfig;
   /**
@@ -455,15 +455,15 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The data node configuration.
+   * The data node configurations.
    */
   nodeSpec?: MoveResourceGroupResponseBodyResultNodeSpec;
   /**
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: subscription.
-   * - postpaid: pay-as-you-go.
+   * - prepaid: Subscription.
+   * - postpaid: Pay-as-you-go.
    * 
    * @example
    * postpaid
@@ -479,7 +479,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   publicDomain?: string;
   /**
    * @remarks
-   * The public network port.
+   * The public port.
    * 
    * @example
    * 9200
@@ -490,7 +490,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
    * The status of the instance. Valid values:
    * 
    * - active: Normal.
-   * - activating: Taking effect.
+   * - activating: Activating.
    * - inactive: Frozen.
    * - invalid: Invalid.
    * 
@@ -500,12 +500,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The synonym dictionary configuration.
+   * The synonym dictionary configurations.
    */
   synonymsDicts?: MoveResourceGroupResponseBodyResultSynonymsDicts[];
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The time when the instance was last updated. The time follows the YYYY-MM-DDTHH:mm:ss.SSSZ format, where Z indicates UTC.
    * 
    * @example
    * 2018-07-18T10:10:04.484Z
@@ -597,7 +597,7 @@ export class MoveResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result.
    */
   result?: MoveResourceGroupResponseBodyResult;
   static names(): { [key: string]: string } {

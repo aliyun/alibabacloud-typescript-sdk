@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   /**
    * @remarks
-   * The current repo version.
+   * The current repository version.
    * 
    * @example
    * 1.7.3
@@ -13,7 +13,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   curRepoVersion?: string;
   /**
    * @remarks
-   * The repo version available for upgrade.
+   * The upgradable repository version.
    * 
    * @example
    * 1.7.3
@@ -21,7 +21,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   updateRepoVersion?: string;
   /**
    * @remarks
-   * Indicates whether an upgradeable version is available.
+   * Indicates whether an upgradable version is available.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   curEsVersion?: string;
   /**
    * @remarks
-   * The kernel version available for upgrade.
+   * The upgradable kernel version.
    * 
    * @example
    * 2.2.4
@@ -53,7 +53,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   upgradeApackVersion?: string;
   /**
    * @remarks
-   * The Elasticsearch version available for upgrade.
+   * The upgradable Elasticsearch version.
    * 
    * @example
    * 8.17.0

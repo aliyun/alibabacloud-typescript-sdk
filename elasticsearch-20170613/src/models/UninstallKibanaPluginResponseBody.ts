@@ -11,6 +11,10 @@ export class UninstallKibanaPluginResponseBody extends $dara.Model {
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the Kibana plug-ins uninstalled in the current request.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

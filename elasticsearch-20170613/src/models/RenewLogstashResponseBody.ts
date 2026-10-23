@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewLogstashResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC****
@@ -13,9 +13,9 @@ export class RenewLogstashResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result of the operation. Valid values:
    * 
-   * - true: The renewal was successful.
+   * - true: The renewal succeeded.
    * - false: The renewal failed.
    * 
    * @example

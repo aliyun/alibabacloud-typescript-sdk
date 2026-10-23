@@ -21,7 +21,7 @@ export class UpdateExtendfilesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source of the extension file. Only ORIGIN (retained original extension file) is supported.
+   * The source of the extension file. Only ORIGIN is supported, which indicates the original extension file to be retained.
    * 
    * @example
    * ORIGIN

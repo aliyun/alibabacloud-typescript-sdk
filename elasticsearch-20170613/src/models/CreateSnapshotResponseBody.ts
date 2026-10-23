@@ -15,7 +15,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The manual snapshot backup is successful.
+   * - true: The manual snapshot backup succeeded.
    * - false: The manual snapshot backup failed.
    * 
    * @example

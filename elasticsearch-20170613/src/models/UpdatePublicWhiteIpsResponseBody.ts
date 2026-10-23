@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePublicWhiteIpsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The public IP address access whitelist.
+   */
   publicIpWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {

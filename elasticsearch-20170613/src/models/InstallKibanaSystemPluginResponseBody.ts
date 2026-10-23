@@ -11,6 +11,10 @@ export class InstallKibanaSystemPluginResponseBody extends $dara.Model {
    * F99407AB-2FA9-489E-A259-40CF6DC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the Kibana plugins installed by this request.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

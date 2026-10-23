@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the event query.
+   * The start time for the event query. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1746516590000
@@ -13,7 +13,7 @@ export class ListEventRecordsRequest extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The end time of the event query.
+   * The end time for the event query. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1746775790000
@@ -21,7 +21,7 @@ export class ListEventRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number in the paging Settings.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListEventRecordsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page in the paging Settings.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListEventRecordsRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The filter object content. If this parameter is left empty, event records of all instances are returned. The value varies based on the filter type.
+   * The content of the object to filter. If this parameter is empty, event records for all instances are returned. Note: Specify the corresponding value based on the filter type.
    * 
    * @example
    * **
@@ -45,7 +45,7 @@ export class ListEventRecordsRequest extends $dara.Model {
   termContent?: string;
   /**
    * @remarks
-   * The filter object type. If this parameter is left empty, event records of all types are returned.
+   * The object type to filter. If this parameter is empty, event records of all types are returned.
    * 
    * @example
    * InstanceId

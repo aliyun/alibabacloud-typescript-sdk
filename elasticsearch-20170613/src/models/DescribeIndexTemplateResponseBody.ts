@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIndexTemplateResponseBodyResultTemplate extends $dara.Model {
   /**
    * @remarks
-   * The aliases configuration.
+   * The aliases.
    * 
    * @example
    * {\\"mydata\\":{}}
@@ -13,7 +13,7 @@ export class DescribeIndexTemplateResponseBodyResultTemplate extends $dara.Model
   aliases?: string;
   /**
    * @remarks
-   * The mappings configuration.
+   * The mappings.
    * 
    * @example
    * {\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}
@@ -21,7 +21,7 @@ export class DescribeIndexTemplateResponseBodyResultTemplate extends $dara.Model
   mappings?: string;
   /**
    * @remarks
-   * The settings configuration.
+   * The settings.
    * 
    * @example
    * {\\"index.refresh_interval\\":\\"1s\\"}
@@ -69,16 +69,20 @@ export class DescribeIndexTemplateResponseBodyResult extends $dara.Model {
   dataStream?: boolean;
   /**
    * @remarks
-   * The lifecycle policy name.
+   * The life epoch Policy Name.
    * 
    * @example
    * cube_default_ilm_policy
    */
   ilmPolicy?: string;
+  /**
+   * @remarks
+   * The list of index name patterns that match this index template.
+   */
   indexPatterns?: string[];
   /**
    * @remarks
-   * The index template name.
+   * The name of the index template.
    * 
    * @example
    * data-stream-default
@@ -145,7 +149,7 @@ export class DescribeIndexTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The index template details.
+   * The details of the index template.
    */
   result?: DescribeIndexTemplateResponseBodyResult;
   static names(): { [key: string]: string } {
