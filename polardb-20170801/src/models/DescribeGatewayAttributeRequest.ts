@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The ID of the gateway instance. Example: pg-xxxxxxx.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeGatewayAttributeRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing

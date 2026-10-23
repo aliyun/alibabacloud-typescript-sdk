@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. Example: pa-**************.
+   * The ID of the application. Example value: pa-**************.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The memory agent ID.
+   * The ID of the memory agent.
    * 
    * @example
    * agent1
@@ -39,7 +39,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   memoryAgentId?: string;
   /**
    * @remarks
-   * The memory user ID.
+   * The ID of the memory user.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of records to display on each page.
    * 
    * @example
    * 10

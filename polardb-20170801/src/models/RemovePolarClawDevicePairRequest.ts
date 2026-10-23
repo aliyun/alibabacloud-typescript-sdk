@@ -15,7 +15,7 @@ export class RemovePolarClawDevicePairRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The device ID.
+   * The ID of the paired device to remove. You can call ListPolarClawDevicePairs and obtain the DeviceId from the returned Paired list.
    * 
    * This parameter is required.
    * 

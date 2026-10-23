@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateActivationCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud order ID. This includes virtual orders.
+   * The Alibaba Cloud order ID, including virtual order IDs. If you use a virtual order, you can call CreateOrGetVirtualLicenseOrder and specify the Engine parameter to obtain the returned AliyunOrderId.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateActivationCodeRequest extends $dara.Model {
   macAddress?: string;
   /**
    * @remarks
-   * The name of the activation code. It can contain only letters, digits, underscores (_), and hyphens (-). This name is used as the filename when you download the activation code from the console.
+   * The name of the activation code. The name can contain only letters, digits, underscores (_), and hyphens (-). This name is used to generate the activation code file name when you download the code from the console.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateActivationCodeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The unique identifier of the database. This parameter is required if \\`AllowEmptySystemIdentifier\\` for the order is set to \\`false\\`.
+   * The unique identifier of the database. This field is required if the AllowEmptySystemIdentifier parameter of the order is set to false.
    * 
    * @example
    * 1234567890123456

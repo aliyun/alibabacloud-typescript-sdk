@@ -13,7 +13,7 @@ export class BindPolarClawAgentResponseBodyBinding extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * work
@@ -55,7 +55,7 @@ export class BindPolarClawAgentResponseBodyBinding extends $dara.Model {
 export class BindPolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * work
@@ -71,12 +71,12 @@ export class BindPolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Details of the newly created binding.
+   * The details of the newly created association.
    */
   binding?: BindPolarClawAgentResponseBodyBinding;
   /**
    * @remarks
-   * The HTTP status code.
+   * 200
    * 
    * @example
    * 200
@@ -84,7 +84,7 @@ export class BindPolarClawAgentResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * A message that indicates the request result.
+   * successful
    * 
    * @example
    * successful
@@ -100,7 +100,7 @@ export class BindPolarClawAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of global bindings after the operation.
+   * The total number of global associations after the operation.
    * 
    * @example
    * 1

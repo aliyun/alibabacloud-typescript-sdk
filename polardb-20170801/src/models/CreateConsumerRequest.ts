@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumer group name.
+   * The consumer group ID. You can obtain the ID from the ConsumerGroupId parameter returned by the CreateConsumerGroup operation.
    * 
    * @example
    * cg-p3gk2oh55c**
@@ -13,7 +13,7 @@ export class CreateConsumerRequest extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The gateway instance ID. You can obtain the ID from the GwClusterId parameter returned by the CreateGateway operation.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateConsumerRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The key type. The only supported value is ApiKey.
+   * The key type. Default value: ApiKey. Valid values: ApiKey.
    * 
    * @example
    * ApiKey
@@ -31,7 +31,7 @@ export class CreateConsumerRequest extends $dara.Model {
   keyType?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateConsumerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user nickname.
+   * The nickname.
    * 
    * @example
    * test

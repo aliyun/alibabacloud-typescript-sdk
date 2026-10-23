@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compute cluster associated with the branch.
+   * The branch compute cluster ID.
    * 
    * @example
    * pc-g0lsayq8c5qe
@@ -37,7 +37,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the parent branch.
+   * The parent branch ID.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -53,7 +53,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * 创建分支时指定的父分支历史时间，采用 UTC RFC3339 格式。未指定历史时间或旧记录可能为空。
+   * The historical timestamp of the parent branch specified when the branch was created. The value is in UTC RFC 3339 format. This field may be empty if no historical timestamp was specified or for legacy records.
    * 
    * @example
    * 2026-10-15T07:32:00.123456Z
@@ -61,7 +61,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -69,7 +69,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The name of the project to which the branch belongs.
+   * The project name.
    * 
    * @example
    * analytics-prod
@@ -85,7 +85,7 @@ export class CreateAgenticDBBranchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the branch.
+   * The status.
    * 
    * @example
    * Active

@@ -15,7 +15,7 @@ export class UninstallPolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The plugin ID.
+   * The ID of the plugin to uninstall. You can call DescribePolarClawPlugins to query the plugins installed for the application and use the Id of the corresponding plugin in the returned Plugins list.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UninstallPolarClawPluginRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Indicates whether to restart the gateway after the plugin is uninstalled. The default is true.
+   * Specifies whether to restart the gateway after uninstallation. Default value: true.
    * 
    * @example
    * true

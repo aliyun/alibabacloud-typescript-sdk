@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindPolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * The ID of the agent to associate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindPolarClawAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application ID.
+   * The application ID. You can call the DescribeApplications operation to obtain the application ID from the returned Items list.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BindPolarClawAgentRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The channel ID.
+   * The channel plugin ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class BindPolarClawAgentRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The account ID for the channel. If omitted, the default value is \\"default\\".
+   * The channel account ID. If you do not specify this parameter, the default value is default.
    * 
    * @example
    * default

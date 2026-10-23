@@ -25,7 +25,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the branch.
+   * The description.
    * 
    * @example
    * Feature branch for analytics
@@ -33,7 +33,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the parent branch. If this parameter is not specified, the branch is derived from the main branch by default.
+   * The ID of the parent branch. By default, the branch is derived from the main branch.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -41,7 +41,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
-   * 基于父分支在指定时间点的数据创建分支；不传则使用最新数据。采用带时区的 RFC3339 格式，最多支持 9 位小数秒；不支持空字符串或未来时间。
+   * Creates the branch based on the data of the parent branch at the specified point in time. If you do not specify this parameter, the latest data is used. The value must be in RFC 3339 format with a time zone and support up to nine fractional digits for seconds. Empty strings and future times are not supported.
    * 
    * @example
    * 2026-10-15T07:32:00.123456Z
@@ -49,7 +49,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateAgenticDBBranchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the branch belongs.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

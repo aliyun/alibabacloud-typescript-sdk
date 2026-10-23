@@ -29,7 +29,7 @@ export class CreateModelApiRequest extends $dara.Model {
   forceModel?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The gateway instance ID. You can obtain the ID from the GwClusterId returned by CreateGateway.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class CreateModelApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The model API name.
+   * The name of the model API.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateModelApiRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input points.
+   * The number of input tokens.
    * 
    * @example
    * 10
@@ -95,7 +95,7 @@ export class CreateModelApiRequest extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output points.
+   * The number of output tokens.
    * 
    * @example
    * 10
@@ -111,7 +111,7 @@ export class CreateModelApiRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of routing rules (JSON array string).
+   * The list of routing rules, which is a JSON array string.
    * 
    * This parameter is required.
    * 

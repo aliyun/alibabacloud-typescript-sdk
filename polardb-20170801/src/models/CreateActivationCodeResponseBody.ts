@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateActivationCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the activation code takes effect.
+   * The effective period.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -13,7 +13,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   activateAt?: string;
   /**
    * @remarks
-   * The content of the activation code. Decode this Base64-encoded content and save it to the \\`license.lic\\` file. PolarDB reads this file on startup.
+   * The content of the activation code. Decode the Base64-encoded content and save it to the license.lic file for PolarDB to read during startup.
    * 
    * @example
    * AAEAA******AAA=
@@ -29,7 +29,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The time when the activation code expires.
    * 
    * @example
    * 2054-10-09 16:46:20
@@ -37,7 +37,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   expireAt?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the activation code was created.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -45,7 +45,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the activation code was updated.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -85,7 +85,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The unique system identifier of the database.
+   * The unique identifier of the database, also known as the system identifier.
    * 
    * @example
    * 1234567890123456

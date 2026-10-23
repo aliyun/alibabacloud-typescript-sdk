@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request endpoint.
+   * The invocation endpoint.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class CreateModelApiResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The model API status.
+   * The status of the model API.
    * 
    * @example
    * Enable

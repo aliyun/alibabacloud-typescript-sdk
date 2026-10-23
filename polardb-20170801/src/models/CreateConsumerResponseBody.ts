@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The full APIKey, returned only in this response.
+   * The complete API key. This parameter is returned only in the current response.
    * 
    * @example
    * 6c4b1f0317cd4fd7a5b446d3503d**
@@ -13,7 +13,7 @@ export class CreateConsumerResponseBody extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The user ID.
    * 
    * @example
    * c-mqveroemc***
@@ -21,7 +21,7 @@ export class CreateConsumerResponseBody extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The key type. The value is always ApiKey.
+   * The key type. Default value: ApiKey. Valid values: ApiKey.
    * 
    * @example
    * ApiKey
@@ -29,7 +29,7 @@ export class CreateConsumerResponseBody extends $dara.Model {
   keyType?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CD3FA5F3-FAF3-44CA-AFFF-BAF869******

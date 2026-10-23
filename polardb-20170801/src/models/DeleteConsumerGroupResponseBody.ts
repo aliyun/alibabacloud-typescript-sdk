@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E56531A4-E552-40BA-9C58-137B80******

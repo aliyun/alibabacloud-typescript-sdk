@@ -21,7 +21,7 @@ export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $da
   id?: string;
   /**
    * @remarks
-   * The reference to the image element in the structure of the Docling source document.
+   * The element reference of the image in the source document structure.
    * 
    * @example
    * #/pictures/1
@@ -75,12 +75,12 @@ export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $da
 export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The list of captions for figures or tables associated with the chunk.
+   * The list of captions for the figures or tables associated with the chunk.
    */
   captions?: string[];
   /**
    * @remarks
-   * The list of references to structured elements in the Docling source document associated with the chunk. You can use these references to precisely locate the original elements.
+   * The list of structured element references in the source document associated with the chunk. You can use these references to precisely locate the original elements.
    */
   docItems?: string[];
   /**
@@ -96,12 +96,12 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
    * The name of the file.
    * 
    * @example
-   * 2024 Financial Report.pdf
+   * 2024_Financial_Report.pdf
    */
   fileName?: string;
   /**
    * @remarks
-   * The heading hierarchy of the section to which the chunk belongs.
+   * The chain of section headings to which the chunk belongs.
    */
   headings?: string[];
   /**

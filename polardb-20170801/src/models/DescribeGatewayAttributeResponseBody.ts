@@ -13,7 +13,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * @example
    * pg-xxxxxxx
@@ -31,9 +31,8 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The network type of the endpoint. Valid values:
    * 
-   * - **Private**: VPC endpoint.
-   * 
-   * - **Public**: public endpoint.
+   * - Private: VPC
+   * - Public: Internet
    * 
    * @example
    * Public
@@ -41,7 +40,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 8080
@@ -57,7 +56,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   tunnelId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the endpoint belongs.
+   * The ID of the VPC to which the vSwitch belongs.
    * 
    * @example
    * vpc-*************
@@ -99,7 +98,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
 export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.Model {
   /**
    * @remarks
-   * The name of the IP whitelist. The default value is `default`.
+   * The name of the IP whitelist. Default value: `default`.
    * 
    * @example
    * default
@@ -115,7 +114,7 @@ export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.
   securityIPArrayTag?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses in the IP whitelist.
+   * The IP addresses in the whitelist, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -149,7 +148,7 @@ export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.
 export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The specification code for the gateway instance.
+   * The instance type code.
    * 
    * @example
    * polar.app.g2.medium
@@ -157,13 +156,18 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The time when the gateway instance was created.
+   * The creation time.
+   * 
+   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-02-24T11:57:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The current version number.
+   * 
    * @example
    * 2.0.0
    */
@@ -178,14 +182,16 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * A list of endpoints for the gateway instance.
+   * The list of endpoints.
    */
   endpoints?: DescribeGatewayAttributeResponseBodyEndpoints[];
   /**
    * @remarks
-   * The time when the subscription for the gateway instance expires.
+   * The expiration time.
    * 
-   * This parameter is empty for pay-as-you-go instances.
+   * This parameter is empty when the billing method is Postpaid.
+   * 
+   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-04-22T16:00:00Z
@@ -193,7 +199,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the subscription for the gateway instance has expired. Valid values:
+   * Indicates whether the cluster has expired. Valid values:
    * 
    * - true
    * 
@@ -205,7 +211,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   expired?: boolean;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * @example
    * pg-xxxxxxx
@@ -213,20 +219,25 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The description of the gateway instance.
+   * The description of the gateway.
    * 
    * @example
    * xxx
    */
   gwDescription?: string;
   /**
+   * @remarks
+   * The latest version number.
+   * 
    * @example
    * 2.0.1
    */
   latestVersion?: string;
   /**
    * @remarks
-   * The time when the gateway instance was last modified.
+   * The last modification time.
+   * 
+   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-07T02:19:55Z
@@ -234,10 +245,9 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The billing method of the gateway instance. Valid values:
+   * The billing method. Valid values:
    * 
    * - **Postpaid**: pay-as-you-go.
-   * 
    * - **Prepaid**: subscription.
    * 
    * @example
@@ -246,7 +256,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -254,29 +264,31 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The running version number.
+   * 
    * @example
    * 2.0.0
    */
   runningVersion?: string;
   /**
    * @remarks
-   * A list of IP whitelists for the gateway instance.
+   * The application-level IP whitelist.
    */
   securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
   /**
    * @remarks
-   * The status of the gateway instance. Valid values:
+   * The application status. Valid values:
    * 
-   * - **CREATE**: The gateway instance is being created.
-   * 
-   * - **ACTIVATION**: The gateway instance is running.
+   * - CREATE: creating
+   * - ACTIVATION: running
    * 
    * @example
    * ACTIVATION
@@ -284,7 +296,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VSwitch where the gateway instance is deployed.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-*********************
@@ -292,7 +304,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC where the gateway instance is deployed.
+   * The ID of the VPC to which the vSwitch belongs.
    * 
    * @example
    * vpc-*************

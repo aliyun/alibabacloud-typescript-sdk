@@ -35,7 +35,7 @@ export class DescribeAgenticDBProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the project belongs.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

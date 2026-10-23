@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRateLimitPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance ID.
+   * The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by CreateGateway.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyRateLimitPolicyRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The rate limit policy ID.
+   * The ID of the throttling policy to be modified. You can obtain the ID from the PolicyId parameter returned by CreateRateLimitPolicy.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyRateLimitPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The maximum number of requests per minute.
+   * The limit on the number of requests per minute.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class ModifyRateLimitPolicyRequest extends $dara.Model {
   rateLimitRpm?: string;
   /**
    * @remarks
-   * The maximum number of tokens per minute.
+   * The limit on the number of tokens per minute.
    * 
    * @example
    * 10

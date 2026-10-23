@@ -21,7 +21,7 @@ export class DeletePolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200

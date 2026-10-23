@@ -13,7 +13,7 @@ export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The plugin ID.
+   * The ID of the uninstalled plugin.
    * 
    * @example
    * openclaw-lark
@@ -45,7 +45,7 @@ export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
@@ -53,7 +53,7 @@ export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway has been restarted.
+   * Indicates whether the gateway was restarted.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRateLimitPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

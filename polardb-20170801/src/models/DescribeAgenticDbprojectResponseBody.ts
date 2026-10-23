@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the project was created.
+   * The creation time.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is displayed in ISO 8601 format in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -15,7 +15,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the default branch.
+   * The default branch ID.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -23,7 +23,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   defaultBranchId?: string;
   /**
    * @remarks
-   * The name of the default branch.
+   * The default branch name.
    * 
    * @example
    * main
@@ -31,7 +31,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   defaultBranchName?: string;
   /**
    * @remarks
-   * The description of the project.
+   * The description.
    * 
    * @example
    * Production analytics database
@@ -39,7 +39,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 项目最近记录的保留时长，旧项目可能为空。查询当前生效值请调用 DescribeAgenticDBProjectHistoryRetention。
+   * The retention period for recent records of the project. This parameter may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
    * 
    * @example
    * 604800
@@ -71,11 +71,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The project status. Valid values:
-   * 
-   * - Active: Normal.
-   * - Destroying: Being destroyed.
-   * - Destroyed: Destroyed.
+   * The project status. Valid values: Active (Normal), Destroying (Destroying), and Destroyed (Destroyed).
    * 
    * @example
    * Active
@@ -83,7 +79,7 @@ export class DescribeAgenticDBProjectResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the project belongs.
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951

@@ -25,7 +25,7 @@ export class RegisterKnowledgeBaseFileRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The ID of the region where the knowledge base resides.
+   * The region ID of the knowledge base.
    * 
    * This parameter is required.
    * 

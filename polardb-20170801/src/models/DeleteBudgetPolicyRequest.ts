@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBudgetPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cost budget policy.
+   * The ID of the budget policy to delete. You can obtain the ID from the BudgetPolicyId returned by CreateBudgetPolicy.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteBudgetPolicyRequest extends $dara.Model {
   budgetPolicyId?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The ID of the gateway instance. You can obtain the ID from the GwClusterId returned by CreateGateway.
    * 
    * This parameter is required.
    * 

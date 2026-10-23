@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AnswerKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base. To obtain the ID, first call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. Separate multiple knowledge base IDs with commas.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The maximum number of context characters. Valid values: 1000 to 32000.
+   * The maximum number of characters in the context. Valid values: 1000 to 32000.
    * 
    * @example
    * 16000
@@ -43,7 +43,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable reranking. Disabled by default.
+   * Specifies whether to enable reranking. Default value: false.
    * 
    * @example
    * false
@@ -51,7 +51,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   rerankEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to return citation sources. Enabled by default.
+   * Specifies whether to return reference sources. Default value: true.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   systemPrompt?: string;
   /**
    * @remarks
-   * The number of recall results to retrieve.
+   * The number of results to recall.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class AnswerKnowledgeBaseRequest extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The user supplementary instructions.
+   * The additional user instructions.
    * 
    * @example
    * Return a short summary and test result.

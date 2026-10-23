@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyModelServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the model service.
+   * The model service ID.
    * 
    * @example
    * ms-xxxxxx
@@ -13,7 +13,7 @@ export class ModifyModelServiceResponseBody extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 6A2EE5B4-CC9F-46E1-A747-E43BC9******
@@ -21,7 +21,7 @@ export class ModifyModelServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the model service.
+   * The model service status.
    * 
    * @example
    * Enable

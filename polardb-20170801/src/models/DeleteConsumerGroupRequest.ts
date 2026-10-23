@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the consumer group.
+   * The ID of the consumer group to delete. You can obtain the ID from the ConsumerGroupId parameter returned by the CreateConsumerGroup operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteConsumerGroupRequest extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by the CreateGateway operation.
    * 
    * This parameter is required.
    * 

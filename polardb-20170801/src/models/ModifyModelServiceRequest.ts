@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyModelServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key for the model service.
+   * The API key of the model service.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The address of the upstream service.
+   * The upstream service URL.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -21,7 +21,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway cluster ID. You can obtain this ID from the GwClusterId parameter returned by the CreateGateway operation.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The cost in points per million input tokens.
+   * The number of input points.
    * 
    * @example
    * 10
@@ -49,7 +49,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The ID of the model service.
+   * The model service ID. You can obtain this ID from the ModelServiceId parameter returned by the CreateModelService operation.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The name of the model service.
+   * The model service name.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cost in points per million output tokens.
+   * The number of output points.
    * 
    * @example
    * 10
@@ -78,14 +78,10 @@ export class ModifyModelServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * 
-   * - **openai**
-   * 
-   * - **anthropic**
-   * 
-   * - **bailian**
-   * 
-   * - **vllm**
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * This parameter is required.
    * 
@@ -103,7 +99,7 @@ export class ModifyModelServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The cost in points per request.
+   * The number of requests.
    * 
    * @example
    * 10

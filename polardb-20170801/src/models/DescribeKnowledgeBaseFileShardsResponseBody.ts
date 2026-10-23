@@ -21,7 +21,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShardsImageResources ext
   id?: string;
   /**
    * @remarks
-   * The element reference of the image in the Docling source document structure.
+   * The element reference of the image in the source document structure.
    * 
    * @example
    * #/pictures/1
@@ -80,7 +80,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
   captions?: string[];
   /**
    * @remarks
-   * The list of structured element references in the Docling source document associated with the shard, which can be used to precisely locate the original elements.
+   * The list of structured element references of the source document associated with the shard, which can be used to precisely locate the original elements.
    */
   docItems?: string[];
   /**

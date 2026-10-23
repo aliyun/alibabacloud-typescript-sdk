@@ -13,7 +13,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The ID of the knowledge base to update. You can obtain the ID from the response of the CreateKnowledgeBase operation.
    * 
    * This parameter is required.
    * 
@@ -42,12 +42,11 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
    * The search mode. Valid values:
-   * 
-   * * balanced (default): balanced mode.
-   * * precise: precise mode.
-   * * semantic: semantic mode.
+   * * balanced: Balanced mode. This is the default value.
+   * * precise: Precise mode.
+   * * semantic: Semantic mode.
    * * knn: KNN mode.
-   * * rrf: reciprocal rank fusion (RRF) mode.
+   * * rrf: RRF fusion.
    * 
    * @example
    * balanced

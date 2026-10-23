@@ -591,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a single-turn knowledge base question answering.
+   * Answers a single-turn question based on a knowledge base.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -662,7 +662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a single-turn knowledge base question answering.
+   * Answers a single-turn question based on a knowledge base.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @returns AnswerKnowledgeBaseResponse
@@ -738,6 +738,56 @@ export default class Client extends OpenApi {
   async applyApplicationPrompts(request: $_model.ApplyApplicationPromptsRequest): Promise<$_model.ApplyApplicationPromptsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.applyApplicationPromptsWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用Lakebase挂载参数模板
+   * 
+   * @param request - ApplyLakebaseMountParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyLakebaseMountParameterGroupResponse
+   */
+  async applyLakebaseMountParameterGroupWithOptions(request: $_model.ApplyLakebaseMountParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyLakebaseMountParameterGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApplyLakebaseMountParameterGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyLakebaseMountParameterGroupResponse>(await this.callApi(params, req, runtime), new $_model.ApplyLakebaseMountParameterGroupResponse({}));
+  }
+
+  /**
+   * 应用Lakebase挂载参数模板
+   * 
+   * @param request - ApplyLakebaseMountParameterGroupRequest
+   * @returns ApplyLakebaseMountParameterGroupResponse
+   */
+  async applyLakebaseMountParameterGroup(request: $_model.ApplyLakebaseMountParameterGroupRequest): Promise<$_model.ApplyLakebaseMountParameterGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.applyLakebaseMountParameterGroupWithOptions(request, runtime);
   }
 
   /**
@@ -841,11 +891,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a PolarClaw Agent to a channel.
+   * Associates a specified channel with a specific PolarClaw agent.
    * 
    * @remarks
-   * ## Request
-   * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+   * ## Request description
+   * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
    * 
    * @param request - BindPolarClawAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -888,11 +938,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a PolarClaw Agent to a channel.
+   * Associates a specified channel with a specific PolarClaw agent.
    * 
    * @remarks
-   * ## Request
-   * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+   * ## Request description
+   * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
    * 
    * @param request - BindPolarClawAgentRequest
    * @returns BindPolarClawAgentResponse
@@ -2677,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates activation codes for the lightweight version.
+   * Generates an activation code for the lightweight edition.
    * 
    * @param request - CreateActivationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2740,7 +2790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates activation codes for the lightweight version.
+   * Generates an activation code for the lightweight edition.
    * 
    * @param request - CreateActivationCodeRequest
    * @returns CreateActivationCodeResponse
@@ -8043,7 +8093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cost budget policy.
+   * Deletes a budget policy.
    * 
    * @param request - DeleteBudgetPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8082,7 +8132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cost budget policy.
+   * Deletes a budget policy.
    * 
    * @param request - DeleteBudgetPolicyRequest
    * @returns DeleteBudgetPolicyResponse
@@ -9725,12 +9775,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation removes an agent and its associated bindings from a specified PolarClaw.
+   * Removes an agent and its associated bindings from a specified PolarClaw.
    * 
    * @remarks
-   * ## Usage notes
-   * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-   * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+   * ## Request description
+   * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+   * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
    * 
    * @param request - DeletePolarClawAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9769,12 +9819,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation removes an agent and its associated bindings from a specified PolarClaw.
+   * Removes an agent and its associated bindings from a specified PolarClaw.
    * 
    * @remarks
-   * ## Usage notes
-   * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-   * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+   * ## Request description
+   * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+   * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
    * 
    * @param request - DeletePolarClawAgentRequest
    * @returns DeletePolarClawAgentResponse
@@ -11677,7 +11727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 分支最早可恢复时间
+   * Queries the earliest restorable time for an AgenticDB branch.
    * 
    * @param request - DescribeAgenticDBBranchRestoreWindowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11724,7 +11774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 分支最早可恢复时间
+   * Queries the earliest restorable time for an AgenticDB branch.
    * 
    * @param request - DescribeAgenticDBBranchRestoreWindowRequest
    * @returns DescribeAgenticDBBranchRestoreWindowResponse
@@ -12013,7 +12063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 项目实际历史保留窗口
+   * Queries the actual history retention window of an AgenticDB project.
    * 
    * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12056,7 +12106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 项目实际历史保留窗口
+   * Queries the actual history retention window of an AgenticDB project.
    * 
    * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
    * @returns DescribeAgenticDBProjectHistoryRetentionResponse
@@ -13038,6 +13088,56 @@ export default class Client extends OpenApi {
   async describeAvailableModels(request: $_model.DescribeAvailableModelsRequest): Promise<$_model.DescribeAvailableModelsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAvailableModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the download links for redo log backups.
+   * 
+   * @param request - DescribeBackupLogDownloadLinksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupLogDownloadLinksResponse
+   */
+  async describeBackupLogDownloadLinksWithOptions(request: $_model.DescribeBackupLogDownloadLinksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupLogDownloadLinksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupLogIds)) {
+      query["BackupLogIds"] = request.backupLogIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.expireHours)) {
+      query["ExpireHours"] = request.expireHours;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackupLogDownloadLinks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupLogDownloadLinksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupLogDownloadLinksResponse({}));
+  }
+
+  /**
+   * Queries the download links for redo log backups.
+   * 
+   * @param request - DescribeBackupLogDownloadLinksRequest
+   * @returns DescribeBackupLogDownloadLinksResponse
+   */
+  async describeBackupLogDownloadLinks(request: $_model.DescribeBackupLogDownloadLinksRequest): Promise<$_model.DescribeBackupLogDownloadLinksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBackupLogDownloadLinksWithOptions(request, runtime);
   }
 
   /**
@@ -17197,7 +17297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Viewing gateway instance details
+   * Queries the details of a gateway instance.
    * 
    * @param request - DescribeGatewayAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17232,7 +17332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Viewing gateway instance details
+   * Queries the details of a gateway instance.
    * 
    * @param request - DescribeGatewayAttributeRequest
    * @returns DescribeGatewayAttributeResponse
@@ -24239,7 +24339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an account in a PolarDB on ENS cluster.
+   * Modifies the description of a PolarDB on ENS account.
    * 
    * @param request - ModifyAccountDescriptionZonalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24298,7 +24398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an account in a PolarDB on ENS cluster.
+   * Modifies the description of a PolarDB on ENS account.
    * 
    * @param request - ModifyAccountDescriptionZonalRequest
    * @returns ModifyAccountDescriptionZonalResponse
@@ -29287,7 +29387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a rate limit policy.
+   * Modifies a throttling policy.
    * 
    * @param request - ModifyRateLimitPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29334,7 +29434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a rate limit policy.
+   * Modifies a throttling policy.
    * 
    * @param request - ModifyRateLimitPolicyRequest
    * @returns ModifyRateLimitPolicyResponse
@@ -30033,7 +30133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers an OSS file in a knowledge base.
+   * Registers an OSS file for a knowledge base.
    * 
    * @param request - RegisterKnowledgeBaseFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30072,7 +30172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers an OSS file in a knowledge base.
+   * Registers an OSS file for a knowledge base.
    * 
    * @param request - RegisterKnowledgeBaseFileRequest
    * @returns RegisterKnowledgeBaseFileResponse
@@ -30265,7 +30365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpairs a PolarClaw device.
+   * Removes a paired PolarClaw device.
    * 
    * @param request - RemovePolarClawDevicePairRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30300,7 +30400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpairs a PolarClaw device.
+   * Removes a paired PolarClaw device.
    * 
    * @param request - RemovePolarClawDevicePairRequest
    * @returns RemovePolarClawDevicePairResponse
@@ -31463,10 +31563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves memories from a specified application.
+   * Retrieves memories.
    * 
    * @remarks
-   * Retrieves memory data from a specified application.
+   * Retrieves memory data in a specified application.
    * 
    * @param request - SearchMemoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31529,10 +31629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves memories from a specified application.
+   * Retrieves memories.
    * 
    * @remarks
-   * Retrieves memory data from a specified application.
+   * Retrieves memory data in a specified application.
    * 
    * @param request - SearchMemoriesRequest
    * @returns SearchMemoriesResponse
@@ -32043,6 +32143,10 @@ export default class Client extends OpenApi {
   /**
    * Unbinds a PolarClaw Agent.
    * 
+   * @remarks
+   * ## 请求说明
+   * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
+   * 
    * @param request - UnbindPolarClawAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindPolarClawAgentResponse
@@ -32085,6 +32189,10 @@ export default class Client extends OpenApi {
 
   /**
    * Unbinds a PolarClaw Agent.
+   * 
+   * @remarks
+   * ## 请求说明
+   * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
    * 
    * @param request - UnbindPolarClawAgentRequest
    * @returns UnbindPolarClawAgentResponse
@@ -32167,7 +32275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls a PolarClaw plugin.
+   * Uninstalls the PolarClaw plugin.
    * 
    * @param request - UninstallPolarClawPluginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32206,7 +32314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls a PolarClaw plugin.
+   * Uninstalls the PolarClaw plugin.
    * 
    * @param request - UninstallPolarClawPluginRequest
    * @returns UninstallPolarClawPluginResponse

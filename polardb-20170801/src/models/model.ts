@@ -134,6 +134,7 @@ export { DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute } from '.
 export { DescribeAutoRenewAttributeResponseBodyItems } from './DescribeAutoRenewAttributeResponseBody';
 export { DescribeAvailableModelsResponseBodyItemsGpuRequired } from './DescribeAvailableModelsResponseBody';
 export { DescribeAvailableModelsResponseBodyItems } from './DescribeAvailableModelsResponseBody';
+export { DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem } from './DescribeBackupLogDownloadLinksResponseBody';
 export { DescribeBackupLogsResponseBodyItemsBackupLog } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupLogsResponseBodyItems } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy } from './DescribeBackupPolicyResponseBody';
@@ -487,6 +488,9 @@ export { ApplyApplicationPromptsRequest } from './ApplyApplicationPromptsRequest
 export { ApplyApplicationPromptsShrinkRequest } from './ApplyApplicationPromptsShrinkRequest';
 export { ApplyApplicationPromptsResponseBody } from './ApplyApplicationPromptsResponseBody';
 export { ApplyApplicationPromptsResponse } from './ApplyApplicationPromptsResponse';
+export { ApplyLakebaseMountParameterGroupRequest } from './ApplyLakebaseMountParameterGroupRequest';
+export { ApplyLakebaseMountParameterGroupResponseBody } from './ApplyLakebaseMountParameterGroupResponseBody';
+export { ApplyLakebaseMountParameterGroupResponse } from './ApplyLakebaseMountParameterGroupResponse';
 export { ApprovePolarClawDevicePairRequest } from './ApprovePolarClawDevicePairRequest';
 export { ApprovePolarClawDevicePairResponseBody } from './ApprovePolarClawDevicePairResponseBody';
 export { ApprovePolarClawDevicePairResponse } from './ApprovePolarClawDevicePairResponse';
@@ -1016,6 +1020,9 @@ export { DescribeAvailableCrossRegionsResponse } from './DescribeAvailableCrossR
 export { DescribeAvailableModelsRequest } from './DescribeAvailableModelsRequest';
 export { DescribeAvailableModelsResponseBody } from './DescribeAvailableModelsResponseBody';
 export { DescribeAvailableModelsResponse } from './DescribeAvailableModelsResponse';
+export { DescribeBackupLogDownloadLinksRequest } from './DescribeBackupLogDownloadLinksRequest';
+export { DescribeBackupLogDownloadLinksResponseBody } from './DescribeBackupLogDownloadLinksResponseBody';
+export { DescribeBackupLogDownloadLinksResponse } from './DescribeBackupLogDownloadLinksResponse';
 export { DescribeBackupLogsRequest } from './DescribeBackupLogsRequest';
 export { DescribeBackupLogsResponseBody } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupLogsResponse } from './DescribeBackupLogsResponse';
