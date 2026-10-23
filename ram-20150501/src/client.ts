@@ -11,31 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "ram.aliyuncs.com",
-      'cn-qingdao': "ram.aliyuncs.com",
-      'cn-shanghai': "ram.aliyuncs.com",
-      'cn-hongkong': "ram.aliyuncs.com",
-      'cn-zhangjiakou': "ram.aliyuncs.com",
-      'cn-shenzhen': "ram.aliyuncs.com",
-      'ap-northeast-1': "ram.aliyuncs.com",
-      'cn-chengdu': "ram.aliyuncs.com",
-      'ap-southeast-1': "ram.aliyuncs.com",
-      'ap-southeast-3': "ram.aliyuncs.com",
-      'cn-huhehaote': "ram.aliyuncs.com",
-      'ap-southeast-5': "ram.aliyuncs.com",
-      'cn-hangzhou': "ram.aliyuncs.com",
-      'us-east-1': "ram.aliyuncs.com",
-      'eu-west-1': "ram.aliyuncs.com",
-      'us-west-1': "ram.aliyuncs.com",
-      'eu-central-1': "ram.aliyuncs.com",
-      'me-east-1': "ram.aliyuncs.com",
-      'cn-shenzhen-finance-1': "ram.aliyuncs.com",
-      'cn-shanghai-finance-1': "ram.aliyuncs.com",
-      'cn-beijing-finance-1': "ram.aliyuncs.com",
-      'cn-hangzhou-finance': "ram.aliyuncs.com",
-    };
+    this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ram", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -674,7 +650,7 @@ export default class Client extends OpenApi {
    * Creates a RAM role.
    * 
    * @remarks
-   * ### Operation description
+   * ### Usage notes
    * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @param tmpReq - CreateRoleRequest
@@ -735,7 +711,7 @@ export default class Client extends OpenApi {
    * Creates a RAM role.
    * 
    * @remarks
-   * ### Operation description
+   * ### Usage notes
    * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @param request - CreateRoleRequest
@@ -903,7 +879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+   * Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
    * 
    * @param request - DecodeDiagnosticMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -934,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+   * Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
    * 
    * @param request - DecodeDiagnosticMessageRequest
    * @returns DecodeDiagnosticMessageResponse
@@ -1517,6 +1493,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 产生最近访问信息
+   * 
+   * @param request - GenerateServiceLastAccessedDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateServiceLastAccessedDetailsResponse
+   */
+  async generateServiceLastAccessedDetailsWithOptions(request: $_model.GenerateServiceLastAccessedDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateServiceLastAccessedDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.arn)) {
+      query["Arn"] = request.arn;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateServiceLastAccessedDetails",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateServiceLastAccessedDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GenerateServiceLastAccessedDetailsResponse({}));
+  }
+
+  /**
+   * 产生最近访问信息
+   * 
+   * @param request - GenerateServiceLastAccessedDetailsRequest
+   * @returns GenerateServiceLastAccessedDetailsResponse
+   */
+  async generateServiceLastAccessedDetails(request: $_model.GenerateServiceLastAccessedDetailsRequest): Promise<$_model.GenerateServiceLastAccessedDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateServiceLastAccessedDetailsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the last time when an AccessKey pair was used.
    * 
    * @param request - GetAccessKeyLastUsedRequest
@@ -1875,6 +1897,56 @@ export default class Client extends OpenApi {
   async getSecurityPreference(): Promise<$_model.GetSecurityPreferenceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecurityPreferenceWithOptions(runtime);
+  }
+
+  /**
+   * 查询最后访问信息
+   * 
+   * @param request - GetServiceLastAccessedDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceLastAccessedDetailsResponse
+   */
+  async getServiceLastAccessedDetailsWithOptions(request: $_model.GetServiceLastAccessedDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceLastAccessedDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!$dara.isNull(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceLastAccessedDetails",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceLastAccessedDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceLastAccessedDetailsResponse({}));
+  }
+
+  /**
+   * 查询最后访问信息
+   * 
+   * @param request - GetServiceLastAccessedDetailsRequest
+   * @returns GetServiceLastAccessedDetailsResponse
+   */
+  async getServiceLastAccessedDetails(request: $_model.GetServiceLastAccessedDetailsRequest): Promise<$_model.GetServiceLastAccessedDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceLastAccessedDetailsWithOptions(request, runtime);
   }
 
   /**
@@ -3331,10 +3403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdateRole operation to update the information of a RAM role.
+   * Updates the information of a RAM role.
    * 
    * @remarks
-   * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+   * This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
    * 
    * @param request - UpdateRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3381,10 +3453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdateRole operation to update the information of a RAM role.
+   * Updates the information of a RAM role.
    * 
    * @remarks
-   * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+   * This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
    * 
    * @param request - UpdateRoleRequest
    * @returns UpdateRoleResponse

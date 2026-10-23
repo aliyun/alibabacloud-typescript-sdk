@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether console logon is allowed for the RAM role.
+   * Indicates whether the RAM role is allowed to log on to the console.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the RAM role was created.
+   * The creation time. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -40,7 +40,7 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
    * The description of the RAM role.
    * 
    * @example
-   * ECS management role.
+   * ECS management role
    */
   description?: string;
   /**
@@ -113,7 +113,7 @@ export class CreateRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM role.
+   * The RAM role information.
    */
   role?: CreateRoleResponseBodyRole;
   static names(): { [key: string]: string } {

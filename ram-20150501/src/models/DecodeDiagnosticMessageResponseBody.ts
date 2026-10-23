@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthConditions extends $dara.Model {
   /**
    * @remarks
-   * The key of the authentication condition.
+   * The condition key.
    * 
    * @example
    * acs:SourceIp
@@ -13,7 +13,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthCond
   conditionKey?: string;
   /**
    * @remarks
-   * The list of values corresponding to the authentication condition key.
+   * The list of values corresponding to the condition key.
    */
   conditionValues?: string[];
   static names(): { [key: string]: string } {
@@ -45,13 +45,11 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthCond
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrincipal extends $dara.Model {
   /**
    * @remarks
-   * The identity identifier used for authentication in the user request, as follows:
+   * The identity identifier used for authentication in the user request. The value varies based on the identity type:
    * 
-   * - RAM user: The UID of the RAM user.
-   * 
-   * - RAM role: The role name and role session name (for example, RoleName:RoleSessionName).
-   * 
-   * - SSO federated identity: The identity provider type and name (for example, saml-provider/AzureAD).
+   * - Resource Access Management (RAM) user: the UID of the RAM user.
+   * - RAM role: the role name and role session name (example: RoleName:RoleSessionName).
+   * - SSO federated identity: the identity provider type and identity provider name (example: saml-provider/AzureAD).
    * 
    * @example
    * 28877424437521****
@@ -59,7 +57,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrin
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account UID of the identity used for authentication in the user request.
+   * The UID of the Alibaba Cloud account to which the identity used for authentication in the user request belongs.
    * 
    * @example
    * 196813200012****
@@ -101,7 +99,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageAuthPrin
 export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies extends $dara.Model {
   /**
    * @remarks
-   * The entity type to which the policy is attached.
+   * The type of the entity to which the policy is attached.
    * 
    * @example
    * RamUser
@@ -125,11 +123,10 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedP
   effect?: string;
   /**
    * @remarks
-   * The policy name, as follows:
+   * The policy name information. The value varies based on the policy type:
    * 
-   * - Control policy: The control policy ID.
-   * 
-   * - RAM access policy: The access policy name.
+   * - Control policy: the ID of the control policy.
+   * - RAM access policy: the name of the access policy.
    * 
    * @example
    * MyPolicyName
@@ -146,8 +143,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedP
   /**
    * @remarks
    * The policy version number.
-   * 
-   * > Only custom policies have version numbers.
+   * > Only a custom policy has a version number.
    * 
    * @example
    * v1
@@ -213,7 +209,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends
   authResource?: string;
   /**
    * @remarks
-   * Indicates whether the denial is explicit.
+   * Indicates whether the request is explicitly denied.
    * 
    * @example
    * true
@@ -226,7 +222,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends
   matchedPolicies?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessageMatchedPolicies[];
   /**
    * @remarks
-   * The policy type that caused the permission denial.
+   * The type of the policy that results in the access denied error.
    * 
    * @example
    * AccountLevelIdentityBasedPolicy
@@ -277,7 +273,7 @@ export class DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage extends
 export class DecodeDiagnosticMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The decoded diagnostic message.
+   * The decoded diagnostic information.
    */
   decodedDiagnosticMessage?: DecodeDiagnosticMessageResponseBodyDecodedDiagnosticMessage;
   /**

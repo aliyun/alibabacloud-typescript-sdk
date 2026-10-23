@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the RAM role is allowed to log on to the console.
+   * Specifies whether to allow the RAM role to log on to the console.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the RAM role was created.
+   * The time when the RAM role was created. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -69,7 +69,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The time when the RAM role was updated.
+   * The time when the RAM role was updated. The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -115,7 +115,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
 export class UpdateRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -123,7 +123,7 @@ export class UpdateRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the RAM role.
+   * The information about the RAM role.
    */
   role?: UpdateRoleResponseBodyRole;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the RAM role is allowed to log on to the console.
+   * Specifies whether to allow the RAM role to log on to the console.
    * 
    * @example
    * true
@@ -21,9 +21,7 @@ export class UpdateRoleRequest extends $dara.Model {
   newAssumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The description of the RAM role.
-   * 
-   * The description must be 1 to 1024 characters in length.
+   * The description of the RAM role. The description must be 1 to 1,024 characters in length.
    * 
    * @example
    * ECS management role
@@ -31,9 +29,7 @@ export class UpdateRoleRequest extends $dara.Model {
   newDescription?: string;
   /**
    * @remarks
-   * The maximum session duration of the RAM role.
-   * 
-   * Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
+   * The maximum session duration of the RAM role. Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
    * 
    * @example
    * 3600
@@ -41,9 +37,7 @@ export class UpdateRoleRequest extends $dara.Model {
   newMaxSessionDuration?: number;
   /**
    * @remarks
-   * The name of the RAM role.
-   * 
-   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
+   * The name of the RAM role. The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
    * 
    * @example
    * ECSAdmin

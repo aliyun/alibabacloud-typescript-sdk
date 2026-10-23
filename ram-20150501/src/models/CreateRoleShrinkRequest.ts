@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether console logon is allowed for the RAM role. Valid values:
-   * - true: Console logon is allowed.
-   * - false: Console logon is not allowed.
+   * Specifies whether the RAM role is allowed to log on to the console. Valid values:
+   * - true: allowed
+   * - false: not allowed
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class CreateRoleShrinkRequest extends $dara.Model {
   allowConsoleLogin?: boolean;
   /**
    * @remarks
-   * The trust policy. Specifies one or more principals that are allowed to assume the RAM role. The principal can be an Alibaba Cloud account, an Alibaba Cloud service, or an identity provider.
+   * The trust policy. Specifies one or more principals that are allowed to assume the RAM role. The principals can be Alibaba Cloud accounts, Alibaba Cloud services, or identity providers.
    * >Resource Access Management (RAM) users cannot assume RAM roles whose trusted entity is an Alibaba Cloud service.
    * 
    * @example
@@ -29,10 +29,10 @@ export class CreateRoleShrinkRequest extends $dara.Model {
    * @remarks
    * The description of the RAM role.
    * 
-   * The description must be 1 to 1024 characters in length.
+   * The description must be 1 to 1,024 characters in length.
    * 
    * @example
-   * ECS management role.
+   * ECS management role
    */
   description?: string;
   /**
@@ -41,7 +41,7 @@ export class CreateRoleShrinkRequest extends $dara.Model {
    * 
    * Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
    * 
-   * If you leave this parameter empty, the default value is used.
+   * If this parameter is left empty, the default value is used.
    * 
    * @example
    * 3600
