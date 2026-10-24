@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * New trigger type.
+   * The instance ID.
+   * 
+   * @example
+   * c-b25e21e24388****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The new trigger type.
    * 
    * This parameter is required.
    * 
@@ -15,7 +23,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   newTriggerType?: string;
   /**
    * @remarks
-   * Compute group ID.
+   * The ID of the compute group.
    * 
    * This parameter is required.
    * 
@@ -25,7 +33,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Old trigger type.
+   * The original trigger type.
    * 
    * This parameter is required.
    * 
@@ -35,7 +43,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   oldTriggerType?: string;
   /**
    * @remarks
-   * Rule content.
+   * The content of the rule.
    * 
    * This parameter is required.
    * 
@@ -70,7 +78,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * ID of the scaling rule to modify.
+   * The ID of the scaling rule to be modified.
    * 
    * This parameter is required.
    * 
@@ -80,6 +88,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   scalingRuleId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       newTriggerType: 'NewTriggerType',
       nodeGroupId: 'NodeGroupId',
       oldTriggerType: 'OldTriggerType',
@@ -90,6 +99,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       newTriggerType: 'string',
       nodeGroupId: 'string',
       oldTriggerType: 'string',

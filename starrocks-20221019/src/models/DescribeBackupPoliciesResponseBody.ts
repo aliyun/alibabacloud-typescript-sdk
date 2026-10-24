@@ -37,7 +37,7 @@ export class DescribeBackupPoliciesResponseBodyData extends $dara.Model {
   minute?: string;
   /**
    * @remarks
-   * The backup policy ID.
+   * The tag policy ID.
    * 
    * @example
    * 1
@@ -45,12 +45,12 @@ export class DescribeBackupPoliciesResponseBodyData extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The numeric values for the policy execution cycle.
+   * The values for the policy execution cycle.
    */
   recurrenceValues?: number[];
   /**
    * @remarks
-   * The timeout period for the backup job.
+   * The timeout period of the backup task, in seconds.
    * 
    * @example
    * 3600
@@ -95,7 +95,7 @@ export class DescribeBackupPoliciesResponseBodyData extends $dara.Model {
 export class DescribeBackupPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * AccessDeniedDetail
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -103,7 +103,7 @@ export class DescribeBackupPoliciesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Information about the instance.
+   * The instance information.
    */
   data?: DescribeBackupPoliciesResponseBodyData[];
   /**
@@ -140,7 +140,7 @@ export class DescribeBackupPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

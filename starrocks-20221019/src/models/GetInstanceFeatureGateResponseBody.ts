@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Whether the restart process can be controlled from the console.
+   * Indicates whether the restart process can be controlled from the console.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   consoleControlRestart?: boolean;
   /**
    * @remarks
-   * Whether materialized views can be managed.
+   * Indicates whether materialized view management is supported.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   enableManageMv?: boolean;
   /**
    * @remarks
-   * Whether managed security groups are supported.
+   * Indicates whether fully managed security groups are supported.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   fullManagedSecurityGroup?: boolean;
   /**
    * @remarks
-   * Whether DLF meta tokens can be mounted.
+   * Indicates whether mounting DLF meta tokens is supported.
    * 
    * @example
    * true
@@ -37,16 +37,15 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   mountDlfMetaToken?: boolean;
   /**
    * @remarks
-   * A list of new configuration types.
+   * The list of added configuration types.
    */
   supportAddConfigTypes?: string[];
   /**
    * @remarks
-   * Whether data backup is supported.
+   * Specifies whether data backup is supported. Valid values:
    * 
-   * - **1**: Supports data backup.
-   * 
-   * - **2**: Does not support data backup.
+   * - **1**: Data backup is supported.
+   * - **2**: Data backup is not supported.
    * 
    * @example
    * true
@@ -54,7 +53,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportBackup?: boolean;
   /**
    * @remarks
-   * Whether agents can be created.
+   * Indicates whether agent creation is supported.
    * 
    * @example
    * true
@@ -62,7 +61,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportCreateAgent?: boolean;
   /**
    * @remarks
-   * Whether compute groups with specifications other than `standard` can be created.
+   * Indicates whether compute groups of non-standard specifications can be created.
    * 
    * @example
    * true
@@ -70,7 +69,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportCreateNonStandardNodeGroup?: boolean;
   /**
    * @remarks
-   * Whether elastic ephemeral disks are supported.
+   * Indicates whether elastic ephemeral disks are supported.
    * 
    * @example
    * true
@@ -78,7 +77,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportEed?: boolean;
   /**
    * @remarks
-   * Whether the AI function is supported.
+   * Indicates whether AI functions are supported.
    * 
    * @example
    * true
@@ -86,7 +85,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportEnableAi?: boolean;
   /**
    * @remarks
-   * Whether SSL can be enabled.
+   * Indicates whether SSL can be enabled.
    * 
    * @example
    * true
@@ -94,7 +93,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportEnableSSL?: boolean;
   /**
    * @remarks
-   * Whether fast restart is supported for configuration changes.
+   * Indicates whether fast restart is supported during configuration changes.
    * 
    * @example
    * true
@@ -102,7 +101,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportFastModeModifyConfig?: boolean;
   /**
    * @remarks
-   * Whether resources can be modified by using fast restart.
+   * Indicates whether resources can be modified by using fast restart.
    * 
    * @example
    * true
@@ -110,7 +109,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportFastModeModifyResource?: boolean;
   /**
    * @remarks
-   * Whether fast restart is supported.
+   * Indicates whether fast restart is supported.
    * 
    * @example
    * true
@@ -118,7 +117,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportFastRestart?: boolean;
   /**
    * @remarks
-   * Whether the FE gateway is supported.
+   * Indicates whether FE gateways are supported.
    * 
    * @example
    * true
@@ -126,7 +125,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportFeGateway?: boolean;
   /**
    * @remarks
-   * Whether custom domain names are supported.
+   * Indicates whether custom domain names are supported.
    * 
    * @example
    * true
@@ -134,7 +133,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportHostAlias?: boolean;
   /**
    * @remarks
-   * Whether the time zone can be modified.
+   * Indicates whether the time zone can be modified.
    * 
    * @example
    * true
@@ -142,7 +141,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportModifyTimezone?: boolean;
   /**
    * @remarks
-   * Whether observers can be deployed across multiple availability zones (AZs).
+   * Indicates whether multi-zone deployment of Observers is supported.
    * 
    * @example
    * true
@@ -150,21 +149,30 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
   supportMultiAZ?: boolean;
   /**
    * @remarks
-   * Whether the instance uses compute nodes (CNs).
+   * Indicates whether compute nodes are used.
    * 
    * @example
    * true
    */
   useComputeNode?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the compaction service is supported.
+   */
   supportCompactionService?: boolean;
   /**
    * @remarks
-   * Whether the Compaction Service allowlist feature is supported.
+   * Specifies whether the compaction service whitelist feature is supported.
    * 
    * @example
    * true
    */
   supportCompactionServiceWhiteList?: boolean;
+  /**
+   * @remarks
+   * Specifies whether load-based auto scaling rules can be created. This is determined based on the featureEnabled field, the canary release status of the resource owner UID, and the mode, version, architecture, and plan. It does not indicate whether existing rules continue to be executed.
+   */
+  supportLoadBasedAutoScaling?: boolean;
   static names(): { [key: string]: string } {
     return {
       consoleControlRestart: 'ConsoleControlRestart',
@@ -188,6 +196,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       useComputeNode: 'UseComputeNode',
       supportCompactionService: 'supportCompactionService',
       supportCompactionServiceWhiteList: 'supportCompactionServiceWhiteList',
+      supportLoadBasedAutoScaling: 'supportLoadBasedAutoScaling',
     };
   }
 
@@ -214,6 +223,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       useComputeNode: 'boolean',
       supportCompactionService: 'boolean',
       supportCompactionServiceWhiteList: 'boolean',
+      supportLoadBasedAutoScaling: 'boolean',
     };
   }
 
@@ -232,7 +242,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
 export class GetInstanceFeatureGateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * AccessDeniedDetail
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -277,7 +287,7 @@ export class GetInstanceFeatureGateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

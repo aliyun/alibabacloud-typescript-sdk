@@ -37,7 +37,7 @@ export class CreateScalingRuleResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP request status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class CreateScalingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

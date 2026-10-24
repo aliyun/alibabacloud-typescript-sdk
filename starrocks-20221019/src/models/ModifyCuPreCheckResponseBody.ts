@@ -45,7 +45,7 @@ export class ModifyCuPreCheckResponseBodyData extends $dara.Model {
 export class ModifyCuPreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -53,7 +53,7 @@ export class ModifyCuPreCheckResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ModifyCuPreCheckResponseBodyData;
   /**

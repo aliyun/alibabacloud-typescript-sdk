@@ -32,7 +32,7 @@ export class ListGatewayResponseBodyData extends $dara.Model {
    * The gateway name.
    * 
    * @example
-   * Gateway 1
+   * 网关1
    */
   gatewayName?: string;
   /**

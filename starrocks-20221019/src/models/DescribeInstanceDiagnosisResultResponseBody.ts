@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Best Practices.
+   * The best practices.
    * 
    * @example
-   * 无
+   * None
    */
   bestPractice?: string;
   /**
    * @remarks
-   * Diagnosis item description.
+   * The diagnosis item description.
    * 
    * @example
-   * Evaluate unreasonable partition and bucket configuration
+   * Unreasonable partitioning and bucketing
    */
   description?: string;
   /**
    * @remarks
-   * Evaluation dimension.
+   * The evaluation dimension.
    * 
    * @example
    * table_analysis
@@ -29,7 +29,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   dimension?: string;
   /**
    * @remarks
-   * Evaluation time.
+   * The evaluation time.
    * 
    * @example
    * 2026-03-08T02:12:32Z
@@ -37,7 +37,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   evaluationTime?: number;
   /**
    * @remarks
-   * Full score for the evaluation item.
+   * The full score of the evaluation item.
    * 
    * @example
    * 10.0
@@ -45,7 +45,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   fullScore?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * c-b25e21e243889XXX
@@ -53,7 +53,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * Evaluation item introduction.
+   * The evaluation item introduction.
    * 
    * @example
    * for autotest
@@ -61,7 +61,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   introduction?: string;
   /**
    * @remarks
-   * Evaluation item ID.
+   * The evaluation item ID.
    * 
    * @example
    * 02cf887a
@@ -69,15 +69,15 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   itemId?: string;
   /**
    * @remarks
-   * Evaluation item name.
+   * The evaluation item name.
    * 
    * @example
-   * Evaluate unreasonable partition and bucket configuration
+   * Unreasonable partitioning and bucketing
    */
   itemName?: string;
   /**
    * @remarks
-   * Report date.
+   * The report date in the YYYY-MM-DD format.
    * 
    * @example
    * 2026-03-08
@@ -85,7 +85,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   reportDate?: string;
   /**
    * @remarks
-   * Diagnosis score.
+   * The diagnosis score.
    * 
    * @example
    * 10.0
@@ -93,7 +93,7 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   score?: number;
   /**
    * @remarks
-   * Status list.
+   * The status list. Valid values:
    * 
    * - healthy
    * 
@@ -109,10 +109,10 @@ export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * Diagnosis suggestion.
+   * The diagnosis suggestion.
    * 
    * @example
-   * 未出现分桶大小超过5GB的情况，评估结果为健康。
+   * No bucket exceeds 5 GB in size. The evaluation result is healthy
    */
   suggestion?: string;
   static names(): { [key: string]: string } {
@@ -171,12 +171,12 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DescribeInstanceDiagnosisResultResponseBodyData[];
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidParams
@@ -184,7 +184,7 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Invalid params: [instance not exists].
@@ -192,7 +192,7 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP request status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -200,7 +200,7 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
@@ -208,7 +208,7 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false
@@ -216,7 +216,7 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of query results.
    * 
    * @example
    * 3

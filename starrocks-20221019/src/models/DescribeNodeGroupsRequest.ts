@@ -53,7 +53,7 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number for paging. Default value: 1.
+   * The page number for a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Default value: 10.
+   * The number of entries per page for a paged query. Default value: 10.
    * 
    * @example
    * 20
@@ -83,7 +83,7 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * **[Deprecated]** The instance ID. This parameter is deprecated.
+   * **[Deprecated]** The instance ID.
    * 
    * @example
    * null
@@ -109,23 +109,23 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
    * - UNPAID: Unpaid.
    * - PAID: Paid.
    * - CREATING_FAILED: Creation failed.
-   * - CREATING: Being created.
+   * - CREATING: Creating.
    * - RUNNING: Running.
-   * - MODIFYING_CONFIG: Configuration being modified.
-   * - MODIFYING_TIMEZONE: Time zone being modified.
-   * - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
-   * - ELASTIC_SCALING_IN: Elastic scale-in in progress.
-   * - SCALING_OUT: Scale-out in progress.
+   * - MODIFYING_CONFIG: Modifying configurations.
+   * - MODIFYING_TIMEZONE: Modifying the time zone.
+   * - ELASTIC_SCALING_OUT: Elastically scaling out.
+   * - ELASTIC_SCALING_IN: Elastically scaling in.
+   * - SCALING_OUT: Scaling out.
    * - RESTARTING: Restarting.
-   * - SCALING_IN: Scale-in in progress.
+   * - SCALING_IN: Scaling in.
    * - SCALING_UP: Scaling up.
    * - SCALING_DOWN: Scaling down.
    * - UPGRADING: Upgrading.
    * - ENABLE_PUBLIC_NETWORK: Enabling public network access.
    * - DISABLE_PUBLIC_NETWORK: Disabling public network access.
-   * - SWITCH_AZ: Switching zone.
+   * - SWITCH_AZ: Switching the zone.
    * - DISABLE: Disabled.
-   * - DELETING: Being deleted.
+   * - DELETING: Deleting.
    * - DELETED: Deleted.
    * 
    * @example

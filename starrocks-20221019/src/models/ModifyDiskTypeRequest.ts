@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
-   * - true: Automatic payment is enabled.
-   * - false: Automatic payment is disabled.
+   * Specifies whether to automatically pay for all products specified in the Products parameter. Valid values:
+   * - true: Automatic payment.
+   * - false: Manual payment.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   targetDiskType?: string;
   /**
    * @remarks
-   * The target disk performance level.
+   * The target disk performance.
    * 
    * This parameter is required.
    * 

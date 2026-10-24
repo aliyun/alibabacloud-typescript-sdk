@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a backup policy.
+   * Creates a backup policy.
    * 
    * @param request - AddBackupPolicyRequest
    * @param headers - map
@@ -87,7 +87,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a backup policy.
+   * Creates a backup policy.
    * 
    * @param request - AddBackupPolicyRequest
    * @returns AddBackupPolicyResponse
@@ -264,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Agent compute group.
+   * Creates an agent compute group.
    * 
    * @param request - CreateAgentResourceRequest
    * @param headers - map
@@ -325,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Agent compute group.
+   * Creates an agent compute group.
    * 
    * @param request - CreateAgentResourceRequest
    * @returns CreateAgentResourceResponse
@@ -340,7 +340,7 @@ export default class Client extends OpenApi {
    * Creates a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * 
    * @param request - CreateInstanceV1Request
    * @param headers - map
@@ -504,7 +504,7 @@ export default class Client extends OpenApi {
    * Creates a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * 
    * @param request - CreateInstanceV1Request
    * @returns CreateInstanceV1Response
@@ -516,7 +516,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a scaling rule.
+   * Creates an elastic rule.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Take note of the following items when you call this operation:
+   * - Only Standard Standard instances support modifying the number of compute units (CUs) in a compute group. Starter Standard instances do not support this operation.
+   * - Only instances whose compute group specification type is standard support increasing the number of disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - CreateScalingRuleRequest
    * @param headers - map
@@ -526,6 +536,10 @@ export default class Client extends OpenApi {
   async createScalingRuleWithOptions(request: $_model.CreateScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScalingRuleResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.nodeGroupId)) {
       query["NodeGroupId"] = request.nodeGroupId;
     }
@@ -557,7 +571,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a scaling rule.
+   * Creates an elastic rule.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Take note of the following items when you call this operation:
+   * - Only Standard Standard instances support modifying the number of compute units (CUs) in a compute group. Starter Standard instances do not support this operation.
+   * - Only instances whose compute group specification type is standard support increasing the number of disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - CreateScalingRuleRequest
    * @returns CreateScalingRuleResponse
@@ -822,7 +846,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scaling rule.
+   * Deletes an elastic scaling rule.
+   * 
+   * @remarks
+   * Make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks before you call this operation.
+   * Note the following when you call this operation:
+   * - Only Standard Standard instances support modifying the number of CUs for a node group. Starter Standard instances do not support this feature.
+   * - Only instances whose node group specification type is Standard Edition (standard) support adding disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - DeleteScalingRuleRequest
    * @param headers - map
@@ -832,6 +866,10 @@ export default class Client extends OpenApi {
   async deleteScalingRuleWithOptions(request: $_model.DeleteScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScalingRuleResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.nodeGroupId)) {
       query["NodeGroupId"] = request.nodeGroupId;
     }
@@ -863,7 +901,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scaling rule.
+   * Deletes an elastic scaling rule.
+   * 
+   * @remarks
+   * Make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks before you call this operation.
+   * Note the following when you call this operation:
+   * - Only Standard Standard instances support modifying the number of CUs for a node group. Starter Standard instances do not support this feature.
+   * - Only instances whose node group specification type is Standard Edition (standard) support adding disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - DeleteScalingRuleRequest
    * @returns DeleteScalingRuleResponse
@@ -920,10 +968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve details of backup policies.
+   * Retrieves the details of a backup policy.
    * 
    * @remarks
-   * Retrieve details of backup policies.
+   * Retrieves the details of a backup policy.
    * 
    * @param request - DescribeBackupPoliciesRequest
    * @param headers - map
@@ -964,10 +1012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve details of backup policies.
+   * Retrieves the details of a backup policy.
    * 
    * @remarks
-   * Retrieve details of backup policies.
+   * Retrieves the details of a backup policy.
    * 
    * @param request - DescribeBackupPoliciesRequest
    * @returns DescribeBackupPoliciesResponse
@@ -979,10 +1027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain backup details
+   * Retrieves the details of a backup.
    * 
    * @remarks
-   * This is an asynchronous interface. Instance restarts are not immediate. After a successful call, the instance first enters the restarting state. The instance is successfully restarted when its status returns to running.
+   * This API operation is asynchronous. The instance restart is not completed immediately. After a successful call, the instance first enters the restarting state. When the returned state is running, the restart is successful.
    * 
    * @param request - DescribeBackupsRequest
    * @param headers - map
@@ -1043,10 +1091,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain backup details
+   * Retrieves the details of a backup.
    * 
    * @remarks
-   * This is an asynchronous interface. Instance restarts are not immediate. After a successful call, the instance first enters the restarting state. The instance is successfully restarted when its status returns to running.
+   * This API operation is asynchronous. The instance restart is not completed immediately. After a successful call, the instance first enters the restarting state. When the returned state is running, the restart is successful.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -1058,10 +1106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying instance configuration history
+   * Queries the configuration history of an instance.
    * 
    * @remarks
-   * This is an asynchronous API, meaning the instance restart is not immediate. After a successful call, the instance enters the `restarting` state, and the process completes when its state changes to `running`.
+   * This operation is asynchronous. The instance restart is not completed immediately. After a successful call, the instance first enters the restarting state. When the returned state is running, the restart is successful.
    * 
    * @param request - DescribeConfigHistoryRequest
    * @param headers - map
@@ -1118,10 +1166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying instance configuration history
+   * Queries the configuration history of an instance.
    * 
    * @remarks
-   * This is an asynchronous API, meaning the instance restart is not immediate. After a successful call, the instance enters the `restarting` state, and the process completes when its state changes to `running`.
+   * This operation is asynchronous. The instance restart is not completed immediately. After a successful call, the instance first enters the restarting state. When the returned state is running, the restart is successful.
    * 
    * @param request - DescribeConfigHistoryRequest
    * @returns DescribeConfigHistoryResponse
@@ -1300,7 +1348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve instance health diagnosis results.
+   * Retrieves the health diagnosis results of an instance.
    * 
    * @param request - DescribeInstanceDiagnosisResultRequest
    * @param headers - map
@@ -1353,7 +1401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve instance health diagnosis results.
+   * Retrieves the health diagnosis results of an instance.
    * 
    * @param request - DescribeInstanceDiagnosisResultRequest
    * @returns DescribeInstanceDiagnosisResultResponse
@@ -1410,7 +1458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Serverless StarRocks instances. You can filter instances by instance name, tags, and other criteria.
+   * Queries Serverless StarRocks instances. You can filter the results by instance name or tags.
+   * 
+   * @remarks
+   * >Danger: After an instance is released, the physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
    * 
    * @param tmpReq - DescribeInstancesRequest
    * @param headers - map
@@ -1477,7 +1528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Serverless StarRocks instances. You can filter instances by instance name, tags, and other criteria.
+   * Queries Serverless StarRocks instances. You can filter the results by instance name or tags.
+   * 
+   * @remarks
+   * >Danger: After an instance is released, the physical resources used by the instance are reclaimed. All related data is lost and cannot be recovered.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -1609,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get resource constraint configurations.
+   * Retrieves the resource constraint configuration.
    * 
    * @param request - DescribeResourceConstraintsRequest
    * @param headers - map
@@ -1650,7 +1704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get resource constraint configurations.
+   * Retrieves the resource constraint configuration.
    * 
    * @param request - DescribeResourceConstraintsRequest
    * @returns DescribeResourceConstraintsResponse
@@ -1972,10 +2026,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the feature gates for a StarRocks cluster instance.
+   * Retrieves the feature switches of a StarRocks cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * 
    * @param request - GetInstanceFeatureGateRequest
    * @param headers - map
@@ -2008,10 +2062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the feature gates for a StarRocks cluster instance.
+   * Retrieves the feature switches of a StarRocks cluster instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * 
    * @param request - GetInstanceFeatureGateRequest
    * @returns GetInstanceFeatureGateResponse
@@ -2227,7 +2281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the operation history of a cluster.
+   * Queries the operation history of a cluster.
    * 
    * @param request - ListOperationHistoryRequest
    * @param headers - map
@@ -2288,7 +2342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the operation history of a cluster.
+   * Queries the operation history of a cluster.
    * 
    * @param request - ListOperationHistoryRequest
    * @returns ListOperationHistoryResponse
@@ -2436,17 +2490,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the number of CUs for nodes in a compute group of a Serverless StarRocks instance.
+   * Modifies the number of compute units (CUs) for compute group nodes in a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * When you call this operation, take note of the following items:
-   * - Only standard instances support modifying the number of CUs for a compute group. Starter instances do not support this operation.
-   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of cloud disks.
+   * - Only Standard Standard instances support modifying the number of CUs for compute groups. Starter Standard instances do not support this operation.
+   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of disks.
    * - The instance must be in the Running state.
-   * After you modify the number of CUs, billing changes are as follows:
-   * - Pay-as-you-go: You are charged based on the new number of CUs.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyCuRequest
    * @param headers - map
@@ -2499,17 +2553,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the number of CUs for nodes in a compute group of a Serverless StarRocks instance.
+   * Modifies the number of compute units (CUs) for compute group nodes in a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
    * When you call this operation, take note of the following items:
-   * - Only standard instances support modifying the number of CUs for a compute group. Starter instances do not support this operation.
-   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of cloud disks.
+   * - Only Standard Standard instances support modifying the number of CUs for compute groups. Starter Standard instances do not support this operation.
+   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of disks.
    * - The instance must be in the Running state.
-   * After you modify the number of CUs, billing changes are as follows:
-   * - Pay-as-you-go: You are charged based on the new number of CUs.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyCuRequest
    * @returns ModifyCuResponse
@@ -2521,7 +2575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a dry run to check whether the number of CUs can be scaled up or down for nodes in the FE, BE, or CN compute group of a Serverless StarRocks instance.
+   * Checks whether the number of compute units (CUs) for nodes in the FE, BE, or CN compute group of a Serverless StarRocks instance can be scaled up or down.
    * 
    * @param request - ModifyCuPreCheckRequest
    * @param headers - map
@@ -2562,7 +2616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a dry run to check whether the number of CUs can be scaled up or down for nodes in the FE, BE, or CN compute group of a Serverless StarRocks instance.
+   * Checks whether the number of compute units (CUs) for nodes in the FE, BE, or CN compute group of a Serverless StarRocks instance can be scaled up or down.
    * 
    * @param request - ModifyCuPreCheckRequest
    * @returns ModifyCuPreCheckResponse
@@ -2662,16 +2716,15 @@ export default class Client extends OpenApi {
    * Modifies the disk performance level (PL) of nodes in a compute group of a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
-   * - Only standard instances support disk specification changes. Entry-level instances are not supported.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks. Take note of the following items when you call this operation:
+   * - Only Standard Standard instances support disk specification changes. Starter Standard instances do not support this feature.
    * - Only instances whose compute group specification type is Standard (standard) support disk specification changes.
    * - The instance must be in the Running state.
-   * - Downgrading the disk to PL0 is not supported.
-   * - Because the performance level (PL) of an ESSD is limited by its capacity, if you cannot upgrade the performance level (PL), expand the cloud disk capacity and try again. For more information, see <props="china">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds)<props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
-   * After the disk specification is changed, billing changes are as follows:
-   * - Pay-as-you-go: Billed based on the new disk type.
-   * - Subscription: Within the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Downgrading a disk to PL0 is not supported.
+   * - The performance level (PL) of a standard SSD is limited by its capacity. If you cannot upgrade the performance level (PL), expand the capacity and try again. For more information, see <props="china">[ESSD cloud disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essds)<props="intl">[ESSD cloud disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+   * After the disk specification is changed, the billing changes are as follows:
+   * - Pay-as-you-go: The disk is billed based on the new disk type.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old specifications and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyDiskPerformanceLevelRequest
    * @param headers - map
@@ -2723,16 +2776,15 @@ export default class Client extends OpenApi {
    * Modifies the disk performance level (PL) of nodes in a compute group of a Serverless StarRocks instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
-   * - Only standard instances support disk specification changes. Entry-level instances are not supported.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks. Take note of the following items when you call this operation:
+   * - Only Standard Standard instances support disk specification changes. Starter Standard instances do not support this feature.
    * - Only instances whose compute group specification type is Standard (standard) support disk specification changes.
    * - The instance must be in the Running state.
-   * - Downgrading the disk to PL0 is not supported.
-   * - Because the performance level (PL) of an ESSD is limited by its capacity, if you cannot upgrade the performance level (PL), expand the cloud disk capacity and try again. For more information, see <props="china">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds)<props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
-   * After the disk specification is changed, billing changes are as follows:
-   * - Pay-as-you-go: Billed based on the new disk type.
-   * - Subscription: Within the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Downgrading a disk to PL0 is not supported.
+   * - The performance level (PL) of a standard SSD is limited by its capacity. If you cannot upgrade the performance level (PL), expand the capacity and try again. For more information, see <props="china">[ESSD cloud disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essds)<props="intl">[ESSD cloud disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+   * After the disk specification is changed, the billing changes are as follows:
+   * - Pay-as-you-go: The disk is billed based on the new disk type.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old specifications and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyDiskPerformanceLevelRequest
    * @returns ModifyDiskPerformanceLevelResponse
@@ -2829,17 +2881,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the disk type of nodes in a compute group.
+   * Modifies the node disk type of a compute group.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
+   * Make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks before you call this operation. Take note of the following items when you call this operation:
    * - Only Standard Standard instances support disk expansion. Starter Standard instances do not support disk expansion.
    * - Only instances whose compute group specification type is Standard (standard) support disk expansion.
    * - The instance must be in the Running state.
-   * After disk expansion, billing changes are as follows:
+   * After the disk is expanded, the billing changes are as follows:
    * - Pay-as-you-go: You are billed based on the new disk size.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyDiskTypeRequest
    * @param headers - map
@@ -2892,17 +2943,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the disk type of nodes in a compute group.
+   * Modifies the node disk type of a compute group.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
+   * Make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks before you call this operation. Take note of the following items when you call this operation:
    * - Only Standard Standard instances support disk expansion. Starter Standard instances do not support disk expansion.
    * - Only instances whose compute group specification type is Standard (standard) support disk expansion.
    * - The instance must be in the Running state.
-   * After disk expansion, billing changes are as follows:
+   * After the disk is expanded, the billing changes are as follows:
    * - Pay-as-you-go: You are billed based on the new disk size.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyDiskTypeRequest
    * @returns ModifyDiskTypeResponse
@@ -3298,7 +3348,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an Auto Scaling rule.
+   * Modifies an elastic scaling rule.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * When you call this operation, take note of the following items:
+   * - Only Standard Standard instances support modifying the number of CUs in a compute group. Starter Standard instances do not support this feature.
+   * - Only instances with a compute group specification type of Standard (standard) support increasing the number of disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyScalingRuleRequest
    * @param headers - map
@@ -3308,6 +3368,10 @@ export default class Client extends OpenApi {
   async modifyScalingRuleWithOptions(request: $_model.ModifyScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScalingRuleResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.newTriggerType)) {
       query["NewTriggerType"] = request.newTriggerType;
     }
@@ -3347,7 +3411,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an Auto Scaling rule.
+   * Modifies an elastic scaling rule.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+   * When you call this operation, take note of the following items:
+   * - Only Standard Standard instances support modifying the number of CUs in a compute group. Starter Standard instances do not support this feature.
+   * - Only instances with a compute group specification type of Standard (standard) support increasing the number of disks.
+   * - The instance must be in the Running state.
+   * After you modify the number of CUs, the billing changes are as follows:
+   * - Pay-as-you-go: You are billed based on the new number of CUs.
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - ModifyScalingRuleRequest
    * @returns ModifyScalingRuleResponse
@@ -3359,7 +3433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the node specifications type of a compute group.
+   * Modifies the node specification type of a compute group.
    * 
    * @param request - ModifySpecTypeRequest
    * @param headers - map
@@ -3412,7 +3486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the node specifications type of a compute group.
+   * Modifies the node specification type of a compute group.
    * 
    * @param request - ModifySpecTypeRequest
    * @returns ModifySpecTypeResponse
@@ -3424,7 +3498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a precheck to modify the node specification type for a compute group.
+   * Performs a dry run for modifying the node specifications type in a compute group.
    * 
    * @param request - ModifySpecTypePreCheckRequest
    * @param headers - map
@@ -3465,7 +3539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a precheck to modify the node specification type for a compute group.
+   * Performs a dry run for modifying the node specifications type in a compute group.
    * 
    * @param request - ModifySpecTypePreCheckRequest
    * @returns ModifySpecTypePreCheckResponse
@@ -3713,17 +3787,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for modifying the CU count of a compute group node.
+   * Queries the price for modifying the compute units (CUs) of a compute group node.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
-   * - Only standard instances support modifying the CU count of a compute group. Starter instances do not support this operation.
-   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of disks.
+   * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks.
+   * When you call this operation, note the following:
+   * - Only Standard Standard instances support modifying the CU count of a compute group. Starter Standard instances do not support this operation.
+   * - Only instances with the standard compute group specification type support adding disks.
    * - The instance must be in the Running state.
-   * After you modify the CU count, billing changes are as follows:
+   * After you modify the CU count, the billing changes are as follows:
    * - Pay-as-you-go: You are billed based on the new CU count.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - QueryModifyCuPriceRequest
    * @param headers - map
@@ -3768,17 +3842,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for modifying the CU count of a compute group node.
+   * Queries the price for modifying the compute units (CUs) of a compute group node.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
-   * When you call this operation, take note of the following items:
-   * - Only standard instances support modifying the CU count of a compute group. Starter instances do not support this operation.
-   * - Only instances whose compute group specification type is Standard (standard) support increasing the number of disks.
+   * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks.
+   * When you call this operation, note the following:
+   * - Only Standard Standard instances support modifying the CU count of a compute group. Starter Standard instances do not support this operation.
+   * - Only instances with the standard compute group specification type support adding disks.
    * - The instance must be in the Running state.
-   * After you modify the CU count, billing changes are as follows:
+   * After you modify the CU count, the billing changes are as follows:
    * - Pay-as-you-go: You are billed based on the new CU count.
-   * - Subscription: Within the billing cycle, the supplemental fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
+   * - Subscription: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
    * 
    * @param request - QueryModifyCuPriceRequest
    * @returns QueryModifyCuPriceResponse
@@ -5757,7 +5831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable or disable the Internet-facing SLB for the FE or BE component.
+   * Enables or performs shutdown of the Internet-facing SLB for FE and BE nodes.
    * 
    * @param request - UpdatePublicNetworkStatusRequest
    * @param headers - map
@@ -5802,7 +5876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable or disable the Internet-facing SLB for the FE or BE component.
+   * Enables or performs shutdown of the Internet-facing SLB for FE and BE nodes.
    * 
    * @param request - UpdatePublicNetworkStatusRequest
    * @returns UpdatePublicNetworkStatusResponse

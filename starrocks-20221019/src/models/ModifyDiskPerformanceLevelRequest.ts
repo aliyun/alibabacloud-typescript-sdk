@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
-   * - true: Automatic payment.
-   * - false: No automatic payment.
+   * Specifies whether automatic payment is enabled for all products specified in the Products parameter. Valid values:
+   * - true: automatic payment.
+   * - false: no automatic payment.
    * 
    * @example
    * false

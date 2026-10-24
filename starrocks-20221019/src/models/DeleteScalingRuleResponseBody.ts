@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details.
+   * AccessDeniedDetail
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -13,7 +13,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Version number that you can upgrade to.
+   * The upgradable version number.
    * 
    * @example
    * 24151320976****
@@ -21,7 +21,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidParams
@@ -29,7 +29,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * null
@@ -37,7 +37,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
@@ -53,7 +53,7 @@ export class DeleteScalingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

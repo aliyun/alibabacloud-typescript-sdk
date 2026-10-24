@@ -24,7 +24,7 @@ export class UpdateNodeGroupDescriptionRequest extends $dara.Model {
    * The RAM authorization information.
    * 
    * @example
-   * Optional
+   * 可以不填
    */
   xAcsRamAuthContext?: string;
   static names(): { [key: string]: string } {

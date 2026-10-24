@@ -22,6 +22,10 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
    * COMPLETED
    */
   activityStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   consoleRetryCount?: number;
   /**
    * @remarks
@@ -31,6 +35,10 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
    * 1742178604000
    */
   endTime?: number;
+  /**
+   * @example
+   * Operation ****** retry
+   */
   errMessage?: string;
   /**
    * @remarks
@@ -84,7 +92,7 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
 export class ListOperationActivityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -129,7 +137,7 @@ export class ListOperationActivityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

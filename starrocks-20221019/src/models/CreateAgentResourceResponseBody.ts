@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentResourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Compute group ID.
+   * The compute group ID.
    * 
    * @example
    * ng-5e2ba600fee3****
@@ -15,7 +15,7 @@ export class CreateAgentResourceResponseBodyData extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Order ID.
+   * The order ID.
    * 
    * @example
    * 241526000650XXX
@@ -47,12 +47,12 @@ export class CreateAgentResourceResponseBodyData extends $dara.Model {
 export class CreateAgentResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: CreateAgentResourceResponseBodyData;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidParams
@@ -60,7 +60,7 @@ export class CreateAgentResourceResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Invalid params: [instance not exists].
@@ -68,7 +68,7 @@ export class CreateAgentResourceResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP request status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class CreateAgentResourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B67D142D-D54E-184F-A306-22BDC01B2XXX
@@ -84,7 +84,7 @@ export class CreateAgentResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

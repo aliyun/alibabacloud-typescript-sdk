@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * AccessDeniedDetail
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -13,7 +13,7 @@ export class AddBackupPolicyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class AddBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

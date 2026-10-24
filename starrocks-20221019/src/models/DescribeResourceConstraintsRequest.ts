@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceConstraintsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the instance architecture. Valid values:
-   * 
-   * - onEci: The instance is deployed on ECI.
-   * 
-   * - onEcs: The instance is deployed on ECS.
-   * 
-   * - onBareMetal: The instance is deployed on a bare metal resource pool.
+   * The instance architecture. Valid values:
+   * - onEci: Deployed on ECI.
+   * - onEcs: Deployed on ECS.
+   * - onBareMetal: Deployed on a bare metal resource pool.
    * 
    * @example
    * onEcs
@@ -19,11 +16,9 @@ export class DescribeResourceConstraintsRequest extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * Specifies the instance edition. Valid values:
-   * 
-   * - trial: The entry-level edition.
-   * 
-   * - official: The Standard Edition.
+   * The instance edition. Valid values:
+   * - trial: Trial edition.
+   * - official: Standard edition.
    * 
    * @example
    * trial
@@ -31,13 +26,10 @@ export class DescribeResourceConstraintsRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * Specifies the run mode of the cluster. Valid values:
-   * 
-   * - shared_nothing: The shared-nothing mode.
-   * 
-   * - shared_data: The shared-data mode.
-   * 
-   * - lakehouse: The data lake analytics mode.
+   * The running mode of the cluster. Valid values:
+   * - shared_nothing: Integrated storage and compute.
+   * - shared_data: Separated storage and compute.
+   * - lakehouse: Data lakehouse analysis.
    * 
    * @example
    * shared_data

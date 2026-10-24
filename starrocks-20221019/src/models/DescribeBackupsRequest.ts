@@ -21,7 +21,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The query page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paged query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   statuses?: string;
   /**
    * @remarks
-   * The end time for querying backup jobs.
+   * The end time of the backup task query. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1747728000
@@ -61,7 +61,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   timePeriodEndTime?: number;
   /**
    * @remarks
-   * The start time for querying backup jobs.
+   * The start time of the backup task query. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1747708000

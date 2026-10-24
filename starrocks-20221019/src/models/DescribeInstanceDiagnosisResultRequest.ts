@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Evaluation dimension.
+   * The evaluation dimension.
    * 
    * @example
    * table_analysis
@@ -13,7 +13,7 @@ export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   dimension?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * c-b25e21e24388****
@@ -21,7 +21,7 @@ export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number for paged queries. The default value is 1.
+   * The page number for paging. Default value: 1.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of authorized entries displayed per page for paged queries. The default value is 10, and the maximum value is 50.
+   * The number of authorization entries returned per page when paging. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Report time.
+   * The report date in the YYYY-MM-DD format.
    * 
    * @example
    * 2026-03-08
@@ -45,7 +45,7 @@ export class DescribeInstanceDiagnosisResultRequest extends $dara.Model {
   reportDate?: string;
   /**
    * @remarks
-   * Status collection.
+   * The status collection.
    * 
    * @example
    * healthy

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Data returned by the operation.
+   * The returned data.
    * 
    * @example
    * BE
@@ -13,7 +13,7 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * Data returned by the operation.
+   * The returned data.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The compute group ID.
+   * The ID of the compute group.
    * 
    * @example
    * ng-3d5ce6454354****
@@ -31,7 +31,7 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Enable or disable the public network.
+   * Specifies whether to enable or disable Internet access.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails extends $dara.Model {
   /**
    * @remarks
-   * The effective status on the node.
+   * The effective status.
    * 
    * @example
    * effective
@@ -55,13 +55,13 @@ export class DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails ext
 export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.Model {
   /**
    * @remarks
-   * The action performed. Valid values:
+   * The modification type. Valid values:
    * 
-   * - `MODIFY`
+   * - MODIFY
    * 
-   * - `ADD`
+   * - ADD
    * 
-   * - `DELETE`
+   * - DELETE
    * 
    * @example
    * MODIFY
@@ -69,7 +69,7 @@ export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.M
   action?: string;
   /**
    * @remarks
-   * The new value.
+   * The value after the modification.
    * 
    * @example
    * 4
@@ -77,7 +77,7 @@ export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.M
   after?: string;
   /**
    * @remarks
-   * The previous value.
+   * The value before the modification.
    * 
    * @example
    * 3
@@ -95,23 +95,23 @@ export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.M
    * @remarks
    * The configuration type. Valid values:
    * 
-   * - `FE`
+   * - FE
    * 
-   * - `BE`
+   * - BE
    * 
-   * - `core-site.xml`
+   * - core-site.xml
    * 
-   * - `hdfs-site.xml`
+   * - hdfs-site.xml
    * 
-   * - `kerberos.keytab`
+   * - kerberos.keytab
    * 
-   * - `krb5.conf`
+   * - krb5.conf
    * 
-   * - `jindosdk.cfg`
+   * - jindosdk.cfg
    * 
-   * - `hadoop-env.sh`
+   * - hadoop-env.sh
    * 
-   * - `hive-site.xml`
+   * - hive-site.xml
    * 
    * @example
    * FE
@@ -149,7 +149,7 @@ export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.M
 export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Details about the effect of the configuration change.
+   * The details of the configuration history.
    */
   configHistoryEffectDetails?: DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails[];
   /**
@@ -162,7 +162,7 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
   configHistoryId?: string;
   /**
    * @remarks
-   * A list of configuration mementos.
+   * The records of configuration values before and after the modification.
    */
   configMementos?: DescribeConfigHistoryResponseBodyDataConfigMementos[];
   /**
@@ -183,7 +183,7 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
   effected?: boolean;
   /**
    * @remarks
-   * The modification time.
+   * The time when the configuration was modified.
    * 
    * @example
    * 1742178604000
@@ -199,7 +199,7 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
   operatorId?: string;
   /**
    * @remarks
-   * The reason for the configuration modification.
+   * The reason for modifying the configuration.
    * 
    * @example
    * Test.
@@ -207,7 +207,7 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * Indicates whether the change was a rollback.
+   * Indicates whether the operation is a configuration rollback.
    * 
    * @example
    * false
@@ -259,7 +259,7 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
 export class DescribeConfigHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details of the permission check failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -304,7 +304,7 @@ export class DescribeConfigHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

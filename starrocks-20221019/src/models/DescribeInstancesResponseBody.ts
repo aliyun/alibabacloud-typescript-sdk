@@ -45,7 +45,7 @@ export class DescribeInstancesResponseBodyDataTags extends $dara.Model {
 export class DescribeInstancesResponseBodyDataVSwitches extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is the primary vSwitch.
+   * Specifies whether the vSwitch is the primary vSwitch.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The AI dedicated cluster ID, prefixed with af-. This value is returned if an unreleased dedicated cluster exists (including clusters being created). This value is empty if no dedicated cluster has been created.
+   * The AI dedicated cluster ID. The ID is prefixed with af-. This parameter is returned if an unreleased dedicated cluster exists, including those being created. If no dedicated cluster is created, this parameter is empty.
    * 
    * @example
    * af-498ae4af
@@ -111,7 +111,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   aiFunctionClusterId?: string;
   /**
    * @remarks
-   * The internal network connection endpoint of the AI dedicated cluster, in the format fe-{AiFunctionClusterId}-internal.starrocks.aliyuncs.com. This value is returned only after the dedicated cluster is created. This value is empty if no dedicated cluster has been created.
+   * The internal network connection endpoint of the AI dedicated cluster. The format is fe-{AiFunctionClusterId}-internal.starrocks.aliyuncs.com. This parameter is returned only after the dedicated cluster is created. If no dedicated cluster is created, this parameter is empty.
    * 
    * @example
    * fe-af-498ae4af-internal.starrocks.aliyuncs.com
@@ -119,16 +119,19 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   aiFunctionEndpoint?: string;
   /**
    * @remarks
-   * The billing instance ID for the AI function.
+   * The AI function billing instance ID.
+   * 
+   * @example
+   * aif-xxxxxxxx
    */
   aiFunctionInstanceId?: string;
   /**
    * @remarks
    * The instance architecture. Valid values:
    * 
-   * - onEci: deployed on Elastic Container Instance (ECI).
-   * - onECS: deployed on Elastic Compute Service (ECS).
-   * - onBareMetal: deployed on a bare metal resource pool.
+   * - onEci: Deployed based on Elastic Container Instance (ECI).
+   * - onECS: Deployed based on Elastic Compute Service (ECS).
+   * - onBareMetal: Deployed based on bare metal resource pools.
    * 
    * @example
    * onECS
@@ -144,21 +147,25 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * Indicates whether the AI center is enabled. Default value: false.
+   * Specifies whether the AI center is enabled. Default value: false.
    */
   enableAiFunction?: boolean;
   /**
    * @remarks
-   * Indicates whether automatic minor version upgrades are enabled.
+   * Specifies whether automatic minor version upgrades are allowed.
    * 
    * @example
    * true
    */
   enableAutoMinorVersionUpgrade?: boolean;
+  /**
+   * @remarks
+   * Specifies whether disaster recovery is enabled.
+   */
   enableMultiAz?: boolean;
   /**
    * @remarks
-   * Indicates whether SSL is enabled.
+   * Specifies whether SSL is enabled.
    * 
    * @example
    * true
@@ -166,7 +173,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   enableSSL?: boolean;
   /**
    * @remarks
-   * Indicates whether the audit plug-in is enabled.
+   * Specifies whether the audit plug-in is enabled.
    * 
    * @example
    * true
@@ -174,7 +181,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   enabledAuditLoader?: boolean;
   /**
    * @remarks
-   * Indicates whether encryption is enabled.
+   * Specifies whether encryption is enabled.
    * 
    * @example
    * true
@@ -182,7 +189,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The time when the cluster expires.
+   * The expiration time of the cluster.
    * 
    * @example
    * 4889001600000
@@ -211,32 +218,32 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    * - not_init: Not initialized.
    * - unpaid: Pending payment.
    * - paid: Paid.
-   * - creating: Being created.
+   * - creating: Creating.
    * - creating_failed: Creation failed.
    * - created: Created.
    * - running: Running.
-   * - updating: Being upgraded.
-   * - agent_creating: Agent is being created.
-   * - agent_scaling_up: Agent specifications are being upgraded.
-   * - modifying_config: Configuration is being updated.
+   * - updating: Updating.
+   * - agent_creating: Creating the agent.
+   * - agent_scaling_up: Scaling up the agent.
+   * - modifying_config: Updating configurations.
    * - scaling_out: Scaling out.
    * - restarting: Restarting.
    * - scaling_in: Scaling in.
-   * - scaling_up: Specifications are being upgraded.
-   * - scaling_down: Specifications are being downgraded.
-   * - upgrading: Version is being upgraded.
-   * - enable_public_network: Public network access is being enabled.
-   * - disable_public_network: Public network access is being disabled.
-   * - convert_from_trial_to_official: Edition is being converted.
-   * - migration_cluster_to_serverless: Cluster is being migrated.
-   * - modifying_timezone: Time zone is being modified.
-   * - switch_az: Primary/secondary zone switchover is in progress.
-   * - enabling: Being resumed.
+   * - scaling_up: Scaling up.
+   * - scaling_down: Scaling down.
+   * - upgrading: Upgrading.
+   * - enable_public_network: Enabling public network access.
+   * - disable_public_network: Disabling public network access.
+   * - convert_from_trial_to_official: Converting the edition.
+   * - migration_cluster_to_serverless: Migrating the cluster.
+   * - modifying_timezone: Modifying the time zone.
+   * - switch_az: Switching the primary and secondary zones.
+   * - enabling: Resuming.
    * - disable: Unavailable.
    * - actively_disabled: Unavailable.
-   * - deleting: Being deleted.
+   * - deleting: Deleting.
    * - deleting_failed: Deletion failed.
-   * - deleted_with_error: Creation failed and terminated.
+   * - deleted_with_error: Ended due to creation failure.
    * - deleted: Deleted.
    * 
    * @example
@@ -245,7 +252,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * Indicates whether read/write splitting is enabled. When enabled, the Leader FE node handles write requests and other nodes handle read requests.
+   * Specifies whether read/write splitting is enabled. If enabled, the leader FE node processes write requests and other nodes process read requests.
    * 
    * @example
    * true
@@ -305,7 +312,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   monitorType?: string;
   /**
    * @remarks
-   * The OSS path.
+   * The OSS address.
    * 
    * @example
    * oss://sr-c-****
@@ -324,8 +331,8 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - prePaid: subscription.
-   * - postPaid: pay-as-you-go.
+   * - prePaid: Subscription.
+   * - postPaid: Pay-as-you-go.
    * 
    * @example
    * postPaid
@@ -351,8 +358,8 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    * @remarks
    * The running mode of the cluster. Valid values:
    * - shared_nothing: Shared-nothing architecture.
-   * - shared_data: Storage-compute disaggregation.
-   * - lakehouse: Data lakehouse analytics.
+   * - shared_data: Shared-data architecture.
+   * - lakehouse: Lakehouse.
    * 
    * @example
    * shared_nothing
@@ -360,7 +367,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   runMode?: string;
   /**
    * @remarks
-   * The duration that the cluster has been running. Unit: seconds.
+   * The running time of the cluster. Unit: seconds.
    * 
    * @example
    * 3645445
@@ -368,7 +375,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   runningTime?: number;
   /**
    * @remarks
-   * Indicates whether the security group is a managed security group.
+   * Specifies whether the security group is a managed security group.
    * 
    * @example
    * true
@@ -384,12 +391,12 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   sgId?: string;
   /**
    * @remarks
-   * The tags that are bound to the instance.
+   * The tags bound to the instance.
    */
   tags?: DescribeInstancesResponseBodyDataTags[];
   /**
    * @remarks
-   * The vSwitches.
+   * The list of vSwitches.
    */
   vSwitches?: DescribeInstancesResponseBodyDataVSwitches[];
   /**
@@ -402,7 +409,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1rbvag1cafkj4prwXXX
@@ -541,7 +548,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

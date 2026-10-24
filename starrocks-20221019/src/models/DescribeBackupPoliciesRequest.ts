@@ -21,7 +21,7 @@ export class DescribeBackupPoliciesRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou

@@ -74,7 +74,7 @@ export class ModifySpecTypePreCheckResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -90,7 +90,7 @@ export class ModifySpecTypePreCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

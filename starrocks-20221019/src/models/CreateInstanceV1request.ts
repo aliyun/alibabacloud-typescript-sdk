@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceV1RequestAgentNodeGroup extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+   * The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
    * 
    * @example
    * 2
@@ -35,7 +35,7 @@ export class CreateInstanceV1RequestAgentNodeGroup extends $dara.Model {
 export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is set to memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
+   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory. If SpecType is set to the memory-enhanced instance family, 1 CU equals 1 vCPU and 8 GiB of memory.
    * 
    * @example
    * 8
@@ -54,7 +54,7 @@ export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   diskNumber?: number;
   /**
    * @remarks
-   * The local SSD instance type of the node group. This parameter takes effect only when the instance is ECS-based and SpecType is set to local SSD or large-scale storage.
+   * The local SSD instance type of the node group. This parameter is valid only when the instance is based on ECS and SpecType is set to localSSD or bigData.
    * 
    * @example
    * local_ssd_4_4xlarge
@@ -70,7 +70,13 @@ export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   residentNodeNumber?: number;
   /**
    * @remarks
-   * The specification type of the node group. Valid values:
+   * The instance family category of the compute group. Valid values:
+   * 
+   * - standard: Standard.
+   * - localSSD: Local SSD.
+   * - bigData: Large storage.
+   * - ramEnhanced: Memory-enhanced instance family.
+   * - networkEnhanced: Network-enhanced.
    * 
    * @example
    * standard
@@ -79,6 +85,11 @@ export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   /**
    * @remarks
    * The performance level (PL) of the cloud disk. Valid values:
+   * 
+   * - pl0: A single disk delivers up to 10,000 random read/write IOPS.
+   * - pl1: A single disk delivers up to 50,000 random read/write IOPS.
+   * - pl2: A single disk delivers up to 100,000 random read/write IOPS.
+   * - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * pl1
@@ -138,7 +149,7 @@ export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
 export class CreateInstanceV1RequestFrontendNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+   * The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
    * 
    * @example
    * 8
@@ -154,7 +165,7 @@ export class CreateInstanceV1RequestFrontendNodeGroups extends $dara.Model {
   diskNumber?: number;
   /**
    * @remarks
-   * The local SSD instance type. This parameter does not need to be set for the FE node group.
+   * The local SSD instance type. You do not need to set this parameter for FE compute groups.
    * 
    * @example
    * null
@@ -170,7 +181,7 @@ export class CreateInstanceV1RequestFrontendNodeGroups extends $dara.Model {
   residentNodeNumber?: number;
   /**
    * @remarks
-   * The specification type of the node group. Only standard is supported.
+   * The specification type of the compute group. Only standard is supported.
    * 
    * @example
    * standard
@@ -178,7 +189,7 @@ export class CreateInstanceV1RequestFrontendNodeGroups extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
+   * The performance level (PL) of the cloud disk. Only pl1 is supported, where a single disk delivers up to 50,000 random read/write IOPS.
    * 
    * @example
    * pl1
@@ -238,7 +249,7 @@ export class CreateInstanceV1RequestFrontendNodeGroups extends $dara.Model {
 export class CreateInstanceV1RequestObserverNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+   * The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
    * 
    * @example
    * 8
@@ -254,7 +265,7 @@ export class CreateInstanceV1RequestObserverNodeGroups extends $dara.Model {
   diskNumber?: number;
   /**
    * @remarks
-   * The local SSD instance type. This parameter does not need to be set for the Observer node group.
+   * The instance specification for local SSDs. You do not need to specify this parameter for the Observer compute group.
    * 
    * @example
    * null
@@ -270,7 +281,7 @@ export class CreateInstanceV1RequestObserverNodeGroups extends $dara.Model {
   residentNodeNumber?: number;
   /**
    * @remarks
-   * The specification type of the node group. Only standard is supported.
+   * The specification type of the compute group. Only standard is supported.
    * 
    * @example
    * standard
@@ -278,7 +289,7 @@ export class CreateInstanceV1RequestObserverNodeGroups extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
+   * The performance level (PL) of the cloud disk. Only PL1 is supported, which delivers up to 50,000 random read/write IOPS per disk.
    * 
    * @example
    * pl1
@@ -420,7 +431,7 @@ export class CreateInstanceV1RequestVSwitches extends $dara.Model {
 export class CreateInstanceV1Request extends $dara.Model {
   /**
    * @remarks
-   * The administrator password of the instance.
+   * The password of the instance administrator.
    * 
    * This parameter is required.
    * 
@@ -435,11 +446,9 @@ export class CreateInstanceV1Request extends $dara.Model {
   agentNodeGroup?: CreateInstanceV1RequestAgentNodeGroup;
   /**
    * @remarks
-   * Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
-   * 
-   * Valid values:
-   * - true: Automatic payment.
-   * - false: No automatic payment.
+   * Specifies whether automatic payment is enabled for all products specified in the Products parameter. Valid values:
+   * - true: Enables automatic payment.
+   * - false: Disables automatic payment.
    * 
    * @example
    * false
@@ -447,7 +456,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter takes effect only when payType is set to PrePaid. Auto-renewal is disabled by default.
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when PayType is set to PrePaid. Default value: false.
    * 
    * @example
    * true
@@ -455,12 +464,12 @@ export class CreateInstanceV1Request extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The BE or CN node group information.
+   * The information about the BE or CN compute groups.
    */
   backendNodeGroups?: CreateInstanceV1RequestBackendNodeGroups[];
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a unique parameter value from your client. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -468,7 +477,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the DLF Catalog.
+   * The name of the DLF catalog.
    * 
    * @example
    * paimon_test
@@ -476,7 +485,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   dlfCatalogName?: string;
   /**
    * @remarks
-   * The type of the DLF Catalog. Valid values: paimon and iceberg.
+   * The type of the DLF catalog, such as paimon or iceberg.
    * 
    * @example
    * paimon
@@ -484,7 +493,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   dlfCatalogType?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter takes effect only when payType is set to PrePaid.
+   * The subscription duration. This parameter takes effect only when PayType is set to PrePaid.
    * 
    * @example
    * 1
@@ -492,7 +501,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to enable the AI Center. Default value: false.
+   * Specifies whether to enable the AI center. Default value: false.
    */
   enableAiFunction?: boolean;
   /**
@@ -510,12 +519,12 @@ export class CreateInstanceV1Request extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The FE node group information.
+   * The information about the FE node groups.
    */
   frontendNodeGroups?: CreateInstanceV1RequestFrontendNodeGroups[];
   /**
    * @remarks
-   * The gateway type. Valid values: Slb and Privatezone.
+   * The gateway type. Generally, the value is Slb or Privatezone.
    * 
    * @example
    * Traditional\\"\\"
@@ -541,7 +550,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @remarks
-   * The username of the associated Resource Access Management (RAM) user or the name of the associated RAM role.
+   * The username of the associated Resource Access Management (RAM) user or the name of the RAM role.
    * 
    * @example
    * aliyun.test1
@@ -549,7 +558,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   linkedRamUserName?: string;
   /**
    * @remarks
-   * The Observer node group information. Specify this parameter only when you need to enable multi-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
+   * The information about the Observer compute group. Specify this parameter only when you need to enable multi-zone disaster recovery. The configuration of the Observer compute group must be consistent with the specifications of the FE node group.
    */
   observerNodeGroups?: CreateInstanceV1RequestObserverNodeGroups[];
   /**
@@ -562,10 +571,10 @@ export class CreateInstanceV1Request extends $dara.Model {
   ossAccessingRoleName?: string;
   /**
    * @remarks
-   * The instance edition:
+   * The instance edition. Valid values:
    * <ul>
-   * <li>  Entry edition (trial).</li>
-   * <li> Standard edition (official).</li>
+   * <li>trial: Trial Edition.</li>
+   * <li>official: Standard Edition.</li>
    * </ul>
    * 
    * This parameter is required.
@@ -576,7 +585,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the instance. Valid values:
    * <ol>
    * <li>prePaid: subscription.</li>
    * <li>postPaid: pay-as-you-go.</li>
@@ -590,12 +599,12 @@ export class CreateInstanceV1Request extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * The unit of the billing cycle. Valid values:
    * <ul>
    * <li>Month</li>
    * <li>Year</li>
    * </ul>
-   * This parameter takes effect only when payType is set to PrePaid.
+   * This parameter takes effect only when PayType is set to PrePaid.
    * 
    * @example
    * Month
@@ -603,9 +612,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The RAM authentication type. Valid values:
-   * - RS: Resource Access Management (RAM) user.
-   * - RR: RAM role.
+   * The RAM authentication type. A value of RS indicates a Resource Access Management (RAM) user, and a value of RR indicates a RAM role.
    * 
    * @example
    * RR
@@ -647,10 +654,11 @@ export class CreateInstanceV1Request extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The running mode of the cluster. Valid values:
-   * 
-   * - shared_nothing: compute-storage coupled.
-   * - shared_data: compute-storage decoupled.
+   * The run mode of the cluster. Valid values:
+   * <ul>
+   * <li>shared_nothing: shared-nothing architecture.</li>
+   * <li>shared_data: shared-data architecture.</li>
+   * </ul>
    * 
    * This parameter is required.
    * 
@@ -660,7 +668,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   runMode?: string;
   /**
    * @remarks
-   * The instance tags.
+   * The tags of the instance.
    */
   tags?: CreateInstanceV1RequestTags[];
   /**
@@ -680,7 +688,7 @@ export class CreateInstanceV1Request extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * This parameter is required.
    * 

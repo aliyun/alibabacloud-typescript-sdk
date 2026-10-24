@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by the effective status of the configuration.
+   * The effective status.
    * 
    * @example
    * effective
@@ -13,7 +13,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   effectStatuses?: string;
   /**
    * @remarks
-   * The end time for the query, specified as a Unix timestamp in milliseconds.
+   * The end time of the modification history. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742178604000
@@ -31,7 +31,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to return the total number of configuration history records.
+   * Specifies whether to return all configurations.
    * 
    * @example
    * true
@@ -39,7 +39,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   needTotal?: boolean;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is 10.
+   * The number of entries per page in a paging query. Default value: 10.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for the query, specified as a Unix timestamp in milliseconds.
+   * The start time of the modification history. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742178604000

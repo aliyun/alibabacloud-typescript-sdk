@@ -38,7 +38,7 @@ export class DescribeInstanceConfigsRequest extends $dara.Model {
    * The description of the configuration item\\"s feature.
    * 
    * @example
-   * Whether to enable UDF.
+   * 是否开启 UDF。
    */
   description?: string;
   /**

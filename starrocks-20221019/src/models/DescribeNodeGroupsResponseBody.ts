@@ -98,7 +98,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * The creation time of the compute group.
+   * The creation time of the compute group. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742179008000
@@ -106,7 +106,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The instance ID associated with the bill. For default compute groups (FE compute group and the default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
+   * The instance ID corresponding to the bill. For the default compute groups (the FE compute group and the default BE compute group), the value of this field is the instance ID. Otherwise, the value is the compute group ID.
    * 
    * @example
    * c-96f3bc7f04b2****
@@ -136,7 +136,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
+   * The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory. If SpecType is set to the memory-enhanced instance family, 1 CU equals 1 vCPU and 8 GiB of memory.
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * Indicates whether this is the default compute group.
+   * Indicates whether the compute group is the default compute group.
    * 
    * @example
    * true
@@ -192,7 +192,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The expiration time of the compute group.
+   * The expiration time of the compute group. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742179008000
@@ -216,7 +216,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The local SSD instance type of the node group. This value is meaningful only when the deployment is based on ECS instances and SpecType is local SSD or large-scale storage.
+   * The local SSD instance specification of the node group. This value is valid only when the instance is based on ECS and SpecType is localSSD or bigData.
    * 
    * @example
    * local_ssd_4_4xlarge
@@ -224,7 +224,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   localStorageInstanceType?: string;
   /**
    * @remarks
-   * The ratio of memory size to the number of CUs. The value is 8 when SpecType is memory-enhanced instance family, and 4 for other specification types.
+   * The ratio of memory size to the number of CUs. The value is 8 when SpecType is the memory-enhanced instance family, and 4 for other specification types.
    * 
    * @example
    * 4
@@ -248,12 +248,12 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * The information about nodes in the compute group.
+   * The information about the nodes contained in the compute group.
    */
   nodeInfo?: DescribeNodeGroupsResponseBodyDataNodeInfo[];
   /**
    * @remarks
-   * The billing type:
+   * The billing method. Valid values:
    * <ol>
    * <li>Subscription (prePaid).</li>
    * <li>Pay-as-you-go (postPaid).</li>
@@ -265,7 +265,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The public network address. This field has a value only when EnablePublicNetwork is set to true.
+   * The public IP address. This parameter has a value only when EnablePublicNetwork is set to true.
    * 
    * @example
    * fe-c-79b0bb9f58ef****.starrocks.aliyuncs.com
@@ -299,9 +299,9 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * @remarks
    * The compute group specification type. Valid values:
    * 
-   * - standard: Standard.
+   * - standard: Standard Edition.
    * - localSSD: Local SSD.
-   * - bigData: Large-scale storage.
+   * - bigData: Large-capacity storage.
    * - ramEnhanced: Memory-enhanced instance family.
    * - networkEnhanced: Network-enhanced.
    * 
@@ -316,23 +316,23 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * - UNPAID: Unpaid.
    * - PAID: Paid.
    * - CREATING_FAILED: Creation failed.
-   * - CREATING: Being created.
+   * - CREATING: Creating.
    * - RUNNING: Running.
-   * - MODIFYING_CONFIG: Configuration being modified.
-   * - MODIFYING_TIMEZONE: Time zone being modified.
-   * - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
-   * - ELASTIC_SCALING_IN: Elastic scale-in in progress.
-   * - SCALING_OUT: Scale-out in progress.
+   * - MODIFYING_CONFIG: Modifying configurations.
+   * - MODIFYING_TIMEZONE: Modifying the time zone.
+   * - ELASTIC_SCALING_OUT: Elastically scaling out.
+   * - ELASTIC_SCALING_IN: Elastically scaling in.
+   * - SCALING_OUT: Scaling out.
    * - RESTARTING: Restarting.
-   * - SCALING_IN: Scale-in in progress.
+   * - SCALING_IN: Scaling in.
    * - SCALING_UP: Scaling up.
    * - SCALING_DOWN: Scaling down.
    * - UPGRADING: Upgrading.
    * - ENABLE_PUBLIC_NETWORK: Enabling public network access.
    * - DISABLE_PUBLIC_NETWORK: Disabling public network access.
-   * - SWITCH_AZ: Switching zone.
+   * - SWITCH_AZ: Switching the zone.
    * - DISABLE: Disabled.
-   * - DELETING: Being deleted.
+   * - DELETING: Deleting.
    * - DELETED: Deleted.
    * 
    * @example
@@ -343,10 +343,10 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * @remarks
    * The performance level (PL) of the cloud disk. Valid values:
    * 
-   * - pl0: Maximum random read/write IOPS of 10,000 per disk.
-   * - pl1: Maximum random read/write IOPS of 50,000 per disk.
-   * - pl2: Maximum random read/write IOPS of 100,000 per disk.
-   * - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
+   * - pl0: Up to 10,000 random read/write IOPS per disk.
+   * - pl1: Up to 50,000 random read/write IOPS per disk.
+   * - pl2: Up to 100,000 random read/write IOPS per disk.
+   * - pl3: Up to 1,000,000 random read/write IOPS per disk.
    * 
    * @example
    * pl1
@@ -475,7 +475,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
 export class DescribeNodeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
@@ -520,7 +520,7 @@ export class DescribeNodeGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -528,7 +528,7 @@ export class DescribeNodeGroupsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of query results.
+   * The total number of returned entries.
    * 
    * @example
    * 100

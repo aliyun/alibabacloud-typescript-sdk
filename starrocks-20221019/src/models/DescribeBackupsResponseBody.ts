@@ -5,16 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * The compute group type. Includes the following values:
+   * The compute group type. Valid values:
    * 
    * - FE
-   * 
    * - BE
-   * 
    * - CN
-   * 
    * - OBSERVER
-   * 
    * - AGENT
    * 
    * @example
@@ -23,7 +19,7 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $
   componentType?: string;
   /**
    * @remarks
-   * The number of CUs. A CU (Compute Unit) is the basic unit of measurement for the service. 1 CU equals 1 CPU core + 4 GiB memory. If SpecType is memory-enhanced instance family, 1 CU equals 1 CPU core + 8 GiB memory.
+   * The number of CUs. A CU (compute unit) is the basic billing unit of the service. 1 CU = 1 vCPU + 4 GiB of memory. Only when SpecType is set to the memory-enhanced instance family, 1 CU = 1 vCPU + 8 GiB of memory.
    * 
    * @example
    * 4
@@ -39,7 +35,7 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $
   diskNumber?: string;
   /**
    * @remarks
-   * The node group\\"s local SSD instance type. This value is only meaningful for ECS instances where SpecType is local SSD or large-capacity storage.
+   * The local SSD instance specification of the node group. This value is valid only when the instance is based on ECS and SpecType is set to local SSD or large-capacity storage.
    * 
    * @example
    * null
@@ -55,17 +51,13 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $
   residentNodeNumber?: string;
   /**
    * @remarks
-   * The compute group specification type. Includes the following types:
+   * The specification type of the compute group. Valid values:
    * 
-   * - standard: Standard Edition.
-   * 
-   * - localSSD: Local SSD.
-   * 
-   * - bigData: Large-capacity storage.
-   * 
-   * - ramEnhanced: Memory-enhanced instance family.
-   * 
-   * - networkEnhanced: Network-enhanced.
+   * - standard: standard edition
+   * - localSSD: local SSD
+   * - bigData: large-capacity storage
+   * - ramEnhanced: memory-enhanced instance family
+   * - networkEnhanced: network-enhanced
    * 
    * @example
    * standard
@@ -73,15 +65,12 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $
   specType?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. Includes the following values:
+   * The performance level (PL) of the cloud disk. Valid values:
    * 
-   * - pl0: Maximum random read/write IOPS of 10,000 per disk.
-   * 
-   * - pl1: Maximum random read/write IOPS of 50,000 per disk.
-   * 
-   * - pl2: Maximum random read/write IOPS of 100,000 per disk.
-   * 
-   * - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
+   * - pl0: A single disk delivers up to 10,000 random read/write IOPS.
+   * - pl1: A single disk delivers up to 50,000 random read/write IOPS.
+   * - pl2: A single disk delivers up to 100,000 random read/write IOPS.
+   * - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * pl1
@@ -89,7 +78,7 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshotNodeGroups extends $
   storagePerformanceLevel?: string;
   /**
    * @remarks
-   * The storage size in GiB.
+   * The storage size. Unit: GiB.
    * 
    * @example
    * 200
@@ -210,11 +199,9 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshot extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The cluster\\"s running mode:
-   * 
-   * - Shared-nothing.
-   * 
-   * - Shared-data.
+   * The running mode of the cluster. Valid values:
+   * - shared_nothing: integrated storage and computing
+   * - shared_data: disaggregated storage and computing
    * 
    * @example
    * shared_data
@@ -222,17 +209,13 @@ export class DescribeBackupsResponseBodyDataInstanceSnapshot extends $dara.Model
   runMode?: string;
   /**
    * @remarks
-   * The compute group specification type. Includes the following types:
+   * The specification type of the compute group. Valid values:
    * 
-   * - standard: Standard Edition.
-   * 
-   * - localSSD: Local SSD.
-   * 
-   * - bigData: Large-capacity storage.
-   * 
-   * - ramEnhanced: Memory-enhanced instance family.
-   * 
-   * - networkEnhanced: Network-enhanced.
+   * - standard: standard edition
+   * - localSSD: local SSD
+   * - bigData: large-capacity storage
+   * - ramEnhanced: memory-enhanced instance family
+   * - networkEnhanced: network-enhanced
    * 
    * @example
    * standard
@@ -323,7 +306,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The task end time.
+   * The task end time. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1747718190
@@ -331,7 +314,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
   finishedTime?: number;
   /**
    * @remarks
-   * The data size in GiB.
+   * The data size. Unit: GiB.
    * 
    * @example
    * 1
@@ -347,7 +330,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The task start date.
+   * The task start time. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1747708190
@@ -355,7 +338,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The backup job status.
+   * The backup task status.
    * 
    * @example
    * success
@@ -363,7 +346,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The data table name.
+   * The table name.
    * 
    * @example
    * cdc_ods_t2030_lcpf_api_topic_msg
@@ -407,7 +390,7 @@ export class DescribeBackupsResponseBodyDataSubTasks extends $dara.Model {
 export class DescribeBackupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end time of this backup.
+   * The end time of the current backup. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742179028000
@@ -415,7 +398,7 @@ export class DescribeBackupsResponseBodyData extends $dara.Model {
   backupFinishedTime?: number;
   /**
    * @remarks
-   * The start time of this backup.
+   * The start time of the current backup. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742179018000
@@ -431,11 +414,10 @@ export class DescribeBackupsResponseBodyData extends $dara.Model {
   backupTaskId?: string;
   /**
    * @remarks
-   * The backup type:
+   * The backup type. Valid values:
    * 
-   * - **0**: Fast backup.
-   * 
-   * - **1**: Consistent backup.
+   * - **0**: quick backup
+   * - **1**: consistent backup
    * 
    * @example
    * FullBackup
@@ -446,12 +428,12 @@ export class DescribeBackupsResponseBodyData extends $dara.Model {
    * The task description.
    * 
    * @example
-   * 任务描述
+   * Task description
    */
   description?: string;
   /**
    * @remarks
-   * The expiration time of the backup data.
+   * The expiration time of the backup data. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1742189008000
@@ -480,7 +462,7 @@ export class DescribeBackupsResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The cloud disk size in GiB.
+   * The cloud disk size. Unit: GiB.
    * 
    * @example
    * 100
@@ -488,7 +470,7 @@ export class DescribeBackupsResponseBodyData extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The backup job status.
+   * The backup task status.
    * 
    * @example
    * RUNNING
@@ -572,7 +554,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP request status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -588,7 +570,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * false

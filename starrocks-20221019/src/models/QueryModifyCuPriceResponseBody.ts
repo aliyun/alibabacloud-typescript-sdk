@@ -65,7 +65,7 @@ export class QueryModifyCuPriceResponseBodyDataComponentPrices extends $dara.Mod
 export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction information.
+   * The price reduction ratio.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Mode
   cheapRate?: number;
   /**
    * @remarks
-   * The total list price after the price reduction.
+   * The total official website price after the price reduction.
    * 
    * @example
    * 7986
@@ -81,7 +81,7 @@ export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Mode
   cheapStandAmount?: number;
   /**
    * @remarks
-   * Indicates whether to display the price reduction.
+   * Indicates whether the price reduction margin is displayed.
    * 
    * @example
    * true
@@ -89,7 +89,7 @@ export class QueryModifyCuPriceResponseBodyDataDepreciateInfo extends $dara.Mode
   isShow?: boolean;
   /**
    * @remarks
-   * The original total list price.
+   * The original total official website price.
    * 
    * @example
    * 7986
@@ -175,7 +175,7 @@ export class QueryModifyCuPriceResponseBodyDataOptionalPromotions extends $dara.
 export class QueryModifyCuPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The price for purchasing Elastic Computing Service (ECS) servers of a specific configuration in bulk. Valid values: 1 to 1000.
+   * Queries the price for bulk purchasing Elastic Computing Service servers with a specific configuration. Valid values: 1 to 1000.
    * 
    * Default value: 1.
    * 
@@ -240,7 +240,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The price reduction information.
+   * The price reduction ratio.
    * 
    * @example
    * 0
@@ -248,7 +248,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   depreciateInfo?: QueryModifyCuPriceResponseBodyDataDepreciateInfo;
   /**
    * @remarks
-   * The discount amount, which is the original amount minus the payable amount (including coupon deductions).
+   * The discount amount, which is calculated by subtracting the payable amount on the bill (including the coupon deduction amount) from the original amount.
    * 
    * @example
    * 0
@@ -261,7 +261,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   optionalPromotions?: QueryModifyCuPriceResponseBodyDataOptionalPromotions[];
   /**
    * @remarks
-   * The original amount, which is the catalog price multiplied by the billable usage.
+   * The original price, which is calculated by multiplying the list price by the billable usage.
    * 
    * @example
    * 7986
@@ -274,7 +274,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   rules?: QueryModifyCuPriceResponseBodyDataRules[];
   /**
    * @remarks
-   * The discounted price based on the list price discount.
+   * The discount price based on the official website discount.
    * 
    * @example
    * 7986
@@ -282,7 +282,7 @@ export class QueryModifyCuPriceResponseBodyData extends $dara.Model {
   standDiscountPrice?: number;
   /**
    * @remarks
-   * The list discount price.
+   * The official website discount price.
    * 
    * @example
    * 7986
@@ -395,7 +395,7 @@ export class QueryModifyCuPriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

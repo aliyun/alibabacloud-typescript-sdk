@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Compute group ID.
+   * The instance ID.
+   * 
+   * @example
+   * c-b25e21e24388****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The node group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +23,7 @@ export class DeleteScalingRuleRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * ID of the scaling rule to delete.
+   * The ID of the scaling rule to be deleted.
    * 
    * This parameter is required.
    * 
@@ -25,7 +33,7 @@ export class DeleteScalingRuleRequest extends $dara.Model {
   scalingRuleId?: string;
   /**
    * @remarks
-   * Trigger type.
+   * The trigger type.
    * 
    * This parameter is required.
    * 
@@ -35,6 +43,7 @@ export class DeleteScalingRuleRequest extends $dara.Model {
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
       scalingRuleId: 'ScalingRuleId',
       triggerType: 'TriggerType',
@@ -43,6 +52,7 @@ export class DeleteScalingRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       nodeGroupId: 'string',
       scalingRuleId: 'string',
       triggerType: 'string',
