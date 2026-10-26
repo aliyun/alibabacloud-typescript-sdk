@@ -13,6 +13,11 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
+   * true仅返回归档会话；false或省略仅返回未归档会话。
+   */
+  archived?: boolean;
+  /**
+   * @remarks
    * The number of entries per page. Default value: 50.
    * 
    * @example
@@ -56,6 +61,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
+      archived: 'Archived',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       sessionId: 'SessionId',
@@ -68,6 +74,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentName: 'string',
+      archived: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       sessionId: 'string',

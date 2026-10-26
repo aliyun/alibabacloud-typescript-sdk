@@ -62,6 +62,97 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
   }
 }
 
+export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
+  /**
+   * @remarks
+   * 套件已删除、发布快照缺失或调用者无权查看时，不返回套件摘要，仅保留 ID 和版本号。
+   * 
+   * @example
+   * 数据分析专家能力集合
+   */
+  description?: string;
+  /**
+   * @example
+   * 数据分析专家套件
+   */
+  displayName?: string;
+  /**
+   * @example
+   * analysis-suite
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 显式查询 Agent 已发布版本时返回固定的官方制品版本；查询草稿或自定义套件时不返回。
+   * 
+   * @example
+   * 0.1.0.202610211408
+   */
+  packageVersion?: string;
+  /**
+   * @remarks
+   * 可选套件摘要字段，当前新 DataAgent 应用不返回；缺省不表示版本 0。不可作为 UpdateAgent 的 Version，回写引用时必须省略。官方制品的固定版本请读取 PackageVersion。
+   * 
+   * @example
+   * 1.2.0
+   */
+  semanticVersion?: string;
+  /**
+   * @remarks
+   * OFFICIAL 表示官方目录资源；省略或 DB 表示个人或企业资源。
+   * 
+   * @example
+   * OFFICIAL
+   */
+  source?: string;
+  /**
+   * @example
+   * suite_example
+   */
+  suiteId?: string;
+  /**
+   * @remarks
+   * 仅个人或企业套件在引用明确指定版本或读取发布快照时返回；官方套件不返回。未返回不是 0；SDK 若将缺省整数初始化为 0，回写时必须省略。官方项只回写 Source 和 SuiteId，不传 Version、SemanticVersion 或 PackageVersion。
+   * 
+   * @example
+   * 3
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      packageVersion: 'PackageVersion',
+      semanticVersion: 'SemanticVersion',
+      source: 'Source',
+      suiteId: 'SuiteId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      packageVersion: 'string',
+      semanticVersion: 'string',
+      source: 'string',
+      suiteId: 'string',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentResponseBodyAgentModel extends $dara.Model {
   /**
    * @remarks
@@ -156,6 +247,27 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * 指定 AgentVersion 查询已发布快照时返回固定的官方制品版本；查询草稿或自定义 Skill 时不返回。
+   * 
+   * @example
+   * 0.6.0.202608201110
+   */
+  packageVersion?: string;
+  /**
+   * @example
+   * dataworks-semantic
+   */
+  skillId?: string;
+  /**
+   * @remarks
+   * OFFICIAL 表示官方目录资源；省略或 DB 表示原有个人或企业资源。
+   * 
+   * @example
+   * OFFICIAL
+   */
+  source?: string;
+  /**
+   * @remarks
    * The skill version.
    * 
    * @example
@@ -165,6 +277,9 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
+      packageVersion: 'PackageVersion',
+      skillId: 'SkillId',
+      source: 'Source',
       version: 'Version',
     };
   }
@@ -172,6 +287,9 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      packageVersion: 'string',
+      skillId: 'string',
+      source: 'string',
       version: 'number',
     };
   }
@@ -288,6 +406,14 @@ export class GetAgentResponseBodyAgentVisibilityScope extends $dara.Model {
 export class GetAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
+   * 本次读取的定义版本。更新当前定义时，将该值作为 UpdateAgent 的 ExpectedVersion，可拒绝覆盖其他调用者已提交的新版本。读取历史快照的版本不代表当前版本。
+   * 
+   * @example
+   * 2
+   */
+  agentVersion?: number;
+  /**
+   * @remarks
    * A list of callable sub-agents.
    */
   callableAgents?: GetAgentResponseBodyAgentCallableAgents[];
@@ -315,6 +441,11 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * My assistant
    */
   displayName?: string;
+  /**
+   * @remarks
+   * Agent 定义绑定的专家套件及固定发布版本。
+   */
+  expertSuites?: GetAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
    * The creation time, as a Unix timestamp in milliseconds.
@@ -402,10 +533,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   visibilityScope?: GetAgentResponseBodyAgentVisibilityScope;
   static names(): { [key: string]: string } {
     return {
+      agentVersion: 'AgentVersion',
       callableAgents: 'CallableAgents',
       creatorId: 'CreatorId',
       description: 'Description',
       displayName: 'DisplayName',
+      expertSuites: 'ExpertSuites',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       metadata: 'Metadata',
@@ -423,10 +556,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentVersion: 'number',
       callableAgents: { 'type': 'array', 'itemType': GetAgentResponseBodyAgentCallableAgents },
       creatorId: 'string',
       description: 'string',
       displayName: 'string',
+      expertSuites: { 'type': 'array', 'itemType': GetAgentResponseBodyAgentExpertSuites },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -445,6 +580,9 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   validate() {
     if(Array.isArray(this.callableAgents)) {
       $dara.Model.validateArray(this.callableAgents);
+    }
+    if(Array.isArray(this.expertSuites)) {
+      $dara.Model.validateArray(this.expertSuites);
     }
     if(this.metadata) {
       $dara.Model.validateMap(this.metadata);

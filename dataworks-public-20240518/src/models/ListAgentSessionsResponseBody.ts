@@ -2,6 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListAgentSessionsResponseBodyJsonRpcResponseError extends $dara.Model {
+  /**
+   * @example
+   * 400
+   */
+  code?: number;
+  /**
+   * @example
+   * {}
+   */
+  data?: any;
+  /**
+   * @example
+   * SESSION_FILTER_REQUIRED
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * SESSION_FILTER_REQUIRED
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      errorCode: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList extends $dara.Model {
   /**
    * @remarks
@@ -33,6 +81,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 }
 
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta extends $dara.Model {
+  archived?: boolean;
   /**
    * @remarks
    * The session source.
@@ -59,6 +108,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
   sessionTagList?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList[];
   static names(): { [key: string]: string } {
     return {
+      archived: 'Archived',
       sessionSource: 'SessionSource',
       sessionStatus: 'SessionStatus',
       sessionTagList: 'SessionTagList',
@@ -67,6 +117,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 
   static types(): { [key: string]: any } {
     return {
+      archived: 'boolean',
       sessionSource: 'string',
       sessionStatus: 'string',
       sessionTagList: { 'type': 'array', 'itemType': ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList },
@@ -226,6 +277,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
 }
 
 export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
+  error?: ListAgentSessionsResponseBodyJsonRpcResponseError;
   /**
    * @remarks
    * The ID passed in by the requester. The value is returned as-is.
@@ -249,6 +301,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   result?: ListAgentSessionsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
     return {
+      error: 'Error',
       id: 'Id',
       jsonrpc: 'Jsonrpc',
       result: 'Result',
@@ -257,6 +310,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      error: ListAgentSessionsResponseBodyJsonRpcResponseError,
       id: 'string',
       jsonrpc: 'string',
       result: ListAgentSessionsResponseBodyJsonRpcResponseResult,
@@ -264,6 +318,9 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   }
 
   validate() {
+    if(this.error && typeof (this.error as any).validate === 'function') {
+      (this.error as any).validate();
+    }
     if(this.result && typeof (this.result as any).validate === 'function') {
       (this.result as any).validate();
     }

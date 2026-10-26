@@ -979,6 +979,10 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
+  /**
+   * @example
+   * 3726346
+   */
   owner?: string;
   /**
    * @remarks

@@ -320,6 +320,10 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks extends $dara.Model {
+  /**
+   * @example
+   * 45238
+   */
   dataSourceId?: number;
   /**
    * @remarks

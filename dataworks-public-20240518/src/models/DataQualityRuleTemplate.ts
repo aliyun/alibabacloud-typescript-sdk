@@ -138,6 +138,9 @@ export class DataQualityRuleTemplate extends $dara.Model {
   /**
    * @remarks
    * The DataWorks tenant ID.
+   * 
+   * @example
+   * 1
    */
   tenantId?: number;
   /**

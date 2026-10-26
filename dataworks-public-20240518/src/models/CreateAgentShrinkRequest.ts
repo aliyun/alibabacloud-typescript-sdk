@@ -29,6 +29,14 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * Agent 绑定的已发布专家套件。个人或企业套件使用 SuiteId，可选 Version；官方套件必须显式指定 Source=OFFICIAL 和官方目录中的 SuiteId，不传 Version。未传时创建为空，不会默认加载所有官方套件。
+   * 
+   * @example
+   * [{"Source":"OFFICIAL","SuiteId":"dataworks-data-analysis-extension"},{"SuiteId":"suite_example","Version":1}]
+   */
+  expertSuitesShrink?: string;
+  /**
+   * @remarks
    * The extended metadata in key-value pairs.
    * 
    * @example
@@ -55,6 +63,14 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * my-agent
    */
   name?: string;
+  /**
+   * @remarks
+   * 是否在创建 Agent 后立即发布。true 发布创建的版本；false 或省略保持原有仅创建草稿行为。保存与发布不是原子操作，发布失败时草稿可能已存在；重试前应先查询 Agent，避免重复创建。
+   * 
+   * @example
+   * false
+   */
+  publishImmediately?: boolean;
   /**
    * @remarks
    * The list of skills.
@@ -100,9 +116,11 @@ export class CreateAgentShrinkRequest extends $dara.Model {
       callableAgentsShrink: 'CallableAgents',
       description: 'Description',
       displayName: 'DisplayName',
+      expertSuitesShrink: 'ExpertSuites',
       metadataShrink: 'Metadata',
       modelShrink: 'Model',
       name: 'Name',
+      publishImmediately: 'PublishImmediately',
       skillsShrink: 'Skills',
       systemPrompt: 'SystemPrompt',
       toolsShrink: 'Tools',
@@ -116,9 +134,11 @@ export class CreateAgentShrinkRequest extends $dara.Model {
       callableAgentsShrink: 'string',
       description: 'string',
       displayName: 'string',
+      expertSuitesShrink: 'string',
       metadataShrink: 'string',
       modelShrink: 'string',
       name: 'string',
+      publishImmediately: 'boolean',
       skillsShrink: 'string',
       systemPrompt: 'string',
       toolsShrink: 'string',

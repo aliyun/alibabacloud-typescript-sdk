@@ -283,6 +283,10 @@ export class CreateFileRequest extends $dara.Model {
    * [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
    */
   inputParameters?: string;
+  /**
+   * @example
+   * dw_project.ods_user_info_d
+   */
   outputList?: string;
   /**
    * @remarks

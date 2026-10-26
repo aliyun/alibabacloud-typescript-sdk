@@ -130,6 +130,11 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
    */
   mode?: string;
   /**
+   * @example
+   * qwen3.7-max(openai)
+   */
+  model?: string;
+  /**
    * @remarks
    * The DataWorks workspace ID. Used to initialize the session project context. If omitted, the session is treated as having no project context. You can later correct or switch the project context by using PromptAgentSession.
    * 
@@ -137,6 +142,11 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
    * 12345
    */
   projectId?: string;
+  /**
+   * @example
+   * none
+   */
+  reasoningEffort?: string;
   /**
    * @remarks
    * The ID of the resource group used for initialization.
@@ -157,7 +167,9 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
     return {
       executionLane: 'ExecutionLane',
       mode: 'Mode',
+      model: 'Model',
       projectId: 'ProjectId',
+      reasoningEffort: 'ReasoningEffort',
       resourceGroupId: 'ResourceGroupId',
       skills: 'Skills',
     };
@@ -167,7 +179,9 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
     return {
       executionLane: 'string',
       mode: 'string',
+      model: 'string',
       projectId: 'string',
+      reasoningEffort: 'string',
       resourceGroupId: 'string',
       skills: 'string',
     };

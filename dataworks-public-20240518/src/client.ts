@@ -1086,6 +1086,10 @@ export default class Client extends OpenApi {
       request.callableAgentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callableAgents, "CallableAgents", "json");
     }
 
+    if (!$dara.isNull(tmpReq.expertSuites)) {
+      request.expertSuitesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.expertSuites, "ExpertSuites", "json");
+    }
+
     if (!$dara.isNull(tmpReq.metadata)) {
       request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
     }
@@ -1119,6 +1123,10 @@ export default class Client extends OpenApi {
       body["DisplayName"] = request.displayName;
     }
 
+    if (!$dara.isNull(request.expertSuitesShrink)) {
+      body["ExpertSuites"] = request.expertSuitesShrink;
+    }
+
     if (!$dara.isNull(request.metadataShrink)) {
       body["Metadata"] = request.metadataShrink;
     }
@@ -1129,6 +1137,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.publishImmediately)) {
+      body["PublishImmediately"] = request.publishImmediately;
     }
 
     if (!$dara.isNull(request.skillsShrink)) {
@@ -8760,6 +8772,10 @@ export default class Client extends OpenApi {
   async getAgentWithOptions(request: $_model.GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      body["AgentVersion"] = request.agentVersion;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
@@ -21716,6 +21732,68 @@ export default class Client extends OpenApi {
   async unTagDataAssets(request: $_model.UnTagDataAssetsRequest): Promise<$_model.UnTagDataAssetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unTagDataAssetsWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Agent会话标题
+   * 
+   * @remarks
+   * 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+   * 
+   * @param tmpReq - UpdateAgentSessionTitleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentSessionTitleResponse
+   */
+  async updateAgentSessionTitleWithOptions(tmpReq: $_model.UpdateAgentSessionTitleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentSessionTitleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAgentSessionTitleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgentSessionTitle",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentSessionTitleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentSessionTitleResponse({}));
+  }
+
+  /**
+   * 修改Agent会话标题
+   * 
+   * @remarks
+   * 修改当前身份可访问的 Agent 会话标题，不改变任务执行状态。
+   * 
+   * @param request - UpdateAgentSessionTitleRequest
+   * @returns UpdateAgentSessionTitleResponse
+   */
+  async updateAgentSessionTitle(request: $_model.UpdateAgentSessionTitleRequest): Promise<$_model.UpdateAgentSessionTitleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgentSessionTitleWithOptions(request, runtime);
   }
 
   /**

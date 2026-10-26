@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails extends $dara.Model {
+  /**
+   * @example
+   * 100.0
+   */
   checkedValue?: string;
+  /**
+   * @example
+   * 0.0
+   */
   referencedValue?: string;
+  /**
+   * @example
+   * Passed
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +44,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
+  /**
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
+  /**
+   * @example
+   * >
+   */
   operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,8 +85,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
+  /**
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
+  /**
+   * @example
+   * >
+   */
   operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,8 +126,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
+  /**
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
+  /**
+   * @example
+   * >
+   */
   operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,8 +205,16 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig extends $dara.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
   referencedSamplesFilter?: string;
   thresholds?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,7 +245,15 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers extends $dara.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
   errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -215,9 +279,25 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig extends $dara.Model {
+  /**
+   * @example
+   * Min
+   */
   metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] }
+   */
   metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
   samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s;
+   */
   settingConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,8 +327,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget extends $dara.Model {
+  /**
+   * @example
+   * maxcompute
+   */
   databaseType?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
   tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -277,15 +369,39 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule extends $dara.Model {
   checkingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
   description?: string;
   enabled?: boolean;
   errorHandlers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers[];
+  /**
+   * @example
+   * 100001
+   */
   id?: number;
+  /**
+   * @example
+   * 表不能为空
+   */
   name?: string;
+  /**
+   * @example
+   * 100
+   */
   projectId?: number;
   samplingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig;
+  /**
+   * @example
+   * High
+   */
   severity?: string;
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget;
+  /**
+   * @example
+   * SYSTEM:user_defined_sql
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -341,12 +457,32 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults extends $dara.Model {
+  /**
+   * @example
+   * 1708284916414
+   */
   createTime?: number;
   details?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails[];
+  /**
+   * @example
+   * 10001
+   */
   id?: number;
   rule?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule;
+  /**
+   * @example
+   * [   {     "gender": "male",     "_count": 100   }, {     "gender": "female",     "_count": 100   } ]
+   */
   sample?: string;
+  /**
+   * @example
+   * Passed
+   */
   status?: string;
+  /**
+   * @example
+   * 20001
+   */
   taskInstanceId?: number;
   static names(): { [key: string]: string } {
     return {
