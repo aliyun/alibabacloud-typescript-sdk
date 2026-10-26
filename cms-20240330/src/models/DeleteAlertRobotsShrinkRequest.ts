@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertRobotsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The chatbot ID.
+   * The chatbot IDs.
    * 
    * This parameter is required.
    */

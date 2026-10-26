@@ -13,7 +13,7 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The key of the annotation.
+   * The annotation key.
    * 
    * @example
    * instanceId
@@ -21,7 +21,7 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The collection of annotation values.
+   * The annotation values.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
 export class EntityDiscoverRuleFieldRules extends $dara.Model {
   /**
    * @remarks
-   * The key of the property.
+   * The field key.
    * 
    * @example
    * instanceId
@@ -63,7 +63,7 @@ export class EntityDiscoverRuleFieldRules extends $dara.Model {
   fieldKey?: string;
   /**
    * @remarks
-   * The collection of property values.
+   * The field values.
    */
   fieldValues?: string[];
   /**
@@ -105,7 +105,7 @@ export class EntityDiscoverRuleFieldRules extends $dara.Model {
 export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the IP address.
+   * The IP CIDR block.
    * 
    * @example
    * 192.168.0.0/16
@@ -113,7 +113,7 @@ export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
   ipCIDR?: string;
   /**
    * @remarks
-   * The property key of the IP address.
+   * The IP attribute key.
    * 
    * @example
    * ecs_ip
@@ -153,7 +153,7 @@ export class EntityDiscoverRuleLabels extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The key of the label.
+   * The label key.
    * 
    * @example
    * project
@@ -161,7 +161,7 @@ export class EntityDiscoverRuleLabels extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The collection of label values.
+   * The label values.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -203,7 +203,7 @@ export class EntityDiscoverRuleTags extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * project
@@ -211,7 +211,7 @@ export class EntityDiscoverRuleTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The collection of tag values.
+   * The tag values.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -245,37 +245,37 @@ export class EntityDiscoverRuleTags extends $dara.Model {
 export class EntityDiscoverRule extends $dara.Model {
   /**
    * @remarks
-   * The collection of annotation matching rules.
+   * The annotation matches.
    */
   annotations?: EntityDiscoverRuleAnnotations[];
   /**
    * @remarks
-   * The collection of entity types.
+   * The entity types.
    */
   entityTypes?: string[];
   /**
    * @remarks
-   * The property matching rules.
+   * The field matching rules.
    */
   fieldRules?: EntityDiscoverRuleFieldRules[];
   /**
    * @remarks
-   * The collection of instance IDs.
+   * The instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The collection of IP matching rules.
+   * The IP matching rules.
    */
   ipMatchRule?: EntityDiscoverRuleIpMatchRule;
   /**
    * @remarks
-   * The collection of label matching rules.
+   * The label matches.
    */
   labels?: EntityDiscoverRuleLabels[];
   /**
    * @remarks
-   * The collection of region IDs.
+   * The region IDs.
    */
   regionIds?: string[];
   /**
@@ -288,7 +288,7 @@ export class EntityDiscoverRule extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag-based service discovery settings.
+   * The tags used for service discovery.
    */
   tags?: EntityDiscoverRuleTags[];
   static names(): { [key: string]: string } {

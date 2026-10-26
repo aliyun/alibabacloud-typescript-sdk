@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
   /**
    * @remarks
-   * The display name in Chinese.
+   * The Chinese display name.
    * 
    * @example
-   * Online
+   * 在线
    */
   displayNameCn?: string;
   /**
    * @remarks
-   * The display name in English.
+   * The English display name.
    * 
    * @example
    * Online
@@ -21,7 +21,7 @@ export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
   displayNameEn?: string;
   /**
    * @remarks
-   * The matching value.
+   * The match value.
    * 
    * @example
    * online
@@ -63,7 +63,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   dim?: string;
   /**
    * @remarks
-   * If set to \\`true\\`, the filter item does not appear in the \\`group by\\` clause of a PromQL query.
+   * Specifies whether to disable the dimension. If set to true, the filter item does not appear in the group by clause of PromQL.
    * 
    * @example
    * true
@@ -71,15 +71,15 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   dimDisabled?: boolean;
   /**
    * @remarks
-   * The display name in Chinese.
+   * The Chinese display name.
    * 
    * @example
-   * Application Status
+   * 应用状态
    */
   displayNameCn?: string;
   /**
    * @remarks
-   * The display name in English.
+   * The English display name.
    * 
    * @example
    * Application Status
@@ -87,7 +87,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   displayNameEn?: string;
   /**
    * @remarks
-   * Specifies whether to hide the filter. If hidden, the filter does not appear in the frontend UI. However, its value can be uploaded when rendering a PromQL query. For example, in an Application Performance Management (APM) scenario, the pid filter is typically hidden from the configuration UI. The frontend displays it as a separate application search list.
+   * Specifies whether to hide the filter. If hidden, the filter is not displayed in frontend interactions, but its value can be passed when rendering PromQL. A typical example is the pid filter in APM scenarios, which is typically not displayed through configuration but shown as a separate application search list in the frontend.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   hidden?: boolean;
   /**
    * @remarks
-   * If set to \\`true\\`, the filter item does not appear in the label filter of a PromQL query.
+   * Specifies whether to disable the label. If set to true, the filter item does not appear in the label filter of PromQL.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   labelDisabled?: boolean;
   /**
    * @remarks
-   * The operator for the filter condition.
+   * The filter condition operator.
    * 
    * @example
    * =
@@ -111,7 +111,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   opt?: string;
   /**
    * @remarks
-   * A list of supported options.
+   * The list of supported options.
    */
   supportedOpts?: AlertRuleAlertMetricFilterDefSupportedOpts[];
   static names(): { [key: string]: string } {

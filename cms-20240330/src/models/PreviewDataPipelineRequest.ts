@@ -85,7 +85,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigProjections extend
 export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -114,7 +114,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -122,7 +122,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -181,7 +181,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditionsFie
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * service.name
@@ -230,7 +230,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditions ex
   field?: PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -275,7 +275,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeConditions ex
 export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -318,7 +318,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeMetricName ex
 export class PreviewDataPipelineRequestOutputsProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -408,7 +408,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigScope extends $dar
 export class PreviewDataPipelineRequestOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -504,12 +504,12 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
   projections?: PreviewDataPipelineRequestOutputsProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: PreviewDataPipelineRequestOutputsProcessorsConfigRules[];
   /**
    * @remarks
-   * The pipeline processing scope.
+   * The effective scope of pipeline processing.
    */
   scope?: PreviewDataPipelineRequestOutputsProcessorsConfigScope;
   /**
@@ -651,7 +651,7 @@ export class PreviewDataPipelineRequestOutputsProcessors extends $dara.Model {
 export class PreviewDataPipelineRequestOutputs extends $dara.Model {
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * @example
    * checkout_route
@@ -771,7 +771,7 @@ export class PreviewDataPipelineRequestProcessorsConfigProjections extends $dara
 export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -779,7 +779,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -800,7 +800,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -808,7 +808,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -867,7 +867,7 @@ export class PreviewDataPipelineRequestProcessorsConfigScopeConditionsField exte
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * service.name
@@ -916,7 +916,7 @@ export class PreviewDataPipelineRequestProcessorsConfigScopeConditions extends $
   field?: PreviewDataPipelineRequestProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -961,7 +961,7 @@ export class PreviewDataPipelineRequestProcessorsConfigScopeConditions extends $
 export class PreviewDataPipelineRequestProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1004,7 +1004,7 @@ export class PreviewDataPipelineRequestProcessorsConfigScopeMetricName extends $
 export class PreviewDataPipelineRequestProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1094,7 +1094,7 @@ export class PreviewDataPipelineRequestProcessorsConfigScope extends $dara.Model
 export class PreviewDataPipelineRequestProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1190,12 +1190,12 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   projections?: PreviewDataPipelineRequestProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: PreviewDataPipelineRequestProcessorsConfigRules[];
   /**
    * @remarks
-   * The scope in which pipeline processing takes effect.
+   * The effective scope of pipeline processing.
    */
   scope?: PreviewDataPipelineRequestProcessorsConfigScope;
   /**
@@ -1455,7 +1455,7 @@ export class PreviewDataPipelineRequestSourceConfig extends $dara.Model {
   runMode?: string;
   /**
    * @remarks
-   * The read start point.
+   * The read start position.
    * 
    * @example
    * latest
@@ -1537,7 +1537,7 @@ export class PreviewDataPipelineRequestSource extends $dara.Model {
 export class PreviewDataPipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The pipeline description.
+   * The description of the pipeline.
    * 
    * @example
    * Preview error span routing.
@@ -1545,7 +1545,7 @@ export class PreviewDataPipelineRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The start time of the preview.
+   * The start time of the preview. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1784563200
@@ -1553,7 +1553,7 @@ export class PreviewDataPipelineRequest extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The pipeline type.
+   * The type of the pipeline.
    * 
    * @example
    * custom
@@ -1589,7 +1589,7 @@ export class PreviewDataPipelineRequest extends $dara.Model {
   source?: PreviewDataPipelineRequestSource;
   /**
    * @remarks
-   * The end time for the preview.
+   * The end time for the preview. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1784566800

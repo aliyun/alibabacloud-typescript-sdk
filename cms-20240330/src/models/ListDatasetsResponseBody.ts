@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   /**
    * @remarks
-   * The time the dataset was created, as a UNIX timestamp.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -15,7 +15,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * test_dataset
@@ -23,7 +23,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The description.
    * 
    * @example
    * test dataset
@@ -31,7 +31,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the region where the dataset resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time the dataset was last updated, as a UNIX timestamp.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -49,7 +49,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the workspace that contains the dataset.
+   * The workspace ID.
    * 
    * @example
    * workspace-test
@@ -89,12 +89,12 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
 export class ListDatasetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of dataset objects.
+   * The result set.
    */
   datasets?: ListDatasetsResponseBodyDatasets[];
   /**
    * @remarks
-   * The maximum number of results returned per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -102,7 +102,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A token to retrieve the next page of results. This element is returned only when the result set is truncated.
+   * The pagination token.
    * 
    * @example
    * d9a48d977f45aa6fcf6981ed13b885b3fab0b124c12dcbbe70edce5d81ba****************
@@ -110,7 +110,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -118,7 +118,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of datasets that match the query.
+   * The total number of entries.
    * 
    * @example
    * 96

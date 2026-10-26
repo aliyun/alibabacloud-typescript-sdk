@@ -49,6 +49,7 @@ export { IncidentResponsePlanForSNSViewPushingSetting } from './IncidentResponse
 export { IncidentResponsePlanForSNSViewRepeatNotifySetting } from './IncidentResponsePlanForSnsview';
 export { MaintainWindowForModifyEffectTimeRange } from './MaintainWindowForModify';
 export { MaintainWindowForViewEffectTimeRange } from './MaintainWindowForView';
+export { ManageAlertRulesUnifiedActionInputDrillTimeRange } from './ManageAlertRulesUnifiedActionInput';
 export { MergeRobotExtend } from './MergeRobot';
 export { NotifyRouteForSubscriptionChannels } from './NotifyRouteForSubscription';
 export { NotifyRouteForSubscriptionEffectTimeRange } from './NotifyRouteForSubscription';
@@ -538,6 +539,7 @@ export { AlertRuleRcaConfig } from './AlertRuleRcaConfig';
 export { AlertRuleSend } from './AlertRuleSend';
 export { AlertRuleSlsQueryJoin } from './AlertRuleSlsQueryJoin';
 export { AlertRuleTemplate } from './AlertRuleTemplate';
+export { AlertRuleTemplateApplyRecord } from './AlertRuleTemplateApplyRecord';
 export { AlertRuleTimeSpan } from './AlertRuleTimeSpan';
 export { AlertRuleV2 } from './AlertRuleV2';
 export { ApmCompositeCompareConfig } from './ApmCompositeCompareConfig';

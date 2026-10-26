@@ -29,7 +29,7 @@ export class UpdateAggTaskGroupStatusResponseBody extends $dara.Model {
   aggTaskGroupName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-***
@@ -37,7 +37,7 @@ export class UpdateAggTaskGroupStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the source Prometheus instance for the aggregation task group.
+   * The source Prometheus instance ID of the aggregation node group.
    * 
    * @example
    * rw-xxx

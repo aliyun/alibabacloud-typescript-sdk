@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UmodelEntityField extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the entity field.
-   */
   field?: string;
-  /**
-   * @remarks
-   * The field alias or display value.
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

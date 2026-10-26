@@ -115,7 +115,7 @@ export class ListAlertActionsResponseBodyAlertActionsEssParam extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsFc3Param extends $dara.Model {
   /**
    * @remarks
-   * The function name of the Function Compute service.
+   * The name of the function in Function Compute.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class ListAlertActionsResponseBodyAlertActionsFc3Param extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsFcParam extends $dara.Model {
   /**
    * @remarks
-   * The function name of the Function Compute service.
+   * The name of the function in Function Compute.
    * 
    * @example
    * test
@@ -215,7 +215,7 @@ export class ListAlertActionsResponseBodyAlertActionsFcParam extends $dara.Model
 export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The resource type of Simple Message Queue (formerly MNS).
+   * The resource type in Simple Message Queue (formerly MNS).
    * 
    * @example
    * queue
@@ -223,7 +223,7 @@ export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Mode
   mnsType?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * - If the resource type is queue, the resource name is the queue name.
    * - If the resource type is topic, the resource name is the topic name.
@@ -268,7 +268,7 @@ export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key of PagerDuty.
+   * The integration key for PagerDuty.
    * 
    * @example
    * fsfer4543t5t65g4t4
@@ -276,7 +276,7 @@ export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dar
   key?: string;
   /**
    * @remarks
-   * The integration webhook of PagerDuty. V1 and V2 versions are supported.
+   * The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -308,7 +308,7 @@ export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dar
 export class ListAlertActionsResponseBodyAlertActionsSlsParam extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Logstore in Simple Log Service.
    * 
    * @example
    * test
@@ -316,7 +316,7 @@ export class ListAlertActionsResponseBodyAlertActionsSlsParam extends $dara.Mode
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the project in Simple Log Service.
    * 
    * @example
    * test
@@ -418,7 +418,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
 export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   /**
    * @remarks
-   * The unique IDs of the action integrations.
+   * The unique identifiers of the alert action integrations.
    * 
    * @example
    * test
@@ -426,7 +426,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   alertActionId?: string;
   /**
    * @remarks
-   * The name of the action integration.
+   * The name of the alert action integration.
    * 
    * @example
    * testName
@@ -469,7 +469,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   slsParam?: ListAlertActionsResponseBodyAlertActionsSlsParam;
   /**
    * @remarks
-   * The type of the action integration.
+   * The type of the alert action integration.
    * 
    * @example
    * FC
@@ -548,7 +548,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
 export class ListAlertActionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of action integration configurations.
+   * The list of alert action integration configurations.
    */
   alertActions?: ListAlertActionsResponseBodyAlertActions[];
   /**

@@ -45,7 +45,7 @@ export class ListIntegrationPoliciesRequestTag extends $dara.Model {
 export class ListIntegrationPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The addon name.
+   * The add-on name.
    * 
    * @example
    * cs-default
@@ -61,7 +61,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   bindResourceId?: string;
   /**
    * @remarks
-   * The entity IDs used for filtering. Separate multiple IDs with commas (,).
+   * The entity IDs used for filtering, separated by commas.
    * 
    * @example
    * eg-1,eg-2,eg-3
@@ -69,10 +69,12 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   entityGroupIds?: string;
   /**
    * @remarks
-   * The region IDs used for region-based queries. Separate multiple region IDs with commas (,).
+   * The region IDs used for the query, separated by commas.
    * 
    * @example
    * cn-beijing,cn-hangzhou
+   * 
+   * @deprecated
    */
   filterRegionIds?: string;
   /**
@@ -85,7 +87,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve more results. You do not need to specify this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+   * The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token returned in the previous response.
    * 
    * @example
    * mvnX6zqg3P
@@ -125,7 +127,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The general query string.
+   * The query string for general queries.
    * 
    * @example
    * test
@@ -141,7 +143,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: ListIntegrationPoliciesRequestTag[];
   /**

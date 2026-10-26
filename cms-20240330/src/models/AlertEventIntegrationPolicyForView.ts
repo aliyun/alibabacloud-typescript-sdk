@@ -7,7 +7,7 @@ import { TransformAction } from "./TransformAction";
 export class AlertEventIntegrationPolicyForView extends $dara.Model {
   /**
    * @remarks
-   * The universally unique identifier (UUID).
+   * UUID
    * 
    * @example
    * 123123123
@@ -25,7 +25,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   alertEventIntegrationPolicyName?: string;
   /**
    * @remarks
-   * The time when the policy was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -41,7 +41,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the policy is enabled.
+   * Specifies whether it is enabled.
    * 
    * @example
    * true
@@ -62,7 +62,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   integrationSetting?: string;
   /**
    * @remarks
-   * The key for the integration\\"s reporting endpoint.
+   * The reporting entry key for the integration.
    * 
    * @example
    * 10-16818f1445e10a1d012922b285bfb334
@@ -70,7 +70,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The transformation settings.
+   * The transform settings.
    */
   transformerSetting?: TransformAction[];
   /**
@@ -83,7 +83,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the policy was last updated.
+   * The update time.
    * 
    * @example
    * 2024-12-16T02:00:23Z
@@ -99,7 +99,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * workspace
    * 
    * @example
    * workspace-test

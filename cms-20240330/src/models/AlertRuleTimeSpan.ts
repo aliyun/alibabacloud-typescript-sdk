@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleTimeSpan extends $dara.Model {
   /**
    * @remarks
-   * The days of the week.
+   * The day of the week.
    */
   dayOfWeek?: number[];
   /**
    * @remarks
-   * The end time. The format is HH:mm.
+   * The end time in HH:mm format.
    * 
    * @example
    * 23:00
@@ -18,7 +18,7 @@ export class AlertRuleTimeSpan extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The default value is +0800 (UTC+8).
+   * The default UTC+8 offset: +0800.
    * 
    * @example
    * +0800
@@ -26,7 +26,7 @@ export class AlertRuleTimeSpan extends $dara.Model {
   gmtOffset?: string;
   /**
    * @remarks
-   * The start time. The format is HH:mm.
+   * The start time in HH:mm format.
    * 
    * @example
    * 09:00

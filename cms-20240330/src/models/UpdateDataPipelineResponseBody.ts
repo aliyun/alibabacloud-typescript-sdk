@@ -85,7 +85,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjec
 export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -114,7 +114,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -122,7 +122,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -181,7 +181,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeC
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * instanceId
@@ -230,7 +230,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeC
   field?: UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -275,7 +275,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeC
 export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -318,7 +318,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeM
 export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -408,7 +408,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope 
 export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -504,12 +504,12 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
   projections?: UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules[];
   /**
    * @remarks
-   * The scope in which the pipeline processing processor takes effect.
+   * The effective scope of pipeline processing.
    */
   scope?: UpdateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope;
   /**
@@ -651,7 +651,7 @@ export class UpdateDataPipelineResponseBodyPipelineOutputsProcessors extends $da
 export class UpdateDataPipelineResponseBodyPipelineOutputs extends $dara.Model {
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * @example
    * checkout_route
@@ -771,7 +771,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigProjections e
 export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -779,7 +779,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -800,7 +800,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -808,7 +808,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -867,7 +867,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditio
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * name
@@ -916,7 +916,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditio
   field?: UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -961,7 +961,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeConditio
 export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1004,7 +1004,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricNa
 export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1094,7 +1094,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigScope extends
 export class UpdateDataPipelineResponseBodyPipelineProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1190,12 +1190,12 @@ export class UpdateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
   projections?: UpdateDataPipelineResponseBodyPipelineProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: UpdateDataPipelineResponseBodyPipelineProcessorsConfigRules[];
   /**
    * @remarks
-   * The scope in which the pipeline processing processor takes effect.
+   * The effective scope of the pipeline processing.
    */
   scope?: UpdateDataPipelineResponseBodyPipelineProcessorsConfigScope;
   /**
@@ -1337,7 +1337,7 @@ export class UpdateDataPipelineResponseBodyPipelineProcessors extends $dara.Mode
 export class UpdateDataPipelineResponseBodyPipelineSinks extends $dara.Model {
   /**
    * @remarks
-   * The list of datasets.
+   * The dataset list.
    */
   datasets?: string[];
   /**
@@ -1350,7 +1350,7 @@ export class UpdateDataPipelineResponseBodyPipelineSinks extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the output destination.
+   * The output destination name.
    * 
    * @example
    * error-archive
@@ -1366,7 +1366,7 @@ export class UpdateDataPipelineResponseBodyPipelineSinks extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The type of the output destination.
+   * The output destination type.
    * 
    * @example
    * logstore
@@ -1455,7 +1455,7 @@ export class UpdateDataPipelineResponseBodyPipelineSourceConfig extends $dara.Mo
   runMode?: string;
   /**
    * @remarks
-   * The read start point.
+   * The start position.
    * 
    * @example
    * latest
@@ -1502,7 +1502,7 @@ export class UpdateDataPipelineResponseBodyPipelineSource extends $dara.Model {
   config?: UpdateDataPipelineResponseBodyPipelineSourceConfig;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * traces-default
@@ -1537,7 +1537,7 @@ export class UpdateDataPipelineResponseBodyPipelineSource extends $dara.Model {
 export class UpdateDataPipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The time when the data pipeline was created.
+   * The creation time in UTC format based on the ISO 8601 standard, such as 2026-08-10T05:00:00Z.
    * 
    * This parameter is required.
    * 
@@ -1549,7 +1549,7 @@ export class UpdateDataPipelineResponseBodyPipeline extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The pipeline description.
+   * The description of the pipeline.
    * 
    * @example
    * Export selected trace services to the target workspace.
@@ -1557,7 +1557,7 @@ export class UpdateDataPipelineResponseBodyPipeline extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The pipeline type.
+   * The type of the pipeline.
    * 
    * This parameter is required.
    * 
@@ -1574,7 +1574,7 @@ export class UpdateDataPipelineResponseBodyPipeline extends $dara.Model {
   outputs?: UpdateDataPipelineResponseBodyPipelineOutputs[];
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * This parameter is required.
    * 
@@ -1633,7 +1633,7 @@ export class UpdateDataPipelineResponseBodyPipeline extends $dara.Model {
   statusMessage?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
    * 
    * This parameter is required.
    * 

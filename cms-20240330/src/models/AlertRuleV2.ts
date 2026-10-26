@@ -24,20 +24,20 @@ export class AlertRuleV2 extends $dara.Model {
   annotations?: { [key: string]: string };
   /**
    * @remarks
-   * The Application Real-Time Monitoring Service (ARMS) integration configuration.
+   * The ARMS integration configuration.
    */
   armsIntegrationConfig?: ArmsIntegrationConfig;
   /**
    * @remarks
-   * The business source (read-only, such as managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, or sls).
+   * The business source (read-only, such as managed_service_for_prometheus / umodel / application_insights / cloud_monitoring / sls).
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   bizSource?: string;
   /**
    * @remarks
-   * The detection condition configuration aggregation (Prometheus simple, UModel, APM simple, or APM composite).
+   * The detection condition configuration aggregate (Prometheus simple / UModel / APM simple / APM composite).
    */
   conditionConfig?: ConditionConfigUnified;
   /**
@@ -58,12 +58,12 @@ export class AlertRuleV2 extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The datasource config aggregation (PROMETHEUS, UMODEL, and APM share a single object, with fields selected based on type).
+   * The datasource configuration aggregate (shared by PROMETHEUS / UMODEL / APM in a single object; fields are selected based on the type).
    */
   datasourceConfig?: DatasourceConfigUnified;
   /**
    * @remarks
-   * The data source type (read-only, derived).
+   * The datasource type (read-only, derived).
    * 
    * @example
    * default
@@ -74,12 +74,12 @@ export class AlertRuleV2 extends $dara.Model {
    * The display name.
    * 
    * @example
-   * CPU usage alert 95%
+   * CPU resource usage alert 95%
    */
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the alert rule is enabled.
+   * Specifies whether the alert rule is enabled.
    * 
    * @example
    * true
@@ -92,7 +92,7 @@ export class AlertRuleV2 extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The rule manager (read-only). An empty value indicates a user-created rule. A non-empty value indicates the rule is created and managed by the corresponding cloud service.
+   * The rule manager (read-only). An empty value indicates a user-created rule. A non-empty value indicates that the rule was created and managed by the corresponding cloud service.
    * 
    * @example
    * integrationCenter
@@ -100,12 +100,12 @@ export class AlertRuleV2 extends $dara.Model {
   managedBy?: string;
   /**
    * @remarks
-   * The notification configuration aggregation (currently only DIRECT_NOTIFY, corresponding to DirectNotifyConfig).
+   * The notification configuration aggregate (currently only DIRECT_NOTIFY, corresponding to DirectNotifyConfig).
    */
   notifyConfig?: NotifyConfigUnified;
   /**
    * @remarks
-   * The notification policy ID (read-only, derived, the first entry in the notification policy list).
+   * The notification policy ID (read-only, derived from the first entry in the notification policy list).
    * 
    * @example
    * example-id-001
@@ -118,7 +118,7 @@ export class AlertRuleV2 extends $dara.Model {
   observeResourceConfig?: ObserveResourceConfig;
   /**
    * @remarks
-   * **[Deprecated]** Indicates whether the rule takes effect on all resources of this type (read-only, derived). For new integrations, use observeResourceConfig.relationType to check whether the value is ALL for equivalent semantics.
+   * **[Deprecated]** Specifies whether the rule applies to all resources of the resource type (read-only, derived). For new integrations, use observeResourceConfig.relationType to check whether the value is ALL for equivalent semantics.
    * 
    * @example
    * true
@@ -128,7 +128,7 @@ export class AlertRuleV2 extends $dara.Model {
   observeResourceGlobalScope?: boolean;
   /**
    * @remarks
-   * The list of observable resource IDs (read-only, derived).
+   * The observable resource ID list (read-only, derived).
    */
   observeResourceList?: string[];
   /**
@@ -146,22 +146,22 @@ export class AlertRuleV2 extends $dara.Model {
    * The partition key (read-only, maintained by the system for rule routing and sharding).
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   partitionKey?: string;
   /**
    * @remarks
-   * The query configuration aggregation (PROMETHEUS_SINGLE_QUERY, UMODEL_METRICSET_QUERY, or APM_MULTI_QUERY).
+   * The query configuration aggregate (PROMETHEUS_SINGLE_QUERY / UMODEL_METRICSET_QUERY / APM_MULTI_QUERY).
    */
   queryConfig?: QueryConfigUnified;
   /**
    * @remarks
-   * The Root Cause Analysis (RCA) configuration.
+   * The RCA (root cause analysis) configuration.
    */
   rcaConfig?: AlertRuleRcaConfig;
   /**
    * @remarks
-   * The region ID (aligned with V1 AlertRule.regionId. Priority: regionId in the request body > callerRegionId from the gateway).
+   * The region ID (aligned with V1 AlertRule.regionId; priority: request body regionId > gateway callerRegionId).
    * 
    * @example
    * example-id-001
@@ -169,12 +169,12 @@ export class AlertRuleV2 extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scheduling configuration aggregation (currently only FIXED is supported).
+   * The scheduling configuration aggregate (currently only FIXED is supported).
    */
   scheduleConfig?: ScheduleConfigUnified;
   /**
    * @remarks
-   * The severity levels covered by this rule, comma-separated (read-only, derived. Same format as the filter.severityLevels query parameter).
+   * The severity levels covered by this rule, comma-separated (read-only, derived; consistent with the filter.severityLevels query parameter format).
    * 
    * @example
    * 1

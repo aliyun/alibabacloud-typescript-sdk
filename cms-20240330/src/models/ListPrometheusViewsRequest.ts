@@ -45,10 +45,12 @@ export class ListPrometheusViewsRequestTag extends $dara.Model {
 export class ListPrometheusViewsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters by region ID.
+   * Filters the results by region ID. Currently, only a single region ID is supported.
    * 
    * @example
    * cn-zhangjiakou,cn-beijing
+   * 
+   * @deprecated
    */
   filterRegionIds?: string;
   /**
@@ -83,7 +85,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   prometheusViewIds?: string;
   /**
    * @remarks
-   * The Prometheus view name.
+   * The name of the Prometheus view.
    * 
    * @example
    * view1
@@ -91,7 +93,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm3gn5i6bigbi
@@ -112,7 +114,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   tag?: ListPrometheusViewsRequestTag[];
   /**
    * @remarks
-   * The instance version: V1 or V2.
+   * The instance version.
    * 
    * @example
    * V2
@@ -120,7 +122,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * workspace-test

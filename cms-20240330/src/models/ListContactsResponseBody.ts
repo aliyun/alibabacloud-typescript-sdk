@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert contact.
+   * The ID of the on-duty contact.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * The email address of the alert contact.
+   * The email address of the contact.
    * 
    * @example
    * test@aliyun.com
@@ -21,7 +21,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the email address is verified.
+   * Indicates whether the email address is activated.
    * 
    * @example
    * true
@@ -29,12 +29,12 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   emailVerify?: boolean;
   /**
    * @remarks
-   * The contact groups to which the alert contact belongs.
+   * The contact groups to which the contact belongs.
    */
   groupList?: string[];
   /**
    * @remarks
-   * The mapping of instant messaging user IDs. Multiple instant messaging tools are supported.
+   * The IM user ID mapping. Multiple instant messaging tools are supported.
    */
   imUserIds?: { [key: string]: string };
   /**
@@ -47,7 +47,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the alert contact.
+   * The name of the contact.
    * 
    * @example
    * test
@@ -55,7 +55,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The phone number of the alert contact.
+   * The mobile phone number of the contact.
    * 
    * @example
    * 130123456789
@@ -63,7 +63,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Indicates whether the phone number of the alert contact is verified.
+   * Indicates whether the mobile phone number of the contact is activated.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phoneVerify?: boolean;
   /**
    * @remarks
-   * The time when the alert contact was last updated. Format: yyyy-MM-dd HH:mm:ss.
+   * The update time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-22 02:21:51
@@ -79,7 +79,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-5884500827389836-cn-hangzhou
@@ -135,7 +135,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
 export class ListContactsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of alert contacts.
+   * The list of contacts.
    */
   contacts?: ListContactsResponseBodyContacts[];
   /**
@@ -164,7 +164,7 @@ export class ListContactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 56

@@ -29,7 +29,7 @@ export class GetCloudResourceDataResponseBodyResponseStatusStatusItem extends $d
   message?: string;
   /**
    * @remarks
-   * The suggestion when an execution error occurs.
+   * The suggestions provided when an execution error occurs.
    * 
    * @example
    * Try to reduce the query scope or increase timeout limit, then retry
@@ -65,7 +65,7 @@ export class GetCloudResourceDataResponseBodyResponseStatusStatusItem extends $d
 export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model {
   /**
    * @remarks
-   * The information during execution.
+   * The information during the execution process.
    * 
    * @example
    * {}
@@ -135,12 +135,12 @@ export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model 
 export class GetCloudResourceDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total list of returned data.
+   * The total number of returned data records.
    */
   data?: string[][];
   /**
    * @remarks
-   * The list of headers.
+   * The list of request headers.
    */
   header?: string[];
   /**

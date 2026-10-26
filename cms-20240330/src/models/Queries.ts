@@ -6,7 +6,7 @@ import { LabelFilters } from "./LabelFilters";
 export class Queries extends $dara.Model {
   /**
    * @remarks
-   * The end offset of the time range for SLS_MULTI_QUERY. This parameter is mutually exclusive with window.
+   * The end offset of the time range for SLS_MULTI_QUERY (mutually exclusive with window).
    * 
    * @example
    * 100
@@ -14,18 +14,18 @@ export class Queries extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The query expression. For PROMETHEUS_MULTI_QUERY, this is a PromQL expression. For SLS_MULTI_QUERY, this is an SPL expression.
+   * The query expression (PromQL for PROMETHEUS_MULTI_QUERY and SPL for SLS_MULTI_QUERY).
    * 
    * @example
-   * SampleValue
+   * 示例值
    */
   expr?: string;
   /**
    * @remarks
-   * The label filter conditions for UMODEL_METRICSET_MULTI_QUERY. This parameter is optional and independent for each query.
+   * The label filter conditions for UMODEL_METRICSET_MULTI_QUERY (optional and independent per query).
    * 
    * @example
-   * [{"key":"host.name","value":"web-server-01","type":"eq"}]
+   * [{"name":"env","operator":"=","value":"prod"}]
    */
   labelFilters?: LabelFilters[];
   /**
@@ -33,7 +33,7 @@ export class Queries extends $dara.Model {
    * The metric name for UMODEL_METRICSET_MULTI_QUERY.
    * 
    * @example
-   * SampleName
+   * 示例名称
    */
   metric?: string;
   /**
@@ -41,20 +41,20 @@ export class Queries extends $dara.Model {
    * The metric set name for UMODEL_METRICSET_MULTI_QUERY.
    * 
    * @example
-   * SampleName
+   * 示例名称
    */
   metricSet?: string;
   /**
    * @remarks
-   * The query name used by PROMETHEUS_MULTI_QUERY and UMODEL_METRICSET_MULTI_QUERY, such as $A or $B, which can be referenced by condition triggers.
+   * The query name for PROMETHEUS_MULTI_QUERY or UMODEL_METRICSET_MULTI_QUERY (such as $A or $B, referenced by condition triggers).
    * 
    * @example
-   * SampleName
+   * 示例名称
    */
   name?: string;
   /**
    * @remarks
-   * The start offset of the time range for SLS_MULTI_QUERY. This parameter is mutually exclusive with window.
+   * The start offset of the time range for SLS_MULTI_QUERY (mutually exclusive with window).
    * 
    * @example
    * 100
@@ -62,7 +62,7 @@ export class Queries extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * The time unit for SLS_MULTI_QUERY. Valid values: day, hour, minute, and second.
+   * The time unit for SLS_MULTI_QUERY (day, hour, minute, or second).
    * 
    * @example
    * second
@@ -70,7 +70,7 @@ export class Queries extends $dara.Model {
   timeUnit?: string;
   /**
    * @remarks
-   * The snap window size for SLS_MULTI_QUERY. This parameter is mutually exclusive with start and end.
+   * The alignment window size for SLS_MULTI_QUERY (mutually exclusive with start and end).
    * 
    * @example
    * 100

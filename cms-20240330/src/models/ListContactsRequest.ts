@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the alert contacts.
+   * The IDs of the contacts.
    */
   contactIds?: string[];
   /**
    * @remarks
-   * The email address of the alert contact.
+   * The email address of the contact.
    * 
    * @example
    * test@aliyun.com
@@ -18,7 +18,7 @@ export class ListContactsRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The ID of the contact group to which the alert contact belongs.
+   * The ID of the contact group to which the contact belongs.
    * 
    * @example
    * group-id-123
@@ -26,7 +26,7 @@ export class ListContactsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the alert contact.
+   * The name of the contact.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class ListContactsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The phone number of the alert contact.
+   * The mobile phone number of the contact.
    * 
    * @example
    * 15012345678
@@ -58,7 +58,7 @@ export class ListContactsRequest extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Specifies whether to query only ungrouped alert contacts.
+   * Specifies whether to query only ungrouped contacts.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class ListContactsRequest extends $dara.Model {
   queryUngroupedContacts?: boolean;
   /**
    * @remarks
-   * The workspace name. Format: `default-cms-{accountId}-{region}`. Example: `default-cms-1744108686100472-cn-hangzhou`. You can call the ListWorkspaces API to obtain valid workspace names.
+   * The name of the workspace. Format: `default-cms-{accountId}-{region}`, such as `default-cms-1744108686100472-cn-hangzhou`. You can call the ListWorkspaces API operation to obtain valid workspace names.
    * 
    * @example
    * default-cms-1744108686100472-cn-hangzhou

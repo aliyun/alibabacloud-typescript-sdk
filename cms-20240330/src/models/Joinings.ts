@@ -6,10 +6,10 @@ import { JoinConditions } from "./JoinConditions";
 export class Joinings extends $dara.Model {
   /**
    * @remarks
-   * The list of join conditions for result sets. The conditions define the matching rules between multiple result sets and are used to merge query results from different data sources based on specified conditions.
+   * The list of join conditions for query result sets, which defines the matching rules between multiple query result sets to merge query results from different data sources based on specified conditions.
    * 
    * @example
-   * [{"leftField":"host","operator":"eq","rightField":"instance_id"}]
+   * [{"lhsField":"$0.hostIp","operator":"==","rhsField":"$1.hostIp"}]
    */
   conditions?: JoinConditions[];
   /**

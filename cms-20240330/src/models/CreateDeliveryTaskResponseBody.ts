@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID for the request.
+   * Id of the request
    * 
    * @example
    * 4CB23A2E-B426-5D4B-9AA2-6C7A508D954B

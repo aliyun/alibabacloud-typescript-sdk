@@ -6,7 +6,7 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the policy is effective.
+   * The effective days of the week (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
@@ -66,7 +66,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
 export class MaintainWindowForView extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -82,7 +82,7 @@ export class MaintainWindowForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective time range.
+   * The effective period range.
    */
   effectTimeRange?: MaintainWindowForViewEffectTimeRange;
   /**
@@ -95,7 +95,7 @@ export class MaintainWindowForView extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * Indicates whether the policy is enabled.
+   * Indicates whether the mute policy is enabled.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class MaintainWindowForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The end time of the effective period.
+   * The effective end time.
    * 
    * @example
    * 2024-11-26 12:02:01
@@ -116,7 +116,7 @@ export class MaintainWindowForView extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * The UUID.
+   * UUID
    * 
    * @example
    * 123-12-312-31-23123
@@ -129,12 +129,12 @@ export class MaintainWindowForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test policy.
+   * 测试策略
    */
   maintainWindowName?: string;
   /**
    * @remarks
-   * The start time of the effective period.
+   * The effective start time.
    * 
    * @example
    * 2024-11-26 10:02:01
@@ -142,7 +142,7 @@ export class MaintainWindowForView extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The last time the resource was updated.
+   * The update time.
    * 
    * @example
    * 2025-05-07T02:19:05Z
@@ -158,7 +158,7 @@ export class MaintainWindowForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * workspace
    * 
    * @example
    * workspace-test

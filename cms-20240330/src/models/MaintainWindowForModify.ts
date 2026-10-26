@@ -6,7 +6,7 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the policy is effective (Monday to Sunday).
+   * The effective days (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
@@ -74,7 +74,7 @@ export class MaintainWindowForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective time range.
+   * The effective period range.
    */
   effectTimeRange?: MaintainWindowForModifyEffectTimeRange;
   /**
@@ -87,7 +87,7 @@ export class MaintainWindowForModify extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * The time when the policy stops taking effect.
+   * The effective end time.
    * 
    * @example
    * 2024-09-05 09:30:40
@@ -110,7 +110,7 @@ export class MaintainWindowForModify extends $dara.Model {
   maintainWindowName?: string;
   /**
    * @remarks
-   * The time when the policy starts to take effect.
+   * The effective start time.
    * 
    * @example
    * 2025-04-11 07:55:00

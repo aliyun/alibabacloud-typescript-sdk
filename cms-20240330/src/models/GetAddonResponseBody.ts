@@ -145,7 +145,7 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
 export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The data check rule that is used after installation.
+   * The data check rule after installation.
    */
   promQL?: string[];
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class GetAddonResponseBodyDataEnvironmentsPoliciesProtocols extends $dara
 export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * The status of the default policy for alert rules.
+   * The enabled status of the default alert rule policy.
    * 
    * @example
    * true
@@ -251,7 +251,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   defaultInstall?: boolean;
   /**
    * @remarks
-   * Indicates whether a service account is assigned for communication with the console API.
+   * Indicates whether a service account is assigned to communicate with the Console API.
    * 
    * @example
    * true
@@ -264,7 +264,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   metricCheckRule?: GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Indicates whether to guide the user to restart pods after the add-on is installed.
+   * Indicates whether a pod restart is triggered immediately after the add-on is installed during integration.
    * 
    * @example
    * true
@@ -272,12 +272,12 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   needRestartAfterIntegration?: boolean;
   /**
    * @remarks
-   * The protocol.
+   * The protocols.
    */
   protocols?: GetAddonResponseBodyDataEnvironmentsPoliciesProtocols[];
   /**
    * @remarks
-   * The name of the target add-on to which the system redirects.
+   * The name of the target add-on for redirection.
    * 
    * @example
    * cs-default
@@ -330,7 +330,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   commonSchemaRefs?: GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs[];
   /**
    * @remarks
-   * The dependencies.
+   * The additional dependencies.
    */
   dependencies?: GetAddonResponseBodyDataEnvironmentsDependencies;
   /**
@@ -343,7 +343,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the feature is enabled.
+   * Indicates whether the environment is enabled.
    * 
    * @example
    * false
@@ -354,7 +354,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
    * The display name of the environment.
    * 
    * @example
-   * 容器环境
+   * Container environment
    */
   label?: string;
   /**
@@ -367,7 +367,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    */
   policies?: GetAddonResponseBodyDataEnvironmentsPolicies;
   /**
@@ -425,7 +425,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
 export class GetAddonResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alias of the component.
+   * The alias of the integrated component.
    * 
    * @example
    * resume_vector_alias
@@ -433,7 +433,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The list of component categories.
+   * The list of categories for the integrated component.
    */
   categories?: string[];
   /**
@@ -451,7 +451,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment information.
+   * The environment context.
    */
   environments?: GetAddonResponseBodyDataEnvironments[];
   /**
@@ -477,7 +477,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the latest version was created.
+   * The latest creation time.
    * 
    * @example
    * 2023-09-12 12:30:30
@@ -517,7 +517,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The weight.
+   * The weight value.
    * 
    * @example
    * 10
@@ -585,12 +585,12 @@ export class GetAddonResponseBodyData extends $dara.Model {
 export class GetAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of data corresponding to the request header.
    */
   data?: GetAddonResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

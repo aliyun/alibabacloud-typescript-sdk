@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBizTracesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 100.
+   * The maximum number of results to return. Maximum value: 100.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListBizTracesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * aa9d0e569b88098a0e3155c29b473201a

@@ -14,7 +14,7 @@ export class EntityGroupBaseEntityQueries extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The Structured Process Language (SPL) search statement.
+   * The SPL query statement.
    * 
    * @example
    * .entity with(type=\\"acs.ecs.instance\\") | where region_id in (\\"cn-beijing\\")
@@ -49,7 +49,7 @@ export class EntityGroupBase extends $dara.Model {
    * The entity description.
    * 
    * @example
-   * ECS 实例
+   * ECS instance
    */
   description?: string;
   /**
@@ -65,17 +65,17 @@ export class EntityGroupBase extends $dara.Model {
    * The entity name.
    * 
    * @example
-   * ECS 全部实体
+   * All ECS entities
    */
   entityGroupName?: string;
   /**
    * @remarks
-   * A collection of entity query rules.
+   * The entity query rule set.
    */
   entityQueries?: EntityGroupBaseEntityQueries[];
   /**
    * @remarks
-   * The rule for entity discovery.
+   * The rules used for entity discovery.
    */
   entityRules?: EntityDiscoverRule;
   /**

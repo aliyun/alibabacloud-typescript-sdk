@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMemoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID of the application.
+   * 
    * @example
    * test_user_001
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * test_user_001
    */
   appId?: string;
   /**
    * @remarks
-   * The time when the memory was created.
+   * The creation time.
    * 
    * @example
    * 1751595283143
@@ -39,7 +45,7 @@ export class GetMemoryResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * This property is mutable.
+   * The immutable properties.
    * 
    * @example
    * test
@@ -47,7 +53,7 @@ export class GetMemoryResponseBody extends $dara.Model {
   immutable?: string;
   /**
    * @remarks
-   * The memory content.
+   * The memory.
    * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
@@ -71,7 +77,7 @@ export class GetMemoryResponseBody extends $dara.Model {
   organization?: string;
   /**
    * @remarks
-   * The owner of the memory.
+   * The memory owner.
    * 
    * @example
    * test
@@ -86,19 +92,25 @@ export class GetMemoryResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The run ID.
+   * 
    * @example
    * test_user_001
    */
   runId?: string;
   /**
    * @remarks
-   * The time when the memory was last updated.
+   * The update time.
    * 
    * @example
    * 1744428159434
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * test_user_001
    */

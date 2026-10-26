@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The content type of the data. Valid values:
+   * The data content type. Valid values:
    * - JSON (default)
    * - FORM
    * 

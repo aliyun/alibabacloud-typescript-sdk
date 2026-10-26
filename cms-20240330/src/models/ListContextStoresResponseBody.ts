@@ -21,7 +21,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The creation time of the context store. The value is a Unix timestamp in milliseconds.
+   * The creation time in UTC format based on the ISO 8601 standard. Example: 2026-08-10T05:00:00Z.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -31,7 +31,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the context store.
+   * The description.
    * 
    * @example
    * test
@@ -47,7 +47,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the context store.
+   * The status.
    * 
    * @example
    * active
@@ -55,7 +55,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time of the context store. The value is a Unix timestamp in milliseconds.
+   * The update time in UTC format based on the ISO 8601 standard. Example: 2026-08-10T05:10:00Z.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -65,7 +65,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * workspace-test
@@ -109,7 +109,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
 export class ListContextStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results returned per page.
+   * The maximum number of returned results.
    * 
    * @example
    * 100
@@ -117,7 +117,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this field is empty, all results have been returned.
+   * The pagination token.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -125,7 +125,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -133,12 +133,12 @@ export class ListContextStoresResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of context stores.
+   * The returned results.
    */
   results?: ListContextStoresResponseBodyResults[];
   /**
    * @remarks
-   * The total number of context stores.
+   * The total count.
    * 
    * @example
    * 56

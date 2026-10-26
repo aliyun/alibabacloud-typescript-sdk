@@ -13,7 +13,7 @@ export class CreateBizTraceResponseBody extends $dara.Model {
   bizTraceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

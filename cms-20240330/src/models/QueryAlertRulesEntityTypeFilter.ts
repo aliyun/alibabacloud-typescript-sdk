@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAlertRulesEntityTypeFilter extends $dara.Model {
   /**
    * @remarks
-   * Matches any value in the set (OR semantics).
+   * The match for any item in the set (OR semantics).
    * 
    * @example
    * ["UMODEL_ENTITY","CLOUD_INSTANCE"]
@@ -13,7 +13,7 @@ export class QueryAlertRulesEntityTypeFilter extends $dara.Model {
   in?: string[];
   /**
    * @remarks
-   * Excludes any value in the set (NOT IN semantics).
+   * The exclusion of any item in the set (NOT IN semantics).
    * 
    * @example
    * ["TAG"]

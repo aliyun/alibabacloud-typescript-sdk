@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineResponseBodyExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start time of the execution, as a Unix timestamp.
+   * The start timestamp.
    * 
    * @example
    * 1772519013
@@ -13,7 +13,7 @@ export class GetPipelineResponseBodyExecutePolicyRunOnce extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The end time of the execution, as a Unix timestamp.
+   * The end timestamp.
    * 
    * @example
    * 1772519013
@@ -45,7 +45,7 @@ export class GetPipelineResponseBodyExecutePolicyRunOnce extends $dara.Model {
 export class GetPipelineResponseBodyExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The start time of the execution, as a Unix timestamp.
+   * The start timestamp.
    * 
    * @example
    * 1772519013
@@ -53,7 +53,7 @@ export class GetPipelineResponseBodyExecutePolicyScheduled extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The execution interval in seconds.
+   * The time interval.
    * 
    * @example
    * 86400
@@ -93,12 +93,12 @@ export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The configuration for a one-time execution.
+   * The configuration for one-time execution.
    */
   runOnce?: GetPipelineResponseBodyExecutePolicyRunOnce;
   /**
    * @remarks
-   * The configuration for a scheduled execution.
+   * The configuration for scheduled execution.
    */
   scheduled?: GetPipelineResponseBodyExecutePolicyScheduled;
   static names(): { [key: string]: string } {
@@ -143,7 +143,7 @@ export class GetPipelineResponseBodyPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The parameters for the node.
+   * The parameters.
    */
   parameters?: { [key: string]: any };
   /**
@@ -185,7 +185,7 @@ export class GetPipelineResponseBodyPipelineNodes extends $dara.Model {
 export class GetPipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The nodes in the pipeline.
+   * The nodes.
    */
   nodes?: GetPipelineResponseBodyPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -215,7 +215,7 @@ export class GetPipelineResponseBodyPipeline extends $dara.Model {
 export class GetPipelineResponseBodySinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The dataset name.
+   * The dataset.
    * 
    * @example
    * dataset_1
@@ -255,12 +255,12 @@ export class GetPipelineResponseBodySinkDataset extends $dara.Model {
 export class GetPipelineResponseBodySink extends $dara.Model {
   /**
    * @remarks
-   * The dataset configuration.
+   * The dataset information.
    */
   dataset?: GetPipelineResponseBodySinkDataset;
   /**
    * @remarks
-   * The sink type.
+   * The output destination type.
    * 
    * @example
    * dataset
@@ -295,7 +295,7 @@ export class GetPipelineResponseBodySink extends $dara.Model {
 export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The name of the Log Service Logstore.
+   * The Simple Log Service Logstore name.
    * 
    * @example
    * test-logstore
@@ -303,12 +303,19 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Log Service project.
+   * The Simple Log Service project name.
    * 
    * @example
    * test-project
    */
   project?: string;
+  /**
+   * @remarks
+   * The filter statement for the Simple Log Service Logstore.
+   * 
+   * @example
+   * status:500 and method:GET
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -338,12 +345,12 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
 export class GetPipelineResponseBodySource extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the Log Service Logstore.
+   * The Simple Log Service Logstore information.
    */
   logstore?: GetPipelineResponseBodySourceLogstore;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * logstore
@@ -388,7 +395,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the pipeline.
+   * The description.
    * 
    * @example
    * workspace test
@@ -401,7 +408,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   executePolicy?: GetPipelineResponseBodyExecutePolicy;
   /**
    * @remarks
-   * The pipeline configuration.
+   * The pipeline information.
    */
   pipeline?: GetPipelineResponseBodyPipeline;
   /**
@@ -430,12 +437,12 @@ export class GetPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The pipeline\\"s data sink.
+   * The output destination.
    */
   sink?: GetPipelineResponseBodySink;
   /**
    * @remarks
-   * The pipeline\\"s data source.
+   * The data source.
    */
   source?: GetPipelineResponseBodySource;
   /**

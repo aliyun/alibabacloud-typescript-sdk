@@ -6,10 +6,10 @@ import { LabelFilters } from "./LabelFilters";
 export class MetricSetNamedQueryEntry extends $dara.Model {
   /**
    * @remarks
-   * The label filter conditions. This parameter is optional and independent for each query.
+   * The optional label filter conditions, which are independent for each query.
    * 
    * @example
-   * [{"key":"host.name","value":"web-server-01","type":"eq"}]
+   * [{"name":"env","operator":"=","value":"prod"}]
    */
   labelFilters?: LabelFilters[];
   /**
@@ -30,7 +30,7 @@ export class MetricSetNamedQueryEntry extends $dara.Model {
   metricSet?: string;
   /**
    * @remarks
-   * The query name, such as $A or $B, referenced by condition triggers.
+   * The query name, such as $A or $B, referenced by the condition trigger.
    * 
    * @example
    * cpuQuery

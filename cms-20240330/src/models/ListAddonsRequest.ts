@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values: zh and en. The default value is zh.
+   * The locale. Valid values: zh and en. Default value: zh.
    * 
    * @example
    * zh
    */
   aliyunLang?: string;
+  apiVersion?: string;
   /**
    * @remarks
-   * Tag filtering.
+   * The tag filter.
    * 
    * @example
    * database
@@ -21,12 +22,15 @@ export class ListAddonsRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to use regular expressions for the search. The default value is false.
+   * Specifies whether to use regular expression matching for the query field. Default value: false.
+   * 
+   * @example
+   * false
    */
   regexp?: boolean;
   /**
    * @remarks
-   * The search keyword. You can search for add-ons by name, description, or keyword.
+   * The search query. Supports searching by add-on name, description, or keyword.
    * 
    * @example
    * 105095
@@ -35,6 +39,7 @@ export class ListAddonsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aliyunLang: 'aliyunLang',
+      apiVersion: 'apiVersion',
       category: 'category',
       regexp: 'regexp',
       search: 'search',
@@ -44,6 +49,7 @@ export class ListAddonsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aliyunLang: 'string',
+      apiVersion: 'string',
       category: 'string',
       regexp: 'boolean',
       search: 'string',

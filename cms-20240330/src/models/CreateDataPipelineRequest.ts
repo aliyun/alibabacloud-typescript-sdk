@@ -85,7 +85,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigProjections extends
 export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -114,7 +114,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -181,7 +181,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeConditionsFiel
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * serviceName
@@ -230,7 +230,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeConditions ext
   field?: CreateDataPipelineRequestOutputsProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -275,7 +275,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeConditions ext
 export class CreateDataPipelineRequestOutputsProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -318,7 +318,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeMetricName ext
 export class CreateDataPipelineRequestOutputsProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -408,7 +408,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScope extends $dara
 export class CreateDataPipelineRequestOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -494,7 +494,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfig extends $dara.Mode
   fields?: string[];
   /**
    * @remarks
-   * The extended parameters.
+   * The additional parameters.
    */
   parameters?: { [key: string]: any };
   /**
@@ -504,12 +504,12 @@ export class CreateDataPipelineRequestOutputsProcessorsConfig extends $dara.Mode
   projections?: CreateDataPipelineRequestOutputsProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: CreateDataPipelineRequestOutputsProcessorsConfigRules[];
   /**
    * @remarks
-   * The pipeline processing scope.
+   * The effective scope of pipeline processing.
    */
   scope?: CreateDataPipelineRequestOutputsProcessorsConfigScope;
   /**
@@ -651,7 +651,7 @@ export class CreateDataPipelineRequestOutputsProcessors extends $dara.Model {
 export class CreateDataPipelineRequestOutputs extends $dara.Model {
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * @example
    * checkout_route
@@ -771,7 +771,7 @@ export class CreateDataPipelineRequestProcessorsConfigProjections extends $dara.
 export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -779,7 +779,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -800,7 +800,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   maskChar?: string;
   /**
    * @remarks
-   * The masking mode.
+   * The data masking mode.
    * 
    * @example
    * keyword
@@ -867,7 +867,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeConditionsField exten
   kind?: string;
   /**
    * @remarks
-   * The field or dimension name.
+   * The name of the field or dimension.
    * 
    * @example
    * serviceName
@@ -916,7 +916,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeConditions extends $d
   field?: CreateDataPipelineRequestProcessorsConfigScopeConditionsField;
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -961,7 +961,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeConditions extends $d
 export class CreateDataPipelineRequestProcessorsConfigScopeMetricName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1004,7 +1004,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeMetricName extends $d
 export class CreateDataPipelineRequestProcessorsConfigScopeServiceName extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * EXACT
@@ -1094,7 +1094,7 @@ export class CreateDataPipelineRequestProcessorsConfigScope extends $dara.Model 
 export class CreateDataPipelineRequestProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The list of service names.
+   * The service name list.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1180,7 +1180,7 @@ export class CreateDataPipelineRequestProcessorsConfig extends $dara.Model {
   fields?: string[];
   /**
    * @remarks
-   * The extended parameters.
+   * The additional parameters.
    */
   parameters?: { [key: string]: any };
   /**
@@ -1190,12 +1190,12 @@ export class CreateDataPipelineRequestProcessorsConfig extends $dara.Model {
   projections?: CreateDataPipelineRequestProcessorsConfigProjections[];
   /**
    * @remarks
-   * The list of masking rules.
+   * The list of data masking rules.
    */
   rules?: CreateDataPipelineRequestProcessorsConfigRules[];
   /**
    * @remarks
-   * The pipeline processing scope in which the processor takes effect.
+   * The effective scope of pipeline processing.
    */
   scope?: CreateDataPipelineRequestProcessorsConfigScope;
   /**
@@ -1337,7 +1337,7 @@ export class CreateDataPipelineRequestProcessors extends $dara.Model {
 export class CreateDataPipelineRequestSinks extends $dara.Model {
   /**
    * @remarks
-   * The list of datasets.
+   * The dataset list.
    */
   datasets?: string[];
   /**
@@ -1350,7 +1350,7 @@ export class CreateDataPipelineRequestSinks extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the output destination.
+   * The sink name.
    * 
    * @example
    * error-archive
@@ -1366,7 +1366,7 @@ export class CreateDataPipelineRequestSinks extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The type of the output destination.
+   * The sink type.
    * 
    * @example
    * logstore
@@ -1455,7 +1455,7 @@ export class CreateDataPipelineRequestSourceConfig extends $dara.Model {
   runMode?: string;
   /**
    * @remarks
-   * The read start point.
+   * The start position.
    * 
    * @example
    * latest
@@ -1502,7 +1502,7 @@ export class CreateDataPipelineRequestSource extends $dara.Model {
   config?: CreateDataPipelineRequestSourceConfig;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * traces-default
@@ -1537,7 +1537,7 @@ export class CreateDataPipelineRequestSource extends $dara.Model {
 export class CreateDataPipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The pipeline description.
+   * The description of the pipeline.
    * 
    * @example
    * Export selected trace services to the target workspace.
@@ -1545,7 +1545,7 @@ export class CreateDataPipelineRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The pipeline type.
+   * The type of the pipeline.
    * 
    * @example
    * export
@@ -1571,7 +1571,7 @@ export class CreateDataPipelineRequest extends $dara.Model {
   processors?: CreateDataPipelineRequestProcessors[];
   /**
    * @remarks
-   * The output destinations.
+   * The sinks.
    */
   sinks?: CreateDataPipelineRequestSinks[];
   /**

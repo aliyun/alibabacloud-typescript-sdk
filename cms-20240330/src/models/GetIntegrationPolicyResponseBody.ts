@@ -21,6 +21,14 @@ export class GetIntegrationPolicyResponseBodyPolicyBindResource extends $dara.Mo
   clusterType?: string;
   /**
    * @remarks
+   * The UID of the actual owner of the bound resource in cross-account scenarios.
+   * 
+   * @example
+   * 12xxxx
+   */
+  entityUserId?: string;
+  /**
+   * @remarks
    * The VPC CIDR block.
    * 
    * @example
@@ -39,6 +47,7 @@ export class GetIntegrationPolicyResponseBodyPolicyBindResource extends $dara.Mo
     return {
       clusterId: 'clusterId',
       clusterType: 'clusterType',
+      entityUserId: 'entityUserId',
       vpcCidr: 'vpcCidr',
       vpcId: 'vpcId',
     };
@@ -48,6 +57,7 @@ export class GetIntegrationPolicyResponseBodyPolicyBindResource extends $dara.Mo
     return {
       clusterId: 'string',
       clusterType: 'string',
+      entityUserId: 'string',
       vpcCidr: 'string',
       vpcId: 'string',
     };
@@ -81,7 +91,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesAnnotat
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -320,7 +330,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   fieldRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRules[];
   /**
    * @remarks
-   * The instance IDs.
+   * The instance ID.
    */
   instanceIds?: string[];
   /**
@@ -330,7 +340,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   ipMatchRule?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesIpMatchRule;
   /**
    * @remarks
-   * The labels.
+   * The tags.
    */
   labels?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels[];
   /**
@@ -348,7 +358,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    */
   tags?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesTags[];
   static names(): { [key: string]: string } {
@@ -444,7 +454,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroup extends $dara.Mod
   entityRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules;
   /**
    * @remarks
-   * Used for querying.
+   * The query.
    * 
    * @example
    * status: 200 AND totalTime > 0.5
@@ -595,17 +605,22 @@ export class GetIntegrationPolicyResponseBodyPolicyTags extends $dara.Model {
 export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The names of all components installed in this policy.
+   * The names of all components installed in the policy.
    */
   addonNames?: string[];
   /**
+   * @example
+   * v2
+   */
+  apiVersion?: string;
+  /**
    * @remarks
-   * The bound resource information.
+   * The information about the bound resource.
    */
   bindResource?: GetIntegrationPolicyResponseBodyPolicyBindResource;
   /**
    * @remarks
-   * The umodel installation status in the container environment.
+   * The installation status of umodel in the container environment.
    * 
    * @example
    * true
@@ -685,6 +700,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addonNames: 'addonNames',
+      apiVersion: 'apiVersion',
       bindResource: 'bindResource',
       csUmodelStatus: 'csUmodelStatus',
       entityGroup: 'entityGroup',
@@ -703,6 +719,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addonNames: { 'type': 'array', 'itemType': 'string' },
+      apiVersion: 'string',
       bindResource: GetIntegrationPolicyResponseBodyPolicyBindResource,
       csUmodelStatus: 'boolean',
       entityGroup: GetIntegrationPolicyResponseBodyPolicyEntityGroup,

@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class MergeContactGroup extends $dara.Model {
   /**
    * @remarks
-   * A list of unique identifiers for the members in the group.
+   * The list of unique identifiers for members in the group.
    */
   contacts?: string[];
   /**
    * @remarks
-   * An extension field that stores additional information.
+   * The extension field used to store additional information.
    * 
    * @example
-   * { "department": "运维部", "role": "工程师" }
+   * { "department": "O&M Department", "role": "Engineer" }
    */
   extend?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the contact group was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -26,7 +26,7 @@ export class MergeContactGroup extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the contact group was last modified.
+   * The last modification time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -45,7 +45,7 @@ export class MergeContactGroup extends $dara.Model {
    * The name of the contact group.
    * 
    * @example
-   * 运维团队
+   * O&M Team
    */
   name?: string;
   /**

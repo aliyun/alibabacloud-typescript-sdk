@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusVirtualInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Each cloud product supports only one virtual instance per region.
+   * Each cloud service can create only one virtual instance in each region.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class CreatePrometheusVirtualInstanceRequest extends $dara.Model {
    * cms_prometheus
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 1111111111111111
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {

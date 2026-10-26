@@ -21,7 +21,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
   level?: string;
   /**
    * @remarks
-   * The execution information.
+   * The computation execution information.
    * 
    * @example
    * Query execution timeout after 30 seconds
@@ -29,7 +29,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
   message?: string;
   /**
    * @remarks
-   * The suggestion provided when an execution fault occurs.
+   * The suggestions provided when an execution error occurs.
    * 
    * @example
    * Try to reduce the query scope or increase timeout limit, then retry
@@ -65,7 +65,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
 export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   /**
    * @remarks
-   * Information about the execution procedure.
+   * The information during the execution process.
    * 
    * @example
    * {}
@@ -97,7 +97,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   retryPolicy?: string;
   /**
    * @remarks
-   * A list of detailed status information.
+   * The list of detailed status information.
    */
   statusItem?: GetEntityStoreDataResponseBodyResponseStatusStatusItem[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
 export class GetEntityStoreDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of returned data.
+   * The total count of the returned data list.
    */
   data?: string[][];
   /**

@@ -11,6 +11,40 @@ import { AlertRuleRcaConfig } from "./AlertRuleRcaConfig";
 import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 
+export class ManageAlertRulesUnifiedActionInputDrillTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 1783814400000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 1783728000000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
@@ -25,16 +59,25 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The action integration configuration.
+   * 
+   * @example
+   * {"enabled":true,"actions":[]}
    */
   actionIntegrationConfig?: ActionIntegrationConfig;
   /**
    * @remarks
    * The annotations.
+   * 
+   * @example
+   * {"summary":"CPU usage exceeds 90%"}
    */
   annotations?: { [key: string]: string };
   /**
    * @remarks
    * The ARMS integration configuration.
+   * 
+   * @example
+   * {"enabled":false}
    */
   armsIntegrationConfig?: ArmsIntegrationConfig;
   /**
@@ -48,6 +91,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The aggregated condition configuration.
+   * 
+   * @example
+   * {"type":"PROMETHEUS_SIMPLE_CONDITION","durationSecs":0,"severity":"CRITICAL"}
    */
   conditionConfig?: ConditionConfigUnified;
   /**
@@ -61,6 +107,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The aggregated data source configuration.
+   * 
+   * @example
+   * {"type":"PROMETHEUS","instanceId":"prom-cn-hangzhou-xxxxx"}
    */
   datasourceConfig?: DatasourceConfigUnified;
   /**
@@ -72,6 +121,21 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @example
+   * 1783728000000
+   */
+  drillEvalTime?: number;
+  /**
+   * @example
+   * ONE_SHOT
+   */
+  drillMode?: string;
+  /**
+   * @example
+   * {"startTime":1783728000000,"endTime":1783814400000}
+   */
+  drillTimeRange?: ManageAlertRulesUnifiedActionInputDrillTimeRange;
+  /**
    * @remarks
    * Specifies whether the rule is enabled.
    * 
@@ -82,16 +146,25 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The labels.
+   * 
+   * @example
+   * {"env":"production"}
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
    * The aggregated notification configuration.
+   * 
+   * @example
+   * {"type":"DIRECT_NOTIFY","channels":[{"type":"GROUP","identifiers":["<contact-group-id>"]}]}
    */
   notifyConfig?: NotifyConfigUnified;
   /**
    * @remarks
    * The observable resource configuration.
+   * 
+   * @example
+   * {"relationType":"CLOUD_INSTANCE","resources":[]}
    */
   observeResourceConfig?: ObserveResourceConfig;
   /**
@@ -117,11 +190,17 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The aggregated query configuration.
+   * 
+   * @example
+   * {"type":"PROMETHEUS_SINGLE_QUERY","expr":"up > 0"}
    */
   queryConfig?: QueryConfigUnified;
   /**
    * @remarks
    * The root cause analysis (RCA) configuration (optional). Provide as needed for CREATE/UPDATE/PATCH.
+   * 
+   * @example
+   * {"enabled":false}
    */
   rcaConfig?: AlertRuleRcaConfig;
   /**
@@ -135,6 +214,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The aggregated schedule configuration.
+   * 
+   * @example
+   * {"type":"FIXED","intervalSecs":60}
    */
   scheduleConfig?: ScheduleConfigUnified;
   /**
@@ -148,6 +230,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
    * The list of rule UUIDs to delete (BATCH_DELETE).
+   * 
+   * @example
+   * ["cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b"]
    */
   uuidList?: string[];
   /**
@@ -169,6 +254,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       contentTemplate: 'contentTemplate',
       datasourceConfig: 'datasourceConfig',
       displayName: 'displayName',
+      drillEvalTime: 'drillEvalTime',
+      drillMode: 'drillMode',
+      drillTimeRange: 'drillTimeRange',
       enabled: 'enabled',
       labels: 'labels',
       notifyConfig: 'notifyConfig',
@@ -196,6 +284,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       contentTemplate: 'string',
       datasourceConfig: DatasourceConfigUnified,
       displayName: 'string',
+      drillEvalTime: 'number',
+      drillMode: 'string',
+      drillTimeRange: ManageAlertRulesUnifiedActionInputDrillTimeRange,
       enabled: 'boolean',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notifyConfig: NotifyConfigUnified,
@@ -227,6 +318,9 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
     }
     if(this.datasourceConfig && typeof (this.datasourceConfig as any).validate === 'function') {
       (this.datasourceConfig as any).validate();
+    }
+    if(this.drillTimeRange && typeof (this.drillTimeRange as any).validate === 'function') {
+      (this.drillTimeRange as any).validate();
     }
     if(this.labels) {
       $dara.Model.validateMap(this.labels);

@@ -6,12 +6,12 @@ import { NotifyPolicy } from "./NotifyPolicy";
 export class CreateNotifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The notification policy object details, including the policy UUID, name, description, enabled status, and sub-entities such as notification strategy (grouping, noise reduction, notification routing, and channels), subscription (event filtering, cross-workspace routing, and legacy product event subscription), and response plan (upgrade, repeated notification, automatic recovery, and action integration).
+   * The details of the notification policy object, including the policy UUID, name, description, and enabled status, as well as sub-entities such as the notification strategy (grouping and merging, notification routing, and channels), subscription (event filtering, cross-workspace routing, and legacy product event subscription), and response plan (escalation, repeated notifications, automatic recovery, and action integration).
    */
   notifyPolicy?: NotifyPolicy;
   /**
    * @remarks
-   * The unique ID of the request. You can use this ID for troubleshooting and ticket tracking.
+   * The unique ID of the request. This ID is used for troubleshooting and ticket tracking.
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

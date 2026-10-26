@@ -5,37 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleNotificationFilter extends $dara.Model {
   /**
    * @remarks
-   * A list of contact IDs for filtering.
+   * The contact ID filter.
    */
   contacts?: string[];
   /**
    * @remarks
-   * A list of custom webhook IDs for filtering.
+   * The custom webhook ID filter.
    */
   customWebhooks?: string[];
   /**
    * @remarks
-   * A list of DingTalk webhook IDs for filtering.
+   * The DingTalk webhook ID filter.
    */
   dingWebhooks?: string[];
   /**
    * @remarks
-   * A list of Lark webhook IDs for filtering.
+   * The Lark webhook ID filter.
    */
   fsWebhooks?: string[];
   /**
    * @remarks
-   * A list of contact group IDs for filtering.
+   * The contact group filter configuration.
    */
   groups?: string[];
   /**
    * @remarks
-   * A list of Slack webhook IDs for filtering.
+   * The Slack webhook ID filter list.
    */
   slackWebhooks?: string[];
   /**
    * @remarks
-   * A list of WeChat webhook IDs for filtering.
+   * The WeChat webhook ID filter.
    */
   wxWebhooks?: string[];
   static names(): { [key: string]: string } {

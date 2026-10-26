@@ -29,7 +29,7 @@ export class ListContextStoresRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * OCAQV0pBqldexv7EidbIZw==

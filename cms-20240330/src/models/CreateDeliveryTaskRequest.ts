@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeliveryTaskRequestSinkList extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the sink, specified as key-value pairs. The valid keys and values depend on the value of `sinkType`.
+   * The detailed configuration of the delivery destination. The meanings of the key and value vary based on the sinkType. For more information, see the following descriptions.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The type of the delivery destination (sink).
+   * The type of the delivery destination.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateDeliveryTaskRequestTags extends $dara.Model {
 export class CreateDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Prometheus instance that serves as the data source.
+   * The ID of the data source, which is the ID of the Prometheus instance.
    * 
    * This parameter is required.
    * 
@@ -97,17 +97,17 @@ export class CreateDeliveryTaskRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * A map of key-value pairs to attach as additional labels to all delivered metrics.
+   * The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The label conditions for filtering metrics. The key is the label name and the value is the value to match. The filtering behavior is controlled by `labelFiltersType`.
+   * The metric filtering conditions. This parameter is used together with labelFiltersType. The key is the metric label name, and the value is the match value.
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The mode for applying the label filters.
+   * The metric filtering mode.
    * 
    * @example
    * Allow
@@ -123,19 +123,19 @@ export class CreateDeliveryTaskRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * An array of delivery destination objects.
+   * The list of delivery destinations.
    * 
    * This parameter is required.
    */
   sinkList?: CreateDeliveryTaskRequestSinkList[];
   /**
    * @remarks
-   * An array of resource tags.
+   * The tags of the resource.
    */
   tags?: CreateDeliveryTaskRequestTags[];
   /**
    * @remarks
-   * The task description.
+   * The description of the task.
    * 
    * @example
    * my delivery task

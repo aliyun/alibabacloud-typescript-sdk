@@ -5,57 +5,57 @@ import * as $dara from '@darabonba/typescript';
 export class ObserveGroupInstance extends $dara.Model {
   /**
    * @remarks
-   * The entity category (adapted by entityType).
+   * 实体分类（由 entityType 适配）。
    */
   category?: string;
   /**
    * @remarks
-   * The key-value pairs of monitoring dimensions.
+   * 监控维度键值对。
    */
   dimension?: { [key: string]: string };
   /**
    * @remarks
-   * The entity domain (such as acs).
+   * 实体域（如 acs）。
    */
   entityDomain?: string;
   /**
    * @remarks
-   * The entity type (such as acs.ecs.instance).
+   * 实体类型（如 acs.ecs.instance）。
    */
   entityType?: string;
   /**
    * @remarks
-   * The ID of the observation group to which the entity belongs.
+   * 所属观测分组 ID。
    */
   groupId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * 实例 ID。
    */
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * 实例名称。
    */
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * 实例所属地域 ID。
    */
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the instance.
+   * 实例所属资源组 ID。
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The key-value pairs of instance tags.
+   * 实例标签键值对。
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The UID of the user to which the instance belongs.
+   * 实例归属的用户 UID。
    */
   userId?: string;
   static names(): { [key: string]: string } {

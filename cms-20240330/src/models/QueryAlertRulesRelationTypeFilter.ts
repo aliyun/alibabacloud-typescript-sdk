@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAlertRulesRelationTypeFilter extends $dara.Model {
   /**
    * @remarks
-   * Matches any value in the set with OR semantics. Valid values: ALL, UMODEL_ENTITY, CLOUD_INSTANCE, GROUP_V1, GROUP_V2, and TAG.
+   * Matches any value in the set (OR semantics): ALL/UMODEL_ENTITY/CLOUD_INSTANCE/GROUP_V1/GROUP_V2/TAG.
    * 
    * @example
    * ["ALL","CLOUD_INSTANCE"]
@@ -13,7 +13,7 @@ export class QueryAlertRulesRelationTypeFilter extends $dara.Model {
   in?: string[];
   /**
    * @remarks
-   * Excludes any value in the set with NOT IN semantics.
+   * Excludes any value in the set (NOT IN semantics).
    * 
    * @example
    * ["TAG","GROUP_V1"]

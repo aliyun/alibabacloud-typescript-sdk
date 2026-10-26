@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryStoresRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListMemoryStoresRequest extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxxxxxxx

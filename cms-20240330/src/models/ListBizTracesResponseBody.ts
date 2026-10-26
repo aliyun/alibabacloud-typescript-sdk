@@ -6,12 +6,12 @@ import { BizTraceConfig } from "./BizTraceConfig";
 export class ListBizTracesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of business traces.
+   * The list of business links.
    */
   items?: BizTraceConfig[];
   /**
    * @remarks
-   * The maximum number of results returned. The maximum value is 100.
+   * The maximum number of results to return. Maximum value: 100.
    * 
    * @example
    * 20
@@ -19,7 +19,7 @@ export class ListBizTracesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to use to retrieve the next page of results.
+   * The token for the next query.
    * 
    * @example
    * aa9d0e569b88098a0e3155c29b473201a

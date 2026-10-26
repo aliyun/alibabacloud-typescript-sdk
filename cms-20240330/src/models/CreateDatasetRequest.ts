@@ -6,7 +6,7 @@ import { IndexKey } from "./IndexKey";
 export class CreateDatasetRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreateDatasetRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The description.
    * 
    * @example
    * test
@@ -24,7 +24,7 @@ export class CreateDatasetRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The schema of the dataset.
+   * The table schema.
    * 
    * This parameter is required.
    */

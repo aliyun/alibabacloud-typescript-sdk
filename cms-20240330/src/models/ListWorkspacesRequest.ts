@@ -6,11 +6,17 @@ export class ListWorkspacesRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * key
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,7 +45,7 @@ export class ListWorkspacesRequestTags extends $dara.Model {
 export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * Default value:
    * 	50
    * Maximum value:
@@ -70,7 +76,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******ey
@@ -83,7 +89,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   tags?: ListWorkspacesRequestTags[];
   /**
    * @remarks
-   * The workspace name. Fuzzy match is used.
+   * The workspace name. Fuzzy match is supported.
    * 
    * @example
    * workspace-test-001
@@ -91,7 +97,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace name. Exact match is used.
+   * The names of the workspaces. Exact match is supported.
    * 
    * @example
    * workspace-test-001

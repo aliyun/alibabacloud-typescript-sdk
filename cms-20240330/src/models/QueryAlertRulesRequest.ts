@@ -11,7 +11,7 @@ export class QueryAlertRulesRequest extends $dara.Model {
   body?: QueryAlertRulesInput;
   /**
    * @remarks
-   * The idempotency token.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * xxxxx-xxxx-xxxx
@@ -19,7 +19,7 @@ export class QueryAlertRulesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of data records to read in this request.
+   * The maximum number of data records to return in the current read operation.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class QueryAlertRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
+   * The token that specifies the starting position for the current read operation. If this parameter is left empty, the read operation starts from the beginning.
    * 
    * @example
    * 123456
@@ -35,7 +35,7 @@ export class QueryAlertRulesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The query filter condition. The value is a JSON string whose fields have the same semantics as the request body. Supported fields include filter (uuid, displayName, labels, status, enabled, and more. Fields at the same level have an AND relationship), pagination (pageNumber and pageSize), and workspace. Specify either this parameter or the request body. If both are specified, the request body takes precedence.
+   * The query filter conditions in JSON string format. The field semantics are the same as those in the request body. Supported fields include filter (such as uuid, displayName, labels, status, and enabled, where sibling fields use the AND logical operator), pagination (pageNumber and pageSize), and workspace. You must specify either this parameter or the body parameter. If both are specified, the body parameter takes precedence.
    * 
    * @example
    * {"filter":{"displayName":{"contains":"my-rule"}},"pagination":{"pageNumber":1,"pageSize":20}}

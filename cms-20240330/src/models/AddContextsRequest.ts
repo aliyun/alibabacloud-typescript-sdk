@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddContextsRequestItems extends $dara.Model {
   /**
    * @remarks
-   * The unique agent ID.
+   * The agent ID of the application.
    * 
    * @example
    * 952730733889060865
@@ -21,12 +21,12 @@ export class AddContextsRequestItems extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * A list of categories to apply to the context item.
+   * The categories.
    */
   categories?: string[];
   /**
    * @remarks
-   * The content of the context item.
+   * The content.
    * 
    * @example
    * You are a conversation assistant.
@@ -34,7 +34,7 @@ export class AddContextsRequestItems extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The custom instructions for processing the context.
+   * The custom instructions.
    * 
    * @example
    * Your custom instructions here
@@ -42,7 +42,7 @@ export class AddContextsRequestItems extends $dara.Model {
   customInstructions?: string;
   /**
    * @remarks
-   * An object containing experience information for the context.
+   * The experience.
    * 
    * @example
    * {
@@ -54,7 +54,7 @@ export class AddContextsRequestItems extends $dara.Model {
   experience?: { [key: string]: any };
   /**
    * @remarks
-   * The expiration timestamp for the context item.
+   * The expiration date.
    * 
    * @example
    * 1731231212334396
@@ -62,7 +62,7 @@ export class AddContextsRequestItems extends $dara.Model {
   expirationDate?: string;
   /**
    * @remarks
-   * Specifies whether the context item is immutable. If set to `true`, the item cannot be changed after it is created. The default value is `false`.
+   * The mutability.
    * 
    * @example
    * true
@@ -70,7 +70,7 @@ export class AddContextsRequestItems extends $dara.Model {
   immutable?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform inference based on the context. The default value is `false`.
+   * The inference.
    * 
    * @example
    * true
@@ -78,17 +78,17 @@ export class AddContextsRequestItems extends $dara.Model {
   infer?: boolean;
   /**
    * @remarks
-   * A map of key-value pairs to apply as labels.
+   * The labels.
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * An array of message objects.
+   * The messages.
    */
   messages?: { [key: string]: any }[];
   /**
    * @remarks
-   * Key-value pairs to store as metadata.
+   * The metadata.
    * 
    * @example
    * {"sessionId":"test_session_001"}
@@ -104,7 +104,7 @@ export class AddContextsRequestItems extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The timestamp of the context item.
+   * The timestamp.
    * 
    * @example
    * 1774578167
@@ -112,7 +112,7 @@ export class AddContextsRequestItems extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The condition that triggers the context.
+   * The trigger condition.
    * 
    * @example
    * Identify and troubleshoot SLs issues
@@ -120,7 +120,7 @@ export class AddContextsRequestItems extends $dara.Model {
   triggerCondition?: string;
   /**
    * @remarks
-   * The unique user ID.
+   * The user ID.
    * 
    * @example
    * test_user_001
@@ -205,7 +205,7 @@ export class AddContextsRequest extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * An array of context items.
+   * The context information.
    * 
    * This parameter is required.
    */

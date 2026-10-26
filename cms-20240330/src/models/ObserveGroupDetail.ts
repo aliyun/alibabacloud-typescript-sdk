@@ -7,22 +7,22 @@ import { ObserveGroupPromInstance } from "./ObserveGroupPromInstance";
 export class ObserveGroupDetailEntitySummaries extends $dara.Model {
   /**
    * @remarks
-   * The entity category.
+   * 实体分类。
    */
   entityCategory?: string;
   /**
    * @remarks
-   * The number of entities.
+   * 实体数量。
    */
   entityCount?: number;
   /**
    * @remarks
-   * The entity domain.
+   * 实体域。
    */
   entityDomain?: string;
   /**
    * @remarks
-   * The entity type.
+   * 实体类型。
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -55,12 +55,12 @@ export class ObserveGroupDetailEntitySummaries extends $dara.Model {
 export class ObserveGroupDetailTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键。
    */
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值。
    */
   tagValue?: string;
   static names(): { [key: string]: string } {
@@ -89,95 +89,93 @@ export class ObserveGroupDetailTags extends $dara.Model {
 export class ObserveGroupDetail extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account to which the group belongs.
+   * 分组归属的阿里云主账号 UID。
    */
   aliUid?: string;
   /**
    * @remarks
-   * The time when the group was created, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+   * 创建时间，UTC 格式 yyyy-MM-ddTHH:mm:ssZ。
    */
   createTime?: string;
   /**
    * @remarks
-   * The description of the observability group, which explains its business purpose.
+   * 观测分组描述（业务用途说明）。
    */
   description?: string;
   /**
    * @remarks
-   * The list of entity discovery rules that define which entities the group automatically matches.
+   * 实体发现规则列表，定义分组自动匹配哪些实体。
    */
   discoverRules?: ObserveGroupDiscoverRule[];
   /**
    * @remarks
-   * The statistics of entities in the group, categorized by entity type.
+   * 分组内实体按类型的统计。
    */
   entitySummaries?: ObserveGroupDetailEntitySummaries[];
   /**
    * @remarks
-   * The extended information in JSON string format, which carries alert templates, alert contact groups, suspension policies, and other configurations.
+   * 扩展信息（JSON 字符串，承载告警模板/联系人组/暂停策略等）。
    */
   extraInfo?: string;
   /**
    * @remarks
-   * Indicates whether the current user has followed the group.
+   * 当前用户是否已关注该分组。
    */
   favorited?: boolean;
   groupId?: string;
   /**
    * @remarks
-   * The name of the observability group. The name must be unique within the same workspace.
+   * 观测分组名称（同 workspace 下唯一）。
    */
   groupName?: string;
   /**
    * @remarks
-   * The type of the observability group.
+   * 观测分组类型。
    */
   groupType?: string;
   /**
    * @remarks
-   * The time when the group was last modified, in UTC format (yyyy-MM-ddTHH:mm:ssZ). This value is automatically updated when any property of the resource changes.
+   * 最后修改时间，UTC 格式 yyyy-MM-ddTHH:mm:ssZ。资源任意属性变更时自动更新。
    */
   modifyTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable the og_entity_info metric output. When enabled, the data plane writes the group ownership information to the target Prometheus instance.
+   * 是否开启 og_entity_info 指标输出。开启后数据面会把本分组归属写入目标 Prometheus 实例。
    */
   ogEntityInfoEnabled?: boolean;
   /**
    * @remarks
-   * The set of Prometheus instances to which og_entity_info is written. This includes two source types: system (automatically identified by the system) and custom (user-defined).
+   * 写入 og_entity_info 的 Prometheus 实例集合，包含系统自动识别(system)和用户自定义(custom)两类来源。
    */
   ogEntityInfoPromInstances?: ObserveGroupPromInstance[];
   /**
    * @remarks
-   * The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
+   * 仅 synced_from_1_0 时填值，存 1.0 应用分组的 product_group.id。
    */
   originGroupId?: string;
   /**
    * @remarks
-   * The region ID of the group.
+   * 分组所属地域 ID。
    */
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * 阿里云资源组 ID。
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The data source. Valid values:
-   * - native_2_0: created natively in version 2.0.
-   * - synced_from_1_0: synchronized from a version 1.0 application group.
+   * 数据来源：native_2_0（2.0 原生）/ synced_from_1_0（从 1.0 应用分组同步）。
    */
   sourceOrigin?: string;
   /**
    * @remarks
-   * The resource tags (Alibaba Cloud standard tags), represented as an array of key-value pairs.
+   * 资源标签（阿里云标准标签），键值对数组。
    */
   tags?: ObserveGroupDetailTags[];
   /**
    * @remarks
-   * The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
+   * 分组归属的 workspace ID（workspace 级归属，创建后不可变）。
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

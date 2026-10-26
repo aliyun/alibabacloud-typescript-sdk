@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The complete API key value.
+   * The full value of the API key.
    * 
    * @example
    * sk-3ac8d45d741e4f31b81aa6ee984ce9fd
@@ -21,7 +21,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The time when the API key was created, represented as a Unix timestamp.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -31,7 +31,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The display name of the API key. This name helps you identify the purpose of the key.
+   * The display name of the API key, used to identify its purpose.
    * 
    * @example
    * Production Service Key
@@ -39,7 +39,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * test-workspace
@@ -77,7 +77,7 @@ export class ListContextStoreAPIKeysResponseBodyResults extends $dara.Model {
 export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. To retrieve the next page of results, include this value in the `nextToken` parameter of your next request. If this parameter is not returned, there are no more results.
+   * The pagination token.
    * 
    * @example
    * xCs4wJD41qEejNkappMSJ1OL2Ky2GeKLqmBLJrC61WrgUOj9F-31jHbo5Kgqzifv
@@ -93,7 +93,7 @@ export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -101,12 +101,12 @@ export class ListContextStoreAPIKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of API keys.
+   * The results.
    */
   results?: ListContextStoreAPIKeysResponseBodyResults[];
   /**
    * @remarks
-   * The total count of entries that match the query.
+   * The total number of entries.
    * 
    * @example
    * 454

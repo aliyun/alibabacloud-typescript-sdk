@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   /**
    * @remarks
-   * The time when the memory store was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -15,7 +15,7 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the memory store.
+   * The description.
    * 
    * @example
    * Created by taishan-module-recovery
@@ -31,7 +31,7 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time when the memory store was last updated.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -49,7 +49,7 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Workspace
+   * The workspace.
    * 
    * @example
    * default-cms-1646467597142798-cn-shenzhen
@@ -89,7 +89,7 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
 export class ListMemoryStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of returned entries.
+   * The maximum number of returned results.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class ListMemoryStoresResponseBody extends $dara.Model {
   memoryStores?: ListMemoryStoresResponseBodyMemoryStores[];
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxxxxxxxx
@@ -110,12 +110,19 @@ export class ListMemoryStoresResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16C0A6D6-C3E7-511D-A60B-A87FD85F5BA7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of memory stores.
+   * 
+   * @example
+   * 0
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

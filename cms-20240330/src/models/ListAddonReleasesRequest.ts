@@ -5,17 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonReleasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * The add-on name.
    * 
    * @example
    * cs-gpu
    */
   addonName?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: string;
+  /**
+   * @remarks
+   * The next token for pagination.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The parent AddonRelease ID.
+   * The parent add-on release ID.
    * 
    * @example
    * policy-xxxxxxxxxxxxx

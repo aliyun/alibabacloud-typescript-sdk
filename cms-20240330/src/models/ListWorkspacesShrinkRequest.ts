@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * Default value:
    * 	50
    * Maximum value:
@@ -36,7 +36,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******ey
@@ -49,7 +49,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The workspace name. Fuzzy match is used.
+   * The workspace name. Fuzzy match is supported.
    * 
    * @example
    * workspace-test-001
@@ -57,7 +57,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace name. Exact match is used.
+   * The names of the workspaces. Exact match is supported.
    * 
    * @example
    * workspace-test-001

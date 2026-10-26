@@ -74,7 +74,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Write to the context
+   * Writes context.
    * 
    * @param request - AddContextsRequest
    * @param headers - map
@@ -115,7 +115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Write to the context
+   * Writes context.
    * 
    * @param request - AddContextsRequest
    * @returns AddContextsResponse
@@ -127,7 +127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+   * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
    * 
    * @param request - AddMemoriesRequest
    * @param headers - map
@@ -196,7 +196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+   * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
    * 
    * @param request - AddMemoriesRequest
    * @returns AddMemoriesResponse
@@ -261,7 +261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an access component, which represents a single access operation.
+   * Installs an add-on component, which represents an integration operation.
    * 
    * @remarks
    * Creates a site monitoring task.
@@ -280,6 +280,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.aliyunLang)) {
       body["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.apiVersion)) {
+      body["apiVersion"] = request.apiVersion;
     }
 
     if (!$dara.isNull(request.dryRun)) {
@@ -333,7 +337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an access component, which represents a single access operation.
+   * Installs an add-on component, which represents an integration operation.
    * 
    * @remarks
    * Creates a site monitoring task.
@@ -348,7 +352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an aggregation task group.
+   * Creates an aggregation task group.
    * 
    * @param request - CreateAggTaskGroupRequest
    * @param headers - map
@@ -447,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an aggregation task group.
+   * Creates an aggregation task group.
    * 
    * @param request - CreateAggTaskGroupRequest
    * @returns CreateAggTaskGroupResponse
@@ -672,7 +676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud resource.
+   * Creates a cloud resource center.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -697,7 +701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud resource.
+   * Creates a cloud resource center.
    * @returns CreateCloudResourceResponse
    */
   async createCloudResource(): Promise<$_model.CreateCloudResourceResponse> {
@@ -768,7 +772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API key for a context store.
+   * Creates an API key.
    * 
    * @param request - CreateContextStoreAPIKeyRequest
    * @param headers - map
@@ -801,7 +805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API key for a context store.
+   * Creates an API key.
    * 
    * @param request - CreateContextStoreAPIKeyRequest
    * @returns CreateContextStoreAPIKeyResponse
@@ -813,7 +817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataPipeline.
+   * Creates a data pipeline.
    * 
    * @remarks
    * Creates a data pipeline in a specified workspace.
@@ -873,7 +877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataPipeline.
+   * Creates a data pipeline.
    * 
    * @remarks
    * Creates a data pipeline in a specified workspace.
@@ -941,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+   * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
    * 
    * @param request - CreateDeliveryTaskRequest
    * @param headers - map
@@ -1006,7 +1010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+   * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
    * 
    * @param request - CreateDeliveryTaskRequest
    * @returns CreateDeliveryTaskResponse
@@ -1018,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates storage for an EntityStore.
+   * Creates EntityStore-related storage.
    * 
    * @param request - CreateEntityStoreRequest
    * @param headers - map
@@ -1045,7 +1049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates storage for an EntityStore.
+   * Creates EntityStore-related storage.
    * 
    * @param request - CreateEntityStoreRequest
    * @returns CreateEntityStoreResponse
@@ -1057,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Integration Center policy.
+   * Creates an access center policy.
    * 
    * @remarks
    * This operation creates an event integration.
@@ -1070,6 +1074,10 @@ export default class Client extends OpenApi {
   async createIntegrationPolicyWithOptions(request: $_model.CreateIntegrationPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIntegrationPolicyResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiVersion)) {
+      body["apiVersion"] = request.apiVersion;
+    }
+
     if (!$dara.isNull(request.entityGroup)) {
       body["entityGroup"] = request.entityGroup;
     }
@@ -1113,7 +1121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Integration Center policy.
+   * Creates an access center policy.
    * 
    * @remarks
    * This operation creates an event integration.
@@ -1131,8 +1139,7 @@ export default class Client extends OpenApi {
    * Creates a silence policy.
    * 
    * @remarks
-   * Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
-   * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
    * 
    * @param request - CreateMaintainWindowRequest
    * @param headers - map
@@ -1169,8 +1176,7 @@ export default class Client extends OpenApi {
    * Creates a silence policy.
    * 
    * @remarks
-   * Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
-   * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
    * 
    * @param request - CreateMaintainWindowRequest
    * @returns CreateMaintainWindowResponse
@@ -1182,7 +1188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a MemoryStore.
+   * Creates a memory store.
    * 
    * @param request - CreateMemoryStoreRequest
    * @param headers - map
@@ -1239,7 +1245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a MemoryStore.
+   * Creates a memory store.
    * 
    * @param request - CreateMemoryStoreRequest
    * @returns CreateMemoryStoreResponse
@@ -1254,7 +1260,7 @@ export default class Client extends OpenApi {
    * Creates a notification policy.
    * 
    * @remarks
-   * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+   * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
    * 
    * @param request - CreateNotifyPolicyRequest
    * @param headers - map
@@ -1291,7 +1297,7 @@ export default class Client extends OpenApi {
    * Creates a notification policy.
    * 
    * @remarks
-   * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+   * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
    * 
    * @param request - CreateNotifyPolicyRequest
    * @returns CreateNotifyPolicyResponse
@@ -2031,7 +2037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert chatbot.
+   * Deletes a chatbot.
    * 
    * @param tmpReq - DeleteAlertRobotsRequest
    * @param headers - map
@@ -2074,7 +2080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert chatbot.
+   * Deletes a chatbot.
    * 
    * @param request - DeleteAlertRobotsRequest
    * @returns DeleteAlertRobotsResponse
@@ -2086,7 +2092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more alert webhooks.
+   * Deletes a webhook.
    * 
    * @param tmpReq - DeleteAlertWebhooksRequest
    * @param headers - map
@@ -2125,7 +2131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more alert webhooks.
+   * Deletes a webhook.
    * 
    * @param request - DeleteAlertWebhooksRequest
    * @returns DeleteAlertWebhooksResponse
@@ -2176,7 +2182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cloud resource.
+   * Deletes the Cloud Resource Center.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2201,7 +2207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cloud resource.
+   * Deletes the Cloud Resource Center.
    * @returns DeleteCloudResourceResponse
    */
   async deleteCloudResource(): Promise<$_model.DeleteCloudResourceResponse> {
@@ -3664,7 +3670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes SQL and SPL queries.
+   * Executes SQL, SPL, and other queries.
    * 
    * @param request - ExecuteQueryRequest
    * @param headers - map
@@ -3701,7 +3707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes SQL and SPL queries.
+   * Executes SQL, SPL, and other queries.
    * 
    * @param request - ExecuteQueryRequest
    * @returns ExecuteQueryResponse
@@ -3883,6 +3889,10 @@ export default class Client extends OpenApi {
       query["aliyunLang"] = request.aliyunLang;
     }
 
+    if (!$dara.isNull(request.apiVersion)) {
+      query["apiVersion"] = request.apiVersion;
+    }
+
     if (!$dara.isNull(request.environmentType)) {
       query["environmentType"] = request.environmentType;
     }
@@ -4003,7 +4013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about cloud resources.
+   * Queries the cloud resource center.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4028,7 +4038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about cloud resources.
+   * Queries the cloud resource center.
    * @returns GetCloudResourceResponse
    */
   async getCloudResource(): Promise<$_model.GetCloudResourceResponse> {
@@ -4041,11 +4051,11 @@ export default class Client extends OpenApi {
    * Queries all entity information of a specific cloud service within a specified time range.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation queries all entities of a specific cloud service within a specified time range.
-   * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
-   * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
-   * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+   * ## Request description
+   * - This operation queries all entities under a specific cloud service within a specified time range.
+   * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+   * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+   * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
    * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
    * 
    * @param request - GetCloudResourceDataRequest
@@ -4090,11 +4100,11 @@ export default class Client extends OpenApi {
    * Queries all entity information of a specific cloud service within a specified time range.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation queries all entities of a specific cloud service within a specified time range.
-   * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
-   * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
-   * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+   * ## Request description
+   * - This operation queries all entities under a specific cloud service within a specified time range.
+   * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+   * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+   * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
    * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
    * 
    * @param request - GetCloudResourceDataRequest
@@ -4162,7 +4172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a single context.
+   * Queries a single context.
    * 
    * @param request - GetContextRequest
    * @param headers - map
@@ -4195,7 +4205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a single context.
+   * Queries a single context.
    * 
    * @param request - GetContextRequest
    * @returns GetContextResponse
@@ -4246,7 +4256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a DataPipeline.
+   * Queries a data pipeline.
    * 
    * @remarks
    * Queries the configuration and running status of a data pipeline in a specified workspace.
@@ -4276,7 +4286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a DataPipeline.
+   * Queries a data pipeline.
    * 
    * @remarks
    * Queries the configuration and running status of a data pipeline in a specified workspace.
@@ -4414,7 +4424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+   * Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
    * 
    * @param request - GetEntityStoreDataRequest
    * @param headers - GetEntityStoreDataHeaders
@@ -4464,7 +4474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+   * Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
    * 
    * @param request - GetEntityStoreDataRequest
    * @returns GetEntityStoreDataResponse
@@ -4476,7 +4486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policy information of the DDoS Access Center.
+   * Queries Access Center policy information.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @param headers - map
@@ -4503,7 +4513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policy information of the DDoS Access Center.
+   * Queries Access Center policy information.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @returns GetIntegrationPolicyResponse
@@ -4872,7 +4882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query pipeline
+   * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
    * @param headers - map
@@ -4899,7 +4909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query pipeline
+   * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
    * @returns GetPipelineResponse
@@ -5105,7 +5115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an application observability instance.
+   * Retrieves the application observability instance.
    * 
    * @param request - GetServiceObservabilityRequest
    * @param headers - map
@@ -5132,7 +5142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an application observability instance.
+   * Retrieves the application observability instance.
    * 
    * @param request - GetServiceObservabilityRequest
    * @returns GetServiceObservabilityResponse
@@ -5248,10 +5258,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a Umodel.
+   * Retrieves Umodel configuration information.
    * 
    * @remarks
-   * Retrieves the configuration of a Umodel.
+   * Retrieves Umodel configuration information.
    * 
    * @param request - GetUmodelRequest
    * @param headers - map
@@ -5278,10 +5288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a Umodel.
+   * Retrieves Umodel configuration information.
    * 
    * @remarks
-   * Retrieves the configuration of a Umodel.
+   * Retrieves Umodel configuration information.
    * 
    * @param request - GetUmodelRequest
    * @returns GetUmodelResponse
@@ -5293,7 +5303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the referenced common Umodel schema.
+   * Retrieves the referenced public Umodel schema.
    * 
    * @param request - GetUmodelCommonSchemaRefRequest
    * @param headers - map
@@ -5320,7 +5330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the referenced common Umodel schema.
+   * Retrieves the referenced public Umodel schema.
    * 
    * @param request - GetUmodelCommonSchemaRefRequest
    * @returns GetUmodelCommonSchemaRefResponse
@@ -5428,10 +5438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the releases for an add-on.
+   * Lists the releases of an add-on.
    * 
    * @remarks
-   * This operation retrieves a list of integration configurations.
+   * Queries the list of integration configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @param headers - map
@@ -5476,10 +5486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the releases for an add-on.
+   * Lists the releases of an add-on.
    * 
    * @remarks
-   * This operation retrieves a list of integration configurations.
+   * Queries the list of integration configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @returns ListAddonReleasesResponse
@@ -5491,10 +5501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the products in the new Integration Center by group.
+   * Queries the grouped product list of the new integration center.
    * 
    * @remarks
-   * Creates a site monitoring job.
+   * Creates a site monitoring task.
    * 
    * @param request - ListAddonsRequest
    * @param headers - map
@@ -5506,6 +5516,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.aliyunLang)) {
       query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.apiVersion)) {
+      query["apiVersion"] = request.apiVersion;
     }
 
     if (!$dara.isNull(request.category)) {
@@ -5539,10 +5553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the products in the new Integration Center by group.
+   * Queries the grouped product list of the new integration center.
    * 
    * @remarks
-   * Creates a site monitoring job.
+   * Creates a site monitoring task.
    * 
    * @param request - ListAddonsRequest
    * @returns ListAddonsResponse
@@ -5700,10 +5714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert robots.
+   * Queries chatbots.
    * 
    * @remarks
-   * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+   * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
    * 
    * @param tmpReq - ListAlertRobotsRequest
    * @param headers - map
@@ -5766,10 +5780,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert robots.
+   * Queries chatbots.
    * 
    * @remarks
-   * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+   * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
    * 
    * @param request - ListAlertRobotsRequest
    * @returns ListAlertRobotsResponse
@@ -5848,7 +5862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists business traces.
+   * Queries the list of business links.
    * 
    * @param request - ListBizTracesRequest
    * @param headers - map
@@ -5889,7 +5903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists business traces.
+   * Queries the list of business links.
    * 
    * @param request - ListBizTracesRequest
    * @returns ListBizTracesResponse
@@ -5974,10 +5988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert contacts.
+   * Queries contacts.
    * 
    * @remarks
-   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+   * This topic provides an example of creating an alert contact group named `ECS_Group`.
    * 
    * @param tmpReq - ListContactsRequest
    * @param headers - map
@@ -6048,10 +6062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert contacts.
+   * Queries contacts.
    * 
    * @remarks
-   * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+   * This topic provides an example of creating an alert contact group named `ECS_Group`.
    * 
    * @param request - ListContactsRequest
    * @returns ListContactsResponse
@@ -6063,7 +6077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists API keys.
+   * Retrieves a list of API keys.
    * 
    * @param request - ListContextStoreAPIKeysRequest
    * @param headers - map
@@ -6100,7 +6114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists API keys.
+   * Retrieves a list of API keys.
    * 
    * @param request - ListContextStoreAPIKeysRequest
    * @returns ListContextStoreAPIKeysResponse
@@ -6112,7 +6126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of context stores.
+   * Queries the list of context stores.
    * 
    * @param request - ListContextStoresRequest
    * @param headers - map
@@ -6157,7 +6171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of context stores.
+   * Queries the list of context stores.
    * 
    * @param request - ListContextStoresRequest
    * @returns ListContextStoresResponse
@@ -6169,7 +6183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of DataPipelines.
+   * Queries data pipelines.
    * 
    * @remarks
    * Queries data pipelines in a specified workspace by using paging.
@@ -6209,7 +6223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of DataPipelines.
+   * Queries data pipelines.
    * 
    * @remarks
    * Queries data pipelines in a specified workspace by using paging.
@@ -6224,7 +6238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of datasets in a specified workspace.
+   * Lists datasets.
    * 
    * @param request - ListDatasetsRequest
    * @param headers - map
@@ -6265,7 +6279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of datasets in a specified workspace.
+   * Lists datasets.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -6277,7 +6291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of data delivery tasks.
+   * Retrieves a list of data delivery tasks.
    * 
    * @param tmpReq - ListDeliveryTasksRequest
    * @param headers - map
@@ -6332,7 +6346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of data delivery tasks.
+   * Retrieves a list of data delivery tasks.
    * 
    * @param request - ListDeliveryTasksRequest
    * @returns ListDeliveryTasksResponse
@@ -6344,10 +6358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access center policies.
+   * Queries the list of integration center policies.
    * 
    * @remarks
-   * Queries the integration list.
+   * Queries the list of integrations.
    * 
    * @param tmpReq - ListIntegrationPoliciesRequest
    * @param headers - map
@@ -6438,10 +6452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access center policies.
+   * Queries the list of integration center policies.
    * 
    * @remarks
-   * Queries the integration list.
+   * Queries the list of integrations.
    * 
    * @param request - ListIntegrationPoliciesRequest
    * @returns ListIntegrationPoliciesResponse
@@ -6453,10 +6467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the add-ons that are installed for a specified policy.
+   * Retrieves the list of add-ons installed for the current policy.
    * 
    * @remarks
-   * Lists the add-ons that are installed for a specified policy.
+   * Retrieves the list of add-ons installed for the current policy.
    * 
    * @param request - ListIntegrationPolicyAddonsRequest
    * @param headers - map
@@ -6483,10 +6497,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the add-ons that are installed for a specified policy.
+   * Retrieves the list of add-ons installed for the current policy.
    * 
    * @remarks
-   * Lists the add-ons that are installed for a specified policy.
+   * Retrieves the list of add-ons installed for the current policy.
    * 
    * @param request - ListIntegrationPolicyAddonsRequest
    * @returns ListIntegrationPolicyAddonsResponse
@@ -6608,10 +6622,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of integration policy dashboards.
+   * Queries the list of dashboards.
    * 
    * @remarks
-   * This topic provides an example of how to query a list of integration policy dashboards.
+   * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyDashboardsRequest
    * @param headers - map
@@ -6652,10 +6666,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of integration policy dashboards.
+   * Queries the list of dashboards.
    * 
    * @remarks
-   * This topic provides an example of how to query a list of integration policy dashboards.
+   * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyDashboardsRequest
    * @returns ListIntegrationPolicyDashboardsResponse
@@ -6667,10 +6681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the PodMonitor resources of an access center policy.
+   * Retrieves the PodMonitor resources of an Integration Center policy.
    * 
    * @remarks
-   * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @param headers - map
@@ -6715,10 +6729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the PodMonitor resources of an access center policy.
+   * Retrieves the PodMonitor resources of an Integration Center policy.
    * 
    * @remarks
-   * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @returns ListIntegrationPolicyPodMonitorsResponse
@@ -6929,7 +6943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of memory stores.
+   * Queries the list of memory stores.
    * 
    * @param request - ListMemoryStoresRequest
    * @param headers - map
@@ -6970,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of memory stores.
+   * Queries the list of memory stores.
    * 
    * @param request - ListMemoryStoresRequest
    * @returns ListMemoryStoresResponse
@@ -7254,10 +7268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Prometheus view instances.
+   * Queries a list of Prometheus view instances.
    * 
    * @remarks
-   * Queries the list of Prometheus view instances.
+   * Queries a list of Prometheus view instances.
    * 
    * @param tmpReq - ListPrometheusViewsRequest
    * @param headers - map
@@ -7332,10 +7346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Prometheus view instances.
+   * Queries a list of Prometheus view instances.
    * 
    * @remarks
-   * Queries the list of Prometheus view instances.
+   * Queries a list of Prometheus view instances.
    * 
    * @param request - ListPrometheusViewsRequest
    * @returns ListPrometheusViewsResponse
@@ -7858,7 +7872,7 @@ export default class Client extends OpenApi {
    * Previews a data pipeline.
    * 
    * @remarks
-   * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+   * Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
    * 
    * @param request - PreviewDataPipelineRequest
    * @param headers - map
@@ -7926,7 +7940,7 @@ export default class Client extends OpenApi {
    * Previews a data pipeline.
    * 
    * @remarks
-   * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+   * Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
    * 
    * @param request - PreviewDataPipelineRequest
    * @returns PreviewDataPipelineResponse
@@ -8002,7 +8016,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param tmpReq - QueryAlertRulesRequest
    * @param headers - map
@@ -8062,7 +8076,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - QueryAlertRulesRequest
    * @returns QueryAlertRulesResponse
@@ -8409,7 +8423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an aggregation task group.
+   * Applies an aggregation task group.
    * 
    * @param request - UpdateAggTaskGroupRequest
    * @param headers - map
@@ -8502,7 +8516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an aggregation task group.
+   * Applies an aggregation task group.
    * 
    * @param request - UpdateAggTaskGroupRequest
    * @returns UpdateAggTaskGroupResponse
@@ -8872,10 +8886,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DataPipeline.
+   * Updates a data pipeline.
    * 
    * @remarks
-   * Modifies a specified data pipeline by using a complete candidate configuration.
+   * Updates the specified data pipeline with a full candidate configuration.
    * 
    * @param request - UpdateDataPipelineRequest
    * @param headers - map
@@ -8932,10 +8946,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DataPipeline.
+   * Updates a data pipeline.
    * 
    * @remarks
-   * Modifies a specified data pipeline by using a complete candidate configuration.
+   * Updates the specified data pipeline with a full candidate configuration.
    * 
    * @param request - UpdateDataPipelineRequest
    * @returns UpdateDataPipelineResponse
@@ -9229,7 +9243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify a memory store.
+   * Modifies a memory store.
    * 
    * @param request - UpdateMemoryStoreRequest
    * @param headers - map
@@ -9274,7 +9288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify a memory store.
+   * Modifies a memory store.
    * 
    * @param request - UpdateMemoryStoreRequest
    * @returns UpdateMemoryStoreResponse

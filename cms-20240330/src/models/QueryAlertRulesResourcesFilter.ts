@@ -13,7 +13,7 @@ export class QueryAlertRulesResourcesFilter extends $dara.Model {
   contains?: string[];
   /**
    * @remarks
-   * Filters out alert rules by resource instance ID blacklist. Alert rules whose associated resources contains any instance ID in the array are excluded.
+   * The resource instance ID blacklist filter that excludes alert rules whose associated resources contain any instance ID in the array.
    * 
    * @example
    * ["i-bp0z9y8x7w6v5u4t3s2"]

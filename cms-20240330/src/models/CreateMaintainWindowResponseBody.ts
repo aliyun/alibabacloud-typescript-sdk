@@ -13,7 +13,7 @@ export class CreateMaintainWindowResponseBody extends $dara.Model {
   maintainWindowId?: string;
   /**
    * @remarks
-   * The unique ID of the request. You can use this ID for troubleshooting and ticket tracking.
+   * The unique ID of the request, which is used for troubleshooting and ticket tracking.
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

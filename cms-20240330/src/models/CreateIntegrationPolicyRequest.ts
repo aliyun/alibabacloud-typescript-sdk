@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
   /**
    * @remarks
-   * The cluster entity type. Examples: acs.ack.cluster, acs.one.cluster, and acs.asi.cluster.
+   * The cluster entity type, such as acs.ack.cluster, acs.one.cluster, acs.asi.cluster, or others.
    * 
    * @example
    * acs.ack.cluster
@@ -19,10 +19,14 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
    * na61prod3-na61cloudhdfsssd
    */
   clusterId?: string;
+  /**
+   * @example
+   * arms-prom
+   */
   clusterNamespace?: string;
   /**
    * @remarks
-   * Specifies whether to disable unique policy binding. If this parameter is set to true, you can create multiple policies for a container cluster.
+   * Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a container cluster.
    * 
    * @example
    * ture
@@ -38,7 +42,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
   entityGroupId?: string;
   /**
    * @remarks
-   * The ID of the user who owns the cluster.
+   * The ID of the user to which the cluster belongs.
    * 
    * @example
    * 12xxxx
@@ -46,7 +50,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
   entityUserId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp18fgg3ffxa9czna40xt
@@ -88,7 +92,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
 export class CreateIntegrationPolicyRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * use
@@ -96,7 +100,7 @@ export class CreateIntegrationPolicyRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * database
@@ -127,8 +131,13 @@ export class CreateIntegrationPolicyRequestTags extends $dara.Model {
 
 export class CreateIntegrationPolicyRequest extends $dara.Model {
   /**
+   * @example
+   * v2
+   */
+  apiVersion?: string;
+  /**
    * @remarks
-   * The entity group used to create the policy. You can quickly create a policy using an entity group. The clusterId and vpcId parameters are independent of each other.
+   * The entity group used to create the policy. You can quickly create the policy by using the entity group. The clusterId and vpcId parameters are independent of each other.
    */
   entityGroup?: CreateIntegrationPolicyRequestEntityGroup;
   /**
@@ -172,6 +181,7 @@ export class CreateIntegrationPolicyRequest extends $dara.Model {
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      apiVersion: 'apiVersion',
       entityGroup: 'entityGroup',
       policyName: 'policyName',
       policyType: 'policyType',
@@ -183,6 +193,7 @@ export class CreateIntegrationPolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiVersion: 'string',
       entityGroup: CreateIntegrationPolicyRequestEntityGroup,
       policyName: 'string',
       policyType: 'string',

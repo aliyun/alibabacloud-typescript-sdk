@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMemoriesRequestMessages extends $dara.Model {
   /**
    * @remarks
-   * Content.
+   * The content.
    * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
@@ -13,7 +13,7 @@ export class AddMemoriesRequestMessages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Role.
+   * The role.
    * 
    * @example
    * user
@@ -45,7 +45,7 @@ export class AddMemoriesRequestMessages extends $dara.Model {
 export class AddMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Application agent ID.
+   * The agent ID of the application.
    * 
    * @example
    * 952730733889060865
@@ -53,7 +53,7 @@ export class AddMemoriesRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * mm_480d961a1b5e4efe84603f4cbc0f
@@ -61,7 +61,7 @@ export class AddMemoriesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Asynchronous mode.
+   * The asynchronous mode.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class AddMemoriesRequest extends $dara.Model {
   asyncMode?: boolean;
   /**
    * @remarks
-   * Custom instructions.
+   * The custom instructions.
    * 
    * @example
    * Your custom instructions here
@@ -77,7 +77,7 @@ export class AddMemoriesRequest extends $dara.Model {
   customInstructions?: string;
   /**
    * @remarks
-   * Infer.
+   * The inference setting.
    * 
    * @example
    * true
@@ -85,12 +85,12 @@ export class AddMemoriesRequest extends $dara.Model {
   infer?: boolean;
   /**
    * @remarks
-   * Messages.
+   * The messages.
    */
   messages?: AddMemoriesRequestMessages[];
   /**
    * @remarks
-   * Metadata.
+   * The metadata.
    * 
    * @example
    * {"sessionId":"test_session_001"}
@@ -98,20 +98,23 @@ export class AddMemoriesRequest extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * Run ID.
+   * The run ID.
    * 
    * @example
    * jr-80ded1d6953c64ea
    */
   runId?: string;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 12312314214
    */
   timestamp?: number;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * test_user_001

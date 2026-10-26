@@ -21,7 +21,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   httpApiUrl?: string;
   /**
    * @remarks
-   * Returned for the `PROMETHEUS_DS` data source type.
+   * The applicable data source type: PROMETHEUS_DS.
    * 
    * The Prometheus instance ID.
    * 
@@ -31,7 +31,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Returned for the `CMS_BASIC_QUERY` query type.
+   * The applicable query type: CMS_BASIC_QUERY.
    * 
    * The namespace of the metric.
    * 
@@ -89,22 +89,25 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
 export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of instances.
+   * The instance information.
    */
   instances?: ListPrometheusVirtualInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of instances to return per page.
+   * 
+   * @example
+   * 100
    */
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If all results are returned, this parameter is left empty.
+   * The next token for the next page. It is empty when all results are returned.
    */
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -112,7 +115,7 @@ export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of instances returned.
    */
   totalCount?: string;
   static names(): { [key: string]: string } {

@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class PutWorkspaceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
+   * 
+   * @example
+   * prod
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,7 +45,7 @@ export class PutWorkspaceRequestTags extends $dara.Model {
 export class PutWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the workspace.
+   * The workspace description.
    * 
    * @example
    * workspace test
@@ -55,7 +61,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group specified when the workspace is created.
+   * The resource group ID.
    * 
    * @example
    * rg-ae******ey
@@ -63,7 +69,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The Simple Log Service project name.
    * 
    * This parameter is required.
    * 
@@ -73,7 +79,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The tags attached to the workspace when it is created.
+   * The tags.
    */
   tags?: PutWorkspaceRequestTags[];
   static names(): { [key: string]: string } {

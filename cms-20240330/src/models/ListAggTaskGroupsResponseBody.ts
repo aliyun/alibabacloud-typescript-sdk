@@ -37,7 +37,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   cronExpr?: string;
   /**
    * @remarks
-   * The fixed scheduling delay, in seconds.
+   * The fixed delay time for scheduling, in seconds.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The UNIX timestamp that indicates the scheduling start time, in seconds.
+   * The UNIX timestamp of the start time for scheduling, in seconds.
    * 
    * @example
    * 1757409499000
@@ -77,7 +77,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
-   * The maximum retry time for executing the aggregation task, in seconds.
+   * The maximum retry time to execute the aggregation node, in seconds.
    * 
    * @example
    * 200
@@ -101,7 +101,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   scheduleMode?: string;
   /**
    * @remarks
-   * The schedule time expression.
+   * The scheduling time expression.
    * 
    * @example
    * @m
@@ -109,7 +109,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   scheduleTimeExpr?: string;
   /**
    * @remarks
-   * The instance ID of the source Managed Service for Prometheus instance for the aggregation node group.
+   * The instance ID of the source Prometheus instance for the aggregation node group.
    * 
    * @example
    * rw-xxx
@@ -125,7 +125,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance ID of the target Managed Service for Prometheus instance for the aggregation node group.
+   * The instance ID of the target Prometheus instance for the aggregation node group.
    * 
    * @example
    * rw-xxx
@@ -133,7 +133,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   targetPrometheusId?: string;
   /**
    * @remarks
-   * The UNIX timestamp that indicates the scheduling end time, in seconds.
+   * The UNIX timestamp of the end time for scheduling, in seconds.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
-   * The time when the aggregation task group was last updated, in UNIX timestamp format.
+   * The update time of the aggregation task group. The value is a UNIX timestamp.
    * 
    * @example
    * 1757409499000

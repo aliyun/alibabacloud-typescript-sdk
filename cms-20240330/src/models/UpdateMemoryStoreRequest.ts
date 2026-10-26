@@ -6,12 +6,12 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 export class UpdateMemoryStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom extraction strategies.
+   * The custom extraction strategies.
    */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * memoryStore test
@@ -19,12 +19,12 @@ export class UpdateMemoryStoreRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Extraction strategies. Supports "Episodic", "Summary", and "Fact".
+   * The extraction strategies. Valid values: Episodic, Summary, and Fact.
    */
   extractionStrategies?: string[];
   /**
    * @remarks
-   * Short-term memory retention time.
+   * The retention period for short-term memory.
    * 
    * @example
    * 7

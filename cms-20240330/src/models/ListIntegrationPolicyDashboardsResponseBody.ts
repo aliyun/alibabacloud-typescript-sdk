@@ -6,8 +6,8 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   /**
    * @remarks
    * The dashboard engine. Valid values:
-   * grafana: shared Grafana.
-   * cms: the self-developed dashboard engine of CloudMonitor.
+   * - grafana: shared Grafana.
+   * - cms: the proprietary dashboard engine of CloudMonitor.
    * 
    * @example
    * grafana
@@ -44,7 +44,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   tags?: string[];
   /**
    * @remarks
-   * The title of the UI module. This is different from the name parameter.
+   * The title of the UI module, not the name.
    * 
    * @example
    * test
@@ -52,7 +52,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   title?: string;
   /**
    * @remarks
-   * The ID of the current Alibaba Cloud account. This parameter is read-only.
+   * The ID of the current Alibaba Cloud account. This field is read-only.
    * 
    * @example
    * 1258199346721590
@@ -60,7 +60,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   uid?: string;
   /**
    * @remarks
-   * The webhook URL for PagerDuty integration. V1 and V2 are supported.
+   * The integration webhook for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://agi.alicdn.com/user/0/0_0_5255362686.png?x-oss-process=image/quality,q_75/format,jpg&file=1734574878007.jpg

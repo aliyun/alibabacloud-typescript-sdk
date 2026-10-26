@@ -21,7 +21,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The robot name.
+   * The name of the chatbot.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique ID of the robot.
+   * The unique ID of the chatbot.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   robotId?: string;
   /**
    * @remarks
-   * The signing key of the robot.
+   * The signature key of the chatbot.
    * 
    * @example
    * abc123
@@ -45,7 +45,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   robotSignKey?: string;
   /**
    * @remarks
-   * The robot types.
+   * The chatbot types.
    * 
    * @example
    * DING
@@ -53,7 +53,7 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The webhook URL of the robot.
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=*******
@@ -129,7 +129,7 @@ export class ListAlertRobotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The robot IDs.
+   * The chatbot IDs.
    */
   robots?: ListAlertRobotsResponseBodyRobots[];
   /**

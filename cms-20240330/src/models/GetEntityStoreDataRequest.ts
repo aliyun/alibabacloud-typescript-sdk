@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetEntityStoreDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The start point in time for the query.
+   * The start time of the query.
    * 
-   * This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * The value is a UNIX timestamp that indicates the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetEntityStoreDataRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The search statement.
+   * The query statement.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class GetEntityStoreDataRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The end point in time for the query.
+   * The end time of the query.
    * 
-   * This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * The value is a UNIX timestamp that indicates the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * test_dataset
@@ -13,7 +13,7 @@ export class ListDatasetsRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class ListDatasetsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for retrieving the next page of results. A `nextToken` is included in the response when the result set is truncated. To continue pagination, provide the `nextToken` from the previous response.
+   * The pagination token.
    * 
    * @example
    * d9a48d977f45aa6fcf6981ed13b885b3fab0b124c12dcbbe70edce5d81ba****************

@@ -6,12 +6,15 @@ import { AlertRuleV2 } from "./AlertRuleV2";
 export class ManageAlertRulesResult extends $dara.Model {
   /**
    * @remarks
-   * The alert rule V2.
+   * The V2 alert rule.
+   * 
+   * @example
+   * {"uuid":"cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b","displayName":"drill-e2e-验证规则","enabled":true}
    */
   alertRule?: AlertRuleV2;
   /**
    * @remarks
-   * The number of rules that were successfully deleted.
+   * The number of successfully deleted rules.
    * 
    * @example
    * 1
@@ -19,12 +22,20 @@ export class ManageAlertRulesResult extends $dara.Model {
   deletedCount?: number;
   /**
    * @remarks
-   * The list of UUIDs of rules that were successfully deleted.
+   * The list of UUIDs of successfully deleted rules.
+   * 
+   * @example
+   * ["cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b"]
    */
   deletedUuidList?: string[];
   /**
+   * @example
+   * 7c27ee14-5f94-469f-912d-476f79c8a861
+   */
+  drillUuid?: string;
+  /**
    * @remarks
-   * The number of rules that were successfully enabled or disabled.
+   * The number of successfully enabled or disabled rules.
    * 
    * @example
    * 1
@@ -32,7 +43,7 @@ export class ManageAlertRulesResult extends $dara.Model {
   updatedCount?: number;
   /**
    * @remarks
-   * The list of UUIDs of rules that were successfully enabled or disabled.
+   * The list of UUIDs of successfully enabled or disabled rules.
    * 
    * @example
    * ["a1b2c3d4-e5f6-7890-abcd-ef1234567890","b2c3d4e5-f6a7-8901-bcde-f12345678901"]
@@ -43,6 +54,7 @@ export class ManageAlertRulesResult extends $dara.Model {
       alertRule: 'alertRule',
       deletedCount: 'deletedCount',
       deletedUuidList: 'deletedUuidList',
+      drillUuid: 'drillUuid',
       updatedCount: 'updatedCount',
       updatedUuidList: 'updatedUuidList',
     };
@@ -53,6 +65,7 @@ export class ManageAlertRulesResult extends $dara.Model {
       alertRule: AlertRuleV2,
       deletedCount: 'number',
       deletedUuidList: { 'type': 'array', 'itemType': 'string' },
+      drillUuid: 'string',
       updatedCount: 'number',
       updatedUuidList: { 'type': 'array', 'itemType': 'string' },
     };

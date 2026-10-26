@@ -20,12 +20,12 @@ export class TransformerForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The filter criteria.
+   * The filter conditions.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Specifies whether to exit after a match is processed.
+   * Specifies whether to exit after match processing.
    * 
    * @example
    * true
@@ -33,7 +33,7 @@ export class TransformerForModify extends $dara.Model {
   quitAfterMatch?: boolean;
   /**
    * @remarks
-   * The sort number.
+   * The sort order.
    * 
    * @example
    * 1

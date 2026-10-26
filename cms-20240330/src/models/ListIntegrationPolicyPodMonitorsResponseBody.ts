@@ -99,7 +99,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonVersion?: string;
   /**
    * @remarks
-   * The configuration YAML.
+   * The YAML configuration.
    * 
    * @example
    * apiVersion: xxxxx
@@ -203,7 +203,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The list of PodMonitors.
+   * The PodMonitor list.
    */
   podMonitors?: ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors[];
   /**

@@ -13,7 +13,7 @@ export class MergeWebhook extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * An extension field used to store additional configurations.
+   * The extension field used to store additional configurations.
    * 
    * @example
    * {"timeout": 3000}
@@ -37,7 +37,7 @@ export class MergeWebhook extends $dara.Model {
   gmtModified?: { [key: string]: any };
   /**
    * @remarks
-   * The request header.
+   * The request header information.
    * 
    * @example
    * {"Authorization": "Bearer abc123"}
@@ -72,7 +72,7 @@ export class MergeWebhook extends $dara.Model {
    * The name of the webhook.
    * 
    * @example
-   * 运维告警通知
+   * O&M alert notification
    */
   name?: string;
   /**
@@ -85,7 +85,7 @@ export class MergeWebhook extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the webhook. It indicates the destination platform.
+   * The webhook type, which indicates its target platform.
    * 
    * @example
    * dingtalk
@@ -93,7 +93,7 @@ export class MergeWebhook extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The webhook URL used to send requests.
+   * The webhook address used to send requests.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=abc123

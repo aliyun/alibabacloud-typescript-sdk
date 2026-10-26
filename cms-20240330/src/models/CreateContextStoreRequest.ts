@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextStoreRequestConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the Log Service Logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * sls-test-logstore
@@ -13,7 +13,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Log Service project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * sls-test-project
@@ -57,7 +57,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
 export class CreateContextStoreRequestConfig extends $dara.Model {
   /**
    * @remarks
-   * The metadata fields.
+   * The metadata field.
    */
   metadataField?: { [key: string]: string };
   /**
@@ -127,7 +127,7 @@ export class CreateContextStoreRequestDataset extends $dara.Model {
 export class CreateContextStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration.
+   * The configuration information.
    */
   config?: CreateContextStoreRequestConfig;
   /**
@@ -142,7 +142,7 @@ export class CreateContextStoreRequest extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The type of the context store.
+   * The context type.
    * 
    * This parameter is required.
    * 
@@ -152,12 +152,12 @@ export class CreateContextStoreRequest extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The properties of the dataset.
+   * The dataset.
    */
   dataset?: CreateContextStoreRequestDataset;
   /**
    * @remarks
-   * The description of the context store.
+   * The description.
    * 
    * @example
    * desc

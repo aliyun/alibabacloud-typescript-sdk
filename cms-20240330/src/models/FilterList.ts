@@ -25,7 +25,7 @@ export class FilterList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The filter value. This parameter can be left empty when type is set to ALL or DISABLED.
+   * The filter value, which can be empty when the type is ALL or DISABLED.
    * 
    * @example
    * prod

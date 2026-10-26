@@ -6,11 +6,17 @@ export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * key
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,7 +45,7 @@ export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -65,7 +71,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -83,7 +89,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******ey
@@ -91,7 +97,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * sls-project-test-001
@@ -104,7 +110,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   tags?: ListWorkspacesResponseBodyWorkspacesTags[];
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * This parameter is required.
    * 
@@ -155,7 +161,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * Default value:
    * 	50
    * Maximum value:
@@ -183,7 +189,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1

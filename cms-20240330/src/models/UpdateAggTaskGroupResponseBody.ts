@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The summary of the aggregation task group configuration.
+   * The hash of the aggregation task group configuration.
    * 
    * @example
    * a54136014dc386a92c83a6ef1e97ff22

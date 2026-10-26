@@ -11,6 +11,7 @@ export class GetAddonSchemaRequest extends $dara.Model {
    * zh
    */
   aliyunLang?: string;
+  apiVersion?: string;
   /**
    * @remarks
    * The environment type. Valid values: \\`CS\\` (container) and \\`ECS\\`.
@@ -30,6 +31,7 @@ export class GetAddonSchemaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aliyunLang: 'aliyunLang',
+      apiVersion: 'apiVersion',
       environmentType: 'environmentType',
       version: 'version',
     };
@@ -38,6 +40,7 @@ export class GetAddonSchemaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aliyunLang: 'string',
+      apiVersion: 'string',
       environmentType: 'string',
       version: 'string',
     };

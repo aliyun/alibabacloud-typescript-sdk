@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication token for reporting data.
+   * The authentication token for data reporting.
    * 
    * @example
    * gaddp****@de20f2***1ce***
@@ -13,7 +13,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   authToken?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal-facing access address.
    * 
    * @example
    * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou-intranet.log.aliyuncs.com
@@ -21,7 +21,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   privateDomain?: string;
   /**
    * @remarks
-   * The Simple Log Service project.
+   * SLS Project
    * 
    * @example
    * proj-xtrace-xxxxx
@@ -29,7 +29,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   project?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network access address.
    * 
    * @example
    * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com
@@ -78,7 +78,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   feeType?: string;
   /**
    * @remarks
-   * The quota configuration.
+   * The quota configurations.
    */
   quotas?: { [key: string]: string };
   /**
@@ -99,7 +99,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The system configuration.
+   * The system configurations.
    */
   settings?: { [key: string]: string };
   /**
@@ -112,7 +112,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of application observability.
+   * The application observability type.
    * 
    * @example
    * apm

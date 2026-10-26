@@ -3,11 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Evaluator extends $dara.Model {
+  /**
+   * @remarks
+   * The evaluator configuration parameters.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The evaluation filter conditions.
+   */
   filters?: { [key: string]: string };
+  /**
+   * @remarks
+   * The evaluator name.
+   * 
+   * @example
+   * agent_task_completion
+   */
   name?: string;
+  /**
+   * @remarks
+   * The evaluation result name.
+   * 
+   * @example
+   * agent_task_completion
+   */
   resultName?: string;
+  /**
+   * @remarks
+   * The evaluation result type.
+   * 
+   * @example
+   * score
+   */
   resultType?: string;
+  /**
+   * @remarks
+   * The evaluation variable mapping.
+   */
   variableMapping?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

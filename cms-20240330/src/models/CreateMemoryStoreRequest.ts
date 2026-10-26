@@ -6,12 +6,12 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include the output in the trace.
+   * Specifies whether to include the large language model (LLM) output in memory extraction.
    */
   includeOutput?: boolean;
   /**
    * @remarks
-   * The query to filter traces.
+   * The Simple Log Service (SLS) query statement used to filter traces.
    * 
    * @example
    * (serviceName : "langchain-rag" or serviceName : "agentscope-code-correction") and hostname = frontend-proxy-999c48c8d-hvk6c
@@ -19,7 +19,7 @@ export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The name of the workspace that contains the trace source.
+   * The workspace where the trace is located.
    * 
    * @example
    * test-workspace
@@ -53,12 +53,12 @@ export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
 export class CreateMemoryStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of custom extraction strategies.
+   * The custom extraction strategies.
    */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
    * @remarks
-   * The description of the MemoryStore.
+   * The description.
    * 
    * @example
    * Test memory store for demonstration.
@@ -66,12 +66,12 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extraction strategies to use. Valid values include `Episodic`, `Summary`, and `Fact`.
+   * The extraction strategies. Valid values: Episodic, Summary, and Fact.
    */
   extractionStrategies?: string[];
   /**
    * @remarks
-   * The name of the MemoryStore. The name must be unique within the workspace.
+   * The name of the memory store.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The short-term TTL, which is the number of conversation rounds to retain.
+   * The retention period for short-term memory.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   shortTermTtl?: number;
   /**
    * @remarks
-   * The source type of the memory. Valid values are `None` and `Trace`.
+   * The source of the memory.
    * 
    * @example
    * None/Trace
@@ -99,7 +99,7 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Configuration for the trace source. Required if `sourceType` is `Trace`.
+   * The configuration when the sourceType is Trace.
    */
   traceSourceConfig?: CreateMemoryStoreRequestTraceSourceConfig;
   static names(): { [key: string]: string } {

@@ -63,7 +63,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-1423134313712421-cn-shanghai

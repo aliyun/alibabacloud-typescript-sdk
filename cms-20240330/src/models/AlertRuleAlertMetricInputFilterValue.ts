@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleAlertMetricInputFilterValue extends $dara.Model {
   /**
    * @remarks
-   * The dimension of the filter condition.
+   * The filter condition dimension.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AlertRuleAlertMetricInputFilterValue extends $dara.Model {
   dim?: string;
   /**
    * @remarks
-   * The operator for the filter condition.
+   * The filter condition operator.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AlertRuleAlertMetricInputFilterValue extends $dara.Model {
   opt?: string;
   /**
    * @remarks
-   * The value of the filter condition.
+   * The filter condition value.
    * 
    * @example
    * 127.0.0.1

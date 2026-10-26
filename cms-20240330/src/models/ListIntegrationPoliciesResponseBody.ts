@@ -21,6 +21,14 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
   clusterType?: string;
   /**
    * @remarks
+   * The UID of the actual owner of the bound resource in cross-account scenarios.
+   * 
+   * @example
+   * 12xxxx
+   */
+  entityUserId?: string;
+  /**
+   * @remarks
    * The VPC CIDR block.
    * 
    * @example
@@ -29,7 +37,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
   vpcCidr?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-uf664nyle5khp5d4d7hdo
@@ -39,6 +47,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
     return {
       clusterId: 'clusterId',
       clusterType: 'clusterType',
+      entityUserId: 'entityUserId',
       vpcCidr: 'vpcCidr',
       vpcId: 'vpcId',
     };
@@ -48,6 +57,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
     return {
       clusterId: 'string',
       clusterType: 'string',
+      entityUserId: 'string',
       vpcCidr: 'string',
       vpcId: 'string',
     };
@@ -123,7 +133,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
   fieldKey?: string;
   /**
    * @remarks
-   * The field values. Multiple values are separated by commas (,).
+   * The field values. Separate multiple values with commas (,).
    */
   fieldValues?: string[];
   /**
@@ -165,7 +175,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule extends $dara.Model {
   /**
    * @remarks
-   * The IP CIDR block.
+   * The IP address CIDR block.
    * 
    * @example
    * 100.100.1.0/16
@@ -173,7 +183,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIp
   ipCidr?: string;
   /**
    * @remarks
-   * The key of the IP field.
+   * The key of the IP address field.
    * 
    * @example
    * xxxx
@@ -325,7 +335,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules e
   instanceIds?: string[];
   /**
    * @remarks
-   * The IP match rule.
+   * The IP address matching rule.
    */
   ipMatchRule?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule;
   /**
@@ -515,7 +525,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
 export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dara.Model {
   /**
    * @remarks
-   * The ENI ID of the managed probe. Example: eni-xxxx.
+   * The ID of the elastic network interface (ENI) for the managed probe. Example: eni-xxxx.
    * 
    * @example
    * eni-12345678
@@ -605,17 +615,22 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
 export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The names of all components installed in this policy.
+   * The names of all add-ons installed in this policy.
    */
   addonNames?: string[];
   /**
+   * @example
+   * v2
+   */
+  apiVersion?: string;
+  /**
    * @remarks
-   * The bound resource information.
+   * The information about the bound resources.
    */
   bindResource?: ListIntegrationPoliciesResponseBodyPoliciesBindResource;
   /**
    * @remarks
-   * The umodel installation status in the container environment.
+   * The installation status of umodel in the container environment.
    * 
    * @example
    * true
@@ -636,7 +651,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   feePackage?: string;
   /**
    * @remarks
-   * The policy network management information.
+   * The network management information of the policy.
    */
   managedInfo?: ListIntegrationPoliciesResponseBodyPoliciesManagedInfo;
   /**
@@ -657,7 +672,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The access center policy type.
+   * The Access Center policy type.
    * 
    * @example
    * ECS
@@ -681,7 +696,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The sub-release count.
+   * The number of sub-releases.
    */
   subAddonRelease?: ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease;
   /**
@@ -703,6 +718,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addonNames: 'addonNames',
+      apiVersion: 'apiVersion',
       bindResource: 'bindResource',
       csUmodelStatus: 'csUmodelStatus',
       entityGroup: 'entityGroup',
@@ -722,6 +738,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addonNames: { 'type': 'array', 'itemType': 'string' },
+      apiVersion: 'string',
       bindResource: ListIntegrationPoliciesResponseBodyPoliciesBindResource,
       csUmodelStatus: 'boolean',
       entityGroup: ListIntegrationPoliciesResponseBodyPoliciesEntityGroup,
@@ -765,7 +782,11 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
 export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page size.
+   * The maximum number of entries per page.
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
    * 
    * @example
    * 100

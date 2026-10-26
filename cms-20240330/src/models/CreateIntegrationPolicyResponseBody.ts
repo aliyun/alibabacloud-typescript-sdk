@@ -37,7 +37,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The region.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -53,7 +53,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace where the policy resides.
+   * The workspace to which the policy belongs.
    * 
    * @example
    * prometheus
@@ -95,7 +95,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
 export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the policy was created.
+   * Indicates whether the policy is created.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   created?: boolean;
   /**
    * @remarks
-   * The upload policy.
+   * The policy.
    */
   policy?: CreateIntegrationPolicyResponseBodyPolicy;
   /**

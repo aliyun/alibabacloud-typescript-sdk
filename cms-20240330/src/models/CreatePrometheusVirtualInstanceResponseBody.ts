@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 1751520976660
@@ -21,7 +21,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   httpApiUrl?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The region ID.
    * 
    * @example
    * rw-e815960b4c9ebc5c3d89790c7e82
@@ -29,7 +29,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The cloud product.
+   * The cloud service.
    * 
    * @example
    * ack-csi-fuse
@@ -37,7 +37,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   namespace?: string;
   /**
    * @remarks
-   * Region ID
+   * The user ID.
    * 
    * @example
    * cn-zhengzhou-jva
@@ -85,7 +85,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
 export class CreatePrometheusVirtualInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance.
+   * The instance ID.
    */
   instance?: CreatePrometheusVirtualInstanceResponseBodyInstance;
   /**

@@ -10,7 +10,7 @@ export class AlertRuleLabelFilter extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The relationship operator between multiple labels.
+   * The relational operator between multiple labels.
    * 
    * @example
    * AND

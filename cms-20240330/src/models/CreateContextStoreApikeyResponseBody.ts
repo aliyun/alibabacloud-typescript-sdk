@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextStoreAPIKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The value of the API key. This value is returned only upon creation. Store it in a secure location.
+   * The full API key value.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class CreateContextStoreAPIKeyResponseBody extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The display name of the API key.
+   * The name of the API key.
    * 
    * @example
    * Production Service Key

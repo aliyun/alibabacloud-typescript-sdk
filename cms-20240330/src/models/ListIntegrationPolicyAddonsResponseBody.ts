@@ -8,7 +8,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsDashboards extends $da
    * The description.
    * 
    * @example
-   * 用于mysql的监控大盘
+   * Monitoring dashboard for MySQL
    */
   description?: string;
   /**
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsDashboards extends $da
   name?: string;
   /**
    * @remarks
-   * The URL of the dashboard.
+   * The dashboard URL.
    * 
    * @example
    * http://xxxxxxx
@@ -105,7 +105,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsDependenci
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The PromQL search statements.
+   * The PromQL query statement.
    */
   promQl?: string[];
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesPr
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * The default status of the alert rule policy.
+   * The enabled status of the default alert rule policy.
    * 
    * @example
    * RUNNING
@@ -203,7 +203,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Indicates whether the add-on is installed by default.
+   * Specifies whether the add-on is installed by default.
    * 
    * @example
    * true
@@ -211,7 +211,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
   defaultInstall?: boolean;
   /**
    * @remarks
-   * Indicates whether to assign a Service Account for communication with the console API.
+   * Specifies whether a service account is assigned for communication with the console API.
    * 
    * @example
    * true
@@ -224,7 +224,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
   metricCheckRule?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Indicates whether a pod restart is required after the add-on is installed.
+   * Specifies whether the pod restart guide is triggered immediately after the plug-in is installed during integration.
    * 
    * @example
    * true
@@ -298,7 +298,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
   description?: string;
   /**
    * @remarks
-   * Indicates whether the feature is enabled.
+   * Indicates whether the environment is enabled.
    * 
    * @example
    * true
@@ -314,7 +314,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
   label?: string;
   /**
    * @remarks
-   * The name of the environment.
+   * The environment name.
    * 
    * @example
    * Cloud
@@ -322,7 +322,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
   name?: string;
   /**
    * @remarks
-   * The policy.
+   * The policies.
    */
   policies?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies;
   static names(): { [key: string]: string } {
@@ -378,7 +378,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   categories?: string[];
   /**
    * @remarks
-   * A list of dashboards.
+   * The list of dashboards.
    */
   dashboards?: ListIntegrationPolicyAddonsResponseBodyAddonsDashboards[];
   /**
@@ -391,12 +391,12 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A list of supported environments.
+   * The list of supported environments.
    */
   environments?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments[];
   /**
    * @remarks
-   * The icon of the add-on.
+   * The component icon.
    * 
    * @example
    * asert/mysql.svg
@@ -417,7 +417,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the latest version was created.
+   * The latest release creation time.
    * 
    * @example
    * 2025-09-03T03:15:56Z
@@ -425,7 +425,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   latestReleaseCreateTime?: string;
   /**
    * @remarks
-   * The name of the add-on.
+   * The add-on name.
    * 
    * @example
    * mysql
@@ -433,7 +433,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the add-on can be installed only once.
+   * Specifies whether the add-on can be installed only once.
    * 
    * @example
    * true
@@ -441,7 +441,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   once?: boolean;
   /**
    * @remarks
-   * The scenario of the add-on.
+   * The component scenario.
    * 
    * @example
    * container
@@ -449,7 +449,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The version of the add-on.
+   * The component version.
    * 
    * @example
    * 0.1.1
@@ -525,12 +525,12 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
 export class ListIntegrationPolicyAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of add-ons.
+   * The list of add-ons.
    */
   addons?: ListIntegrationPolicyAddonsResponseBodyAddons[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 7E00EF90-CEF9-57C9-9AE9-5AA937D37C03

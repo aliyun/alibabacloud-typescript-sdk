@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of aggregation task group IDs. The value must be a JSON-parsable string.
+   * The list of IDs of the aggregation task groups. The value must be in JSON format.
    * 
    * @example
    * ["aggTaskGroup-xxx"]
@@ -13,7 +13,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   filterAggTaskGroupIds?: string;
   /**
    * @remarks
-   * The list of aggregation task group names. The value must be a JSON-parsable string.
+   * The list of names of the aggregation task groups. The value must be in JSON format.
    * 
    * @example
    * ["apiserver_request_total"]
@@ -37,7 +37,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name to search for. Fuzzy match is supported.
+   * The search keyword for names. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -45,12 +45,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The status of the aggregation task group. Valid values:
-   * 
-   * - Running
-   * - Stopped
-   * 
-   * Default value: Running.
+   * The status of the aggregation task group. Valid values: Running and Stopped. Default value: Running.
    * 
    * @example
    * Running
@@ -58,12 +53,12 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource group tags.
+   * The tags of the resource group.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The instance ID of the target Managed Service for Prometheus instance for the aggregation node group.
+   * The instance ID of the target Prometheus instance for the aggregation node group.
    * 
    * @example
    * rw-pq4apob9jm

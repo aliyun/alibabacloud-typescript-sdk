@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag `key`.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class CreateServiceRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag `value`.
+   * The tag value.
    * 
    * @example
    * prod

@@ -3,15 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of instances to return per page.
+   */
   maxResults?: number;
   /**
    * @remarks
-   * The namespace of the cloud product. This parameter is optional.
+   * The optional cloud services.
    * 
    * @example
    * ack-csi-fuse
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The next paging token for the paged query.
+   */
   nextToken?: string;
   /**
    * @remarks
