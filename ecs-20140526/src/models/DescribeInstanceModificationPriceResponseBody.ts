@@ -150,7 +150,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 113.880
@@ -219,7 +219,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 100
@@ -342,7 +342,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * The related price.
+   * The associated price.
    */
   relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribeInstanceModificationPriceResponseBodyPriceInfoRules;
@@ -383,7 +383,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and discount rule information.
+   * The PriceInfo data type, which includes pricing and discount rule information.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

@@ -309,7 +309,7 @@ export class DescribeCapacityReservationsResponseBody extends $dara.Model {
   capacityReservationSet?: DescribeCapacityReservationsResponseBodyCapacityReservationSet;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -317,7 +317,7 @@ export class DescribeCapacityReservationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query.
+   * The pagination token for the next capacity reservation query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -333,7 +333,7 @@ export class DescribeCapacityReservationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 1

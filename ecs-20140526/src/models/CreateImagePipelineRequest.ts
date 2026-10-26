@@ -6,7 +6,7 @@ export class CreateImagePipelineRequestAdvancedOptions extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to disable the automatic addition of a suffix to the destination image name. Valid values:
-   * - disable: disables the automatic addition.
+   * - disable: Disables the automatic addition.
    * 
    * @example
    * disable
@@ -14,9 +14,9 @@ export class CreateImagePipelineRequestAdvancedOptions extends $dara.Model {
   imageNameSuffix?: string;
   /**
    * @remarks
-   * Specifies whether to retain Cloud Assistant. During the build process, the system automatically installs Cloud Assistant on the intermediate instance to execute commands. You can choose whether to retain it in the built destination image. Valid values:
-   * - true: retains Cloud Assistant.
-   * - false: does not retain Cloud Assistant.
+   * Specifies whether to retain Cloud Assistant. During the building process, the system automatically installs Cloud Assistant on the intermediate instance to execute commands. You can choose whether to retain it in the built destination image. Valid values:
+   * - true: Retains Cloud Assistant.
+   * - false: Does not retain Cloud Assistant.
    * 
    * Default value: false.
    * > This setting does not affect the Cloud Assistant that is pre-installed in your image.
@@ -52,9 +52,9 @@ export class CreateImagePipelineRequestImageOptionsImageFeatures extends $dara.M
   /**
    * @remarks
    * Specifies whether the built destination image supports NVMe. Valid values:
-   * - supported: supported. This indicates that instances created from this image support the NVMe protocol.
-   * - unsupported: not supported. This indicates that instances created from this image do not support the NVMe protocol.
-   * - auto: automatic detection. The system automatically detects whether the NVMe driver is installed in your image. This detection occurs before the build phase. If you install or uninstall the NVMe driver during the build, the detection result may be inaccurate. We recommend that you set this parameter to supported or unsupported based on the build content.
+   * - supported: Supported. Instances created from this image support the NVMe protocol.
+   * - unsupported: Not supported. Instances created from this image do not support the NVMe protocol.
+   * - auto: Automatic detection. The system automatically detects whether the NVMe driver is installed in your image. This detection occurs before the building phase. If you install or uninstall the NVMe driver during building, the result may be inaccurate. We recommend that you set this parameter to supported or unsupported based on the build content.
    * 
    * @example
    * auto
@@ -92,7 +92,7 @@ export class CreateImagePipelineRequestImageOptionsImageTags extends $dara.Model
   key?: string;
   /**
    * @remarks
-   * The tag value. Valid values of N: 1 to 20. If this parameter is specified, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value of the resource. Valid values of N: 1 to 20. If this parameter is specified, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -145,7 +145,9 @@ export class CreateImagePipelineRequestImageOptions extends $dara.Model {
   imageFeatures?: CreateImagePipelineRequestImageOptionsImageFeatures;
   /**
    * @remarks
-   * The prefix of the target image name. The prefix must be 2 to 64 characters in length and must start with a letter or a Chinese character. It cannot start with http:// or https://. It can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The system automatically generates the final image name by concatenating the prefix and the build task ID (ExecutionId) in the {ImageName}_{ExecutionId} format.
+   * The prefix of the target image name. It must be 2 to 64 characters in length, start with a letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * The system automatically generates the final image name by concatenating the prefix and the build task ID (`ExecutionId`) in the `{ImageName}_{ExecutionId}` format.
    * 
    * @example
    * testImageName
@@ -191,6 +193,29 @@ export class CreateImagePipelineRequestImageOptions extends $dara.Model {
   }
 }
 
+export class CreateImagePipelineRequestImageSecurityOptions extends $dara.Model {
+  securityScanMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityScanMode: 'SecurityScanMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityScanMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings extends $dara.Model {
   /**
    * @remarks
@@ -215,7 +240,7 @@ export class CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings exte
    * - VHD
    * - QCOW2
    * 
-   * Default value: none. This indicates that Alibaba Cloud automatically detects the image format, and the detected format prevails.
+   * Default value: none. This indicates that Alibaba Cloud automatically detects the image format and uses the detected format.
    * 
    * @example
    * RAW
@@ -269,9 +294,9 @@ export class CreateImagePipelineRequestImportImageOptionsFeatures extends $dara.
    * @remarks
    * The metadata access mode of the image. Valid values:
    * 
-   * - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to "Reinforced mode only".
+   * - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to enforced mode.
    * 
-   * - v2: When you create an ECS instance from this image, you can set the metadata access mode to "Reinforced mode only".
+   * - v2: When you create an ECS instance from this image, you can set the metadata access mode to enforced mode.
    * 
    * Default value: v1.
    * 
@@ -282,8 +307,8 @@ export class CreateImagePipelineRequestImportImageOptionsFeatures extends $dara.
   /**
    * @remarks
    * Specifies whether the imported original image supports NVMe. Valid values:
-   * - supported: supported. This indicates that instances created from this image support the NVMe protocol.
-   * - unsupported: not supported. This indicates that instances created from this image do not support the NVMe protocol.
+   * - supported: Supported. Instances created from this image support the NVMe protocol.
+   * - unsupported: Not supported. Instances created from this image do not support the NVMe protocol.
    * 
    * Default value: unsupported.
    * 
@@ -357,7 +382,7 @@ export class CreateImagePipelineRequestImportImageOptionsImportImageTags extends
 export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
   /**
    * @remarks
-   * The system architecture of the system disk. After you specify a data disk snapshot to create a system disk, you must use Architecture to determine the system architecture of the system disk. Valid values:
+   * The system architecture of the system disk. After you specify a data disk snapshot as the system disk of an image, you must use Architecture to determine the system architecture of the system disk. Valid values:
    * 
    * - x86_64
    * - arm64
@@ -375,7 +400,7 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * - BIOS: BIOS boot mode.
    * - UEFI: UEFI boot mode.
    * 
-   * Default value: BIOS. If Architecture is set to arm64, the default value is UEFI, and you can only set this parameter to UEFI.
+   * Default value: BIOS. If Architecture is set to arm64, the default value is UEFI, and only UEFI can be set.
    * 
    * <notice>
    * 
@@ -424,9 +449,9 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * @remarks
    * The license type used to activate the operating system after the image is imported. Valid values:
    * 
-   * - Auto: Alibaba Cloud detects the source operating system and assigns a license. In auto mode, the system first checks whether the Platform you specified has a license from official Alibaba Cloud channels and assigns it to the imported image. If no such license is available, the system switches to the Bring Your Own License (BYOL) method.
-   * - Aliyun: uses a license from official Alibaba Cloud channels based on the Platform you specified.
-   * - BYOL: uses the license provided by the source operating system. If you use BYOL, you must ensure that your license key is supported on Alibaba Cloud.
+   * - Auto: Alibaba Cloud detects the source operating system and assigns a license. In auto mode, the system first checks whether the Platform you specified has a license from an official Alibaba Cloud channel and assigns it to the imported image. If no such license is available, the system switches to the Bring Your Own License (BYOL) method.
+   * - Aliyun: Uses a license from an official Alibaba Cloud channel based on the Platform you specified.
+   * - BYOL: Uses the license provided by the source operating system. If you use BYOL, you must ensure that your license key is supported in Alibaba Cloud.
    * 
    * Default value: Auto.
    * 
@@ -478,7 +503,7 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * - Windows Server 2003
    * - Other Windows
    * 
-   * Default value: Others Linux if the operating system type is Linux, or Other Windows if the operating system type is Windows.
+   * Default value: Others Linux if the operating system type is Linux, or Other Windows if the operating system type is not Linux.
    * 
    * @example
    * Aliyun
@@ -498,10 +523,10 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * @remarks
    * The data retention policy for the imported image. Valid values:
    * 
-   * - RetainOnlySuccessful: retains the image only if the build succeeds.
-   * - RetainOnlyFailed: retains the image only if the build fails.
-   * - RetainAlways: always retains the image regardless of the build result.
-   * - RetainNever: never retains the image regardless of the build result.
+   * - RetainOnlySuccessful: Retains the image only if the building succeeds.
+   * - RetainOnlyFailed: Retains the image only if the building fails.
+   * - RetainAlways: Always retains the image regardless of the building result.
+   * - RetainNever: Never retains the image regardless of the building result.
    * 
    * Default value: RetainNever.
    * 
@@ -511,7 +536,10 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
   retentionStrategy?: string;
   /**
    * @remarks
-   * The name of the RAM role used when the image is imported.
+   * The name of the RAM role used when importing the image.
+   * 
+   * @example
+   * AliyunECSImageImportDefaultRole
    */
   roleName?: string;
   static names(): { [key: string]: string } {
@@ -637,9 +665,9 @@ export class CreateImagePipelineRequest extends $dara.Model {
    * @remarks
    * The source image type. Valid values:
    * 
-   * - IMAGE: image.
-   * - IMAGE_FAMILY: image family.
-   * - OSS: OSS object.
+   * - IMAGE: image
+   * - IMAGE_FAMILY: image family
+   * - OSS: OSS object
    * 
    * This parameter is required.
    * 
@@ -649,7 +677,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
   baseImageType?: string;
   /**
    * @remarks
-   * The content of the image build template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+   * The content of the image build template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by the image building service](https://help.aliyun.com/document_detail/200206.html).
    * 
    * @example
    * COMPONENT ic-bp12dvdzvr9k9*****
@@ -658,7 +686,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
   buildContent?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -666,10 +694,10 @@ export class CreateImagePipelineRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to release the intermediate instance if the image build fails. Valid values:
+   * Specifies whether to release the intermediate instance if the image building fails. Valid values:
    * 
-   * - true: releases the instance.
-   * - false: does not release the instance.
+   * - true: Releases the instance.
+   * - false: Does not release the instance.
    * 
    * Default value: true.
    * 
@@ -718,6 +746,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
    * The properties of the destination image.
    */
   imageOptions?: CreateImagePipelineRequestImageOptions;
+  imageSecurityOptions?: CreateImagePipelineRequestImageSecurityOptions;
   /**
    * @remarks
    * The properties and settings of the imported image. This parameter is required when BaseImageType is set to OSS.
@@ -727,7 +756,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
    * @remarks
    * The instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query available instance types.
    * 
-   * If you do not specify this parameter, the system automatically selects an instance type with the minimum number of vCPUs and memory size based on resource availability. For example, the system selects the ecs.g6.large instance type by default. If ecs.g6.large is out of stock, the system selects ecs.g6.xlarge.
+   * If you do not specify this parameter, the system automatically selects an instance type with the minimum number of vCPUs and memory size based on resource availability. For example, the system selects the ecs.g6.large instance type by default. If the inventory is insufficient, the ecs.g6.xlarge instance type is selected.
    * 
    * @example
    * ecs.g6.large
@@ -745,7 +774,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The template name. It must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. It can contain letters, digits, Chinese characters, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The template name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * > If you do not specify `Name`, the value of `ImagePipelineId` is used by default.
    * 
@@ -808,10 +837,10 @@ export class CreateImagePipelineRequest extends $dara.Model {
   repairItem?: string[];
   /**
    * @remarks
-   * The repair mode in the image template.
+   * The repair option in the image template.
    * 
    * Valid values:
-   * - Standard: standard repair mode.
+   * - Standard: Standard repair mode.
    * 
    *   The standard repair package for Linux includes:
    *   - GUESTOS.CloudInit
@@ -833,7 +862,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
    *   - GUESTOS.OSLoader
    *   - GUESTOS.Vminit
    * 
-   * - All: full repair mode.
+   * - All: Full repair mode.
    * 
    *   The full repair package for Linux includes the following items in addition to those in the standard repair package:
    *   - GUESTOS.Selinux
@@ -842,9 +871,9 @@ export class CreateImagePipelineRequest extends $dara.Model {
    *   The full repair package for Windows includes the following items in addition to those in the standard repair package:
    *   - GUESTOS.Server
    * 
-   * - Customized: custom repair mode. In this mode, the repair items in the repair package are specified by the RepairItem parameter.
+   * - Customized: Custom repair mode. In this mode, the repair items in the repair package are specified by the RepairItem parameter.
    * 
-   * > As the detection and repair capabilities improve, the included repair items may increase. For more information about the specific meanings of repair items, see [Image check overview](https://help.aliyun.com/document_detail/439819.html).
+   * > As the detection and repair capabilities continue to improve, the included repair items may increase. For more information about the specific meanings of repair items, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
    * 
    * @example
    * Standard
@@ -877,7 +906,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
   tag?: CreateImagePipelineRequestTag[];
   /**
    * @remarks
-   * The content of the image test template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+   * The content of the image test template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by the image building service](https://help.aliyun.com/document_detail/200206.html).
    * 
    * @example
    * COMPONENT ic-bp12dvdzvr9k9*****
@@ -886,7 +915,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
   testContent?: string;
   /**
    * @remarks
-   * The list of regions to which the destination image is distributed. Valid values of N: 1 to 20.
+   * The list of regions to which the destination image is to be distributed. Valid values of N: 1 to 20.
    * 
    * If you do not specify this parameter, the image is created only in the current region by default.
    * 
@@ -917,6 +946,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
       imageFamily: 'ImageFamily',
       imageName: 'ImageName',
       imageOptions: 'ImageOptions',
+      imageSecurityOptions: 'ImageSecurityOptions',
       importImageOptions: 'ImportImageOptions',
       instanceType: 'InstanceType',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
@@ -951,6 +981,7 @@ export class CreateImagePipelineRequest extends $dara.Model {
       imageFamily: 'string',
       imageName: 'string',
       imageOptions: CreateImagePipelineRequestImageOptions,
+      imageSecurityOptions: CreateImagePipelineRequestImageSecurityOptions,
       importImageOptions: CreateImagePipelineRequestImportImageOptions,
       instanceType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -981,6 +1012,9 @@ export class CreateImagePipelineRequest extends $dara.Model {
     }
     if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
       (this.imageOptions as any).validate();
+    }
+    if(this.imageSecurityOptions && typeof (this.imageSecurityOptions as any).validate === 'function') {
+      (this.imageSecurityOptions as any).validate();
     }
     if(this.importImageOptions && typeof (this.importImageOptions as any).validate === 'function') {
       (this.importImageOptions as any).validate();

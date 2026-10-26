@@ -78,6 +78,7 @@ export { CreateImagePipelineRequestAdvancedOptions } from './CreateImagePipeline
 export { CreateImagePipelineRequestImageOptionsImageFeatures } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImageOptionsImageTags } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImageOptions } from './CreateImagePipelineRequest';
+export { CreateImagePipelineRequestImageSecurityOptions } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptionsFeatures } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptionsImportImageTags } from './CreateImagePipelineRequest';
@@ -376,6 +377,7 @@ export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOpt
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOptionsImageTagsImageTag } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOptionsImageTags } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOptions } from './DescribeImagePipelinesResponseBody';
+export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageSecurityOptions } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappingsDiskDeviceMapping } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappings } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures } from './DescribeImagePipelinesResponseBody';

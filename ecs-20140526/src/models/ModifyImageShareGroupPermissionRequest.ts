@@ -10,6 +10,9 @@ export class ModifyImageShareGroupPermissionRequest extends $dara.Model {
    * The image ID.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * m-bp1a2b3c4d5e6f7g
    */
   imageId?: string;
   ownerAccount?: string;
@@ -19,6 +22,9 @@ export class ModifyImageShareGroupPermissionRequest extends $dara.Model {
    * The region ID. You can call DescribeRegions to query available regions.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

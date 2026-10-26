@@ -53,7 +53,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   imagePipelineId?: string[];
   /**
    * @remarks
-   * The number of entries per page in a paging query. Valid values: 1 to 500.
+   * The maximum number of entries to return per page in a paging query. Valid values: 1 to 500.
    * 
    * Default value: 50.
    * 
@@ -81,7 +81,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
    * > Filtering by the default resource group is not supported.
    * 
@@ -103,7 +103,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeImagePipelinesRequestTag[];
   static names(): { [key: string]: string } {

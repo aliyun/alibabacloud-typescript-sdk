@@ -170,6 +170,29 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImag
   }
 }
 
+export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageSecurityOptions extends $dara.Model {
+  securityScanMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityScanMode: 'SecurityScanMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityScanMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappingsDiskDeviceMapping extends $dara.Model {
   diskImageSize?: number;
   format?: string;
@@ -497,6 +520,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
   imageName?: string;
   imageOptions?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOptions;
   imagePipelineId?: string;
+  imageSecurityOptions?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageSecurityOptions;
   importImageOptions?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptions;
   instanceType?: string;
   internetMaxBandwidthOut?: number;
@@ -527,6 +551,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
       imageName: 'ImageName',
       imageOptions: 'ImageOptions',
       imagePipelineId: 'ImagePipelineId',
+      imageSecurityOptions: 'ImageSecurityOptions',
       importImageOptions: 'ImportImageOptions',
       instanceType: 'InstanceType',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
@@ -557,6 +582,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
       imageName: 'string',
       imageOptions: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOptions,
       imagePipelineId: 'string',
+      imageSecurityOptions: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageSecurityOptions,
       importImageOptions: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptions,
       instanceType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -582,6 +608,9 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
     }
     if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
       (this.imageOptions as any).validate();
+    }
+    if(this.imageSecurityOptions && typeof (this.imageSecurityOptions as any).validate === 'function') {
+      (this.imageSecurityOptions as any).validate();
     }
     if(this.importImageOptions && typeof (this.importImageOptions as any).validate === 'function') {
       (this.importImageOptions as any).validate();
@@ -633,7 +662,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   imagePipeline?: DescribeImagePipelinesResponseBodyImagePipeline;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries returned per page in a paging query.
    * 
    * @example
    * 50
@@ -641,7 +670,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token returned by the current call. For more information about how to use the token, see the operation description.
+   * The pagination token returned by this call. For more information, see the operation description.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -657,7 +686,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of image templates returned.
+   * The total number of image templates returned.
    * 
    * @example
    * 1
