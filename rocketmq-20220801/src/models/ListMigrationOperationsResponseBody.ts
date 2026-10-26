@@ -4,8 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMigrationOperationsResponseBodyDataListOperationParam extends $dara.Model {
   /**
+   * @remarks
+   * The parameter information.
+   * 
    * @example
-   * []
+   * {
+   *       "action": "MIGRATE_FORWARD",
+   *       "targetStage": "MIGRATE_FINISH"
+   * }
    */
   paramData?: any;
   static names(): { [key: string]: string } {
@@ -31,8 +37,17 @@ export class ListMigrationOperationsResponseBodyDataListOperationParam extends $
 
 export class ListMigrationOperationsResponseBodyDataListOperationResult extends $dara.Model {
   /**
+   * @remarks
+   * The operation result.
+   * 
    * @example
-   * []
+   * {
+   *       "checkStatus": "WAIT_CHECK",
+   *       "sourceTopicStatus": "PERM_6",
+   *       "targetTopicStatus": "PERM_4",
+   *       "checkResult": {},
+   *       "migrateStage": "DOUBLE_READ"
+   * }
    */
   resultData?: any;
   static names(): { [key: string]: string } {
@@ -58,48 +73,87 @@ export class ListMigrationOperationsResponseBodyDataListOperationResult extends 
 
 export class ListMigrationOperationsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The operation business status.
+   * 
    * @example
-   * CONNECT_PENDING
+   * DOUBLE_READ
    */
   businessStatus?: string;
   /**
+   * @remarks
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2022-08-01 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The migration ID.
+   * 
    * @example
    * 1
    */
   migrationId?: number;
   /**
+   * @remarks
+   * The migration operation ID.
+   * 
    * @example
    * 183
    */
   operationId?: number;
   /**
+   * @remarks
+   * The primary key of the operation object.
+   * 
+   * 
+   * > 
+   * > - During the message migration stage, the operation object is the topic name.
+   * 
    * @example
-   * xx
+   * normal-topic-1
    */
   operationKey?: string;
+  /**
+   * @remarks
+   * The operation parameter.
+   */
   operationParam?: ListMigrationOperationsResponseBodyDataListOperationParam;
+  /**
+   * @remarks
+   * The operation result.
+   */
   operationResult?: ListMigrationOperationsResponseBodyDataListOperationResult;
   /**
+   * @remarks
+   * The operation status.
+   * 
    * @example
    * DOING
    */
   operationStatus?: string;
   /**
+   * @remarks
+   * The operation type.
+   * 
    * @example
-   * IMPORT_CONSUMER_GROUP
+   * MIGRATE_MESSAGE
    */
   operationType?: string;
   /**
+   * @remarks
+   * The migration stage type.
+   * 
    * @example
-   * CONNECT_NETWORK
+   * MIGRATE_MESSAGE
    */
   stageType?: string;
   /**
+   * @remarks
+   * The update time, in the format of YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2022-08-01 20:05:50
    */
@@ -152,18 +206,31 @@ export class ListMigrationOperationsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListMigrationOperationsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The paginated data.
+   */
   list?: ListMigrationOperationsResponseBodyDataList[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -200,37 +267,62 @@ export class ListMigrationOperationsResponseBodyData extends $dara.Model {
 
 export class ListMigrationOperationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListMigrationOperationsResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * consumerGroupId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The topic already exists.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C7E8AE3A-219B-52EE-BE32-4036F5F88833
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

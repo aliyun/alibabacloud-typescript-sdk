@@ -7,7 +7,7 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $dara.Mo
    * @remarks
    * The dead-letter topic.
    * 
-   * If a consumer still fails to consume a message after the message is retried for a specified number of times, the message is delivered to a dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
+   * If a consumer fails to consume a message due to an exception and the message still cannot be consumed after retries, the message is delivered to the dead-letter topic for subsequent business recovery or review. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
    * 
    * @example
    * DLQ_mqtest
@@ -15,9 +15,9 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $dara.Mo
   deadLetterTargetTopic?: string;
   /**
    * @remarks
-   * Fixed interval retry time,Value range, unit: seconds
-   *  - Concurrently:10-1800
-   *  - Orderly:1-600
+   * The fixed retry interval. Unit: seconds.
+   *  - Concurrently (concurrent delivery): 10-1800
+   *  - Orderly (ordered delivery): 1-600
    * 
    * @example
    * 20
@@ -25,7 +25,7 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $dara.Mo
   fixedIntervalRetryTime?: number;
   /**
    * @remarks
-   * The maximum number of retries.
+   * The maximum number of retry attempts.
    * 
    * @example
    * 16
@@ -33,12 +33,7 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $dara.Mo
   maxRetryTimes?: number;
   /**
    * @remarks
-   * The retry policy.
-   * 
-   * Valid values:
-   * 
-   * *   FixedRetryPolicy: fixed-interval retry
-   * *   DefaultRetryPolicy: exponential backoff retry
+   * The retry policy type.
    * 
    * @example
    * DefaultRetryPolicy
@@ -87,7 +82,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The time when the consumer group was created.
+   * The time when the consumer group was created, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -95,21 +90,23 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The message delivery method of the consumer group.
-   * 
-   * Valid values:
-   * 
-   * *   Concurrently: concurrent delivery
-   * *   Orderly: ordered delivery
+   * The delivery order of the consumer group.
    * 
    * @example
    * Concurrently
    */
   deliveryOrderType?: string;
+  /**
+   * @remarks
+   * Indicates whether exclusive consumption is enabled.
+   * 
+   * @example
+   * false
+   */
   exclusive?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the instance to which the consumer group belongs.
    * 
    * @example
    * rmq-cn-7e22ody****
@@ -117,20 +114,25 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Maximum received message tps
+   * The maximum TPS for consuming messages.
    * 
    * @example
-   * 1000
+   * 2000
    */
   maxReceiveTps?: number;
   /**
+   * @remarks
+   * The consumption pattern. Valid values:
+   *  - CLUSTERING: clustering consumption.
+   *  - LITE_SELECTIVE: LITE_SELECTIVE.
+   * 
    * @example
    * LITE_SELECTIVE
    */
   messageModel?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -138,7 +140,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks on the consumer group.
+   * The remarks of the consumer group.
    * 
    * @example
    * This is the remark for test.
@@ -148,23 +150,21 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the consumer group.
    * 
-   * Valid values:
-   * 
-   * *   RUNNING
-   * *   CREATING
-   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The topic name for the lite type.
+   * 
    * @example
    * test1
    */
   topicName?: string;
   /**
    * @remarks
-   * The time when the consumer group was last updated.
+   * The time when the consumer group was last updated, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -221,7 +221,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
 export class GetConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * InvalidConsumerGroupId
@@ -229,12 +229,12 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetConsumerGroupResponseBodyData;
   /**
    * @remarks
-   * The dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
    * ConsumerGroupId
@@ -242,7 +242,7 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * The dynamic fault message.
    * 
    * @example
    * consumerGroupId
@@ -258,7 +258,7 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The fault message.
    * 
    * @example
    * Parameter consumerGroupId is invalid.
@@ -266,7 +266,7 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * The request ID. Each request has a unique ID, which can be used to troubleshoot and locate faults.
    * 
    * @example
    * C7F94090-3358-506A-97DC-34BC803C****
@@ -274,7 +274,7 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the execute operation was successful.
    * 
    * @example
    * true

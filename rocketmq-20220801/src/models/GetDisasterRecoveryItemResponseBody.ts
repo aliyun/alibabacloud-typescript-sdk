@@ -15,9 +15,11 @@ export class GetDisasterRecoveryItemResponseBodyDataTopics extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
-   *   - Concurrently: concurrent delivery
-   *   - Orderly: sequential delivery
+   * The ordering of message delivery to the target instance.
+   * 
+   * The parameter has the following valid values:
+   * - Concurrently: Concurrent delivery.
+   * - Orderly: Ordered delivery.
    * 
    * @example
    * Concurrently
@@ -33,9 +35,7 @@ export class GetDisasterRecoveryItemResponseBodyDataTopics extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance type
-   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * The instance type.
    * 
    * @example
    * ALIYUN_ROCKETMQ
@@ -91,7 +91,7 @@ export class GetDisasterRecoveryItemResponseBodyDataTopics extends $dara.Model {
 export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the topic mapping task was created.
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-06-24 02:57:31
@@ -99,12 +99,12 @@ export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Additional Information
+   * The extended information.
    */
   extInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the topic mapping
+   * The ID of the backup plan.
    * 
    * @example
    * 100070284
@@ -112,7 +112,12 @@ export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
   itemId?: number;
   /**
    * @remarks
-   * The topic mapping task status.
+   * The status of the backup mapping. Valid values:
+   * - CREATING: Being created.
+   * - CHANGING: Being modified.
+   * - RUNNING: Running.
+   * - MANUAL_STOPPED: Manually stopped.
+   * - OVERDUE_STOPPED: Stopped due to overdue payment.
    * 
    * @example
    * RUNNING
@@ -120,7 +125,7 @@ export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
   itemStatus?: string;
   /**
    * @remarks
-   * The ID of the global message backup plan.
+   * The mapping ID.
    * 
    * @example
    * 1300000016
@@ -128,12 +133,12 @@ export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
   planId?: number;
   /**
    * @remarks
-   * Topics included in the backup mapping
+   * The topics included in the backup mapping.
    */
   topics?: GetDisasterRecoveryItemResponseBodyDataTopics[];
   /**
    * @remarks
-   * The time when the topic mapping task was last updated.
+   * The update time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-09-26 02:13:10
@@ -181,7 +186,7 @@ export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
 export class GetDisasterRecoveryItemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The details of the access denial. This parameter is returned only when the request is denied because the RAM user does not have the required permissions.
    * 
    * @example
    * xxx
@@ -197,7 +202,7 @@ export class GetDisasterRecoveryItemResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetDisasterRecoveryItemResponseBodyData;
   /**
@@ -234,7 +239,7 @@ export class GetDisasterRecoveryItemResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****

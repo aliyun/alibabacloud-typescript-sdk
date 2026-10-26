@@ -7,20 +7,13 @@ export class ListInstanceAccountRequest extends $dara.Model {
    * @remarks
    * The status of the account.
    * 
-   * Valid values:
-   * 
-   * *   DISABLE
-   * *   ENABLE
-   * 
    * @example
    * ENABLE
    */
   accountStatus?: string;
   /**
    * @remarks
-   * The account type.
-   *   - CUSTOMER
-   *   - DEFAULT
+   * The type of the account.
    * 
    * @example
    * CUSTOMER
@@ -28,7 +21,7 @@ export class ListInstanceAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The first page is 1.
    * 
    * @example
    * 1
@@ -36,7 +29,7 @@ export class ListInstanceAccountRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

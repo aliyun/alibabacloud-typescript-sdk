@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceIpWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelists.
+   * The list of IP address whitelists.
    * 
    * This parameter is required.
    */

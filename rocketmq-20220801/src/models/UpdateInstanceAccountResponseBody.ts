@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The access denial details. This field is returned only when user access is denied due to lack of RAM permissions.
    * 
    * @example
    * xxx
@@ -61,7 +61,7 @@ export class UpdateInstanceAccountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -69,7 +69,7 @@ export class UpdateInstanceAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

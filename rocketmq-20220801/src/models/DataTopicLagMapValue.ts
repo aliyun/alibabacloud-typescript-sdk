@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataTopicLagMapValue extends $dara.Model {
   /**
    * @remarks
-   * Ready message count
+   * The number of ready messages.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DataTopicLagMapValue extends $dara.Model {
   readyCount?: number;
   /**
    * @remarks
-   * The number of messages being consumed.
+   * The number of inflight messages.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DataTopicLagMapValue extends $dara.Model {
   inflightCount?: number;
   /**
    * @remarks
-   * Delivery delay time, in seconds
+   * The delivery latency. Unit: seconds.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class DataTopicLagMapValue extends $dara.Model {
   deliveryDuration?: number;
   /**
    * @remarks
-   * lastConsumeTimestamp
+   * The timestamp of the last consumption.
    * 
    * @example
    * 1735629607846

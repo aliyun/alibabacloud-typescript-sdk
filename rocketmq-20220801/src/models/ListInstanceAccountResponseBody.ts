@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The status of the account.
-   * Valid values:
-   *   - DISABLE
-   *   - ENABLE
+   * The account status.
    * 
    * @example
    * ENABLE
@@ -17,8 +14,6 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The account type.
-   *   - CUSTOMER
-   *   - DEFAULT
    * 
    * @example
    * CUSTOMER
@@ -41,13 +36,16 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
    * @remarks
-   * The username of the account.
+   * The username.
    * 
    * @example
    * test
@@ -87,12 +85,12 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
 export class ListInstanceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * A list of entries on the current page.
    */
   list?: ListInstanceAccountResponseBodyDataList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -100,7 +98,7 @@ export class ListInstanceAccountResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -108,7 +106,7 @@ export class ListInstanceAccountResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total count of entries.
    * 
    * @example
    * 24
@@ -147,7 +145,7 @@ export class ListInstanceAccountResponseBodyData extends $dara.Model {
 export class ListInstanceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The details of the access denial. This parameter is returned only if the request is denied due to insufficient RAM permissions.
    * 
    * @example
    * xxx
@@ -200,7 +198,7 @@ export class ListInstanceAccountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * C115601B-8736-5BBF-AC99-7FEAE1245A80
@@ -208,7 +206,7 @@ export class ListInstanceAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

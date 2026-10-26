@@ -7,7 +7,7 @@ import { DataTopicLagMapValue } from "./DataTopicLagMapValue";
 export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
   /**
    * @remarks
-   * Delivery delay time, in seconds
+   * The delivery latency. Unit: seconds.
    * 
    * @example
    * 12
@@ -15,7 +15,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
   deliveryDuration?: number;
   /**
    * @remarks
-   * The number of messages being consumed.
+   * The number of inflight messages.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
   inflightCount?: number;
   /**
    * @remarks
-   * Last consumption time
+   * The timestamp of the last consumption.
    * 
    * @example
    * 1735629607846
@@ -31,7 +31,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
   lastConsumeTimestamp?: number;
   /**
    * @remarks
-   * Ready message count
+   * The number of ready messages.
    * 
    * @example
    * 1
@@ -67,7 +67,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
 export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Consumer Group ID
+   * The consumer group ID.
    * 
    * @example
    * CID-TEST
@@ -75,16 +75,20 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The message accumulation for lite topics.
+   */
   liteTopicLagMap?: { [key: string]: DataLiteTopicLagMapValue };
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -92,17 +96,20 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Backlog for each topic
+   * The message accumulation for each topic.
    */
   topicLagMap?: { [key: string]: DataTopicLagMapValue };
   /**
+   * @remarks
+   * The name of the subscribed topic.
+   * 
    * @example
    * test1
    */
   topicName?: string;
   /**
    * @remarks
-   * Total lag count
+   * The total message accumulation.
    */
   totalLag?: GetConsumerGroupLagResponseBodyDataTotalLag;
   static names(): { [key: string]: string } {
@@ -150,7 +157,7 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
 export class GetConsumerGroupLagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * Topic.NotFound
@@ -163,7 +170,7 @@ export class GetConsumerGroupLagResponseBody extends $dara.Model {
   data?: GetConsumerGroupLagResponseBodyData;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * InstanceId
@@ -179,7 +186,7 @@ export class GetConsumerGroupLagResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -187,7 +194,7 @@ export class GetConsumerGroupLagResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * Parameter instanceId is mandatory for this action .

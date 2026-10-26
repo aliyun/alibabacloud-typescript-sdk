@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDisasterRecoveryPlansRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition. Global Replicator tasks are filtered by task name or description.
+   * The filter condition. Filters backup plans by backup name or backup description.
    * 
    * @example
    * xxx
@@ -16,12 +16,12 @@ export class ListDisasterRecoveryPlansRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rmq-cn-778xxx
+   * rmq-cn-c97xxx
    */
   instanceId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListDisasterRecoveryPlansRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDisasterRecoveryCheckpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter Condition
+   * The filter condition.
    * 
    * @example
    * topic_test
@@ -13,7 +13,7 @@ export class ListDisasterRecoveryCheckpointsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Source Instance ID
+   * The instance ID of the source instance.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListDisasterRecoveryCheckpointsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Current page number, starting from 1.
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListDisasterRecoveryCheckpointsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, the maximum number of results returned per page.
+   * The page size. The maximum number of results to return per page.
    * 
    * @example
    * 10

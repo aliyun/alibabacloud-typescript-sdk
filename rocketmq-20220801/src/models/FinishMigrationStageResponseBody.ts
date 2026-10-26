@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class FinishMigrationStageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidConsumerGroupId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16425867-C948-5A0C-9A24-5259727BE727
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

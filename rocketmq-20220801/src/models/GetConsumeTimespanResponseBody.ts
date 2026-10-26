@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConsumeTimespanResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The last time the consumer group consumed a message from this topic.
+   * 
    * @example
    * 1570761026400
    */
   consumeTimestamp?: number;
   /**
+   * @remarks
+   * The ID of the consumer group.
+   * 
    * @example
    * CID-TEST
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The production time of the latest message in the topic.
+   * 
    * @example
    * 1570761026833
    */
   maxTimestamp?: number;
   /**
+   * @remarks
+   * The production time of the earliest message in the topic.
+   * 
    * @example
    * 1570761026222
    */
   minTimestamp?: number;
   /**
+   * @remarks
+   * The topic to which the consumer group subscribes.
+   * 
    * @example
    * topic_test
    */
@@ -66,37 +84,62 @@ export class GetConsumeTimespanResponseBodyData extends $dara.Model {
 
 export class GetConsumeTimespanResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetConsumeTimespanResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * xxx
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * xxx
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request. Use this ID to troubleshoot issues.
+   * 
    * @example
    * C115601B-8736-5BBF-AC99-7FEAE1245A80
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

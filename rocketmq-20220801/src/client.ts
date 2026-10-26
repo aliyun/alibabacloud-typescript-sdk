@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-guangzhou': "rocketmq.cn-guangzhou.aliyuncs.com	",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("rocketmq", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a topic mapping to a Global Replicator task.
+   * Adds a backup mapping task.
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @param headers - map
@@ -63,7 +66,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a topic mapping to a Global Replicator task.
+   * Adds a backup mapping task.
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @returns AddDisasterRecoveryItemResponse
@@ -75,7 +78,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+   * Modifies the resource group of an instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -120,7 +123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+   * Modifies the resource group of an instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -132,14 +135,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group.
+   * 创建 Agent 诊断会话
+   * 
+   * @param request - CreateAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentConversationResponse
+   */
+  async createAgentConversationWithOptions(request: $_model.CreateAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.initialMessage)) {
+      body["initialMessage"] = request.initialMessage;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentConversationResponse({}));
+  }
+
+  /**
+   * 创建 Agent 诊断会话
+   * 
+   * @param request - CreateAgentConversationRequest
+   * @returns CreateAgentConversationResponse
+   */
+  async createAgentConversation(request: $_model.CreateAgentConversationRequest): Promise<$_model.CreateAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAgentConversationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
    * 
    * @remarks
-   * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-   * The following limits are imposed on the ID:
-   * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-   * *   Length limit: The ID must be 1 to 60 characters in length.
-   * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
    * 
    * @param request - CreateConsumerGroupRequest
    * @param headers - map
@@ -196,14 +248,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group.
+   * Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
    * 
    * @remarks
-   * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-   * The following limits are imposed on the ID:
-   * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-   * *   Length limit: The ID must be 1 to 60 characters in length.
-   * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
    * 
    * @param request - CreateConsumerGroupRequest
    * @returns CreateConsumerGroupResponse
@@ -215,7 +263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Disaster Recovery Plan
+   * Creates a backup plan.
    * 
    * @param request - CreateDisasterRecoveryPlanRequest
    * @param headers - map
@@ -268,7 +316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Disaster Recovery Plan
+   * Creates a backup plan.
    * 
    * @param request - CreateDisasterRecoveryPlanRequest
    * @returns CreateDisasterRecoveryPlanResponse
@@ -280,10 +328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraMQ for RocketMQ 5.x instance.
+   * Creates an ApsaraMQ for RocketMQ 5.x series instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -382,10 +430,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraMQ for RocketMQ 5.x instance.
+   * Creates an ApsaraMQ for RocketMQ 5.x series instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -397,7 +445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account that is used to access an instance.
+   * Creates an access account for an instance.
    * 
    * @param request - CreateInstanceAccountRequest
    * @param headers - map
@@ -438,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account that is used to access an instance.
+   * Creates an access account for an instance.
    * 
    * @param request - CreateInstanceAccountRequest
    * @returns CreateInstanceAccountResponse
@@ -450,7 +498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) in a specific instance.
+   * Creates access permissions for a specified instance.
    * 
    * @param request - CreateInstanceAclRequest
    * @param headers - map
@@ -499,7 +547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) in a specific instance.
+   * Creates access permissions for a specified instance.
    * 
    * @param request - CreateInstanceAclRequest
    * @returns CreateInstanceAclResponse
@@ -511,7 +559,70 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address whitelist.
+   * 创建实例巡检配置
+   * 
+   * @param request - CreateInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceInspectionResponse
+   */
+  async createInstanceInspectionWithOptions(instanceId: string, request: $_model.CreateInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceInspectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.items)) {
+      body["items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.resourceScope)) {
+      body["resourceScope"] = request.resourceScope;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstanceInspection",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 创建实例巡检配置
+   * 
+   * @param request - CreateInstanceInspectionRequest
+   * @returns CreateInstanceInspectionResponse
+   */
+  async createInstanceInspection(instanceId: string, request: $_model.CreateInstanceInspectionRequest): Promise<$_model.CreateInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceInspectionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * Creates an IP address whitelist for access control.
    * 
    * @param request - CreateInstanceIpWhitelistRequest
    * @param headers - map
@@ -544,7 +655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address whitelist.
+   * Creates an IP address whitelist for access control.
    * 
    * @param request - CreateInstanceIpWhitelistRequest
    * @returns CreateInstanceIpWhitelistResponse
@@ -556,7 +667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Topic
+   * Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
    * 
    * @param request - CreateTopicRequest
    * @param headers - map
@@ -601,7 +712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Topic
+   * Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -613,11 +724,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 Agent 诊断会话
+   * 
+   * @param request - DeleteAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentConversationResponse
+   */
+  async deleteAgentConversationWithOptions(conversationId: string, request: $_model.DeleteAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentConversationResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentConversationResponse({}));
+  }
+
+  /**
+   * 删除 Agent 诊断会话
+   * 
+   * @param request - DeleteAgentConversationRequest
+   * @returns DeleteAgentConversationResponse
+   */
+  async deleteAgentConversation(conversationId: string, request: $_model.DeleteAgentConversationRequest): Promise<$_model.DeleteAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentConversationWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a specified consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+   * >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+   * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -645,8 +795,8 @@ export default class Client extends OpenApi {
    * Deletes a specified consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+   * >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+   * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
    * @returns DeleteConsumerGroupResponse
    */
   async deleteConsumerGroup(instanceId: string, consumerGroupId: string): Promise<$_model.DeleteConsumerGroupResponse> {
@@ -656,7 +806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the subscriptions of a consumer group.
+   * Deletes the subscription of a consumer group.
    * 
    * @param request - DeleteConsumerGroupSubscriptionRequest
    * @param headers - map
@@ -697,7 +847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the subscriptions of a consumer group.
+   * Deletes the subscription of a consumer group.
    * 
    * @param request - DeleteConsumerGroupSubscriptionRequest
    * @returns DeleteConsumerGroupSubscriptionResponse
@@ -709,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a topic mapping of a Global Replicator task.
+   * Deletes a backup mapping task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -734,7 +884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a topic mapping of a Global Replicator task.
+   * Deletes a backup mapping task.
    * @returns DeleteDisasterRecoveryItemResponse
    */
   async deleteDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.DeleteDisasterRecoveryItemResponse> {
@@ -744,7 +894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a global message backup plan.
+   * Deletes a backup plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -769,7 +919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a global message backup plan.
+   * Deletes a backup plan.
    * @returns DeleteDisasterRecoveryPlanResponse
    */
   async deleteDisasterRecoveryPlan(planId: string): Promise<$_model.DeleteDisasterRecoveryPlanResponse> {
@@ -824,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete access control ACL user
+   * Deletes the access account information for a specified instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -849,7 +999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete access control ACL user
+   * Deletes the access account information for a specified instance.
    * @returns DeleteInstanceAccountResponse
    */
   async deleteInstanceAccount(instanceId: string, username: string): Promise<$_model.DeleteInstanceAccountResponse> {
@@ -859,7 +1009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the permissions of a specific account of an instance.
+   * Deletes the permissions of a specified account for a specified resource in a specified instance.
    * 
    * @param request - DeleteInstanceAclRequest
    * @param headers - map
@@ -896,7 +1046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the permissions of a specific account of an instance.
+   * Deletes the permissions of a specified account for a specified resource in a specified instance.
    * 
    * @param request - DeleteInstanceAclRequest
    * @returns DeleteInstanceAclResponse
@@ -908,7 +1058,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specific IP address whitelist from an instance.
+   * 关闭实例巡检配置
+   * 
+   * @param request - DeleteInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceInspectionResponse
+   */
+  async deleteInstanceInspectionWithOptions(instanceId: string, request: $_model.DeleteInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceInspectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstanceInspection",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 关闭实例巡检配置
+   * 
+   * @param request - DeleteInstanceInspectionRequest
+   * @returns DeleteInstanceInspectionResponse
+   */
+  async deleteInstanceInspection(instanceId: string, request: $_model.DeleteInstanceInspectionRequest): Promise<$_model.DeleteInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstanceInspectionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a specified global IP whitelist under a specified instance.
    * 
    * @param tmpReq - DeleteInstanceIpWhitelistRequest
    * @param headers - map
@@ -951,7 +1146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specific IP address whitelist from an instance.
+   * Deletes a specified global IP whitelist under a specified instance.
    * 
    * @param request - DeleteInstanceIpWhitelistRequest
    * @returns DeleteInstanceIpWhitelistResponse
@@ -966,7 +1161,7 @@ export default class Client extends OpenApi {
    * Deletes a specified topic.
    * 
    * @remarks
-   * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+   * Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -994,7 +1189,7 @@ export default class Client extends OpenApi {
    * Deletes a specified topic.
    * 
    * @remarks
-   * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+   * Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
    * @returns DeleteTopicResponse
    */
   async deleteTopic(instanceId: string, topicName: string): Promise<$_model.DeleteTopicResponse> {
@@ -1004,7 +1199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a specific operation on a specific migration task.
+   * Performs a specified operation on a specified migration task.
    * 
    * @param request - ExecuteMigrationOperationRequest
    * @param headers - map
@@ -1043,7 +1238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a specific operation on a specific migration task.
+   * Performs a specified operation on a specified migration task.
    * 
    * @param request - ExecuteMigrationOperationRequest
    * @returns ExecuteMigrationOperationResponse
@@ -1055,7 +1250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 完成当前迁移阶段
+   * Completes the current migration stage for a specified migration task.
    * 
    * @param request - FinishMigrationStageRequest
    * @param headers - map
@@ -1088,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 完成当前迁移阶段
+   * Completes the current migration stage for a specified migration task.
    * 
    * @param request - FinishMigrationStageRequest
    * @returns FinishMigrationStageResponse
@@ -1100,7 +1295,187 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time range within which the consumer offset in a topic can be reset.
+   * 查询 Agent 诊断会话详情
+   * 
+   * @param request - GetAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentConversationResponse
+   */
+  async getAgentConversationWithOptions(conversationId: string, request: $_model.GetAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentConversationResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentConversationResponse({}));
+  }
+
+  /**
+   * 查询 Agent 诊断会话详情
+   * 
+   * @param request - GetAgentConversationRequest
+   * @returns GetAgentConversationResponse
+   */
+  async getAgentConversation(conversationId: string, request: $_model.GetAgentConversationRequest): Promise<$_model.GetAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentConversationWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * 订阅 Agent 诊断会话事件
+   * 
+   * @param request - GetAgentConversationEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentConversationEventsResponse
+   */
+  async *getAgentConversationEventsWithSSE(conversationId: string, request: $_model.GetAgentConversationEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetAgentConversationEventsResponse, any, unknown> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.after)) {
+      query["after"] = request.after;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentConversationEvents",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = resp.event.data;
+        yield $dara.cast<$_model.GetAgentConversationEventsResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetAgentConversationEventsResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 订阅 Agent 诊断会话事件
+   * 
+   * @param request - GetAgentConversationEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentConversationEventsResponse
+   */
+  async getAgentConversationEventsWithOptions(conversationId: string, request: $_model.GetAgentConversationEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentConversationEventsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.after)) {
+      query["after"] = request.after;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentConversationEvents",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.GetAgentConversationEventsResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentConversationEventsResponse({}));
+  }
+
+  /**
+   * 订阅 Agent 诊断会话事件
+   * 
+   * @param request - GetAgentConversationEventsRequest
+   * @returns GetAgentConversationEventsResponse
+   */
+  async getAgentConversationEvents(conversationId: string, request: $_model.GetAgentConversationEventsRequest): Promise<$_model.GetAgentConversationEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentConversationEventsWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * 查询 Agent 诊断会话时间线
+   * 
+   * @param request - GetAgentConversationTimelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentConversationTimelineResponse
+   */
+  async getAgentConversationTimelineWithOptions(conversationId: string, request: $_model.GetAgentConversationTimelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentConversationTimelineResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.after)) {
+      query["after"] = request.after;
+    }
+
+    if (!$dara.isNull(request.includeImageData)) {
+      query["includeImageData"] = request.includeImageData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentConversationTimeline",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/timeline`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentConversationTimelineResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentConversationTimelineResponse({}));
+  }
+
+  /**
+   * 查询 Agent 诊断会话时间线
+   * 
+   * @param request - GetAgentConversationTimelineRequest
+   * @returns GetAgentConversationTimelineResponse
+   */
+  async getAgentConversationTimeline(conversationId: string, request: $_model.GetAgentConversationTimelineRequest): Promise<$_model.GetAgentConversationTimelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentConversationTimelineWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the time range in which a consumer offset can be reset for a topic.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1125,7 +1500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time range within which the consumer offset in a topic can be reset.
+   * Queries the time range in which a consumer offset can be reset for a topic.
    * @returns GetConsumeTimespanResponse
    */
   async getConsumeTimespan(instanceId: string, consumerGroupId: string, topicName: string): Promise<$_model.GetConsumeTimespanResponse> {
@@ -1135,10 +1510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified consumer group.
+   * Retrieves the details of a specified consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1163,10 +1538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified consumer group.
+   * Retrieves the details of a specified consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
    * @returns GetConsumerGroupResponse
    */
   async getConsumerGroup(instanceId: string, consumerGroupId: string): Promise<$_model.GetConsumerGroupResponse> {
@@ -1176,7 +1551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Consumer Group Backlog Information
+   * Queries the message accumulation of a consumer group.
    * 
    * @param request - GetConsumerGroupLagRequest
    * @param headers - map
@@ -1213,7 +1588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Consumer Group Backlog Information
+   * Queries the message accumulation of a consumer group.
    * 
    * @param request - GetConsumerGroupLagRequest
    * @returns GetConsumerGroupLagResponse
@@ -1305,7 +1680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a topic mapping in a Global Replicator task.
+   * Queries the details of a backup plan mapping.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1330,7 +1705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a topic mapping in a Global Replicator task.
+   * Queries the details of a backup plan mapping.
    * @returns GetDisasterRecoveryItemResponse
    */
   async getDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.GetDisasterRecoveryItemResponse> {
@@ -1340,7 +1715,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Global Replicator task.
+   * Queries the details of a backup plan.
+   * 
+   * @remarks
+   * Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1365,7 +1743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Global Replicator task.
+   * Queries the details of a backup plan.
+   * 
+   * @remarks
+   * Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
    * @returns GetDisasterRecoveryPlanResponse
    */
   async getDisasterRecoveryPlan(planId: string): Promise<$_model.GetDisasterRecoveryPlanResponse> {
@@ -1375,10 +1756,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about an instance.
+   * Retrieves the details of a specified instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1403,10 +1784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about an instance.
+   * Retrieves the details of a specified instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
    * @returns GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<$_model.GetInstanceResponse> {
@@ -1416,7 +1797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the account used to access a specific instance.
+   * Retrieves the account details for a specified instance.
    * 
    * @param request - GetInstanceAccountRequest
    * @param headers - map
@@ -1449,7 +1830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the account used to access a specific instance.
+   * Retrieves the account details for a specified instance.
    * 
    * @param request - GetInstanceAccountRequest
    * @returns GetInstanceAccountResponse
@@ -1510,6 +1891,135 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例巡检配置
+   * 
+   * @param request - GetInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceInspectionResponse
+   */
+  async getInstanceInspectionWithOptions(instanceId: string, request: $_model.GetInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceInspectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceInspection",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 查询实例巡检配置
+   * 
+   * @param request - GetInstanceInspectionRequest
+   * @returns GetInstanceInspectionResponse
+   */
+  async getInstanceInspection(instanceId: string, request: $_model.GetInstanceInspectionRequest): Promise<$_model.GetInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceInspectionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询实例风险诊断报告
+   * 
+   * @param request - GetInstanceInspectionReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceInspectionReportResponse
+   */
+  async getInstanceInspectionReportWithOptions(reportId: string, request: $_model.GetInstanceInspectionReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceInspectionReportResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceInspectionReport",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/reports/${$dara.URL.percentEncode(reportId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceInspectionReportResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceInspectionReportResponse({}));
+  }
+
+  /**
+   * 查询实例风险诊断报告
+   * 
+   * @param request - GetInstanceInspectionReportRequest
+   * @returns GetInstanceInspectionReportResponse
+   */
+  async getInstanceInspectionReport(reportId: string, request: $_model.GetInstanceInspectionReportRequest): Promise<$_model.GetInstanceInspectionReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceInspectionReportWithOptions(reportId, request, headers, runtime);
+  }
+
+  /**
+   * 查询实例巡检结果
+   * 
+   * @param request - GetInstanceInspectionRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceInspectionRunResponse
+   */
+  async getInstanceInspectionRunWithOptions(instanceId: string, runId: string, request: $_model.GetInstanceInspectionRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceInspectionRunResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceInspectionRun",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}/runs/${$dara.URL.percentEncode(runId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceInspectionRunResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceInspectionRunResponse({}));
+  }
+
+  /**
+   * 查询实例巡检结果
+   * 
+   * @param request - GetInstanceInspectionRunRequest
+   * @returns GetInstanceInspectionRunResponse
+   */
+  async getInstanceInspectionRun(instanceId: string, runId: string, request: $_model.GetInstanceInspectionRunRequest): Promise<$_model.GetInstanceInspectionRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceInspectionRunWithOptions(instanceId, runId, request, headers, runtime);
+  }
+
+  /**
    * Queries the information about the IP address whitelist of an instance.
    * 
    * @param tmpReq - GetInstanceIpWhitelistRequest
@@ -1561,7 +2071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specific message.
+   * Retrieves the details of a specified message.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1586,7 +2096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specific message.
+   * Retrieves the details of a specified message.
    * @returns GetMessageDetailResponse
    */
   async getMessageDetail(instanceId: string, topicName: string, messageId: string): Promise<$_model.GetMessageDetailResponse> {
@@ -1596,7 +2106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Topic Details
+   * Retrieves the details of a specified topic.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1621,7 +2131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Topic Details
+   * Retrieves the details of a specified topic.
    * @returns GetTopicResponse
    */
   async getTopic(instanceId: string, topicName: string): Promise<$_model.GetTopicResponse> {
@@ -1631,7 +2141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trace of a specific message in a specific topic.
+   * Retrieves the message trace for a specified message in a specified topic.
    * 
    * @param request - GetTraceRequest
    * @param headers - map
@@ -1668,7 +2178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trace of a specific message in a specific topic.
+   * Retrieves the message trace for a specified message in a specified topic.
    * 
    * @param request - GetTraceRequest
    * @returns GetTraceResponse
@@ -1680,7 +2190,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported zones.
+   * 查询 Agent 诊断会话列表
+   * 
+   * @param request - ListAgentConversationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentConversationsResponse
+   */
+  async listAgentConversationsWithOptions(request: $_model.ListAgentConversationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentConversationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.purpose)) {
+      query["purpose"] = request.purpose;
+    }
+
+    if (!$dara.isNull(request.q)) {
+      query["q"] = request.q;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentConversations",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentConversationsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentConversationsResponse({}));
+  }
+
+  /**
+   * 查询 Agent 诊断会话列表
+   * 
+   * @param request - ListAgentConversationsRequest
+   * @returns ListAgentConversationsResponse
+   */
+  async listAgentConversations(request: $_model.ListAgentConversationsRequest): Promise<$_model.ListAgentConversationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAgentConversationsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries supported zones.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1705,7 +2272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported zones.
+   * Queries supported zones.
    * @returns ListAvailableZonesResponse
    */
   async listAvailableZones(): Promise<$_model.ListAvailableZonesResponse> {
@@ -1715,7 +2282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connections of a specific consumer client.
+   * Retrieves the connection information for clients in a specified consumer group.
    * 
    * @param request - ListConsumerConnectionsRequest
    * @param headers - map
@@ -1752,7 +2319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connections of a specific consumer client.
+   * Retrieves the connection information for clients in a specified consumer group.
    * 
    * @param request - ListConsumerConnectionsRequest
    * @returns ListConsumerConnectionsResponse
@@ -1764,7 +2331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the subscriptions of a specific consumer group.
+   * Lists the subscription relationships for a consumer group.
    * 
    * @param request - ListConsumerGroupSubscriptionsRequest
    * @param headers - map
@@ -1797,7 +2364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the subscriptions of a specific consumer group.
+   * Lists the subscription relationships for a consumer group.
    * 
    * @param request - ListConsumerGroupSubscriptionsRequest
    * @returns ListConsumerGroupSubscriptionsResponse
@@ -1809,10 +2376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Consumer Groups
+   * Queries the list of consumer groups under a specified instance.
    * 
    * @remarks
-   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
    * 
    * @param request - ListConsumerGroupsRequest
    * @param headers - map
@@ -1853,10 +2420,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Consumer Groups
+   * Queries the list of consumer groups under a specified instance.
    * 
    * @remarks
-   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
    * 
    * @param request - ListConsumerGroupsRequest
    * @returns ListConsumerGroupsResponse
@@ -1868,7 +2435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumer progress synchronization tasks.
+   * Queries the list of consumer offset synchronization checkpoints.
+   * 
+   * @remarks
+   * Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
    * 
    * @param request - ListDisasterRecoveryCheckpointsRequest
    * @param headers - map
@@ -1913,7 +2483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumer progress synchronization tasks.
+   * Queries the list of consumer offset synchronization checkpoints.
+   * 
+   * @remarks
+   * Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
    * 
    * @param request - ListDisasterRecoveryCheckpointsRequest
    * @returns ListDisasterRecoveryCheckpointsResponse
@@ -1925,7 +2498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Global Replicator tasks of an instance.
+   * Queries the list of backup mapping tasks.
    * 
    * @param request - ListDisasterRecoveryItemsRequest
    * @param headers - map
@@ -1970,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Global Replicator tasks of an instance.
+   * Queries the list of backup mapping tasks.
    * 
    * @param request - ListDisasterRecoveryItemsRequest
    * @returns ListDisasterRecoveryItemsResponse
@@ -1982,7 +2555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Global Replicator tasks.
+   * Queries a list of backup plans.
    * 
    * @param request - ListDisasterRecoveryPlansRequest
    * @param headers - map
@@ -2027,7 +2600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Global Replicator tasks.
+   * Queries a list of backup plans.
    * 
    * @param request - ListDisasterRecoveryPlansRequest
    * @returns ListDisasterRecoveryPlansResponse
@@ -2039,7 +2612,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts that are used to access a specific instance.
+   * 查询巡检模板列表
+   * 
+   * @param request - ListInspectionTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInspectionTemplatesResponse
+   */
+  async listInspectionTemplatesWithOptions(request: $_model.ListInspectionTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInspectionTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInspectionTemplates",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/templates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInspectionTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListInspectionTemplatesResponse({}));
+  }
+
+  /**
+   * 查询巡检模板列表
+   * 
+   * @param request - ListInspectionTemplatesRequest
+   * @returns ListInspectionTemplatesResponse
+   */
+  async listInspectionTemplates(request: $_model.ListInspectionTemplatesRequest): Promise<$_model.ListInspectionTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInspectionTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the access accounts for a specified instance.
    * 
    * @param request - ListInstanceAccountRequest
    * @param headers - map
@@ -2088,7 +2714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts that are used to access a specific instance.
+   * Retrieves the access accounts for a specified instance.
    * 
    * @param request - ListInstanceAccountRequest
    * @returns ListInstanceAccountResponse
@@ -2153,6 +2779,201 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询巡检项关联资源
+   * 
+   * @param request - ListInstanceInspectionResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceInspectionResourcesResponse
+   */
+  async listInstanceInspectionResourcesWithOptions(instanceId: string, request: $_model.ListInstanceInspectionResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceInspectionResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      query["templateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceInspectionResources",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}/resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceInspectionResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceInspectionResourcesResponse({}));
+  }
+
+  /**
+   * 查询巡检项关联资源
+   * 
+   * @param request - ListInstanceInspectionResourcesRequest
+   * @returns ListInstanceInspectionResourcesResponse
+   */
+  async listInstanceInspectionResources(instanceId: string, request: $_model.ListInstanceInspectionResourcesRequest): Promise<$_model.ListInstanceInspectionResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceInspectionResourcesWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询实例巡检历史
+   * 
+   * @param request - ListInstanceInspectionRunsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceInspectionRunsResponse
+   */
+  async listInstanceInspectionRunsWithOptions(instanceId: string, request: $_model.ListInstanceInspectionRunsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceInspectionRunsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportStatus)) {
+      query["reportStatus"] = request.reportStatus;
+    }
+
+    if (!$dara.isNull(request.result)) {
+      query["result"] = request.result;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["sortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      query["templateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceInspectionRuns",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}/runs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceInspectionRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceInspectionRunsResponse({}));
+  }
+
+  /**
+   * 查询实例巡检历史
+   * 
+   * @param request - ListInstanceInspectionRunsRequest
+   * @returns ListInstanceInspectionRunsResponse
+   */
+  async listInstanceInspectionRuns(instanceId: string, request: $_model.ListInstanceInspectionRunsRequest): Promise<$_model.ListInstanceInspectionRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceInspectionRunsWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 分页查询已配置的实例诊断；仅返回配置摘要
+   * 
+   * @param request - ListInstanceInspectionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceInspectionsResponse
+   */
+  async listInstanceInspectionsWithOptions(request: $_model.ListInstanceInspectionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceInspectionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceInspections",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceInspectionsResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceInspectionsResponse({}));
+  }
+
+  /**
+   * 分页查询已配置的实例诊断；仅返回配置摘要
+   * 
+   * @param request - ListInstanceInspectionsRequest
+   * @returns ListInstanceInspectionsResponse
+   */
+  async listInstanceInspections(request: $_model.ListInstanceInspectionsRequest): Promise<$_model.ListInstanceInspectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceInspectionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the IP address whitelists of an instance.
    * 
    * @param request - ListInstanceIpWhitelistRequest
@@ -2206,10 +3027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all ApsaraMQ for RocketMQ instances in a specific region.
+   * Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
    * 
    * @param tmpReq - ListInstancesRequest
    * @param headers - map
@@ -2272,10 +3093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all ApsaraMQ for RocketMQ instances in a specific region.
+   * Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -2287,7 +3108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries messages.
+   * Queries a list of messages.
    * 
    * @param request - ListMessagesRequest
    * @param headers - map
@@ -2348,7 +3169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries messages.
+   * Queries a list of messages.
    * 
    * @param request - ListMessagesRequest
    * @returns ListMessagesResponse
@@ -2409,7 +3230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration operations.
+   * Queries the list of migration operations.
    * 
    * @param tmpReq - ListMigrationOperationsRequest
    * @param headers - map
@@ -2476,7 +3297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of migration operations.
+   * Queries the list of migration operations.
    * 
    * @param request - ListMigrationOperationsRequest
    * @returns ListMigrationOperationsResponse
@@ -2488,7 +3309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries migration tasks.
+   * Queries the list of migration tasks.
    * 
    * @param request - ListMigrationsRequest
    * @param headers - map
@@ -2537,7 +3358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries migration tasks.
+   * Queries the list of migration tasks.
    * 
    * @param request - ListMigrationsRequest
    * @returns ListMigrationsResponse
@@ -2549,7 +3370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions in which ApsaraMQ for RocketMQ is available.
+   * Queries the list of regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2574,7 +3395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions in which ApsaraMQ for RocketMQ is available.
+   * Queries the list of regions.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -2684,7 +3505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Topic List
+   * Queries the list of topics in a specified instance.
    * 
    * @param tmpReq - ListTopicsRequest
    * @param headers - map
@@ -2735,7 +3556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Topic List
+   * Queries the list of topics in a specified instance.
    * 
    * @param request - ListTopicsRequest
    * @returns ListTopicsResponse
@@ -2747,7 +3568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the message traces of a specific topic.
+   * Queries the list of message traces under a specified topic.
    * 
    * @param request - ListTracesRequest
    * @param headers - map
@@ -2808,7 +3629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the message traces of a specific topic.
+   * Queries the list of message traces under a specified topic.
    * 
    * @param request - ListTracesRequest
    * @returns ListTracesResponse
@@ -2869,6 +3690,246 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 响应 Agent 诊断交互
+   * 
+   * @param request - RespondAgentConversationActionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RespondAgentConversationActionResponse
+   */
+  async respondAgentConversationActionWithOptions(conversationId: string, actionId: string, request: $_model.RespondAgentConversationActionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RespondAgentConversationActionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.answers)) {
+      body["answers"] = request.answers;
+    }
+
+    if (!$dara.isNull(request.decision)) {
+      body["decision"] = request.decision;
+    }
+
+    if (!$dara.isNull(request.note)) {
+      body["note"] = request.note;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RespondAgentConversationAction",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/actions/${$dara.URL.percentEncode(actionId)}/respond`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RespondAgentConversationActionResponse>(await this.callApi(params, req, runtime), new $_model.RespondAgentConversationActionResponse({}));
+  }
+
+  /**
+   * 响应 Agent 诊断交互
+   * 
+   * @param request - RespondAgentConversationActionRequest
+   * @returns RespondAgentConversationActionResponse
+   */
+  async respondAgentConversationAction(conversationId: string, actionId: string, request: $_model.RespondAgentConversationActionRequest): Promise<$_model.RespondAgentConversationActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.respondAgentConversationActionWithOptions(conversationId, actionId, request, headers, runtime);
+  }
+
+  /**
+   * 立即执行实例巡检
+   * 
+   * @param request - RunInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunInstanceInspectionResponse
+   */
+  async runInstanceInspectionWithOptions(instanceId: string, request: $_model.RunInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunInstanceInspectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.itemOverrides)) {
+      body["itemOverrides"] = request.itemOverrides;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunInstanceInspection",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}/runs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.RunInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 立即执行实例巡检
+   * 
+   * @param request - RunInstanceInspectionRequest
+   * @returns RunInstanceInspectionResponse
+   */
+  async runInstanceInspection(instanceId: string, request: $_model.RunInstanceInspectionRequest): Promise<$_model.RunInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runInstanceInspectionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 发送 Agent 诊断消息
+   * 
+   * @param request - SendAgentConversationMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAgentConversationMessageResponse
+   */
+  async *sendAgentConversationMessageWithSSE(conversationId: string, request: $_model.SendAgentConversationMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.SendAgentConversationMessageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachments)) {
+      body["attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.clientContext)) {
+      body["clientContext"] = request.clientContext;
+    }
+
+    if (!$dara.isNull(request.images)) {
+      body["images"] = request.images;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      body["message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.messageType)) {
+      body["messageType"] = request.messageType;
+    }
+
+    if (!$dara.isNull(request.ticketRequestId)) {
+      body["ticketRequestId"] = request.ticketRequestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendAgentConversationMessage",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/messages`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = resp.event.data;
+        yield $dara.cast<$_model.SendAgentConversationMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.SendAgentConversationMessageResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 发送 Agent 诊断消息
+   * 
+   * @param request - SendAgentConversationMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAgentConversationMessageResponse
+   */
+  async sendAgentConversationMessageWithOptions(conversationId: string, request: $_model.SendAgentConversationMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SendAgentConversationMessageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachments)) {
+      body["attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.clientContext)) {
+      body["clientContext"] = request.clientContext;
+    }
+
+    if (!$dara.isNull(request.images)) {
+      body["images"] = request.images;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      body["message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.messageType)) {
+      body["messageType"] = request.messageType;
+    }
+
+    if (!$dara.isNull(request.ticketRequestId)) {
+      body["ticketRequestId"] = request.ticketRequestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendAgentConversationMessage",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/messages`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.SendAgentConversationMessageResponse>(await this.callApi(params, req, runtime), new $_model.SendAgentConversationMessageResponse({}));
+  }
+
+  /**
+   * 发送 Agent 诊断消息
+   * 
+   * @param request - SendAgentConversationMessageRequest
+   * @returns SendAgentConversationMessageResponse
+   */
+  async sendAgentConversationMessage(conversationId: string, request: $_model.SendAgentConversationMessageRequest): Promise<$_model.SendAgentConversationMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sendAgentConversationMessageWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
    * Starts a topic mapping of a Global Replicator task.
    * 
    * @param headers - map
@@ -2901,6 +3962,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+  }
+
+  /**
+   * 引导 Agent 诊断会话执行
+   * 
+   * @param request - SteerAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SteerAgentConversationResponse
+   */
+  async steerAgentConversationWithOptions(conversationId: string, request: $_model.SteerAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SteerAgentConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.commandId)) {
+      body["commandId"] = request.commandId;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      body["message"] = request.message;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SteerAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/actions/steer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SteerAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.SteerAgentConversationResponse({}));
+  }
+
+  /**
+   * 引导 Agent 诊断会话执行
+   * 
+   * @param request - SteerAgentConversationRequest
+   * @returns SteerAgentConversationResponse
+   */
+  async steerAgentConversation(conversationId: string, request: $_model.SteerAgentConversationRequest): Promise<$_model.SteerAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.steerAgentConversationWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * 停止 Agent 诊断会话执行
+   * 
+   * @param request - StopAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAgentConversationResponse
+   */
+  async stopAgentConversationWithOptions(conversationId: string, request: $_model.StopAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopAgentConversationResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/actions/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.StopAgentConversationResponse({}));
+  }
+
+  /**
+   * 停止 Agent 诊断会话执行
+   * 
+   * @param request - StopAgentConversationRequest
+   * @returns StopAgentConversationResponse
+   */
+  async stopAgentConversation(conversationId: string, request: $_model.StopAgentConversationRequest): Promise<$_model.StopAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAgentConversationWithOptions(conversationId, request, headers, runtime);
   }
 
   /**
@@ -3092,10 +4241,104 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update ConsumerGroup
+   * 重命名 Agent 诊断会话
+   * 
+   * @param request - UpdateAgentConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentConversationResponse
+   */
+  async updateAgentConversationWithOptions(conversationId: string, request: $_model.UpdateAgentConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgentConversation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentConversationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentConversationResponse({}));
+  }
+
+  /**
+   * 重命名 Agent 诊断会话
+   * 
+   * @param request - UpdateAgentConversationRequest
+   * @returns UpdateAgentConversationResponse
+   */
+  async updateAgentConversation(conversationId: string, request: $_model.UpdateAgentConversationRequest): Promise<$_model.UpdateAgentConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentConversationWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * 更新 Agent 诊断会话分享范围
+   * 
+   * @param request - UpdateAgentConversationShareScopeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentConversationShareScopeResponse
+   */
+  async updateAgentConversationShareScopeWithOptions(conversationId: string, request: $_model.UpdateAgentConversationShareScopeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentConversationShareScopeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.shareScope)) {
+      body["shareScope"] = request.shareScope;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgentConversationShareScope",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/share-scope`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentConversationShareScopeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentConversationShareScopeResponse({}));
+  }
+
+  /**
+   * 更新 Agent 诊断会话分享范围
+   * 
+   * @param request - UpdateAgentConversationShareScopeRequest
+   * @returns UpdateAgentConversationShareScopeResponse
+   */
+  async updateAgentConversationShareScope(conversationId: string, request: $_model.UpdateAgentConversationShareScopeRequest): Promise<$_model.UpdateAgentConversationShareScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentConversationShareScopeWithOptions(conversationId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the basic information and consumption retry policy of a consumer group.
    * 
    * @remarks
-   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
    * 
    * @param request - UpdateConsumerGroupRequest
    * @param headers - map
@@ -3140,10 +4383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update ConsumerGroup
+   * Updates the basic information and consumption retry policy of a consumer group.
    * 
    * @remarks
-   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
    * 
    * @param request - UpdateConsumerGroupRequest
    * @returns UpdateConsumerGroupResponse
@@ -3265,10 +4508,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+   * Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
    * 
    * @param request - UpdateInstanceRequest
    * @param headers - map
@@ -3317,10 +4560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+   * Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -3332,7 +4575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specific account in a specific instance.
+   * Updates the information of a specified account under a specified instance.
    * 
    * @param request - UpdateInstanceAccountRequest
    * @param headers - map
@@ -3373,7 +4616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specific account in a specific instance.
+   * Updates the information of a specified account under a specified instance.
    * 
    * @param request - UpdateInstanceAccountRequest
    * @returns UpdateInstanceAccountResponse
@@ -3446,7 +4689,74 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Topic
+   * 修改实例巡检配置
+   * 
+   * @param request - UpdateInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceInspectionResponse
+   */
+  async updateInstanceInspectionWithOptions(instanceId: string, request: $_model.UpdateInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceInspectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.items)) {
+      body["items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.resourceScope)) {
+      body["resourceScope"] = request.resourceScope;
+    }
+
+    if (!$dara.isNull(request.revision)) {
+      body["revision"] = request.revision;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstanceInspection",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/monitoring/instance-inspections/${$dara.URL.percentEncode(instanceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 修改实例巡检配置
+   * 
+   * @param request - UpdateInstanceInspectionRequest
+   * @returns UpdateInstanceInspectionResponse
+   */
+  async updateInstanceInspection(instanceId: string, request: $_model.UpdateInstanceInspectionRequest): Promise<$_model.UpdateInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateInstanceInspectionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the remarks for a topic.
    * 
    * @param request - UpdateTopicRequest
    * @param headers - map
@@ -3487,7 +4797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Topic
+   * Updates the remarks for a topic.
    * 
    * @param request - UpdateTopicRequest
    * @returns UpdateTopicResponse
@@ -3496,6 +4806,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
+  }
+
+  /**
+   * 上传 Agent 会话客户端日志
+   * 
+   * @param request - UploadAgentConversationLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadAgentConversationLogResponse
+   */
+  async uploadAgentConversationLogWithOptions(conversationId: string, request: $_model.UploadAgentConversationLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UploadAgentConversationLogResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentGzipB64)) {
+      body["contentGzipB64"] = request.contentGzipB64;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.timeRangeEnd)) {
+      body["timeRangeEnd"] = request.timeRangeEnd;
+    }
+
+    if (!$dara.isNull(request.timeRangeStart)) {
+      body["timeRangeStart"] = request.timeRangeStart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadAgentConversationLog",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/${$dara.URL.percentEncode(conversationId)}/logs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadAgentConversationLogResponse>(await this.callApi(params, req, runtime), new $_model.UploadAgentConversationLogResponse({}));
+  }
+
+  /**
+   * 上传 Agent 会话客户端日志
+   * 
+   * @param request - UploadAgentConversationLogRequest
+   * @returns UploadAgentConversationLogResponse
+   */
+  async uploadAgentConversationLog(conversationId: string, request: $_model.UploadAgentConversationLogRequest): Promise<$_model.UploadAgentConversationLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uploadAgentConversationLogWithOptions(conversationId, request, headers, runtime);
   }
 
   /**
@@ -3548,7 +4915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the message sending feature of a specific topic on a specific instance.
+   * Tests whether messages can be sent to a specified topic in an instance.
    * 
    * @param request - VerifySendMessageRequest
    * @param headers - map
@@ -3605,7 +4972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the message sending feature of a specific topic on a specific instance.
+   * Tests whether messages can be sent to a specified topic in an instance.
    * 
    * @param request - VerifySendMessageRequest
    * @returns VerifySendMessageResponse

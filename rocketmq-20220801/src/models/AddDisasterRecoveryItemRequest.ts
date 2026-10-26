@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   /**
    * @remarks
-   * Consumer group ID, required for ACTIVE_ACTIVE bidirectional backup
+   * The ID of the consumer group. Required for ACTIVE_ACTIVE bidirectional backup.
    * 
    * @example
    * GID_xxx
@@ -17,9 +17,9 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
-   *   - Concurrently: concurrent delivery
-   *   - Orderly: sequential delivery
+   * The delivery order of messages to the target instance. Valid values for the parameter:
+   * - Concurrently: concurrent delivery
+   * - Orderly: ordered delivery
    * 
    * @example
    * Concurrently
@@ -27,7 +27,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   deliveryOrderType?: string;
   /**
    * @remarks
-   * Instance ID, an instance ID will be automatically generated when `instanceType` is `EXTERNAL_ROCKETMQ`, and it can be obtained by querying the backup plan.
+   * The instance ID. If instanceType is set to EXTERNAL_ROCKETMQ, an instance ID is automatically generated. You can obtain this ID by querying the backup plan.
    * 
    * @example
    * rmq-cn-em93y94xxx
@@ -35,9 +35,9 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance type
+   * The instance type. Valid values:
    *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   *   - EXTERNAL_ROCKETMQ: external instance, open-source instance, or open-source cluster
    * 
    * @example
    * ALIYUN_ROCKETMQ
@@ -45,7 +45,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Disaster recovery topic name, required
+   * The name of the disaster recovery topic. Required.
    * 
    * @example
    * Topic_xxx
@@ -93,7 +93,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
 export class AddDisasterRecoveryItemRequest extends $dara.Model {
   /**
    * @remarks
-   * Topics included in the backup mapping. Required.
+   * The topics included in the backup mapping. Required.
    */
   topics?: AddDisasterRecoveryItemRequestTopics[];
   static names(): { [key: string]: string } {

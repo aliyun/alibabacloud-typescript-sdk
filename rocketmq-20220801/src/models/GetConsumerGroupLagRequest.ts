@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConsumerGroupLagRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the lite topic.
+   * 
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
    * @remarks
-   * The topic name.
+   * The name of the topic to which the consumer group subscribes.
    * 
    * @example
    * normal-topic-1

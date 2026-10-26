@@ -4,16 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMigrationsResponseBodyDataListCurrentStage extends $dara.Model {
   /**
+   * @remarks
+   * The stage data.
+   * 
    * @example
    * []
    */
   stageData?: any;
   /**
+   * @remarks
+   * The stage status. Valid values:
+   *  - INIT: Not started.
+   *  - DOING: In progress.
+   *  - DONE: Completed.
+   * 
    * @example
    * DOING
    */
   stageStatus?: string;
   /**
+   * @remarks
+   * The stage type. Valid values:
+   *  - CONNECT_NETWORK: Network connection.
+   *  - MIGRATE_METADATA: Metadata migration.
+   *  - REPLACE_ENDPOINT: Endpoint replacement.
+   *  - MIGRATE_MESSAGE: Message migration.
+   * 
    * @example
    * MIGRATE_METADATA
    */
@@ -45,11 +61,25 @@ export class ListMigrationsResponseBodyDataListCurrentStage extends $dara.Model 
 
 export class ListMigrationsResponseBodyDataListMigrationSource extends $dara.Model {
   /**
+   * @remarks
+   * The migration source data.
+   * 
    * @example
-   * []
+   * {
+   * "clusterType":"INTERNET_NETWORK",
+   * "aclType":"NONE",
+   * "clusterName":"test",
+   * "namesrvAddrList":"47.110.248.xxx:9876"],
+   * "brokerObtainMethod":"AUTO_OBTAIN"
+   * }
    */
   sourceData?: any;
   /**
+   * @remarks
+   * The migration source type. Valid values:
+   *  - EXTERNAL_INSTANCE: External instance.
+   *  - INTERNAL_INSTANCE: Alibaba Cloud 5.0 instance.
+   * 
    * @example
    * EXTERNAL_INSTANCE
    */
@@ -79,11 +109,22 @@ export class ListMigrationsResponseBodyDataListMigrationSource extends $dara.Mod
 
 export class ListMigrationsResponseBodyDataListMigrationTarget extends $dara.Model {
   /**
+   * @remarks
+   * The migration target data.
+   * 
    * @example
-   * []
+   * {
+   * "clusterType":"ROCKETMQ_V5",
+   * "instanceId":"rmq-cn-778429mp301",
+   * "regionId":"cn-hangzhou"
+   * }
    */
   targetData?: any;
   /**
+   * @remarks
+   * The migration target type. Valid values:
+   *  - INTERNAL_INSTANCE: Alibaba Cloud 5.0 instance.
+   * 
    * @example
    * INTERNAL_INSTANCE
    */
@@ -113,39 +154,77 @@ export class ListMigrationsResponseBodyDataListMigrationTarget extends $dara.Mod
 
 export class ListMigrationsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The creation time, in YYYY-MM-DD HH:mm:ss format.
+   * 
    * @example
    * 2022-08-01 00:00:00
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The current migration stage.
+   */
   currentStage?: ListMigrationsResponseBodyDataListCurrentStage;
   /**
+   * @remarks
+   * The migration ID.
+   * 
    * @example
    * 21
    */
   migrationId?: number;
   /**
+   * @remarks
+   * The migration name.
+   * 
    * @example
    * xxx
    */
   migrationName?: string;
+  /**
+   * @remarks
+   * The migration source.
+   */
   migrationSource?: ListMigrationsResponseBodyDataListMigrationSource;
   /**
+   * @remarks
+   * The migration status. Valid values:
+   *  - CREATED: Created.
+   *  - MIGRATING: Migrating.
+   *  - COMPLETED: Completed.
+   *  - CANCELLED: Cancelled.
+   * 
    * @example
    * MIGRATING
    */
   migrationStatus?: string;
+  /**
+   * @remarks
+   * The migration target.
+   */
   migrationTarget?: ListMigrationsResponseBodyDataListMigrationTarget;
   /**
+   * @remarks
+   * The migration type. Valid values:
+   *  - INSTANCE_MIGRATION: instance migration
+   * 
    * @example
    * INSTANCE_MIGRATION
    */
   migrationType?: string;
   /**
+   * @remarks
+   * The modification time, in YYYY-MM-DD HH:mm:ss format.
+   * 
    * @example
    * 2022-08-01 20:05:50
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 111
    */
@@ -199,18 +278,31 @@ export class ListMigrationsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListMigrationsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The paged data.
+   */
   list?: ListMigrationsResponseBodyDataList[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 3
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -247,37 +339,62 @@ export class ListMigrationsResponseBodyData extends $dara.Model {
 
 export class ListMigrationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListMigrationsResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E5897B2E-C3AC-56DC-A482-F0E9E53F48D5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

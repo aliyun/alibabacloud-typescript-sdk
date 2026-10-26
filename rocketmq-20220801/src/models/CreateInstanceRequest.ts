@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateInstanceRequestAclInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable authentication-free access for VPC endpoints when the intelligent identity recognition type is used. Valid values:
+   * - true: Enable authentication-free access.
+   * - false: Disable authentication-free access.
+   * 
+   * @example
+   * false
+   */
   defaultVpcAuthFree?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28,9 +37,9 @@ export class CreateInstanceRequestAclInfo extends $dara.Model {
 export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
-   * The Internet bandwidth. Unit: MB/s.
+   * The Internet bandwidth specification. Unit: Mb/s.
    * 
-   * This parameter is required only if you set flowOutType to payByBandwidth.
+   * This parameter is required only when the Internet billing type is set to fixed bandwidth billing.
    * 
    * Valid values: 1 to 1000.
    * 
@@ -40,13 +49,7 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   flowOutBandwidth?: number;
   /**
    * @remarks
-   * The metering method of Internet usage.
-   * 
-   * Valid values:
-   * 
-   * *   payByBandwidth: pay-by-bandwidth. This value is valid only if you enable Internet access.
-   * *   payByTraffic: pay-by-traffic. This value is valid only if you enable Internet access.
-   * *   uninvolved: No metering method is involved. This value is valid only if you disable Internet access.
+   * The Internet billing type.
    * 
    * This parameter is required.
    * 
@@ -56,14 +59,9 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   flowOutType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Internet access feature.
+   * Specifies whether to enable public network access.
    * 
-   * Valid values:
-   * 
-   * *   enable
-   * *   disable
-   * 
-   * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
+   * By default, instances support VPC access. If you enable public network access, ApsaraMQ for RocketMQ charges fees for public network downstream bandwidth. For more information about billing, see [Public network access fees](https://help.aliyun.com/document_detail/427240.html).
    * 
    * This parameter is required.
    * 
@@ -73,10 +71,10 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   internetSpec?: string;
   /**
    * @remarks
-   * The whitelist that includes the CIDR blocks that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
+   * The public network access IP whitelist. Only public endpoints support IP whitelist configuration. VPC endpoints do not support this feature.
    * 
-   * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If you configure an IP address whitelist, only the CIDR blocks in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * - If no IP whitelist is configured, all IP address ranges are allowed to access the ApsaraMQ for RocketMQ server over the Internet by default.
+   * - If an IP whitelist is configured, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ server over the Internet.
    * 
    * @deprecated
    */
@@ -114,7 +112,7 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
 export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch with which the instance is associated.
+   * The ID of the vSwitch associated with the instance.
    * 
    * @example
    * vsw-uf6gwtbn6etadpv*******
@@ -144,7 +142,7 @@ export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $dara.Mode
 export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security group to which the instance belongs.
+   * The security group ID.
    * 
    * @example
    * sg-bp17hpmgz96tvnsdy6so
@@ -152,11 +150,11 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
   securityGroupIds?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the instance is associated. If you want to specify multiple vSwitches, separate the vSwitches with vertical bars (|).
+   * The ID of the vSwitch associated with the instance. If multiple vSwitches exist, separate them with vertical bars (|).
    * 
-   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * > After an ApsaraMQ for RocketMQ instance is created, the selected vSwitch cannot be changed. To modify the associated vSwitch, release the existing ApsaraMQ for RocketMQ instance and purchase a new one.
    * 
-   * >  We recommend that you configure vSwitches instead of this parameter.
+   * <notice>This field is not recommended. Use the vSwitches field instead.</notice>
    * 
    * @example
    * vsw-uf6gwtbn6etadpv*******
@@ -166,18 +164,18 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The vSwitches.
+   * The list of vSwitches.
    * 
-   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * > After an ApsaraMQ for RocketMQ instance is created, the selected vSwitch cannot be changed. To modify the associated vSwitch, release the existing ApsaraMQ for RocketMQ instance and purchase a new one.
    * 
-   * >  This parameter is required. We recommend that you configure this parameter instead of vSwitchId.
+   * <notice>This is a required field. Because the vSwitchId field is no longer recommended, use this field to configure vSwitches.</notice>
    */
   vSwitches?: CreateInstanceRequestNetworkInfoVpcInfoVSwitches[];
   /**
    * @remarks
-   * The ID of the VPC with which the instance to be created is associated.
+   * The ID of the VPC to associate with the instance.
    * 
-   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the VPC with which the instance is associated. If you want to change the VPC with which the instance is associated, you must release the instance and create a new instance.
+   * > After an ApsaraMQ for RocketMQ instance is created, the selected VPC cannot be changed. To modify the associated VPC, release the existing ApsaraMQ for RocketMQ instance and purchase a new one.
    * 
    * This parameter is required.
    * 
@@ -218,14 +216,14 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
 export class CreateInstanceRequestNetworkInfo extends $dara.Model {
   /**
    * @remarks
-   * The Internet-related configurations.
+   * The Internet configuration information.
    * 
    * This parameter is required.
    */
   internetInfo?: CreateInstanceRequestNetworkInfoInternetInfo;
   /**
    * @remarks
-   * The virtual private cloud (VPC)-related configurations.
+   * The VPC configuration information.
    * 
    * This parameter is required.
    */
@@ -262,34 +260,45 @@ export class CreateInstanceRequestNetworkInfo extends $dara.Model {
 export class CreateInstanceRequestProductInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the elastic TPS feature for the instance.
+   * Specifies whether to enable adaptive elasticity. A value of true indicates that adaptive elasticity is enabled. A value of false indicates that adaptive elasticity is shutdown.
+   */
+  adaptiveElasticity?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable burstable elastic capacity beyond the specification.
    * 
-   * Valid values:
+   * After burstable elastic capacity is enabled, MSMQ for RocketMQ allows the instance to exceed the TPS limit of the base specification within a certain range. The portion that exceeds the base specification incurs additional elastic specification fees. For more information about billing, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
    * 
-   * *   true
-   * *   false
    * 
-   * After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific amount of TPS that exceeds the specification limit. You are charged for the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
-   * 
-   * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+   * > Only instances of certain specifications support burstable elastic capacity. For more information about supported instances, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * true
    */
   autoScaling?: boolean;
+  /**
+   * @remarks
+   * The capacity pattern.
+   * 
+   * @example
+   * provisioned
+   */
   capacityType?: string;
   /**
+   * @remarks
+   * The cross-region replication pattern.
+   * 
    * @example
    * async_cross_az
    */
   drReplicationMode?: string;
   /**
    * @remarks
-   * The retention period of messages. Unit: hours.
+   * The message retention period. Unit: hours.
    * 
-   * For information about the valid values of this parameter, see the "Limits on resource quotas" section of the [Limits](https://help.aliyun.com/document_detail/440347.html) topic.
+   * For the valid value range, see [Limits](https://help.aliyun.com/document_detail/440347.html) > Resource Quotas > Message Retention Period.
    * 
-   * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
+   * The log broker in MSMQ for RocketMQ is fully serverless and elastic. Fees are charged based on the actual storage space used. You can control the storage capacity by adjusting the message retention period. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
    * 
    * @example
    * 72
@@ -297,20 +306,27 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   messageRetentionTime?: number;
   /**
    * @remarks
-   * The computing specification that specifies the messaging transactions per second (TPS) of the instance. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+   * The message sending and receiving computing specification. For more information about the TPS upper limit for message sending and receiving, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * rmq.s2.2xlarge
    */
   msgProcessSpec?: string;
+  /**
+   * @remarks
+   * The provisioned capacity.
+   * 
+   * @example
+   * 5000
+   */
   provisionedCapacity?: number;
   /**
    * @remarks
-   * The ratio of the message sending TPS to the messaging TPS of the instance.
+   * The ratio of message sending TPS to the total message sending and accepting TPS of the instance.
    * 
-   * For example, if the maximum messaging TPS of an instance is 1,000 and the ratio of the message sending TPS to the messaging TPS of the instance is 0.8, the maximum message sending TPS of the instance is 800 and the maximum message receiving TPS is 200.
+   * For example, if the TPS upper limit for message sending and accepting of the instance is 1000 per second and the message sending ratio is 0.8, the TPS upper limit for message sending is 800 per second and the TPS upper limit for message accepting is 200 per second.
    * 
-   * Valid values: 0 to 1. Default value: 0.5.
+   * Valid values: [0.05, 0.95]. Default value: 0.5.
    * 
    * @example
    * 0.5
@@ -318,7 +334,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   sendReceiveRatio?: number;
   /**
    * @remarks
-   * Specifies whether to enable the encryption at rest feature.
+   * Indicates whether storage encryption is enabled.
    * 
    * @example
    * false
@@ -326,15 +342,27 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   storageEncryption?: boolean;
   /**
    * @remarks
-   * The key for encryption at rest.
+   * The key for storage encryption.
    * 
    * @example
-   * xxx
+   * xxxxx
    */
   storageSecretKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the message trace feature.
+   * 
+   * true: Enable the message trace feature.
+   * false: Shutdown the message trace feature.
+   * This parameter takes effect only for Serverless instances. If the message trace feature is enabled, message trace fees are incurred. For more information about billing, see the Serverless billing description. For pay-as-you-go and subscription instances, this parameter does not take effect. The message trace feature is supported by default regardless of whether this parameter is enabled.
+   * 
+   * @example
+   * true
+   */
   traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
+      adaptiveElasticity: 'adaptiveElasticity',
       autoScaling: 'autoScaling',
       capacityType: 'capacityType',
       drReplicationMode: 'drReplicationMode',
@@ -350,6 +378,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adaptiveElasticity: 'boolean',
       autoScaling: 'boolean',
       capacityType: 'string',
       drReplicationMode: 'string',
@@ -375,18 +404,18 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
 export class CreateInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The `key` of the tag.
+   * The key of the resource tag.
    * 
    * @example
-   * aaa
+   * xxxKey
    */
   key?: string;
   /**
    * @remarks
-   * The `value` of the tag.
+   * The value of the resource tag.
    * 
    * @example
-   * bbb
+   * xxxValue
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -413,13 +442,14 @@ export class CreateInstanceRequestTags extends $dara.Model {
 }
 
 export class CreateInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The access control information.
+   */
   aclInfo?: CreateInstanceRequestAclInfo;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when the billing method of the instance is set to Subscription.
    * 
    * @example
    * true
@@ -427,11 +457,11 @@ export class CreateInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal cycle of the instance. This parameter takes effect only if you set autoRenew to true. Unit: months.
+   * The Unified Auto Renewal Cycle. This parameter takes effect only when auto-renewal is enabled. Unit: months.
    * 
    * Valid values:
    * 
-   * *   Monthly renewal: 1, 2, 3, 6, and 12
+   * - Monthly renewal: 1, 2, 3, 6, 12
    * 
    * @example
    * 3
@@ -439,22 +469,31 @@ export class CreateInstanceRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The commodity code. Valid values:
+   * The commodity code.
    * 
-   * *   ons_rmqpost_public_intl: pay-as-you-go
-   * *   ons_rmqsub_public_intl: subscription
-   * *   ons_rmqsrvlesspost_public_intl: serverless instance
-   * serverless instance requires this parameter
+   * <props="china">- ons_rmqsub_public_cn: subscription instance.
+   * 
+   * <props="china">- ons_rmqpost_public_cn: pay-as-you-go instance.
+   * 
+   * <props="china">- ons_rmqsrvlesspost_public_cn: serverless instance.
+   * 
+   * <props="intl">- ons_rmqpost_public_intl: pay-as-you-go.
+   * 
+   * <props="intl">- ons_rmqsub_public_intl: subscription.
+   * <props="intl">- ons_rmqsrvlesspost_public_intl: serverless instance.
+   * This parameter is required for serverless instances.
    * 
    * @example
    * ons_ rmqpost_public_cn
+   * 
+   * @deprecated
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The name of the instance that you want to create.
+   * The name of the instance to be created.
    * 
-   * If you leave this parameter empty, the instance ID is used as the instance name.
+   * If you do not specify this parameter, the instance ID is used as the instance name.
    * 
    * @example
    * rmq-cn-72u3048uxxx
@@ -462,21 +501,16 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The information about the network.
+   * The network configuration information.
    * 
    * This parameter is required.
    */
   networkInfo?: CreateInstanceRequestNetworkInfo;
   /**
    * @remarks
-   * The billing method of the instance. ApsaraMQ for RocketMQ supports the subscription and pay-as-you-go billing methods.
+   * The billing method of the instance. ApsaraMQ for RocketMQ supports subscription and pay-as-you-go billing methods.
    * 
-   * Valid values:
-   * 
-   * *   PayAsYouGo: This billing method allows you to use resources before you pay for the resources.
-   * *   Subscription: This billing method allows you to use resources after you pay for the resources.
-   * 
-   * For more information, see [Billing methods](https://help.aliyun.com/document_detail/427234.html).
+   * For more information, see [Billable methods](https://help.aliyun.com/document_detail/427234.html).
    * 
    * This parameter is required.
    * 
@@ -486,12 +520,13 @@ export class CreateInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The subscription duration of the instance. This parameter takes effect only if you set paymentType to Subscription.
+   * The subscription duration. This parameter takes effect only when the billing method of the instance is set to Subscription.
    * 
    * Valid values:
    * 
-   * *   Monthly subscription: 1, 2, 3, 4, 5, and 6
-   * *   Yearly subscription: 1, 2, and 3
+   * - Monthly subscription: 1, 2, 3, 4, 5, 6
+   * 
+   * - Yearly subscription: 1, 2, 3
    * 
    * @example
    * 3
@@ -499,12 +534,7 @@ export class CreateInstanceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
+   * The minimum epoch unit of the subscription duration.
    * 
    * @example
    * Month
@@ -512,12 +542,12 @@ export class CreateInstanceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The information about instance specifications.
+   * The instance specification information.
    */
   productInfo?: CreateInstanceRequestProductInfo;
   /**
    * @remarks
-   * The instance description.
+   * The remarks of the instance.
    * 
    * @example
    * This is the remark for test.
@@ -525,7 +555,7 @@ export class CreateInstanceRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzy6pist7uuna
@@ -533,15 +563,7 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The primary edition of the instance. For information about the differences among primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
-   * 
-   * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
-   * 
-   * >  After you create an instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance from Standard Edition to Professional Edition, but you cannot downgrade an instance from Professional Edition to Standard Edition.
+   * The primary series encoding of the instance. For more information about the differences between primary series, see [Product selection](https://help.aliyun.com/document_detail/444722.html).
    * 
    * This parameter is required.
    * 
@@ -551,7 +573,7 @@ export class CreateInstanceRequest extends $dara.Model {
   seriesCode?: string;
   /**
    * @remarks
-   * The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+   * The service encoding of the instance. The service encoding for MSMQ for RocketMQ is rmq.
    * 
    * This parameter is required.
    * 
@@ -561,23 +583,10 @@ export class CreateInstanceRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The sub-category edition of the instance. For information about the differences among sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+   * The sub-series encoding of the instance. For more information about the differences between sub-series, see [Product selection](https://help.aliyun.com/document_detail/444722.html).
    * 
-   * Valid values:
-   * 
-   * *   cluster_ha: Cluster High-availability Edition
-   * *   single_node: Standalone Edition
-   * *   serverless: serverless
-   * 
-   * If you set seriesCode to ultimate, you can set this parameter only to cluster_ha.
-   * 
-   * >  After you create an instance, you cannot change the sub-category edition of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   serverless: serverless
-   * *   cluster_ha: Cluster High-availability Edition
-   * *   single_node: Standalone Edition
+   * If the primary series is set to ultimate (Platinum Edition), the sub-series can only be set to cluster_ha (Cluster High Availability Edition).
+   * >Notice: After the instance is created, the sub-series cannot be changed.
    * 
    * This parameter is required.
    * 
@@ -587,12 +596,12 @@ export class CreateInstanceRequest extends $dara.Model {
   subSeriesCode?: string;
   /**
    * @remarks
-   * The tags that you want to add to the instance.
+   * The list of resource tags.
    */
   tags?: CreateInstanceRequestTags[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value of this parameter, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. The client generates the value of this parameter, which must be unique among different requests. The token can be up to 64 ASCII characters in length.
    * 
    * @example
    * c2c5d1274a8d4317a13bc5b0d4******

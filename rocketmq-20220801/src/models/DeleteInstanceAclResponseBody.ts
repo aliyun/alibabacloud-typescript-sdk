@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * The access denial details. This field is returned only when user access is denied due to insufficient RAM permissions.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DeleteInstanceAclResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * true
@@ -64,12 +64,12 @@ export class DeleteInstanceAclResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7358418D-83BD-507A-8079-*****
+   * 7358418D-83BD-507A-8079-611C63E05674
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

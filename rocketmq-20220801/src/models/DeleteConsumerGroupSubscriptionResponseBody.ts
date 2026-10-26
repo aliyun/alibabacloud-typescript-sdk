@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The access denial details. This parameter is returned only when the request is denied because the RAM user does not have the required permissions.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DeleteConsumerGroupSubscriptionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * true
@@ -64,12 +64,12 @@ export class DeleteConsumerGroupSubscriptionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 723CDA5C-E25C-5EAF-9601-******
+   * 723CDA5C-E25C-5EAF-9601-08C286DF8A4D
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

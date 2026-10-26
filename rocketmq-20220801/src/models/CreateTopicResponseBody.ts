@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Topic.Existed
@@ -13,7 +13,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned data.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * TopicName
@@ -29,7 +29,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * topicName
@@ -37,7 +37,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -45,7 +45,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The topic already exists.
@@ -53,7 +53,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+   * The request ID. Each request has a unique ID, which can be used to troubleshoot issues.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -61,7 +61,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the execution was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

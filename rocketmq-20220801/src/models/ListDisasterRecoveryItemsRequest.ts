@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDisasterRecoveryItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition. Topics are filtered by topic name.
+   * The filter condition. Filters by topicName.
    * 
    * @example
    * topic_test
@@ -13,7 +13,7 @@ export class ListDisasterRecoveryItemsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the results to return.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListDisasterRecoveryItemsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class ListDisasterRecoveryItemsRequest extends $dara.Model {
    * The topic name.
    * 
    * @example
-   * topic-test920
+   * topic-test284
    */
   topicName?: string;
   static names(): { [key: string]: string } {

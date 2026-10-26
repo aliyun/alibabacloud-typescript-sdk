@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListConsumerConnectionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Lite MSMQ topic.
+   * 
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
+   * @remarks
+   * The name of the lite topic.
+   * 
    * @example
    * test1
    */

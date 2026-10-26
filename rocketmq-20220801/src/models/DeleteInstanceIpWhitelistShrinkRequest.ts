@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceIpWhitelistShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 0.0.0.0/0
@@ -15,7 +15,7 @@ export class DeleteInstanceIpWhitelistShrinkRequest extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The list of IP whitelists.
    */
   ipWhitelistsShrink?: string;
   static names(): { [key: string]: string } {

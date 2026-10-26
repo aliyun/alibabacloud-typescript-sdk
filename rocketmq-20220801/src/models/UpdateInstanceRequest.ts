@@ -10,11 +10,7 @@ export class UpdateInstanceRequestAclInfo extends $dara.Model {
   aclTypes?: string[];
   /**
    * @remarks
-   * Indicates whether the authentication-free in VPCs feature is enabled.
-   * Indicates whether the authentication-free in VPCs feature is enabled.
-   * Valid values:
-   * - true
-   * - false
+   * Indicates whether password-free access is enabled for VPC connections under the intelligent identity recognition type.
    * 
    * @example
    * false
@@ -49,10 +45,10 @@ export class UpdateInstanceRequestAclInfo extends $dara.Model {
 export class UpdateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
-   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * The public network access IP whitelist.
    * 
-   * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * - If no IP whitelist is configured, all IP address ranges are allowed to access the ApsaraMQ for RocketMQ server over the public network by default.
+   * - If an IP whitelist is configured, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ server over the public network.
    */
   ipWhitelist?: string[];
   static names(): { [key: string]: string } {
@@ -82,7 +78,7 @@ export class UpdateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
 export class UpdateInstanceRequestNetworkInfo extends $dara.Model {
   /**
    * @remarks
-   * The information about the Internet over which the instance is accessed. This parameter takes effect only if the Internet access feature is enabled for the instance.
+   * The public network information. This parameter is valid only when the public network access feature is enabled for the instance.
    */
   internetInfo?: UpdateInstanceRequestNetworkInfoInternetInfo;
   static names(): { [key: string]: string } {
@@ -112,16 +108,17 @@ export class UpdateInstanceRequestNetworkInfo extends $dara.Model {
 export class UpdateInstanceRequestProductInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the elastic transactions per second (TPS) feature for the instance.
+   * Specifies whether to enable the adaptive elasticity capability. A value of true indicates enabled, and a value of false indicates shutdown.
+   */
+  adaptiveElasticity?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the burstable elastic capacity beyond the specification.
    * 
-   * Valid values:
+   * After the burstable elastic capacity is enabled, ApsaraMQ for RocketMQ allows the instance to exceed the TPS limit of the base specification within a certain range. The portion that exceeds the base specification incurs additional elastic specification fees. For more information about billing, see [Computing fee](https://help.aliyun.com/document_detail/427237.html).
    * 
-   * *   true
-   * *   false
    * 
-   * After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific number of TPS that exceeds the specification limit. You are charged for using the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
-   * 
-   * >  The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+   * > Only instances of specific specifications support the burstable elastic specification capability. For more information about supported instances, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * true
@@ -129,11 +126,11 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
   autoScaling?: boolean;
   /**
    * @remarks
-   * The retention period of messages. Unit: hours.
+   * The message retention period. Unit: hours.
    * 
-   * For information about the valid values of this parameter, see the "Limits on resource quotas" section of the [Limits](https://help.aliyun.com/document_detail/440347.html) topic.
+   * For the valid values, see [Limits](https://help.aliyun.com/document_detail/440347.html) > Resource Quotas > Message retention period limit.
    * 
-   * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
+   * The log broker in ApsaraMQ for RocketMQ is fully serverless and elastic. Fees are charged based on the actual storage space used. You can control the storage capacity of messages by adjusting the message retention period. For more information, see [Storage fee](https://help.aliyun.com/document_detail/427238.html).
    * 
    * @example
    * 72
@@ -141,9 +138,9 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
   messageRetentionTime?: number;
   /**
    * @remarks
-   * The ratio of the number of messages that you can send to the number of messages that you can receive on the instance.
+   * The ratio of messages sent to messages accepted.
    * 
-   * Value values: 0.25 to 1.
+   * Valid values: [0.25, 1]
    * 
    * @example
    * 0.5
@@ -153,10 +150,9 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
    * @remarks
    * Specifies whether to enable the message trace feature.
    * 
-   * *   true
-   * *   false
-   * 
-   * This parameter is not in use. By default, the message trace feature is enabled for ApsaraMQ for RocketMQ instances, regardless of whether this parameter is configured.
+   * <props="intl">This parameter does not take effect. Regardless of whether this parameter is enabled, the instance supports the message trace feature by default.
+   * <props="china">This parameter takes effect only for Serverless instances. If the message trace feature is enabled, message trace fees are incurred. For more information about billing, see [Serverless billing](https://help.aliyun.com/document_detail/2586280.html).
+   * <props="china">For pay-as-you-go and subscription instances, this parameter does not take effect. The message trace feature is supported by default regardless of whether this parameter is enabled.
    * 
    * @example
    * true
@@ -164,6 +160,7 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
   traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
+      adaptiveElasticity: 'adaptiveElasticity',
       autoScaling: 'autoScaling',
       messageRetentionTime: 'messageRetentionTime',
       sendReceiveRatio: 'sendReceiveRatio',
@@ -173,6 +170,7 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adaptiveElasticity: 'boolean',
       autoScaling: 'boolean',
       messageRetentionTime: 'number',
       sendReceiveRatio: 'number',
@@ -192,12 +190,12 @@ export class UpdateInstanceRequestProductInfo extends $dara.Model {
 export class UpdateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The access control list for the instance.
+   * The access control information.
    */
   aclInfo?: UpdateInstanceRequestAclInfo;
   /**
    * @remarks
-   * The updated name of the instance.
+   * The updated instance name.
    * 
    * @example
    * test_instance
@@ -205,17 +203,17 @@ export class UpdateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The updated network information about the instance.
+   * The updated network information of the instance.
    */
   networkInfo?: UpdateInstanceRequestNetworkInfo;
   /**
    * @remarks
-   * Additional configurations of the instance.
+   * The extension configurations of the instance.
    */
   productInfo?: UpdateInstanceRequestProductInfo;
   /**
    * @remarks
-   * The updated description of the instance.
+   * The updated remarks for the instance.
    * 
    * @example
    * This is the remark for test.

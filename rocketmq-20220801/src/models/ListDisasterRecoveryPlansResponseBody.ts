@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProperty extends $dara.Model {
   /**
    * @remarks
-   * The attribute key.
+   * The property key.
    * 
    * @example
    * aaa
@@ -13,7 +13,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProper
   propertyKey?: string;
   /**
    * @remarks
-   * The attribute value.
+   * The property value.
    * 
    * @example
    * bbb
@@ -45,7 +45,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProper
 export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dara.Model {
   /**
    * @remarks
-   * The authentication type.
+   * The authentication method.
    * 
    * @example
    * NO_AUTH
@@ -53,15 +53,15 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   authType?: string;
   /**
    * @remarks
-   * The ID of the consumer group.
+   * The consumer group ID, used to pull messages from the source instance.
    * 
    * @example
-   * GID_ui_xxx
+   * GID_xxx
    */
   consumerGroupId?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The endpoint address.
    * 
    * @example
    * xxx
@@ -93,7 +93,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The message attribute.
+   * The message properties.
    */
   messageProperty?: ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProperty;
   /**
@@ -106,7 +106,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   networkType?: string;
   /**
    * @remarks
-   * The password used for authentication.
+   * The authentication password.
    * 
    * @example
    * xxx
@@ -114,7 +114,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   password?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -130,7 +130,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   securityGroupId?: string;
   /**
    * @remarks
-   * The username used for authentication.
+   * The authentication username.
    * 
    * @example
    * xxx
@@ -146,7 +146,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * VPC ID
    * 
    * @example
    * vpc-bp13docqysrgxtbxxxx
@@ -205,7 +205,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
 export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic consumer progress synchronization is enabled.
+   * Specifies whether automatic synchronization of the consumer offset is enabled.
    * 
    * @example
    * true
@@ -213,7 +213,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   autoSyncCheckpoint?: boolean;
   /**
    * @remarks
-   * The time when the query task was created.
+   * The creation time, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -226,12 +226,12 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   extInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The instances involved in the Global Replicator task.
+   * The instances participating in the backup plan.
    */
   instances?: ListDisasterRecoveryPlansResponseBodyDataListInstances[];
   /**
    * @remarks
-   * The description of the Global Replicator task.
+   * The plan description.
    * 
    * @example
    * xxx
@@ -239,7 +239,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   planDesc?: string;
   /**
    * @remarks
-   * The ID of the Global Replicator task.
+   * The plan ID.
    * 
    * @example
    * 1300000016
@@ -247,7 +247,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   planId?: number;
   /**
    * @remarks
-   * The name of the Global Replicator task.
+   * The plan name.
    * 
    * @example
    * xxx
@@ -255,11 +255,10 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The status of the Global Replicator task. Valid values:
-   * 
-   * *   CREATED
-   * *   RUNNING
-   * *   DELETED
+   * The plan status. Valid values:
+   *   - CREATED: created.
+   *   - RUNNING: running.
+   *   - DELETED: deleted.
    * 
    * @example
    * RUNNING
@@ -267,10 +266,9 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   planStatus?: string;
   /**
    * @remarks
-   * The type of the Global Replicator task. Valid values:
-   * 
-   * *   ACTIVE_PASSIVE: one-way backup
-   * *   ACTIVE_ACTIVE: two-way backup
+   * The plan type. Valid values:
+   *   - ACTIVE_PASSIVE: one-way backup.
+   *   - ACTIVE_ACTIVE: two-way backup.
    * 
    * @example
    * ACTIVE_PASSIVE
@@ -278,7 +276,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   planType?: string;
   /**
    * @remarks
-   * Indicates whether consumer progress synchronization is enabled.
+   * Specifies whether consumer offset synchronization is enabled.
    * 
    * @example
    * true
@@ -286,7 +284,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
   syncCheckpointEnabled?: boolean;
   /**
    * @remarks
-   * The time when the query task was last modified.
+   * The modification time, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -342,12 +340,12 @@ export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
 export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Global Replicator tasks.
+   * The paged data.
    */
   list?: ListDisasterRecoveryPlansResponseBodyDataList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -355,7 +353,7 @@ export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -363,7 +361,7 @@ export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scroll ID of the request. The ID is automatically generated by the system. The result can be paginated only if this parameter is included in the pagination request.
+   * The scroll ID for the request. The system generates this value automatically. You must include this value in subsequent paginated requests to continue pagination.
    * 
    * @example
    * B13D0B07-F24B-4790-88D8-D47A38063D00
@@ -371,7 +369,7 @@ export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
   scrollId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 28
@@ -412,7 +410,7 @@ export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
 export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The access denied details. This field is returned only when access is denied due to insufficient RAM permissions.
    * 
    * @example
    * xxx
@@ -428,7 +426,7 @@ export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListDisasterRecoveryPlansResponseBodyData;
   /**
@@ -441,7 +439,7 @@ export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The returned dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * InstanceId
@@ -449,7 +447,7 @@ export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -473,7 +471,7 @@ export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the information about the service was queried.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

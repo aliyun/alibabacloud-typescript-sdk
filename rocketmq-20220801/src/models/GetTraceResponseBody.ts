@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTraceResponseBodyDataBrokerInfoOperations extends $dara.Model {
   /**
    * @remarks
-   * Operation time.
+   * The operation time, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -13,7 +13,7 @@ export class GetTraceResponseBodyDataBrokerInfoOperations extends $dara.Model {
   operateTime?: string;
   /**
    * @remarks
-   * Operation type.
+   * The operation type.
    * 
    * @example
    * ADD
@@ -45,7 +45,7 @@ export class GetTraceResponseBodyDataBrokerInfoOperations extends $dara.Model {
 export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
   /**
    * @remarks
-   * Delay status.
+   * The scheduled message status.
    * 
    * @example
    * SUCCESS
@@ -53,12 +53,12 @@ export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
   delayStatus?: string;
   /**
    * @remarks
-   * Operation list.
+   * The list of operations.
    */
   operations?: GetTraceResponseBodyDataBrokerInfoOperations[];
   /**
    * @remarks
-   * Preset delivery time.
+   * The preset delivery time, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -66,10 +66,10 @@ export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
   presetDelayTime?: string;
   /**
    * @remarks
-   * Withdraw scheduled message request result
+   * The recall result. This field is non-empty when a recall record exists.
    * 
    * @example
-   * RECALL_OK
+   * RECALL_OK | RECALL_FAIL
    */
   recallResult?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
 export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $dara.Model {
   /**
    * @remarks
-   * MessageId.
+   * The message ID.
    * 
    * @example
    * 7F000001001F7A4F0F29463F0376047D
@@ -113,7 +113,7 @@ export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $dara.M
   messageId?: string;
   /**
    * @remarks
-   * Arrival time in the dead letter queue.
+   * The time when the message arrived in the dead-letter queue, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -155,7 +155,7 @@ export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $dara.M
 export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dara.Model {
   /**
    * @remarks
-   * Whether it is a dead letter message.
+   * Indicates whether the message is a dead-letter message.
    * 
    * @example
    * true
@@ -163,7 +163,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dar
   deadMessage?: boolean;
   /**
    * @remarks
-   * Invisible time, milliseconds.
+   * The invisible time, in milliseconds.
    * 
    * @example
    * 100
@@ -171,7 +171,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dar
   invisibleTime?: number;
   /**
    * @remarks
-   * Operation time.
+   * The operation time, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -179,7 +179,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dar
   operateTime?: string;
   /**
    * @remarks
-   * Operation type.
+   * The operation type.
    * 
    * @example
    * ADD
@@ -215,7 +215,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dar
 export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   /**
    * @remarks
-   * Client host.
+   * The hostname.
    * 
    * @example
    * xx.xx.xx.xx
@@ -223,7 +223,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   clientHost?: string;
   /**
    * @remarks
-   * Consume status.
+   * The consumption status.
    * 
    * @example
    * SUCCESS
@@ -231,7 +231,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   consumeStatus?: string;
   /**
    * @remarks
-   * Whether to consume fifo.
+   * Indicates whether ordered consumption is enabled.
    * 
    * @example
    * true
@@ -239,7 +239,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   fifoEnable?: boolean;
   /**
    * @remarks
-   * Operation list.
+   * The list of operations.
    */
   operations?: GetTraceResponseBodyDataConsumerInfosRecordsOperations[];
   /**
@@ -252,7 +252,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   popCk?: string;
   /**
    * @remarks
-   * Consumer name.
+   * The consumer name.
    * 
    * @example
    * test
@@ -295,7 +295,7 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
 export class GetTraceResponseBodyDataConsumerInfos extends $dara.Model {
   /**
    * @remarks
-   * Consume status.
+   * The consumption status.
    * 
    * @example
    * SUCCESS
@@ -311,12 +311,12 @@ export class GetTraceResponseBodyDataConsumerInfos extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * Dead letter info.
+   * The dead-letter message information.
    */
   deadLetterInfo?: GetTraceResponseBodyDataConsumerInfosDeadLetterInfo;
   /**
    * @remarks
-   * Whether it is a dead letter message.
+   * Indicates whether the message is a dead-letter message.
    * 
    * @example
    * true
@@ -324,7 +324,7 @@ export class GetTraceResponseBodyDataConsumerInfos extends $dara.Model {
   deadMessage?: boolean;
   /**
    * @remarks
-   * Consumer record list.
+   * The list of consumption records.
    */
   records?: GetTraceResponseBodyDataConsumerInfosRecords[];
   static names(): { [key: string]: string } {
@@ -365,7 +365,7 @@ export class GetTraceResponseBodyDataConsumerInfos extends $dara.Model {
 export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   /**
    * @remarks
-   * Message body.
+   * The message body.
    * 
    * @example
    * {}
@@ -373,7 +373,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * Message born host.
+   * The origin of the message.
    * 
    * @example
    * x.x.x.x
@@ -381,7 +381,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   bornHost?: string;
   /**
    * @remarks
-   * Message born time.
+   * The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -396,13 +396,16 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The lite topic name.
+   * 
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
    * @remarks
-   * Message grpup.
+   * The previous sharding key. This field is exclusive to ordered messages.
    * 
    * @example
    * xx
@@ -418,12 +421,12 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Message keys.
+   * The message key.
    */
   messageKeys?: string[];
   /**
    * @remarks
-   * Message tag.
+   * The list of tags.
    * 
    * @example
    * xx
@@ -431,7 +434,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   messageTag?: string;
   /**
    * @remarks
-   * Message type.
+   * The message type.
    * 
    * @example
    * NORMAL
@@ -447,7 +450,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Message store host.
+   * The log broker address where the message is stored.
    * 
    * @example
    * x.x.x.x
@@ -455,7 +458,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   storeHost?: string;
   /**
    * @remarks
-   * Message store time.
+   * The time when the message was stored in the log broker, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -471,7 +474,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * Message transaction id.
+   * The transaction ID.
    * 
    * @example
    * xx
@@ -479,7 +482,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   transactionId?: string;
   /**
    * @remarks
-   * Message user properties.
+   * The user properties.
    */
   userProperties?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -542,7 +545,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
 export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   /**
    * @remarks
-   * Arrive time.
+   * The time when the message arrived, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -550,7 +553,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   arriveTime?: string;
   /**
    * @remarks
-   * Client host.
+   * The hostname.
    * 
    * @example
    * xx.xx.xx.xx
@@ -558,7 +561,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   clientHost?: string;
   /**
    * @remarks
-   * Dead-letter queue message ID.
+   * The dead-letter queue message ID.
    * 
    * @example
    * 0A79275A00207A4F0F2916C92F9A0B94
@@ -566,7 +569,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   dlqOriginMessageId?: string;
   /**
    * @remarks
-   * Dead-letter queue topic.
+   * The dead-letter queue topic.
    * 
    * @example
    * test_topic
@@ -574,7 +577,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   dlqOriginTopic?: string;
   /**
    * @remarks
-   * Message source.
+   * The message source.
    * 
    * @example
    * CONSOLE
@@ -582,7 +585,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   messageSource?: string;
   /**
    * @remarks
-   * Producer duration.
+   * The time taken to send the message.
    * 
    * @example
    * 100
@@ -590,7 +593,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   produceDuration?: number;
   /**
    * @remarks
-   * Producer status.
+   * The send status.
    * 
    * @example
    * SUCCESS
@@ -598,7 +601,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   produceStatus?: string;
   /**
    * @remarks
-   * Producer time.
+   * The time when the message was sent, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -606,7 +609,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   produceTime?: string;
   /**
    * @remarks
-   * The time when the scheduled message withdrawal request was initiated
+   * The time when the recall request was initiated. This field is non-empty when messageSource is "recall".
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -614,7 +617,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   recallTime?: string;
   /**
    * @remarks
-   * Producer name.
+   * The producer name.
    * 
    * @example
    * xxx
@@ -662,7 +665,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
 export class GetTraceResponseBodyDataProducerInfo extends $dara.Model {
   /**
    * @remarks
-   * The production records.
+   * The list of producer records.
    */
   records?: GetTraceResponseBodyDataProducerInfoRecords[];
   static names(): { [key: string]: string } {
@@ -692,12 +695,12 @@ export class GetTraceResponseBodyDataProducerInfo extends $dara.Model {
 export class GetTraceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The broker trace.
+   * The broker message trace information.
    */
   brokerInfo?: GetTraceResponseBodyDataBrokerInfo;
   /**
    * @remarks
-   * Consumer trace info.
+   * The consumer message trace information.
    */
   consumerInfos?: GetTraceResponseBodyDataConsumerInfos[];
   /**
@@ -715,7 +718,7 @@ export class GetTraceResponseBodyData extends $dara.Model {
   messageInfo?: GetTraceResponseBodyDataMessageInfo;
   /**
    * @remarks
-   * The producer trace.
+   * The producer message trace information.
    */
   producerInfo?: GetTraceResponseBodyDataProducerInfo;
   /**
@@ -790,7 +793,7 @@ export class GetTraceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetTraceResponseBodyData;
   /**
@@ -827,7 +830,7 @@ export class GetTraceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * The request ID. Each request has a unique ID that you can use to troubleshoot issues.
    * 
    * @example
    * 7779A8FC-1BCD-5A1D-A603-C4A9BD8ADC49
@@ -835,7 +838,7 @@ export class GetTraceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

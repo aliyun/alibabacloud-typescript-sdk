@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupSubscriptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether message consumption is consistent. Valid values:
+   * The consistency of the subscription relationship.
    * 
-   * *   false: Unconsumed messages exist in the consumer group.
-   * *   true: No unconsumed message exists in the consumer group.
+   * - false: The subscription relationship is inconsistent.
+   * 
+   * - true: The subscription relationship is consistent.
    * 
    * @example
    * true
@@ -32,10 +33,11 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $dara.Model 
   filterExpression?: string;
   /**
    * @remarks
-   * The type of the filter expression. Valid values:
+   * The type of the filter expression.
    * 
-   * *   SQL: filters messages by using SQL expressions.
-   * *   TAG: filters messages by using tags.
+   * - SQL: SQL filtering.
+   * 
+   * - TAG: Tag filtering.
    * 
    * @example
    * SQL
@@ -43,21 +45,23 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $dara.Model 
   filterExpressionType?: string;
   /**
    * @remarks
-   * The consumption mode of the consumer group. Valid values:
+   * The consumption mode of the consumer group.
    * 
-   * *   BROADCASTING: broadcasting consumption
-   * *   CLUSTERING: clustering consumption
+   * - BROADCASTING: The broadcast consumption mode.
+   * 
+   * - CLUSTERING: The cluster consumption mode.
    * 
    * @example
-   * BROADCASTING
+   * CLUSTERING
    */
   messageModel?: string;
   /**
    * @remarks
-   * The subscription status. Valid values:
+   * The subscription status.
    * 
-   * *   ONLINE: The consumer group is online. If the consumer group contains multiple consumers, this value is returned as long as one of the consumers is online.
-   * *   OFFLINE: The consumer group is offline. If the consumer group contains multiple consumers, this value is returned only if all consumers are offline.
+   * - ONLINE: The consumer group is online. If a consumer group contains multiple consumers, the group is considered online as long as at least one consumer is online.
+   * 
+   * - OFFLINE: The consumer group is offline. If a consumer group contains multiple consumers, the group is considered offline only when all consumers are offline.
    * 
    * @example
    * ONLINE
@@ -125,7 +129,7 @@ export class ListConsumerGroupSubscriptionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListConsumerGroupSubscriptionsResponseBodyData[];
   /**

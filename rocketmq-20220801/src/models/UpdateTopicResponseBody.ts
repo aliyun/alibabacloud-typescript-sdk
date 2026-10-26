@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Topic.NotFound
@@ -13,7 +13,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * TopicName
@@ -29,7 +29,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * 动态错误信息
+   * The dynamic error message.
    * 
    * @example
    * topicName
@@ -37,7 +37,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -45,7 +45,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The topic cannot be found.
@@ -53,7 +53,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
+   * The ID of the request. This ID is unique to each request and can be used to troubleshoot issues.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -61,7 +61,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the execution result is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

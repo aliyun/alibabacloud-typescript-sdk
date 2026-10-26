@@ -3,28 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMigrationOperationsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The operation business status.
+   */
   businessStatusShrink?: string;
   /**
+   * @remarks
+   * The filter condition for the query.
+   * 
+   * >
+   * > - Supports filtering by operationKey, which is the topic name.
+   * 
    * @example
    * xx
    */
   filter?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-zxu37eiqq0x
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The operation status.
+   */
   operationStatusShrink?: string;
   /**
    * @remarks
+   * The operation type.
+   * 
    * This parameter is required.
    * 
    * @example
-   * IMPORT_CONSUMER_GROUP
+   * MIGRATE_MESSAGE
    */
   operationType?: string;
   /**
    * @remarks
+   * The page number of the results to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +54,8 @@ export class ListMigrationOperationsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The page size, which specifies the maximum number of results to return per page.
+   * 
    * This parameter is required.
    * 
    * @example

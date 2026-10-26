@@ -45,7 +45,7 @@ export class ListRegionsResponseBodyDataTags extends $dara.Model {
 export class ListRegionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the ApsaraMQ for RocketMQ instance was created.
+   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -53,7 +53,7 @@ export class ListRegionsResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID, such as cn-hangzhou.
    * 
    * @example
    * cn-hangzhou
@@ -61,15 +61,15 @@ export class ListRegionsResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The region name.
+   * The Chinese name of the region, such as Hangzhou.
    * 
    * @example
-   * hangzhou
+   * 杭州
    */
   regionName?: string;
   /**
    * @remarks
-   * Indicates whether ApsaraMQ for RocketMQ V4 is activated.
+   * Indicates whether RocketMQ V4 is activated.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class ListRegionsResponseBodyData extends $dara.Model {
   supportRocketmqV4?: boolean;
   /**
    * @remarks
-   * Indicates whether ApsaraMQ for RocketMQ V5 is activated.
+   * Indicates whether RocketMQ V5 is activated.
    * 
    * @example
    * true
@@ -90,7 +90,7 @@ export class ListRegionsResponseBodyData extends $dara.Model {
   tags?: ListRegionsResponseBodyDataTags[];
   /**
    * @remarks
-   * The time when the ApsaraMQ for RocketMQ instance was last modified.
+   * The update time, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -188,7 +188,7 @@ export class ListRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

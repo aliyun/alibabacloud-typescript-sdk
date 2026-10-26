@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class FinishMigrationStageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-pe334f1nx04
    */

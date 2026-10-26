@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status of the account.
-   * 
-   * Valid values:
-   * 
-   * *   DISABLE
-   * *   ENABLE
+   * The account status.
    * 
    * @example
    * ENABLE
@@ -18,20 +13,23 @@ export class GetInstanceAccountResponseBodyData extends $dara.Model {
   accountStatus?: string;
   /**
    * @remarks
-   * The password of the account.
+   * The account password.
    * 
    * @example
    * *************
    */
   password?: string;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
    * @remarks
-   * The username of the account.
+   * The username.
    * 
    * @example
    * xxx
@@ -75,7 +73,7 @@ export class GetInstanceAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetInstanceAccountResponseBodyData;
   /**
@@ -112,7 +110,7 @@ export class GetInstanceAccountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+   * The unique ID of the request. Use this ID to troubleshoot issues.
    * 
    * @example
    * B5C59E80-FCFC-5796-ABE4-D39EAAE578E4

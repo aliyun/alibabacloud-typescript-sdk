@@ -7,7 +7,7 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
    * @remarks
    * The dead-letter topic.
    * 
-   * If a message still fails to be consumed after the maximum number of retries specified in the consumption retry policy is reached, the message is delivered to the dead-letter topic for subsequent business recovery or backtracking. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
+   * If a consumer fails to consume a message and the message still failed after retries, the message is delivered to the dead-letter topic for subsequent business recovery or backtracking. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
    * 
    * @example
    * DLQ_mqtest
@@ -15,10 +15,11 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   deadLetterTargetTopic?: string;
   /**
    * @remarks
-   * The fixed interval. Unit: seconds. This parameter takes effect only if you set retryPolicy to FixedRetryPolicy. Valid values:
+   * The fixed retry interval, in seconds. This parameter takes effect when the retry policy is set to FixedRetryPolicy.
    * 
-   * *   Concurrent delivery: 10 to 1800
-   * *   Ordered delivery: 1 to 600
+   * Valid values:
+   * - Concurrent delivery: 10 to 1800
+   * - Ordered delivery: 1 to 600
    * 
    * @example
    * 10
@@ -26,7 +27,7 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   fixedIntervalRetryTime?: number;
   /**
    * @remarks
-   * The maximum number of retries.
+   * The maximum number of retry attempts.
    * 
    * @example
    * 16
@@ -34,12 +35,11 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   maxRetryTimes?: number;
   /**
    * @remarks
-   * The retry policy. For more information, see [Message retry](https://help.aliyun.com/document_detail/440356.html).
+   * The retry policy type. For more information, see [Message retry](https://help.aliyun.com/document_detail/440356.html).
    * 
-   * Valid values:
-   * 
-   * *   FixedRetryPolicy: fixed-interval retry. This value is valid only if you set deliveryOrderType to Orderly.
-   * *   DefaultRetryPolicy: exponential backoff retry. This value is valid only if you set deliveryOrderType to Concurrently.
+   * Valid parameter values:
+   * - FixedRetryPolicy: fixed-interval retry, supported only for ordered delivery
+   * - DefaultRetryPolicy: progressive backoff retry, supported only for concurrent delivery
    * 
    * This parameter is required.
    * 
@@ -77,19 +77,18 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
 export class CreateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumption retry policy of the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
+   * The consumption retry policy of the consumer group to be created. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
    * 
    * This parameter is required.
    */
   consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
   /**
    * @remarks
-   * The message delivery method of the consumer group.
+   * The delivery order type of the consumer group to be created.
    * 
-   * Valid values:
-   * 
-   * *   Concurrently: concurrent delivery
-   * *   Orderly: ordered delivery
+   * Valid parameter values:
+   * - Concurrently: concurrent delivery
+   * - Orderly: ordered delivery
    * 
    * This parameter is required.
    * 
@@ -97,31 +96,43 @@ export class CreateConsumerGroupRequest extends $dara.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable exclusive subscription, which means a LiteTopic can only be subscribed to by one consumer. Set to true to enable or false to shutdown.
+   */
   exclusive?: boolean;
   /**
    * @remarks
-   * The maximum number of messages that can be processed by consumers per second.
+   * The maximum TPS for consuming messages.
    * 
    * @example
-   * 300
+   * 1000
    */
   maxReceiveTps?: number;
   /**
+   * @remarks
+   * The subscribe pattern for consumers:
+   * - CLUSTERING: clustering consumption pattern. All consumers in the ConsumerGroup share the same subscription.
+   * - LITE_SELECTIVE: lightweight consumption pattern. Consumers in the ConsumerGroup can have different subscriptions.
+   * 
    * @example
-   * CLUSTERING
+   * LITE_SELECTIVE
    */
   messageModel?: string;
   /**
    * @remarks
-   * The description of the consumer group.
+   * The remarks for the consumer group to be created.
    * 
    * @example
    * This is the remark for test.
    */
   remark?: string;
   /**
+   * @remarks
+   * The name of the lite-type topic to subscribe to when using the LITE_SELECTIVE consumption pattern.
+   * 
    * @example
-   * test1
+   * liteTopicTest
    */
   topicName?: string;
   static names(): { [key: string]: string } {

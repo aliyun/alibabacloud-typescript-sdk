@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
+   * The filter condition for the query. If you do not specify this parameter, all instances are queried.
    * 
    * @example
    * rmq-cn-7e22ody****
@@ -13,11 +13,11 @@ export class ListInstancesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The page number.
+   * The paging number. Specifies the page of results to return.
    * 
    * Valid values: 1 to 100000000.
    * 
-   * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
+   * If you set this parameter to a value less than 1, the system uses 1 as the default value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the default value.
    * 
    * @example
    * 1
@@ -25,11 +25,11 @@ export class ListInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The paging size. The maximum number of results to return on each page.
    * 
-   * Value values: 10 to 200.
+   * Valid values: 10 to 200.
    * 
-   * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
+   * If you set this parameter to a value less than 10, the system uses 10 as the default value. If you set this parameter to a value greater than 200, the system uses 200 as the default value.
    * 
    * @example
    * 10
@@ -45,13 +45,14 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The primary edition of the instance.
+   * The primary series encoding of the instance.
    * 
    * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
+   * - standard: Standard Edition.
+   * - ultimate: Platinum Edition.
+   * - professional: Professional Edition.
+   * - dedicated: Dedicated Edition.
+   * - shared: Shared Edition.
    */
   seriesCodes?: string[];
   /**
@@ -64,7 +65,7 @@ export class ListInstancesRequest extends $dara.Model {
   storageSecretKey?: string;
   /**
    * @remarks
-   * The tags that are used to filter instances.
+   * The list of resource labels that are used to filter instances.
    * 
    * @example
    * [{"key": "rmq-test", "value": "test"}]

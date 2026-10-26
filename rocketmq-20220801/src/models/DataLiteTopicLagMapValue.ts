@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataLiteTopicLagMapValue extends $dara.Model {
   /**
+   * @remarks
+   * The number of accumulated messages.
+   * 
    * @example
    * 300
    */
   readyCount?: number;
   /**
+   * @remarks
+   * The delivery latency. Unit: seconds.
+   * 
    * @example
    * 30
    */

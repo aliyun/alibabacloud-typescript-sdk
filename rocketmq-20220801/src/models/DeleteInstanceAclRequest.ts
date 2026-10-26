@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the resource on which the permissions are granted.
+   * The name of the authorized resource.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,7 @@ export class DeleteInstanceAclRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource on which the permissions are granted.
-   * 
-   * Valid values:
-   * 
-   * *   Group
-   * *   Topic
+   * The type of the authorized resource.
    * 
    * This parameter is required.
    * 

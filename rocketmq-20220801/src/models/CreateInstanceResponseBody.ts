@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The request ID. Each request ID is unique and can be used to troubleshoot issues.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -61,7 +61,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

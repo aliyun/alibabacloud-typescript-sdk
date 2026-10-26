@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * MissingInstanceId
@@ -13,7 +13,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned result.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
    * InstanceId
@@ -29,7 +29,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * The dynamic fault message.
    * 
    * @example
    * instanceId
@@ -45,7 +45,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The fault message.
    * 
    * @example
    * Parameter instanceId is mandatory for this action .
@@ -53,7 +53,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * The request ID. Each request ID is unique and active for troubleshooting and locating issues.
    * 
    * @example
    * AA87DE09-DA44-52F4-9515-78B1B607****
@@ -61,7 +61,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the operation is executed successfully.
    * 
    * @example
    * true

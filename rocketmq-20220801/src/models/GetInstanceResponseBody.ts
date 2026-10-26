@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyDataAccountInfo extends $dara.Model {
   /**
    * @remarks
-   * The username of the instance. If you access a ApsaraMQ for RocketMQ instance over the Internet, you must configure the username and password of the instance in the SDK code for authentication.
+   * The username of the instance. When you use public network access, you must configure the username and password of the instance in the SDK code for identity verification.
    * 
    * @example
    * 6W0xz2uPfiwp****
@@ -35,13 +35,7 @@ export class GetInstanceResponseBodyDataAccountInfo extends $dara.Model {
 export class GetInstanceResponseBodyDataAclInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication type of the instance. This parameter is no longer in use. We recommend that you configure aclTypes.
-   * 
-   * Valid values:
-   * 
-   * - default: intelligent identity authentication
-   * 
-   * - apache_acl:access control list (ACL) identity authentication**
+   * The authentication type of the instance. This parameter is deprecated. Use the aclTypes parameter instead.
    * 
    * @example
    * default
@@ -56,25 +50,7 @@ export class GetInstanceResponseBodyDataAclInfo extends $dara.Model {
   aclTypes?: string[];
   /**
    * @remarks
-   * Indicates whether the authentication-free in VPCs feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the authentication-free in VPC feature is enabled.
    * 
    * @example
    * true
@@ -113,24 +89,15 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
    * @remarks
    * The authentication type of the instance.
    * 
-   * Valid value:
-   * 
-   * *   default: intelligent authentication
-   * 
    * @example
    * default
    */
   aclType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the elastic TPS feature for the instance.
+   * Indicates whether burstable elastic capacity beyond the base specification is enabled.
    * 
-   * Valid values:
-   * 
-   * *   true: enable
-   * *   false: disable
-   * 
-   * This parameter is valid only when the supportAutoScaling parameter is set to enable.
+   * This parameter takes effect only when the value of supportAutoScaling is enable, which means the instance supports enabling elastic capacity.
    * 
    * @example
    * true
@@ -138,7 +105,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   autoScaling?: boolean;
   /**
    * @remarks
-   * The Internet bandwidth. Unit: MB/s.
+   * The Internet bandwidth specification. Unit: Mbit/s.
    * 
    * @example
    * 10
@@ -146,13 +113,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   flowOutBandwidth?: number;
   /**
    * @remarks
-   * The metering method of Internet usage.
-   * 
-   * Valid values:
-   * 
-   * *   PayByTraffic: pay-by-traffic
-   * *   paybybandwidth: pay-by-bandwidth
-   * *   uninvolved: N/A
+   * The billing type for public network usage.
    * 
    * @example
    * payByBandwidth
@@ -160,14 +121,9 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   flowOutType?: string;
   /**
    * @remarks
-   * Indicates whether Internet access is enabled.
+   * Indicates whether public network access is enabled.
    * 
-   * Valid values:
-   * 
-   * *   enable
-   * *   disable
-   * 
-   * By default, you can access ApsaraMQ for RocketMQ instances in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
+   * The instance supports VPC access by default. If public network access is enabled, ApsaraMQ for RocketMQ charges fees for public downstream bandwidth. For more information about billing, see [Public network access fees](https://help.aliyun.com/document_detail/427240.html).
    * 
    * @example
    * enable
@@ -175,11 +131,11 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   internetSpec?: string;
   /**
    * @remarks
-   * The retention period of messages. Unit: hours.
+   * The message retention period. Unit: hours.
    * 
-   * For information about the valid values of this parameter, see the "Limits on resource quotas" section in [Usage limits](https://help.aliyun.com/document_detail/440347.html).
+   * For the value range, see [Limits](https://help.aliyun.com/document_detail/440347.html) > Resource Quotas > Message retention period.
    * 
-   * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](https://help.aliyun.com/document_detail/427238.html).
+   * The message storage of ApsaraMQ for RocketMQ is fully serverless and elastic. You are charged based on the actual storage space used. You can control the storage capacity by adjusting the message retention period. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
    * 
    * @example
    * 72
@@ -187,7 +143,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   messageRetentionTime?: number;
   /**
    * @remarks
-   * The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+   * The message processing specification. For the TPS upper limit of message sending and receiving, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * rmq.s2.2xlarge
@@ -195,7 +151,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   msgProcessSpec?: string;
   /**
    * @remarks
-   * The ratio between sent messages and received messages in the instance.
+   * The ratio of message sending to message receiving.
    * 
    * @example
    * 0.5
@@ -203,16 +159,11 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   sendReceiveRatio?: number;
   /**
    * @remarks
-   * Specifies whether the elastic TPS feature is supported by the instance.
+   * Indicates whether the instance supports enabling burstable elastic capacity beyond the base specification.
    * 
-   * Valid values:
+   * After burstable elastic capacity is enabled, ApsaraMQ for RocketMQ allows the instance to exceed the TPS limit of the base specification within a certain range. Additional elastic specification fees are charged for the portion that exceeds the base specification. For more information about billing, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
    * 
-   * *   true: enable
-   * *   false: disable
-   * 
-   * After you enable the elastic TPS feature for a ApsaraMQ for RocketMQ instance, you can use a specific amount of TPS that exceeds the specification limit. You are charged for the elastic TPS feature. For more information, see [Computing fee](https://help.aliyun.com/document_detail/427237.html).
-   * 
-   * > The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+   * > Only instances of specific specifications support burstable elastic capacity. For more information about supported instances, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * true
@@ -258,7 +209,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
 export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
   /**
    * @remarks
-   * The number of topics that are free of charge on the instance.
+   * The free quota. Unit: count.
    * 
    * @example
    * 20
@@ -266,11 +217,7 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
   freeCount?: number;
   /**
    * @remarks
-   * The quota name.
-   * 
-   * Valid value:
-   * 
-   * *   TOPIC_COUNT: the number of topics that can be created on the instance
+   * The quota name of the instance.
    * 
    * @example
    * TOPIC_COUNT
@@ -278,7 +225,7 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
   quotaName?: string;
   /**
    * @remarks
-   * The total number of topics on the instance.
+   * The total quota. Unit: count.
    * 
    * @example
    * 100
@@ -286,7 +233,7 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of used topics on the instance.
+   * The used quota. Unit: count.
    * 
    * @example
    * 10
@@ -321,18 +268,16 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
 
 export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The associated PrivateLink endpoint instance.
+   * 
    * @example
    * ep-bpxxx
    */
   endpointId?: string;
   /**
    * @remarks
-   * The type of the endpoint that is used to access the instance.
-   * 
-   * Valid values:
-   * 
-   * *   TCP_VPC: VPC endpoint
-   * *   TCP_INTERNET: public endpoint
+   * The endpoint type of the instance.
    * 
    * @example
    * TCP_INTERNET
@@ -340,7 +285,7 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model
   endpointType?: string;
   /**
    * @remarks
-   * The endpoint that is used to access the instance.
+   * The endpoint of the instance.
    * 
    * @example
    * rmq-cn-c4d2tbk****-vpc.cn-hangzhou.rmq.aliyuncs.com:8080
@@ -348,12 +293,12 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model
   endpointUrl?: string;
   /**
    * @remarks
-   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
+   * The IP whitelist for public network access. IP whitelists are supported only for Internet endpoints and are not supported for VPC endpoints.
    * 
-   * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * - If no IP whitelist is configured, all IP address ranges are allowed to access the MSMQ for RocketMQ queue broker over the Internet by default.
+   * - If an IP whitelist is configured, only IP addresses in the whitelist are allowed to access the MSMQ for RocketMQ queue broker over the Internet.
    * 
-   * We recommend that you configure internetInfo.ipWhitelist instead of this parameter.
+   * This field is no longer recommended. Use the internetInfo.ipWhitelist field instead.
    * 
    * @example
    * 192.168.x.x/24
@@ -392,7 +337,7 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model
 export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
-   * The Internet bandwidth. Unit: MB/s.
+   * The Internet bandwidth specification. Unit: Mbit/s.
    * 
    * @example
    * 1
@@ -400,12 +345,7 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $dara.Mo
   flowOutBandwidth?: number;
   /**
    * @remarks
-   * The metering method for Internet usage.
-   * 
-   * Valid values:
-   * 
-   * *   PayByBandwidth: pay-by-bandwidth. If the Internet access feature is enabled, specify this value for the parameter.
-   * *   uninvolved: N/A. If the Internet access feature is not enabled, specify this value for the parameter.
+   * The billing type for public network usage.
    * 
    * @example
    * payByBandwidth
@@ -413,14 +353,9 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $dara.Mo
   flowOutType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Internet access feature.
+   * Indicates whether public network access is enabled.
    * 
-   * Valid values:
-   * 
-   * *   enable
-   * *   disable
-   * 
-   * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](https://help.aliyun.com/document_detail/427240.html).
+   * The instance supports VPC access by default. If public network access is enabled, ApsaraMQ for RocketMQ charges fees for public downstream bandwidth. For more information about billing, see [Public network access fees](https://help.aliyun.com/document_detail/427240.html).
    * 
    * @example
    * enable
@@ -428,10 +363,10 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $dara.Mo
   internetSpec?: string;
   /**
    * @remarks
-   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker.
+   * The IP whitelist for public network access.
    * 
-   * *   If this parameter is not configured, all IP addresses are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If this parameter is configured, only the IP addresses that are included in the whitelist can access the ApsaraMQ for RocketMQ broker over the Internet.
+   * - If the IP whitelist is not configured, all IP address ranges are allowed to access the ApsaraMQ for RocketMQ broker over the public network by default.
+   * - If the IP whitelist is configured, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the public network.
    */
   ipWhitelist?: string[];
   static names(): { [key: string]: string } {
@@ -515,7 +450,9 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $dara.Model {
   securityGroupIds?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the instance is associated.
+   * The ID of the vSwitch associated with the instance.
+   * 
+   * <notice>This field is not recommended. Use the vSwitches field instead. For compatibility, this field currently returns only one vSwitch.</notice>
    * 
    * @example
    * vsw-uf6gwtbn6etadpvz7****
@@ -525,12 +462,12 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The vSwitches.
+   * The list of vSwitches.
    */
   vSwitches?: GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches[];
   /**
    * @remarks
-   * The ID of the VPC with which the instance is associated.
+   * The ID of the VPC associated with the instance.
    * 
    * @example
    * vpc-uf6of9452b2pba82c****
@@ -569,17 +506,17 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $dara.Model {
 export class GetInstanceResponseBodyDataNetworkInfo extends $dara.Model {
   /**
    * @remarks
-   * The endpoints.
+   * The endpoint information.
    */
   endpoints?: GetInstanceResponseBodyDataNetworkInfoEndpoints[];
   /**
    * @remarks
-   * The information about the Internet.
+   * The public network information of the instance.
    */
   internetInfo?: GetInstanceResponseBodyDataNetworkInfoInternetInfo;
   /**
    * @remarks
-   * The virtual private cloud (VPC) information.
+   * The VPC information.
    */
   vpcInfo?: GetInstanceResponseBodyDataNetworkInfoVpcInfo;
   static names(): { [key: string]: string } {
@@ -619,32 +556,53 @@ export class GetInstanceResponseBodyDataNetworkInfo extends $dara.Model {
 export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the elastic TPS feature for the instance.
+   * The adaptive elasticity.
    * 
-   * Valid values:
+   * @example
+   * false
+   */
+  adaptiveElasticity?: boolean;
+  /**
+   * @remarks
+   * Indicates whether burstable elastic capacity beyond the base specification is enabled for seamless scaling.
    * 
-   * *   true: enable
-   * *   false: disable
-   * 
-   * This parameter is valid only when the supportAutoScaling parameter is set to enable.
+   * This parameter takes effect only when the value of supportAutoScaling is enable, which means the instance supports enabling elastic capacity.
    * 
    * @example
    * true
    */
   autoScaling?: boolean;
+  /**
+   * @remarks
+   * The capacity mode.
+   * 
+   * @example
+   * provisioned
+   */
   capacityType?: string;
   /**
+   * @remarks
+   * The cross-region replication mode.
+   * 
    * @example
    * async_cross_az
    */
   drReplicationMode?: string;
   /**
    * @remarks
-   * The retention period of messages. Unit: hours.
+   * The maximum interval for scheduled messages. Unit: seconds.
    * 
-   * For information about the valid values of this parameter, see the "Limits on resource quotas" section in [Usage limits](https://help.aliyun.com/document_detail/440347.html).
+   * @example
+   * 3456000
+   */
+  maxDelayTime?: number;
+  /**
+   * @remarks
+   * The message retention period. Unit: hours.
    * 
-   * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](https://help.aliyun.com/document_detail/427238.html).
+   * For the value range, see [Limits](https://help.aliyun.com/document_detail/440347.html) > Resource Quotas > Message retention period.
+   * 
+   * The message storage of ApsaraMQ for RocketMQ is fully serverless and elastic. You are charged based on the actual storage space used. You can control the storage capacity by adjusting the message retention period. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
    * 
    * @example
    * 72
@@ -652,16 +610,23 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   messageRetentionTime?: number;
   /**
    * @remarks
-   * The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+   * The message processing specification. For the TPS upper limit of message sending and receiving, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * rmq.s2.2xlarge
    */
   msgProcessSpec?: string;
+  /**
+   * @remarks
+   * The provisioned capacity.
+   * 
+   * @example
+   * 3000
+   */
   provisionedCapacity?: number;
   /**
    * @remarks
-   * The ratio between sent messages and received messages in the instance.
+   * The ratio of message sending to message receiving.
    * 
    * @example
    * 0.5
@@ -685,16 +650,13 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   storageSecretKey?: string;
   /**
    * @remarks
-   * Specifies whether to enable the elastic TPS feature for the instance.
+   * Indicates whether the burstable elastic capability beyond the base specification is enabled.
    * 
-   * Valid values:
    * 
-   * *   true: enable
-   * *   false: disable
+   * After the burstable elastic capability is enabled, ApsaraMQ for RocketMQ allows the instance to exceed the TPS limit of the base specification within a certain range. Additional elastic specification fees are charged for the portion that exceeds the base specification. For more information about billing, see [Computing capability fees](https://help.aliyun.com/document_detail/427237.html).
    * 
-   * After you enable the elastic TPS feature for a ApsaraMQ for RocketMQ instance, you can use a specific amount of TPS that exceeds the specification limit. You are charged for the elastic TPS feature. For more information, see [Computing fee](https://help.aliyun.com/document_detail/427237.html).
    * 
-   * > The elastic TPS feature is supported by only specific instance editions. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+   * > Only instances of specific specifications support the burstable elastic capability. For more information about supported instances, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
    * 
    * @example
    * true
@@ -702,12 +664,14 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   supportAutoScaling?: boolean;
   /**
    * @remarks
-   * Indicates whether the message trace feature is enabled. Valid values:
+   * Indicates whether the message trace feature is enabled.
+   * - true: The message trace feature is enabled.
+   * - false: The message trace feature is disabled.
    * 
-   * *   true
-   * *   false
+   * <props="intl">This parameter does not take effect. Instances support the message trace feature by default regardless of whether this parameter is enabled.
+   * <props="china">This parameter takes effect only for Serverless instances. If the message trace feature is enabled, message trace fees are incurred. For more information about billing, see [Serverless billing](https://help.aliyun.com/document_detail/2586280.html).
    * 
-   * This parameter is not in use. By default, the message trace feature is enabled for ApsaraMQ for RocketMQ instances, regardless of whether this parameter is configured.
+   * <props="china">For pay-as-you-go and subscription instances, this parameter does not take effect. The message trace feature is supported by default regardless of whether this parameter is enabled.
    * 
    * @example
    * true
@@ -715,9 +679,11 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
+      adaptiveElasticity: 'adaptiveElasticity',
       autoScaling: 'autoScaling',
       capacityType: 'capacityType',
       drReplicationMode: 'drReplicationMode',
+      maxDelayTime: 'maxDelayTime',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       provisionedCapacity: 'provisionedCapacity',
@@ -731,9 +697,11 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adaptiveElasticity: 'boolean',
       autoScaling: 'boolean',
       capacityType: 'string',
       drReplicationMode: 'string',
+      maxDelayTime: 'number',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       provisionedCapacity: 'number',
@@ -757,15 +725,17 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
 export class GetInstanceResponseBodyDataSoftware extends $dara.Model {
   /**
    * @remarks
-   * The period of upgrade time.
+   * The upgrade time window, in the format of HH:mm-HH:mm.
    * 
    * @example
    * 02:00-06:00
+   * 
+   * @deprecated
    */
   maintainTime?: string;
   /**
    * @remarks
-   * The version of software.
+   * The software version.
    * 
    * @example
    * 5.0-rmq-20230619-1
@@ -774,12 +744,6 @@ export class GetInstanceResponseBodyDataSoftware extends $dara.Model {
   /**
    * @remarks
    * The upgrade method.
-   * 
-   * Valid values:
-   * 
-   * - Auto: automatic upgrade
-   * 
-   * - Manual: manual upgrade
    * 
    * @example
    * auto
@@ -813,7 +777,7 @@ export class GetInstanceResponseBodyDataSoftware extends $dara.Model {
 export class GetInstanceResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource.
+   * The key of the resource tag.
    * 
    * @example
    * key
@@ -821,7 +785,7 @@ export class GetInstanceResponseBodyDataTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The value of the resource tag.
    * 
    * @example
    * value
@@ -858,12 +822,28 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   accountInfo?: GetInstanceResponseBodyDataAccountInfo;
   /**
    * @remarks
-   * The information about access control.
+   * The access control information.
    */
   aclInfo?: GetInstanceResponseBodyDataAclInfo;
   /**
    * @remarks
-   * The business ID (BID) of the commodity.
+   * Indicates whether auto-renewal is enabled.
+   * 
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled.
+   * 
+   * @example
+   * false
+   */
+  autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The BID of the sales channel for the commodity.
    * 
    * @example
    * 26842
@@ -871,7 +851,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * The commodity code of the instance. The commodity code of a ApsaraMQ for RocketMQ 5.0 instance has a similar format as ons_rmqsub_public_cn.
+   * The commodity code of an MSMQ for RocketMQ 5.x series instance, such as ons_rmqsub_public_cn.
    * 
    * @example
    * ons_rmqsub_public_cn
@@ -879,7 +859,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-01 00:00:00
@@ -887,7 +867,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The time when the instance expires. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-09-01 00:00:00
@@ -895,14 +875,14 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The extended configurations. We recommend you configure productInfo, internetInfo, or aclInfo instead of this parameter.
+   * **[Deprecated]** The extended configuration. This field is no longer recommended. Use the productInfo, internetInfo, and aclInfo fields instead.
    * 
    * @deprecated
    */
   extConfig?: GetInstanceResponseBodyDataExtConfig;
   /**
    * @remarks
-   * The number of groups.
+   * The number of consumer groups.
    * 
    * @example
    * 10
@@ -910,7 +890,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   groupCount?: number;
   /**
    * @remarks
-   * The ID of the instance
+   * The instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
@@ -918,7 +898,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * test instance
@@ -926,7 +906,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance quotas.
+   * The capacity information.
    */
   instanceQuotas?: GetInstanceResponseBodyDataInstanceQuotas[];
   /**
@@ -936,12 +916,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   networkInfo?: GetInstanceResponseBodyDataNetworkInfo;
   /**
    * @remarks
-   * The billing method of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   PayAsYouGo
-   * *   Subscription
+   * The payment type of the instance.
    * 
    * @example
    * Subscription
@@ -949,12 +924,12 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The extended configurations of the instance.
+   * The extended configuration of the instance.
    */
   productInfo?: GetInstanceResponseBodyDataProductInfo;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -962,7 +937,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time when the instance was released.
+   * The time when the instance was released. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-09-07 00:00:00
@@ -970,7 +945,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The remarks for the instance.
    * 
    * @example
    * This is remark for instance.
@@ -978,7 +953,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm3tmjruyribi
@@ -986,13 +961,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
-   * 
-   * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
+   * The primary series code of the instance. For differences between primary series, see [Product selection](https://help.aliyun.com/document_detail/444722.html).
    * 
    * @example
    * standard
@@ -1000,7 +969,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   seriesCode?: string;
   /**
    * @remarks
-   * The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+   * The service code of the instance. The service code for MSMQ for RocketMQ is rmq.
    * 
    * @example
    * rmq
@@ -1013,7 +982,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   software?: GetInstanceResponseBodyDataSoftware;
   /**
    * @remarks
-   * The time when the instance was started.
+   * The time when the instance was started. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 00:00:00
@@ -1021,15 +990,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   RELEASED
-   * *   RUNNING
-   * *   STOPPED
-   * *   CHANGING
-   * *   CREATING
+   * The instance status.
    * 
    * @example
    * RUNNING
@@ -1037,12 +998,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
-   * 
-   * Valid values:
-   * 
-   * *   cluster_ha: Cluster High-availability Edition
-   * *   single_node: Standalone Edition
+   * The sub-series code of the instance. For differences between sub-series, see [Product selection](https://help.aliyun.com/document_detail/444722.html).
    * 
    * @example
    * cluster_ha
@@ -1063,7 +1019,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   topicCount?: number;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The time when the instance was last modified. The value is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-02 00:00:00
@@ -1071,7 +1027,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user who owns the instance.
+   * The ID of the user to whom the instance belongs.
    * 
    * @example
    * 111111111111111
@@ -1081,6 +1037,8 @@ export class GetInstanceResponseBodyData extends $dara.Model {
     return {
       accountInfo: 'accountInfo',
       aclInfo: 'aclInfo',
+      autoRenew: 'autoRenew',
+      autoRenewPeriod: 'autoRenewPeriod',
       bid: 'bid',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
@@ -1114,6 +1072,8 @@ export class GetInstanceResponseBodyData extends $dara.Model {
     return {
       accountInfo: GetInstanceResponseBodyDataAccountInfo,
       aclInfo: GetInstanceResponseBodyDataAclInfo,
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
       bid: 'string',
       commodityCode: 'string',
       createTime: 'string',
@@ -1179,7 +1139,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code.
    * 
    * @example
    * MissingInstanceId
@@ -1187,7 +1147,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response result.
    */
   data?: GetInstanceResponseBodyData;
   /**
@@ -1208,7 +1168,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -1224,7 +1184,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The request ID. Each request has a unique ID, which you can use to troubleshoot and locate issues.
    * 
    * @example
    * 05AB7FBD-F1D3-5D87-BF78-BD782249****
@@ -1232,7 +1192,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

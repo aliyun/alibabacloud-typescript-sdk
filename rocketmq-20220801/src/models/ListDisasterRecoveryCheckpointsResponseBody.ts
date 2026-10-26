@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressProgressData extends $dara.Model {
   /**
    * @remarks
-   * Latest consumption time
+   * The latest consumption time.
    * 
    * @example
    * 1740724080343
@@ -35,7 +35,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressPr
 export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress extends $dara.Model {
   /**
    * @remarks
-   * Consumer Group ID
+   * The consumer group ID.
    * 
    * @example
    * GID_TEST
@@ -43,7 +43,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress e
   consumerGroupId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * rmq-cn-3mp3vblzxxx
@@ -51,9 +51,9 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress e
   instanceId?: string;
   /**
    * @remarks
-   * Instance type
-   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * The instance type. Valid values:
+   * - ALIYUN_ROCKETMQ: Alibaba Cloud instance.
+   * - EXTERNAL_ROCKETMQ: external instance, open source instance, or open source cluster.
    * 
    * @example
    * ALIYUN_ROCKETMQ
@@ -61,7 +61,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress e
   instanceType?: string;
   /**
    * @remarks
-   * Last fetch time
+   * The most recent fetch time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740724080343
@@ -69,12 +69,12 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress e
   lastFetchTime?: number;
   /**
    * @remarks
-   * Consumption progress data
+   * The consumer offset data.
    */
   progressData?: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressProgressData;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -127,7 +127,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress e
 export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressProgressData extends $dara.Model {
   /**
    * @remarks
-   * Latest consumption time
+   * The latest consumption time.
    * 
    * @example
    * 1740724080343
@@ -157,7 +157,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressPr
 export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress extends $dara.Model {
   /**
    * @remarks
-   * Consumer group ID
+   * The consumer group ID.
    * 
    * @example
    * GID_TEST
@@ -165,7 +165,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
   consumerGroupId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * rmq-cn-nwy3i065xxx
@@ -173,9 +173,9 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
   instanceId?: string;
   /**
    * @remarks
-   * Instance type
-   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
-   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * The instance type. Valid values:
+   * - ALIYUN_ROCKETMQ: Alibaba Cloud instance.
+   * - EXTERNAL_ROCKETMQ: external instance, open source instance, or open source cluster.
    * 
    * @example
    * ALIYUN_ROCKETMQ
@@ -183,7 +183,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
   instanceType?: string;
   /**
    * @remarks
-   * Latest fetch time
+   * The latest fetch time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740724080343
@@ -191,12 +191,12 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
   lastFetchTime?: number;
   /**
    * @remarks
-   * Consumption progress data
+   * The consumer offset data.
    */
   progressData?: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressProgressData;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -204,7 +204,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
   regionId?: string;
   /**
    * @remarks
-   * Topic name
+   * The topic name.
    * 
    * @example
    * TOPIC_TEST
@@ -249,7 +249,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress e
 export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Consumption Progress ID
+   * The consumer offset checkpoint ID.
    * 
    * @example
    * 10000000xx
@@ -257,7 +257,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.M
   checkpointId?: number;
   /**
    * @remarks
-   * Backup Mapping ID
+   * The ID of the backup mapping.
    * 
    * @example
    * 10000000xx
@@ -265,7 +265,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.M
   itemId?: number;
   /**
    * @remarks
-   * Last synchronization time
+   * The most recent synchronization time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740724080343
@@ -273,7 +273,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.M
   lastSyncTime?: number;
   /**
    * @remarks
-   * Backup Plan ID
+   * The ID of the backup plan.
    * 
    * @example
    * 13000000xx
@@ -281,12 +281,12 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.M
   planId?: number;
   /**
    * @remarks
-   * Source consumption progress
+   * The source consumer offset.
    */
   sourceProgress?: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress;
   /**
    * @remarks
-   * Target consumption progress
+   * The target consumer offset.
    */
   targetProgress?: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress;
   static names(): { [key: string]: string } {
@@ -329,12 +329,12 @@ export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.M
 export class ListDisasterRecoveryCheckpointsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Paged data
+   * The paginated data.
    */
   list?: ListDisasterRecoveryCheckpointsResponseBodyDataList[];
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -342,7 +342,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyData extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The page size.
    * 
    * @example
    * 10
@@ -350,7 +350,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyData extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 1
@@ -389,7 +389,7 @@ export class ListDisasterRecoveryCheckpointsResponseBodyData extends $dara.Model
 export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 200
@@ -397,12 +397,12 @@ export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response Data
+   * The returned data.
    */
   data?: ListDisasterRecoveryCheckpointsResponseBodyData;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * InstanceId
@@ -418,7 +418,7 @@ export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -426,7 +426,7 @@ export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * The instance cannot be found.
@@ -434,7 +434,7 @@ export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -442,7 +442,7 @@ export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

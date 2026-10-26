@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDisasterRecoveryPlanRequestInstancesMessageProperty extends $dara.Model {
   /**
    * @remarks
-   * The attribute key.
+   * The key of the property.
    * 
    * @example
    * aaa
@@ -13,7 +13,7 @@ export class CreateDisasterRecoveryPlanRequestInstancesMessageProperty extends $
   propertyKey?: string;
   /**
    * @remarks
-   * The attribute value.
+   * The value of the property.
    * 
    * @example
    * bbb
@@ -45,15 +45,9 @@ export class CreateDisasterRecoveryPlanRequestInstancesMessageProperty extends $
 export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   /**
    * @remarks
-   * The authentication method. If you set instanceType to ALIYUN_ROCKETMQ and the instance is an ApsaraMQ for RocketMQ 4.0 instance, you do not need to specify this parameter.
-   * 
-   * *   NO_AUTH: no authentication
-   * *   ACL_AUTH: access control list (ACL)-based authentication
-   * 
-   * Valid values:
-   * 
-   * *   NO_AUTH: no authentication
-   * *   ACL_AUTH: access control list (ACL)-based authentication
+   * The authentication method. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ and the instance version is 4.0. Valid values:
+   *   - NO_AUTH: no authentication
+   *   - ACL_AUTH: ACL authentication
    * 
    * @example
    * ACL_AUTH
@@ -61,7 +55,8 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The ID of the consumer group.
+   * The ID of the consumer group, which is used to pull messages from the source instance.
+   * <notice>This parameter is required for self-managed instances. For Alibaba Cloud instances, this parameter is automatically generated.</notice>
    * 
    * @example
    * GID_DS_XXX_YYY
@@ -69,7 +64,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The instance endpoint. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
+   * The endpoint URL. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ. This parameter is required if instanceType is set to EXTERNAL_ROCKETMQ.
    * 
    * @example
    * xxx
@@ -77,7 +72,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   endpointUrl?: string;
   /**
    * @remarks
-   * The instance ID. This parameter is required only if you set instanceType to ALIYUN_ROCKETMQ.
+   * The instance ID. This parameter is not required if instanceType is set to EXTERNAL_ROCKETMQ. This parameter is required if instanceType is set to ALIYUN_ROCKETMQ.
    * 
    * @example
    * rmq-cn-******
@@ -85,10 +80,9 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance role. Valid values:
-   * 
-   * *   ACTIVE: primary instance
-   * *   Passive: secondary instance
+   * The role of the instance. Valid values:
+   *   - ACTIVE: primary
+   *   - PASSIVE: secondary
    * 
    * @example
    * PASSIVE
@@ -96,15 +90,9 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   instanceRole?: string;
   /**
    * @remarks
-   * The instance type. Valid values:
-   * 
-   * *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
-   * *   EXTERNAL_ROCKETMQ: external RocketMQ instance
-   * 
-   * Valid values:
-   * 
-   * *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
-   * *   EXTERNAL_ROCKETMQ: external RocketMQ instance
+   * The type of the instance. Valid values:
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: external instance, open-source instance, or open-source cluster
    * 
    * @example
    * ALIYUN_ROCKETMQ
@@ -112,15 +100,14 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The message attribute. When you synchronize a message to the destination cluster, the system automatically adds the attribute to the message for SQL-based filtering.
+   * The message filtering property. When a message is synchronized to the destination cluster, this property is automatically added to the message for SQL-based filtering during message consumption.
    */
   messageProperty?: CreateDisasterRecoveryPlanRequestInstancesMessageProperty;
   /**
    * @remarks
-   * The network type. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ. Valid values:
-   * 
-   * *   TCP_INTERNET: Internet over TCP
-   * *   TCP_VPC: virtual private cloud (VPC) over TCP.
+   * The network type. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ. This parameter is required if instanceType is set to EXTERNAL_ROCKETMQ. Valid values:
+   *   - TCP_INTERNET: TCP over the Internet
+   *   - TCP_VPC: TCP over a VPC
    * 
    * @example
    * TCP_INTERNET
@@ -128,7 +115,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The password used for authentication. This parameter is required only if you set authType to ACL_AUTH. If you set instanceType to ALIYUN_ROCKETMQ, you do not need to specify this parameter.
+   * The password for authentication. This parameter is required if authType is set to ACL_AUTH. This parameter is not required if instanceType is set to ALIYUN_ROCKETMQ.
    * 
    * @example
    * xxx
@@ -136,7 +123,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region where the instance is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -144,7 +131,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group to which the instance belongs. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+   * The ID of the security group. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
    * 
    * @example
    * sg-bp17hpmgz9******
@@ -152,7 +139,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The username used for authentication. This parameter is required only if you set authType to ACL_AUTH.
+   * The username for authentication. This parameter is required if authType is set to ACL_AUTH.
    * 
    * @example
    * xxx
@@ -160,7 +147,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the instance is associated. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+   * The ID of the vSwitch with which the instance is associated. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
    * 
    * @example
    * vsw-uf6gwtbn6etadpv******
@@ -168,7 +155,7 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC with which the instance is associated. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ and networkType to TCP_VPC.
+   * The ID of the VPC with which the instance is associated. This parameter is required only if instanceType is set to EXTERNAL_ROCKETMQ and networkType is set to TCP_VPC.
    * 
    * @example
    * vpc-wz9qt50xhtj9krb******
@@ -227,14 +214,9 @@ export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
 export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic consumer progress synchronization.
+   * Specifies whether to enable automatic consumer automatic synchronization.
    * 
-   * >  This parameter takes effect only when you set `syncCheckpointEnabled` to true.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * > This parameter takes effect only when consumer automatic synchronization is enabled. That is, the `syncCheckpointEnabled` field is set to true.
    * 
    * @example
    * true
@@ -242,12 +224,12 @@ export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
   autoSyncCheckpoint?: boolean;
   /**
    * @remarks
-   * The instances involved in the Global Replicator task. You must specify this parameter.
+   * The instances involved in the backup plan. This parameter is required.
    */
   instances?: CreateDisasterRecoveryPlanRequestInstances[];
   /**
    * @remarks
-   * The description of the Global Replicator task.
+   * The description of the plan.
    * 
    * @example
    * xxx
@@ -255,7 +237,7 @@ export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
   planDesc?: string;
   /**
    * @remarks
-   * The name of the Global Replicator task. You must specify this parameter.
+   * The name of the plan. This parameter is required.
    * 
    * @example
    * xxx
@@ -263,10 +245,9 @@ export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The type of the Global Replicator task. You must specify this parameter. For more information, see [Global Replicator](https://help.aliyun.com/document_detail/2843187.html). Valid values:
-   * 
-   * *   ACTIVE_PASSIVE: one-way backup
-   * *   ACTIVE_ACTIVE: two-way backup
+   * The type of the backup plan. This parameter is required. For more information, see [Global Replicator](https://help.aliyun.com/document_detail/2843187.html). Valid values:
+   *   - ACTIVE_PASSIVE: one-way backup
+   *   - ACTIVE_ACTIVE: two-way backup
    * 
    * @example
    * ACTIVE_ACTIVE
@@ -274,12 +255,7 @@ export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
   planType?: string;
   /**
    * @remarks
-   * Specifies whether to enable consumer progress synchronization.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable consumer offset synchronization.
    * 
    * @example
    * true

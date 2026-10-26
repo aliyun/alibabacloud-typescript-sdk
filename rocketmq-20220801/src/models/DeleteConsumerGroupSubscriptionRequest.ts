@@ -16,9 +16,8 @@ export class DeleteConsumerGroupSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the filter expression. Valid values:
-   * 
-   * *   SQL: filters messages by using SQL expressions.
-   * *   TAG: filters messages by using tags.
+   * - SQL: SQL filtering
+   * - TAG: tag filtering
    * 
    * This parameter is required.
    * 

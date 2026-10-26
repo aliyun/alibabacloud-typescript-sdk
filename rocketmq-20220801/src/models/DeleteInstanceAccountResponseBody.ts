@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * The details of the access denial. This field is returned only when user access is denied due to lack of RAM permissions.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DeleteInstanceAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class DeleteInstanceAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

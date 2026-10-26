@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTracesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time in YYYY-MM-DD HH:mm:ss format.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class ListTracesRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The lightweight topic name.
+   * 
    * @example
    * abc
    */
@@ -22,7 +25,7 @@ export class ListTracesRequest extends $dara.Model {
    * @remarks
    * The message ID.
    * 
-   * This parameter is required if you set queryType to MESSAGE_ID.
+   * Required if queryType is set to MESSAGE_ID.
    * 
    * @example
    * 0100163E0EC1F1965C04C7906700000000
@@ -32,7 +35,7 @@ export class ListTracesRequest extends $dara.Model {
    * @remarks
    * The message key.
    * 
-   * This parameter is required if you set queryType to MESSAGE_ID.
+   * Required if queryType is set to MESSAGE_KEY.
    * 
    * @example
    * order_ceating
@@ -40,7 +43,7 @@ export class ListTracesRequest extends $dara.Model {
   messageKey?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * This parameter is required.
    * 
@@ -50,7 +53,7 @@ export class ListTracesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of results to display per page.
    * 
    * This parameter is required.
    * 
@@ -62,12 +65,6 @@ export class ListTracesRequest extends $dara.Model {
    * @remarks
    * The query type.
    * 
-   * Valid values:
-   * 
-   * *   MESSAGE_ID
-   * *   MESSAGE_KEY
-   * *   TOPIC
-   * 
    * This parameter is required.
    * 
    * @example
@@ -76,7 +73,7 @@ export class ListTracesRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time in YYYY-MM-DD HH:mm:ss format.
    * 
    * This parameter is required.
    * 

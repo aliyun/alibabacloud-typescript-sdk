@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The fault code.
    * 
    * @example
    * InvalidDeliveryOrderType
@@ -13,7 +13,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result returned.
+   * The returned result.
    * 
    * @example
    * true
@@ -21,23 +21,23 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
-   * xxx
+   * DeliveryOrderType
    */
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic fault message.
    * 
    * @example
-   * xxx
+   * deliveryOrderType
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -45,7 +45,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The fault message.
    * 
    * @example
    * Parameter deliveryOrderType is invalid.
@@ -53,7 +53,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is unique for each request and can be used for troubleshooting and problem localization.
+   * The request ID. Each request has a unique ID that you can use to troubleshoot and locate issues.
    * 
    * @example
    * C7F94090-3358-506A-97DC-34BC803C****
@@ -61,7 +61,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the execution was successful.
+   * Indicates whether the execution succeeded.
    * 
    * @example
    * true

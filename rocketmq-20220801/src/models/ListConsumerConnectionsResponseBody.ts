@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Model {
   /**
    * @remarks
-   * The ID of the client.
+   * The client ID.
    * 
    * @example
    * 172.17.135.197@17392#1936705963#551717232#9873695589062458
@@ -13,7 +13,7 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
   clientId?: string;
   /**
    * @remarks
-   * Host IP/Public IP
+   * The host IP address or Internet egress IP address.
    * 
    * @example
    * xx.xx.xx.xx
@@ -21,7 +21,7 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
   egressIp?: string;
   /**
    * @remarks
-   * The `hostname` of the cloud-native box.
+   * The client hostname.
    * 
    * @example
    * vos
@@ -29,7 +29,7 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
   hostname?: string;
   /**
    * @remarks
-   * The language of the client.
+   * The client language.
    * 
    * @example
    * java
@@ -37,9 +37,13 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
   language?: string;
   /**
    * @remarks
-   * Consumption Mode
-   * - BROADCASTING
+   * The consumption mode of the consumer:
+   * 
    * - CLUSTERING
+   * 
+   * - LITE_SELECTIVE
+   * 
+   * - BROADCASTING
    * 
    * @example
    * BROADCASTING
@@ -47,7 +51,7 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
   messageModel?: string;
   /**
    * @remarks
-   * The version of the client.
+   * The client version.
    * 
    * @example
    * 1.0
@@ -87,7 +91,7 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Mo
 export class ListConsumerConnectionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The client connection list
+   * The list of client connections.
    */
   connections?: ListConsumerConnectionsResponseBodyDataConnections[];
   /**
@@ -108,7 +112,7 @@ export class ListConsumerConnectionsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -147,7 +151,7 @@ export class ListConsumerConnectionsResponseBodyData extends $dara.Model {
 export class ListConsumerConnectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned error code.
+   * The error code.
    * 
    * @example
    * MissingPageNumber
@@ -192,7 +196,7 @@ export class ListConsumerConnectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * A3620115-6F1F-5CFB-AA3F-BBD4853B2EC4
@@ -200,7 +204,7 @@ export class ListConsumerConnectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

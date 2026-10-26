@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the account.
-   * 
-   * Valid values:
-   * 
-   * *   DISABLE
-   * *   ENABLE
+   * The account status.
    * 
    * @example
    * ENABLE
@@ -18,13 +13,16 @@ export class UpdateInstanceAccountRequest extends $dara.Model {
   accountStatus?: string;
   /**
    * @remarks
-   * The password of the account.
+   * The account password.
    * 
    * @example
    * test
    */
   password?: string;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
    * test
    */

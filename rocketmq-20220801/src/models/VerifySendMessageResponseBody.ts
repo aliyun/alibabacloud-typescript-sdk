@@ -13,7 +13,7 @@ export class VerifySendMessageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned by the operation. If the verification succeeds, this field contains the message ID.
    * 
    * @example
    * 0A64228900207A4F0F2931A4E0D40BE5
@@ -61,7 +61,7 @@ export class VerifySendMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates if the request was successful.
    * 
    * @example
    * true

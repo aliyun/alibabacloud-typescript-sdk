@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTopicsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition for the query. If not provided, all topics under the instance will be queried.
+   * The filter condition for the query. If not specified, all topics in the instance are returned.
    * 
    * @example
    * topic_test
@@ -18,7 +18,7 @@ export class ListTopicsRequest extends $dara.Model {
   messageTypes?: string[];
   /**
    * @remarks
-   * Page number, indicating which page of results to return.
+   * The page number of the results to return.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class ListTopicsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, the maximum number of results to display per page.
+   * The maximum number of results to display per page.
    * 
    * @example
    * 3

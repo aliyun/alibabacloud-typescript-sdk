@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query time range. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-09-09 09:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The lite topic name.
+   * 
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
    * @remarks
-   * Message Id.
+   * The message ID.
    * 
    * @example
    * 7F00000100207A4F0F294A938F7807AE
@@ -26,7 +29,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Message key.
+   * The message key.
    * 
    * @example
    * XSCBillResult
@@ -34,7 +37,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageKey?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -42,7 +45,7 @@ export class ListMessagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size. The maximum number of results to return per page.
    * 
    * @example
    * 10
@@ -50,9 +53,9 @@ export class ListMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scroll ID of the request.
+   * The scroll ID for the request.
    * 
-   * You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
+   * You do not need to specify this parameter for the first page request. For subsequent page requests, specify this parameter based on the value returned from the first page.
    * 
    * @example
    * B13D0B07-F24B-4790-88D8-D47A38063D00
@@ -60,7 +63,7 @@ export class ListMessagesRequest extends $dara.Model {
   scrollId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query time range. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-09-09 08:00:00

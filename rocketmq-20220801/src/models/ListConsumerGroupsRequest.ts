@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition for the query. If not provided, all consumer groups under the specified instance will be queried.
+   * The filter condition for the query. If you do not specify this parameter, all consumer groups under the specified instance are queried.
    * 
    * @example
    * CID-TEST
@@ -13,7 +13,7 @@ export class ListConsumerGroupsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Page number, indicating which page of results to return.
+   * The paging page number. Specifies which page of results to return.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class ListConsumerGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, the maximum number of results to display per page.
+   * The paging size. The maximum number of results to return per page.
    * 
-   * Value range: [10, 100].
+   * Valid values: [10,100].
    * 
    * @example
    * 10

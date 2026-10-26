@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the account.
+   * The account password.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class CreateInstanceAccountRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
-   * test
+   * This is the remark for test.
    */
   remark?: string;
   /**
    * @remarks
-   * The username of the account.
+   * The account name.
    * 
    * This parameter is required.
    * 

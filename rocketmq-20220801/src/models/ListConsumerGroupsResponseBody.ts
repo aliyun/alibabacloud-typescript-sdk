@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Consumer group ID.
+   * The consumer group ID.
    * 
    * @example
    * GID-TEST
@@ -13,7 +13,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * Creation time of the consumer group.
+   * The creation time of the consumer group, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -21,7 +21,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
@@ -29,20 +29,23 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum TPS for message sending.
+   * The maximum TPS for consuming messages.
    * 
    * @example
    * 1000
    */
   maxReceiveTps?: number;
   /**
+   * @remarks
+   * The consumption pattern.
+   * 
    * @example
    * LITE_SELECTIVE
    */
   messageModel?: string;
   /**
    * @remarks
-   * The region ID to which the instance belongs.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -50,7 +53,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Remark information of the consumer group.
+   * The remarks of the consumer group.
    * 
    * @example
    * This is the remark for test.
@@ -58,20 +61,23 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Status of the consumer group.
+   * The status of the consumer group.
    * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The topic name for the lite type.
+   * 
    * @example
    * test1
    */
   topicName?: string;
   /**
    * @remarks
-   * Last update time of the consumer group.
+   * The last update time of the consumer group, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -119,12 +125,12 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
 export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The consumer groups.
+   * The paging data.
    */
   list?: ListConsumerGroupsResponseBodyDataList[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -132,7 +138,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The paging size.
    * 
    * @example
    * 10
@@ -140,7 +146,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of returned results.
+   * The total number of returned results.
    * 
    * @example
    * 1
@@ -179,7 +185,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
 export class ListConsumerGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The fault code.
    * 
    * @example
    * MissingInstanceId
@@ -192,23 +198,23 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   data?: ListConsumerGroupsResponseBodyData;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
-   * xxx
+   * InstanceId
    */
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * The dynamic fault message.
    * 
    * @example
-   * xxx
+   * instanceId
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -216,7 +222,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The fault message.
    * 
    * @example
    * Parameter InstanceId is mandatory for this action .
@@ -224,7 +230,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
+   * The request ID. Each request has a unique ID, which is active for troubleshooting and locating issues.
    * 
    * @example
    * 5503A460-98ED-5543-92CF-4853DE28****
@@ -232,7 +238,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the execution was successful.
+   * Indicates whether the operation is execute successfully.
    * 
    * @example
    * true

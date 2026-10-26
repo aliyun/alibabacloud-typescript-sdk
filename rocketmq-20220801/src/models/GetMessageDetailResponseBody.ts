@@ -21,7 +21,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   bodySize?: number;
   /**
    * @remarks
-   * The client on which the message was produced.
+   * The host from which the message originated.
    * 
    * @example
    * xxx.xx.xxx.xx
@@ -29,7 +29,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   bornHost?: string;
   /**
    * @remarks
-   * The time when the message was generated.
+   * The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -44,13 +44,16 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The lite topic name.
+   * 
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
    * @remarks
-   * The sharding key. This parameter is returned only for ordered messages.
+   * The former sharding key. This field applies only to ordered messages.
    * 
    * @example
    * xx
@@ -66,12 +69,12 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The message keys.
+   * The message key.
    */
   messageKeys?: string[];
   /**
    * @remarks
-   * The tags.
+   * The tag list.
    * 
    * @example
    * xx
@@ -87,6 +90,14 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
+   * The priority.
+   * 
+   * @example
+   * 7
+   */
+  priority?: number;
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
@@ -95,7 +106,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The broker on which the message was stored.
+   * The log broker host where the message is stored.
    * 
    * @example
    * xxx.xx.xxx.xx
@@ -103,7 +114,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   storeHost?: string;
   /**
    * @remarks
-   * The time when the message was stored.
+   * The time when the message was stored in the log broker, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -111,7 +122,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   storeTime?: string;
   /**
    * @remarks
-   * The default system attributes.
+   * The default system properties.
    */
   systemProperties?: { [key: string]: string };
   /**
@@ -124,7 +135,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The user attributes.
+   * The user properties.
    */
   userProperties?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -140,6 +151,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
       messageKeys: 'messageKeys',
       messageTag: 'messageTag',
       messageType: 'messageType',
+      priority: 'priority',
       regionId: 'regionId',
       storeHost: 'storeHost',
       storeTime: 'storeTime',
@@ -162,6 +174,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
       messageKeys: { 'type': 'array', 'itemType': 'string' },
       messageTag: 'string',
       messageType: 'string',
+      priority: 'number',
       regionId: 'string',
       storeHost: 'string',
       storeTime: 'string',
@@ -200,7 +213,7 @@ export class GetMessageDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetMessageDetailResponseBodyData;
   /**

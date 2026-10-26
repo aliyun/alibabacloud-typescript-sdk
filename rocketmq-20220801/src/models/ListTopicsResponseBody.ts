@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTopicsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -13,20 +13,23 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The expiration time of a lite topic, in minutes.
+   * 
    * @example
    * 20
    */
   liteTopicExpiration?: number;
   /**
    * @remarks
-   * The maximum TPS for message sending.
+   * The maximum TPS for sending messages.
    * 
    * @example
    * 1000
@@ -34,14 +37,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   maxSendTps?: number;
   /**
    * @remarks
-   * The type of messages in the topic.
-   * 
-   * Valid values:
-   * 
-   * *   TRANSACTION: transactional messages
-   * *   FIFO: ordered messages
-   * *   DELAY: scheduled or delayed messages
-   * *   NORMAL: normal messages
+   * The message type of the topic.
    * 
    * @example
    * NORMAL
@@ -49,7 +45,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The region ID to which the instance belongs.
+   * The ID of the region to which the instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -57,7 +53,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Remark information of the topic.
+   * The remarks for the topic.
    * 
    * @example
    * This is the remark for test.
@@ -65,12 +61,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The topic status.
-   * 
-   * Valid values:
-   * 
-   * *   RUNNING
-   * *   CREATING
+   * The status of the topic.
    * 
    * @example
    * RUNNING
@@ -78,7 +69,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Topic name.
+   * The topic name.
    * 
    * @example
    * topic_test
@@ -86,7 +77,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * Last update time of the topic.
+   * The last modification time of the topic in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -134,12 +125,12 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
 export class ListTopicsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The topics.
+   * The paged data.
    */
   list?: ListTopicsResponseBodyDataList[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -147,7 +138,7 @@ export class ListTopicsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 3
@@ -155,7 +146,7 @@ export class ListTopicsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of results returned.
+   * The total number of returned results.
    * 
    * @example
    * 1
@@ -194,7 +185,7 @@ export class ListTopicsResponseBodyData extends $dara.Model {
 export class ListTopicsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Topic.NotFound
@@ -202,12 +193,12 @@ export class ListTopicsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The return result.
    */
   data?: ListTopicsResponseBodyData;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * TopicName
@@ -215,7 +206,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * topicName
@@ -223,7 +214,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -231,7 +222,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The topic cannot be found.
@@ -239,7 +230,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
+   * The request ID. Each request has a unique ID that can be used to troubleshoot and locate issues.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -247,7 +238,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the execution was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

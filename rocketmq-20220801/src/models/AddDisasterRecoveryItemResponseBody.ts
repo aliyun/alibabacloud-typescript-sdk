@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details, only in the scenario where the user is denied access due to RAM not having permission
+   * The access denial details. This parameter is returned only when user access is denied due to lack of RAM permissions.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return result, mapping task ID
+   * The returned result, which is the ID of the mapping task.
    * 
    * @example
    * 1300000016
@@ -29,7 +29,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * InstanceId
@@ -37,7 +37,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message
+   * The dynamic error message.
    * 
    * @example
    * instanceId
@@ -45,7 +45,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * xxx
@@ -61,7 +61,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID. Each request ID is unique and can be used for troubleshooting.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -69,7 +69,7 @@ export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * InvalidConsumerGroupId
@@ -13,7 +13,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned result.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
    * ConsumerGroupId
@@ -29,7 +29,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * The dynamic fault message.
    * 
    * @example
    * consumerGroupId
@@ -45,7 +45,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The fault message.
    * 
    * @example
    * Parameter consumerGroupId is invalid.
@@ -53,7 +53,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Each request has a unique ID that is active and can be used to troubleshoot and locate issues.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -61,7 +61,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the execute operation was successful.
    * 
    * @example
    * true

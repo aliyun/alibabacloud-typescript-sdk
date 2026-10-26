@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account.
+   * The username.
    * 
-   * If you do not configure this parameter, the default username of the instance is used.
+   * If you do not specify this parameter, the system returns details of the default account.
    * 
    * @example
    * test

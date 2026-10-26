@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTracesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Message born time.
+   * The time when the message was generated, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-03-22 12:17:08
@@ -21,7 +21,7 @@ export class ListTracesResponseBodyDataList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Message id.
+   * The message ID.
    * 
    * @example
    * 7F00000100207A4F0F294A938F7807AE
@@ -29,12 +29,12 @@ export class ListTracesResponseBodyDataList extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Message keys.
+   * The message key.
    */
   messageKeys?: string[];
   /**
    * @remarks
-   * Message tag.
+   * The list of tags.
    * 
    * @example
    * xx
@@ -50,7 +50,7 @@ export class ListTracesResponseBodyDataList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * The topic name.
    * 
    * @example
    * topic_test
@@ -95,12 +95,12 @@ export class ListTracesResponseBodyDataList extends $dara.Model {
 export class ListTracesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Trace list.
+   * The paginated data.
    */
   list?: ListTracesResponseBodyDataList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListTracesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -116,7 +116,7 @@ export class ListTracesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of returned results.
    * 
    * @example
    * 1
@@ -163,7 +163,7 @@ export class ListTracesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   data?: ListTracesResponseBodyData;
   /**
