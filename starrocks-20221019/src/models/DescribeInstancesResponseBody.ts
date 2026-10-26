@@ -188,6 +188,11 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    */
   encrypted?: boolean;
   /**
+   * @example
+   * 2026-07
+   */
+  eosDate?: string;
+  /**
    * @remarks
    * The expiration time of the cluster.
    * 
@@ -408,6 +413,11 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    */
   version?: string;
   /**
+   * @example
+   * 长期支持
+   */
+  versionLifecycleStatus?: string;
+  /**
    * @remarks
    * The VPC ID.
    * 
@@ -429,6 +439,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       enableSSL: 'EnableSSL',
       enabledAuditLoader: 'EnabledAuditLoader',
       encrypted: 'Encrypted',
+      eosDate: 'EosDate',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -450,6 +461,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       tags: 'Tags',
       vSwitches: 'VSwitches',
       version: 'Version',
+      versionLifecycleStatus: 'VersionLifecycleStatus',
       vpcId: 'VpcId',
     };
   }
@@ -468,6 +480,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       enableSSL: 'boolean',
       enabledAuditLoader: 'boolean',
       encrypted: 'boolean',
+      eosDate: 'string',
       expireTime: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -489,6 +502,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       tags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyDataTags },
       vSwitches: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyDataVSwitches },
       version: 'string',
+      versionLifecycleStatus: 'string',
       vpcId: 'string',
     };
   }
