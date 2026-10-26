@@ -13,7 +13,7 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   ABMetricName?: string;
   /**
    * @remarks
-   * The business date.
+   * The business date. The date is in the YYYY-MM-DD format.
    * 
    * @example
    * 2021-12-15
@@ -21,7 +21,7 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   bizDate?: string;
   /**
    * @remarks
-   * The calculation job ID.
+   * The ID of the calculation task.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   calculationJobId?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The task configuration.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   config?: string;
   /**
    * @remarks
-   * The time when the job was run.
+   * The execution time. The time is in the ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,16 +45,14 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   gmtRanTime?: string;
   /**
    * @remarks
-   * The job messages.
+   * The task message.
    */
   jobMessage?: string[];
   /**
    * @remarks
-   * The source of the job. Valid values:
-   * 
-   * - CronOffline: The job is an offline scheduled task.
-   * 
-   * - DataRerun: The job is a data rerun task.
+   * The task source. Valid values:
+   * - CronOffline: Offline scheduled task.
+   * - DataRerun: Data rerun task.
    * 
    * @example
    * CronOffline
@@ -62,15 +60,11 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
   jobSource?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - Success
-   * 
-   * - Failure
-   * 
-   * - Initializing
-   * 
-   * - Running
+   * The task status. Valid values:
+   * - Success: Succeeded.
+   * - Failure: Failed.
+   * - Initializing: Initializing.
+   * - Running: Running.
    * 
    * @example
    * Success
@@ -117,7 +111,7 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
 export class ListCalculationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of calculation jobs.
+   * The calculation tasks.
    */
   calculationJobs?: ListCalculationJobsResponseBodyCalculationJobs[];
   /**
@@ -130,7 +124,7 @@ export class ListCalculationJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 10

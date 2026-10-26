@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyConfigDataManagements extends $dara.Model {
   /**
    * @remarks
-   * The component code.
+   * The code of the component.
    * 
    * @example
    * storage
@@ -18,7 +18,7 @@ export class GetInstanceResponseBodyConfigDataManagements extends $dara.Model {
   meta?: { [key: string]: any };
   /**
    * @remarks
-   * The component type.
+   * The type of the component.
    * 
    * @example
    * OSS
@@ -55,7 +55,7 @@ export class GetInstanceResponseBodyConfigDataManagements extends $dara.Model {
 export class GetInstanceResponseBodyConfigEngines extends $dara.Model {
   /**
    * @remarks
-   * The component code.
+   * The code of the component.
    * 
    * @example
    * feature
@@ -68,7 +68,7 @@ export class GetInstanceResponseBodyConfigEngines extends $dara.Model {
   meta?: { [key: string]: any };
   /**
    * @remarks
-   * The component type.
+   * The type of the component.
    * 
    * @example
    * Hologres
@@ -105,7 +105,7 @@ export class GetInstanceResponseBodyConfigEngines extends $dara.Model {
 export class GetInstanceResponseBodyConfigMonitors extends $dara.Model {
   /**
    * @remarks
-   * The component code.
+   * The code of the component.
    * 
    * @example
    * featuresets
@@ -118,7 +118,7 @@ export class GetInstanceResponseBodyConfigMonitors extends $dara.Model {
   meta?: { [key: string]: any };
   /**
    * @remarks
-   * The component type.
+   * The type of the component.
    * 
    * @example
    * Platform
@@ -155,17 +155,17 @@ export class GetInstanceResponseBodyConfigMonitors extends $dara.Model {
 export class GetInstanceResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of modeling environments.
+   * The modeling environments.
    */
   dataManagements?: GetInstanceResponseBodyConfigDataManagements[];
   /**
    * @remarks
-   * The list of service engines.
+   * The service engines.
    */
   engines?: GetInstanceResponseBodyConfigEngines[];
   /**
    * @remarks
-   * The list of supporting features.
+   * The supporting features.
    */
   monitors?: GetInstanceResponseBodyConfigMonitors[];
   static names(): { [key: string]: string } {
@@ -203,7 +203,15 @@ export class GetInstanceResponseBodyConfig extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyFeatureStoreInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The status of FeatureDB.
+   */
   featureDBStatus?: string;
+  /**
+   * @remarks
+   * The ID of the Feature Store instance.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -231,10 +239,9 @@ export class GetInstanceResponseBodyFeatureStoreInfo extends $dara.Model {
 export class GetInstanceResponseBodyOperatingTool extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operations tool is enabled for the instance. Valid values:
-   * 
+   * Specifies whether the operations tool is enabled for the instance. Valid values:
    * - True: Enabled.
-   * - False: Not enabled.
+   * - False: Disabled.
    * 
    * @example
    * True
@@ -262,6 +269,10 @@ export class GetInstanceResponseBodyOperatingTool extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyRecommendCustomization extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether recommendation customization is enabled.
+   */
   isEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -287,7 +298,7 @@ export class GetInstanceResponseBodyRecommendCustomization extends $dara.Model {
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing type of the instance. Currently, only Subscription (prepayment) is supported.
+   * The billing method of the instance. Only subscription is supported.
    * 
    * @example
    * Subscription
@@ -303,37 +314,41 @@ export class GetInstanceResponseBody extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The instance configuration.
+   * The configuration of the instance.
    */
   config?: GetInstanceResponseBodyConfig;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The time when the instance expires. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
-   * 2022-12-14 00:00:00.0
+   * 2022-12-14T00:00:00Z
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The Feature Store information.
+   */
   featureStoreInfo?: GetInstanceResponseBodyFeatureStoreInfo;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
-   * 2022-10-13 17:34:52.0
+   * 2022-10-13T04:55:12Z
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The time when the instance was updated. The time is displayed in UTC and follows the ISO 8601 standard.
    * 
    * @example
-   * 2022-11-05 09:02:30.0
+   * 2022-11-05T09:02:30Z
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * pairec-test1
@@ -341,18 +356,21 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configuration of the operations tool.
+   * The configurations of the operations tool.
    */
   operatingTool?: GetInstanceResponseBodyOperatingTool;
+  /**
+   * @remarks
+   * The recommendation customization configurations.
+   */
   recommendCustomization?: GetInstanceResponseBodyRecommendCustomization;
   /**
    * @remarks
    * The region ID. Valid values:
-   * 
-   * - cn-shenzhen: China (Shenzhen).
-   * - cn-hangzhou: China (Hangzhou).
-   * - cn-beijing: China (Beijing).
-   * - cn-shanghai: China (Shanghai).
+   * - cn-shenzhen: Shenzhen.
+   * - cn-hangzhou: Hangzhou.
+   * - cn-beijing: Beijing.
+   * - cn-shanghai: Shanghai.
    * 
    * @example
    * cn-shenzhen
@@ -360,7 +378,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
@@ -369,10 +387,9 @@ export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * 
-   * - Initializing: The instance is being initialized.
-   * - Stopped: The instance is stopped.
-   * - Running: The instance is running.
+   * - Initializing: Initializing.
+   * - Stopped: Stopped.
+   * - Running: Running.
    * 
    * @example
    * Initializing
@@ -381,7 +398,6 @@ export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
    * - basic: Basic Edition.
    * - highleve: Upgraded Edition.
    * - advance: Advanced Edition.

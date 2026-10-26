@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-10 13:13:20
@@ -13,7 +13,7 @@ export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The target environment. Valid values: Daily, Pre, and Prod.
+   * The environment to which the parameter belongs. Valid values: Daily: daily environment. Pre: staging environment. Prod: production environment.
    * 
    * @example
    * Pre
@@ -37,7 +37,7 @@ export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * pairec-1324***
@@ -53,7 +53,7 @@ export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The start of the time range.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-01 13:13:20
@@ -61,7 +61,7 @@ export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The threshold value.
+   * The threshold.
    * 
    * @example
    * 20

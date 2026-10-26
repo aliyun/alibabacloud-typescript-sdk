@@ -13,10 +13,10 @@ export class GetLayerResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the experiment layer was created.
+   * The time when the experiment layer was created. The time follows the ISO 8601 standard and includes a time zone offset.
    * 
    * @example
-   * 2022-10-13 17:34:52.0
+   * 2022-10-13T17:34:52.232+08:00
    */
   gmtCreateTime?: string;
   /**
@@ -37,7 +37,7 @@ export class GetLayerResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * EE97D06A-2AA0-5AD9-B6CF-8A267924D691
@@ -45,7 +45,7 @@ export class GetLayerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The residual traffic in the experiment layer.
+   * The remaining traffic on the experiment layer.
    * 
    * @example
    * 10

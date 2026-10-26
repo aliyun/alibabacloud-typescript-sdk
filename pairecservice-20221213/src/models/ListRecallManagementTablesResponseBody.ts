@@ -21,7 +21,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   dataSource?: string;
   /**
    * @remarks
-   * The description of the recall management table.
+   * The table description.
    * 
    * @example
    * this is a test
@@ -29,7 +29,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   description?: string;
   /**
    * @remarks
-   * The time when the table was created. The time is in the ISO 8601 format.
+   * The creation time. The value is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -37,7 +37,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the table was last modified. The time is in the ISO 8601 format.
+   * The update time. The value is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,7 +45,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The time when the index takes effect. The time is in the ISO 8601 format.
+   * The effective period of the index. The value is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -53,7 +53,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   indexEffectiveTime?: string;
   /**
    * @remarks
-   * The ID of the index version.
+   * The index version ID.
    * 
    * @example
    * 20250701
@@ -61,7 +61,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   indexVersionId?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project.
+   * The MaxCompute project name.
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   maxcomputeProjectName?: string;
   /**
    * @remarks
-   * The schema of the MaxCompute table.
+   * maxcompute schema。
    * 
    * @example
    * default
@@ -77,7 +77,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   maxcomputeSchema?: string;
   /**
    * @remarks
-   * The name of the table in MaxCompute.
+   * The table name in MaxCompute.
    * 
    * @example
    * table-1
@@ -85,7 +85,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   maxcomputeTableName?: string;
   /**
    * @remarks
-   * The name of the recall management table.
+   * The table name.
    * 
    * @example
    * table-123
@@ -101,7 +101,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   partitionFields?: string;
   /**
    * @remarks
-   * The ID of the recall management table.
+   * The table ID.
    * 
    * @example
    * 3
@@ -117,7 +117,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
   recallType?: string;
   /**
    * @remarks
-   * The type of the table.
+   * The table type.
    * 
    * @example
    * Recall
@@ -175,7 +175,7 @@ export class ListRecallManagementTablesResponseBodyRecallManagementTables extend
 export class ListRecallManagementTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * This parameter is not in effect.
    * 
    * @example
    * 0
@@ -183,7 +183,7 @@ export class ListRecallManagementTablesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * This parameter is not in effect.
    * 
    * @example
    * ""
@@ -191,7 +191,7 @@ export class ListRecallManagementTablesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of recall management tables.
+   * The list of recall management tables.
    */
   recallManagementTables?: ListRecallManagementTablesResponseBodyRecallManagementTables[];
   /**
@@ -204,7 +204,7 @@ export class ListRecallManagementTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of recall management tables.
+   * The total number of entries.
    * 
    * @example
    * 30

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataDiagnosisStatisticsResponseBodyStatistics extends $dara.Model {
   /**
    * @remarks
-   * The dates of task failures.
+   * The list of dates when tasks failed.
    */
   failedDates?: string[];
   /**
    * @remarks
-   * The dates with missing task data.
+   * The list of dates with missing tasks.
    */
   noDataDates?: string[];
   static names(): { [key: string]: string } {
@@ -53,7 +53,7 @@ export class QueryDataDiagnosisStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics for the data diagnosis task.
+   * The list of data diagnostic nodes.
    */
   statistics?: QueryDataDiagnosisStatisticsResponseBodyStatistics;
   static names(): { [key: string]: string } {

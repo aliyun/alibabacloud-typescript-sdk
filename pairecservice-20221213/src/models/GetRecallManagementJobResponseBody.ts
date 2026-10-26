@@ -13,7 +13,7 @@ export class GetRecallManagementJobResponseBodyRecallManagementTableInfo extends
   dataVersion?: string;
   /**
    * @remarks
-   * The recall management table version ID.
+   * The table version ID.
    * 
    * @example
    * 20250101000
@@ -65,7 +65,7 @@ export class GetRecallManagementJobResponseBodyRecallManagementTableInfo extends
 export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $dara.Model {
   /**
    * @remarks
-   * The data version.
+   * The data version number.
    * 
    * @example
    * ds=20250701
@@ -73,7 +73,7 @@ export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $d
   dataVersion?: string;
   /**
    * @remarks
-   * The recall management table version ID.
+   * The recall table version ID.
    * 
    * @example
    * 20250101000
@@ -125,7 +125,7 @@ export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $d
 export class GetRecallManagementJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the job ended.
+   * The synchronization end time. The format is YYYY-MM-DDTHH:mm:ss.SSS.
    * 
    * @example
    * 2021-12-15T23:24:33.132
@@ -133,7 +133,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The log of the job.
+   * The log.
    * 
    * @example
    * "success"
@@ -141,7 +141,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   log?: string;
   /**
    * @remarks
-   * The recall management job ID.
+   * The recall management task ID.
    * 
    * @example
    * 1
@@ -149,12 +149,12 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   recallManagementJobId?: string;
   /**
    * @remarks
-   * Details of the recall management table.
+   * The recall management table details.
    */
   recallManagementTableInfo?: GetRecallManagementJobResponseBodyRecallManagementTableInfo;
   /**
    * @remarks
-   * Details of the recall management table.
+   * The recall management table information.
    */
   recallManagerTableInfo?: GetRecallManagementJobResponseBodyRecallManagerTableInfo;
   /**
@@ -167,7 +167,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the job started.
+   * The synchronization start time. The format is YYYY-MM-DDTHH:mm:ss.SSS.
    * 
    * @example
    * 2021-12-15T22:24:33.132
@@ -175,15 +175,11 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the job. Valid values are:
-   * 
-   * - `Init`: Initializing.
-   * 
-   * - `Running`: Running.
-   * 
-   * - `Success`: Successful.
-   * 
-   * - `Failed`: Failed.
+   * The task status. Valid values:
+   * * `Init`: init.
+   * * `Running`: running.
+   * * `Success`: succeeded.
+   * * `Failed`: failed.
    * 
    * @example
    * Running

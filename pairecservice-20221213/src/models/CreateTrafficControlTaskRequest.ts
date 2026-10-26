@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.Model {
   /**
    * @remarks
-   * The end time of the traffic control target.
+   * The end time of the control target. Specify the time in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-04-25
@@ -13,7 +13,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   endTime?: string;
   /**
    * @remarks
-   * The event for the traffic control target.
+   * The event of the control target.
    * 
    * @example
    * click
@@ -21,7 +21,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   event?: string;
   /**
    * @remarks
-   * The item condition in array format.
+   * The conditions for items in array format.
    * 
    * @example
    * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
@@ -29,7 +29,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition in expression format.
+   * The conditions for items in expression format.
    * 
    * @example
    * status=1
@@ -37,11 +37,9 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for item control.
-   * 
-   * - Array: Specifies the array format.
-   * 
-   * - Expression: Specifies the expression format.
+   * The condition type for item control. Valid values:
+   * - Array: array format
+   * - Expression: expression format
    * 
    * @example
    * Array
@@ -57,7 +55,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable new product regulation.
+   * Specifies whether the target is for new product regulation.
    * 
    * @example
    * false
@@ -65,7 +63,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   newProductRegulation?: boolean;
   /**
    * @remarks
-   * The name of the recall strategy.
+   * The recall policy name.
    * 
    * @example
    * recall_1
@@ -73,7 +71,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   recallName?: string;
   /**
    * @remarks
-   * The start time of the traffic control target.
+   * The start time of the control target. Specify the time in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-03-25
@@ -81,11 +79,9 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   startTime?: string;
   /**
    * @remarks
-   * The statistics period.
-   * 
-   * - Daily: Statistics are aggregated daily.
-   * 
-   * - Hour: Statistics are aggregated hourly.
+   * The statistical period. Valid values:
+   * - Daily: daily
+   * - Hour: hourly
    * 
    * @example
    * Daily
@@ -93,11 +89,9 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   statisPeriod?: string;
   /**
    * @remarks
-   * The status of the traffic control target.
-   * 
-   * - Opened: The traffic control target is enabled.
-   * 
-   * - Closed: The traffic control target is disabled.
+   * The status of the control target. Valid values:
+   * - Opened: enabled
+   * - Closed: disabled
    * 
    * @example
    * Opened
@@ -105,7 +99,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   status?: string;
   /**
    * @remarks
-   * The tolerance value for the traffic control target.
+   * The tolerance range of the control target.
    * 
    * @example
    * 20
@@ -113,7 +107,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
   toleranceValue?: number;
   /**
    * @remarks
-   * The value of the traffic control target.
+   * The target value for control.
    * 
    * @example
    * 100
@@ -167,7 +161,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
 export class CreateTrafficControlTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The behavior table ID.
+   * The ID of the behavior table.
    * 
    * @example
    * 1
@@ -175,7 +169,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   behaviorTableMetaId?: string;
   /**
    * @remarks
-   * The control granularity. Valid values: Global (applies globally) and Single (applies to a specific item).
+   * The control granularity. Valid values:
+   * - Global: global
+   * - Single: single item
    * 
    * @example
    * Global
@@ -183,11 +179,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   controlGranularity?: string;
   /**
    * @remarks
-   * The control logic.
-   * 
-   * - Guaranteed: The system strictly enforces the control target.
-   * 
-   * - Approach: The system attempts to meet the control target, but enforcement is not strict.
+   * The control logic. Valid values:
+   * - Guaranteed: guaranteed traffic control
+   * - Approach: approximate traffic control
    * 
    * @example
    * Guaranteed
@@ -195,11 +189,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   controlLogic?: string;
   /**
    * @remarks
-   * The control type.
-   * 
-   * - Percent: Controls traffic by percentage.
-   * 
-   * - Quantity: Controls traffic by quantity.
+   * The control type. Valid values:
+   * - Percent: percentage-based control
+   * - Quantity: quantity-based control
    * 
    * @example
    * Percent
@@ -215,12 +207,12 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A list of effective scene IDs.
+   * The list of effective scene IDs.
    */
   effectiveSceneIds?: number[];
   /**
    * @remarks
-   * The end time.
+   * The end time. Specify the time in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-03-26
@@ -228,11 +220,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The execution time.
-   * 
-   * - Permanent: The task runs permanently.
-   * 
-   * - TimeRange: The task runs within a specified time range. This option requires you to also specify the StartTime and EndTime parameters.
+   * The execution time. Valid values:
+   * - Permanent: The task is executed permanently.
+   * - TimeRange: The task is executed within a specified time range. If you select this value, you must specify StartTime and EndTime.
    * 
    * @example
    * TimeRange
@@ -240,7 +230,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   executionTime?: string;
   /**
    * @remarks
-   * The Flink data source ID.
+   * The ID of the Flink data source.
    * 
    * @example
    * res-***
@@ -248,7 +238,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   flinkResourceId?: string;
   /**
    * @remarks
-   * The instance ID. You can get this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain the instance ID.
    * 
    * @example
    * pairec-cn-***test
@@ -256,7 +246,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The item condition in array format.
+   * The conditions for items in array format.
    * 
    * @example
    * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
@@ -264,7 +254,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition in expression format.
+   * The conditions for items in expression format.
    * 
    * @example
    * status=1
@@ -272,11 +262,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The item condition type.
-   * 
-   * - Array: Specifies the array format.
-   * 
-   * - Expression: Specifies the expression format.
+   * The condition type for items. Valid values:
+   * - Array: array format
+   * - Expression: expression format
    * 
    * @example
    * Array
@@ -284,7 +272,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   itemConditionType?: string;
   /**
    * @remarks
-   * The item table ID.
+   * The ID of the item table.
    * 
    * @example
    * 3
@@ -300,7 +288,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The experiment IDs for the staging environment. Separate multiple IDs with a comma (,).
+   * The IDs of the experiments in the pre-release environment. Separate multiple IDs with commas (,).
    * 
    * @example
    * 1,2,3
@@ -308,7 +296,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   preExperimentIds?: string;
   /**
    * @remarks
-   * The experiment IDs for the production environment. Separate multiple IDs with a comma (,).
+   * The IDs of the experiments in the production environment. Separate multiple IDs with commas (,).
    * 
    * @example
    * 4,5,6
@@ -316,7 +304,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   prodExperimentIds?: string;
   /**
    * @remarks
-   * The scene ID. You can get this ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+   * The scene ID. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the scene ID.
    * 
    * @example
    * 1
@@ -334,12 +322,12 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * A list of bound engine service IDs.
+   * The list of bound engine service IDs.
    */
   serviceIds?: number[];
   /**
    * @remarks
-   * The start time.
+   * The start time. Specify the time in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-03-25
@@ -347,7 +335,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The statistical behavior condition in array format.
+   * The conditions for statistical behaviors in array format.
    * 
    * @example
    * [{\\"field\\":\\"click\\",\\"option\\":\\"<=\\",\\"value\\":\\"30\\"}]
@@ -355,7 +343,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   statisBehaviorConditionArray?: string;
   /**
    * @remarks
-   * The statistical behavior condition in expression format.
+   * The conditions for statistical behaviors in expression format.
    * 
    * @example
    * click=30
@@ -363,11 +351,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   statisBehaviorConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for the statistical behavior.
-   * 
-   * - Array: Specifies the array format.
-   * 
-   * - Expression: Specifies the expression format.
+   * The condition type for statistical behaviors. Valid values:
+   * - Array: array format
+   * - Expression: expression format
    * 
    * @example
    * Array
@@ -375,12 +361,12 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   statisBehaviorConditionType?: string;
   /**
    * @remarks
-   * A list of traffic control targets.
+   * The list of traffic control targets.
    */
   trafficControlTargets?: CreateTrafficControlTaskRequestTrafficControlTargets[];
   /**
    * @remarks
-   * The intervention user group condition in array format.
+   * The conditions for the target users in array format.
    * 
    * @example
    * [{\\"field\\":\\"gender\\",\\"option\\":\\"=\\",\\"value\\":\\"male\\"}]
@@ -388,7 +374,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   userConditionArray?: string;
   /**
    * @remarks
-   * The intervention user group condition in expression format.
+   * The conditions for the target users in expression format.
    * 
    * @example
    * age<=30&&(3<=level<=6)&&gender=male
@@ -396,11 +382,9 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   userConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for the intervention user group.
-   * 
-   * - Array: Specifies the array format.
-   * 
-   * - Expression: Specifies the expression format.
+   * The condition type for the target users. Valid values:
+   * - Array: array format
+   * - Expression: expression format
    * 
    * @example
    * Array
@@ -408,7 +392,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
   userConditionType?: string;
   /**
    * @remarks
-   * The user table ID.
+   * The ID of the user table.
    * 
    * @example
    * 2

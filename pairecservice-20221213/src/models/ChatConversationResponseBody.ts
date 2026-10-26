@@ -8,7 +8,7 @@ export class ChatConversationResponseBody extends $dara.Model {
    * The reply content.
    * 
    * @example
-   * FeatureDB近7天读写量为xxx
+   * The read and write volume of FeatureDB in the last 7 days is xxx
    */
   answer?: string;
   /**
@@ -61,7 +61,7 @@ export class ChatConversationResponseBody extends $dara.Model {
   func?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is ISO 8601, including the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00

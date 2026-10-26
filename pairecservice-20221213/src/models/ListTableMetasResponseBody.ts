@@ -13,7 +13,7 @@ export class ListTableMetasResponseBodyTableMetasFields extends $dara.Model {
   isDimensionField?: boolean;
   /**
    * @remarks
-   * The business meaning of the field.
+   * The meaning of the field.
    * 
    * @example
    * the gender of people
@@ -29,7 +29,7 @@ export class ListTableMetasResponseBodyTableMetasFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The data type of the field.
+   * The field type.
    * 
    * @example
    * BIGINT
@@ -65,7 +65,7 @@ export class ListTableMetasResponseBodyTableMetasFields extends $dara.Model {
 export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the data table can be deleted. A value of `false` indicates that the table is in use by other resources.
+   * Indicates whether the data table can be deleted. The value is false if the table is referenced elsewhere.
    * 
    * @example
    * true
@@ -73,7 +73,7 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The additional configurations for the data table.
+   * The additional configurations of the data table.
    * 
    * @example
    * {"table_type":"item"}
@@ -89,12 +89,12 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The fields in the data table.
+   * The list of fields in the table.
    */
   fields?: ListTableMetasResponseBodyTableMetasFields[];
   /**
    * @remarks
-   * The time when the data table was created.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-12-12 12:24:33
@@ -110,7 +110,7 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   gmtImportedTime?: string;
   /**
    * @remarks
-   * The time when the data table was last modified.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-12-12 12:24:33
@@ -118,13 +118,13 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The module of the data table. Valid values:
+   * The module of the data table.
    * 
-   * - ABTest: A/B testing
+   * - ABTest: Experiment data tables
    * 
-   * - ExperimentTool: Experiment tool
+   * - ExperimentTool: Experiment tool tables
    * 
-   * - DataDiagnosis: data diagnosis
+   * - DataDiagnosis: Data diagnosis
    * 
    * @example
    * ABTest
@@ -147,11 +147,17 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Maxcompute
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The resource URI.
+   * 
    * @example
    * test
    */
@@ -174,7 +180,7 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The type of the data table. Valid values:
+   * The type of the data table.
    * 
    * - MaxCompute
    * 
@@ -186,7 +192,7 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the table in Data Map. This parameter is returned only for MaxCompute data tables.
+   * The URL of the table in DataWorks Data Map. This parameter is returned only if the table is a MaxCompute table.
    * 
    * @example
    * https://dmc-xxx.com/dm/table/xxx
@@ -262,7 +268,7 @@ export class ListTableMetasResponseBody extends $dara.Model {
   tableMetas?: ListTableMetasResponseBodyTableMetas[];
   /**
    * @remarks
-   * The total number of data tables.
+   * The total number of entries.
    * 
    * @example
    * 20

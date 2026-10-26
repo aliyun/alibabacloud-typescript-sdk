@@ -6,11 +6,8 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The resource category. Valid values:
-   * 
    * - DataManagement
-   * 
    * - Engine
-   * 
    * - Monitor
    * 
    * @example
@@ -19,7 +16,7 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The resource configuration.
+   * The configuration information of the resource.
    * 
    * @example
    * {}
@@ -27,7 +24,7 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2020-10-13 17:34:52
@@ -35,7 +32,7 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The update time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2020-10-13 17:34:52
@@ -45,34 +42,22 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
    * @remarks
    * The resource group.
    * 
-   * If `Category` is `DataManagement`, the valid values are:
-   * 
+   * If the resource category is DataManagement, valid values are:
    * - storage
-   * 
    * - modelpipeline
-   * 
    * - datastorage
-   * 
    * - modeltrain
    * 
-   * If `Category` is `Engine`, the valid values are:
-   * 
+   * If the resource category is Engine, valid values are:
    * - feature
-   * 
    * - predict
-   * 
    * - recall
-   * 
    * - recengine
    * 
-   * If `Category` is `Monitor`, the valid values are:
-   * 
+   * If the resource category is Monitor, valid values are:
    * - logs
-   * 
    * - logsback
-   * 
    * - coldstart
-   * 
    * - deploy
    * 
    * @example
@@ -81,7 +66,7 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D75C43DC-3D3A-5CC8-9AAC-8C77306C433B
@@ -89,7 +74,7 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * reso-2s416t***
@@ -98,38 +83,22 @@ export class GetInstanceResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
    * - Hologres
-   * 
    * - EAS
-   * 
    * - BE
-   * 
    * - Rec
-   * 
    * - Platform
-   * 
    * - SLS
-   * 
    * - DataHub
-   * 
-   * - ApsaraMQ for Kafka
-   * 
-   * - Realtime Compute for Apache Flink
-   * 
+   * - Kafka
+   * - Flinkvvp
    * - ACR
-   * 
    * - OSS
-   * 
    * - DataWorks
-   * 
    * - PAI
-   * 
    * - MaxCompute
-   * 
-   * - Graph Compute Service
-   * 
-   * - ApsaraDB for Redis
+   * - GraphCompute
+   * - Redis
    * 
    * @example
    * OSS

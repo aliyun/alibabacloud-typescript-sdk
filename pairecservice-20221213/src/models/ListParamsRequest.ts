@@ -7,12 +7,9 @@ export class ListParamsRequest extends $dara.Model {
   /**
    * @remarks
    * The environment to which the parameter belongs. Valid values:
-   * 
-   * - Daily: A test environment for daily use.
-   * 
-   * - Prepub: A staging environment that mirrors the production environment.
-   * 
-   * - Product: The production environment.
+   * - Daily: daily environment
+   * - Pre: pre-release environment
+   * - Prod: production environment
    * 
    * @example
    * Daily
@@ -20,7 +17,7 @@ export class ListParamsRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can call the ListInstances operation to obtain it.
+   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -46,7 +43,7 @@ export class ListParamsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -54,7 +51,7 @@ export class ListParamsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scene ID. You can call the ListScenes operation to obtain it.
+   * The scene ID. You can call the ListScenes operation to obtain the scene ID.
    * 
    * This parameter is required.
    * 

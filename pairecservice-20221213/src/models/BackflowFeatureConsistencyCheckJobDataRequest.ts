@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The feature consistency check job configuration ID. To obtain the configuration ID, call the [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html) operation.
+   * The ID of the feature consistency check job configuration. For more information about how to obtain the configuration ID, see [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   featureConsistencyCheckJobConfigId?: string;
   /**
    * @remarks
-   * The instance ID. To obtain the instance ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. For more information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logRequestId?: string;
   /**
    * @remarks
-   * The log request time (UNIX epoch timestamp).
+   * The log request time (UNIX timestamp).
    * 
    * This parameter is required.
    * 
@@ -93,6 +93,13 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
    * [\\"{\\\\\\"dbmtl_probs_is_valid_play\\\\\\":0.00032182207107543945,\\\\\\"dbmtl_y_play_time\\\\\\":0.0043269748210906982}\\"]
    */
   scores?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * se_demorec
+   */
   serviceName?: string;
   /**
    * @remarks

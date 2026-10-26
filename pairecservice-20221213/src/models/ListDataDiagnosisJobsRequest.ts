@@ -31,15 +31,15 @@ export class ListDataDiagnosisJobsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task status. Valid values: 
    * 
-   * - Initializing: The job is being initialized.
+   * - Initializing: The task is being initialized.
    * 
-   * - Running: The job is in progress.
+   * - Running: The task is running.
    * 
-   * - Success: The job succeeded.
+   * - Success: The task succeeded.
    * 
-   * - Failure: The job failed to complete.
+   * - Failure: The task failed.
    * 
    * @example
    * Initializing
@@ -47,7 +47,7 @@ export class ListDataDiagnosisJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A list of data diagnosis types.
+   * The list of data diagnostic types.
    */
   types?: string[];
   static names(): { [key: string]: string } {

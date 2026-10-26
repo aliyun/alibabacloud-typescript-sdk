@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call [ListInstances](https://help.aliyun.com/document_detail/2411819.html) to obtain the instance ID.
+   * The instance ID. You can obtain it by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * @example
    * pairec-test-xxx

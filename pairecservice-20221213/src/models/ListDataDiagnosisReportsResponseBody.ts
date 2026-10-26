@@ -16,12 +16,12 @@ export class ListDataDiagnosisReportsResponseBodyExceptionRate extends $dara.Mod
    * The exception message.
    * 
    * @example
-   * change_rate 大于 0.2，请确认是否正常
+   * change_rate is greater than 0.2. Verify that this is expected
    */
   message?: string;
   /**
    * @remarks
-   * The type or level of the exception.
+   * The exception type or severity level.
    * 
    * @example
    * WARN
@@ -63,7 +63,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   ds?: string;
   /**
    * @remarks
-   * The rank.
+   * The rank of the statistical metric.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   conversionRate?: string;
   /**
    * @remarks
-   * The ID corresponding to the statistical granularity.
+   * The ID corresponding to the statistical granularity of the conversion rate.
    * 
    * @example
    * 100010050+259203779
@@ -87,7 +87,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   conversionRateIds?: string;
   /**
    * @remarks
-   * The count of downstream behaviors.
+   * The downstream behavior count.
    * 
    * @example
    * 2.0
@@ -95,7 +95,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   downStreamCount?: string;
   /**
    * @remarks
-   * The ID corresponding to the granularity of the downstream behavior.
+   * The ID corresponding to the statistical granularity of the downstream behavior.
    * 
    * @example
    * 189814043+272292277
@@ -111,7 +111,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   granularity?: string;
   /**
    * @remarks
-   * The count of upstream behaviors.
+   * The upstream behavior count.
    * 
    * @example
    * 2.0
@@ -119,7 +119,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   upStreamCount?: string;
   /**
    * @remarks
-   * The ID corresponding to the granularity of the upstream behavior.
+   * The ID corresponding to the statistical granularity of the upstream behavior.
    * 
    * @example
    * 104684044+249445882
@@ -135,7 +135,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
   distribution?: string;
   /**
    * @remarks
-   * The indicator name.
+   * The name of the statistical metric.
    * 
    * @example
    * conversion_rate
@@ -195,7 +195,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior exten
 export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends $dara.Model {
   /**
    * @remarks
-   * The equivalent null count. This refers to the count of specific characters, such as `\\N`, that are treated as null values.
+   * The equivalent null value count.
    * 
    * @example
    * \\\\N
@@ -203,7 +203,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   defaultNullCount?: string;
   /**
    * @remarks
-   * The equivalent null rate.
+   * The equivalent null value rate.
    * 
    * @example
    * \\\\N
@@ -235,7 +235,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   featureType?: string;
   /**
    * @remarks
-   * The null count.
+   * The null value count.
    * 
    * @example
    * 55095
@@ -243,7 +243,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   nullCount?: string;
   /**
    * @remarks
-   * The null rate.
+   * The null value rate.
    * 
    * @example
    * 0.5580879448141732
@@ -251,7 +251,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   nullRate?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of data records.
    * 
    * @example
    * 98721
@@ -267,7 +267,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   uniqueCount?: string;
   /**
    * @remarks
-   * The maximum value.
+   * The maximum value of the field.
    * 
    * @example
    * 52.0
@@ -275,7 +275,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueMax?: string;
   /**
    * @remarks
-   * The median value.
+   * The median value of the field.
    * 
    * @example
    * 35.0
@@ -283,7 +283,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueMedian?: string;
   /**
    * @remarks
-   * The minimum value.
+   * The minimum value of the field.
    * 
    * @example
    * 18.0
@@ -291,7 +291,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueMin?: string;
   /**
    * @remarks
-   * The 1st percentile value.
+   * The 1st percentile of the field values.
    * 
    * @example
    * 18.0
@@ -299,7 +299,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile1?: string;
   /**
    * @remarks
-   * The 5th percentile value.
+   * The 5th percentile of the field values.
    * 
    * @example
    * 18.0
@@ -307,7 +307,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile5?: string;
   /**
    * @remarks
-   * The 25th percentile value.
+   * The 25th percentile of the field values.
    * 
    * @example
    * 18.0
@@ -315,7 +315,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile25?: string;
   /**
    * @remarks
-   * The 75th percentile value.
+   * The 75th percentile of the field values.
    * 
    * @example
    * 18.0
@@ -323,7 +323,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile75?: string;
   /**
    * @remarks
-   * The 95th percentile value.
+   * The 95th percentile of the field values.
    * 
    * @example
    * 18.0
@@ -331,7 +331,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile95?: string;
   /**
    * @remarks
-   * The 99th percentile value.
+   * The 99th percentile of the field values.
    * 
    * @example
    * 18.0
@@ -339,7 +339,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile99?: string;
   /**
    * @remarks
-   * The rank.
+   * The rank position.
    * 
    * @example
    * 3
@@ -347,7 +347,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   rn?: string;
   /**
    * @remarks
-   * The maximum frequency.
+   * The maximum frequency of the field values.
    * 
    * @example
    * 91149.0
@@ -355,7 +355,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyMax?: string;
   /**
    * @remarks
-   * The median frequency.
+   * The median frequency of the field values.
    * 
    * @example
    * 1349.0
@@ -363,7 +363,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyMedian?: string;
   /**
    * @remarks
-   * The minimum frequency.
+   * The minimum frequency of the field values.
    * 
    * @example
    * 289.0
@@ -371,7 +371,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyMin?: string;
   /**
    * @remarks
-   * The 1st frequency percentile.
+   * The 1st percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -379,7 +379,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyQuantile1?: string;
   /**
    * @remarks
-   * The 5th frequency percentile.
+   * The 5th percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -387,7 +387,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyQuantile5?: string;
   /**
    * @remarks
-   * The 25th frequency percentile.
+   * The 25th percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -395,7 +395,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyQuantile25?: string;
   /**
    * @remarks
-   * The 75th frequency percentile.
+   * The 75th percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -403,7 +403,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyQuantile75?: string;
   /**
    * @remarks
-   * The 95th frequency percentile.
+   * The 95th percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -411,7 +411,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyQuantile95?: string;
   /**
    * @remarks
-   * The 99th frequency percentile.
+   * The 99th percentile of the field value frequencies.
    * 
    * @example
    * 289.0
@@ -427,7 +427,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   distribution?: string;
   /**
    * @remarks
-   * The rank of the statistical indicator.
+   * The rank of the statistical metric.
    * 
    * @example
    * 1
@@ -467,7 +467,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   valueQuantile?: string;
   /**
    * @remarks
-   * The frequency of the feature value.
+   * The frequency of feature values.
    * 
    * @example
    * 427
@@ -475,7 +475,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   featureFrequency?: string;
   /**
    * @remarks
-   * The number of feature values with this frequency.
+   * The count of feature value frequencies.
    * 
    * @example
    * 1
@@ -483,7 +483,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyCount?: string;
   /**
    * @remarks
-   * The percentage of feature values with this frequency.
+   * The percentage of feature value frequencies.
    * 
    * @example
    * 0.5
@@ -491,7 +491,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
   frequencyPercent?: string;
   /**
    * @remarks
-   * The percentile of the frequency of field values.
+   * The quantile of the field value frequencies.
    * 
    * @example
    * 5
@@ -603,7 +603,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfChangeRateData extends
   ds?: string;
   /**
    * @remarks
-   * A flag that indicates the type of change.
+   * The report flag.
    * 
    * @example
    * add
@@ -611,7 +611,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfChangeRateData extends
   flag?: string;
   /**
    * @remarks
-   * The item/user change count.
+   * The number of changed items or users.
    * 
    * @example
    * 1231
@@ -619,7 +619,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfChangeRateData extends
   changeCount?: string;
   /**
    * @remarks
-   * The item/user change rate.
+   * The change rate of items or users.
    * 
    * @example
    * 0.1231
@@ -671,7 +671,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfJoinTables extends $da
   joinField?: string;
   /**
    * @remarks
-   * The left table join exception rate.
+   * The join exception rate of the left table.
    * 
    * @example
    * 0.53
@@ -679,7 +679,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfJoinTables extends $da
   leftExceptRate?: string;
   /**
    * @remarks
-   * The right table join exception rate.
+   * The join exception rate of the right table.
    * 
    * @example
    * 0.0
@@ -687,7 +687,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfJoinTables extends $da
   rightExceptRate?: string;
   /**
    * @remarks
-   * A flag that indicates the type of change.
+   * The report flag.
    * 
    * @example
    * add
@@ -711,7 +711,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfJoinTables extends $da
   featureValue?: string;
   /**
    * @remarks
-   * The feature percentage.
+   * The percentage of the feature.
    * 
    * @example
    * 1
@@ -795,7 +795,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfJoinTables extends $da
 export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCycle extends $dara.Model {
   /**
    * @remarks
-   * The periodic user retention rate.
+   * The cycle retention rate of users.
    * 
    * @example
    * 0.73
@@ -803,7 +803,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
   cycleRemainRate?: string;
   /**
    * @remarks
-   * The daily user retention rate.
+   * The single-day retention rate of users.
    * 
    * @example
    * 0.52
@@ -835,7 +835,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
   everAppearedRate?: string;
   /**
    * @remarks
-   * The statistical period.
+   * The statistical period for the cycle retention rate.
    * 
    * @example
    * week
@@ -843,7 +843,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
   period?: string;
   /**
    * @remarks
-   * The periodic retention rate.
+   * The cycle retention rate.
    * 
    * @example
    * 0.33
@@ -851,7 +851,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
   periodRemainRate?: string;
   /**
    * @remarks
-   * The periodic retention count.
+   * The number of users retained within the cycle.
    * 
    * @example
    * 1
@@ -859,7 +859,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
   periodRemainCount?: number;
   /**
    * @remarks
-   * The number of period intervals.
+   * The number of cycle intervals.
    * 
    * @example
    * 1
@@ -905,32 +905,32 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCy
 export class ListDataDiagnosisReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The exception report list.
+   * The list of exception reports.
    */
   exceptionRate?: ListDataDiagnosisReportsResponseBodyExceptionRate[];
   /**
    * @remarks
-   * Reports for the abnormal behavior analysis task.
+   * The list of diagnostic reports for abnormal behavior analysis diagnosis nodes.
    */
   reportsOfAbnormalBehavior?: ListDataDiagnosisReportsResponseBodyReportsOfAbnormalBehavior[][];
   /**
    * @remarks
-   * Reports for the basic statistical analysis task.
+   * The list of diagnostic reports for basic statistics analysis diagnosis nodes.
    */
   reportsOfBaseStatistics?: ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics[][];
   /**
    * @remarks
-   * Reports for the item/user change rate analysis task.
+   * The list of diagnostic reports for item/user change rate analysis diagnosis nodes.
    */
   reportsOfChangeRateData?: ListDataDiagnosisReportsResponseBodyReportsOfChangeRateData[][];
   /**
    * @remarks
-   * Reports for the table join analysis task.
+   * The list of diagnostic reports for join table associate analysis diagnosis nodes.
    */
   reportsOfJoinTables?: ListDataDiagnosisReportsResponseBodyReportsOfJoinTables[][];
   /**
    * @remarks
-   * Reports for the user preference statistics cycle analysis task.
+   * The list of diagnostic reports for user preference statistical period analysis diagnosis nodes.
    */
   reportsOfPreferenceStatisticsCycle?: ListDataDiagnosisReportsResponseBodyReportsOfPreferenceStatisticsCycle[][];
   /**
@@ -943,17 +943,17 @@ export class ListDataDiagnosisReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data diagnosis task type. Valid values:
+   * The data diagnosis node type.
    * 
-   * - `ChangeRate`: item/user change rate analysis.
+   * - ChangeRate: item/user change rate analysis.
    * 
-   * - `PreferenceStatisticsCycle`: user preference statistics cycle analysis.
+   * - PreferenceStatisticsCycle: user preference statistical period analysis.
    * 
-   * - `JoinTables`: table join analysis.
+   * - JoinTables: join table associate analysis.
    * 
-   * - `BaseStatistics`: basic statistical analysis.
+   * - BaseStatistics: basic statistics analysis.
    * 
-   * - `AbnormalBehavior`: abnormal behavior analysis.
+   * - AbnormalBehavior: abnormal behavior analysis.
    * 
    * @example
    * ChangeRate

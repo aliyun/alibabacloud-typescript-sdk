@@ -35,7 +35,7 @@ export class ListInstanceResourceTablesResponseBodyTables extends $dara.Model {
 export class ListInstanceResourceTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 01D22D08-BA20-5F35-8302-99115F288220
@@ -43,12 +43,12 @@ export class ListInstanceResourceTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of data tables.
+   * The list of tables.
    */
   tables?: ListInstanceResourceTablesResponseBodyTables[];
   /**
    * @remarks
-   * The total count of data tables.
+   * The total count.
    * 
    * @example
    * 30

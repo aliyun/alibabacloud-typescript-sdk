@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCalculationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AB metric.
+   * The AB metric ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   ABMetricId?: string;
   /**
    * @remarks
-   * The name of the AB metric.
+   * The AB metric name.
    * 
    * @example
    * pv
@@ -21,7 +21,7 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   ABMetricName?: string;
   /**
    * @remarks
-   * The business date.
+   * The business date. The value is in YYYY-MM-DD format.
    * 
    * @example
    * 2021-12-15
@@ -29,7 +29,7 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The task configuration.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The runtime of the job.
+   * The time when the task ran. The value is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,16 +45,14 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   gmtRanTime?: string;
   /**
    * @remarks
-   * The job messages.
+   * The task information.
    */
   jobMessage?: string[];
   /**
    * @remarks
-   * The job source. Valid values:
-   * 
-   * - CronOffline: An offline cron job.
-   * 
-   * - DataRerun: A data rerun task.
+   * The task source. Valid values:
+   * - CronOffline: a scheduled offline task.
+   * - DataRerun: a data rerun task.
    * 
    * @example
    * CronOffline
@@ -70,15 +68,11 @@ export class GetCalculationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the calculation job. Valid values:
-   * 
-   * - Success: The job completed successfully.
-   * 
-   * - Failure: The job failed.
-   * 
-   * - Initializing: The job is initializing.
-   * 
-   * - Running: The job is running.
+   * The status of the compute task. Valid values:
+   * - Success: The task succeeded.
+   * - Failure: The task failed.
+   * - Initializing: The task is being initialized.
+   * - Running: The task is running.
    * 
    * @example
    * Success

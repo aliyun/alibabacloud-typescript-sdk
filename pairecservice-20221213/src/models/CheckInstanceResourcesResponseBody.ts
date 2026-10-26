@@ -8,9 +8,7 @@ export class CheckInstanceResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
    * The access status. Valid values:
-   * 
    * - Success
-   * 
    * - Failure
    * 
    * @example
@@ -20,37 +18,21 @@ export class CheckInstanceResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
    * - Hologres
-   * 
    * - EAS
-   * 
    * - BE
-   * 
    * - Rec
-   * 
    * - Platform
-   * 
    * - SLS
-   * 
    * - DataHub
-   * 
    * - Kafka
-   * 
    * - Flinkvvp
-   * 
    * - ACR
-   * 
    * - OSS
-   * 
    * - DataWorks
-   * 
    * - PAI
-   * 
    * - MaxCompute
-   * 
    * - GraphCompute
-   * 
    * - Redis
    * 
    * @example
@@ -101,7 +83,7 @@ export class CheckInstanceResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of resources.
+   * The list of resources.
    */
   resources?: CheckInstanceResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {

@@ -18,12 +18,12 @@ export class ChatConversationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 校验引擎配置
+   * Validation engine configuration
    */
   content?: string;
   /**
    * @remarks
-   * The session ID. If this parameter is not specified, a new session is created. If this parameter is specified, the conversation continues in the context of the existing session.
+   * The session ID. If you do not specify this parameter, a new session is created. If you specify this parameter, the conversation continues in the context of the existing session.
    * 
    * @example
    * e47cfae9-c0cc-42e1-91e2-e67cdb0e7b96

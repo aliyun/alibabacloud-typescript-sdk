@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTargetItemReportDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The report date.
+   * The date of the report. Format: YYYY-MM-DD.
    * 
    * @example
    * 2024-01-01
@@ -13,7 +13,10 @@ export class QueryTrafficControlTargetItemReportDetailRequest extends $dara.Mode
   date?: string;
   /**
    * @remarks
-   * The deployment environment. Valid values are Daily (daily environment), Pre (staging environment), and Prod (production environment).
+   * The environment. Valid values:
+   * - Daily: daily environment
+   * - Pre: staging environment
+   * - Prod: production environment
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubCrowdsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the ListInstances operation to obtain this ID.
+   * The instance ID. You can call ListInstances to obtain the instance ID.
    * 
    * This parameter is required.
    * 

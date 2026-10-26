@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJobs extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the job.
+   * The configuration information.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJ
   featureConsistencyCheckJobId?: string;
   /**
    * @remarks
-   * The end time of the job.
+   * The end time. The time follows the ISO 8601 standard and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,7 +45,7 @@ export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJ
   gmtEndTime?: string;
   /**
    * @remarks
-   * The start time of the job.
+   * The start time. The time follows the ISO 8601 standard and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -53,22 +53,17 @@ export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJ
   gmtStartTime?: string;
   /**
    * @remarks
-   * A list of log entries.
+   * The log information.
    */
   logs?: string[];
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - `ToRun`: Waiting to run.
-   * 
-   * - `Running`: In progress.
-   * 
-   * - `Success`: Successful.
-   * 
-   * - `Failure`: Failed.
-   * 
-   * - `Stopped`: Stopped or canceled.
+   * The job status. Valid values:
+   * - ToRun: pending
+   * - Running: running
+   * - Success: successful
+   * - Failure: failed
+   * - Stopped: stopped or canceled
    * 
    * @example
    * Running
@@ -128,7 +123,7 @@ export class ListFeatureConsistencyCheckJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of jobs.
+   * The total count.
    * 
    * @example
    * 10

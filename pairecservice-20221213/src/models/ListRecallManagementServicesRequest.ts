@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * **The instance ID.**
    * 
    * @example
    * pairec-cn-test123
@@ -13,7 +13,7 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * This parameter is not currently in effect.
+   * This parameter does not take effect.
    * 
    * @example
    * ""
@@ -21,7 +21,7 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Filters results by name.
+   * Filters the results by name.
    * 
    * @example
    * service-1
@@ -29,7 +29,7 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * This parameter is not currently in effect.
+   * This parameter does not take effect.
    * 
    * @example
    * 0
@@ -37,7 +37,8 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values:  
+   * **The sort order.**  
+   * Valid values:
    * - ASC: ascending order.
    * - DESC: descending order.
    * 
@@ -47,7 +48,7 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number.
+   * **The page number.**
    * 
    * @example
    * 1
@@ -55,7 +56,7 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * **The page size.**
    * 
    * @example
    * 50
@@ -63,7 +64,8 @@ export class ListRecallManagementServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting field. Valid values:  
+   * **The sort field.**  
+   * Valid values:
    * - GmtCreateTime: creation time.
    * - GmtModifiedTime: update time.
    * 

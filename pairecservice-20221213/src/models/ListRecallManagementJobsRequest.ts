@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition. Filtering is supported only for the `Table` type. For example: `{"RecallManagementTableId":"1"}`
+   * **The filter conditions.** Currently, only filter conditions for the Table type are supported, such as `{"RecallManagementTableId":"1"}`.
    * 
    * @example
    * {"RecallManagementTableId":"1"}
@@ -13,7 +13,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   condition?: { [key: string]: any };
   /**
    * @remarks
-   * The instance ID.
+   * **The instance ID.**
    * 
    * @example
    * pairec-test1
@@ -21,7 +21,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * This parameter is not used.
+   * This parameter does not take effect.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is not used.
+   * This parameter does not take effect.
    * 
    * @example
    * ""
@@ -37,7 +37,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `ASC` (ascending) and `DESC` (descending).
+   * **The sorting order.** `ASC`: ascending order. `DESC`: descending order.
    * 
    * @example
    * ASC
@@ -45,7 +45,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * **The page number.**
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 10.
+   * The page size.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting basis. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
+   * **The sorting criterion.** `GmtCreateTime`: creation time. `GmtModifiedTime`: update time.
    * 
    * @example
    * GmtCreateTime
@@ -69,7 +69,7 @@ export class ListRecallManagementJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The task type.
+   * **The task type.**
    * 
    * @example
    * Table

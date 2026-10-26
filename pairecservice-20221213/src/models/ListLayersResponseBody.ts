@@ -13,7 +13,7 @@ export class ListLayersResponseBodyLayers extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the layer was created.
+   * The creation time in ISO 8601 format, using Z to indicate the UTC time zone.
    * 
    * @example
    * 2024-05-30T02:02:28.000Z
@@ -45,7 +45,7 @@ export class ListLayersResponseBodyLayers extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remaining traffic for the layer.
+   * The remaining traffic for the current experimental layer.
    * 
    * @example
    * 10
@@ -95,12 +95,12 @@ export class ListLayersResponseBodyLayers extends $dara.Model {
 export class ListLayersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of layers.
+   * The list of layers.
    */
   layers?: ListLayersResponseBodyLayers[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 518C64F6-DFF7-11ED-85B0-00163E14B3D1
@@ -108,7 +108,7 @@ export class ListLayersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of layers.
+   * The total number of elements in the list.
    * 
    * @example
    * 10

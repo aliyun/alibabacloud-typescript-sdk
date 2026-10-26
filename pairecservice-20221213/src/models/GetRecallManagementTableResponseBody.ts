@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecallManagementTableResponseBodyFields extends $dara.Model {
   /**
    * @remarks
-   * A list of field attributes.
+   * The list of attributes for the field.
    */
   attributes?: string[];
   /**
@@ -26,7 +26,7 @@ export class GetRecallManagementTableResponseBodyFields extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The vector dimension.
+   * The vector dimensions.
    * 
    * @example
    * 32
@@ -75,7 +75,7 @@ export class GetRecallManagementTableResponseBodyFields extends $dara.Model {
 export class GetRecallManagementTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the table can be deleted.
+   * Indicates whether the table can be deleted.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Additional configurations for the table.
+   * The additional configurations of the table.
    * 
    * @example
    * {"item_id":""}
@@ -99,7 +99,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   dataSource?: string;
   /**
    * @remarks
-   * The data table description.
+   * The table description.
    * 
    * @example
    * this is a test
@@ -107,7 +107,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the fluctuation threshold for the data size.
+   * Indicates whether the fluctuation threshold for the size of the table is enabled.
    * 
    * @example
    * false
@@ -115,7 +115,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   enableDataSizeFluctuationThreshold?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the fluctuation threshold for the row count.
+   * Indicates whether the fluctuation threshold for the row count of the table is enabled.
    * 
    * @example
    * true
@@ -123,12 +123,12 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   enableRowCountFluctuationThreshold?: boolean;
   /**
    * @remarks
-   * A list of fields.
+   * The list of fields.
    */
   fields?: GetRecallManagementTableResponseBodyFields[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -136,7 +136,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The time is displayed in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -144,7 +144,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The index effective time.
+   * The effective period of the index. The time is displayed in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -160,7 +160,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   indexVersionId?: string;
   /**
    * @remarks
-   * The maximum data size fluctuation threshold.
+   * The maximum fluctuation threshold for the size of the table.
    * 
    * @example
    * 100
@@ -168,7 +168,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   maxDataSizeFluctuationThreshold?: number;
   /**
    * @remarks
-   * The maximum row count fluctuation threshold.
+   * The maximum fluctuation threshold for the row count of the table.
    * 
    * @example
    * 100
@@ -176,7 +176,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   maxRowCountFluctuationThreshold?: number;
   /**
    * @remarks
-   * The MaxCompute project name.
+   * The name of the MaxCompute project.
    * 
    * @example
    * test
@@ -192,7 +192,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   maxcomputeSchema?: string;
   /**
    * @remarks
-   * The MaxCompute table name.
+   * The name of the table in MaxCompute.
    * 
    * @example
    * table-1
@@ -200,7 +200,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   maxcomputeTableName?: string;
   /**
    * @remarks
-   * The minimum data size fluctuation threshold.
+   * The minimum fluctuation threshold for the size of the table.
    * 
    * @example
    * 10
@@ -208,7 +208,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   minDataSizeFluctuationThreshold?: number;
   /**
    * @remarks
-   * The minimum row count fluctuation threshold.
+   * The minimum fluctuation threshold for the row count of the table.
    * 
    * @example
    * 10
@@ -216,7 +216,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   minRowCountFluctuationThreshold?: number;
   /**
    * @remarks
-   * The data table name.
+   * The table name.
    * 
    * @example
    * table-123
@@ -224,7 +224,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The partition fields.
+   * The partition fields of the table.
    * 
    * @example
    * dt
@@ -232,7 +232,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   partitionFields?: string;
   /**
    * @remarks
-   * The data table ID.
+   * The table ID.
    * 
    * @example
    * 3
@@ -240,7 +240,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   recallManagementTableId?: string;
   /**
    * @remarks
-   * The recall type.
+   * The recall type of the table.
    * 
    * @example
    * X2I

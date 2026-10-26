@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementServicesResponseBodyRecallManagementServices extends $dara.Model {
   /**
    * @remarks
-   * The ID of the currently active recall management service version.
+   * The ID of the active recall management service version.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   currentRecallManagementServiceVersionId?: string;
   /**
    * @remarks
-   * The name of the currently active recall management service version.
+   * The name of the active recall management service version.
    * 
    * @example
    * version-1
@@ -29,7 +29,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   description?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in ISO 8601 format, including the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -37,7 +37,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in ISO 8601 format, including the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,7 +45,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The service name of the recall management service.
+   * The name of the recall management service.
    * 
    * @example
    * hot_group_recall
@@ -107,7 +107,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
 export class ListRecallManagementServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not currently in effect.
+   * This parameter does not take effect.
    * 
    * @example
    * 0
@@ -115,7 +115,7 @@ export class ListRecallManagementServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is not currently in effect.
+   * This parameter does not take effect.
    * 
    * @example
    * ""
@@ -123,7 +123,7 @@ export class ListRecallManagementServicesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of recall management services.
+   * The recall management services.
    */
   recallManagementServices?: ListRecallManagementServicesResponseBodyRecallManagementServices[];
   /**

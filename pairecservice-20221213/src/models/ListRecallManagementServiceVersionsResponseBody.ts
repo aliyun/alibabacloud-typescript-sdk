@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServiceVersions extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -13,7 +13,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The time follows the ISO 8601 standard and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -26,7 +26,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
   isEffective?: boolean;
   /**
    * @remarks
-   * The version name.
+   * The name of the recall management service version.
    * 
    * @example
    * version-1
@@ -34,7 +34,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
   name?: string;
   /**
    * @remarks
-   * The version ID of the Recall Management Service.
+   * The ID of the recall management service version.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
 export class ListRecallManagementServiceVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of Recall Management Service versions.
+   * The list of recall management service versions.
    */
   recallManagementServiceVersions?: ListRecallManagementServiceVersionsResponseBodyRecallManagementServiceVersions[];
   /**
@@ -85,7 +85,7 @@ export class ListRecallManagementServiceVersionsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of returned entries.
    * 
    * @example
    * 30

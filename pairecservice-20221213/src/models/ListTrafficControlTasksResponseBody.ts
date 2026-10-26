@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts extends $dara.Model {
   /**
    * @remarks
-   * The list of value-based split points for the target.
+   * The list of target value split points.
    */
   setValues?: number[];
   /**
    * @remarks
-   * The list of time-based split points.
+   * The list of time split points.
    */
   timePoints?: number[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
 export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The time is in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-04-25
@@ -61,7 +61,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   event?: string;
   /**
    * @remarks
-   * The creation time of the target.
+   * The creation time. The time is in the ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2025-06-03T15:08:10.58+08:00
@@ -69,7 +69,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last update time of the target.
+   * The update time. The time is in the ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2025-11-21T16:26:58.57+08:00
@@ -77,7 +77,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The item condition, in an array format.
+   * The array-formatted conditions for items.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -85,7 +85,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition, in an expression format.
+   * The expression-formatted conditions for items.
    * 
    * @example
    * status=1
@@ -93,7 +93,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The item condition type.
+   * The condition type for items.
    * 
    * @example
    * Array
@@ -101,7 +101,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionType?: string;
   /**
    * @remarks
-   * The name of the traffic control target.
+   * The traffic control target.
    * 
    * @example
    * target-1
@@ -109,7 +109,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   name?: string;
   /**
    * @remarks
-   * Indicates whether the traffic control target is for a new product recall.
+   * Specifies whether the recall applies to new items.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   newProductRegulation?: boolean;
   /**
    * @remarks
-   * The name of the recall strategy.
+   * The recall policy name.
    * 
    * @example
    * recall-1
@@ -130,7 +130,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   splitParts?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts;
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-03-25
@@ -138,7 +138,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   startTime?: string;
   /**
    * @remarks
-   * The statistics period.
+   * The statistical period.
    * 
    * @example
    * Daily
@@ -146,7 +146,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   statisPeriod?: string;
   /**
    * @remarks
-   * The status of the traffic control target.
+   * The status.
    * 
    * @example
    * Opened
@@ -154,7 +154,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   status?: string;
   /**
    * @remarks
-   * The tolerance value for the traffic control target.
+   * The tolerance range of the traffic control target.
    * 
    * @example
    * 10
@@ -162,7 +162,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   toleranceValue?: number;
   /**
    * @remarks
-   * The traffic control target ID.
+   * The ID of the traffic control target.
    * 
    * @example
    * 1
@@ -170,7 +170,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   trafficControlTargetId?: string;
   /**
    * @remarks
-   * The traffic control task ID.
+   * The ID of the traffic control task.
    * 
    * @example
    * 1
@@ -178,7 +178,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The value of the traffic control target.
+   * The target value for traffic control.
    * 
    * @example
    * 30
@@ -245,7 +245,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
 export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dara.Model {
   /**
    * @remarks
-   * The behavior table ID.
+   * The ID of the behavior table.
    * 
    * @example
    * 1
@@ -277,7 +277,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   controlType?: string;
   /**
    * @remarks
-   * The description of the traffic control task.
+   * The description of the traffic control.
    * 
    * @example
    * this is a test task
@@ -290,7 +290,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   effectiveSceneIds?: number[];
   /**
    * @remarks
-   * The list of effective scene names.
+   * The list of effective scenes.
    */
   effectiveSceneNameList?: string[];
   /**
@@ -300,7 +300,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   effectiveSceneNames?: number[];
   /**
    * @remarks
-   * The end time.
+   * The end time. The time is in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-04-25
@@ -308,7 +308,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the task has ever been published.
+   * Specifies whether the task has been published.
    * 
    * @example
    * false
@@ -316,11 +316,9 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   everPublished?: boolean;
   /**
    * @remarks
-   * The execution schedule for the task. Valid values:
-   * 
-   * - `Permanent`: The task runs indefinitely.
-   * 
-   * - `TimeRange`: The task runs within a specified time range. If you set this parameter to this value, you must also specify the `StartTime` and `EndTime` parameters.
+   * The execution time. Valid values:
+   * - Permanent: Executes permanently.
+   * - TimeRange: Executes within a specified time range. If you select this value, you must specify the StartTime and EndTime parameters.
    * 
    * @example
    * Permanent
@@ -336,7 +334,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   flinkResourceId?: string;
   /**
    * @remarks
-   * The name of the Flink resource.
+   * The Flink resource name.
    * 
    * @example
    * flink_test
@@ -344,7 +342,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   flinkResourceName?: string;
   /**
    * @remarks
-   * The creation time of the task.
+   * The creation time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -352,7 +350,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last update time of the task.
+   * The update time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -360,7 +358,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The item condition, in an array format.
+   * The array-formatted conditions for items.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -368,7 +366,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition, in an expression format.
+   * The expression-formatted conditions for items.
    * 
    * @example
    * status=1
@@ -376,7 +374,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The item condition type.
+   * The condition type for items.
    * 
    * @example
    * Array
@@ -384,7 +382,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemConditionType?: string;
   /**
    * @remarks
-   * The item table ID.
+   * The ID of the item table.
    * 
    * @example
    * 3
@@ -392,7 +390,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemTableMetaId?: string;
   /**
    * @remarks
-   * The name of the traffic control task.
+   * The name of the traffic control.
    * 
    * @example
    * task_1
@@ -400,7 +398,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   name?: string;
   /**
    * @remarks
-   * A comma-separated list of staging experiment IDs.
+   * The list of pre-release experiment IDs.
    * 
    * @example
    * 1,2
@@ -408,7 +406,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   preExperimentIds?: string;
   /**
    * @remarks
-   * The staging environment status.
+   * The status in the pre-release environment.
    * 
    * @example
    * Runnning
@@ -416,7 +414,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   prepubStatus?: string;
   /**
    * @remarks
-   * A comma-separated list of production experiment IDs.
+   * The list of production experiments.
    * 
    * @example
    * 6,7
@@ -424,7 +422,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   prodExperimentIds?: string;
   /**
    * @remarks
-   * The production environment status.
+   * The status in the production environment.
    * 
    * @example
    * Runnning
@@ -432,7 +430,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   productStatus?: string;
   /**
    * @remarks
-   * The scene ID. You can obtain this ID by calling the `ListScenes` operation.
+   * The scene ID. You can obtain this ID by calling the ListScenes operation.
    * 
    * @example
    * 4
@@ -440,7 +438,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   sceneId?: string;
   /**
    * @remarks
-   * The name of the scene.
+   * The scene name.
    * 
    * @example
    * home_feed
@@ -466,7 +464,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   serviceIds?: string[];
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-03-25
@@ -474,7 +472,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   startTime?: string;
   /**
    * @remarks
-   * The behavior statistics expression.
+   * The expression-formatted conditions for behavior statistics.
    * 
    * @example
    * event=click
@@ -482,7 +480,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   statisBahaviorConditionExpress?: string;
   /**
    * @remarks
-   * The behavior statistics condition, in an array format.
+   * The array-formatted conditions for behavior statistics.
    * 
    * @example
    * [{"field":"click","option":"<=","value":"30"}]
@@ -490,7 +488,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   statisBehaviorConditionArray?: string;
   /**
    * @remarks
-   * The behavior statistics expression.
+   * The behavior expression.
    * 
    * @example
    * event=exposure
@@ -511,7 +509,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   trafficControlTargets?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets[];
   /**
    * @remarks
-   * The traffic control task ID.
+   * The ID of the traffic control task.
    * 
    * @example
    * 1
@@ -519,7 +517,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The condition for the target user group, in an array format.
+   * The array-formatted conditions for the target user group.
    * 
    * @example
    * [{"field":"gender","option":"=","value":"male"}]
@@ -527,7 +525,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   userConditionArray?: string;
   /**
    * @remarks
-   * The condition for the target user group, in an expression format.
+   * The expression-formatted conditions for the target user group.
    * 
    * @example
    * age<=30&&(3<=level<=6)&&gender=male
@@ -543,7 +541,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   userConditionType?: string;
   /**
    * @remarks
-   * The user table ID.
+   * The ID of the user table.
    * 
    * @example
    * 2
@@ -677,7 +675,7 @@ export class ListTrafficControlTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of traffic control tasks.
+   * The total number of elements in the list.
    * 
    * @example
    * 20

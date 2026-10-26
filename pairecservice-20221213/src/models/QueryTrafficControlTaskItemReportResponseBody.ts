@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItemReports extends $dara.Model {
   /**
    * @remarks
-   * The actual number of controlled items.
+   * The actual number of items that were traffic-controlled.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   actualItemControlNum?: number;
   /**
    * @remarks
-   * The actual traffic of controlled items.
+   * The actual traffic volume for items that were traffic-controlled.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   actualItemControlTraffic?: number;
   /**
    * @remarks
-   * The number of items that reached the control target.
+   * The number of items that have reached the traffic control target.
    * 
    * @example
    * 6
@@ -29,7 +29,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   doneItemControlNum?: number;
   /**
    * @remarks
-   * The number of items that reached the control target, as a percentage of the expected number of controlled items.
+   * The percentage of items that have reached the traffic control target.
    * 
    * @example
    * 20%
@@ -37,7 +37,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   doneItemControlPercentage?: string;
   /**
    * @remarks
-   * The actual number of controlled items as a percentage of the expected number.
+   * The percentage of traffic-controlled items by count.
    * 
    * @example
    * 10%
@@ -45,7 +45,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   itemControlNumPercentage?: string;
   /**
    * @remarks
-   * The actual traffic from controlled items as a percentage of the expected traffic.
+   * The percentage of traffic-controlled items by traffic volume.
    * 
    * @example
    * 20%
@@ -53,7 +53,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   itemControlTrafficPercentage?: string;
   /**
    * @remarks
-   * The expected number of controlled items.
+   * The expected number of items to be traffic-controlled.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItem
   oughtItemControlNum?: number;
   /**
    * @remarks
-   * The expected traffic of controlled items.
+   * The expected traffic volume for items to be traffic-controlled.
    * 
    * @example
    * 1000
@@ -133,7 +133,7 @@ export class QueryTrafficControlTaskItemReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of item control reports.
+   * The list of item-level traffic control reports.
    */
   trafficControlTaskItemReports?: QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItemReports[];
   static names(): { [key: string]: string } {

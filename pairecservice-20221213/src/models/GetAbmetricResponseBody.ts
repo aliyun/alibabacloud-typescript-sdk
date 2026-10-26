@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetABMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to aggregate metrics by user.
+   * Indicates whether to calculate significance by user dimension. Two aggregation logics are available: by user and by sample.
+   * 
+   * @example
+   * true
    */
   aggregationByUser?: boolean;
   /**
    * @remarks
-   * The metric definition.
+   * The definition of the metric.
    * 
    * @example
    * sum(click_cnt)
@@ -18,7 +21,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   definition?: string;
   /**
    * @remarks
-   * The denominator of the derived metric formula.
+   * The denominator used for significance calculation.
    * 
    * @example
    * pv
@@ -26,20 +29,23 @@ export class GetABMetricResponseBody extends $dara.Model {
   denominator?: string;
   /**
    * @remarks
-   * The metric description.
+   * The description of the metric.
    * 
    * @example
-   * 页面访问次数
+   * Page views
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether the metric follows a binomial distribution. This affects how significance is calculated.
+   * Indicates whether the metric follows a binomial distribution when the metric type is derived. If yes, the mean and variance of the metric are calculated based on the binomial distribution.
+   * 
+   * @example
+   * true
    */
   isBinomialDistribution?: boolean;
   /**
    * @remarks
-   * The ID of the left operand metric for a derived metric.
+   * The ID of the left metric for the derived metric.
    * 
    * @example
    * 3
@@ -47,7 +53,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   leftMetricId?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * pv
@@ -55,12 +61,15 @@ export class GetABMetricResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether significance testing is required for this metric.
+   * Indicates whether to calculate significance.
+   * 
+   * @example
+   * true
    */
   needSignificance?: boolean;
   /**
    * @remarks
-   * The numerator of the derived metric formula.
+   * The numerator used for significance calculation.
    * 
    * @example
    * click
@@ -68,15 +77,11 @@ export class GetABMetricResponseBody extends $dara.Model {
   numerator?: string;
   /**
    * @remarks
-   * The operator for the derived metric. Valid values:
-   * 
-   * - `Plus`: addition
-   * 
-   * - `Minus`: subtraction
-   * 
-   * - `Multiplication`: multiplication
-   * 
-   * - `Division`: division
+   * The operator used to calculate the derived metric. Valid values:
+   * - Plus: addition
+   * - Minus: subtraction
+   * - Multiplication: multiplication
+   * - Division: division
    * 
    * @example
    * Division
@@ -84,11 +89,9 @@ export class GetABMetricResponseBody extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Specifies whether the metric is real-time. Valid values:
-   * 
-   * - `true`: The metric is real-time.
-   * 
-   * - `false`: The metric is not real-time.
+   * Indicates whether the metric is a real-time metric. Valid values:
+   * - true: yes
+   * - false: no
    * 
    * @example
    * false
@@ -104,7 +107,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the data source for the results table.
+   * The ID of the data source for the write-back data table.
    * 
    * @example
    * 5
@@ -112,7 +115,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   resultResourceId?: string;
   /**
    * @remarks
-   * The ID of the results table.
+   * The ID of the data table to which data is written back.
    * 
    * @example
    * 3
@@ -120,7 +123,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   resultTableMetaId?: string;
   /**
    * @remarks
-   * The ID of the right operand metric for a derived metric.
+   * The ID of the right metric for the derived metric.
    * 
    * @example
    * 2
@@ -128,7 +131,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   rightMetricId?: string;
   /**
    * @remarks
-   * The scene ID.
+   * The scenario ID.
    * 
    * @example
    * 1
@@ -136,7 +139,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The scene name.
+   * The name of the scenario.
    * 
    * @example
    * home_feed
@@ -144,7 +147,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * The statistics cycle.
+   * The statistical period.
    * 
    * @example
    * 1
@@ -152,7 +155,7 @@ export class GetABMetricResponseBody extends $dara.Model {
   statisticsCycle?: number;
   /**
    * @remarks
-   * The ID of the source table.
+   * The ID of the source data table.
    * 
    * @example
    * 2
@@ -160,11 +163,9 @@ export class GetABMetricResponseBody extends $dara.Model {
   tableMetaId?: string;
   /**
    * @remarks
-   * The type of the metric. Valid values:
-   * 
-   * - `Single`: a single metric.
-   * 
-   * - `Derived`: a derived metric.
+   * The metric type. Valid values:
+   * - Single: single metric
+   * - Derived: derived metric
    * 
    * @example
    * Single

@@ -3,41 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckInstanceResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data source ID.
+   * 
+   * @example
+   * reso-*********
+   */
   resourceId?: string;
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
    * - Hologres
-   * 
    * - EAS
-   * 
    * - BE
-   * 
    * - Rec
-   * 
    * - Platform
-   * 
    * - SLS
-   * 
    * - DataHub
-   * 
    * - Kafka
-   * 
    * - Flinkvvp
-   * 
    * - ACR
-   * 
    * - OSS
-   * 
    * - DataWorks
-   * 
    * - PAI
-   * 
    * - MaxCompute
-   * 
    * - GraphCompute
-   * 
    * - Redis
    * 
    * This parameter is required.

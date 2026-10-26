@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. For information about how to obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The ID of the instance. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -49,7 +49,7 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The field used to sort the results. Valid values:
+   * The sort field. Valid values:
    * - GmtCreateTime: sorts by creation time.
    * - GmtModifiedTime: sorts by update time.
    * 

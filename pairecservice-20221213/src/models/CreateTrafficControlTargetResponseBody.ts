@@ -13,7 +13,7 @@ export class CreateTrafficControlTargetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The traffic control target ID.
+   * The ID of the traffic control target.
    * 
    * @example
    * 1

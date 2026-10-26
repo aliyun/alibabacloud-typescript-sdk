@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the experiment group, in JSON format.
+   * The experiment group configuration.
    * 
    * @example
    * {}
@@ -21,15 +21,12 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   crowdId?: string;
   /**
    * @remarks
-   * The traffic targeting method for the experiment group. Valid values:
+   * The traffic targeting type of the experiment group. Valid values:
    * 
-   * - `All`: All traffic.
-   * 
-   * - `Filter`: Traffic that matches the filter.
-   * 
-   * - `CrowdId`: Traffic from a specified crowd.
-   * 
-   * - `Random`: A random percentage of traffic.
+   * * All: All traffic.
+   * * Filter: Traffic that matches the filter condition.
+   * * CrowdId: Traffic targeted by a specified crowd ID.
+   * * Random: Traffic randomly selected by percentage.
    * 
    * @example
    * All
@@ -45,7 +42,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   debugCrowdId?: string;
   /**
    * @remarks
-   * The IDs of debug users, separated by commas.
+   * The debug users.
    * 
    * @example
    * 1124512470******,1124512471******,1124512472******
@@ -61,7 +58,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The distribution duration. This parameter is required only when `DistributionType` is `TimeDuration`.
+   * The distribution time period.
    * 
    * @example
    * 5
@@ -69,7 +66,9 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   distributionTimeDuration?: number;
   /**
    * @remarks
-   * The traffic distribution method.<br>● `UserId`: by user ID<br>● `TimeDuration`: by time duration<br><br>
+   * The traffic distribution method. Valid values:
+   * ● UserId: User ID.
+   * ● TimeDuration: Time period.
    * 
    * @example
    * UserId
@@ -93,7 +92,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   filter?: string;
   /**
    * @remarks
-   * If `CrowdTargetType` is set to `Random`, this parameter returns the comma-separated IDs of buckets allocated based on the `RandomFlow` value.
+   * When the traffic targeting type of the experiment group is Random, this field returns the specific bucket numbers assigned based on the RandomFlow value.
    * 
    * @example
    * 1,2,3,4
@@ -125,7 +124,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable A/B testing for the experiment group.
+   * Specifies whether an AB experiment group is required.
    * 
    * @example
    * true
@@ -141,7 +140,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   owner?: string;
   /**
    * @remarks
-   * If `CrowdTargetType` is set to `Random`, this parameter specifies the percentage of traffic (an integer from 0 to 100) randomly allocated to the experiment group.
+   * When the traffic targeting type of the experiment group is Random, this field specifies the percentage of random traffic matched to the experiment group. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -149,7 +148,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   randomFlow?: number;
   /**
    * @remarks
-   * The IDs of reserved buckets, separated by commas.
+   * The reserved bucket numbers.
    * 
    * @example
    * 1,2,3,4
@@ -165,7 +164,10 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $dara.Mode
   sceneId?: string;
   /**
    * @remarks
-   * The status of the experiment group. Valid values:<br>● `Offline`: The experiment group is inactive.<br>● `Online`: The experiment group is active.<br>● `Pushed`: The experiment group is fully rolled out.<br><br><br>
+   * The experiment group status. Valid values:
+   * ● Offline: Not online.
+   * ● Online: Online.
+   * ● Pushed: Fully pushed.
    * 
    * @example
    * Offline
@@ -238,7 +240,7 @@ export class ListExperimentGroupsResponseBody extends $dara.Model {
   experimentGroups?: ListExperimentGroupsResponseBodyExperimentGroups[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 59CE7EC6-F268-5D71-9215-32922CC50D72
@@ -246,7 +248,7 @@ export class ListExperimentGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of elements in the list.
    * 
    * @example
    * 10

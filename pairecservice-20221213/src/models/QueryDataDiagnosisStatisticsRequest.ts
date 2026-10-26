@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataDiagnosisStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end date.
+   * The end date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2023-08-08
@@ -21,9 +21,8 @@ export class QueryDataDiagnosisStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The retention rate report type.
-   * 
-   * - Period: A periodic report.
+   * The retention rate report type. Valid values:
+   * - Period: periodic report.
    * 
    * @example
    * Period
@@ -31,7 +30,7 @@ export class QueryDataDiagnosisStatisticsRequest extends $dara.Model {
   remainRateType?: string;
   /**
    * @remarks
-   * The start date.
+   * The start date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2023-08-01

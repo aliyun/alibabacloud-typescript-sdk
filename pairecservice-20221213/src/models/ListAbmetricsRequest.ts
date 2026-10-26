@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListABMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. Call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain the ID.
+   * The instance ID. You can obtain the ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListABMetricsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name to use for filtering metrics.
+   * The name filter.
    * 
    * @example
    * home
@@ -31,7 +31,7 @@ export class ListABMetricsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class ListABMetricsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to filter for real-time metrics.
+   * Specifies whether to filter metrics by real-time type.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class ListABMetricsRequest extends $dara.Model {
   realtime?: boolean;
   /**
    * @remarks
-   * The scene ID. Call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the ID.
+   * The scene ID. You can obtain the ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ListABMetricsRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The data table ID. Call the ListTableMetas operation to obtain the ID.
+   * The ID of the data table. You can obtain the ID by calling ListTableMetas.
    * 
    * @example
    * 1
@@ -63,11 +63,11 @@ export class ListABMetricsRequest extends $dara.Model {
   tableMetaId?: string;
   /**
    * @remarks
-   * The metric type. You can use this parameter to filter the results. Valid values:
+   * The metric type filter. Valid values:
    * 
-   * - `Single`: A single metric.
+   * - Single: Single metric.
    * 
-   * - `Derived`: A derived metric.
+   * - Derived: Derived metric.
    * 
    * @example
    * Single

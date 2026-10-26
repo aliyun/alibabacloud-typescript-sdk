@@ -11,12 +11,12 @@ export class ReportABMetricGroupResponseBody extends $dara.Model {
   experimentReport?: { [key: string]: ExperimentReportValue };
   /**
    * @remarks
-   * The dimensions used for grouping the report data.
+   * The dimension fields.
    */
   groupDimension?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 59CE7EC6-F268-5D71-9215-32922CC50D72

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the data diagnosis task.
+   * The configuration content of the diagnostic node.
    * 
    * @example
    * {"AnalysisField":"userid","PartitionFieldFormat":"yyyymmdd"}
@@ -13,7 +13,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The time for periodic execution. If this field is empty, the task does not execute periodically.
+   * The scheduled run time. If this field is empty, no scheduled runs are performed. The format is HH:mm.
    * 
    * @example
    * 08:00
@@ -21,7 +21,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   cycleTime?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format follows ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -29,7 +29,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The last modified time. The format follows ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,7 +45,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   leftTableMetaId?: string;
   /**
    * @remarks
-   * The partition field of the left data table.
+   * The partition field of the left table.
    * 
    * @example
    * dt
@@ -53,7 +53,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   leftTablePartitionField?: string;
   /**
    * @remarks
-   * The name of the data diagnosis task.
+   * The name of the data modeling diagnostics task.
    * 
    * @example
    * data_diagnosis_job1
@@ -85,7 +85,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   rightTableMetaId?: string;
   /**
    * @remarks
-   * The partition field of the right data table.
+   * The partition field of the right table.
    * 
    * @example
    * dt
@@ -109,7 +109,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   tableMetaName?: string;
   /**
    * @remarks
-   * The Top-N quantity.
+   * The top-N quantity.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class GetDataDiagnosisResponseBody extends $dara.Model {
   topNQuantity?: number;
   /**
    * @remarks
-   * The type of the data diagnosis task.
+   * The type of the data modeling diagnostics task.
    * 
    * @example
    * ChangeRate

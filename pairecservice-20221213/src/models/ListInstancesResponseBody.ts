@@ -13,7 +13,7 @@ export class ListInstancesResponseBodyInstancesConfigDataManagements extends $da
   componentCode?: string;
   /**
    * @remarks
-   * The metadata of the component.
+   * The metadata.
    */
   meta?: { [key: string]: any };
   /**
@@ -63,7 +63,7 @@ export class ListInstancesResponseBodyInstancesConfigEngines extends $dara.Model
   componentCode?: string;
   /**
    * @remarks
-   * The metadata of the component.
+   * The metadata.
    */
   meta?: { [key: string]: any };
   /**
@@ -113,7 +113,7 @@ export class ListInstancesResponseBodyInstancesConfigMonitors extends $dara.Mode
   componentCode?: string;
   /**
    * @remarks
-   * The metadata of the component.
+   * The metadata.
    */
   meta?: { [key: string]: any };
   /**
@@ -155,17 +155,17 @@ export class ListInstancesResponseBodyInstancesConfigMonitors extends $dara.Mode
 export class ListInstancesResponseBodyInstancesConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of data management configurations.
+   * The list of modeling environments.
    */
   dataManagements?: ListInstancesResponseBodyInstancesConfigDataManagements[];
   /**
    * @remarks
-   * A list of service engines.
+   * The list of service engines.
    */
   engines?: ListInstancesResponseBodyInstancesConfigEngines[];
   /**
    * @remarks
-   * A list of monitoring components.
+   * The list of supporting features.
    */
   monitors?: ListInstancesResponseBodyInstancesConfigMonitors[];
   static names(): { [key: string]: string } {
@@ -205,11 +205,9 @@ export class ListInstancesResponseBodyInstancesConfig extends $dara.Model {
 export class ListInstancesResponseBodyInstancesOperatingTool extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the operating tool is enabled for the instance. Valid values:
-   * 
-   * - `true`: The tool is enabled.
-   * 
-   * - `false`: The tool is disabled.
+   * Specifies whether the operations tool is enabled for the instance. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -239,7 +237,7 @@ export class ListInstancesResponseBodyInstancesOperatingTool extends $dara.Model
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the instance. Only `Subscription` (prepaid) is supported.
+   * The billing method of the instance. Only subscription is supported.
    * 
    * @example
    * Subscription
@@ -260,26 +258,26 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   config?: ListInstancesResponseBodyInstancesConfig;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The instance expiration time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
    * 
    * @example
-   * 2022-12-14 00:00:00.0
+   * 2022-12-14T00:00:00Z
    */
   expiredTime?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The instance creation time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
    * 
    * @example
-   * 2022-10-13 17:34:52.0
+   * 2022-10-13T17:34:52Z
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The instance update time. The time follows the ISO 8601 standard and is displayed in the UTC time zone.
    * 
    * @example
-   * 2022-11-05 09:02:30.0
+   * 2022-11-05T09:02:30Z
    */
   gmtModifiedTime?: string;
   /**
@@ -292,20 +290,16 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configuration of the operating tool.
+   * The configuration related to the operations tool.
    */
   operatingTool?: ListInstancesResponseBodyInstancesOperatingTool;
   /**
    * @remarks
    * The region ID. Valid values:
-   * 
-   * - `cn-shenzhen`: China (Shenzhen)
-   * 
-   * - `cn-hangzhou`: China (Hangzhou)
-   * 
-   * - `cn-beijing`: China (Beijing)
-   * 
-   * - `cn-shanghai`: China (Shanghai)
+   * - cn-shenzhen: Shenzhen.
+   * - cn-hangzhou: Hangzhou.
+   * - cn-beijing: Beijing.
+   * - cn-shanghai: Shanghai.
    * 
    * @example
    * cn-shenzhen
@@ -314,12 +308,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * 
-   * - `Initializing`: The instance is initializing.
-   * 
-   * - `Stopped`: The instance is stopped.
-   * 
-   * - `Running`: The instance is running.
+   * - Initializing: Initializing.
+   * - Stopped: Stopped.
+   * - Running: Running.
    * 
    * @example
    * Initializing
@@ -328,14 +319,10 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
-   * - `basic`: Basic Edition
-   * 
-   * - `high-level`: High-level Edition
-   * 
-   * - `advanced`: Advanced Edition
-   * 
-   * - `standard`: Standard Edition
+   * - basic: Basic Edition.
+   * - highleve: Upgraded Edition.
+   * - advance: Advanced Edition.
+   * - standard: Standard Edition.
    * 
    * @example
    * basic
@@ -391,7 +378,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of instances.
+   * The instance list.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
@@ -404,7 +391,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned instances.
+   * The total number of items in the list.
    * 
    * @example
    * 7

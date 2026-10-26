@@ -22,12 +22,9 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The runtime environment. Valid values:
-   * 
-   * - Daily: daily environment.
-   * 
-   * - Pre: staging environment.
-   * 
-   * - Prod: production environment.
+   * - Daily: daily environment
+   * - Pre: staging environment
+   * - Prod: production environment
    * 
    * @example
    * Pre
@@ -35,7 +32,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format, where Z indicates the UTC time zone.
    * 
    * @example
    * 2024-01-03T02:28:00.000Z
@@ -43,7 +40,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is in ISO 8601 format, where Z indicates the UTC time zone.
    * 
    * @example
    * 2024-08-27T12:00:00Z
@@ -51,7 +48,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The publish time.
+   * The release time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-03 02:28:00
@@ -59,7 +56,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   gmtReleasedTime?: string;
   /**
    * @remarks
-   * The engine configuration name.
+   * The name of the engine configuration.
    * 
    * @example
    * engine_config_v1
@@ -74,6 +71,9 @@ export class GetEngineConfigResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The scenario.
+   * 
    * @example
    * 1
    */
@@ -81,10 +81,8 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
-   * - Released: published.
-   * 
-   * - UnReleased: not published.
+   * - Released: released
+   * - UnReleased: unreleased
    * 
    * @example
    * Released
@@ -92,7 +90,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The engine configuration type.
+   * The type of the engine configuration.
    * 
    * @example
    * Normal

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrafficControlTargetResponseBodySplitParts extends $dara.Model {
   /**
    * @remarks
-   * The set points.
+   * The target value split points.
    */
   setPoints?: number[];
   /**
    * @remarks
-   * The set values.
+   * The target setting values.
    */
   setValues?: number[];
   /**
    * @remarks
-   * The time points.
+   * The time split points.
    */
   timePoints?: number[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetTrafficControlTargetResponseBodySplitParts extends $dara.Model {
 export class GetTrafficControlTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. Format: YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -63,7 +63,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The event of the control target.
+   * The traffic control target event.
    * 
    * @example
    * click
@@ -71,7 +71,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The time when the traffic control target was created.
+   * The creation time. Format: ISO 8601, where Z indicates the UTC time zone.
    * 
    * @example
    * 2024-01-03T02:28:00.000Z
@@ -79,7 +79,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The item condition, specified in an array format.
+   * The item conditions in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -87,7 +87,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition, specified in an expression format.
+   * The item conditions in expression format.
    * 
    * @example
    * status=1
@@ -103,7 +103,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   itemConditionType?: string;
   /**
    * @remarks
-   * The name of the traffic control target.
+   * The traffic control target.
    * 
    * @example
    * target-1
@@ -111,7 +111,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether new product regulation is enabled.
+   * Indicates whether the regulation applies to new products.
    * 
    * @example
    * false
@@ -119,7 +119,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   newProductRegulation?: boolean;
   /**
    * @remarks
-   * The name of the recall strategy.
+   * The recall policy name.
    * 
    * @example
    * recall-1
@@ -127,7 +127,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   recallName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
@@ -135,12 +135,12 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The piecewise control settings.
+   * The target setting values.
    */
   splitParts?: GetTrafficControlTargetResponseBodySplitParts;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -148,7 +148,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The statistics period.
+   * The statistical period.
    * 
    * @example
    * Daily
@@ -156,15 +156,17 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   statisPeriod?: string;
   /**
    * @remarks
-   * The status of the traffic control target.
+   * The status.
    * 
    * @example
-   * 枚举值：开启：Opened关闭：Closed
+   * Valid values:
+   * - Opened: Enabled.
+   * - Closed: Disabled
    */
   status?: string;
   /**
    * @remarks
-   * The tolerance value.
+   * The tolerance range of the traffic control target.
    * 
    * @example
    * 10
@@ -188,7 +190,7 @@ export class GetTrafficControlTargetResponseBody extends $dara.Model {
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The value of the control target.
+   * The traffic control target value.
    * 
    * @example
    * 30

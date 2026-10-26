@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficControlTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return all results without pagination.
+   * Specifies whether to return all data without pagination.
    * 
    * @example
    * false
@@ -15,11 +15,11 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The filter for traffic control targets. Valid values:
    * 
-   * - `All`: Returns all traffic control targets.
+   * - All: all targets.
    * 
-   * - `Valid`: Returns only active traffic control targets. A traffic control target is active if the current time is within the specified start and end time.
+   * - Valid: valid targets (in the enabling status within the start and end time period).
    * 
-   * - `None`: Does not return any traffic control targets.
+   * - None: no targets.
    * 
    * @example
    * All
@@ -27,13 +27,13 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   controlTargetFilter?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment. Valid values:
    * 
-   * - `Daily`: the daily environment
+   * - Daily: daily environment.
    * 
-   * - `Pre`: the pre-production environment
+   * - Pre: pre-release environment.
    * 
-   * - `Prod`: the production environment
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -41,7 +41,7 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain this ID by calling the [ListInstances](https://icms.alibaba-inc.com/content/learn/pai?l=1\\&m=16768\\&n=4300782) operation.
+   * The instance ID. You can obtain the ID by calling the [ListInstances](https://icms.alibaba-inc.com/content/learn/pai?l=1&m=16768&n=4300782) operation.
    * 
    * @example
    * pairec-cn-********
@@ -57,11 +57,10 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sorting order. Valid values:
    * 
-   * - `ASC`: ascending order
-   * 
-   * - `DESC`: descending order
+   * - ASC: ascending order.
+   * - DESC: descending order.
    * 
    * @example
    * ASC
@@ -85,7 +84,7 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the scene. You can obtain this ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+   * The ID of the scene. You can obtain the ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
    * 
    * @example
    * 1
@@ -93,11 +92,9 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The field by which to sort the results. Valid values:
-   * 
-   * - `GmtCreateTime`: Sorts the results by creation time.
-   * 
-   * - `GmtModifiedTime`: Sorts the results by modification time.
+   * The sorting criterion. Valid values:
+   * - GmtCreateTime: creation time.
+   * - GmtModifiedTime: update time.
    * 
    * @example
    * GmtCreateTime
@@ -105,15 +102,15 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The status. Valid values:
    * 
-   * - `NotRunning`: The task is not running.
+   * - NotRunning: not running.
    * 
-   * - `Ready`: The task is ready to run.
+   * - Ready: pending.
    * 
-   * - `Running`: The task is running.
+   * - Running: running.
    * 
-   * - `Finished`: The task is finished.
+   * - Finished: finished.
    * 
    * @example
    * Running
@@ -131,9 +128,9 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The version. Valid values:
    * 
-   * - `Latest`: The latest version. This is the default value.
+   * - Latest: latest version. Default value.
    * 
-   * - `Released`: the released version
+   * - Released: released version.
    * 
    * @example
    * Latest

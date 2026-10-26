@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails extends $dara.Model {
   /**
    * @remarks
-   * Key-value pairs for the traffic control target.
+   * The key-value pairs restricted in the traffic control target.
    */
   features?: { [key: string]: any };
   /**
@@ -18,7 +18,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
   itemId?: string;
   /**
    * @remarks
-   * The progress toward the target.
+   * The completion progress.
    * 
    * @example
    * 49%
@@ -26,7 +26,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
   targetProgress?: string;
   /**
    * @remarks
-   * The target traffic.
+   * The actual traffic.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
 export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails extends $dara.Model {
   /**
    * @remarks
-   * Key-value pairs for the traffic control target.
+   * The key-value pairs restricted in the traffic control target.
    */
   features?: { [key: string]: any };
   /**
@@ -78,7 +78,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
   itemId?: string;
   /**
    * @remarks
-   * The progress toward the target.
+   * The completion progress.
    * 
    * @example
    * 49%
@@ -86,7 +86,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
   targetProgress?: string;
   /**
    * @remarks
-   * The target traffic.
+   * The actual traffic.
    * 
    * @example
    * 20
@@ -125,12 +125,12 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
 export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail extends $dara.Model {
   /**
    * @remarks
-   * Report details for the tail 100 controlled items.
+   * The list of details for the bottom 100 items after traffic control.
    */
   itemControlTailReportDetails?: QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails[];
   /**
    * @remarks
-   * Report details for the top 100 controlled items.
+   * The list of details for the top 100 items before traffic control.
    */
   itemControlTopReportDetails?: QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails[];
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
 export class QueryTrafficControlTargetItemReportDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
@@ -173,7 +173,7 @@ export class QueryTrafficControlTargetItemReportDetailResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * Traffic control details for an item.
+   * The item traffic control details.
    */
   trafficControlTargetItemReportDetail?: QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail;
   static names(): { [key: string]: string } {

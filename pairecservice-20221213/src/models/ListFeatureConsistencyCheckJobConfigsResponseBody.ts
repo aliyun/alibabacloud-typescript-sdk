@@ -5,21 +5,63 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether feature comparison is enabled.
+   * Specifies whether feature comparison is enabled.
    * 
    * @example
    * true
    */
   compareFeature?: boolean;
+  /**
+   * @remarks
+   * The dataset ID.
+   * 
+   * @example
+   * s-xxx
+   */
   datasetId?: string;
+  /**
+   * @remarks
+   * The mount path of the dataset.
+   * 
+   * @example
+   * mnt/xxx
+   */
   datasetMountPath?: string;
+  /**
+   * @remarks
+   * The dataset name.
+   * 
+   * @example
+   * test
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * The dataset type.
+   * 
+   * @example
+   * OSS
+   */
   datasetType?: string;
+  /**
+   * @remarks
+   * The URI of the dataset.
+   * 
+   * @example
+   * oss-xxx
+   */
   datasetUri?: string;
+  /**
+   * @remarks
+   * The default gateway. Eth0 indicates the public gateway, and Eth1 indicates the dedicated gateway.
+   * 
+   * @example
+   * Eth0
+   */
   defaultRoute?: string;
   /**
    * @remarks
-   * The service name of EAS.
+   * The EAS service name.
    * 
    * @example
    * eas_service_1
@@ -27,7 +69,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   easServiceName?: string;
   /**
    * @remarks
-   * The path of the EasyRec package.
+   * The EasyRec package path.
    * 
    * @example
    * oss://*******
@@ -35,7 +77,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   easyRecPackagePath?: string;
   /**
    * @remarks
-   * The version of EasyRec.
+   * The EasyRec version.
    * 
    * @example
    * 1.3.60
@@ -51,7 +93,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureConsistencyCheckJobConfigId?: string;
   /**
    * @remarks
-   * The features to exclude from display. Separate multiple features with commas (,).
+   * The features excluded from display. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2
@@ -59,7 +101,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureDisplayExclude?: string;
   /**
    * @remarks
-   * The ID of the data landing resource.
+   * The ID of the data source for data backflow.
    * 
    * @example
    * reso-********
@@ -67,7 +109,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureLandingResourceId?: string;
   /**
    * @remarks
-   * The URI of the data landing resource.
+   * The URI of the data source for data backflow.
    * 
    * @example
    * mc_project_1
@@ -75,7 +117,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureLandingResourceUri?: string;
   /**
    * @remarks
-   * The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
+   * The priority of features. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
    * 
    * @example
    * feature1,feature2,feature3
@@ -83,7 +125,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featurePriority?: string;
   /**
    * @remarks
-   * The primary key on the item side in Feature Store.
+   * The primary key on the item side of the feature store.
    * 
    * @example
    * item
@@ -91,7 +133,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreItemId?: string;
   /**
    * @remarks
-   * feature store model ID。
+   * The feature store model ID.
    * 
    * @example
    * 2
@@ -99,7 +141,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreModelId?: string;
   /**
    * @remarks
-   * The Feature Store project ID.
+   * The ID of the feature store project.
    * 
    * @example
    * prj-01
@@ -107,7 +149,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreProjectId?: string;
   /**
    * @remarks
-   * The Feature Store project name.
+   * The name of the feature store project.
    * 
    * @example
    * project-1
@@ -115,7 +157,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreProjectName?: string;
   /**
    * @remarks
-   * The name of the feature view that contains the item features in the sequence feature.
+   * The name of the feature view to which the item features in the sequence features belong.
    * 
    * @example
    * item-1
@@ -123,7 +165,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreSeqFeatureView?: string;
   /**
    * @remarks
-   * The primary key on the user side in Feature Store.
+   * The primary key on the user side of the feature store.
    * 
    * @example
    * user
@@ -131,7 +173,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreUserId?: string;
   /**
    * @remarks
-   * The version of fg_jar.
+   * The fg_jar version.
    * 
    * @example
    * 1.0.0
@@ -147,7 +189,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   fgJsonFileName?: string;
   /**
    * @remarks
-   * Indicates whether a zip package needs to be generated.
+   * Specifies whether to generate a ZIP package.
    * 
    * @example
    * true
@@ -155,7 +197,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   generateZip?: boolean;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time. The time is formatted in ISO 8601 and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -163,7 +205,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the configuration was last updated.
+   * The update time. The time is formatted in ISO 8601 and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -195,7 +237,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   itemTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the item table partition field. Valid values:
+   * The format of the partition field in the item table. Valid values:
    * - yyyymmdd
    * - yyyy-mm-dd
    * 
@@ -205,7 +247,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   itemTablePartitionFieldFormat?: string;
   /**
    * @remarks
-   * The end time of the most recently created job.
+   * The end time of the latest job. The time is formatted in ISO 8601 and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -213,7 +255,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   latestJobGmtSamplingEndTime?: string;
   /**
    * @remarks
-   * The start time of the most recently created job.
+   * The start time of the latest job. The time is formatted in ISO 8601 and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -221,7 +263,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   latestJobGmtSamplingStartTime?: string;
   /**
    * @remarks
-   * The ID of the most recently created job based on this configuration.
+   * The ID of the latest job created based on this configuration.
    * 
    * @example
    * 3
@@ -251,9 +293,37 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
    * reso-********
    */
   ossResourceId?: string;
+  /**
+   * @remarks
+   * The number of workers used to execute the prediction script.
+   * 
+   * @example
+   * 1
+   */
   predictWorkerCount?: number;
+  /**
+   * @remarks
+   * The CPU resources allocated to each worker when executing the prediction script.
+   * 
+   * @example
+   * 4
+   */
   predictWorkerCpu?: number;
+  /**
+   * @remarks
+   * The memory resources allocated to each worker when executing the prediction script.
+   * 
+   * @example
+   * 32000
+   */
   predictWorkerMemory?: number;
+  /**
+   * @remarks
+   * The resource configuration.
+   * 
+   * @example
+   * {}
+   */
   resourceConfig?: string;
   /**
    * @remarks
@@ -279,10 +349,17 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
    * scene1
    */
   sceneName?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxx
+   */
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 4
@@ -299,20 +376,26 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   /**
    * @remarks
    * The status. Valid values:
-   * - Editable: Editable.
-   * - Uneditable: Not editable.
+   * - Editable: The configuration is editable.
+   * - Uneditable: The configuration is not editable.
    * 
    * @example
    * Editable
    */
   status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vswitch-xxx
+   */
   switchId?: string;
   /**
    * @remarks
-   * Indicates whether Feature Store is used. Valid values:
-   * 
-   * - true: Feature Store is used. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
-   * - false: Feature Store is not used. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
+   * Specifies whether to use the feature store. Valid values:
+   * - true: Uses the feature store. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
+   * - false: Does not use the feature store. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
    * 
    * @example
    * true
@@ -344,7 +427,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   userTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the user table partition field. Valid values:
+   * The format of the partition field in the user table. Valid values:
    * - yyyymmdd
    * - yyyy-mm-dd
    * 
@@ -352,6 +435,13 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
    * yyyymmdd
    */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-xxx
+   */
   vpcId?: string;
   /**
    * @remarks
@@ -361,6 +451,13 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
    * work_flow_1
    */
   workflowName?: string;
+  /**
+   * @remarks
+   * The ID of the PAI workspace.
+   * 
+   * @example
+   * test
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -496,7 +593,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
 export class ListFeatureConsistencyCheckJobConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of feature consistency check configurations.
+   * The feature consistency check configurations.
    */
   featureConsistencyCheckConfigs?: ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs[];
   /**
@@ -509,7 +606,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 10

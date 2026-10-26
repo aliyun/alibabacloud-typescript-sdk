@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   /**
    * @remarks
-   * The alias for the experiment ID.
+   * The alias of the experiment ID.
    * 
    * @example
    * L1#EG1#E1
@@ -13,7 +13,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   aliasExperimentId?: string;
   /**
    * @remarks
-   * The allocated bucket numbers.
+   * The allocated bucket number.
    * 
    * @example
    * 1,2,3
@@ -21,7 +21,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * The configuration of the experiment.
+   * The experiment configuration.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The ID of the debug crowd.
+   * The debug crowd ID.
    * 
    * @example
    * 3
@@ -37,7 +37,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * A comma-separated list of user IDs for debugging.
+   * The debug users.
    * 
    * @example
    * uid1,uid2,uid3
@@ -45,7 +45,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   debugUsers?: string;
   /**
    * @remarks
-   * The description of the experiment.
+   * The experiment description.
    * 
    * @example
    * This is a test.
@@ -53,7 +53,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the experiment group.
+   * The experiment group ID.
    * 
    * @example
    * 3
@@ -61,7 +61,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The ID of the experiment.
+   * The experiment ID.
    * 
    * @example
    * 3
@@ -69,7 +69,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The percentage of flow allocated to the experiment.
+   * The traffic allocation percentage.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   flowPercent?: number;
   /**
    * @remarks
-   * The timestamp indicating when the experiment was created.
+   * The creation time. The value is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -85,7 +85,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The timestamp indicating when the experiment was last modified.
+   * The update time. The value is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -93,7 +93,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The ID of the laboratory.
+   * The laboratory ID.
    * 
    * @example
    * 3
@@ -101,7 +101,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   laboratoryId?: string;
   /**
    * @remarks
-   * The ID of the layer.
+   * The layer ID.
    * 
    * @example
    * 3
@@ -109,7 +109,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   layerId?: string;
   /**
    * @remarks
-   * The name of the experiment.
+   * The experiment name.
    * 
    * @example
    * experiment_test1
@@ -117,7 +117,7 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the scene.
+   * The scene ID.
    * 
    * @example
    * 3
@@ -125,11 +125,10 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The status of the experiment. Valid values:
+   * The status filter. Valid values:
    * 
-   * - `Offline`: The experiment is inactive and does not receive flow.
-   * 
-   * - `Online`: The experiment is active and can receive flow.
+   * - Offline: Not online.
+   * - Online: Online.
    * 
    * @example
    * Offline
@@ -137,11 +136,10 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the experiment. Valid values:
+   * The experiment type. Valid values:
    * 
-   * - `Baseline`: The control experiment.
-   * 
-   * - `Normal`: A variant experiment.
+   * - Baseline: Baseline experiment.
+   * - Normal: Common experiment.
    * 
    * @example
    * Baseline
@@ -203,12 +201,12 @@ export class ListExperimentsResponseBodyExperiments extends $dara.Model {
 export class ListExperimentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of experiments.
+   * The experiment list.
    */
   experiments?: ListExperimentsResponseBodyExperiments[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 68075085-1A7D-55C2-B51D-7AD9B02A6DD6
@@ -216,7 +214,7 @@ export class ListExperimentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of experiments returned.
+   * The total number of elements in the list.
    * 
    * @example
    * 10

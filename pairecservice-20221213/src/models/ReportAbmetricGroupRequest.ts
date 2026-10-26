@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReportABMetricGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the base experiment.
+   * The ID of the baseline experiment.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   dimensionFields?: string;
   /**
    * @remarks
-   * The end date.
+   * The end date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2021-07-01
@@ -31,7 +31,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The ID of the experiment group. You can call the [ListExperimentGroups](https://help.aliyun.com/document_detail/2402573.html) operation to obtain the ID of the experiment group. This parameter is required for offline and real-time reports.
+   * The ID of the experiment group. You can call the [ListExperimentGroups](https://help.aliyun.com/document_detail/2402573.html) operation to obtain the ID. This parameter is required for offline and real-time reports.
    * 
    * @example
    * 3
@@ -39,7 +39,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The IDs of the experiments. You can call the [ListExperiments](https://help.aliyun.com/document_detail/2402582.html) operation to obtain the IDs of the experiments.
+   * The list of experiment IDs. You can call the [ListExperiments](https://help.aliyun.com/document_detail/2402582.html) operation to obtain the IDs.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   experimentIds?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain the instance ID.
+   * Instance ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain instance ID.
    * 
    * This parameter is required.
    * 
@@ -59,13 +59,10 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the report.
-   * 
-   * - Realtime: real-time report.
-   * 
-   * - Offline: offline report.
-   * 
-   * - Market: dashboard report.
+   * The report type. Valid values:
+   * - Realtime: real-time report
+   * - Offline: offline report
+   * - Market: dashboard report
    * 
    * This parameter is required.
    * 
@@ -75,7 +72,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The ID of the scene. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the scene ID.
+   * The ID of the scene. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the ID.
    * 
    * @example
    * 1
@@ -83,7 +80,7 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The start date.
+   * The start date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2021-07-01
@@ -91,11 +88,9 @@ export class ReportABMetricGroupRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The time statistics method. This parameter is required for real-time reports.
-   * 
-   * - Hour: The statistics are collected by hour.
-   * 
-   * - Day: The statistics are accumulated from 00:00 on the current day.
+   * The statistical time type. This parameter is required for real-time reports. Valid values:
+   * - Hour: hourly statistics
+   * - Day: cumulative statistics starting from 00:00 on the current day
    * 
    * @example
    * Hour

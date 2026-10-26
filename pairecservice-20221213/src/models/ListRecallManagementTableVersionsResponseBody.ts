@@ -13,7 +13,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   dataVersion?: string;
   /**
    * @remarks
-   * The effective time.
+   * The effective period. Format: YYYY-MM-DDTHH:mm:ss.SSS.
    * 
    * @example
    * 2021-12-15T23:24:33.132
@@ -21,7 +21,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   effectiveTime?: string;
   /**
    * @remarks
-   * The sync end time.
+   * The synchronization end time. Format: YYYY-MM-DDTHH:mm:ss.SSS.
    * 
    * @example
    * 2021-12-15T23:24:33.132
@@ -29,7 +29,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   publishEndTime?: string;
   /**
    * @remarks
-   * The sync start time.
+   * The synchronization start time. Format: YYYY-MM-DDTHH:mm:ss.SSS.
    * 
    * @example
    * 2021-12-15T22:24:33.132
@@ -37,7 +37,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   publishStartTime?: string;
   /**
    * @remarks
-   * The ID of the RecallManagementTable version.
+   * The version ID.
    * 
    * @example
    * 202507010000
@@ -45,7 +45,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   recallManagementTableVersionId?: string;
   /**
    * @remarks
-   * The source table data size.
+   * The data size of the source data table.
    * 
    * @example
    * 1000
@@ -53,7 +53,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   sourceTableDataSize?: number;
   /**
    * @remarks
-   * The source table row count.
+   * The number of rows in the source data table.
    * 
    * @example
    * 100
@@ -61,11 +61,9 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
   sourceTableRowCount?: number;
   /**
    * @remarks
-   * The status of the version. Valid values:
-   * 
-   * - Online: The version is online.
-   * 
-   * - Offline: The version is offline.
+   * The status. Valid values:
+   * - Online: online
+   * - Offline: offline
    * 
    * @example
    * Online
@@ -109,7 +107,7 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
 export class ListRecallManagementTableVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of RecallManagementTable versions.
+   * The list of recall management table versions.
    */
   recallManagementTableVersions?: ListRecallManagementTableVersionsResponseBodyRecallManagementTableVersions[];
   /**
@@ -122,7 +120,7 @@ export class ListRecallManagementTableVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 10

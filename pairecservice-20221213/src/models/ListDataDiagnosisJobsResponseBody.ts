@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2023-05-28
@@ -13,7 +13,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   bizDate?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The task configuration.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   config?: string;
   /**
    * @remarks
-   * The data diagnosis configuration ID.
+   * The ID of the data diagnostic configuration.
    * 
    * @example
    * 3
@@ -29,15 +29,15 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   dataDiagnosisConfigId?: string;
   /**
    * @remarks
-   * The data diagnosis configuration name.
+   * The name of the data diagnostic configuration.
    * 
    * @example
-   * 异常行为分析-xxx
+   * Abnormal behavior analysis-xxx
    */
   dataDiagnosisConfigName?: string;
   /**
    * @remarks
-   * The data diagnosis job ID.
+   * The ID of the data diagnostic task.
    * 
    * @example
    * 3
@@ -45,7 +45,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   dataDiagnosisJobId?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The format is ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -53,7 +53,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the job started.
+   * The execution time. The format is ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -61,13 +61,13 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   gmtStartTime?: string;
   /**
    * @remarks
-   * The job source. Valid values:
+   * The task source. Valid values:
    * 
-   * - Rerun: A manual rerun.
+   * - Rerun: Manual rerun.
    * 
-   * - Cycle: A periodic run.
+   * - Cycle: Periodic generation.
    * 
-   * - ByInitializing: Generated during initialization.
+   * - ByInitializing: Initialization generation.
    * 
    * @example
    * Cycle
@@ -75,7 +75,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   jobSource?: string;
   /**
    * @remarks
-   * The log messages.
+   * The list of log information.
    */
   logs?: string[];
   /**
@@ -88,7 +88,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The data diagnosis type.
+   * The data diagnostic type.
    * 
    * @example
    * ChangeRate
@@ -141,7 +141,7 @@ export class ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs extends $dara.Mo
 export class ListDataDiagnosisJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data diagnosis jobs.
+   * The list of data diagnostic tasks.
    */
   dataDiagnosisJobs?: ListDataDiagnosisJobsResponseBodyDataDiagnosisJobs[];
   /**
@@ -154,7 +154,7 @@ export class ListDataDiagnosisJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 20

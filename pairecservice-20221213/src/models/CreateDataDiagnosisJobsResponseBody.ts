@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataDiagnosisJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of data diagnosis job IDs.
+   * The list of data modeling diagnostics node IDs.
    */
   dataDiagnosisJobIds?: string[];
   /**

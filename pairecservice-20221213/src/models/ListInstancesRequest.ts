@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can use this parameter to perform a fuzzy search for instances.
+   * The instance ID for fuzzy matching.
    * 
    * @example
    * pairec-test1
@@ -13,7 +13,7 @@ export class ListInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `Asc` (ascending) and `Desc` (descending).
+   * The sort order.
    * 
    * @example
    * Desc
@@ -21,7 +21,7 @@ export class ListInstancesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort criterion.
    * 
    * @example
    * Type
@@ -46,14 +46,10 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
-   * - `basic`: Basic edition
-   * 
-   * - `high-level`: High-level edition
-   * 
-   * - `advanced`: Advanced edition
-   * 
-   * - `standard`: Standard edition
+   * - basic: Basic Edition.
+   * - highleve: Upgraded Edition.
+   * - advance: Advanced Edition.
+   * - standard: Standard Edition.
    * 
    * @example
    * basic

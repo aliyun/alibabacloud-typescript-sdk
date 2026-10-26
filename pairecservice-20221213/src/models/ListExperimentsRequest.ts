@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the experiment group.
+   * The experiment group ID.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class ListExperimentsRequest extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The instance ID. You can call the ListInstances operation to obtain the ID.
+   * The instance ID. You can call ListInstances to retrieve the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListExperimentsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The filter parameter for quick search. All experiments that match the names or tags are returned.
+   * The filter parameter for quick search. Returns all experiments whose name or label matches the specified value.
    * 
    * @example
    * experiment_test1
@@ -31,11 +31,10 @@ export class ListExperimentsRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The status of the experiment. Valid values:
+   * The status filter. Valid values:
    * 
-   * - Offline
-   * 
-   * - Online
+   * - Offline: Not online.
+   * - Online: Online.
    * 
    * @example
    * Offline

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLayersRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can obtain this ID by calling the ListInstances API.
+   * The instance ID. You can obtain this ID by calling the ListInstances operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListLayersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The laboratory ID. You can obtain this ID by calling the ListLaboratories API.
+   * The laboratory ID. You can obtain this ID by calling the ListLaboratories operation.
    * 
    * This parameter is required.
    * 

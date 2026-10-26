@@ -15,9 +15,8 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * **The synchronization mode.** Valid values:
-   * 
-   * - `Merge`: Adds new data and updates existing data.
+   * **The enumeration value for the table synchronization mode**:
+   * - `Merge`: Merge.
    * 
    * @example
    * Merge
@@ -25,22 +24,30 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The table partitions to publish.
+   * The partition of the table to be published.
    */
   partition?: { [key: string]: string };
   /**
    * @remarks
-   * The table partitions to publish.
+   * The partition of the table to be published.
    */
   partitions?: { [key: string]: string };
   /**
    * @remarks
-   * **Specifies whether to skip the threshold check during table synchronization.**
+   * **Specifies whether to skip the threshold check when synchronizing the table.**
    * 
    * @example
    * false
    */
   skipThresholdCheck?: boolean;
+  /**
+   * @remarks
+   * The start time of incremental data playback (UNIX milliseconds).
+   * 
+   * @example
+   * 1792512000000
+   */
+  startTimestampMs?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -48,6 +55,7 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
       partition: 'Partition',
       partitions: 'Partitions',
       skipThresholdCheck: 'SkipThresholdCheck',
+      startTimestampMs: 'StartTimestampMs',
     };
   }
 
@@ -58,6 +66,7 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
       partition: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       partitions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       skipThresholdCheck: 'boolean',
+      startTimestampMs: 'number',
     };
   }
 

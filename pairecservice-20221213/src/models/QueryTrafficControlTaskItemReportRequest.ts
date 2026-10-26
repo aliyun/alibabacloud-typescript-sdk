@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,10 @@ export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The execution environment for the task. Valid values: Daily (development environment), Pre (staging environment), Prod (production environment).
+   * The environment to which the task belongs. Valid values:
+   * - Daily: daily environment
+   * - Pre: pre-release environment
+   * - Prod: production environment
    * 
    * This parameter is required.
    * 
@@ -35,7 +38,7 @@ export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * This parameter is required.
    * 

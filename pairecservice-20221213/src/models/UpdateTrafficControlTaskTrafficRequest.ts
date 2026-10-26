@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model {
   /**
    * @remarks
-   * The identifier for the traffic object. This can be an item ID, such as `item1`, an experiment ID, a global identifier (`ER_ALL`), or a value in `L1_EG1_E1` format.
+   * The traffic object, which can be an item or an experiment item. Valid values: item1, ER_ALL (global), or a value in the L1_EG1_E1 format.
    * 
    * @example
    * item1
@@ -13,7 +13,7 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
   itemOrExperimentId?: string;
   /**
    * @remarks
-   * The timestamp from the behavior log. This indicates that the log data is current as of this timestamp.
+   * The timestamp from the behavior log, indicating the log cutoff time. The value is in ISO 8601 format, using Z to indicate the UTC time zone.
    * 
    * @example
    * 2024-01-01T02:05:06.111Z
@@ -21,7 +21,7 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
   recordTime?: string;
   /**
    * @remarks
-   * The configured target traffic for the traffic control target.
+   * The target traffic of the traffic control target.
    * 
    * @example
    * 10.0
@@ -29,7 +29,7 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
   trafficControlTargetAimTraffic?: number;
   /**
    * @remarks
-   * The traffic control target ID.
+   * The ID of the traffic control target.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
   trafficControlTargetId?: string;
   /**
    * @remarks
-   * The actual traffic volume observed for the traffic control target.
+   * The actual traffic of the traffic control target.
    * 
    * @example
    * 100000
@@ -45,7 +45,7 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
   trafficControlTargetTraffic?: number;
   /**
    * @remarks
-   * The total traffic for the traffic control task.
+   * The overall traffic under the traffic control plan.
    * 
    * @example
    * 1000000
@@ -85,7 +85,10 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
 export class UpdateTrafficControlTaskTrafficRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment. Valid values: `Daily` (daily environment), `Pre` (pre-release environment), and `Prod` (production environment).
+   * The environment to which the task belongs. Valid values:
+   * - Daily: daily environment
+   * - Pre: pre-release environment
+   * - Prod: production environment
    * 
    * @example
    * Daily
@@ -101,12 +104,12 @@ export class UpdateTrafficControlTaskTrafficRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of traffic objects to report.
+   * The list of reported traffic information.
    */
   traffics?: UpdateTrafficControlTaskTrafficRequestTraffics[];
   /**
    * @remarks
-   * This parameter is invalid and should be ignored.
+   * Invalid parameter. Ignore this parameter.
    * 
    * @example
    * null

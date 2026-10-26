@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubCrowdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the sub-crowd was created.
+   * The time when the crowd was created. The time is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -13,7 +13,7 @@ export class GetSubCrowdResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The number of users in the sub-crowd.
+   * The number of users in the crowd.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class GetSubCrowdResponseBody extends $dara.Model {
   quantity?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 01D22D08-BA20-5F35-8302-99115F288220
@@ -29,7 +29,9 @@ export class GetSubCrowdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The source of the sub-crowd. Valid values:
+   * The source of the crowd. Valid values:
+   * - ManualInput: manual input
+   * - UploadFile: file upload
    * 
    * @example
    * ManualInput
@@ -37,7 +39,7 @@ export class GetSubCrowdResponseBody extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The users in the sub-crowd.
+   * The users in the crowd.
    * 
    * @example
    * user1,user2

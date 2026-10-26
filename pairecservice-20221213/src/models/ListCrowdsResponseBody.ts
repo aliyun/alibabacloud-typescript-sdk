@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   /**
    * @remarks
-   * The Crowd ID.
+   * The ID of the crowd.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   crowdId?: string;
   /**
    * @remarks
-   * The Crowd description.
+   * The description of the crowd.
    * 
    * @example
    * This is a test.
@@ -21,7 +21,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the Crowd was created.
+   * The time when the crowd was created. The time is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -29,7 +29,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The label of the Crowd.
+   * The label of the crowd.
    * 
    * @example
    * os=android
@@ -37,7 +37,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The Crowd name.
+   * The name of the crowd.
    * 
    * @example
    * crowd1
@@ -45,7 +45,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of users in the Crowd.
+   * The quantity.
    * 
    * @example
    * 10
@@ -53,11 +53,10 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   quantity?: string;
   /**
    * @remarks
-   * The source of the Crowd. Valid values:
+   * The source of the crowd.
    * 
-   * - `ManualInput`: The Crowd is created from a manual entry of users.
-   * 
-   * - `UploadFile`: The Crowd is created from an uploaded file.
+   * - ManualInput: Manual input
+   * - UploadFile: File upload
    * 
    * @example
    * ManualInput
@@ -65,7 +64,7 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The user IDs in the Crowd, separated by commas.
+   * The users included in the crowd. Multiple users are separated by commas.
    * 
    * @example
    * user1,user2
@@ -109,12 +108,12 @@ export class ListCrowdsResponseBodyCrowds extends $dara.Model {
 export class ListCrowdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of Crowds.
+   * The list of crowds.
    */
   crowds?: ListCrowdsResponseBodyCrowds[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
@@ -122,7 +121,7 @@ export class ListCrowdsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of Crowds.
+   * The total number of elements in the list.
    * 
    * @example
    * 10

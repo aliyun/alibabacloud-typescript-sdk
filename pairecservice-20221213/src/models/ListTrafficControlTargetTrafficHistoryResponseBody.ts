@@ -21,7 +21,7 @@ export class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTas
   itemId?: string;
   /**
    * @remarks
-   * The timestamp of the record.
+   * The time in the behavior table, up to the current time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-10-10 10:10:58
@@ -29,7 +29,7 @@ export class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTas
   recordTime?: string;
   /**
    * @remarks
-   * The intended traffic for the traffic control target.
+   * The target traffic of the traffic control target.
    * 
    * @example
    * 30
@@ -93,7 +93,7 @@ export class ListTrafficControlTargetTrafficHistoryResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The total count of historical records.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -101,7 +101,7 @@ export class ListTrafficControlTargetTrafficHistoryResponseBody extends $dara.Mo
   totalCount?: string;
   /**
    * @remarks
-   * A list of the traffic control history records.
+   * The traffic control history records.
    */
   trafficControlTaskTrafficHistories?: ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories[];
   static names(): { [key: string]: string } {

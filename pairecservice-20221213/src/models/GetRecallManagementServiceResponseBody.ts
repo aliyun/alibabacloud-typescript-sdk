@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecallManagementServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the active version of the recall management service.
+   * The ID of the active recall management service version.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetRecallManagementServiceResponseBody extends $dara.Model {
   currentRecallManagementServiceVersionId?: string;
   /**
    * @remarks
-   * The name of the active version of the recall management service.
+   * The name of the active recall management service version.
    * 
    * @example
    * version-1
@@ -29,7 +29,7 @@ export class GetRecallManagementServiceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -37,7 +37,7 @@ export class GetRecallManagementServiceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -69,11 +69,9 @@ export class GetRecallManagementServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the recall management service. Valid values:
-   * 
-   * - Online: The service is running and available.
-   * 
-   * - Offline: The service is stopped or unavailable.
+   * The status. Valid values:
+   * - Online: Online.
+   * - Offline: Offline.
    * 
    * @example
    * Online

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRecallManagementTablesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * This parameter is not in effect.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class ListRecallManagementTablesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * This parameter is not in effect.
    * 
    * @example
    * ""
@@ -39,7 +39,9 @@ export class ListRecallManagementTablesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order for the results. Valid values: `ASC` (ascending) and `DESC` (descending).
+   * The sort order. Valid values:
+   * - `ASC`: ascending order.
+   * - `DESC`: descending order.
    * 
    * @example
    * ASC
@@ -63,7 +65,9 @@ export class ListRecallManagementTablesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to sort the results by. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
+   * The sorting field. Valid values:
+   * - `GmtCreateTime`: creation time.
+   * - `GmtModifiedTime`: update time.
    * 
    * @example
    * GmtCreateTime
@@ -71,7 +75,10 @@ export class ListRecallManagementTablesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The table type. Valid values: `X2I` (U2I recall or I2I recall), `Vector` (vector recall), and `Random` (random recall).
+   * The table type. Valid values:
+   * - `X2I`: U2I recall or I2I recall.
+   * - `Vector`: vector recall.
+   * - `Ramdom`: random recall.
    * 
    * @example
    * X2I

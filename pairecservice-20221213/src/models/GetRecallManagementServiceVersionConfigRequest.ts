@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecallManagementServiceVersionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * learn-pairec-xxx

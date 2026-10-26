@@ -6,12 +6,9 @@ export class ListParamsResponseBodyParams extends $dara.Model {
   /**
    * @remarks
    * The environment to which the parameter belongs. Valid values:
-   * 
-   * - Daily: A test environment for daily use.
-   * 
-   * - Prepub: A staging environment that mirrors the production environment.
-   * 
-   * - Product: The production environment.
+   * - Daily: daily environment
+   * - Prepub: pre-release environment
+   * - Product: production environment
    * 
    * @example
    * Daily
@@ -19,7 +16,7 @@ export class ListParamsResponseBodyParams extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The time when the parameter was last modified.
+   * The update time. The time is formatted in ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -81,12 +78,12 @@ export class ListParamsResponseBodyParams extends $dara.Model {
 export class ListParamsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of parameters.
+   * The list of parameters.
    */
   params?: ListParamsResponseBodyParams[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * A2D07551-38DA-531E-9B22-877D1D86A579
@@ -94,7 +91,7 @@ export class ListParamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of parameters.
+   * The total number of elements in the list.
    * 
    * @example
    * 10

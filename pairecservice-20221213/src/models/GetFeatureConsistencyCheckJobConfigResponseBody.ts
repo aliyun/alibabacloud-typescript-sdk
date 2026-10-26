@@ -5,17 +5,59 @@ import * as $dara from '@darabonba/typescript';
 export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable feature comparison.
+   * Indicates whether feature comparison is enabled.
    * 
    * @example
    * true
    */
   compareFeature?: boolean;
+  /**
+   * @remarks
+   * The dataset ID.
+   * 
+   * @example
+   * s-xxx
+   */
   datasetId?: string;
+  /**
+   * @remarks
+   * The mount path of the dataset.
+   * 
+   * @example
+   * mnt/xxx
+   */
   datasetMountPath?: string;
+  /**
+   * @remarks
+   * The name of the dataset.
+   * 
+   * @example
+   * test
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * The dataset type.
+   * 
+   * @example
+   * OSS
+   */
   datasetType?: string;
+  /**
+   * @remarks
+   * The URI of the dataset.
+   * 
+   * @example
+   * oss-xxx
+   */
   datasetUri?: string;
+  /**
+   * @remarks
+   * The default gateway. Eth0 indicates the public gateway. Eth1 indicates the dedicated gateway.
+   * 
+   * @example
+   * Eth0
+   */
   defaultRoute?: string;
   /**
    * @remarks
@@ -43,7 +85,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   easyRecVersion?: string;
   /**
    * @remarks
-   * A comma-separated list of features to exclude from the display.
+   * The feature display filter. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2
@@ -51,7 +93,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureDisplayExclude?: string;
   /**
    * @remarks
-   * The ID of the data source for feature fallback.
+   * The ID of the data source for data backflow.
    * 
    * @example
    * reso-********
@@ -59,7 +101,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureLandingResourceId?: string;
   /**
    * @remarks
-   * The URI of the data source for feature fallback.
+   * The URI of the data source for data backflow.
    * 
    * @example
    * mc_project_1
@@ -67,7 +109,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureLandingResourceUri?: string;
   /**
    * @remarks
-   * A comma-separated list of features, ordered by priority.
+   * The feature priority. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2,feature3
@@ -75,7 +117,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featurePriority?: string;
   /**
    * @remarks
-   * The primary key for items in the Feature Store.
+   * The primary key on the item side in Feature Store.
    * 
    * @example
    * item
@@ -83,7 +125,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreItemId?: string;
   /**
    * @remarks
-   * The Feature Store model ID.
+   * The feature store model ID.
    * 
    * @example
    * 2
@@ -91,7 +133,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreModelId?: string;
   /**
    * @remarks
-   * The Feature Store project ID.
+   * The ID of the Feature Store project.
    * 
    * @example
    * prj-01
@@ -99,7 +141,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreProjectId?: string;
   /**
    * @remarks
-   * The Feature Store project name.
+   * The name of the Feature Store project.
    * 
    * @example
    * project-1
@@ -107,7 +149,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreProjectName?: string;
   /**
    * @remarks
-   * The name of the feature view that contains item features within sequence features.
+   * The name of the feature view to which the item feature belongs in the sequence feature.
    * 
    * @example
    * item-1
@@ -115,7 +157,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreSeqFeatureView?: string;
   /**
    * @remarks
-   * The primary key for users in the Feature Store.
+   * The primary key on the user side in Feature Store.
    * 
    * @example
    * user
@@ -123,7 +165,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   featureStoreUserId?: string;
   /**
    * @remarks
-   * The version of the `fg_jar` file.
+   * The fg_jar version.
    * 
    * @example
    * 1.0.0
@@ -131,7 +173,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   fgJarVersion?: string;
   /**
    * @remarks
-   * The name of the `fg_json` file.
+   * The name of the fg_json file.
    * 
    * @example
    * file.json
@@ -139,7 +181,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   fgJsonFileName?: string;
   /**
    * @remarks
-   * Whether to generate a ZIP package.
+   * Indicates whether a ZIP package needs to be generated.
    * 
    * @example
    * true
@@ -147,7 +189,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   generateZip?: boolean;
   /**
    * @remarks
-   * The time the configuration was created.
+   * The creation time. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -155,7 +197,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time the configuration was last updated.
+   * The update time. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -163,7 +205,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The name of the `item_id` field.
+   * The name of the item_id field.
    * 
    * @example
    * item_id
@@ -171,7 +213,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   itemIdField?: string;
   /**
    * @remarks
-   * The item table name.
+   * The name of the item table.
    * 
    * @example
    * item_table
@@ -188,10 +230,8 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   /**
    * @remarks
    * The format of the partition field in the item table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
@@ -199,7 +239,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   itemTablePartitionFieldFormat?: string;
   /**
    * @remarks
-   * The end time of the most recent job.
+   * The end time of the latest job. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -207,7 +247,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   latestJobGmtSamplingEndTime?: string;
   /**
    * @remarks
-   * The start time of the most recent job.
+   * The start time of the latest job. The time is in ISO 8601 format and includes a time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -215,7 +255,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   latestJobGmtSamplingStartTime?: string;
   /**
    * @remarks
-   * The ID of the most recent job created from this configuration.
+   * The ID of the latest job created based on this configuration.
    * 
    * @example
    * 3
@@ -231,7 +271,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The OSS bucket name.
+   * The name of the OSS bucket.
    * 
    * @example
    * oss_bucket_1
@@ -245,8 +285,29 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
    * reso-********
    */
   ossResourceId?: string;
+  /**
+   * @remarks
+   * The number of workers used to execute the prediction script.
+   * 
+   * @example
+   * 1
+   */
   predictWorkerCount?: number;
+  /**
+   * @remarks
+   * The CPU resources allocated to workers when executing the prediction script.
+   * 
+   * @example
+   * 4
+   */
   predictWorkerCpu?: number;
+  /**
+   * @remarks
+   * The memory resources allocated to workers when executing the prediction script.
+   * 
+   * @example
+   * 32000
+   */
   predictWorkerMemory?: number;
   /**
    * @remarks
@@ -256,10 +317,17 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource configuration.
+   * 
+   * @example
+   * {}
+   */
   resourceConfig?: string;
   /**
    * @remarks
-   * The sample rate. The value must be between 0 and 1.
+   * The sampling rate. Valid values: 0 to 1.
    * 
    * @example
    * 0.89
@@ -281,6 +349,13 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
    * scene1
    */
   sceneName?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxx
+   */
   securityGroupId?: string;
   /**
    * @remarks
@@ -300,24 +375,27 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   serviceName?: string;
   /**
    * @remarks
-   * The status of the configuration. Valid values:
-   * 
-   * - `Editable`: The configuration can be edited.
-   * 
-   * - `Uneditable`: The configuration cannot be edited.
+   * The status. Valid values:
+   * - Editable: The configuration is editable.
+   * - Uneditable: The configuration is not editable.
    * 
    * @example
    * Editable
    */
   status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vswitch-xxx
+   */
   switchId?: string;
   /**
    * @remarks
-   * Whether to use a Feature Store. Valid values:
-   * 
-   * - `true`: A Feature Store is used. In this case, the response also returns `FeatureStoreProjectId`, `FeatureStoreProjectName`, `FeatureStoreModelId`, `FeatureStoreUserId`, and `FeatureStoreItemId`.
-   * 
-   * - `false`: A Feature Store is not used. In this case, the `UserTable`, `UserIdField`, `UserTablePartitionField`, `UserTablePartitionFieldFormat`, `ItemTable`, `ItemIdField`, `ItemTablePartitionField`, and `ItemTablePartitionFieldFormat` parameters are returned.
+   * Indicates whether to use Feature Store. Valid values:
+   * - true: Feature Store is used. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
+   * - false: Feature Store is not used. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are required.
    * 
    * @example
    * true
@@ -325,7 +403,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   useFeatureStore?: boolean;
   /**
    * @remarks
-   * The name of the `user_id` field.
+   * The name of the user_id field.
    * 
    * @example
    * user_id
@@ -333,7 +411,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   userIdField?: string;
   /**
    * @remarks
-   * The user table name.
+   * The name of the user table.
    * 
    * @example
    * user_table
@@ -350,15 +428,20 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
   /**
    * @remarks
    * The format of the partition field in the user table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
    */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-xxx
+   */
   vpcId?: string;
   /**
    * @remarks
@@ -368,6 +451,13 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
    * work_flow_1
    */
   workflowName?: string;
+  /**
+   * @remarks
+   * The ID of the PAI workspace.
+   * 
+   * @example
+   * test
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

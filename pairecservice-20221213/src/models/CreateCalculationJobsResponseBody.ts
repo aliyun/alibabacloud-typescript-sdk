@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCalculationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of calculation job IDs.
+   * The list of compute task IDs.
    */
   calculationJobIds?: string[];
   /**

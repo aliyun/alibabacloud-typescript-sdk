@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficControlTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the traffic control target.
+   * The end time of the control target. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -13,7 +13,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The event for the traffic control target.
+   * The control target event.
    * 
    * @example
    * click
@@ -21,7 +21,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The item condition in array format.
+   * The item conditions in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -29,7 +29,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition in expression format.
+   * The item conditions in expression format.
    * 
    * @example
    * status=1
@@ -37,7 +37,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The item condition type.
+   * The condition type for item control.
    * 
    * @example
    * Array
@@ -53,7 +53,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable new product regulation.
+   * Specifies whether the control applies to new products.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   newProductRegulation?: boolean;
   /**
    * @remarks
-   * The recall strategy name.
+   * The recall policy name.
    * 
    * @example
    * recall-1
@@ -69,7 +69,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   recallName?: string;
   /**
    * @remarks
-   * The start time of the traffic control target.
+   * The start time of the control target. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -85,7 +85,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   statisPeriod?: string;
   /**
    * @remarks
-   * The status of the traffic control target.
+   * The status of the control target.
    * 
    * @example
    * Opened
@@ -93,7 +93,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tolerance value for the traffic control target.
+   * The tolerance range of the control target.
    * 
    * @example
    * 10
@@ -101,7 +101,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   toleranceValue?: number;
   /**
    * @remarks
-   * The traffic control task ID.
+   * The ID of the traffic control task.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class CreateTrafficControlTargetRequest extends $dara.Model {
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The value of the traffic control target.
+   * The target value.
    * 
    * @example
    * 10

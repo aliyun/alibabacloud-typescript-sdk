@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo extends $dara.Model {
   /**
    * @remarks
-   * The data version.
+   * The data version number.
    * 
    * @example
    * ds=20250701
@@ -13,7 +13,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   dataVersion?: string;
   /**
    * @remarks
-   * The table version ID.
+   * The ID of the table version.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   recallManagementTableVersionId?: string;
   /**
    * @remarks
-   * The source table data size.
+   * The data size of the source table.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   sourceTableDataSize?: string;
   /**
    * @remarks
-   * The source table row count.
+   * The number of data rows in the source table.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
 export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * ds=20250701
@@ -73,7 +73,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   dataVersion?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * 2
@@ -81,7 +81,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   recallManagementTableVersionId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * 1000
@@ -89,7 +89,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
   sourceTableDataSize?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * 100
@@ -125,7 +125,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
 export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $dara.Model {
   /**
    * @remarks
-   * The end time of the synchronization job.
+   * The end time of the task. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2025-03-28T10:24Z
@@ -133,7 +133,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
   endTime?: string;
   /**
    * @remarks
-   * The synchronization job ID.
+   * The ID of the synchronization task.
    * 
    * @example
    * 1
@@ -141,17 +141,17 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
   recallManagementJobId?: string;
   /**
    * @remarks
-   * Information about the recall management table.
+   * The task information of the recall management table.
    */
   recallManagementTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    */
   recallManagerTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo;
   /**
    * @remarks
-   * The start time of the synchronization job.
+   * The start time of the task. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2025-01-28T10:00:00Z
@@ -159,7 +159,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
   startTime?: string;
   /**
    * @remarks
-   * The status of the synchronization job. Valid values: `Init` (initializing), `Running` (running), `Success` (succeeded), and `Failed` (failed).
+   * The status. Valid values: `Init` (initializing), `Running` (running), `Success` (successful), and `Failed` (failed).
    * 
    * @example
    * Running
@@ -205,7 +205,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
 export class ListRecallManagementJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Reserved.
+   * This parameter does not take effect.
    * 
    * @example
    * 0
@@ -213,7 +213,7 @@ export class ListRecallManagementJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Reserved.
+   * This parameter does not take effect.
    * 
    * @example
    * ""
@@ -221,7 +221,7 @@ export class ListRecallManagementJobsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of synchronization jobs.
+   * The list of synchronization tasks.
    */
   recallManagementJobs?: ListRecallManagementJobsResponseBodyRecallManagementJobs[];
   /**
@@ -234,7 +234,7 @@ export class ListRecallManagementJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of synchronization jobs.
+   * The total number of entries.
    * 
    * @example
    * 30

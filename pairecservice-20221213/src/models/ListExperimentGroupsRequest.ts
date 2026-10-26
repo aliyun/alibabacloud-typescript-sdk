@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can get this ID by calling the ListInstances operation.
+   * The instance ID. You can retrieve this value by calling ListInstances.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListExperimentGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The layer ID. You can get this ID by calling the ListLayers operation.
+   * The layer ID. You can retrieve this value by calling ListLayers.
    * 
    * @example
    * 3
@@ -23,7 +23,10 @@ export class ListExperimentGroupsRequest extends $dara.Model {
   layerId?: string;
   /**
    * @remarks
-   * The status of the experiment group. Valid values: Offline, Online, and Pushed.
+   * The status filter. Valid values:
+   * ● Offline: Not online.
+   * ● Online: Online.
+   * ● Pushed: Fully pushed.
    * 
    * @example
    * Online
@@ -31,7 +34,7 @@ export class ListExperimentGroupsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The end time for filtering experiment groups.
+   * Filters experiment groups by end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-08-31 12:00:00
@@ -39,7 +42,7 @@ export class ListExperimentGroupsRequest extends $dara.Model {
   timeRangeEnd?: string;
   /**
    * @remarks
-   * The start time for filtering experiment groups.
+   * Filters experiment groups by start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-08-30 12:00:00

@@ -35,7 +35,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain the ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can obtain the instance ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * @example
    * pairec-cn-***test
@@ -50,13 +50,16 @@ export class CreateEngineConfigRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The scene ID.
+   * 
    * @example
    * 1
    */
   sceneId?: string;
   /**
    * @remarks
-   * The type of the engine configuration.
+   * The engine configuration type.
    * 
    * @example
    * Normal

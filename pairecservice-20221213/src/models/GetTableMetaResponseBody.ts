@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableMetaResponseBodyFields extends $dara.Model {
   /**
    * @remarks
-   * Whether the field is a dimension field.
+   * Indicates whether the field is a dimension field.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetTableMetaResponseBodyFields extends $dara.Model {
   isDimensionField?: boolean;
   /**
    * @remarks
-   * The field meaning.
+   * The meaning of the field.
    * 
    * @example
    * the gender of people
@@ -21,7 +21,7 @@ export class GetTableMetaResponseBodyFields extends $dara.Model {
   meaning?: string;
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * gender
@@ -29,7 +29,7 @@ export class GetTableMetaResponseBodyFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field type.
+   * The type of the field.
    * 
    * @example
    * BIGINT
@@ -65,7 +65,7 @@ export class GetTableMetaResponseBodyFields extends $dara.Model {
 export class GetTableMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the table can be deleted. The value is `false` if other resources reference the table.
+   * Indicates whether the data table can be deleted. If the table is referenced elsewhere, false is returned.
    * 
    * @example
    * false
@@ -73,7 +73,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Additional configurations for the table, provided as a JSON string.
+   * The additional configurations of the data table.
    * 
    * @example
    * {"table_type":"item"}
@@ -81,7 +81,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The table description.
+   * The description of the data table.
    * 
    * @example
    * this is a test table
@@ -89,7 +89,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The fields in the table.
+   * The list of fields in the table.
    */
   fields?: GetTableMetaResponseBodyFields[];
   /**
@@ -102,7 +102,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The import time.
+   * The time when the field was imported. The time is in ISO 8601 format and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -110,7 +110,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   gmtImportedTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2021-12-15:24:33
@@ -118,13 +118,13 @@ export class GetTableMetaResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The table module. Valid values:
+   * The module of the data table. Valid values:
    * 
-   * - `ABTest`: An A/B testing data table.
+   * - ABTest: experiment data table.
    * 
-   * - `ExperimentTool`: An experiment tool table.
+   * - ExperimentTool: experiment tool table.
    * 
-   * - `DataDiagnosis`: A table for data diagnosis.
+   * - DataDiagnosis: data diagnostics.
    * 
    * @example
    * ABTest
@@ -132,7 +132,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the data table.
    * 
    * @example
    * test_table
@@ -140,7 +140,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 28C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
@@ -148,25 +148,31 @@ export class GetTableMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * reso-wkgo***
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The type of the resource.
+   * 
    * @example
    * Maxcompute
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The URI of the resource.
+   * 
    * @example
    * test
    */
   resourceUri?: string;
   /**
    * @remarks
-   * The table ID.
+   * The ID of the data table.
    * 
    * @example
    * 3
@@ -182,11 +188,11 @@ export class GetTableMetaResponseBody extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The table type. Valid values:
+   * The type of the data table. Valid values:
    * 
-   * - `MaxCompute`
+   * - MaxCompute
    * 
-   * - `Hologres`
+   * - Hologres
    * 
    * @example
    * MaxCompute
@@ -194,7 +200,7 @@ export class GetTableMetaResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the table in Data Map. This parameter is returned only for MaxCompute tables.
+   * The URL of the table in Data Map if the table is a MaxCompute table. Otherwise, this field is empty.
    * 
    * @example
    * https://dmc-xxx.com/dm/table/xxx

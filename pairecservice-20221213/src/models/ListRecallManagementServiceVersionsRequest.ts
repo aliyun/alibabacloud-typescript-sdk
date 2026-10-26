@@ -13,7 +13,9 @@ export class ListRecallManagementServiceVersionsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `ASC` for ascending order and `DESC` for descending order.
+   * The sort order. Valid values:
+   * - ASC: ascending order
+   * - DESC: descending order
    * 
    * @example
    * ASC
@@ -29,7 +31,7 @@ export class ListRecallManagementServiceVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 50
@@ -37,7 +39,9 @@ export class ListRecallManagementServiceVersionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to sort the results by. Valid values: `GmtCreateTime` for creation time and `GmtModifiedTime` for modification time.
+   * The sort criterion. Valid values:
+   * - GmtCreateTime: creation time
+   * - GmtModifiedTime: update time
    * 
    * @example
    * GmtCreateTime

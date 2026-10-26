@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCalculationJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. To obtain this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListCalculationJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scene ID. To obtain this ID, call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+   * The scene ID. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to query the scene ID.
    * 
    * This parameter is required.
    * 
@@ -41,15 +41,11 @@ export class ListCalculationJobsRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The status of the calculation job. Valid values:
-   * 
-   * - Success
-   * 
-   * - Failure
-   * 
-   * - Initializing
-   * 
-   * - Running
+   * The status. Valid values:
+   * - Success: Succeeded.
+   * - Failure: Failed.
+   * - Initializing: Initializing.
+   * - Running: Running.
    * 
    * @example
    * Success

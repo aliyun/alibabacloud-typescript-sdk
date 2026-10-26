@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecallManagementServiceVersionConfigResponseBodyMergeConfig extends $dara.Model {
   /**
    * @remarks
-   * Additional configuration for the merge operation, reserved for future enhancements.
+   * The additional merge configuration for future feature extensions.
    * 
    * @example
    * {"":""}
@@ -21,7 +21,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyMergeConfig exte
   filterExpression?: string;
   /**
    * @remarks
-   * A list of filter table IDs.
+   * The filter table IDs.
    */
   filterRecallManagementTableIds?: string[];
   /**
@@ -34,16 +34,14 @@ export class GetRecallManagementServiceVersionConfigResponseBodyMergeConfig exte
   itemRecallManagementTableId?: string;
   /**
    * @remarks
-   * A list of output fields from the item table.
+   * The item table output fields.
    */
   itemTableFields?: string[];
   /**
    * @remarks
    * The merge type. Valid values:
-   * 
-   * - Weight: Merges items based on assigned weights.
-   * 
-   * - Alternate: Merges items in an alternating sequence.
+   * - Weight: weight.
+   * - Alternate: alternate.
    * 
    * @example
    * Weight
@@ -187,7 +185,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOper
   field?: string;
   /**
    * @remarks
-   * The output fields.
+   * The list of returned fields.
    */
   outputFields?: string[];
   /**
@@ -245,7 +243,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOper
   fieldQuantityLimit?: number;
   /**
    * @remarks
-   * Indicates whether to randomly sort the items.
+   * Specifies whether random sorting is enabled.
    * 
    * @example
    * false
@@ -253,7 +251,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOper
   isRandSort?: boolean;
   /**
    * @remarks
-   * The sort field.
+   * The sort fields.
    * 
    * @example
    * create_time
@@ -289,17 +287,17 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOper
 export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperators extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the feature operator.
+   * The configuration of the Feature operator.
    */
   featureConfig?: GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperatorsFeatureConfig;
   /**
    * @remarks
-   * The configuration for the filter operator.
+   * The configuration of the Filter operator.
    */
   filterConfig?: GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperatorsFilterConfig;
   /**
    * @remarks
-   * The configuration for the Join operator.
+   * The configuration of the Join operator.
    */
   joinConfig?: GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperatorsJoinConfig;
   /**
@@ -312,7 +310,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOper
   operatorType?: string;
   /**
    * @remarks
-   * The configuration for the Trigger operator.
+   * The configuration of the Trigger operator.
    */
   triggerConfig?: GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperatorsTriggerConfig;
   static names(): { [key: string]: string } {
@@ -367,7 +365,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
   description?: string;
   /**
    * @remarks
-   * Extended configuration, reserved for future use.
+   * The additional configuration for future feature extensions.
    * 
    * @example
    * {"":""}
@@ -375,7 +373,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
   extendedConfig?: string;
   /**
    * @remarks
-   * The item conditions, as a JSON array string.
+   * The item conditions in array format.
    * 
    * @example
    * [{"option":"<","field":"category","type":"STRING","value":"10"}]
@@ -383,7 +381,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition expression.
+   * The item conditional expression.
    * 
    * @example
    * age>20
@@ -415,12 +413,12 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
   name?: string;
   /**
    * @remarks
-   * A list of operators.
+   * The list of operators.
    */
   operators?: GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperators[];
   /**
    * @remarks
-   * The priority. A lower value indicates a higher priority.
+   * The priority. A smaller number indicates a higher priority.
    * 
    * @example
    * 10
@@ -529,7 +527,9 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
 export class GetRecallManagementServiceVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration type. Valid values: Recall (recall configuration) and Merge (merge configuration).
+   * The recall management version configuration type. Valid values:
+   * - Recall: recall configuration.
+   * - Merge: merge configuration.
    * 
    * @example
    * Recall
@@ -537,7 +537,7 @@ export class GetRecallManagementServiceVersionConfigResponseBody extends $dara.M
   configType?: string;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format.
+   * The creation time in ISO 8601 format, including the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -545,7 +545,7 @@ export class GetRecallManagementServiceVersionConfigResponseBody extends $dara.M
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, in ISO 8601 format.
+   * The update time in ISO 8601 format, including the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -587,7 +587,7 @@ export class GetRecallManagementServiceVersionConfigResponseBody extends $dara.M
   recallManagementServiceVersionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77

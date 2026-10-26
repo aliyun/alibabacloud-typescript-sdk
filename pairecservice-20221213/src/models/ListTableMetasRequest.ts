@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTableMetasRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can get this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can obtain the instance ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,13 @@ export class ListTableMetasRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The module of the data table. Valid values:
+   * The module of the data table.
    * 
-   * - ABTest: A/B testing data tables
+   * - ABTest: Experiment data tables
    * 
-   * - ExperimentTool: experiment tool tables
+   * - ExperimentTool: Experiment tool tables
    * 
-   * - DataDiagnosis: data diagnosis tables
+   * - DataDiagnosis: Data diagnosis
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListTableMetasRequest extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The table name to filter on.
+   * The table name filter.
    * 
    * @example
    * test1
@@ -47,7 +47,7 @@ export class ListTableMetasRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ListTableMetasRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the data table. Valid values:
+   * The type of the data table.
    * 
    * - MaxCompute
    * 

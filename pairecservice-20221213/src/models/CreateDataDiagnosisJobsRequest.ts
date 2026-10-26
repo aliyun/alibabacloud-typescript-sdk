@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataDiagnosisJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The data diagnosis ID.
+   * The data modeling diagnostics ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDataDiagnosisJobsRequest extends $dara.Model {
   dataDiagnosisId?: string;
   /**
    * @remarks
-   * The end date for the job.
+   * The end date. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateDataDiagnosisJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start date for the job.
+   * The start date. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 
