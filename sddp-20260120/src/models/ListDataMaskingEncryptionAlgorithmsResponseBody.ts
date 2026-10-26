@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataMaskingEncryptionAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   /**
    * @remarks
-   * The business error code for the record or operation. This value can be empty if no error occurs. Evaluate this value together with ErrorMessage.
+   * The business error code for the record or operation. This parameter can be empty when no error occurs. Evaluate this parameter together with ErrorMessage.
    * 
    * @example
    * data_masking_not_running
@@ -13,7 +13,7 @@ export class ListDataMaskingEncryptionAlgorithmsResponseBodyAlgorithms extends $
   errorCode?: string;
   /**
    * @remarks
-   * The business error description for the record or operation.
+   * The business error message for the record or operation.
    * 
    * @example
    * The instance is not in the running state
@@ -21,7 +21,7 @@ export class ListDataMaskingEncryptionAlgorithmsResponseBodyAlgorithms extends $
   errorMessage?: string;
   /**
    * @remarks
-   * The algorithm name.
+   * The name of the algorithm.
    * 
    * @example
    * AES_256_GCM

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeKernelVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The database instance identity. You can obtain this value from Items[].InstanceId returned by ListDataMaskingInstances.
+   * The database instance identity. You can obtain the value from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -13,7 +13,7 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The target kernel version. You can obtain this value from KernelVersions[].KernelVersion returned by ListMiniEngineVersions.
+   * The target Milvus version. You can obtain the value from KernelVersions[].KernelVersion in the response of the ListMiniEngineVersions operation.
    * 
    * @example
    * rds_20220731
@@ -22,7 +22,6 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response description. Valid values:
-   * 
    * - zh: Chinese.
    * - en: English.
    * 
@@ -32,7 +31,7 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If you also specify ProductId, the two values must correspond to each other.
+   * The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must match.
    * 
    * @example
    * RDS
@@ -40,13 +39,11 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The cloud product type identifier. Valid values:
-   * 
+   * The identifier of the cloud service type. Valid values:
    * - 5: RDS.
    * - 8: POLARDB.
    * - 27: PolarDBX2.
-   * 
-   * If you specify both ProductId and ProductCode, the values must correspond to each other.
+   * If this parameter is specified together with ProductCode, the values must match.
    * 
    * @example
    * 5
@@ -54,7 +51,7 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The specified upgrade time. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC. Specify this parameter only when UpgradeTime is set to SpecifyTime. The value must be later than the current time.
+   * The specified upgrade time. The value is a UNIX timestamp in milliseconds that have elapsed since 1970-01-01 00:00:00 UTC. Specify this parameter only when UpgradeTime is set to SpecifyTime, and the time must be later than the current time.
    * 
    * @example
    * 1893456000000
@@ -62,12 +59,10 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
   switchTime?: number;
   /**
    * @remarks
-   * The time at which the kernel upgrade is performed. Valid values:
-   * 
-   * - Immediate: The upgrade is performed immediately.
-   * - MaintainTime: The upgrade is performed during the maintenance window.
-   * - SpecifyTime: The upgrade is performed at a specified time.
-   * 
+   * The execution time of the kernel upgrade. Valid values:
+   * - Immediate: Executes the upgrade immediately.
+   * - MaintainTime: Executes the upgrade during the maintenance window.
+   * - SpecifyTime: Executes the upgrade at a specified time.
    * PolarDB-X 2.0 does not support SpecifyTime.
    * 
    * @example

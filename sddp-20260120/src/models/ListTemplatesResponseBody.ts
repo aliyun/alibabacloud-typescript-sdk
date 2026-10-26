@@ -21,7 +21,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the template was created. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The creation time of the template. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -29,7 +29,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the template was last modified. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The last modification time of the template. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -37,7 +37,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the classification and grading template.
+   * The identifier of the classification and grading template.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The maximum category level supported by the template.
+   * The maximum classification level supported by the template.
    * 
    * @example
    * 3
@@ -53,7 +53,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   maxCategoryLevel?: number;
   /**
    * @remarks
-   * The maximum sensitivity level supported by the template.
+   * The highest sensitivity level supported by the template.
    * 
    * @example
    * 5
@@ -69,11 +69,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the template. Valid values:
-   * - 0: disabled.
-   * - 1: enabled as the primary template.
-   * - 2: active template.
-   * - 3: general-purpose detection model.
+   * The status of the template. Valid values: 0: Disabled. 1: Enabled primary template. 2: Active template. 3: General detection model.
    * 
    * @example
    * 1
@@ -81,9 +77,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Indicates whether the template can be edited. Valid values:
-   * - 0: not supported.
-   * - 1: supported.
+   * Specifies whether the template can be edited. Valid values: 0: Not supported. 1: Supported.
    * 
    * @example
    * 1
@@ -91,15 +85,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   supportEdit?: number;
   /**
    * @remarks
-   * The category of the template. Valid values:
-   * - 1: Alibaba template.
-   * - 2: finance template.
-   * - 3: energy template.
-   * - 4: personal information security template.
-   * - 5: travel template.
-   * - 65: general-purpose template.
-   * - 66: custom template.
-   * - 67: template from another cloud service.
+   * The category of the template. Valid values: 1: Alibaba Cloud template. 2: Finance template. 3: Energy template. 4: Personal information security template. 5: Travel template. 65: General template. 66: Custom template. 67: Template from other cloud services.
    * 
    * @example
    * 65
@@ -157,7 +143,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by the current query.
+   * The list of records returned for the current query.
    */
   items?: ListTemplatesResponseBodyItems[];
   /**
@@ -170,7 +156,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request ID, which can be used to trace the current API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -178,7 +164,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the current query scope.
+   * The total number of records that match the current query conditions.
    * 
    * @example
    * 100

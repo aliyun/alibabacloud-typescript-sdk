@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList extends $dara.Model {
   /**
    * @remarks
-   * The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the day in the server time zone.
+   * The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
    * 
    * @example
    * 1788537600000000000
@@ -21,7 +21,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList ex
   sensitiveCount?: number;
   /**
    * @remarks
-   * The total number of data objects that match the current statistics or query scope.
+   * The total number of data objects that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList ex
 export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList extends $dara.Model {
   /**
    * @remarks
-   * The number of data objects that match the detection rule.
+   * The number of data objects that hit the detection rule.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList exten
   ruleCount?: number;
   /**
    * @remarks
-   * The ID of the matched detection rule.
+   * The ID of the hit detection rule.
    * 
    * @example
    * 1001
@@ -71,7 +71,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList exten
   ruleId?: number;
   /**
    * @remarks
-   * The name of the matched detection rule.
+   * The name of the hit detection rule.
    * 
    * @example
    * Phone number
@@ -105,12 +105,12 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList exten
 export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Model {
   /**
    * @remarks
-   * The list of statistics grouped by region, template, data type, or date.
+   * The list of statistics categorized by region, template, data type, or date.
    */
   dataCountDOList?: ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList[];
   /**
    * @remarks
-   * The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the day in the server time zone.
+   * The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
    * 
    * @example
    * 1788537600000000000
@@ -118,7 +118,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   date?: number;
   /**
    * @remarks
-   * The region ID of the asset.
+   * The ID of the region where the asset resides.
    * 
    * @example
    * cn-zhangjiakou
@@ -126,7 +126,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The list of counts aggregated by detection rule.
+   * The list of quantities aggregated by detection rule.
    */
   ruleInfoList?: ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList[];
   /**
@@ -227,10 +227,9 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   sensitiveCount?: number;
   /**
    * @remarks
-   * The data type of the statistics. Valid values:
-   * 
-   * - 1: structured data.
-   * - 0: unstructured data.
+   * The type of the statistics data. Valid values:
+   * - 1: Structured data.
+   * - 0: Unstructured data.
    * 
    * @example
    * 1
@@ -249,12 +248,12 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
    * The name of the data classification template.
    * 
    * @example
-   * General classification template
+   * General data classification template
    */
   templateName?: string;
   /**
    * @remarks
-   * The total number of data objects that match the current statistics or query scope.
+   * The total number of data objects that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -328,7 +327,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
 export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model {
   /**
    * @remarks
-   * The number of data objects that match the detection rule.
+   * The number of data objects that hit the detection rule.
    * 
    * @example
    * 10
@@ -336,7 +335,7 @@ export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model 
   ruleCount?: number;
   /**
    * @remarks
-   * The ID of the matched detection rule.
+   * The ID of the hit detection rule.
    * 
    * @example
    * 1001
@@ -344,7 +343,7 @@ export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model 
   ruleId?: number;
   /**
    * @remarks
-   * The name of the matched detection rule.
+   * The name of the hit detection rule.
    * 
    * @example
    * Phone number
@@ -378,7 +377,7 @@ export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model 
 export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of statistics grouped by region, template, data type, or date.
+   * The list of statistics categorized by region, template, data type, or date.
    */
   dataCountDOList?: ListTotalSensitiveInfoResponseBodyDataCountDOList[];
   /**
@@ -399,7 +398,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request identity, which is active for locating the current API call when you invoke the API.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -407,7 +406,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of counts aggregated by detection rule.
+   * The list of quantities aggregated by detection rule.
    */
   ruleInfoList?: ListTotalSensitiveInfoResponseBodyRuleInfoList[];
   /**
@@ -532,7 +531,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   sensitiveUnStructSize?: number;
   /**
    * @remarks
-   * The number of child-level sensitive data objects. In structured data scenarios, this value is used for sensitive column statistics.
+   * The number of child sensitive data objects, which is used for sensitive column statistics in structured data scenarios.
    * 
    * @example
    * 20
@@ -540,7 +539,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   subSensitiveCount?: number;
   /**
    * @remarks
-   * The total number of child-level data objects. In structured data scenarios, this value is used for column-level statistics.
+   * The total number of child data objects, which is used for column-level statistics in structured data scenarios.
    * 
    * @example
    * 100
@@ -548,7 +547,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   subTotalCount?: number;
   /**
    * @remarks
-   * The total number of data objects that match the current statistics or query scope.
+   * The total number of data objects that meet the current statistics or query scope.
    * 
    * @example
    * 100

@@ -13,7 +13,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID to which the asset belongs.
+   * The ID of the Alibaba Cloud account to which the asset belongs.
    * 
    * @example
    * 123456789012****
@@ -21,11 +21,18 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The column encryption access permissions. Valid values:
+   * The authentication database of the MongoDB account. This parameter must be passed together with AccountName when modifying permissions.
    * 
-   * - fullAccess: plaintext access.
-   * - restrictedAccess: restricted access.
-   * - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
+   * @example
+   * admin
+   */
+  authDb?: string;
+  /**
+   * @remarks
+   * The column encryption access permissions. Valid values:
+   * - fullAccess: plaintext access
+   * - restrictedAccess: restricted access
+   * - noneAccess: decryption prohibited. This value applies only to ApsaraDB RDS for MySQL instances whose current effective key mode is client_key.
    * 
    * @example
    * fullAccess
@@ -34,11 +41,9 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The current effective column encryption key mode. Valid values:
-   * 
-   * - client_key: local master key.
-   * - kms_key: KMS key.
-   * 
-   * This field is not returned if no column encryption configuration is in effect.
+   * - client_key: local key
+   * - kms_key: KMS key
+   * This parameter is not returned if no effective configuration exists.
    * 
    * @example
    * client_key
@@ -54,7 +59,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The expiration time of the plaintext access permissions. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC. This field is not returned if no expiration time is set.
+   * The expiration time of the plaintext access permissions. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. This parameter is not returned if no validity period is set.
    * 
    * @example
    * 2145953410000
@@ -62,7 +67,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The database account identifier. This value is used as AccountId when configuring permissions.
+   * The database account ID. This ID is used as AccountId when configuring permissions.
    * 
    * @example
    * 1001
@@ -70,7 +75,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The database instance identity.
+   * The database instance ID.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -78,7 +83,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The cloud product code.
+   * The cloud service code.
    * 
    * @example
    * RDS
@@ -86,11 +91,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The cloud product type identifier. Valid values:
-   * 
-   * - 5: RDS.
-   * - 8: POLARDB.
-   * - 27: PolarDBX2.
+   * The cloud service type ID. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
    * 
    * @example
    * 5
@@ -109,13 +110,14 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
    * The region name of the asset.
    * 
    * @example
-   * China North 3 (Zhangjiakou)
+   * China (Zhangjiakou)
    */
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       aliUid: 'AliUid',
+      authDb: 'AuthDb',
       authRole: 'AuthRole',
       encryptionKeyMode: 'EncryptionKeyMode',
       engineType: 'EngineType',
@@ -133,6 +135,7 @@ export class ListDataAssetAccountsResponseBodyItems extends $dara.Model {
     return {
       accountName: 'string',
       aliUid: 'number',
+      authDb: 'string',
       authRole: 'string',
       encryptionKeyMode: 'string',
       engineType: 'string',
@@ -166,12 +169,12 @@ export class ListDataAssetAccountsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by the current query.
+   * The list of records returned in the current query.
    */
   items?: ListDataAssetAccountsResponseBodyItems[];
   /**
    * @remarks
-   * The number of records per page for the current query.
+   * The number of entries returned per page in the current query.
    * 
    * @example
    * 20
@@ -179,7 +182,7 @@ export class ListDataAssetAccountsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate the API call.
+   * The request ID, which can be used to trace the current API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -187,7 +190,7 @@ export class ListDataAssetAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the current query or statistical scope.
+   * The total number of entries that meet the current statistics or query conditions.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentifyModelsResponseBodyRuleList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the detection model.
+   * The ID of the recognition model.
    * 
    * @example
    * 1001
@@ -13,10 +13,10 @@ export class ListIdentifyModelsResponseBodyRuleList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the detection model or rule.
+   * The name of the recognition model or rule.
    * 
    * @example
-   * Phone Number
+   * Mobile phone number
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListIdentifyModelsResponseBodyRuleList extends $dara.Model {
 export class ListIdentifyModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request ID, which is active for locating this API invoke.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -53,7 +53,7 @@ export class ListIdentifyModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of detection models or rules.
+   * The list of recognition models or rules.
    */
   ruleList?: ListIdentifyModelsResponseBodyRuleList[];
   static names(): { [key: string]: string } {

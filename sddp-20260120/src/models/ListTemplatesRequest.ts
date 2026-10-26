@@ -13,7 +13,7 @@ export class ListTemplatesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A reserved feature type parameter. This parameter is not used to filter results in the current query and is not required for column encryption calls.
+   * The reserved feature type parameter. This parameter is not used to filter results in the current query and is not required for column encryption calls.
    * 
    * @example
    * 1
@@ -21,9 +21,7 @@ export class ListTemplatesRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The language of the response description. Valid values:
-   * - zh: Chinese.
-   * - en: English.
+   * The language of the response description. Valid values: zh: Chinese. en: English.
    * 
    * @example
    * zh
@@ -31,7 +29,7 @@ export class ListTemplatesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of records per page. Keep other filter conditions consistent when querying the next page.
+   * The number of records returned per page. Keep other filter conditions consistent when querying the next page.
    * 
    * @example
    * 20
@@ -39,7 +37,7 @@ export class ListTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scenario identifier for compatible template queries. This parameter is not required for column encryption queries. The available templates are determined by the returned list. Do not rely on this parameter to determine whether general-purpose templates are included.
+   * The identifier of the compatible template query scenario. This parameter is not required for column encryption queries. The available templates are subject to the returned list. Do not rely on this parameter to determine whether general templates are included.
    * 
    * @example
    * 1

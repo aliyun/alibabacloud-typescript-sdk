@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the data object. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -21,7 +21,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   dataAssetSourceId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * business_db
@@ -37,7 +37,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The database engine type.
+   * The type of the database engine.
    * 
    * @example
    * MySQL
@@ -45,7 +45,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The cloud instance identity to which the column belongs. This is a compatible field.
+   * The instance identity of the cloud instance to which the column belongs. This is a compatible field.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -53,7 +53,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The compatible field for column encryption status. To query column encryption results, call ListDataMaskingColumns.
+   * The compatibility field for the column encryption status. To query column encryption results, call ListDataMaskingColumns.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cloud product code.
+   * The code of the cloud service.
    * 
    * @example
    * RDS
@@ -77,7 +77,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region ID of the asset.
+   * The ID of the region where the asset is located.
    * 
    * @example
    * cn-zhangjiakou
@@ -85,7 +85,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the detection result revision record.
+   * The identifier of the detection result correction record.
    * 
    * @example
    * 1001
@@ -93,9 +93,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   revisionId?: number;
   /**
    * @remarks
-   * The revision status of the detection result. Valid values:
-   * - 0: not revised.
-   * - 1: revised.
+   * The correction status of the detection result. Valid values: 0: Not corrected. 1: Corrected.
    * 
    * @example
    * 0
@@ -103,7 +101,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   revisionStatus?: number;
   /**
    * @remarks
-   * The sensitivity level ID.
+   * The identifier of the sensitivity level.
    * 
    * @example
    * 1
@@ -111,7 +109,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The sensitivity level name.
+   * The name of the sensitivity level.
    * 
    * @example
    * S2
@@ -119,7 +117,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   riskLevelName?: string;
   /**
    * @remarks
-   * The ID of the matched detection rule.
+   * The identifier of the matched detection rule.
    * 
    * @example
    * 1001
@@ -135,7 +133,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The database schema name.
+   * The name of the database schema.
    * 
    * @example
    * public
@@ -148,7 +146,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * The data table name.
+   * The name of the data table.
    * 
    * @example
    * customer
@@ -222,12 +220,12 @@ export class ListColumnsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by this query.
+   * The list of records returned by the current query.
    */
   items?: ListColumnsResponseBodyItems[];
   /**
    * @remarks
-   * The number of records per page for this query.
+   * The number of entries returned per page in the current query.
    * 
    * @example
    * 20
@@ -235,7 +233,7 @@ export class ListColumnsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request ID, which can be used to locate the current API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -243,7 +241,7 @@ export class ListColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the current query scope.
+   * The total number of entries that meet the current statistics or query scope.
    * 
    * @example
    * 100

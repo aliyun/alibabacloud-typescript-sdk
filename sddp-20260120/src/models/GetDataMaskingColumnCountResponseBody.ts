@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Model {
   /**
    * @remarks
-   * The number of encrypted columns within the current scope.
+   * The number of encrypted columns in the current scope.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Mode
   maskedCount?: number;
   /**
    * @remarks
-   * The number of columns that failed to be encrypted within the current scope.
+   * The number of columns that failed to be encrypted in the current scope.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Mode
   maskingFailedCount?: number;
   /**
    * @remarks
-   * The number of sensitive columns within the current scope.
+   * The number of sensitive columns in the current scope.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Mode
   sensitiveCount?: number;
   /**
    * @remarks
-   * The total number of columns within the current scope.
+   * The total number of columns in the current scope.
    * 
    * @example
    * 100
@@ -65,12 +65,12 @@ export class GetDataMaskingColumnCountResponseBodyColumnCount extends $dara.Mode
 export class GetDataMaskingColumnCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The column encryption statistics.
+   * The statistics on the number of encrypted columns.
    */
   columnCount?: GetDataMaskingColumnCountResponseBodyColumnCount;
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request ID, which can be used to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

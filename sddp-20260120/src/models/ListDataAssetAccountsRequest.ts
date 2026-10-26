@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The database account name. Filters by exact account name.
+   * The database account name. The system filters accounts by the exact account name.
    * 
    * @example
    * app_reader
@@ -13,11 +13,18 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The column encryption access permissions. Valid values:
+   * The authentication database of the MongoDB account. This parameter is used to distinguish accounts with the same name in different authentication databases.
    * 
-   * - fullAccess: plaintext access.
-   * - restrictedAccess: restricted access.
-   * - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
+   * @example
+   * admin
+   */
+  authDb?: string;
+  /**
+   * @remarks
+   * The column encryption access permissions. Valid values:
+   * - fullAccess: plaintext access
+   * - restrictedAccess: restricted access
+   * - noneAccess: decryption prohibited. This value applies only to ApsaraDB RDS for MySQL instances whose current effective key mode is client_key.
    * 
    * @example
    * fullAccess
@@ -25,7 +32,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   authRole?: string;
   /**
    * @remarks
-   * The query business scenario. Use DataMasking for the column encryption scenario. This value is case-sensitive.
+   * The business scenario for the query. Set this parameter to DataMasking for the column encryption scenario. Note that the value is case-sensitive.
    * 
    * @example
    * DataMasking
@@ -33,7 +40,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The page number of the current query. Pages start from 1.
+   * The page number of the current page. Pages start from 1.
    * 
    * @example
    * 1
@@ -41,7 +48,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The database instance identity. You can obtain this value from Items[].InstanceId returned by ListDataMaskingInstances.
+   * The database instance ID. You can obtain this value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -49,10 +56,9 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response description. Valid values:
-   * 
-   * - zh: Chinese.
-   * - en: English.
+   * The language of the response message. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -60,7 +66,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of records per page. Keep other filter conditions consistent when querying the next page.
+   * The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
    * 
    * @example
    * 20
@@ -68,7 +74,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must correspond to each other.
+   * The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
    * 
    * @example
    * RDS
@@ -76,7 +82,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The list of cloud product type identifiers. Separate multiple values with commas (,). Valid values for the column encryption scenario: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+   * The list of cloud service type IDs. Separate multiple values with commas (,). For the column encryption scenario, the valid values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
    * 
    * @example
    * 5
@@ -85,6 +91,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      authDb: 'AuthDb',
       authRole: 'AuthRole',
       bizType: 'BizType',
       currentPage: 'CurrentPage',
@@ -99,6 +106,7 @@ export class ListDataAssetAccountsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      authDb: 'string',
       authRole: 'string',
       bizType: 'string',
       currentPage: 'number',
