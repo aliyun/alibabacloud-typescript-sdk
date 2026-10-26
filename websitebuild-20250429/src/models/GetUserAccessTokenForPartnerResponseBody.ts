@@ -6,6 +6,9 @@ export class GetUserAccessTokenForPartnerResponseBodyModule extends $dara.Model 
   /**
    * @remarks
    * The value of the exchanged access token.
+   * 
+   * @example
+   * 000a00000a000000000000000a000000000a0a00000000000000000a0a00000a000000000000000a000000000000000a0a0a000000000a0a0000000000000000000000000a0000000a00000a0a000a000a00000000000a0a
    */
   tokenValue?: string;
   static names(): { [key: string]: string } {

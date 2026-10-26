@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogoTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class CreateLogoTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The task ID returned when the call is successful. Note: Keep this ID secure. You must use this ID to query the status of the device creation.
+   * The task ID returned when the call is successful. Note: Keep this ID secure. You must use this ID to query the device creation status.
    * 
    * @example
    * c3r127e325at9yd

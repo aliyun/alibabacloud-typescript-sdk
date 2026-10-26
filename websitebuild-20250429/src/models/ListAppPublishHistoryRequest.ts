@@ -37,7 +37,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no next query is available.
+   * The token that is used to start the next query. If no next query exists, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -85,7 +85,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The release subchannel.
+   * The release sub-channel.
    * 
    * @example
    * current

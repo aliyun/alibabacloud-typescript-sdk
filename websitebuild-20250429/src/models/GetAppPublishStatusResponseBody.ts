@@ -67,10 +67,8 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * 
    * - `true`: The call is successful.
-   * 
-   * - `false`: The call fails.
+   * - `false`: The call failed.
    * 
    * @example
    * True
@@ -78,7 +76,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The additional information.
+   * The additional description.
    * 
    * @example
    * common notify successfully.
@@ -86,7 +84,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The sort type, such as ASC or DESC.
+   * The sorting type, such as ASC or DESC.
    * 
    * @example
    * DESC
@@ -155,6 +153,9 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The publish subchannel.
+   * 
+   * @example
+   * wx0123456789abcdef
    */
   subchannel?: string;
   static names(): { [key: string]: string } {
@@ -225,7 +226,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
 export class GetAppPublishStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}

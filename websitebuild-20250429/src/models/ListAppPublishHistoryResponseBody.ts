@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether quick rollback is supported.
+   * Specifies whether quick rollback is supported.
    * 
    * @example
    * true
@@ -92,7 +92,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   msg?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -152,7 +152,10 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   steps?: string[];
   /**
    * @remarks
-   * The release subchannel.
+   * The release sub-channel.
+   * 
+   * @example
+   * wx0123456789abcdef
    */
   subchannel?: string;
   static names(): { [key: string]: string } {
@@ -232,8 +235,8 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to display the history of applying alert templates to application groups. Valid values:
-   * - true: Display.
-   * - false: Do not display. This is the default value.
+   * - true: Displayed.
+   * - false: Not displayed. Default value: false.
    */
   history?: ListAppPublishHistoryResponseBodyModuleHistory[];
   /**
@@ -303,7 +306,7 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -351,12 +354,12 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
    * The data table module. Valid values:
    * - ABTest: experiment data table
    * - ExperimentTool: experiment tool table
-   * - DataDiagnosis: data diagnosis
+   * - DataDiagnosis: data diagnostics
    */
   module?: ListAppPublishHistoryResponseBodyModule;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no next query is available.
+   * The token that is used to start the next query. If no next query exists, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==

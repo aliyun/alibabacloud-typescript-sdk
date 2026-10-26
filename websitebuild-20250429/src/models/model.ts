@@ -1,3 +1,4 @@
+export { AppInstanceAggregateConversationInfo } from './AppInstanceAggregate';
 export { AppInstanceAggregatePartnerDetailBindData } from './AppInstanceAggregate';
 export { AppInstanceAggregatePartnerDetail } from './AppInstanceAggregate';
 export { AppInstanceAggregateTags } from './AppInstanceAggregate';

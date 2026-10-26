@@ -1614,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a logo creation task.
+   * Submits a logo generation task.
    * 
    * @param request - CreateLogoTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1657,7 +1657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a logo creation task.
+   * Submits a logo generation task.
    * 
    * @param request - CreateLogoTaskRequest
    * @returns CreateLogoTaskResponse
@@ -3247,7 +3247,7 @@ export default class Client extends OpenApi {
    * Queries the details of an instance.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3281,7 +3281,7 @@ export default class Client extends OpenApi {
    * Queries the details of an instance.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @returns GetAppInstanceForPartnerResponse
@@ -3443,7 +3443,7 @@ export default class Client extends OpenApi {
    * Queries the publish status.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppPublishStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3485,7 +3485,7 @@ export default class Client extends OpenApi {
    * Queries the publish status.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - GetAppPublishStatusRequest
    * @returns GetAppPublishStatusResponse

@@ -9,6 +9,36 @@ import { TemplateRecord } from "./TemplateRecord";
 
 /**
  */
+export class AppInstanceAggregateConversationInfo extends $dara.Model {
+  /**
+   * @remarks
+   * 0 表示存在空会话。
+   * 
+   * @example
+   * 1
+   */
+  chatNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chatNum: 'ChatNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppInstanceAggregatePartnerDetailBindData extends $dara.Model {
   /**
    * @remarks
@@ -250,6 +280,11 @@ export class AppInstanceAggregate extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
+   * 没有关联会话时为 null。
+   */
+  conversationInfo?: AppInstanceAggregateConversationInfo;
+  /**
+   * @remarks
    * The creation time.
    * 
    * @example
@@ -458,6 +493,7 @@ export class AppInstanceAggregate extends $dara.Model {
       appType: 'AppType',
       bizId: 'BizId',
       buildType: 'BuildType',
+      conversationInfo: 'ConversationInfo',
       createTime: 'CreateTime',
       deleted: 'Deleted',
       description: 'Description',
@@ -497,6 +533,7 @@ export class AppInstanceAggregate extends $dara.Model {
       appType: 'string',
       bizId: 'string',
       buildType: 'string',
+      conversationInfo: AppInstanceAggregateConversationInfo,
       createTime: 'string',
       deleted: 'number',
       description: 'string',
@@ -536,6 +573,9 @@ export class AppInstanceAggregate extends $dara.Model {
     }
     if(Array.isArray(this.appServiceList)) {
       $dara.Model.validateArray(this.appServiceList);
+    }
+    if(this.conversationInfo && typeof (this.conversationInfo as any).validate === 'function') {
+      (this.conversationInfo as any).validate();
     }
     if(this.partnerDetail && typeof (this.partnerDetail as any).validate === 'function') {
       (this.partnerDetail as any).validate();

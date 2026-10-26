@@ -14,7 +14,7 @@ export class GetUserAccessTokenForPartnerRequest extends $dara.Model {
   /**
    * @remarks
    * The credential used to connect to the cloud application.
-   * > This parameter is displayed for non-initial calls.
+   * > This parameter is displayed for subsequent calls.
    * 
    * This parameter is required.
    * 

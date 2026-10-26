@@ -301,6 +301,11 @@ export class AppInstanceProfile extends $dara.Model {
    * tpl-1
    */
   templateId?: string;
+  /**
+   * @example
+   * SUCC
+   */
+  upgradeStatus?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
@@ -328,6 +333,7 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'Source',
       templateEtag: 'TemplateEtag',
       templateId: 'TemplateId',
+      upgradeStatus: 'UpgradeStatus',
     };
   }
 
@@ -358,6 +364,7 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'string',
       templateEtag: 'string',
       templateId: 'string',
+      upgradeStatus: 'string',
     };
   }
 

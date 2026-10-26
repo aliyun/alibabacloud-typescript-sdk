@@ -29,7 +29,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAiStaffList extends $dara
   staffType?: string;
   /**
    * @remarks
-   * The status of the staff.
+   * The staff status.
    * 
    * @example
    * 200
@@ -279,7 +279,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
 export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressActions extends $dara.Model {
   /**
    * @remarks
-   * The action key, which is used to uniquely identify an operation.
+   * The operation key value, which uniquely identifies an operation.
    * 
    * @example
    * BeginDialogue
@@ -287,7 +287,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   actionKey?: string;
   /**
    * @remarks
-   * The action display text, which is used to display the action name in the interface.
+   * The operation display text, which is used to display the operation name in the interface.
    * 
    * @example
    * placeHolder
@@ -295,7 +295,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   actionText?: string;
   /**
    * @remarks
-   * The enabled status, which indicates whether the operation is available.
+   * The enable status, which indicates whether the operation is available.
    * 
    * @example
    * false
@@ -303,7 +303,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   enable?: boolean;
   /**
    * @remarks
-   * The link URL to which the user is redirected when the operation is clicked.
+   * The link URL to which you are redirected when you click the operation.
    * 
    * @example
    * placeHolder
@@ -339,7 +339,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
 export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashboardActions extends $dara.Model {
   /**
    * @remarks
-   * The action key, which is used to uniquely identify an operation.
+   * The operation key value, which uniquely identifies an operation.
    * 
    * @example
    * CollectedNumber
@@ -347,7 +347,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   actionKey?: string;
   /**
    * @remarks
-   * The action display text, which is used to display the action name in the interface.
+   * The operation display text, which is used to display the operation name in the interface.
    * 
    * @example
    * placeHolder
@@ -355,7 +355,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   actionText?: string;
   /**
    * @remarks
-   * The enabled status, which indicates whether the operation is available.
+   * The enable status, which indicates whether the operation is available.
    * 
    * @example
    * true
@@ -363,7 +363,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   enable?: boolean;
   /**
    * @remarks
-   * The link URL to which the user is redirected when the operation is clicked.
+   * The link URL to which you are redirected when you click the operation.
    * 
    * @example
    * placeHolder
@@ -420,7 +420,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   aiDesignUrl?: string;
   /**
    * @remarks
-   * The application publishing URL.
+   * The application publish URL.
    * 
    * @example
    * placeHolder
@@ -428,7 +428,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   appPublishUrl?: string;
   /**
    * @remarks
-   * The list of dashboard operation buttons.
+   * The list of operation buttons on the overview page.
    */
   dashboardActions?: GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashboardActions[];
   /**
@@ -441,7 +441,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   designUrl?: string;
   /**
    * @remarks
-   * The logon URL for the application instance.
+   * The logon URL of the application instance.
    * 
    * @example
    * placeHolder
@@ -449,7 +449,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   instanceLoginUrl?: string;
   /**
    * @remarks
-   * The renewal URL.
+   * The renewal purchase URL.
    * 
    * @example
    * placeHolder
@@ -465,7 +465,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   serverDeliveryUrl?: string;
   /**
    * @remarks
-   * The upgrade URL.
+   * The upgrade purchase URL.
    * 
    * @example
    * placeHolder
@@ -551,7 +551,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup exten
   type?: string;
   /**
    * @remarks
-   * The temporary access URL for the image.
+   * The temporary access URL of the image.
    * 
    * @example
    * https://static.yipigai.cn/timuocr/tmp_57bc9cb3be1075f4e5cdae87f5cbb86abc54a694aaf10965.jpg
@@ -602,7 +602,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   finalStepNo?: number;
   /**
    * @remarks
-   * The completion timestamp of the baseline instance. This value is returned when the FinishStatus parameter is FINISH.
+   * The completion timestamp of the baseline instance. This value is returned when FinishStatus (the completion status of the baseline instance) is FINISH.
    * 
    * @example
    * 2023-01-13T07:58:12Z
@@ -627,7 +627,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   /**
    * @remarks
    * <props="china">The name of the matrix.
-   * <props="intl">This parameter is not publicly available.
+   * <props="intl">This parameter is not available for public use.
    * 
    * @example
    * Single-channel output
@@ -713,7 +713,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressActions extends $dara.Model {
   /**
    * @remarks
-   * The action key, which is used to uniquely identify an operation.
+   * The operation key value, which uniquely identifies an operation.
    * 
    * @example
    * CollectedNumber
@@ -721,7 +721,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionKey?: string;
   /**
    * @remarks
-   * The action display text, which is used to display the action name in the interface.
+   * The operation display text, which is used to display the operation name in the interface.
    * 
    * @example
    * ActionText
@@ -729,7 +729,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionText?: string;
   /**
    * @remarks
-   * The enabled status, which indicates whether the operation is available.
+   * The enable status, which indicates whether the operation is available.
    * 
    * @example
    * false
@@ -737,7 +737,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   enable?: boolean;
   /**
    * @remarks
-   * The link URL to which the user is redirected when the operation is clicked.
+   * The link URL to which you are redirected when you click the operation.
    * 
    * @example
    * Href
@@ -773,7 +773,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressDashboardActions extends $dara.Model {
   /**
    * @remarks
-   * The action key, which is used to uniquely identify an operation.
+   * The operation key value, which uniquely identifies an operation.
    * 
    * @example
    * AbortDialogue
@@ -781,7 +781,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionKey?: string;
   /**
    * @remarks
-   * The action display text, which is used to display the action name in the interface.
+   * The operation display text, which is used to display the operation name in the interface.
    * 
    * @example
    * ActionText
@@ -789,7 +789,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionText?: string;
   /**
    * @remarks
-   * The enabled status, which indicates whether the operation is available.
+   * The enable status, which indicates whether the operation is available.
    * 
    * @example
    * true
@@ -797,7 +797,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   enable?: boolean;
   /**
    * @remarks
-   * The link URL to which the user is redirected when the operation is clicked.
+   * The link URL to which you are redirected when you click the operation.
    * 
    * @example
    * Href
@@ -854,7 +854,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   aiDesignUrl?: string;
   /**
    * @remarks
-   * The application publishing URL.
+   * The application publish URL.
    * 
    * @example
    * AppPublishUrl
@@ -862,7 +862,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   appPublishUrl?: string;
   /**
    * @remarks
-   * The list of dashboard operation buttons.
+   * The list of operation buttons on the overview page.
    */
   dashboardActions?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressDashboardActions[];
   /**
@@ -875,7 +875,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   designUrl?: string;
   /**
    * @remarks
-   * The logon URL for the application instance.
+   * The logon URL of the application instance.
    * 
    * @example
    * InstanceLoginUrl
@@ -883,7 +883,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   instanceLoginUrl?: string;
   /**
    * @remarks
-   * The renewal URL.
+   * The renewal purchase URL.
    * 
    * @example
    * renewBuyUrl
@@ -899,7 +899,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   serverDeliveryUrl?: string;
   /**
    * @remarks
-   * The upgrade URL.
+   * The upgrade purchase URL.
    * 
    * @example
    * UpgradeBuyUrl
@@ -1034,6 +1034,9 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   /**
    * @remarks
    * The upgrade status.
+   * 
+   * @example
+   * DOING
    */
   upgradeStatus?: string;
   static names(): { [key: string]: string } {
@@ -1088,7 +1091,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   bizId?: string;
   /**
    * @remarks
-   * The deletion flag.
+   * The deletion indicator.
    * 
    * @example
    * fase
@@ -1096,7 +1099,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   deleted?: number;
   /**
    * @remarks
-   * The end time. The value is in ISO 8601 format and uses the UTC time zone.
+   * The end time in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2025-07-18T02:23:00Z
@@ -1128,7 +1131,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   gmtModified?: string;
   /**
    * @remarks
-   * The application operation URL.
+   * The application operation address.
    */
   group?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup;
   /**
@@ -1154,7 +1157,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   nodeList?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList[];
   /**
    * @remarks
-   * The unique identifier for an operation.
+   * The unique identifier of an operation.
    */
   operationAddress?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddress;
   /**
@@ -1196,7 +1199,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   slug?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp in milliseconds.
+   * The start time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754447102000
@@ -1298,7 +1301,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   aliyunPk?: string;
   /**
    * @remarks
-   * The external bizId.
+   * The external business ID.
    * 
    * @example
    * WS20250801153127000002
@@ -1322,7 +1325,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   gmtModified?: string;
   /**
    * @remarks
-   * The user to whom the ICP filing service code belongs.
+   * The owner of the ICP filing service code.
    * 
    * @example
    * grantAliyunPk
@@ -1413,7 +1416,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetail extends $da
   partnerId?: string;
   /**
    * @remarks
-   * Valid values: unknown, init, testing, online.
+   * Valid values: unknown, init, testing, and online.
    * 
    * @example
    * 200
@@ -1594,7 +1597,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   orderNum?: number;
   /**
    * @remarks
-   * The channel partner business ID.
+   * The partner business ID.
    * 
    * @example
    * 100086
@@ -1924,7 +1927,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   orderNum?: number;
   /**
    * @remarks
-   * The channel partner business ID.
+   * The partner business ID.
    * 
    * @example
    * 100086
@@ -2142,7 +2145,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   buildType?: string;
   /**
    * @remarks
-   * Indicates whether it is deleted.
+   * Indicates whether the item is deleted.
    * 
    * @example
    * fase
@@ -2182,7 +2185,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   domain?: string;
   /**
    * @remarks
-   * The end time. The value is in ISO 8601 format and uses the UTC time zone.
+   * The end time in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2025-05-23T15:01:25.891Z
@@ -2238,7 +2241,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   gmtPublish?: string;
   /**
    * @remarks
-   * The URL of the application icon.
+   * The application icon.
    * 
    * @example
    * https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1617863868712071/1749090558651_%E9%AB%98%E5%BE%B7.png
@@ -2291,7 +2294,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   sourceType?: string;
   /**
    * @remarks
-   * The start time in ISO 8601 format in the UTC (Z) time zone.
+   * The start time in ISO 8601 format and the UTC time zone (Z).
    * 
    * @example
    * 2025-07-22T02:23:00Z
@@ -2315,7 +2318,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   statusText?: string;
   /**
    * @remarks
-   * The URL of the application thumbnail.
+   * The application thumbnail.
    * 
    * @example
    * placeHolder
@@ -2430,7 +2433,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   appDesignSpec?: GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec;
   /**
    * @remarks
-   * The application operation URL.
+   * The application operation address.
    */
   appOperationAddress?: GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress;
   /**
@@ -2472,7 +2475,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
-   * Indicates whether it is deleted.
+   * Indicates whether the item is deleted.
    * 
    * @example
    * fase
@@ -2512,7 +2515,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end time. The value is in ISO 8601 format and uses the UTC time zone.
+   * The end time in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2026-01-05T15:59:00Z
@@ -2568,10 +2571,10 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   gmtPublish?: string;
   /**
    * @remarks
-   * The URL of the application icon.
+   * The application icon.
    * 
    * @example
-   * https://yzm.zshud.com:34901/cloud-phone/养生_1763631730804.png
+   * https://yzm.zshud.com:34901/cloud-phone/wellness_1763631730804.png
    */
   iconUrl?: string;
   /**
@@ -2631,7 +2634,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time in ISO 8601 format in the UTC (Z) time zone.
+   * The start time in ISO 8601 format and the UTC time zone (Z).
    * 
    * @example
    * 2023-03-24T10:10Z
@@ -2655,7 +2658,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   statusText?: string;
   /**
    * @remarks
-   * The URL of the application thumbnail.
+   * The application thumbnail.
    * 
    * @example
    * placeHolder
@@ -2790,7 +2793,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
 export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -2798,7 +2801,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether retries are allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -2822,7 +2825,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the `%s` placeholder in the error message of the **ErrMessage** response parameter.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
@@ -2831,7 +2834,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The error arguments returned.
    */
   errorArgs?: any[];
   /**

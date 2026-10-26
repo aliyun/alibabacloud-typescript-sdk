@@ -8,6 +8,9 @@ export class DispatchConsoleAPIForPartnerRequest extends $dara.Model {
    * The access token obtained by calling GetUserAccessTokenForPartner.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 00a00aaa-a000-00a0-a0a0-a0a0a000a00a
    */
   liveToken?: string;
   /**
@@ -16,8 +19,8 @@ export class DispatchConsoleAPIForPartnerRequest extends $dara.Model {
    * 
    * - **deal**: Handles the alert (quarantine).
    * - **ignore**: Ignores the alert.
-   * - **mark_mis_info**: Marks the alert as a false positive (adds to the whitelist).
-   * - **rm_mark_mis_info**: Unmarks the alert as a false positive (removes from the whitelist).
+   * - **mark_mis_info**: Marks the alert as a false positive (adds it to the whitelist).
+   * - **rm_mark_mis_info**: Unmarks the alert as a false positive (removes it from the whitelist).
    * - **offline_handled**: Marks the alert as handled.
    * 
    * This parameter is required.
