@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud ID. For users not added through RAM self-service, this ID becomes available only after the user\\"s first login.
+   * The Alibaba Cloud account ID. For users who are not added through RAM self-service reading, the Alibaba Cloud ID can be obtained only after logon.
    * 
    * @example
    * 135****5848
@@ -13,7 +13,7 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name. For a RAM user, the domain suffix (the part after the @ symbol) is omitted. For example, for the user `test@test.com`, the value `test` is returned.
+   * The Alibaba Cloud account name. For RAM users, the domain name after the at sign (@) is removed. For example, test@test.com returns test.
    * 
    * @example
    * 1386587****@163.com
@@ -21,15 +21,12 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the user is assigned the organization administrator role. Valid values:
+   * Indicates whether the organization administrator role is bound. Valid values:
    * 
-   * - true: Yes
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false: No
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter is deprecated. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
@@ -37,15 +34,12 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicates whether the user is assigned the permission administrator role. Valid values:
+   * Indicates whether the permission management administrator role is attached. Valid values:
    * 
-   * - true: Yes
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false: No
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter has expired and is no longer recommended. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
@@ -53,33 +47,39 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   authAdminUser?: boolean;
   /**
    * @remarks
-   * The intelligent modules for which the user has a quota.
+   * The intelligent modules with quota.
    */
   copilotModules?: string[];
   /**
    * @remarks
-   * The user\\"s email address.
+   * The email address.
    * 
    * @example
    * 1386587****@163.com
    */
   email?: string;
   /**
+   * @remarks
+   * Indicates whether the user is disabled. Valid values:
+   * 
+   * - true: Disabled.
+   * - false: Active.
+   * 
    * @example
    * true
    */
   isDeleted?: boolean;
   /**
    * @remarks
-   * The user\\"s nickname.
+   * The nickname.
    * 
    * @example
-   * 测试用户
+   * TestUser
    */
   nickName?: string;
   /**
    * @remarks
-   * The user\\"s phone number.
+   * The phone number.
    * 
    * @example
    * 1386587****
@@ -87,7 +87,7 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The IDs of the organization roles assigned to the user.
+   * The list of organization role IDs bound to the user.
    */
   roleIdList?: number[];
   /**
@@ -102,11 +102,9 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
    * @remarks
    * The user type of the organization member. Valid values:
    * 
-   * - 1: developer
-   * 
-   * - 2: viewer
-   * 
-   * - 3: analyst
+   * - 1: Developer.
+   * - 2: Visitor.
+   * - 3: Analyst.
    * 
    * @example
    * 1
@@ -172,15 +170,13 @@ export class QueryUserInfoByAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user information of the organization member.
+   * The organization user information returned.
    */
   result?: QueryUserInfoByAccountResponseBodyResult;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example

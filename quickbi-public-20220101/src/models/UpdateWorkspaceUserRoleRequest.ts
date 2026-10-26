@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceUserRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * Preset workspace role ID, existing roles will be overwritten. Value range:
-   * - 25: Workspace Administrator
-   * - 26: Workspace Developer
-   * - 27: Workspace Analyst
-   * - 30: Workspace Viewer
+   * The ID of the preset workspace role. This operation overwrites existing roles. Valid values:
+   * - 25: workspace administrator
+   * - 26: workspace developer
+   * - 27: workspace analyst
+   * - 30: workspace viewer
    * 
    * @example
    * 25
@@ -19,8 +19,7 @@ export class UpdateWorkspaceUserRoleRequest extends $dara.Model {
   roleId?: number;
   /**
    * @remarks
-   * Multiple workspace role IDs, separated by commas. If this value is provided, it takes precedence.
-   * >Notice: roleId and roleIds cannot both be empty
+   * The IDs of multiple workspace roles, separated by commas. If this parameter is specified, it takes precedence. <notice>roleId and roleIds cannot be both empty.</notice>
    * 
    * @example
    * 25,26
@@ -28,7 +27,7 @@ export class UpdateWorkspaceUserRoleRequest extends $dara.Model {
   roleIds?: string;
   /**
    * @remarks
-   * Quick BI user ID.
+   * The Quick BI user ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +37,7 @@ export class UpdateWorkspaceUserRoleRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

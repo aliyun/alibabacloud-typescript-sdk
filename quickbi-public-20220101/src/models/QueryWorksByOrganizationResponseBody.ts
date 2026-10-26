@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $dara.Model {
   /**
    * @remarks
-   * ID of the directory to which it belongs.
+   * The ID of the directory.
    * 
    * @example
    * 83d37ba6-d909-48a2-a517-f4d05c3a****
@@ -13,15 +13,15 @@ export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $da
   id?: string;
   /**
    * @remarks
-   * Name of the directory to which it belongs.
+   * The name of the directory.
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   name?: string;
   /**
    * @remarks
-   * Hierarchical structure of the directory ID, separated by『/』.
+   * The hierarchical structure of directory IDs, separated by forward slashes (/).
    * 
    * @example
    * 83d37ba6-d909-48a2-a517-f4d05c3a****
@@ -29,10 +29,10 @@ export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $da
   pathId?: string;
   /**
    * @remarks
-   * Hierarchical structure of the directory name, separated by『/』.
+   * The hierarchical structure of directory names, separated by forward slashes (/).
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -65,10 +65,10 @@ export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $da
 export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Third-party embedding status. Possible values:
+   * The third-party embedding status. Valid values:
    * 
-   * - 0: Embedding not enabled
-   * - 1: Embedding enabled
+   * - 0: Embedding is not enabled.
+   * - 1: Embedding is enabled.
    * 
    * @example
    * 1
@@ -76,20 +76,20 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   auth3rdFlag?: number;
   /**
    * @remarks
-   * Notes for the work.
+   * The description of the work.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   description?: string;
   /**
    * @remarks
-   * Directory to which the work belongs.
+   * The directory to which the work belongs.
    */
   directory?: QueryWorksByOrganizationResponseBodyResultDataDirectory;
   /**
    * @remarks
-   * Timestamp (in milliseconds) when the work was created.
+   * The timestamp when the work was created, in milliseconds.
    * 
    * @example
    * 1496651577000
@@ -97,7 +97,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * Millisecond-level timestamp of the work modification.
+   * The timestamp when the work was last modified, in milliseconds.
    * 
    * @example
    * 1572334870000
@@ -105,31 +105,31 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   gmtModify?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the work modifier.
+   * The Alibaba Cloud account name of the user who last modified the work.
    * 
    * @example
-   * 张三
+   * John
    */
   modifyName?: string;
   /**
    * @remarks
-   * The UserID of the work\\"s owner in Quick BI.
+   * The Quick BI user ID of the work owner.
    * 
    * @example
-   * 作品所属工作空间名称。
+   * The name of the workspace to which the work belongs
    */
   ownerId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the work\\"s owner.
+   * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * 李四
+   * Jane
    */
   ownerName?: string;
   /**
    * @remarks
-   * Whether it is public
+   * Indicates whether the work is public.
    * 
    * @example
    * true
@@ -137,7 +137,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   publicFlag?: boolean;
   /**
    * @remarks
-   * The expiration date for the report to be made public
+   * The expiration date for the public report, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1721366354000
@@ -145,13 +145,13 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   publicInvalidTime?: number;
   /**
    * @remarks
-   * The security policy for collaborative authorization of the work. Values:
-   * - 0: Private
-   * - 12: Authorize specific members
-   * - 1 or 11: Authorize all space members
+   * The security policy for collaborative authorization of the work. Valid values:
+   * - 0: Private.
+   * - 12: Authorized to specified members.
+   * - 1 or 11: Authorized to all workspace members.
    * 
-   * >- If you are using the old version of permissions, the returned value is 1.
-   * >- If you are using the new version of permissions, the returned value is 11.
+   * >- If you use the legacy permissions, the return value is 1.
+   * >- If you use the new permissions, the return value is 11.
    * 
    * @example
    * 1
@@ -159,12 +159,12 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   securityLevel?: string;
   /**
    * @remarks
-   * The status of the report. Value range:
+   * The report status. Valid values:
    * 
-   * - 0: Unpublished
-   * - 1: Published
-   * - 2: Modified but not published
-   * - 3: Offline
+   * - 0: Unpublished.
+   * - 1: Published.
+   * - 2: Modified but not published.
+   * - 3: Offline.
    * 
    * @example
    * 1
@@ -175,17 +175,17 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   workName?: string;
   /**
    * @remarks
-   * The type of the work. Value range:
+   * The type of the work. Valid values:
    * 
-   * - DATAPRODUCT: Data portal
-   * - PAGE: Dashboard
-   * - REPORT: Spreadsheet
-   * - dashboardOfflineQuery: Self-service data retrieval
+   * - DATAPRODUCT: data portal
+   * - PAGE: dashboard
+   * - REPORT: workbook
+   * - dashboardOfflineQuery: custom query
    * 
    * @example
    * PAGE
@@ -204,7 +204,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The ID of the workspace to which the work belongs.
    * 
    * @example
-   * 作品修改者的阿里云账户名。
+   * The Alibaba Cloud account name of the user who last modified the work
    */
   workspaceId?: string;
   /**
@@ -212,7 +212,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -274,12 +274,12 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
 export class QueryWorksByOrganizationResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Details of the work list.
+   * The details of the works list.
    */
   data?: QueryWorksByOrganizationResponseBodyResultData[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -287,7 +287,7 @@ export class QueryWorksByOrganizationResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page set when requesting the interface.
+   * The number of rows per page specified in the request.
    * 
    * @example
    * 10
@@ -295,7 +295,7 @@ export class QueryWorksByOrganizationResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of rows.
+   * The total number of rows.
    * 
    * @example
    * 1
@@ -303,7 +303,7 @@ export class QueryWorksByOrganizationResponseBodyResult extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -344,7 +344,7 @@ export class QueryWorksByOrganizationResponseBodyResult extends $dara.Model {
 export class QueryWorksByOrganizationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -352,15 +352,15 @@ export class QueryWorksByOrganizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns a list of all works under the organization that meet the request criteria.
+   * The list of all works in the organization that match the request conditions.
    */
   result?: QueryWorksByOrganizationResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request succeeded
-   * - false: Request failed
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

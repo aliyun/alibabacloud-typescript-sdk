@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCubePerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The average duration (minutes).
+   * The average duration, in minutes.
    * 
    * @example
    * 1
@@ -21,10 +21,10 @@ export class QueryCubePerformanceRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * The current page number of the workspace member list:
+   * The current page number of the workspace member list.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * - Starting value: 1
+   * - Default value: 1
    * 
    * @example
    * 1
@@ -32,10 +32,9 @@ export class QueryCubePerformanceRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page in a paged query.
-   * 
-   * *   Default value: 10.
-   * *   Maximum value: 1,000.
+   * The number of entries per page in a paged query.
+   * - Default value: 10
+   * - Maximum value: 1000
    * 
    * @example
    * 100
@@ -45,9 +44,9 @@ export class QueryCubePerformanceRequest extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   **lastDay**: Yesterday
-   * *   **sevenDays**: Within seven days
-   * *   **thirtyDays**: Within 30 days
+   * - **lastDay**: yesterday
+   * - **sevenDays**: within the last seven days
+   * - **thirtyDays**: within the last thirty days
    * 
    * This parameter is required.
    * 

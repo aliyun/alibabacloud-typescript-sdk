@@ -16,7 +16,7 @@ export class QueryUserTagValueListResponseBodyResult extends $dara.Model {
    * Tag name.
    * 
    * @example
-   * 职位
+   * Position
    */
   tagName?: string;
   /**
@@ -24,7 +24,7 @@ export class QueryUserTagValueListResponseBodyResult extends $dara.Model {
    * The value of the tag.
    * 
    * @example
-   * 主管
+   * Supervisor
    */
   tagValue?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Embed time
+   * The time when the report was embedded. Format: YYYY-MM-DD hh:mm:ss.
    * 
    * @example
    * YYYY-mm-DD hh:MM:ss
@@ -13,7 +13,7 @@ export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
   embedTime?: string;
   /**
    * @remarks
-   * Report ID
+   * The report ID.
    * 
    * @example
    * 897ce25e-****-****-af84-d13c5610****
@@ -21,15 +21,15 @@ export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
   worksId?: string;
   /**
    * @remarks
-   * Report name
+   * The report name.
    * 
    * @example
-   * 测试哦
+   * Test
    */
   worksName?: string;
   /**
    * @remarks
-   * Report type
+   * The report type.
    * 
    * @example
    * page
@@ -37,7 +37,7 @@ export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
   worksType?: string;
   /**
    * @remarks
-   * Workspace ID
+   * The ID of the workspace to which the report belongs.
    * 
    * @example
    * 87c6b145-****-43e1-9426-8f93be23****
@@ -75,12 +75,12 @@ export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
 export class GetWorksEmbedListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Array of reports
+   * The report array.
    */
   data?: GetWorksEmbedListResponseBodyResultData[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class GetWorksEmbedListResponseBodyResult extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -96,7 +96,7 @@ export class GetWorksEmbedListResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 18
@@ -104,7 +104,7 @@ export class GetWorksEmbedListResponseBodyResult extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class GetWorksEmbedListResponseBodyResult extends $dara.Model {
 export class GetWorksEmbedListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 38C0F*****0-415****9F1-*****422BDB65
@@ -153,12 +153,12 @@ export class GetWorksEmbedListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Array of report objects
+   * The report array object.
    */
   result?: GetWorksEmbedListResponseBodyResult;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

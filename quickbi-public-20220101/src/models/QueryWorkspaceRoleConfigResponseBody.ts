@@ -88,7 +88,7 @@ export class QueryWorkspaceRoleConfigResponseBodyResult extends $dara.Model {
    * Role name.
    * 
    * @example
-   * 空间管理员
+   * pace administrator
    */
   roleName?: string;
   static names(): { [key: string]: string } {

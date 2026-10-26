@@ -8,7 +8,7 @@ export class QueryUserGroupMemberRequest extends $dara.Model {
    * Keyword for the username or nickname of the user group member.
    * 
    * @example
-   * 小刘
+   * test
    */
   keyword?: string;
   /**

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecentViewReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword of the name of the work.
+   * The keyword in the name of the work.
    * 
    * @example
-   * 财务报表
+   * FinancialReport
    */
   keyword?: string;
   /**
    * @remarks
-   * The number of days to query data in the last few days. Default value: 10.
+   * The number of recent days to query data for. Default value: 10.
    * 
    * @example
    * 10
@@ -21,10 +21,10 @@ export class ListRecentViewReportsRequest extends $dara.Model {
   offsetDay?: number;
   /**
    * @remarks
-   * Query the number of rows in the work list:
+   * The number of rows in the work list to query:
    * 
-   * *   Default value: 10.
-   * *   Maximum value: 9999
+   * - Default value: 10.
+   * - Maximum value: 9999.
    * 
    * @example
    * 10
@@ -34,8 +34,8 @@ export class ListRecentViewReportsRequest extends $dara.Model {
    * @remarks
    * The query mode. Valid values:
    * 
-   * *   1: Sort by number of visits
-   * *   2: Sort by Last Access Time
+   * - 1: Sorted by number of visits.
+   * - 2: Sorted by most recent visit time.
    * 
    * @example
    * 1
@@ -43,11 +43,10 @@ export class ListRecentViewReportsRequest extends $dara.Model {
   queryMode?: string;
   /**
    * @remarks
-   * Query the type of the work (fill in the blank to query all types). Valid values:
-   * 
-   * *   DATAPRODUCT: BI portal
-   * *   PAGE: Dashboard
-   * *   REPORT: workbook
+   * The type of work to query. Leave this parameter empty to query all types. Valid values:
+   * - DATAPRODUCT: data portal
+   * - PAGE: dashboard
+   * - REPORT: workbook
    * 
    * @example
    * PAGE
@@ -55,7 +54,7 @@ export class ListRecentViewReportsRequest extends $dara.Model {
   treeType?: string;
   /**
    * @remarks
-   * The UserID of the user in the Quick BI.
+   * The UserID of the user to query in Quick BI.
    * 
    * This parameter is required.
    * 

@@ -21,15 +21,12 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the organization administrator role is assigned to the user. Valid values:
+   * Indicates whether the user is an organization administrator. Valid values:
    * 
-   * - true: The role is assigned.
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false: The role is not assigned.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter is deprecated. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
@@ -37,15 +34,12 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicates whether the permission administrator role is assigned to the user. Valid values:
+   * Indicates whether the user has the permission management administrator role attached. Valid values:
    * 
-   * - true: The role is assigned.
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false: The role is not assigned.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter has expired and is no longer recommended. Use the RoleIList parameter instead.</notice>
    * 
    * @example
    * true
@@ -53,33 +47,39 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   authAdminUser?: boolean;
   /**
    * @remarks
-   * The list of `CopilotModules` available to the user.
+   * The intelligent quota owned by the user.
    */
   copilotModules?: string[];
   /**
    * @remarks
-   * The email address of the user.
+   * The email address.
    * 
    * @example
    * 1386587****@163.com
    */
   email?: string;
   /**
+   * @remarks
+   * Indicates whether the user is disabled. Valid values:
+   * 
+   * - true: Disabled.
+   * - false: Active.
+   * 
    * @example
    * true
    */
   isDeleted?: boolean;
   /**
    * @remarks
-   * The nickname of the user.
+   * The nickname.
    * 
    * @example
-   * 测试用户
+   * Test user
    */
   nickName?: string;
   /**
    * @remarks
-   * The phone number of the user.
+   * The phone number.
    * 
    * @example
    * 1386587****
@@ -87,12 +87,12 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The list of organization role IDs that are assigned to the user.
+   * The list of organization role IDs bound to the user.
    */
   roleIdList?: number[];
   /**
    * @remarks
-   * The user ID in Quick BI.
+   * The UserID in Quick BI.
    * 
    * @example
    * fe67f61a35a94b7da1a34ba174a7****
@@ -102,11 +102,9 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
    * @remarks
    * The user type of the organization member. Valid values:
    * 
-   * - `1`: developer
-   * 
-   * - `2`: viewer
-   * 
-   * - `3`: analyst
+   * - 1: Developer.
+   * - 2: Viewer.
+   * - 3: Analyst.
    * 
    * @example
    * 1
@@ -164,7 +162,7 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
 export class QueryUserInfoByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -172,15 +170,14 @@ export class QueryUserInfoByUserIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the organization user.
+   * The organization user information returned.
    */
   result?: QueryUserInfoByUserIdResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The request is successful.
-   * 
+   * - true: The request was successful.
    * - false: The request failed.
    * 
    * @example

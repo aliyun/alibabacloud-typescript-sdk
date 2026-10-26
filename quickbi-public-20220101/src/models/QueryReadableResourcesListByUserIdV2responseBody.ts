@@ -16,7 +16,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResultDirectory ext
    * The name of the directory to which it belongs.
    * 
    * @example
-   * 测试目录
+   * asdas
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResultDirectory ext
    * The hierarchical structure of directory names, separated by『/』.
    * 
    * @example
-   * 一级目录/二级目录
+   * asdas/safas
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResult extends $dar
    * Work remarks.
    * 
    * @example
-   * 备注
+   * asdas
    */
   description?: string;
   /**
@@ -89,7 +89,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResult extends $dar
    * Alibaba Cloud account name of the modifier.
    * 
    * @example
-   * 李四
+   * asdas
    */
   modifyName?: string;
   /**
@@ -113,7 +113,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResult extends $dar
    * Alibaba Cloud account name of the owner.
    * 
    * @example
-   * 张三
+   * asdas
    */
   ownerName?: string;
   /**
@@ -152,7 +152,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResult extends $dar
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * asdas
    */
   workName?: string;
   /**
@@ -191,7 +191,7 @@ export class QueryReadableResourcesListByUserIdV2ResponseBodyResult extends $dar
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * asdas
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

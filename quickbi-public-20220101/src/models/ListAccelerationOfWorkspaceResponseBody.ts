@@ -29,7 +29,7 @@ export class ListAccelerationOfWorkspaceResponseBodyResultData extends $dara.Mod
   cubeName?: string;
   /**
    * @remarks
-   * The time when acceleration was enabled.
+   * The time when acceleration was enabled, in the format of YYYYMMDD HH:mm:ss.
    * 
    * @example
    * 20250911 00:00:00
@@ -53,19 +53,14 @@ export class ListAccelerationOfWorkspaceResponseBodyResultData extends $dara.Mod
   jobId?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The status. Valid values:
    * 
-   * - 0: Pending
-   * 
-   * - 1: Running
-   * 
-   * - 2: Succeeded
-   * 
-   * - 3: Failed
-   * 
-   * - 4: Canceled
-   * 
-   * - 5: Warning
+   * - 0: pending
+   * - 1: running
+   * - 2: completed
+   * - 3: failed
+   * - 4: canceled
+   * - 5: warning
    * 
    * @example
    * 0
@@ -73,7 +68,7 @@ export class ListAccelerationOfWorkspaceResponseBodyResultData extends $dara.Mod
   jobStatus?: number;
   /**
    * @remarks
-   * The time when the task was last modified.
+   * The last modification time, in the format of YYYYMMDD HH:mm:ss.
    * 
    * @example
    * 20250911 00:00:00
@@ -127,12 +122,12 @@ export class ListAccelerationOfWorkspaceResponseBodyResultData extends $dara.Mod
 export class ListAccelerationOfWorkspaceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * An array of acceleration task information.
+   * The array of acceleration task information.
    */
   data?: ListAccelerationOfWorkspaceResponseBodyResultData[];
   /**
    * @remarks
-   * The next page. A value of NULL or 0 indicates that there is no next page.
+   * The next page number. A value of NULL or 0 indicates that there is no next page.
    * 
    * @example
    * null
@@ -148,7 +143,7 @@ export class ListAccelerationOfWorkspaceResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page that you set when you call the operation.
+   * The number of rows per page specified in the request.
    * 
    * @example
    * 10
@@ -156,7 +151,7 @@ export class ListAccelerationOfWorkspaceResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The previous page. A value of NULL or 0 indicates that there is no previous page.
+   * The previous page number. A value of NULL or 0 indicates that there is no previous page.
    * 
    * @example
    * 0
@@ -225,7 +220,7 @@ export class ListAccelerationOfWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The acceleration task model.
+   * The acceleration task information model.
    */
   result?: ListAccelerationOfWorkspaceResponseBodyResult;
   /**
@@ -233,7 +228,6 @@ export class ListAccelerationOfWorkspaceResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example

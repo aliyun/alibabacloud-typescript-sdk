@@ -40,7 +40,7 @@ export class QueryDataServiceRequest extends $dara.Model {
    *     - Second: 14:34:34
    * 
    * @example
-   * { "area": ["华东", "华北"],  "shopping_date": "2019Q1",  }
+   * { "area": ["asdf", "west"],  "shopping_date": "2019Q1",  }
    */
   conditions?: string;
   /**

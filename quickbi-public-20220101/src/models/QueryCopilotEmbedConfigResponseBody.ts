@@ -68,7 +68,7 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
    * Robot\\"s nickname.
    * 
    * @example
-   * 小Q
+   * little Q
    */
   agentName?: string;
   /**
@@ -92,7 +92,7 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
    * Nickname of the creator.
    * 
    * @example
-   * 诸葛
+   * zhangsan
    */
   createUserName?: string;
   /**
@@ -113,7 +113,7 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
    * Module name.
    * 
    * @example
-   * 小Q
+   * little Q
    */
   moduleName?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The average duration of cache hits.
+   * The average time consumed for cache hits.
    * 
    * @example
    * 2.2
@@ -21,7 +21,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   cacheQueryCount?: number;
   /**
    * @remarks
-   * The number of times the chart is queried.
+   * The number of chart queries.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   componentQueryCount?: number;
   /**
    * @remarks
-   * The average number of times the chart is queried.
+   * The average number of chart queries.
    * 
    * @example
    * 2.0
@@ -37,7 +37,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   componentQueryCountAvg?: number;
   /**
    * @remarks
-   * The average query duration associated with the SQL pattern.
+   * The average query time.
    * 
    * @example
    * 0.2
@@ -61,7 +61,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryCountAvg?: number;
   /**
    * @remarks
-   * The percentage of the number of queries that exceed the 5S.
+   * The proportion of queries that take more than 5 seconds.
    * 
    * @example
    * 0.5
@@ -69,7 +69,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryOverFivePercentNum?: number;
   /**
    * @remarks
-   * Query the proportion of more than 5S.
+   * The percentage of queries that take more than 5 seconds.
    * 
    * @example
    * 0.5
@@ -77,7 +77,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryOverFiveSecPercent?: string;
   /**
    * @remarks
-   * The percentage of queries that exceed 10s.
+   * The percentage of queries that take more than 10 seconds.
    * 
    * @example
    * 0.5
@@ -85,7 +85,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryOverTenSecPercent?: string;
   /**
    * @remarks
-   * The number of queries that exceed 10 seconds.
+   * The number of queries that take more than 10 seconds.
    * 
    * @example
    * 0.5
@@ -93,7 +93,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryOverTenSecPercentNum?: number;
   /**
    * @remarks
-   * The number of times that the chart query times out.
+   * The number of chart query timeouts.
    * 
    * @example
    * 8
@@ -101,7 +101,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryTimeoutCount?: number;
   /**
    * @remarks
-   * The percentage of timeout times for chart queries.
+   * The proportion of chart query timeouts.
    * 
    * @example
    * 0.5
@@ -109,7 +109,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   queryTimeoutCountPercent?: number;
   /**
    * @remarks
-   * The average time consumed by the Quick engine query.
+   * The average query time for Quick engine hits.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   quickIndexCostTimeAvg?: number;
   /**
    * @remarks
-   * The number of times that the Quick engine is hit.
+   * The number of Quick engine hits.
    * 
    * @example
    * 5
@@ -125,7 +125,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   quickIndexQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The proportion of repeated queries.
    * 
    * @example
    * 0.8
@@ -133,7 +133,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   repeatQueryPercent?: string;
   /**
    * @remarks
-   * The number of duplicate queries.
+   * The number of repeated queries.
    * 
    * @example
    * 3
@@ -141,7 +141,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   repeatQueryPercentNum?: number;
   /**
    * @remarks
-   * The number of times the query is repeated.
+   * The number of repeated SQL queries.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   repeatSqlQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The proportion of repeated queries.
    * 
    * @example
    * 0.7
@@ -157,7 +157,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   repeatSqlQueryPercent?: string;
   /**
    * @remarks
-   * The ID of the work.
+   * The report ID.
    * 
    * @example
    * 6b407e50-e774-406b-9956-da2425c2****
@@ -165,7 +165,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The name of the report.
+   * The report name.
    * 
    * @example
    * ClusterAddonUpgradeReport
@@ -173,7 +173,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   reportName?: string;
   /**
    * @remarks
-   * The format of the report.
+   * The report type.
    * 
    * @example
    * report
@@ -181,7 +181,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the work belongs.
+   * The ID of the workspace to which the report belongs.
    * 
    * @example
    * ab46ed33-6278-4ef7-8013-8c1335f266ee
@@ -189,10 +189,10 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The workspace name.
    * 
    * @example
-   * 自定义模板
+   * Custom template
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -273,15 +273,15 @@ export class QueryReportPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The list of report performance logs, which includes report information and performance statistics such as query count, query duration, and cache hits.
    */
   result?: QueryReportPerformanceResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IpWhiteListConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Required for increase and delete operations. The IP whitelist. Separate multiple IP addresses with commas.
+   * Required for add and delete operations. The IP whitelist. Separate multiple IP addresses with commas.
    * 
    * @example
    * 60.205.254.120
@@ -15,9 +15,9 @@ export class IpWhiteListConfigRequest extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * - ADD: incrementally adds entries.
-   * - DELETE: deletes entries.
-   * - QUERY: queries entries.
+   * - ADD: Incrementally adds entries.
+   * - DELETE: Deletes entries.
+   * - QUERY: Queries entries.
    * 
    * This parameter is required.
    * 

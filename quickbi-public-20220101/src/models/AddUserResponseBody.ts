@@ -15,15 +15,12 @@ export class AddUserResponseBodyResult extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the organization administrator role is assigned. Valid values:
+   * Indicates whether the organization administrator role is bound. Valid values:
    * 
-   * - true
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
+   * <notice>This parameter is deprecated. When RoleIdList is specified, this parameter does not take effect.</notice>
    * 
    * @example
    * true
@@ -31,15 +28,12 @@ export class AddUserResponseBodyResult extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicates whether the permission administrator role is assigned. Valid values:
+   * Indicates whether the permission management administrator role is attached. Valid values:
    * 
-   * - true
+   * - true: Yes.
+   * - false: No.
    * 
-   * - false
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
+   * <notice>This parameter has expired and is no longer recommended. When RoleIdList is specified, this parameter does not take effect.</notice>
    * 
    * @example
    * true
@@ -47,7 +41,7 @@ export class AddUserResponseBodyResult extends $dara.Model {
   authAdminUser?: boolean;
   /**
    * @remarks
-   * The Copilot modules for which the user has a quota.
+   * The intelligent module quotas owned by the user.
    */
   copilotModules?: string[];
   /**
@@ -55,12 +49,12 @@ export class AddUserResponseBodyResult extends $dara.Model {
    * The nickname of the Alibaba Cloud account.
    * 
    * @example
-   * 张三
+   * John
    */
   nickName?: string;
   /**
    * @remarks
-   * A list of organization role IDs assigned to the user.
+   * The list of organization role IDs bound to the user.
    */
   roleIdList?: number[];
   /**
@@ -73,13 +67,10 @@ export class AddUserResponseBodyResult extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The user type. Valid values:
-   * 
-   * - 1: developer
-   * 
-   * - 2: viewer
-   * 
-   * - 3: analyst
+   * The user type of the organization member. Valid values:
+   * - 1: Developer.
+   * - 2: Visitor.
+   * - 3: Analyst.
    * 
    * @example
    * 1
@@ -144,9 +135,8 @@ export class AddUserResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAccelerationLogByCubeIdResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The task duration in seconds.
+   * The duration. Unit: seconds.
    * 
    * @example
    * 123
@@ -29,19 +29,14 @@ export class QueryAccelerationLogByCubeIdResponseBodyResultData extends $dara.Mo
   jobId?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status. Valid values:
    * 
-   * - 0: Pending
-   * 
-   * - 1: Running
-   * 
-   * - 2: Succeeded
-   * 
-   * - 3: Failed
-   * 
-   * - 4: Canceled
-   * 
-   * - 5: Warning
+   * - 0: pending
+   * - 1: running
+   * - 2: succeeded
+   * - 3: failed
+   * - 4: canceled
+   * - 5: warning
    * 
    * @example
    * 0
@@ -49,15 +44,15 @@ export class QueryAccelerationLogByCubeIdResponseBodyResultData extends $dara.Mo
   jobStatus?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The task start time. Format: yyyy/MM/dd HH:mm:ss. Time zone: UTC+8.
    * 
    * @example
-   * REST_A***************6a8
+   * 2025/09/10 13:59:19
    */
   jonStartDate?: string;
   /**
    * @remarks
-   * The log content.
+   * The log.
    * 
    * @example
    * asdav************
@@ -97,7 +92,7 @@ export class QueryAccelerationLogByCubeIdResponseBodyResultData extends $dara.Mo
 export class QueryAccelerationLogByCubeIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * An array of acceleration task logs.
+   * The array of acceleration task logs.
    */
   data?: QueryAccelerationLogByCubeIdResponseBodyResultData[];
   /**
@@ -195,19 +190,17 @@ export class QueryAccelerationLogByCubeIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the API request.
+   * The execution result of the operation. Valid values:
    * 
    * - true: The execution succeeded.
-   * 
    * - false: The execution failed.
    */
   result?: QueryAccelerationLogByCubeIdResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
-   * 
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example

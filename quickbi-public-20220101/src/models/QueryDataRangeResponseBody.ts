@@ -8,7 +8,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels extends $da
    * Alias of the LlmCube resource.
    * 
    * @example
-   * 测试
+   * test
    */
   alias?: string;
   /**
@@ -16,7 +16,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels extends $da
    * Nickname of the creator.
    * 
    * @example
-   * 诸葛
+   * zhuge
    */
   createUser?: string;
   /**
@@ -58,7 +58,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmC
    * Alias of the LLM cube resource.
    * 
    * @example
-   * 测哈
+   * test
    */
   alias?: string;
   /**
@@ -66,7 +66,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmC
    * Nickname of the creator.
    * 
    * @example
-   * 诸葛
+   * zhuge
    */
   createUser?: string;
   /**
@@ -113,7 +113,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModels extends $dara
    * Nickname of the creator.
    * 
    * @example
-   * 诸葛
+   * zhuge
    */
   createUser?: string;
   /**
@@ -129,7 +129,7 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModels extends $dara
    * Nickname of the analysis theme.
    * 
    * @example
-   * 测试主题
+   * test theme
    */
   themeName?: string;
   static names(): { [key: string]: string } {
@@ -208,7 +208,7 @@ export class QueryDataRangeResponseBody extends $dara.Model {
    * Request ID.
    * 
    * @example
-   * D787E1A3-A93C-424A-B626-C2B05DF8D885
+   * D787E1A3-A93C-****-B626-C2B05DF8D885
    */
   requestId?: string;
   /**

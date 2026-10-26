@@ -8,7 +8,7 @@ export class QueryDataServiceListRequest extends $dara.Model {
    * Data service name.
    * 
    * @example
-   * 测试sql
+   * test
    */
   name?: string;
   /**

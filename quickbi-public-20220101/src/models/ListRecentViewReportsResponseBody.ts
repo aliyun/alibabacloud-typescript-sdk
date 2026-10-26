@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Queries whether the user has collected the work.
+   * Indicates whether the queried user has added the work to favorites.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The timestamp when the work was modified.
+   * The timestamp when the work was last modified.
    * 
    * @example
    * 1640595729000
@@ -29,7 +29,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The query user has the editing rights of the work.
+   * Indicates whether the queried user has edit permissions on the work.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   hasEditAuth?: boolean;
   /**
    * @remarks
-   * The query user has the permission to view the work.
+   * Indicates whether the queried user has view permissions on the work.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * TestReport
    */
   name?: string;
   /**
@@ -64,7 +64,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * 李四
+   * John
    */
   ownerName?: string;
   /**
@@ -77,12 +77,11 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   ownerNum?: string;
   /**
    * @remarks
-   * The publication status of the work. Valid values:
-   * 
-   * *   0: unpublished
-   * *   1: published
-   * *   2: modified and saved but not published.
-   * *   3: unpublished
+   * The publish status of the work. Valid values:
+   * - 0: Unpublished.
+   * - 1: Published.
+   * - 2: Modified and saved but not published.
+   * - 3: Offline.
    * 
    * @example
    * 1
@@ -99,10 +98,9 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
    * The type of the work. Valid values:
-   * 
-   * *   DATAPRODUCT: BI portal
-   * *   PAGE: Dashboard
-   * *   REPORT: workbook
+   * - DATAPRODUCT: data portal
+   * - PAGE: dashboard
+   * - REPORT: workbook
    * 
    * @example
    * PAGE
@@ -110,7 +108,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The number of times the work was accessed.
+   * The number of times the work has been accessed.
    * 
    * @example
    * 7
@@ -129,7 +127,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * TestWorkspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -184,10 +182,10 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
 export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Attention
+   * The notice indicating that pagination parameters (such as TotalNum) returned by this API will be deprecated soon.
    * 
    * @example
-   * 当前API返回的分页参数如TotalNum等即将下线，如有使用请及时修改
+   * The pagination parameters such as TotalNum returned by this API will be deprecated soon. If you are using them, modify your code promptly
    */
   attention?: string;
   /**
@@ -197,7 +195,7 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
   data?: ListRecentViewReportsResponseBodyResultData[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -205,10 +203,10 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
-   * *   Default value: 10.
-   * *   Maximum of 100 articles
+   * - Default value: 10.
+   * - Maximum value: 100.
    * 
    * @example
    * 10
@@ -216,7 +214,7 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of rows in the table.
+   * The total number of rows.
    * 
    * @example
    * 1
@@ -224,7 +222,7 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -267,7 +265,7 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
 export class ListRecentViewReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -275,15 +273,14 @@ export class ListRecentViewReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The query results are returned.
+   * The query result.
    */
   result?: ListRecentViewReportsResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

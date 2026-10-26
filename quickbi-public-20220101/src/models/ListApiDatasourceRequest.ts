@@ -8,15 +8,15 @@ export class ListApiDatasourceRequest extends $dara.Model {
    * The keyword of the API data source name.
    * 
    * @example
-   * 测试
+   * Test
    */
   keyWord?: string;
   /**
    * @remarks
-   * Current page number for API data source list:
+   * The page number of the API data source list.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * - Minimum value: 1.
+   * - Default value: 1.
    * 
    * @example
    * 1
@@ -26,8 +26,8 @@ export class ListApiDatasourceRequest extends $dara.Model {
    * @remarks
    * The number of rows per page in a paged query.
    * 
-   * *   Default value: 10.
-   * *   Valid values: 1 to 100.
+   * - Default value: 10.
+   * - Maximum value: 100.
    * 
    * @example
    * 10

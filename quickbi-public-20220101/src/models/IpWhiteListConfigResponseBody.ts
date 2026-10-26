@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IpWhiteListConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist array.
+   * The IP whitelist array.
    */
   ipWhiteList?: string[];
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class IpWhiteListConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    */
   result?: IpWhiteListConfigResponseBodyResult;
   /**

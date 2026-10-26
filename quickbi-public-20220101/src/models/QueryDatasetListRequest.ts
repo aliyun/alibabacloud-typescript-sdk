@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the folder.
+   * The directory ID.
    * 
-   * - If you specify this parameter, all datasets in the folder are returned.
+   * - If this parameter is specified, all datasets in the specified directory are returned.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -15,7 +15,7 @@ export class QueryDatasetListRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The keyword used to search for datasets by name.
+   * The keyword used to search for dataset names.
    * 
    * @example
    * test
@@ -25,8 +25,7 @@ export class QueryDatasetListRequest extends $dara.Model {
    * @remarks
    * The page number of the dataset list.
    * 
-   * - Start value: 1
-   * 
+   * - Minimum value: 1
    * - Default value: 1
    * 
    * @example
@@ -35,10 +34,9 @@ export class QueryDatasetListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of rows per page for a paged query.
    * 
    * - Default value: 10
-   * 
    * - Maximum value: 1000
    * 
    * @example
@@ -49,9 +47,8 @@ export class QueryDatasetListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to recursively include datasets in subdirectories. Valid values:
    * 
-   * - true: Returns all datasets in the folder specified by DirectoryId and its subdirectories.
-   * 
-   * - false: Returns only the datasets in the folder specified by DirectoryId.
+   * - true: Returns datasets in all recursive subdirectories under the directory specified by directoryId.
+   * - false: Returns only datasets in the directory specified by directoryId, excluding subdirectories.
    * 
    * @example
    * true

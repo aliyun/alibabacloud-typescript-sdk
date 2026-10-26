@@ -24,7 +24,7 @@ export class CreateUserGroupRequest extends $dara.Model {
    * *   Special format verification: Chinese and English digits_ \\ / | () ] [
    * 
    * @example
-   * 用户分组描述
+   * User group description
    */
   userGroupDescription?: string;
   /**
@@ -48,7 +48,7 @@ export class CreateUserGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 杭州财报
+   * Hangzhou Financial Report
    */
   userGroupName?: string;
   static names(): { [key: string]: string } {

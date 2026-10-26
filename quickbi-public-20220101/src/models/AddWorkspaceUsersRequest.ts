@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddWorkspaceUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * Preset space role ID. Value range:
-   * - 25: Space Administrator
-   * - 26: Space Developer
-   * - 27: Space Analyst
-   * - 30: Space Viewer
+   * The ID of the preset workspace role. Valid values:
+   * - 25: storage management administrator
+   * - 26: workspace developer
+   * - 27: storage analysis analyst
+   * - 30: workspace viewer
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class AddWorkspaceUsersRequest extends $dara.Model {
   roleId?: number;
   /**
    * @remarks
-   * User ID. This is the UserID for Quick BI, not the Alibaba Cloud UID.
+   * The user IDs. These are Quick BI user IDs, not Alibaba Cloud UIDs.
    * 
-   * - Supports batch parameters, with user IDs separated by commas (,).
+   * - You can pass multiple user IDs separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class AddWorkspaceUsersRequest extends $dara.Model {
   userIds?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

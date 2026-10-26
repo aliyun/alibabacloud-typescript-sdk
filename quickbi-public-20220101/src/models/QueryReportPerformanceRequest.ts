@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReportPerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The average duration (minutes).
+   * The average time consumed in minutes.
    * 
    * @example
    * 1
@@ -13,10 +13,10 @@ export class QueryReportPerformanceRequest extends $dara.Model {
   costTimeAvgMin?: number;
   /**
    * @remarks
-   * Current page number for organization member list:
+   * The current page number of the organization member list.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * - Starting value: 1.
+   * - Default value: 1.
    * 
    * @example
    * 1
@@ -24,10 +24,9 @@ export class QueryReportPerformanceRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page in a paged query.
-   * 
-   * *   Default value: 10.
-   * *   Maximum value: 1,000.
+   * The number of entries per page.
+   * - Default value: 10.
+   * - Maximum value: 1000.
    * 
    * @example
    * 10
@@ -37,9 +36,9 @@ export class QueryReportPerformanceRequest extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   **lastDay**: Yesterday
-   * *   **sevenDays**: Within seven days
-   * *   **thirtyDays**: Within 30 days
+   * - **lastDay**: Yesterday.
+   * - **sevenDays**: Within the last 7 days.
+   * - **thirtyDays**: Within the last 30 days.
    * 
    * This parameter is required.
    * 
@@ -49,7 +48,7 @@ export class QueryReportPerformanceRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * The ID of the security report.
+   * The report ID.
    * 
    * @example
    * 6b407e50-e774-406b-9956-da2425c2****
@@ -57,7 +56,7 @@ export class QueryReportPerformanceRequest extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The resource types.
+   * The resource type.
    * 
    * @example
    * report

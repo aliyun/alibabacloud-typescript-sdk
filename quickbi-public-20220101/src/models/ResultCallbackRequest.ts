@@ -20,7 +20,7 @@ export class ResultCallbackRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 你不是A部门分析师。
+   * You are not a Division A analyst.
    */
   handleReason?: string;
   /**

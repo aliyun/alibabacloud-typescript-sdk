@@ -24,7 +24,7 @@ export class UpdateUserTagValueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 产品总监
+   * Product Director
    */
   tagValue?: string;
   /**

@@ -16,7 +16,7 @@ export class QueryWorksByWorkspaceResponseBodyResultDataDirectory extends $dara.
    * The name of the directory.
    * 
    * @example
-   * 所属目录名称。
+   * The name of the directory.
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryWorksByWorkspaceResponseBodyResultDataDirectory extends $dara.
    * The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * Remarks on the work.
    * 
    * @example
-   * 备注
+   * Description
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * Nickname of the work modifier.
    * 
    * @example
-   * 张三
+   * Tom
    */
   modifyName?: string;
   /**
@@ -116,7 +116,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * The user ID of the work owner in the Quick BI.
    * 
    * @example
-   * 作品所属工作空间名称。
+   * The name of the workspace to which the work belongs.
    */
   ownerId?: string;
   /**
@@ -124,7 +124,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * The nickname of the work owner.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   ownerName?: string;
   /**
@@ -179,7 +179,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   workName?: string;
   /**
@@ -219,7 +219,7 @@ export class QueryWorksByWorkspaceResponseBodyResultData extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * Test Workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

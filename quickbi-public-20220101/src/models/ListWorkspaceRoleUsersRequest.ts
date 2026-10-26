@@ -8,7 +8,7 @@ export class ListWorkspaceRoleUsersRequest extends $dara.Model {
    * Keyword for the user\\"s nickname.
    * 
    * @example
-   * 测试pop用户
+   * test
    */
   keyword?: string;
   /**

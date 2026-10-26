@@ -2,6 +2,78 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryDatasetInfoResponseBodyResultCubeTableListChildTables extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  caption?: string;
+  /**
+   * @example
+   * test
+   */
+  customsql?: boolean;
+  /**
+   * @example
+   * test
+   */
+  datasourceId?: string;
+  /**
+   * @example
+   * test
+   */
+  dsType?: string;
+  factTable?: boolean;
+  /**
+   * @example
+   * test
+   */
+  sql?: string;
+  /**
+   * @example
+   * test
+   */
+  tableName?: string;
+  /**
+   * @example
+   * test
+   */
+  uniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caption: 'Caption',
+      customsql: 'Customsql',
+      datasourceId: 'DatasourceId',
+      dsType: 'DsType',
+      factTable: 'FactTable',
+      sql: 'Sql',
+      tableName: 'TableName',
+      uniqueId: 'UniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caption: 'string',
+      customsql: 'boolean',
+      datasourceId: 'string',
+      dsType: 'string',
+      factTable: 'boolean',
+      sql: 'string',
+      tableName: 'string',
+      uniqueId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model {
   /**
    * @remarks
@@ -14,6 +86,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
    * odps_40
    */
   caption?: string;
+  childTables?: QueryDatasetInfoResponseBodyResultCubeTableListChildTables[];
   /**
    * @remarks
    * The display name of the table.
@@ -81,6 +154,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   static names(): { [key: string]: string } {
     return {
       caption: 'Caption',
+      childTables: 'ChildTables',
       customsql: 'Customsql',
       datasourceId: 'DatasourceId',
       dsType: 'DsType',
@@ -94,6 +168,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       caption: 'string',
+      childTables: { 'type': 'array', 'itemType': QueryDatasetInfoResponseBodyResultCubeTableListChildTables },
       customsql: 'boolean',
       datasourceId: 'string',
       dsType: 'string',
@@ -105,6 +180,9 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.childTables)) {
+      $dara.Model.validateArray(this.childTables);
+    }
     super.validate();
   }
 
@@ -268,7 +346,7 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
    * Test directory
    * 
    * @example
-   * 测试目录
+   * The name of the directory.
    */
   name?: string;
   /**
@@ -284,7 +362,7 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
    * The path of the directory ID, for example, aa/bb/cc/dd.
    * 
    * @example
-   * 测试目录
+   * The path name of the directory ID, for example, one-level directory /two-level directory.
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -551,7 +629,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
    * The unique ID of the data source.
    * 
    * @example
-   * 大娃
+   * The name of the dataset owner.
    */
   ownerName?: string;
   /**
@@ -578,7 +656,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
    * Big Baby
    * 
    * @example
-   * 测试空间
+   * The name of the workspace in which the dataset resides.
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

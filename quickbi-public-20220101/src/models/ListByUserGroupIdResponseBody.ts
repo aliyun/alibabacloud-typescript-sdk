@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Model {
   /**
    * @remarks
-   * The time when the Secret was created.
+   * The creation time in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-03-15 17:13:55
@@ -13,7 +13,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The UserID of the creator in the Quick BI.
+   * The UserID of the creator in Quick BI.
    * 
    * @example
    * 46e5*******ee22e2a292704c8
@@ -29,7 +29,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
   identifiedPath?: string;
   /**
    * @remarks
-   * The time when the protection policy was last modified.
+   * The modification time in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-03-15 20:36:40
@@ -37,7 +37,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
   modifiedTime?: string;
   /**
    * @remarks
-   * The UserID of the modifier in the Quick BI.
+   * The UserID of the modifier in Quick BI.
    * 
    * @example
    * 46e5*******ee22e2a292704c8
@@ -56,12 +56,12 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
    * The description of the user group.
    * 
    * @example
-   * 描述信息
+   * Description information
    */
   usergroupDesc?: string;
   /**
    * @remarks
-   * The ID of the user group.
+   * The user group ID.
    * 
    * @example
    * 34fd141d-****-4093-8c33-8e066dcbc33f
@@ -72,7 +72,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
    * The name of the user group.
    * 
    * @example
-   * 测试用户组
+   * Test user group
    */
   usergroupName?: string;
   static names(): { [key: string]: string } {
@@ -115,12 +115,15 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
 export class ListByUserGroupIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * List of failed user groups.
+   * The list of user group IDs that failed to be queried.
+   * 
+   * @example
+   * []
    */
   failedUserGroupIds?: string[];
   /**
    * @remarks
-   * The details of the user group that was queried.
+   * The details of the queried user groups.
    */
   userGroupModels?: ListByUserGroupIdResponseBodyResultUserGroupModels[];
   static names(): { [key: string]: string } {
@@ -155,7 +158,7 @@ export class ListByUserGroupIdResponseBodyResult extends $dara.Model {
 export class ListByUserGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
@@ -163,15 +166,15 @@ export class ListByUserGroupIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user group query result is returned.
+   * The query results of the user groups.
    */
   result?: ListByUserGroupIdResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

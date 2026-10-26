@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorksRequest extends $dara.Model {
   /**
    * @remarks
-   * Report ID
+   * The work ID.
    * 
    * This parameter is required.
    * 

@@ -4,46 +4,75 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExportConfig extends $dara.Model {
   /**
+   * @remarks
+   * The image processing method when exporting to Excel with formatting. This parameter takes effect only when configured at the organization level. Valid values:
+   * - false: Image fields are not converted to images.
+   * - true: Image fields are converted to images. The option is displayed on the report export page, and users must manually select it to convert to images.
+   * 
    * @example
    * true
    */
   allowExcelImageFile?: boolean;
   /**
+   * @remarks
+   * Specifies whether to export data to Excel.
+   * 
    * @example
    * true
    */
   dataExport?: boolean;
   /**
+   * @remarks
+   * The default export type. Valid values: true (with formatting) and false (without formatting).
+   * 
    * @example
    * true
    */
   defaultExportType?: boolean;
   /**
+   * @remarks
+   * The master switch for export. If this parameter is set to false, the following configurations do not take effect.
+   * 
    * @example
    * true
    */
   exportMainSwitch?: boolean;
   /**
+   * @remarks
+   * Specifies whether to export to the local device.
+   * 
    * @example
    * true
    */
   exportToLocal?: boolean;
   /**
+   * @remarks
+   * Specifies whether to support exporting public links of the content.
+   * 
    * @example
    * true
    */
   exportToPublicWork?: boolean;
   /**
+   * @remarks
+   * Specifies whether to export to the server.
+   * 
    * @example
    * true
    */
   exportToServer?: boolean;
   /**
+   * @remarks
+   * Specifies whether to export images.
+   * 
    * @example
    * true
    */
   imageExport?: boolean;
   /**
+   * @remarks
+   * Specifies whether to export to PDF.
+   * 
    * @example
    * true
    */
@@ -88,11 +117,10 @@ export class QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExport
 export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Whether works in the workspace can be published. Valid values:
+   * Indicates whether the content can be made public. Valid values:
    * 
-   * - true: Publishing is allowed.
-   * 
-   * - false: Publishing is not allowed.
+   * - true: Public.
+   * - false: Not public.
    * 
    * @example
    * true
@@ -100,11 +128,10 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   allowPublishOperation?: boolean;
   /**
    * @remarks
-   * Whether works in the workspace can be shared. Valid values:
+   * Indicates whether the content can be shared with authorization. Valid values:
    * 
-   * - true: Sharing is allowed.
-   * 
-   * - false: Sharing is not allowed.
+   * - true: Authorized.
+   * - false: Not authorized.
    * 
    * @example
    * true
@@ -112,7 +139,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   allowShareOperation?: boolean;
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The time when the workspace was created. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2020-11-10 17:51:07
@@ -120,7 +147,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The creator\\"s Quick BI user ID.
+   * The Quick BI user ID of the creator.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -128,7 +155,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createUser?: string;
   /**
    * @remarks
-   * The creator\\"s Alibaba Cloud account name.
+   * The Alibaba Cloud account name of the creator.
    * 
    * @example
    * pop****@aliyun.com
@@ -136,7 +163,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createUserAccountName?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified.
+   * The time when the workspace was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2020-11-10 17:51:07
@@ -144,7 +171,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifiedTime?: string;
   /**
    * @remarks
-   * The modifier\\"s Quick BI user ID.
+   * The Quick BI user ID of the modifier.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -152,7 +179,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifyUser?: string;
   /**
    * @remarks
-   * The modifier\\"s Alibaba Cloud account name.
+   * The Alibaba Cloud account name of the modifier.
    * 
    * @example
    * pop****@aliyun.com
@@ -160,7 +187,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifyUserAccountName?: string;
   /**
    * @remarks
-   * The ID of the workspace\\"s organization.
+   * The ID of the organization to which the workspace belongs.
    * 
    * @example
    * 2fe4fbd8-588f-489a-b3e1-e92c7af0****
@@ -168,7 +195,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   organizationId?: string;
   /**
    * @remarks
-   * The workspace owner\\"s Quick BI user ID.
+   * The Quick BI user ID of the workspace owner.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -176,7 +203,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   owner?: string;
   /**
    * @remarks
-   * The workspace owner\\"s Alibaba Cloud account name.
+   * The Alibaba Cloud account name of the workspace owner.
    * 
    * @example
    * pop****@aliyun.com
@@ -184,7 +211,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   ownerAccountName?: string;
   /**
    * @remarks
-   * The workspace owner\\"s Quick BI account name.
+   * The Quick BI account name of the workspace owner.
    * 
    * @example
    * test
@@ -192,12 +219,16 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   realOwnerAccountName?: string;
   /**
    * @remarks
-   * The workspace description.
+   * The description of the workspace.
    * 
    * @example
-   * 该空间是测试空间
+   * This workspace is a test workspace
    */
   workspaceDescription?: string;
+  /**
+   * @remarks
+   * The workspace export configuration.
+   */
   workspaceExportConfig?: QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExportConfig;
   /**
    * @remarks
@@ -212,7 +243,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
    * The workspace name.
    * 
    * @example
-   * 测试空间
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -272,7 +303,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
 export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * An array of workspace objects.
+   * The list of workspaces.
    */
   data?: QueryOrganizationWorkspaceListResponseBodyResultData[];
   /**
@@ -285,7 +316,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -293,7 +324,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The total number of workspaces.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -350,16 +381,15 @@ export class QueryOrganizationWorkspaceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The paginated query results. The Data parameter contains the details of each workspace.
+   * The paginated result of the workspace list. The detailed information of the workspaces is stored in the Data response parameter.
    */
   result?: QueryOrganizationWorkspaceListResponseBodyResult;
   /**
    * @remarks
-   * Whether the request succeeded. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request succeeded.
-   * 
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

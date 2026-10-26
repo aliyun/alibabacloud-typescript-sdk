@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Creation time of the user group.
+   * The time when the user group was created, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-03-15 17:13:55
@@ -13,7 +13,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Creator of the sub-user group. This is the UserID in Quick BI, not the UID in Alibaba Cloud.
+   * The creator of the child user group. This is the UserID in Quick BI, not the UID of the Alibaba Cloud account.
    * 
    * @example
    * 46e5374665ba4b679ee22e2a2927****
@@ -21,12 +21,12 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * Directory level of the user group.
+   * The folder hierarchy of the user group.
    */
   identifiedPath?: string;
   /**
    * @remarks
-   * Last modified time of the user group.
+   * The time when the user group was last modified, in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-03-15 20:36:40
@@ -34,7 +34,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * Modifier of the user group. This is the UserID in Quick BI, not the UID in Alibaba Cloud.
+   * The user who last modified the user group. This is the UserID in Quick BI, not the UID of the Alibaba Cloud account.
    * 
    * @example
    * 46e5374665ba4b679ee22e2a2927****
@@ -42,7 +42,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * Parent user group ID.
+   * The ID of the parent user group.
    * 
    * @example
    * 2fe4fbd8-588f-489a-b3e1-e92c7af0****
@@ -50,15 +50,15 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   parentUsergroupId?: string;
   /**
    * @remarks
-   * Description of the user group.
+   * The description of the user group.
    * 
    * @example
-   * 测试描述
+   * Test description
    */
   usergroupDesc?: string;
   /**
    * @remarks
-   * User group ID.
+   * The ID of the user group.
    * 
    * @example
    * 34fd141d-4598-4093-8c33-8e066dcb****
@@ -66,10 +66,10 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
   usergroupId?: string;
   /**
    * @remarks
-   * Name of the user group.
+   * The name of the user group.
    * 
    * @example
-   * 测试用户组01
+   * Test user group 01
    */
   usergroupName?: string;
   static names(): { [key: string]: string } {
@@ -112,7 +112,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
 export class GetUserGroupInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D7980306-1F08-5A88-9FE7-ECB8B9C4C0F5
@@ -120,12 +120,12 @@ export class GetUserGroupInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * User group information.
+   * The user group information.
    */
   result?: GetUserGroupInfoResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
    * - false: The request failed.

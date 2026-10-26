@@ -29,15 +29,15 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   componentId?: string;
   /**
    * @remarks
-   * The name of the add-on.
+   * The component name.
    * 
    * @example
-   * 线图
+   * Line chart
    */
   componentName?: string;
   /**
    * @remarks
-   * The average query duration associated with the SQL pattern.
+   * The average query duration.
    * 
    * @example
    * 0.3
@@ -61,7 +61,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryCountAvg?: number;
   /**
    * @remarks
-   * The query exceeds the 5S number of queries.
+   * The number of queries that take more than 5 seconds.
    * 
    * @example
    * 5
@@ -69,7 +69,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryOverFivePercentNum?: number;
   /**
    * @remarks
-   * Query the proportion of more than 5S.
+   * The percentage of queries that take more than 5 seconds.
    * 
    * @example
    * 0.3
@@ -77,7 +77,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryOverFiveSecPercent?: string;
   /**
    * @remarks
-   * The percentage of queries that exceed 10s.
+   * The percentage of queries that take more than 10 seconds.
    * 
    * @example
    * 0.3
@@ -85,7 +85,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryOverTenSecPercent?: string;
   /**
    * @remarks
-   * The percentage of queries that exceed 10s.
+   * The number of queries that take more than 10 seconds.
    * 
    * @example
    * 0.3
@@ -93,7 +93,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryOverTenSecPercentNum?: number;
   /**
    * @remarks
-   * The number of times that the chart query times out.
+   * The number of chart query timeouts.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryTimeoutCount?: number;
   /**
    * @remarks
-   * The percentage of timeout times for chart queries.
+   * The percentage of chart query timeouts.
    * 
    * @example
    * 0.3
@@ -109,7 +109,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   queryTimeoutCountPercent?: number;
   /**
    * @remarks
-   * The average time consumed by the Quick engine query.
+   * The average query duration of Quick engine hits.
    * 
    * @example
    * 0.3
@@ -117,7 +117,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   quickIndexCostTimeAvg?: number;
   /**
    * @remarks
-   * The number of times that the Quick engine is hit.
+   * The number of Quick engine hits.
    * 
    * @example
    * 3
@@ -125,7 +125,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   quickIndexQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The percentage of repeated queries.
    * 
    * @example
    * 0.3
@@ -133,7 +133,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   repeatQueryPercent?: string;
   /**
    * @remarks
-   * The number of duplicate queries.
+   * The number of repeated queries.
    * 
    * @example
    * 2
@@ -141,7 +141,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   repeatQueryPercentNum?: number;
   /**
    * @remarks
-   * The number of times the query is repeated.
+   * The number of repeated SQL queries.
    * 
    * @example
    * 5
@@ -149,7 +149,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   repeatSqlQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The percentage of repeated queries.
    * 
    * @example
    * 0.3
@@ -157,7 +157,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   repeatSqlQueryPercent?: string;
   /**
    * @remarks
-   * The ID of the work.
+   * The report ID.
    * 
    * @example
    * 6b407e50-e774-406b-9956-da2425c2****
@@ -165,7 +165,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The name of the report.
+   * The report name.
    * 
    * @example
    * ClusterRiskReport
@@ -173,7 +173,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   reportName?: string;
   /**
    * @remarks
-   * The format of the report.
+   * The report type.
    * 
    * @example
    * report
@@ -181,7 +181,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The unique ID of the space.
+   * The unique ID of the workspace.
    * 
    * @example
    * 89713491-cb4f-4579-b889-e82c35f1****
@@ -189,10 +189,10 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The workspace name.
    * 
    * @example
-   * 测试空间
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -273,15 +273,15 @@ export class QueryComponentPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result returned.
+   * The list of component performance logs, including component information and performance statistics information such as query count, query duration, and cache hits.
    */
   result?: QueryComponentPerformanceResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

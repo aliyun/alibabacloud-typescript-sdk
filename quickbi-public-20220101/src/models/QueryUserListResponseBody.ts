@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID. For users who are not added through RAM self-service, the Alibaba Cloud ID can only be obtained after they log on.
+   * The Alibaba Cloud account ID. For users who are not added through RAM self-service reading, the Alibaba Cloud account ID can be obtained only after they log on.
    * 
    * @example
    * 1355********
@@ -21,7 +21,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the user is bound to the organization administrator role. Valid values:
+   * Indicates whether the organization administrator role is bound. Valid values:
    * 
    * - true: Yes.
    * - false: No.
@@ -34,12 +34,12 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicates whether the user is attached to the permission management administrator role. Valid values:
+   * Indicates whether the permission management administrator role is attached. Valid values:
    * 
    * - true: Yes.
    * - false: No.
    * 
-   * <notice>This parameter has expired and is no longer recommended. Use the RoleIdList parameter instead.</notice>
+   * <notice>This parameter is expired and no longer recommended. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
@@ -50,8 +50,8 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
    * The intelligent module quota of the user.
    * 
    * - qreport: Q report
-   * - qExploreNum: Q exploration edition
-   * - smartQAskNum: Q data inquiry
+   * - qExploreNum: Q explore edition
+   * - smartQAskNum: Q data query
    * - smartQDevNum: Q builder
    */
   copilotModules?: string[];
@@ -59,8 +59,8 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
    * @remarks
    * The user status. Valid values: 
    * 
-   * - false: active
-   * - true: inactive
+   * - false: activated
+   * - true: deactivated
    * 
    * @example
    * false
@@ -68,7 +68,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   isDeleted?: boolean;
   /**
    * @remarks
-   * The date when the member joined the organization.
+   * The date when the member joined the organization. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1718691704000
@@ -76,7 +76,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   joinedDate?: number;
   /**
    * @remarks
-   * The last logon time.
+   * The last logon time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1718761320681

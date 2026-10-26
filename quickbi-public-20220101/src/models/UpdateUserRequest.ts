@@ -39,9 +39,9 @@ export class UpdateUserRequest extends $dara.Model {
    * Pass the parameter as a JSON array. Each array element contains the following fields:
    * 
    * moduleType -- The intelligent module.
-   * - smartQAskNum -- Smart Q questions.
+   * - smartQAskNum -- Smart Q question count.
    * - smartQDevNum -- Smart Q building.
-   * - qreport -- Smart Q reports.
+   * - qreport -- Smart Q report.
    * - qExploreNum -- Smart Q exploration edition.
    * 
    * status -- Specifies whether to enable the module.
@@ -77,7 +77,7 @@ export class UpdateUserRequest extends $dara.Model {
    * The nickname.
    * 
    * - Format check: The maximum length is 50 characters.
-   * - Special format check: Chinese characters, English characters, digits, _ \\ / | () ] [
+   * - Special format check: Chinese characters, English letters, digits, _ \\ / | () ] [
    * 
    * @example
    * test

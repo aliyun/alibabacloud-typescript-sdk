@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel extends $dara.Model {
   /**
    * @remarks
-   * The average duration of cache hits.
+   * The average duration for cache hits.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   cacheQueryCount?: number;
   /**
    * @remarks
-   * The average query duration associated with the SQL pattern.
+   * The average query duration.
    * 
    * @example
    * 1.0
@@ -37,7 +37,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   cubeId?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryCountAvg?: number;
   /**
    * @remarks
-   * The percentage of the number of queries that exceed the 5S.
+   * The proportion of queries that exceed 5 seconds.
    * 
    * @example
    * 0.1
@@ -69,7 +69,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryOverFivePercentNum?: number;
   /**
    * @remarks
-   * Query the proportion of more than 5S.
+   * The percentage of queries that exceed 5 seconds.
    * 
    * @example
    * 0.5
@@ -77,7 +77,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryOverFiveSecPercent?: string;
   /**
    * @remarks
-   * The percentage of queries that exceed 10s.
+   * The percentage of queries that exceed 10 seconds.
    * 
    * @example
    * 0.1
@@ -85,7 +85,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryOverTenSecPercent?: string;
   /**
    * @remarks
-   * The percentage of queries that exceed 10s.
+   * The proportion of queries that exceed 10 seconds.
    * 
    * @example
    * 0.3
@@ -93,7 +93,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryOverTenSecPercentNum?: number;
   /**
    * @remarks
-   * The number of times that the chart query times out.
+   * The number of chart query timeouts.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryTimeoutCount?: number;
   /**
    * @remarks
-   * The percentage of timeout times for chart queries.
+   * The percentage of chart query timeouts.
    * 
    * @example
    * 0.3
@@ -109,7 +109,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   queryTimeoutCountPercent?: number;
   /**
    * @remarks
-   * The average time consumed by the Quick engine query.
+   * The average query duration for Quick engine hits.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   quickIndexCostTimeAvg?: number;
   /**
    * @remarks
-   * The number of times that the Quick engine is hit.
+   * The number of Quick engine hits.
    * 
    * @example
    * 2
@@ -125,7 +125,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   quickIndexQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The percentage of repeated queries.
    * 
    * @example
    * 0.1
@@ -133,7 +133,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   repeatQueryPercent?: string;
   /**
    * @remarks
-   * The number of duplicate queries.
+   * The number of repeated queries.
    * 
    * @example
    * 2
@@ -141,7 +141,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   repeatQueryPercentNum?: number;
   /**
    * @remarks
-   * The number of times the query is repeated.
+   * The number of repeated SQL queries.
    * 
    * @example
    * 2
@@ -149,7 +149,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   repeatSqlQueryCount?: number;
   /**
    * @remarks
-   * The proportion of duplicate queries.
+   * The percentage of repeated queries.
    * 
    * @example
    * 0.3
@@ -165,7 +165,7 @@ export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * eco0sh0prods
@@ -236,10 +236,9 @@ export class QueryCubeOptimizationResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The type of the suggestion. Valid values:
-   * 
-   * *   **OPEN_CACHE**: Open cache.
-   * *   **OPEN_QUICK_ENGINE**: Open FAST Cache.
-   * *   **INCREASE_CACHE_TIME**: Increase the cache time.
+   * - **OPEN_CACHE**: Enable caching.
+   * - **OPEN_QUICK_ENGINE**: Enable the Quick engine.
+   * - **INCREASE_CACHE_TIME**: Increase the cache duration.
    * 
    * @example
    * OPENQUICKENGINE
@@ -247,7 +246,7 @@ export class QueryCubeOptimizationResponseBodyResult extends $dara.Model {
   adviceType?: string;
   /**
    * @remarks
-   * The diagnostic information about the dataset.
+   * The dataset diagnostics information.
    */
   cubePerformanceDiagnoseModel?: QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel;
   static names(): { [key: string]: string } {
@@ -287,15 +286,14 @@ export class QueryCubeOptimizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The query results are returned.
+   * The list of dataset optimization suggestions, which includes dataset performance diagnostics information and corresponding optimization suggestion types.
    */
   result?: QueryCubeOptimizationResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request failed.
    * 
    * @example
    * true

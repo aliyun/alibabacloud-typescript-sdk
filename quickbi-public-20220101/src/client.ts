@@ -12,18 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-northeast-1': "quickbi-public.ap-northeast-1.aliyuncs.com",
-      'ap-southeast-1': "quickbi-public.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "quickbi-public.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "quickbi-public.ap-southeast-5.aliyuncs.com",
-      'cn-hangzhou': "quickbi-public.cn-hangzhou.aliyuncs.com",
-      'cn-hongkong': "quickbi-public.cn-hongkong.aliyuncs.com",
-      'us-east-1': "quickbi-public.us-east-1.aliyuncs.com",
-      'eu-central-1': "quickbi-public.eu-central-1.aliyuncs.com",
-      'me-central-1': "quickbi-public.me-central-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "quickbi-public.cn-shanghai-finance-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quickbi-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -196,7 +184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a sharing configuration for data works.
+   * Adds a sharing configuration for a data work.
    * 
    * @param request - AddShareReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -243,7 +231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a sharing configuration for data works.
+   * Adds a sharing configuration for a data work.
    * 
    * @param request - AddShareReportRequest
    * @returns AddShareReportResponse
@@ -254,7 +242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add organization members.
+   * Adds an organization member.
    * 
    * @param request - AddUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add organization members.
+   * Adds an organization member.
    * 
    * @param request - AddUserRequest
    * @returns AddUserResponse
@@ -576,7 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch add members to the workspace.
+   * Adds members to a workspace in batches.
    * 
    * @param request - AddWorkspaceUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -615,7 +603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch add members to the workspace.
+   * Adds members to a workspace in batches.
    * 
    * @param request - AddWorkspaceUsersRequest
    * @returns AddWorkspaceUsersResponse
@@ -1366,6 +1354,76 @@ export default class Client extends OpenApi {
   async createTicket(request: $_model.CreateTicketRequest): Promise<$_model.CreateTicketResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成AIPro超级框嵌入ticket
+   * 
+   * @param request - CreateTicket4AiProRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTicket4AiProResponse
+   */
+  async createTicket4AiProWithOptions(request: $_model.CreateTicket4AiProRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTicket4AiProResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
+    if (!$dara.isNull(request.aiProId)) {
+      query["AiProId"] = request.aiProId;
+    }
+
+    if (!$dara.isNull(request.customParam)) {
+      query["CustomParam"] = request.customParam;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.quickBIUserId)) {
+      query["QuickBIUserId"] = request.quickBIUserId;
+    }
+
+    if (!$dara.isNull(request.systemUid)) {
+      query["SystemUid"] = request.systemUid;
+    }
+
+    if (!$dara.isNull(request.ticketNum)) {
+      query["TicketNum"] = request.ticketNum;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTicket4AiPro",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTicket4AiProResponse>(await this.callApi(params, req, runtime), new $_model.CreateTicket4AiProResponse({}));
+  }
+
+  /**
+   * 生成AIPro超级框嵌入ticket
+   * 
+   * @param request - CreateTicket4AiProRequest
+   * @returns CreateTicket4AiProResponse
+   */
+  async createTicket4AiPro(request: $_model.CreateTicket4AiProRequest): Promise<$_model.CreateTicket4AiProResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTicket4AiProWithOptions(request, runtime);
   }
 
   /**
@@ -2353,7 +2411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for user group information based on the keyword of the user group name.
+   * Searches for user group information by user group name keyword.
    * 
    * @param request - GetUserGroupInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2384,7 +2442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for user group information based on the keyword of the user group name.
+   * Searches for user group information by user group name keyword.
    * 
    * @param request - GetUserGroupInfoRequest
    * @returns GetUserGroupInfoResponse
@@ -2395,7 +2453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of embedded reports
+   * Queries a list of embedded reports.
    * 
    * @param request - GetWorksEmbedListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2442,7 +2500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of embedded reports
+   * Queries a list of embedded reports.
    * 
    * @param request - GetWorksEmbedListRequest
    * @returns GetWorksEmbedListResponse
@@ -2453,7 +2511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the IP address whitelist for data security.
+   * Configures the IP whitelist for data security.
    * 
    * @param request - IpWhiteListConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2488,7 +2546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the IP address whitelist for data security.
+   * Configures the IP whitelist for data security.
    * 
    * @param request - IpWhiteListConfigRequest
    * @returns IpWhiteListConfigResponse
@@ -2499,7 +2557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about acceleration tasks in a workspace.
+   * Retrieves acceleration engine task information from the management page of a workspace.
    * 
    * @param request - ListAccelerationOfWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2546,7 +2604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about acceleration tasks in a workspace.
+   * Retrieves acceleration engine task information from the management page of a workspace.
    * 
    * @param request - ListAccelerationOfWorkspaceRequest
    * @returns ListAccelerationOfWorkspaceResponse
@@ -2557,10 +2615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API data sources.
+   * Queries the list of API data sources.
    * 
    * @remarks
-   * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+   * For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
    * 
    * @param request - ListApiDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2603,10 +2661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API data sources.
+   * Queries the list of API data sources.
    * 
    * @remarks
-   * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+   * For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
    * 
    * @param request - ListApiDatasourceRequest
    * @returns ListApiDatasourceResponse
@@ -2617,7 +2675,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user group information at a time by user group ID.
+   * Queries the collaborative authorization records of a resource.
+   * 
+   * @param request - ListAuthConfigByResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthConfigByResourceResponse
+   */
+  async listAuthConfigByResourceWithOptions(request: $_model.ListAuthConfigByResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthConfigByResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hasAuth)) {
+      query["HasAuth"] = request.hasAuth;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.shareToType)) {
+      query["ShareToType"] = request.shareToType;
+    }
+
+    if (!$dara.isNull(request.worksType)) {
+      query["WorksType"] = request.worksType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthConfigByResource",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthConfigByResourceResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthConfigByResourceResponse({}));
+  }
+
+  /**
+   * Queries the collaborative authorization records of a resource.
+   * 
+   * @param request - ListAuthConfigByResourceRequest
+   * @returns ListAuthConfigByResourceResponse
+   */
+  async listAuthConfigByResource(request: $_model.ListAuthConfigByResourceRequest): Promise<$_model.ListAuthConfigByResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthConfigByResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries information about user groups in batch by user group ID.
    * 
    * @param request - ListByUserGroupIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2648,7 +2764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user group information at a time by user group ID.
+   * Queries information about user groups in batch by user group ID.
    * 
    * @param request - ListByUserGroupIdRequest
    * @returns ListByUserGroupIdResponse
@@ -2753,10 +2869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+   * Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
    * 
    * @remarks
-   * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+   * >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - ListDataLevelPermissionWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,10 +2907,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+   * Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
    * 
    * @remarks
-   * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+   * >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - ListDataLevelPermissionWhiteListRequest
    * @returns ListDataLevelPermissionWhiteListResponse
@@ -3113,7 +3229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+   * Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
    * 
    * @param request - ListRecentViewReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3164,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+   * Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
    * 
    * @param request - ListRecentViewReportsRequest
    * @returns ListRecentViewReportsResponse
@@ -3497,6 +3613,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改AI Pro嵌入配置
+   * 
+   * @param request - ModifyAiproEmbedConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAiproEmbedConfigResponse
+   */
+  async modifyAiproEmbedConfigWithOptions(request: $_model.ModifyAiproEmbedConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAiproEmbedConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.aiProId)) {
+      query["AiProId"] = request.aiProId;
+    }
+
+    if (!$dara.isNull(request.chatHistoryStatus)) {
+      query["ChatHistoryStatus"] = request.chatHistoryStatus;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.memoryEnabled)) {
+      query["MemoryEnabled"] = request.memoryEnabled;
+    }
+
+    if (!$dara.isNull(request.showName)) {
+      query["ShowName"] = request.showName;
+    }
+
+    if (!$dara.isNull(request.uploadEnabled)) {
+      query["UploadEnabled"] = request.uploadEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAiproEmbedConfig",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAiproEmbedConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAiproEmbedConfigResponse({}));
+  }
+
+  /**
+   * 修改AI Pro嵌入配置
+   * 
+   * @param request - ModifyAiproEmbedConfigRequest
+   * @returns ModifyAiproEmbedConfigResponse
+   */
+  async modifyAiproEmbedConfig(request: $_model.ModifyAiproEmbedConfigRequest): Promise<$_model.ModifyAiproEmbedConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAiproEmbedConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of a specified API data source.
    * 
    * @remarks
@@ -3653,7 +3835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run logs of acceleration tasks for a specified dataset.
+   * Retrieves the execution logs of acceleration tasks for a specified dataset.
    * 
    * @param request - QueryAccelerationLogByCubeIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3700,7 +3882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run logs of acceleration tasks for a specified dataset.
+   * Retrieves the execution logs of acceleration tasks for a specified dataset.
    * 
    * @param request - QueryAccelerationLogByCubeIdRequest
    * @returns QueryAccelerationLogByCubeIdResponse
@@ -3708,6 +3890,48 @@ export default class Client extends OpenApi {
   async queryAccelerationLogByCubeId(request: $_model.QueryAccelerationLogByCubeIdRequest): Promise<$_model.QueryAccelerationLogByCubeIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAccelerationLogByCubeIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 概述
+   * 
+   * @param request - QueryAiproEmbedConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAiproEmbedConfigResponse
+   */
+  async queryAiproEmbedConfigWithOptions(request: $_model.QueryAiproEmbedConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiproEmbedConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAiproEmbedConfig",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAiproEmbedConfigResponse>(await this.callApi(params, req, runtime), new $_model.QueryAiproEmbedConfigResponse({}));
+  }
+
+  /**
+   * 概述
+   * 
+   * @param request - QueryAiproEmbedConfigRequest
+   * @returns QueryAiproEmbedConfigResponse
+   */
+  async queryAiproEmbedConfig(request: $_model.QueryAiproEmbedConfigRequest): Promise<$_model.QueryAiproEmbedConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAiproEmbedConfigWithOptions(request, runtime);
   }
 
   /**
@@ -3947,7 +4171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries dataset optimization suggestions.
+   * Queries optimization suggestions for datasets.
    * 
    * @param request - QueryCubeOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3978,7 +4202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries dataset optimization suggestions.
+   * Queries optimization suggestions for datasets.
    * 
    * @param request - QueryCubeOptimizationRequest
    * @returns QueryCubeOptimizationResponse
@@ -4432,7 +4656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+   * Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
    * 
    * @param request - QueryDatasetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4483,7 +4707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+   * Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
    * 
    * @param request - QueryDatasetListRequest
    * @returns QueryDatasetListResponse
@@ -4783,7 +5007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the workspaces in the current organization.
+   * Queries the list of workspaces in the current organization.
    * 
    * @param request - QueryOrganizationWorkspaceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4826,7 +5050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the workspaces in the current organization.
+   * Queries the list of workspaces in the current organization.
    * 
    * @param request - QueryOrganizationWorkspaceListRequest
    * @returns QueryOrganizationWorkspaceListResponse
@@ -5547,7 +5771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specified data work.
+   * Queries the details of a specified data work.
    * 
    * @param request - QueryWorksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5578,7 +5802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specified data work.
+   * Queries the details of a specified data work.
    * 
    * @param request - QueryWorksRequest
    * @returns QueryWorksResponse
@@ -5631,7 +5855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query all works under the entire organization, with the option to specify the type of work.
+   * Queries all works in an organization. You can specify the work type.
    * 
    * @param request - QueryWorksByOrganizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5678,7 +5902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query all works under the entire organization, with the option to specify the type of work.
+   * Queries all works in an organization. You can specify the work type.
    * 
    * @param request - QueryWorksByOrganizationRequest
    * @returns QueryWorksByOrganizationResponse
@@ -6209,10 +6433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs an intelligent Q&A query.
+   * Queries data by using the Smart Q&A feature.
    * 
    * @remarks
-   * Note: Authorized users can query data as another user by passing the userId of the target user.
+   * Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
    * 
    * @param request - SmartqQueryAbilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6255,10 +6479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs an intelligent Q&A query.
+   * Queries data by using the Smart Q&A feature.
    * 
    * @remarks
-   * Note: Authorized users can query data as another user by passing the userId of the target user.
+   * Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
    * 
    * @param request - SmartqQueryAbilityRequest
    * @returns SmartqQueryAbilityResponse
@@ -6312,6 +6536,60 @@ export default class Client extends OpenApi {
   async transferUsergroup(request: $_model.TransferUsergroupRequest): Promise<$_model.TransferUsergroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.transferUsergroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the permission attributes of resource collaborative authorization.
+   * 
+   * @param request - UpdateAuthorizationAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationAttributesResponse
+   */
+  async updateAuthorizationAttributesWithOptions(request: $_model.UpdateAuthorizationAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.editPermissionType)) {
+      query["EditPermissionType"] = request.editPermissionType;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.usePermissionType)) {
+      query["UsePermissionType"] = request.usePermissionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationAttributes",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationAttributesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationAttributesResponse({}));
+  }
+
+  /**
+   * Modifies the permission attributes of resource collaborative authorization.
+   * 
+   * @param request - UpdateAuthorizationAttributesRequest
+   * @returns UpdateAuthorizationAttributesResponse
+   */
+  async updateAuthorizationAttributes(request: $_model.UpdateAuthorizationAttributesRequest): Promise<$_model.UpdateAuthorizationAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationAttributesWithOptions(request, runtime);
   }
 
   /**
@@ -6472,6 +6750,60 @@ export default class Client extends OpenApi {
   async updateDataSource(request: $_model.UpdateDataSourceRequest): Promise<$_model.UpdateDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据源基础属性
+   * 
+   * @param request - UpdateDataSourcePropertiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataSourcePropertiesResponse
+   */
+  async updateDataSourcePropertiesWithOptions(request: $_model.UpdateDataSourcePropertiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataSourcePropertiesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dsId)) {
+      query["DsId"] = request.dsId;
+    }
+
+    if (!$dara.isNull(request.quickBIOwnerId)) {
+      query["QuickBIOwnerId"] = request.quickBIOwnerId;
+    }
+
+    if (!$dara.isNull(request.showName)) {
+      query["ShowName"] = request.showName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataSourceProperties",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataSourcePropertiesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataSourcePropertiesResponse({}));
+  }
+
+  /**
+   * 更新数据源基础属性
+   * 
+   * @param request - UpdateDataSourcePropertiesRequest
+   * @returns UpdateDataSourcePropertiesResponse
+   */
+  async updateDataSourceProperties(request: $_model.UpdateDataSourcePropertiesRequest): Promise<$_model.UpdateDataSourcePropertiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataSourcePropertiesWithOptions(request, runtime);
   }
 
   /**
@@ -6787,7 +7119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+   * Modifies the role of a specified member in a workspace. Existing roles are overwritten.
    * 
    * @param request - UpdateWorkspaceUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6830,7 +7162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+   * Modifies the role of a specified member in a workspace. Existing roles are overwritten.
    * 
    * @param request - UpdateWorkspaceUserRoleRequest
    * @returns UpdateWorkspaceUserRoleResponse
@@ -6841,7 +7173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch update the role information of workspace members, existing roles will be overwritten
+   * Updates the roles of workspace members in batches. Existing roles are overwritten.
    * 
    * @param request - UpdateWorkspaceUsersRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6880,7 +7212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch update the role information of workspace members, existing roles will be overwritten
+   * Updates the roles of workspace members in batches. Existing roles are overwritten.
    * 
    * @param request - UpdateWorkspaceUsersRoleRequest
    * @returns UpdateWorkspaceUsersRoleResponse

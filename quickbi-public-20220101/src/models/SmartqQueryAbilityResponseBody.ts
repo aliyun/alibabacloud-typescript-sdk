@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
   /**
    * @remarks
-   * The name of the column tuple.
+   * The column tuple name.
    * 
    * @example
    * Polar***STPS
@@ -13,11 +13,10 @@ export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The type of the metadata. Valid values:
+   * The metadata row or column type.
    * 
-   * - Dimension
-   * 
-   * - Measure
+   * - Dimension: dimension
+   * - Measure: measure
    * 
    * @example
    * Dimension
@@ -28,7 +27,7 @@ export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The type of the column tuple.
+   * The column tuple type.
    * 
    * @example
    * string
@@ -62,7 +61,7 @@ export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
 export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
   /**
    * @remarks
-   * The data values in a row.
+   * The data values for each row.
    * 
    * **if can be null:**
    * true
@@ -95,7 +94,7 @@ export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
 export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The recommended chart type.
+   * The suggested chart type.
    * 
    * @example
    * NEW_TABLE
@@ -103,7 +102,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   chartType?: string;
   /**
    * @remarks
-   * The summary.
+   * The summary information.
    * 
    * @example
    * test
@@ -114,12 +113,12 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   conclusionText?: string;
   /**
    * @remarks
-   * The list of data that is returned only in multi-step scenarios. Each element corresponds to a set of chart data.
+   * The data list returned only in multi-step scenarios. Each element corresponds to a chart dataset.
    */
   dataList?: string[];
   /**
    * @remarks
-   * The visual logical SQL statement.
+   * The visualization logic SQL.
    * 
    * @example
    * select * ****
@@ -127,12 +126,12 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   logicSql?: string;
   /**
    * @remarks
-   * A list of column tuple types.
+   * The list of column tuple types.
    */
   metaType?: SmartqQueryAbilityResponseBodyResultMetaType[];
   /**
    * @remarks
-   * An array of data value lists.
+   * The array of data value lists.
    */
   values?: SmartqQueryAbilityResponseBodyResultValues[];
   static names(): { [key: string]: string } {
@@ -178,7 +177,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
 export class SmartqQueryAbilityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A************2B05DF8D885

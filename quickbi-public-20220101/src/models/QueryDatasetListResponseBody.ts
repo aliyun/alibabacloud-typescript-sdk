@@ -55,7 +55,7 @@ export class QueryDatasetListResponseBodyResultDataDataSource extends $dara.Mode
 export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model {
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -63,7 +63,7 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * The folder name.
+   * The directory name.
    * 
    * @example
    * test
@@ -71,7 +71,7 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The ID of the folder path.
+   * The ID of the directory path.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -79,7 +79,7 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
   pathId?: string;
   /**
    * @remarks
-   * The name of the folder path.
+   * The name of the directory path.
    * 
    * @example
    * test
@@ -115,7 +115,7 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
 export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The time when the dataset was created.
+   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2020-11-02 10:36:05
@@ -123,7 +123,7 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The information about the data source to which the dataset belongs.
+   * The data source information of the dataset.
    */
   dataSource?: QueryDatasetListResponseBodyResultDataDataSource;
   /**
@@ -152,12 +152,12 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the folder in which the dataset is located.
+   * The directory information of the dataset.
    */
   directory?: QueryDatasetListResponseBodyResultDataDirectory;
   /**
    * @remarks
-   * The time when the dataset was last modified.
+   * The modification time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2020-11-02 10:36:05
@@ -165,11 +165,10 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Indicates whether extraction-based acceleration is enabled. Valid values:
+   * Indicates whether extraction acceleration is enabled. Valid values:
    * 
-   * - true: Enabled
-   * 
-   * - false: Disabled
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -177,7 +176,7 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   openOfflineAcceleration?: boolean;
   /**
    * @remarks
-   * The user ID of the dataset owner in Quick BI.
+   * The Quick BI user ID of the dataset owner.
    * 
    * @example
    * 136516262323****
@@ -195,9 +194,8 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
    * @remarks
    * Indicates whether row-level permissions are enabled. Valid values:
    * 
-   * - true: Enabled
-   * 
-   * - false: Disabled
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -286,7 +284,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page specified in the request.
+   * The number of rows per page specified in the request.
    * 
    * @example
    * 10
@@ -294,7 +292,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of rows.
    * 
    * @example
    * 1
@@ -351,7 +349,7 @@ export class QueryDatasetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The paged results of the dataset list. The details of the datasets are returned in the Data parameter.
+   * The paginated result of the dataset list. The detailed information of the dataset list is stored in the Data response parameter.
    */
   result?: QueryDatasetListResponseBodyResult;
   /**
@@ -359,7 +357,6 @@ export class QueryDatasetListResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example

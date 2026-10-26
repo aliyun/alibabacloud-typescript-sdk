@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword of the user group name.
+   * The keyword of the user group name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试用户组
+   * Test user group
    */
   keyword?: string;
   static names(): { [key: string]: string } {

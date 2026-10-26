@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceUsersRoleResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Number of users that failed to update.
+   * The number of users whose roles failed to be updated.
    * 
    * @example
    * 0
@@ -13,12 +13,12 @@ export class UpdateWorkspaceUsersRoleResponseBodyResult extends $dara.Model {
   failure?: number;
   /**
    * @remarks
-   * Reasons for the update failures.
+   * The reasons for the update failures.
    */
   failureDetail?: { [key: string]: any };
   /**
    * @remarks
-   * Number of users that were updated successfully.
+   * The number of users whose roles were successfully updated.
    * 
    * @example
    * 2
@@ -26,7 +26,7 @@ export class UpdateWorkspaceUsersRoleResponseBodyResult extends $dara.Model {
   success?: number;
   /**
    * @remarks
-   * Modify the total number of users.
+   * The total number of users to be updated.
    * 
    * @example
    * 2
@@ -65,7 +65,7 @@ export class UpdateWorkspaceUsersRoleResponseBodyResult extends $dara.Model {
 export class UpdateWorkspaceUsersRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 7AAB95D7-2E11-4FE2-94BC-858E4FC0C976
@@ -73,15 +73,15 @@ export class UpdateWorkspaceUsersRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the result of the interface execution.
+   * The execution result of the operation.
    */
   result?: UpdateWorkspaceUsersRoleResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful, some members may have been updated successfully while others failed, refer to FailureDetail in the response for reasons of failure
-   * - false: The request failed, no data will be persisted
+   * - true: The request is successful. Some members may be updated successfully while others fail. For the failure reasons, refer to FailureDetail in the response.
+   * - false: The request fails and no data is persisted.
    * 
    * @example
    * true

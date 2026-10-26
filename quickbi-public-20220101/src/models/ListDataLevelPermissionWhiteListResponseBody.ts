@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataLevelPermissionWhiteListResponseBodyResultUsersModel extends $dara.Model {
   /**
    * @remarks
-   * UserGroups.
+   * The list of user group IDs.
+   * 
+   * @example
+   * ["0d5fb19b-***-1248fc27ca51"]
    */
   userGroups?: string[];
   /**
    * @remarks
-   * Users.
+   * The list of Quick BI user IDs.
+   * 
+   * @example
+   * ["4334***358"]
    */
   users?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +51,7 @@ export class ListDataLevelPermissionWhiteListResponseBodyResultUsersModel extend
 export class ListDataLevelPermissionWhiteListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The dataset ID.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -53,10 +59,10 @@ export class ListDataLevelPermissionWhiteListResponseBodyResult extends $dara.Mo
   cubeId?: string;
   /**
    * @remarks
-   * Type of dataset row and column permissions. Possible values:
+   * The type of row and column permission for the dataset. Valid values:
    * 
-   * - ROW_LEVEL: Row-level permission
-   * - COLUMN_LEVEL: Column-level permission
+   * - ROW_LEVEL: row-level permission
+   * - COLUMN_LEVEL: column-level permission
    * 
    * @example
    * ROW_LEVEL
@@ -64,7 +70,7 @@ export class ListDataLevelPermissionWhiteListResponseBodyResult extends $dara.Mo
   ruleType?: string;
   /**
    * @remarks
-   * Whitelist information.
+   * The whitelist information.
    */
   usersModel?: ListDataLevelPermissionWhiteListResponseBodyResultUsersModel;
   static names(): { [key: string]: string } {
@@ -98,7 +104,7 @@ export class ListDataLevelPermissionWhiteListResponseBodyResult extends $dara.Mo
 export class ListDataLevelPermissionWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
@@ -106,15 +112,15 @@ export class ListDataLevelPermissionWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whitelist for the specified row-level permission type.
+   * The whitelist of the specified row-level or column-level permission type.
    */
   result?: ListDataLevelPermissionWhiteListResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request succeeded
-   * - false: Request failed
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

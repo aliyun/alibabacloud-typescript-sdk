@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataLevelPermissionWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The dataset ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class ListDataLevelPermissionWhiteListRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * Type of row and column permission that the whitelist belongs to:
+   * The type of row and column permission to which the whitelist belongs. Valid values:
    * 
-   * - ROW_LEVEL: Row-level permission
-   * - COLUMN_LEVEL: Column-level permission
+   * - ROW_LEVEL: row-level permission
+   * - COLUMN_LEVEL: column-level permission
    * 
    * This parameter is required.
    * 

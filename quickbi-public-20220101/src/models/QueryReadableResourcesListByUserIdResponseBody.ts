@@ -16,7 +16,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResultDirectory exten
    * The name of the directory.
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResultDirectory exten
    * The hierarchical structure of the directory name, which is separated with \\"/\\".
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * Remarks on the work.
    * 
    * @example
-   * 备注
+   * Description
    */
   description?: string;
   /**
@@ -89,7 +89,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The name of the Alibaba Cloud account to which the modifier belongs.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   modifyName?: string;
   /**
@@ -113,7 +113,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The Alibaba Cloud account name of the owner.
    * 
    * @example
-   * 张三
+   * Tom
    */
   ownerName?: string;
   /**
@@ -163,7 +163,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The name of the work.
    * 
    * @example
-   * 公司地区表
+   * Company Region Table
    */
   workName?: string;
   /**
@@ -200,7 +200,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * Test Workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceUserRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -13,10 +13,10 @@ export class UpdateWorkspaceUserRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the result of the interface execution. Value range:
+   * The execution result of the API operation. Valid values:
    * 
-   * - true: Execution successful
-   * - false: Execution failed
+   * - true: The execution succeeded.
+   * - false: The execution failed.
    * 
    * @example
    * true
@@ -24,10 +24,10 @@ export class UpdateWorkspaceUserRoleResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * - true: Request successful
-   * - false: Request failed
+   * - true: The request succeeded.
+   * - false: The request failed.
    * 
    * @example
    * true

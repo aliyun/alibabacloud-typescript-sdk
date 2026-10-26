@@ -29,7 +29,7 @@ export class QueryWorkspaceUserListResponseBodyResultDataRole extends $dara.Mode
    * Name of the preset role.
    * 
    * @example
-   * 管理员
+   * test
    */
   roleName?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class QueryWorkspaceUserListResponseBodyResultData extends $dara.Model {
    * Nickname.
    * 
    * @example
-   * 我就是那个分析师大神
+   * test
    */
   nickName?: string;
   /**

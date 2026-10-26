@@ -32,7 +32,7 @@ export class ListCollectionsResponseBodyResult extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * 奇异博士
+   * test
    */
   worksName?: string;
   /**
@@ -62,7 +62,7 @@ export class ListCollectionsResponseBodyResult extends $dara.Model {
    * Workspace Name.
    * 
    * @example
-   * 测试工作空间
+   * test
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

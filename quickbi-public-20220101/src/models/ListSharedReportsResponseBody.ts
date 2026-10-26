@@ -48,7 +48,7 @@ export class ListSharedReportsResponseBodyResultData extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   name?: string;
   /**
@@ -56,7 +56,7 @@ export class ListSharedReportsResponseBodyResultData extends $dara.Model {
    * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * test账号
+   * test account
    */
   ownerName?: string;
   /**
@@ -113,7 +113,7 @@ export class ListSharedReportsResponseBodyResultData extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试工作空间
+   * Test Workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddWorkspaceUsersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Number of users that failed to be added.
+   * The number of users that failed to be added.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class AddWorkspaceUsersResponseBodyResult extends $dara.Model {
   failure?: number;
   /**
    * @remarks
-   * Reasons for the failures.
+   * The reasons for the failures.
    * 
    * @example
    * {"2046274934845893" : "AE0150010001: This user already exists.", "1213444447906552" : "AE0150010001: This user already exists."}
@@ -21,7 +21,7 @@ export class AddWorkspaceUsersResponseBodyResult extends $dara.Model {
   failureDetail?: { [key: string]: any };
   /**
    * @remarks
-   * Number of users that were added successfully.
+   * The number of users that were added.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class AddWorkspaceUsersResponseBodyResult extends $dara.Model {
   success?: number;
   /**
    * @remarks
-   * Total number of users being added.
+   * The total number of users to be added.
    * 
    * @example
    * 3
@@ -68,7 +68,7 @@ export class AddWorkspaceUsersResponseBodyResult extends $dara.Model {
 export class AddWorkspaceUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 7AAB95D7-2E11-4FE2-94BC-858E4FC0C976
@@ -76,14 +76,14 @@ export class AddWorkspaceUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the result of the API execution.
+   * The execution result of the operation.
    */
   result?: AddWorkspaceUsersResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
-   * - true: The request was successful. There may be cases where some members are added successfully and others fail. For the reasons of failure, refer to the FailureDetail in the response.
-   * - false: The request failed, and no data will be persisted.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful. Some members may be added successfully while others fail. For the reasons of failures, refer to FailureDetail in the response.
+   * - false: The request failed. No data is persisted.
    * 
    * @example
    * true

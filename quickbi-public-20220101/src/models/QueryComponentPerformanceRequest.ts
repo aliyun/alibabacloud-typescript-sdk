@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryComponentPerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The average duration (minutes).
+   * The average duration, in minutes.
    * 
    * @example
    * 1
@@ -13,10 +13,7 @@ export class QueryComponentPerformanceRequest extends $dara.Model {
   costTimeAvgMin?: number;
   /**
    * @remarks
-   * The current page number of the workspace member list:
-   * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * The current page number of the workspace member list. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -24,10 +21,7 @@ export class QueryComponentPerformanceRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page in a paged query.
-   * 
-   * *   Default value: 10.
-   * *   Maximum value: 1,000.
+   * The number of entries per page for a paged query. Default value: 10. Maximum value: 1000.
    * 
    * @example
    * 100
@@ -37,9 +31,9 @@ export class QueryComponentPerformanceRequest extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   **lastDay**: Yesterday
-   * *   **sevenDays**: Within seven days
-   * *   **thirtyDays**: Within 30 days
+   * - **lastDay**: yesterday
+   * - **sevenDays**: within the last seven days
+   * - **thirtyDays**: within the last thirty days
    * 
    * This parameter is required.
    * 
@@ -49,7 +43,7 @@ export class QueryComponentPerformanceRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * The ID of the work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
+   * The ID of the report. Reports include data portals, dashboards, workbooks, and ad hoc queries.
    * 
    * @example
    * 6b407e50-e774-406b-9956-da2425c2****
@@ -57,7 +51,7 @@ export class QueryComponentPerformanceRequest extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The resource types.
+   * The resource type.
    * 
    * @example
    * report

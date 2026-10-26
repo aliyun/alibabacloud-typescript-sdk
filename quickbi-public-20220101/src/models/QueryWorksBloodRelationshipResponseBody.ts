@@ -16,7 +16,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
    * The name of the owning location.
    * 
    * @example
-   * 列（度量）
+   * Column (Measure)
    */
   areaName?: string;
   /**
@@ -51,7 +51,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
    * Calculate field expression.
    * 
    * @example
-   * BI_DATEADD([时间], 100, \\"day\\")
+   * BI_DATEADD([date], 100, \\"day\\")
    */
   expression?: string;
   /**
@@ -129,7 +129,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
    * The name of the component.
    * 
    * @example
-   * 线图
+   * Line
    */
   componentName?: string;
   /**
@@ -145,7 +145,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
    * Chinese name of the component type
    * 
    * @example
-   * 交叉表
+   * ddd
    */
   componentTypeCnName?: string;
   /**

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorksEmbedListRequest extends $dara.Model {
   /**
    * @remarks
-   * Report name (fuzzy match)
+   * The report name. Fuzzy match is supported.
    * 
    * @example
-   * 测试数据集
+   * Test dataset
    */
   keyword?: string;
   /**
    * @remarks
-   * Page number (defaults to 1 if empty)
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetWorksEmbedListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of items per page (defaults to 10 if empty)
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 100
@@ -29,14 +29,14 @@ export class GetWorksEmbedListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Report type
+   * The report type. Valid values:
    * 
-   * - page, Dashboard
-   * - screen, Data Screen
-   * - report, Spreadsheet
-   * - ANALYSIS, Ad-hoc Analysis
-   * - dashboardOfflineQuery, Self-service Data Retrieval
-   * - dataForm, Data Entry Form
+   * - page: Dashboard.
+   * - screen: Data screen.
+   * - report: Workbook.
+   * - ANALYSIS: Ad hoc analysis.
+   * - dashboardOfflineQuery: Self-service data retrieval.
+   * - dataForm: Data entry.
    * 
    * @example
    * page
@@ -44,7 +44,7 @@ export class GetWorksEmbedListRequest extends $dara.Model {
   worksType?: string;
   /**
    * @remarks
-   * Workspace ID
+   * The workspace ID.
    * 
    * @example
    * 919818-***-*****-wdasd

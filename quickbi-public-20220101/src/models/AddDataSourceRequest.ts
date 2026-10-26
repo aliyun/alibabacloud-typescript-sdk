@@ -14,6 +14,7 @@ export class AddDataSourceRequest extends $dara.Model {
    * @example
    * {
    *   "userId": "235345xxxxx24336",
+   *   "userAsOwner":true,
    *   "workspaceId": "235345xxxxx24336",
    *   "dsType": "postgresql",
    *   "config": {

@@ -15,8 +15,8 @@ export class UpdateUserResponseBody extends $dara.Model {
    * @remarks
    * The execution result of the operation. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

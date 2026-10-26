@@ -16,7 +16,7 @@ export class QuerySharesToUserListResponseBodyResultDirectory extends $dara.Mode
    * The name of the resource.
    * 
    * @example
-   * 图表报表
+   * Chart Report
    */
   name?: string;
   /**
@@ -29,7 +29,7 @@ export class QuerySharesToUserListResponseBodyResultDirectory extends $dara.Mode
    * The path name of the directory where the resource is located.
    * 
    * @example
-   * 一级目录/二级目录
+   * Level -1 Directory /Level -2 Directory
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class QuerySharesToUserListResponseBodyResult extends $dara.Model {
    * Remarks on the work.
    * 
    * @example
-   * 测试报表的描述
+   * Description of the test report
    */
   description?: string;
   /**
@@ -160,7 +160,7 @@ export class QuerySharesToUserListResponseBodyResult extends $dara.Model {
    * The name of the report.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   workName?: string;
   /**
@@ -198,7 +198,7 @@ export class QuerySharesToUserListResponseBodyResult extends $dara.Model {
    * The name of the workspace to which the report belongs.
    * 
    * @example
-   * 专业版回归
+   * Return to Professional Edition
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

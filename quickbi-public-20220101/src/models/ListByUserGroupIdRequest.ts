@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListByUserGroupIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user group that you want to query. Separate multiple user groups with commas (,).
+   * The IDs of the user groups to query. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

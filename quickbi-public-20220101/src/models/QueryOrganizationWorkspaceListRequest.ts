@@ -5,18 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class QueryOrganizationWorkspaceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for searching workspaces.
+   * The keyword for the workspace name.
    * 
    * @example
-   * 程序
+   * Program
    */
   keyword?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The current page number of the workspace list.
    * 
-   * - Start value: 1
-   * 
+   * - Starting value: 1
    * - Default value: 1
    * 
    * @example
@@ -25,10 +24,9 @@ export class QueryOrganizationWorkspaceListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of workspaces per page.
+   * The number of entries per page in a paging query:
    * 
    * - Default value: 10
-   * 
    * - Maximum value: 1000
    * 
    * @example
@@ -37,7 +35,7 @@ export class QueryOrganizationWorkspaceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The user ID in Quick BI.
+   * The ID of the user in Quick BI. If you specify this parameter, the system queries all workspaces of the user in the organization.
    * 
    * @example
    * fe67f61a35a94b7da1a34ba174a7****

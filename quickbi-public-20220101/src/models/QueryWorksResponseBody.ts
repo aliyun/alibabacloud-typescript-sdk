@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The ID of the folder.
    * 
    * @example
    * 83d37ba6-d909-48a2-a517-f4d05c3a****
@@ -13,15 +13,15 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the directory.
+   * The name of the folder.
    * 
    * @example
-   * Test directory
+   * Test folder
    */
   name?: string;
   /**
    * @remarks
-   * The hierarchical structure of the directory ID to which the directory belongs. Separate the hierarchical structure with a /.
+   * The hierarchical structure of the folder IDs, separated by forward slashes (/).
    * 
    * @example
    * 83d37ba6-d909-48a2-a517-f4d05c3a****
@@ -29,10 +29,10 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
   pathId?: string;
   /**
    * @remarks
-   * The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
+   * The hierarchical structure of the folder names, separated by forward slashes (/).
    * 
    * @example
-   * Test directory
+   * Test folder
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -64,21 +64,38 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
 
 export class QueryWorksResponseBodyResultGlobalParamVoList extends $dara.Model {
   /**
+   * @remarks
+   * The field type. Valid values:
+   * 
+   * - enum: Enumeration.
+   * - string: Text.
+   * - number: Numeric value.
+   * - datetime: Date and time.
+   * 
    * @example
    * string
    */
   dataType?: string;
   /**
+   * @remarks
+   * The alias of the parameter.
+   * 
    * @example
    * lastQueryAt
    */
   paramAlias?: string;
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * lastQueryAt
    */
   paramName?: string;
   /**
+   * @remarks
+   * Indicates whether the parameter is required.
+   * 
    * @example
    * false
    */
@@ -113,10 +130,10 @@ export class QueryWorksResponseBodyResultGlobalParamVoList extends $dara.Model {
 export class QueryWorksResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Third-party embedding status. Valid values:
+   * The third-party embedding status. Valid values:
    * 
-   * *   0: The embed service is not enabled.
-   * *   1: Embed is enabled.
+   * - 0: Embedding is not enabled.
+   * - 1: Embedding is enabled.
    * 
    * @example
    * 0
@@ -124,21 +141,25 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   auth3rdFlag?: number;
   /**
    * @remarks
-   * Remarks on the work.
+   * The description of the data work.
    * 
    * @example
-   * Description
+   * Remark
    */
   description?: string;
   /**
    * @remarks
-   * The directory to which the work belongs.
+   * The folder to which the data work belongs.
    */
   directory?: QueryWorksResponseBodyResultDirectory;
+  /**
+   * @remarks
+   * The global parameter array.
+   */
   globalParamVoList?: QueryWorksResponseBodyResultGlobalParamVoList[];
   /**
    * @remarks
-   * The timestamp of the creation of the work in milliseconds.
+   * The millisecond-level timestamp when the data work was created.
    * 
    * @example
    * 1496651577000
@@ -146,7 +167,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The timestamp of the modification of the work in milliseconds.
+   * The millisecond-level timestamp when the data work was updated.
    * 
    * @example
    * 1496651577000
@@ -154,15 +175,15 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   gmtModify?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the person who modified the work.
+   * The Alibaba Cloud account name of the user who updated the data work.
    * 
    * @example
-   * Tom
+   * Zhang San
    */
   modifyName?: string;
   /**
    * @remarks
-   * The user ID of the work owner in the Quick BI.
+   * The Quick BI user ID of the data work owner.
    * 
    * @example
    * 9187a612aa474e2a8ac1414d5529****
@@ -170,15 +191,15 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the work owner.
+   * The Alibaba Cloud account name of the data work owner.
    * 
    * @example
-   * Tom
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * Is it public
+   * Indicates whether the data work is public.
    * 
    * @example
    * true
@@ -186,7 +207,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   publicFlag?: boolean;
   /**
    * @remarks
-   * Deadline for the public release of the report
+   * The expiration date for public access to the report, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1721366354000
@@ -194,17 +215,13 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   publicInvalidTime?: number;
   /**
    * @remarks
-   * Security policies for collaborative authorization of works. Valid values:
+   * The security policy for collaborative authorization of the data work. Valid values:
+   * - 0: Private.
+   * - 12: Authorized to specified members.
+   * - 1 or 11: Authorized to all workspace members.
    * 
-   * *   0: private
-   * *   12: Authorize specified members
-   * *   1 or 11: Authorize all workspace members
-   * 
-   * > 
-   * 
-   * *   If you use legacy permissions, the return value is 1.
-   * 
-   * *   If you use the new permissions, the return value is 11.
+   * >- If you use the legacy permissions, the value 1 is returned.
+   * >- If you use the new permissions, the value 11 is returned.
    * 
    * @example
    * 0
@@ -214,10 +231,10 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the report. Valid values:
    * 
-   * *   0: unpublished
-   * *   1: published
-   * *   2: modified but not published
-   * *   3: unpublished
+   * - 0: Unpublished.
+   * - 1: Published.
+   * - 2: Modified but unpublished.
+   * - 3: Offline.
    * 
    * @example
    * 0
@@ -225,7 +242,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The name of the work.
+   * The name of the data work.
    * 
    * @example
    * Test report
@@ -233,13 +250,13 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   workName?: string;
   /**
    * @remarks
-   * Queries the types of works. Fill in the blanks to query all types. Valid values:
+   * The type of the data work to query. Leave this parameter empty to query all types. Valid values:
    * 
-   * *   DATAPRODUCT: BI portal
-   * *   PAGE: Dashboard
-   * *   FULLPAGE: full-screen dashboards
-   * *   REPORT: workbook
-   * *   dashboardOfflineQuery: self-service data retrieval
+   * - DATAPRODUCT: Data portal.
+   * - PAGE: Dashboard.
+   * - FULLPAGE: Full-screen dashboard.
+   * - REPORT: Workbook.
+   * - dashboardOfflineQuery: Self-service data retrieval.
    * 
    * @example
    * PAGE
@@ -247,7 +264,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   workType?: string;
   /**
    * @remarks
-   * The ID of the work.
+   * The ID of the data work.
    * 
    * @example
    * 95296e95-ca89-4c7d-8af9-dedf0ad0****
@@ -255,7 +272,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   worksId?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the work belongs.
+   * The ID of the workspace to which the data work belongs.
    * 
    * @example
    * 87c6b145-090c-43e1-9426-8f93be23****
@@ -263,10 +280,10 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the workspace to which the work belongs.
+   * The name of the workspace to which the data work belongs.
    * 
    * @example
-   * Test Space
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -333,7 +350,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
 export class QueryWorksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -341,15 +358,15 @@ export class QueryWorksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the work.
+   * The details of the data work.
    */
   result?: QueryWorksResponseBodyResult;
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

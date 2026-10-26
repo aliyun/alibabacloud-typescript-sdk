@@ -8,7 +8,7 @@ export class ListSharedReportsRequest extends $dara.Model {
    * Keyword of the name of the work.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   keyword?: string;
   /**

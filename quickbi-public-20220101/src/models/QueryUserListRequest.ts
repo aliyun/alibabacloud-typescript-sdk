@@ -24,7 +24,7 @@ export class QueryUserListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of rows per page in a paged query.
+   * The number of rows per page for a paged query.
    * 
    * - Default value: 10
    * - Maximum value: 1000
