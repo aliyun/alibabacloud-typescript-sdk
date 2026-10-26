@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterVersionResponseBodyDBRevisionVersionList extends $dara.Model {
   /**
    * @remarks
-   * The release notes for the version.
+   * The version release notes.
    * 
    * @example
    * ReleaseNote
@@ -15,9 +15,9 @@ export class DescribeDBClusterVersionResponseBodyDBRevisionVersionList extends $
    * @remarks
    * The release status of the database version. Valid values:
    * * **Stable**: The current version is stable.
-   * * **Old**: The current version is outdated. Upgrading to this version is not recommended.
-   * * **HighRisk**: The current version has critical bugs. Upgrading to this version is not recommended.
-   * * **Beta**: The current version is a beta version.
+   * * **Old**: The current version is outdated. Do not upgrade to this version.
+   * * **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+   * * **Beta**: The current version is a beta release.
    * 
    * @example
    * Stable
@@ -69,7 +69,7 @@ export class DescribeDBClusterVersionResponseBodyDBRevisionVersionList extends $
 export class DescribeDBClusterVersionResponseBodyProxyRevisionVersionList extends $dara.Model {
   /**
    * @remarks
-   * The release notes for the version.
+   * The version release notes.
    * 
    * @example
    * ReleaseNote
@@ -87,7 +87,7 @@ export class DescribeDBClusterVersionResponseBodyProxyRevisionVersionList extend
   releaseType?: string;
   /**
    * @remarks
-   * The revision version code of the PolarProxy engine, which is used to specify the target version for the upgrade.
+   * The revision version code of the database proxy engine, which is used to specify the target version for the upgrade.
    * 
    * @example
    * 20230707
@@ -95,7 +95,7 @@ export class DescribeDBClusterVersionResponseBodyProxyRevisionVersionList extend
   revisionVersionCode?: string;
   /**
    * @remarks
-   * The revision version number of the PolarProxy engine.
+   * The revision version number of the database proxy engine.
    * 
    * @example
    * 2.8.24
@@ -139,7 +139,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The latest stable version of PolarDB for PostgreSQL.
+   * The latest stable version of the PolarDB for PostgreSQL database.
    * 
    * @example
    * 2.0.16.13.14.0
@@ -156,12 +156,12 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The minor version number of the database engine.
-   * * If `DBVersion` is **8.0**, valid values:
+   * * When `DBVersion` is **8.0**, valid values:
    *     * **8.0.2**
    *     * **8.0.1**
-   * * If `DBVersion` is **5.7**, the value is **5.7.28**.
+   * * When `DBVersion` is **5.7**, the value is **5.7.28**.
    * 
-   * * If `DBVersion` is **5.6**, the value is **5.6.16**.
+   * * When `DBVersion` is **5.6**, the value is **5.6.16**.
    * 
    * @example
    * 8.0.1
@@ -170,7 +170,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Milvus version number of the database engine.
-   * > For PolarDB for MySQL 5.6 clusters, only the `Milvus version` information with a release date later than August 31, 2020 is returned. Otherwise, this parameter is empty. For more information about the minor engine versions of PolarDB for MySQL clusters, see [Release notes](https://help.aliyun.com/document_detail/423884.html).
+   * > For PolarDB for MySQL 5.6 clusters, only the `Milvus version` information with a release date after August 31, 2020 is returned. Otherwise, this parameter is empty. For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
    * 
    * @example
    * 8.0.1.1.7
@@ -178,7 +178,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   DBRevisionVersion?: string;
   /**
    * @remarks
-   * The list of available upgrade version information.
+   * The list of upgradable versions.
    */
   DBRevisionVersionList?: DescribeDBClusterVersionResponseBodyDBRevisionVersionList[];
   /**
@@ -197,8 +197,8 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
    * The status of the current database minor version. Valid values:
    * * **Stable**: The current version is stable.
    * * **Old**: The current version is outdated. Upgrade to the latest version.
-   * * **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
-   * * **Beta**: The current version is a beta version.
+   * * **HighRisk**: The current version has critical defects. Upgrade to the latest version immediately.
+   * * **Beta**: The current version is a beta release.
    * >For more information about how to upgrade the database minor version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
    * 
    * @example
@@ -207,7 +207,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   DBVersionStatus?: string;
   /**
    * @remarks
-   * Indicates whether the current version is the latest stable version of PolarDB for PostgreSQL.
+   * Indicates whether the version is the latest stable version of PolarDB for PostgreSQL.
    * 
    * @example
    * true
@@ -215,10 +215,10 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   isLatestStableVersion?: string;
   /**
    * @remarks
-   * Indicates whether the current database kernel DPI engine version is the latest database engine version. Valid values:
+   * Indicates whether the current database kernel engine version is the latest version. Valid values:
    * 
-   * -  **true**
-   * -  **false**
+   * - **true**
+   * - **false**
    * 
    * @example
    * true
@@ -226,7 +226,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   isLatestVersion?: string;
   /**
    * @remarks
-   * Indicates whether the current PolarProxy version is the latest version. Valid values:
+   * Indicates whether the current database proxy version is the latest version. Valid values:
    * * **true**
    * * **false**
    * 
@@ -236,7 +236,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   isProxyLatestVersion?: string;
   /**
    * @remarks
-   * The latest version of PolarProxy.
+   * The latest version of the database proxy.
    * 
    * @example
    * 2.4.17
@@ -244,7 +244,7 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   proxyLatestVersion?: string;
   /**
    * @remarks
-   * The version of PolarProxy.
+   * The database proxy version.
    * 
    * @example
    * 2.4.15
@@ -252,22 +252,22 @@ export class DescribeDBClusterVersionResponseBody extends $dara.Model {
   proxyRevisionVersion?: string;
   /**
    * @remarks
-   * The release status of the PolarProxy version. Valid values:
+   * The release status of the database proxy version. Valid values:
    * 
    * - **Stable**: The current version is stable.
-   * - **Old**: The current version is outdated. Upgrading to this version is not recommended.
-   * - **HighRisk**: The current version has critical bugs. Upgrading to this version is not recommended.
-   * - **Beta**: The current version is a beta version.
+   * - **Old**: The current version is outdated. Do not upgrade to this version.
+   * - **HighRisk**: The current version has critical defects. Do not upgrade to this version.
+   * - **Beta**: The current version is a beta release.
    */
   proxyRevisionVersionList?: DescribeDBClusterVersionResponseBodyProxyRevisionVersionList[];
   /**
    * @remarks
-   * The version status of PolarProxy. Valid values:
+   * The version status of the database proxy. Valid values:
    * * **Stable**: The current version is stable.
    * * **Old**: The current version is outdated. Upgrade to the latest version.
-   * * **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
-   * * **Beta**: The current version is a beta version.
-   * >For more information about how to upgrade the PolarProxy version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
+   * * **HighRisk**: The current version has critical defects. Upgrade to the latest version immediately.
+   * * **Beta**: The current version is a beta release.
+   * >For more information about how to upgrade the database proxy version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
    * 
    * @example
    * Stable

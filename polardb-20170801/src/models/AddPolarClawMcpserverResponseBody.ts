@@ -13,7 +13,7 @@ export class AddPolarClawMCPServerResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The returned status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AddPolarClawMCPServerResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class AddPolarClawMCPServerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -45,7 +45,7 @@ export class AddPolarClawMCPServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the added or updated MCP server.
+   * The ID of the added or updated MCP server.
    * 
    * @example
    * test-v1

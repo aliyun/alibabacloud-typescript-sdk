@@ -15,10 +15,10 @@ export class CreateAgenticDBTenantApiKeyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the API key usage.
+   * The description of the purpose.
    * 
    * @example
-   * Dedicated key for MCP Server
+   * Dedicated key for MCP server
    */
   description?: string;
   /**
@@ -41,7 +41,7 @@ export class CreateAgenticDBTenantApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant name. The name must be unique within the cluster and must be 2 to 64 characters in length.
+   * The name of the tenant. The name must be unique within the same cluster and be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 

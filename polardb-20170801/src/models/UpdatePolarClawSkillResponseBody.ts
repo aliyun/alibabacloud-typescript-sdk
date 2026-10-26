@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawSkillResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Skill.
+   * Specifies whether the skill is enabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -61,12 +61,12 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The updated Skill configuration. Sensitive values are masked.
+   * The updated skill configuration. Sensitive values are masked.
    */
   config?: UpdatePolarClawSkillResponseBodyConfig;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -90,7 +90,7 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Skill identifier key.
+   * The skill identifier key.
    * 
    * @example
    * alibacloud-rds-copilot

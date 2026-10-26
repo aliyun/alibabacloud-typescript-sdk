@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent that executes the task.
+   * The ID of the specified execution agent.
    * 
    * @example
    * main
@@ -23,7 +23,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Specifies whether to automatically delete the job after its first execution. This is useful for one-time tasks. Default: `false`.
+   * Specifies whether to automatically delete the task after the first execution. Default value: false.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   deleteAfterRun?: boolean;
   /**
    * @remarks
-   * The configuration for delivering task execution results.
+   * The result delivery configuration.
    * 
    * @example
    * {"Mode":"announce","Channel":"telegram"}
@@ -39,7 +39,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   deliveryShrink?: string;
   /**
    * @remarks
-   * A description of the task.
+   * The task description.
    * 
    * @example
    * Daily report generation
@@ -47,7 +47,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the cron job is enabled. Default: `true`.
+   * Specifies whether the task is enabled. Default value: true.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   payloadShrink?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway upon job creation. Default: `true`.
+   * Specifies whether to restart the gateway after creation. Default value: true.
    * 
    * @example
    * true
@@ -91,7 +91,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * Specifies whether to run the job once immediately upon creation. Default: `false`.
+   * Specifies whether to run it once immediately after creation. Default value: false.
    * 
    * @example
    * false
@@ -109,7 +109,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   scheduleShrink?: string;
   /**
    * @remarks
-   * The session routing key, which determines the conversation session for the task.
+   * The session routing key.
    * 
    * @example
    * agent:main:feishu:direct:***
@@ -117,7 +117,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   sessionKey?: string;
   /**
    * @remarks
-   * The session target. Valid values are `main`, `isolated`, and `current`.
+   * The session target. Valid values: main, isolated, current.
    * 
    * This parameter is required.
    * 
@@ -127,7 +127,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
-   * The wake mode for the agent. Valid values are `now` and `next-heartbeat`.
+   * The wake mode. Valid values: now, next-heartbeat.
    * 
    * This parameter is required.
    * 

@@ -29,7 +29,7 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   channelConfigShrink?: string;
   /**
    * @remarks
-   * The channel\\"s unique identifier.
+   * The unique identifier of the channel.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The name and version of the npm package for the channel plugin.
+   * The npm package name of the channel plugin, including the version number.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
-   * The channel plugin\\"s name.
+   * The channel plugin name.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Indicates whether to restart the gateway after the channel is created. Default: `true`.
+   * Specifies whether to restart the gateway after creation. Default value: true.
    * 
    * @example
    * true

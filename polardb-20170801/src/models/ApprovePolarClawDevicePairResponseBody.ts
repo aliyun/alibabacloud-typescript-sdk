@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApprovePolarClawDevicePairResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the device pairing, in Unix milliseconds.
+   * The creation time of the device pairing in Unix milliseconds.
    * 
    * @example
    * 1778662316663
@@ -21,7 +21,7 @@ export class ApprovePolarClawDevicePairResponseBodyDevice extends $dara.Model {
   deviceFamily?: string;
   /**
    * @remarks
-   * The unique ID of the device.
+   * The unique identifier of the device.
    * 
    * @example
    * device-l7rdl36iz6op66zf
@@ -37,7 +37,7 @@ export class ApprovePolarClawDevicePairResponseBodyDevice extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The operating system of the device.
+   * The operating system platform.
    * 
    * @example
    * linux
@@ -45,7 +45,7 @@ export class ApprovePolarClawDevicePairResponseBodyDevice extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The role of the device.
+   * The device role.
    * 
    * @example
    * operator
@@ -53,7 +53,7 @@ export class ApprovePolarClawDevicePairResponseBodyDevice extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * A list of permission scopes.
+   * The list of permission scopes.
    */
   scopes?: string[];
   static names(): { [key: string]: string } {
@@ -132,7 +132,7 @@ export class ApprovePolarClawDevicePairResponseBody extends $dara.Model {
   pairRequestId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 25C70FF3-D49B-594D-BECE-0DE2BA1D8BBB

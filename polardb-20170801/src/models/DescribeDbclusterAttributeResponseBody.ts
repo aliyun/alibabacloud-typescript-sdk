@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBClusterAttributeResponseBodyBranchChildBranch extends $dara.Model {
+  /**
+   * @example
+   * 2/2
+   */
   branchLsn?: string;
+  /**
+   * @example
+   * 2026-01-01T00:00:00Z
+   */
   branchTime?: string;
   /**
    * @example
@@ -11,6 +19,10 @@ export class DescribeDBClusterAttributeResponseBodyBranchChildBranch extends $da
    */
   DBClusterDescription?: string;
   hasChild?: boolean;
+  /**
+   * @example
+   * pc-2bbb22b2bb22bb222
+   */
   insName?: string;
   static names(): { [key: string]: string } {
     return {

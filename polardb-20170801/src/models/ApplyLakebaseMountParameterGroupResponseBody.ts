@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyLakebaseMountParameterGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F45FFACC-xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
    * @example
    * 123456
    */

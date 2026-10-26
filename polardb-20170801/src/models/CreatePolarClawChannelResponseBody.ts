@@ -13,7 +13,7 @@ export class CreatePolarClawChannelResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the channel that was created.
+   * The ID of the created channel.
    * 
    * @example
    * feishu
@@ -45,7 +45,7 @@ export class CreatePolarClawChannelResponseBody extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class CreatePolarClawChannelResponseBody extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Indicates whether a new plugin was installed.
+   * Indicates whether a new plugin is installed.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class CreatePolarClawChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway was restarted.
+   * Indicates whether the gateway is restarted.
    * 
    * @example
    * true

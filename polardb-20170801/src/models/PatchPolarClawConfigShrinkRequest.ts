@@ -15,7 +15,7 @@ export class PatchPolarClawConfigShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * A JSON merge-patch object.
+   * The JSON merge patch object.
    * 
    * @example
    * {
@@ -31,7 +31,7 @@ export class PatchPolarClawConfigShrinkRequest extends $dara.Model {
   configPatchShrink?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after applying the patch. The default is `true`.
+   * Specifies whether to restart the gateway after the patch is applied. Default value: true.
    * 
    * @example
    * true

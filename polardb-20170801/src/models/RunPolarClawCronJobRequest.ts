@@ -15,7 +15,7 @@ export class RunPolarClawCronJobRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the cron job to run.
+   * The ID of the scheduled task to execute.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RunPolarClawCronJobRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after the job completes. Default value: true.
+   * Specifies whether to restart the gateway after creation. Default value: true.
    * 
    * @example
    * true

@@ -29,7 +29,7 @@ export class DescribeLakebaseS3AccountResponseBody extends $dara.Model {
   userAccPolicy?: string;
   /**
    * @remarks
-   * The Secret Key of the S3 account (masked).
+   * The masked Secret Key of the S3 account.
    * 
    * @example
    * password***

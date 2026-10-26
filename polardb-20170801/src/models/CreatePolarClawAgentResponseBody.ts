@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   /**
    * @remarks
-   * The avatar\\"s path or content.
+   * The avatar path or content.
    * 
    * @example
    * test
@@ -75,7 +75,7 @@ export class CreatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
 export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * work
@@ -83,7 +83,7 @@ export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The agent\\"s identity.
+   * The identity information.
    */
   identity?: CreatePolarClawAgentResponseBodyAgentIdentity;
   /**
@@ -96,7 +96,7 @@ export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace path.
+   * The working directory path.
    * 
    * @example
    * /home/node/.openclaw/workspace-work
@@ -135,12 +135,12 @@ export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
 export class CreatePolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the new agent.
+   * The details of the created agent.
    */
   agent?: CreatePolarClawAgentResponseBodyAgent;
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * work
@@ -156,7 +156,7 @@ export class CreatePolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -172,7 +172,7 @@ export class CreatePolarClawAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The display name of the agent.
+   * The agent name.
    * 
    * @example
    * work
@@ -188,7 +188,7 @@ export class CreatePolarClawAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The workspace path.
+   * The working directory path.
    * 
    * @example
    * /home/node/.openclaw/workspace-work

@@ -15,7 +15,7 @@ export class ResetConsumerApiKeyRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 

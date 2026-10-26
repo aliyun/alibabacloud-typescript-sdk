@@ -13,7 +13,7 @@ export class RetryKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The cause of the failure.
    * 
    * @example
    * No active ACL projection exists for the IM document
@@ -31,7 +31,7 @@ export class RetryKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
    * @remarks
    * The request result. Valid values:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request is successful.
    * - **false**: The request failed.
    * 
    * @example
@@ -68,7 +68,7 @@ export class RetryKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
 export class RetryKnowledgeBaseFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of failed retries.
+   * The number of failed records.
    * 
    * @example
    * 0
@@ -89,7 +89,7 @@ export class RetryKnowledgeBaseFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful retries.
+   * The number of successful records.
    * 
    * @example
    * 1

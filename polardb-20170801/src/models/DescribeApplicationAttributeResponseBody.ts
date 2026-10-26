@@ -410,6 +410,9 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   /**
    * @remarks
    * The domain name of the application endpoint.
+   * 
+   * @example
+   * app.example.com
    */
   domain?: string;
   /**

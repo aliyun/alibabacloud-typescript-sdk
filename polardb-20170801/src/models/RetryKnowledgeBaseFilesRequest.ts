@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryKnowledgeBaseFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the files to retry. Separate multiple IDs with commas (,). A maximum of 30 IDs can be specified.
+   * The IDs of the files to retry. Separate multiple IDs with commas (,). You can specify up to 30 IDs.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RetryKnowledgeBaseFilesRequest extends $dara.Model {
   fileIds?: string;
   /**
    * @remarks
-   * The unique ID of the knowledge base.
+   * The unique identifier of the knowledge base.
    * 
    * This parameter is required.
    * 

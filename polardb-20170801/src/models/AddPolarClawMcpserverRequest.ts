@@ -15,7 +15,7 @@ export class AddPolarClawMCPServerRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The configuration object for the MCP server.
+   * The MCP server configuration object.
    * 
    * @example
    * {
@@ -29,7 +29,7 @@ export class AddPolarClawMCPServerRequest extends $dara.Model {
   serverConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The unique identifier for the MCP server.
+   * The unique identifier of the MCP server.
    * 
    * This parameter is required.
    * 

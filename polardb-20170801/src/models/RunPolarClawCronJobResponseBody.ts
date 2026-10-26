@@ -13,7 +13,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The unique ID for this job execution.
+   * The ID of the executed task.
    * 
    * @example
    * 8006e51c-dab3-4602-bc69-4f728002c6ce
@@ -29,7 +29,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * successful
@@ -37,7 +37,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * Indicates whether the job actually ran.
+   * Indicates whether the task was actually executed.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class RunPolarClawCronJobResponseBody extends $dara.Model {
   ran?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * C61892A4-0850-4516-9E26-44D96C1782DE

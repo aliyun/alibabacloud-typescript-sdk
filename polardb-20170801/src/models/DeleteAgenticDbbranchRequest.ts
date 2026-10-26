@@ -25,7 +25,7 @@ export class DeleteAgenticDBBranchRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the project to which the branch belongs.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DeleteAgenticDBBranchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the branch belongs.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

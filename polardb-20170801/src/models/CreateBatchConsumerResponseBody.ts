@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the key is active.
+   * Indicates whether the consumer is active.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The complete API key. Returned only in this response.
+   * The complete API key. This value is returned only in the current response.
    * 
    * @example
    * xxxxxxxx
@@ -37,7 +37,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   apiKeyStatus?: string;
   /**
    * @remarks
-   * The API key status. Default value: Active.
+   * The status of the API key. Default value: Active.
    * 
    * @example
    * Active
@@ -45,7 +45,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   apiStatus?: string;
   /**
    * @remarks
-   * The budget limit, which equals the number of credits per package.
+   * The budget limit, which is equal to the points of a single package.
    * 
    * @example
    * 3000
@@ -53,7 +53,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   budgetLimit?: number;
   /**
    * @remarks
-   * The budget policy ID. Each key has an independent budget policy.
+   * The ID of the budget policy. Each key has an independent budget policy.
    * 
    * @example
    * 023aacc1effc4b56bb154bfbec6ba9**
@@ -69,7 +69,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   budgetUsed?: number;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * cg-xxxxxx
@@ -93,7 +93,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   consumerTag?: string;
   /**
    * @remarks
-   * The application description or remarks.
+   * The application description or remark.
    * 
    * @example
    * myapp
@@ -103,7 +103,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
    * @remarks
    * The expiration time.
    * 
-   * The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-06-25T09:37:10Z
@@ -111,7 +111,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the key has expired.
+   * Indicates whether the consumer has expired.
    * 
    * @example
    * false
@@ -151,7 +151,7 @@ export class CreateBatchConsumerResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The consumer status. Default value: Enabled.
+   * The status of the consumer. Default value: Enabled.
    * 
    * @example
    * Enabled

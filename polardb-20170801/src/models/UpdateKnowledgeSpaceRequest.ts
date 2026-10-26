@@ -50,7 +50,7 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategy ex
   parameters?: UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategyParameters;
   /**
    * @remarks
-   * The type of the default chunking strategy. Valid values: hybrid or hierarchical.
+   * The type of the default chunking strategy. Valid values: hybrid and hierarchical.
    * 
    * @example
    * hybrid
@@ -115,7 +115,7 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesMatch extends
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParameters extends $dara.Model {
   /**
    * @remarks
-   * The processing mode for Markdown tables. Valid values: auto, on, or off.
+   * The processing mode for Markdown tables. Valid values: auto, on, and off.
    * 
    * @example
    * auto
@@ -123,7 +123,7 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParam
   markdownTables?: string;
   /**
    * @remarks
-   * The maximum number of tokens per chunk for matched content. The value must be a positive integer.
+   * The maximum number of tokens per chunk for the matched content. The value must be a positive integer.
    * 
    * @example
    * 512
@@ -160,7 +160,7 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy exte
   parameters?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParameters;
   /**
    * @remarks
-   * The type of the chunking strategy to use when the rule is matched. Valid values: hybrid or hierarchical.
+   * The type of the chunking strategy used after a rule is matched. Valid values: hybrid and hierarchical.
    * 
    * @example
    * hierarchical
@@ -195,12 +195,12 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy exte
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The match condition of the rule. Currently, only exact matching of table content by content type is supported.
+   * The match conditions of the rule. Currently, only exact match for table content by content type is supported.
    */
   match?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesMatch;
   /**
    * @remarks
-   * The chunking strategy to use when the rule is matched.
+   * The chunking strategy used after a successful match.
    */
   strategy?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy;
   static names(): { [key: string]: string } {
@@ -235,12 +235,12 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRules extends $dar
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfig extends $dara.Model {
   /**
    * @remarks
-   * The default chunking strategy. This strategy is used when no rule is matched.
+   * The default chunking strategy. This strategy is used when no rules are matched.
    */
   defaultStrategy?: UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategy;
   /**
    * @remarks
-   * The list of override rules that are matched in order. Currently, a maximum of one exact-match rule with ContentType set to table is supported.
+   * The list of override rules matched in sequence. Currently, a maximum of one exact match rule with ContentType set to table is supported.
    */
   rules?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRules[];
   static names(): { [key: string]: string } {
@@ -327,7 +327,7 @@ export class UpdateKnowledgeSpaceRequest extends $dara.Model {
   rerankModel?: string;
   /**
    * @remarks
-   * The default chunking strategy configuration for the knowledge space. Both simple strategies and composite strategies that match by content type are supported.
+   * The default chunking strategy configuration for the knowledge space. Simple strategies and composite strategies matched by content type are supported.
    */
   shardingStrategyConfig?: UpdateKnowledgeSpaceRequestShardingStrategyConfig;
   static names(): { [key: string]: string } {

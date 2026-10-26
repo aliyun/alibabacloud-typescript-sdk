@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyLakebaseMountParameterGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The parameter template ID. The ID starts with pagp-.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ApplyLakebaseMountParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
+   * The PolarFS instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ApplyLakebaseMountParameterGroupRequest extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

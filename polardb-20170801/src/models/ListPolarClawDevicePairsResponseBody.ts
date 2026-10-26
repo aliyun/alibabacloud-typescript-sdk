@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   /**
    * @remarks
-   * The client ID.
+   * The client identifier.
    * 
    * @example
    * cli
@@ -21,7 +21,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   clientMode?: string;
   /**
    * @remarks
-   * The time when the device pairing was created, in Unix milliseconds.
+   * The creation time of the device pairing in Unix milliseconds.
    * 
    * @example
    * 1778659807727
@@ -29,7 +29,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   createdAtMs?: number;
   /**
    * @remarks
-   * The device family.
+   * The hardware category.
    * 
    * @example
    * empty
@@ -37,7 +37,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   deviceFamily?: string;
   /**
    * @remarks
-   * The unique device ID.
+   * The unique identifier of the device.
    * 
    * @example
    * f92620d6bea04f65d48cf603c57b367c97e837c1ab9f6d78f741f477e99d857c
@@ -53,7 +53,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the device was last active, in Unix milliseconds.
+   * The last active time of the device in Unix milliseconds.
    * 
    * @example
    * 1778659807727
@@ -61,7 +61,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   lastSeenAtMs?: number;
   /**
    * @remarks
-   * The operating system.
+   * The operating system platform.
    * 
    * @example
    * linux
@@ -125,7 +125,7 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
 export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   /**
    * @remarks
-   * The client ID.
+   * The client identifier.
    * 
    * @example
    * cli
@@ -141,7 +141,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   clientMode?: string;
   /**
    * @remarks
-   * The device family.
+   * The hardware category.
    * 
    * @example
    * server
@@ -149,7 +149,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   deviceFamily?: string;
   /**
    * @remarks
-   * The unique device ID.
+   * The unique identifier of the device.
    * 
    * @example
    * device-784x37k0vko734fk
@@ -165,7 +165,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Whether the request is to repair an existing pairing.
+   * Specifies whether the request is for re-pairing.
    * 
    * @example
    * false
@@ -181,7 +181,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   pairRequestId?: string;
   /**
    * @remarks
-   * The operating system.
+   * The operating system platform.
    * 
    * @example
    * linux
@@ -197,7 +197,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   publicKey?: string;
   /**
    * @remarks
-   * The requester\\"s remote IP address.
+   * The IP address of the requester.
    * 
    * @example
    * 127.0.0.1
@@ -223,7 +223,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   scopes?: string[];
   /**
    * @remarks
-   * Whether this is a silent pairing.
+   * Specifies whether silent pairing is enabled.
    * 
    * @example
    * false
@@ -231,7 +231,7 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   silent?: boolean;
   /**
    * @remarks
-   * The timestamp of the pairing request, in Unix milliseconds.
+   * The timestamp of the pairing request in Unix milliseconds.
    * 
    * @example
    * 1778660347550
@@ -303,7 +303,7 @@ export class ListPolarClawDevicePairsResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code of the response.
+   * The response status code.
    * 
    * @example
    * 200
@@ -319,17 +319,17 @@ export class ListPolarClawDevicePairsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A list of paired devices.
+   * The list of paired devices.
    */
   paired?: ListPolarClawDevicePairsResponseBodyPaired[];
   /**
    * @remarks
-   * A list of pending pairing requests.
+   * The list of pending pairing requests.
    */
   pending?: ListPolarClawDevicePairsResponseBodyPending[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

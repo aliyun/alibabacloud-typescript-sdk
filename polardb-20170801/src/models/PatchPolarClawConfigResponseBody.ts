@@ -13,7 +13,7 @@ export class PatchPolarClawConfigResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class PatchPolarClawConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message.
+   * The response message.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class PatchPolarClawConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -37,12 +37,12 @@ export class PatchPolarClawConfigResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * A list of the top-level configuration keys that were modified.
+   * The list of modified top-level configuration keys.
    */
   patchedKeys?: string[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
@@ -50,7 +50,7 @@ export class PatchPolarClawConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway was restarted.
+   * Indicates whether the gateway is restarted.
    * 
    * @example
    * true

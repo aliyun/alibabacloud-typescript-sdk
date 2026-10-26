@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * work
@@ -21,7 +21,7 @@ export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code of the response.
+   * The response status code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of removed bindings.
+   * The actual number of bindings removed.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   removedCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
@@ -53,7 +53,7 @@ export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of bindings after the operation.
+   * The total number of global bindings after the operation.
    * 
    * @example
    * 0

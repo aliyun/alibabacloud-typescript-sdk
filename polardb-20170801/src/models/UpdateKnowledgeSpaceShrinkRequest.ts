@@ -57,7 +57,7 @@ export class UpdateKnowledgeSpaceShrinkRequest extends $dara.Model {
   rerankModel?: string;
   /**
    * @remarks
-   * The default chunking strategy configuration for the knowledge space. Both simple strategies and composite strategies that match by content type are supported.
+   * The default chunking strategy configuration for the knowledge space. Simple strategies and composite strategies matched by content type are supported.
    */
   shardingStrategyConfigShrink?: string;
   static names(): { [key: string]: string } {

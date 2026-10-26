@@ -6,7 +6,7 @@ export class DescribeDBClusterVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters within your account, such as the cluster ID.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, such as the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,10 @@ export class DescribeDBClusterVersionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to return the latest version information or the list of available upgrade versions. Valid values:
+   * Specifies whether to return the latest version information or a list of upgradable versions. Valid values:
    * 
-   * - LATEST_VERSION: queries the latest version information.
-   * - AVAILABLE_VERSION: queries the list of available upgrade versions.
+   * - LATEST_VERSION: Queries the latest version information.
+   * - AVAILABLE_VERSION: Queries the list of upgradable versions.
    * 
    * @example
    * LATEST_VERSION

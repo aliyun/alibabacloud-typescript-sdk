@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   /**
    * @remarks
-   * The account ID for the delivery channel.
+   * The channel account ID.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
+   * Specifies whether to ignore delivery failures.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The delivery mode. Valid values are `none`, `announce`, and `webhook`.
+   * The delivery mode. Valid values: none, announce, webhook.
    * 
    * @example
    * announce
@@ -37,7 +37,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The recipient for the delivery.
+   * The delivery target.
    * 
    * @example
    * ou_***
@@ -75,7 +75,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
 export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   /**
    * @remarks
-   * The account ID for the alert channel.
+   * The channel account ID.
    * 
    * @example
    * default
@@ -83,7 +83,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The number of consecutive failures required to trigger an alert.
+   * The number of consecutive failures before an alert is triggered.
    * 
    * @example
    * 3
@@ -91,7 +91,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   after?: number;
   /**
    * @remarks
-   * The channel for sending failure alerts.
+   * The alert channel.
    * 
    * @example
    * feishu
@@ -99,7 +99,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The cooldown period, in milliseconds, between alerts for the same job.
+   * The minimum interval between two alerts in milliseconds.
    * 
    * @example
    * 5000
@@ -107,7 +107,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   cooldownMs?: number;
   /**
    * @remarks
-   * The mode for sending alerts. Valid values are `announce` and `webhook`.
+   * The alert mode. Valid values: announce, webhook.
    * 
    * @example
    * announce
@@ -115,7 +115,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The recipient for the failure alert.
+   * The alert target.
    * 
    * @example
    * ou_***
@@ -155,7 +155,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
 export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
+   * Specifies whether to ignore delivery failures.
    * 
    * @example
    * false
@@ -171,7 +171,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Specifies whether to deliver the agent\\"s output to a channel.
+   * Specifies whether to deliver the output to a channel.
    * 
    * @example
    * true
@@ -179,12 +179,12 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   deliver?: boolean;
   /**
    * @remarks
-   * A list of fallback models to use if the primary model fails.
+   * The list of fallback models.
    */
   fallbacks?: string[];
   /**
    * @remarks
-   * The payload type. Valid values are `agentTurn` and `systemEvent`.
+   * The payload type. Valid values: agentTurn, systemEvent.
    * 
    * @example
    * systemEvent
@@ -192,7 +192,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * Specifies whether to use a light context for the agent conversation.
+   * Specifies whether to use a lightweight context.
    * 
    * @example
    * false
@@ -200,7 +200,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   lightContext?: boolean;
   /**
    * @remarks
-   * The prompt for an agent conversation, used when `Kind` is `agentTurn`.
+   * The agent conversation prompt.
    * 
    * @example
    * Generate the daily report.
@@ -208,7 +208,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Specifies a model that overrides the agent\\"s default model.
+   * The model override.
    * 
    * @example
    * bailian/qwen3.5-plus
@@ -216,7 +216,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The text for the system event, used when `Kind` is `systemEvent`.
+   * The system event text.
    * 
    * @example
    * Generate the daily report.
@@ -224,7 +224,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * The thinking level for the agent\\"s response generation. Valid values are `off`, `minimal`, `low`, `medium`, `high`, and `xhigh`.
+   * The thinking level. Valid values: off, minimal, low, medium, high, xhigh.
    * 
    * @example
    * xhigh
@@ -232,7 +232,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   thinking?: string;
   /**
    * @remarks
-   * The execution timeout, in seconds.
+   * The execution timeout in seconds.
    * 
    * @example
    * 10
@@ -240,7 +240,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   timeoutSeconds?: number;
   /**
    * @remarks
-   * The specific target or recipient within the channel.
+   * The delivery target.
    * 
    * @example
    * ou_***
@@ -295,7 +295,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
 export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   /**
    * @remarks
-   * The anchor timestamp for aligning interval-based schedules, in milliseconds.
+   * The base timestamp for interval alignment.
    * 
    * @example
    * 1777370572518
@@ -303,7 +303,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   anchorMs?: number;
   /**
    * @remarks
-   * The specific time for a one-time execution, specified as an ISO 8601 timestamp.
+   * The ISO 8601 timestamp.
    * 
    * @example
    * 2026-04-10T09:00:00+08:00
@@ -311,7 +311,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   at?: string;
   /**
    * @remarks
-   * The task execution interval, in milliseconds.
+   * The interval in milliseconds.
    * 
    * @example
    * 100000
@@ -319,7 +319,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   everyMs?: number;
   /**
    * @remarks
-   * The cron expression that specifies when the task runs.
+   * The cron expression.
    * 
    * @example
    * 0 9 * * *
@@ -327,7 +327,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   expr?: string;
   /**
    * @remarks
-   * The type of schedule.
+   * The schedule type. Valid values: cron, every, at.
    * 
    * @example
    * cron
@@ -335,7 +335,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The deterministic jitter window, in milliseconds.
+   * The deterministic jitter window in milliseconds.
    * 
    * @example
    * 0
@@ -343,7 +343,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   staggerMs?: number;
   /**
    * @remarks
-   * The time zone for the schedule.
+   * The IANA time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -385,7 +385,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
 export class CreatePolarClawCronJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent that executes the task.
+   * The ID of the specified execution agent.
    * 
    * @example
    * main
@@ -403,7 +403,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Specifies whether to automatically delete the job after its first execution. This is useful for one-time tasks. Default: `false`.
+   * Specifies whether to automatically delete the task after the first execution. Default value: false.
    * 
    * @example
    * false
@@ -411,7 +411,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   deleteAfterRun?: boolean;
   /**
    * @remarks
-   * The configuration for delivering task execution results.
+   * The result delivery configuration.
    * 
    * @example
    * {"Mode":"announce","Channel":"telegram"}
@@ -419,7 +419,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   delivery?: CreatePolarClawCronJobRequestDelivery;
   /**
    * @remarks
-   * A description of the task.
+   * The task description.
    * 
    * @example
    * Daily report generation
@@ -427,7 +427,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the cron job is enabled. Default: `true`.
+   * Specifies whether the task is enabled. Default value: true.
    * 
    * @example
    * true
@@ -463,7 +463,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   payload?: CreatePolarClawCronJobRequestPayload;
   /**
    * @remarks
-   * Specifies whether to restart the gateway upon job creation. Default: `true`.
+   * Specifies whether to restart the gateway after creation. Default value: true.
    * 
    * @example
    * true
@@ -471,7 +471,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * Specifies whether to run the job once immediately upon creation. Default: `false`.
+   * Specifies whether to run it once immediately after creation. Default value: false.
    * 
    * @example
    * false
@@ -489,7 +489,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   schedule?: CreatePolarClawCronJobRequestSchedule;
   /**
    * @remarks
-   * The session routing key, which determines the conversation session for the task.
+   * The session routing key.
    * 
    * @example
    * agent:main:feishu:direct:***
@@ -497,7 +497,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   sessionKey?: string;
   /**
    * @remarks
-   * The session target. Valid values are `main`, `isolated`, and `current`.
+   * The session target. Valid values: main, isolated, current.
    * 
    * This parameter is required.
    * 
@@ -507,7 +507,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
-   * The wake mode for the agent. Valid values are `now` and `next-heartbeat`.
+   * The wake mode. Valid values: now, next-heartbeat.
    * 
    * This parameter is required.
    * 

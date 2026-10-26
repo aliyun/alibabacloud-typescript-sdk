@@ -315,11 +315,35 @@ export class CreateApplicationRequestKnowledgeApplicationSpec extends $dara.Mode
    * qwen3-max
    */
   llmModel?: string;
+  /**
+   * @example
+   * pm-xxxxxx
+   */
+  polarAIEmbedderInstanceId?: string;
+  /**
+   * @example
+   * pm-xxxxxx
+   */
+  polarAILlmInstanceId?: string;
+  /**
+   * @example
+   * pm-xxxxxx
+   */
+  polarAIRerankerInstanceId?: string;
+  /**
+   * @example
+   * pm-xxxxxx
+   */
+  polarAIVlInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       dashboardPassword: 'DashboardPassword',
       dbPassword: 'DbPassword',
       llmModel: 'LlmModel',
+      polarAIEmbedderInstanceId: 'PolarAIEmbedderInstanceId',
+      polarAILlmInstanceId: 'PolarAILlmInstanceId',
+      polarAIRerankerInstanceId: 'PolarAIRerankerInstanceId',
+      polarAIVlInstanceId: 'PolarAIVlInstanceId',
     };
   }
 
@@ -328,6 +352,10 @@ export class CreateApplicationRequestKnowledgeApplicationSpec extends $dara.Mode
       dashboardPassword: 'string',
       dbPassword: 'string',
       llmModel: 'string',
+      polarAIEmbedderInstanceId: 'string',
+      polarAILlmInstanceId: 'string',
+      polarAIRerankerInstanceId: 'string',
+      polarAIVlInstanceId: 'string',
     };
   }
 

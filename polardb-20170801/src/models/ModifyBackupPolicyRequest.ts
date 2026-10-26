@@ -173,6 +173,9 @@ export class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
   /**
    * @remarks
    * The storage class used by the advanced backup policy.
+   * 
+   * @example
+   * STANDARD
    */
   storageClass?: string;
   static names(): { [key: string]: string } {

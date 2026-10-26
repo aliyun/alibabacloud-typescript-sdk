@@ -65,7 +65,6 @@ export class ModifyModelApiRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * 
    * * **openai**
    * * **anthropic**
    * * **bailian**
@@ -79,7 +78,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input points.
+   * The number of input tokens.
    * 
    * @example
    * 10
@@ -87,7 +86,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output points.
+   * The number of output tokens.
    * 
    * @example
    * 10
@@ -103,7 +102,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of routing rules (JSON array string).
+   * The list of routing rules. The value is a JSON array string.
    * 
    * This parameter is required.
    * 

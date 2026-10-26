@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindPolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID to unbind.
+   * The ID of the agent to disassociate.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UnbindPolarClawAgentRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The channel account ID. Omit this parameter to remove all bindings for the specified agent ID and channel plugin ID.
+   * The channel account ID. If you do not specify this parameter, all bindings under the specified agent and channel are removed.
    * 
    * @example
    * default
