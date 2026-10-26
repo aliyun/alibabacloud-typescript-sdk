@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceRCInstanceSystemDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image to use when reinstalling the operating system.
+   * The ID of the image used to reinstall the operating system.
    * 
    * @example
    * m-2zec4lvlhcdkyd13****
@@ -21,7 +21,7 @@ export class ReplaceRCInstanceSystemDiskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -29,7 +29,7 @@ export class ReplaceRCInstanceSystemDiskRequest extends $dara.Model {
   isLocalDisk?: boolean;
   /**
    * @remarks
-   * The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the reinstallation is complete.
+   * The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the operating system is reinstalled.
    * 
    * @example
    * testKeyPairName
@@ -37,10 +37,10 @@ export class ReplaceRCInstanceSystemDiskRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The new logon password of the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the reinstallation is complete.
+   * The new logon password for the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the operating system is reinstalled.
    * 
    * - The password must be 8 to 30 characters in length.
-   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters are: ()`~!@#$%^&*-_+=.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ()`~!@#$%^&*-_+=.
    * 
    * @example
    * testPassword

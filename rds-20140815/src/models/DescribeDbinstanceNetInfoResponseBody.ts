@@ -218,7 +218,7 @@ export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * * **Classic**: classic network.
-   * * **VPC**: virtual private cloud (VPC).
+   * * **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -235,8 +235,8 @@ export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The whitelist mode. Valid values:
-   * * **normal**: standard whitelist mode.
-   * * **safety**: enhanced whitelist.
+   * * **normal**: general mode.
+   * * **safety**: enhanced whitelist mode.
    * 
    * @example
    * safety

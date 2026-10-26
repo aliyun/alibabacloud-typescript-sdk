@@ -22,9 +22,9 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the AD domain. Valid values:
-   * * **-1**: The instance is being joined to the AD domain.
-   * * **0**: Failed to join the AD domain.
-   * * **1**: Joined the AD domain.
+   * * **-1**: The instance is joining the AD domain.
+   * * **0**: The instance failed to join the AD domain.
+   * * **1**: The instance joined the AD domain.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   ADStatus?: string;
   /**
    * @remarks
-   * The reason for the exception.
+   * The cause of the exception.
    * 
    * @example
    * ****
@@ -40,7 +40,7 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   abnormalReason?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -48,7 +48,7 @@ export class DescribeADInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The username of the AD domain.
+   * The username for the AD domain.
    * 
    * @example
    * test_01

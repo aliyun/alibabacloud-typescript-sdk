@@ -13,7 +13,7 @@ export class DetachRCDiskRequest extends $dara.Model {
   deleteWithInstance?: boolean;
   /**
    * @remarks
-   * The ID of the cloud disk to be detached.
+   * The ID of the cloud disk to detach.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DetachRCDiskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query available region IDs.
+   * The region ID. You can call the DescribeRegions operation to view available region IDs.
    * 
    * @example
    * cn-hangzhou

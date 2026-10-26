@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRCDeploymentSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The deployment set ID.
+   * The ID of the deployment set.
    * 
    * This parameter is required.
    * 

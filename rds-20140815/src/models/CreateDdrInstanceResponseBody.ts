@@ -6,7 +6,7 @@ export class CreateDdrInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The endpoint of the new instance.
-   * > The **DBInstanceNetType** parameter determines whether this endpoint is an internal endpoint or a public endpoint.
+   * > The **DBInstanceNetType** parameter determines whether the endpoint is an internal endpoint or a public endpoint.
    * 
    * @example
    * rm-****.mysql.rds.aliyuncs.com
@@ -14,7 +14,7 @@ export class CreateDdrInstanceResponseBody extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID of the new instance.
+   * The ID of the new instance.
    * 
    * @example
    * rm-****
@@ -30,8 +30,8 @@ export class CreateDdrInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The port of the new instance.
-   * > The **DBInstanceNetType** parameter determines whether this port is an internal port or a public port.
+   * The port used to connect to the new instance.
+   * > The **DBInstanceNetType** parameter determines whether the port is an internal port or a public port.
    * 
    * @example
    * 3306

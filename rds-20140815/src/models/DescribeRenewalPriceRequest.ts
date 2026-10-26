@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The business extension parameter.
+   * The business extension parameters.
    * 
    * @example
    * 121436975448952
@@ -13,7 +13,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * Ensures the idempotence of the request.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -21,7 +21,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance type. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). Default value: the current instance type.
+   * The instance type. For more information about instance types, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). Default value: the current instance type.
    * 
    * @example
    * mysql.n2.medium.2c
@@ -29,7 +29,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The order type. The only valid value is **BUY**.
+   * The order type. Valid value: **BUY**.
    * 
    * @example
    * BUY
@@ -51,8 +51,8 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * * **Postpaid**: pay-as-you-go
-   * * **Prepaid**: subscription
+   * * **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: subscription.
    * 
    * @example
    * Postpaid
@@ -68,7 +68,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The ID of the region. You can call the DescribeRegions operation to obtain the ID.
    * 
    * @example
    * cn-hangzhou
@@ -76,7 +76,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
    * 
    * @example
    * rg-acfmx****
@@ -86,10 +86,10 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The subscription type of the instance. Valid values:
+   * The unit of the subscription duration. Valid values:
    * 
-   * * **Year**: yearly subscription
-   * * **Month**: monthly subscription
+   * * **Year**: year.
+   * * **Month**: month.
    * 
    * This parameter is required.
    * 
@@ -101,8 +101,8 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the instance. Valid values:
    * 
-   * * If **TimeType** is set to **Year**, the value ranges from **1 to 3**.
-   * * If **TimeType** is set to **Month**, the value ranges from **1 to 9**.
+   * * If the **TimeType** parameter is set to **Year**, valid values are **1 to 3**.
+   * * If the **TimeType** parameter is set to **Month**, valid values are **1 to 9**.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImportTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ListImportTasksRequest extends $dara.Model {
    * The number of entries per page. Valid values: **1 to 100**.
    * 
    * Default value: **30**.
-   * >If you specify this parameter, the **PageSize** and **PageNumber** parameters are not available.
+   * > If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
    * 
    * @example
    * 30

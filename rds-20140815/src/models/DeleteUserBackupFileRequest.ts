@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserBackupFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The user backup ID. You can call ListUserBackupFiles to obtain the ID.
+   * The ID of the user backup. You can call the ListUserBackupFiles operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DeleteUserBackupFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DeleteUserBackupFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
    * 
    * @example
    * rg-acfmy****

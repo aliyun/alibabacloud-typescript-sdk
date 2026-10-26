@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The consistency check method after the database is open. Valid values:
-   * * **SyncExecuteDBCheck**: synchronous database check.
-   * * **AsyncExecuteDBCheck**: asynchronous database check.
+   * The consistency check method used after the database is opened. Valid values:
+   * * **SyncExecuteDBCheck**: Executes the database check synchronously.
+   * * **AsyncExecuteDBCheck**: Executes the database check asynchronously.
    * 
-   * >Compatible with SQL Server 2008 R2.
+   * > Compatible with SQL Server 2008 R2.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
   checkDBMode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -27,7 +27,7 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,15 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The migration task ID.
+   * Specifies whether to retain the database-level and table-level Change Data Capture (CDC) settings and the data in change tables. Regardless of the value of this parameter, CDC jobs are not rebuilt.
+   * 
+   * @example
+   * true
+   */
+  keepCDC?: boolean;
+  /**
+   * @remarks
+   * The ID of the migration task.
    * 
    * This parameter is required.
    * 
@@ -65,6 +73,7 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
       clientToken: 'ClientToken',
       DBInstanceId: 'DBInstanceId',
       DBName: 'DBName',
+      keepCDC: 'KeepCDC',
       migrateTaskId: 'MigrateTaskId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -79,6 +88,7 @@ export class CreateOnlineDatabaseTaskRequest extends $dara.Model {
       clientToken: 'string',
       DBInstanceId: 'string',
       DBName: 'string',
+      keepCDC: 'boolean',
       migrateTaskId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

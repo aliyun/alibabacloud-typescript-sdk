@@ -23,7 +23,7 @@ export class UpdateDBInstanceReplicationRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The host address of the primary database. IP addresses and domain names are supported.
+   * The host address of the primary database, which supports an IP address or a domain name.
    * 
    * @example
    * 192.168.1.100
@@ -39,7 +39,7 @@ export class UpdateDBInstanceReplicationRequest extends $dara.Model {
   masterPassword?: string;
   /**
    * @remarks
-   * The port number of the primary database. The default port is 3306 for MySQL.
+   * The port number of the primary database, which is typically 3306 for MySQL.
    * 
    * @example
    * 3306
@@ -55,7 +55,7 @@ export class UpdateDBInstanceReplicationRequest extends $dara.Model {
   masterUser?: string;
   /**
    * @remarks
-   * The operation type. Specifies the operation to perform on the replication channel.
+   * The operation type, which specifies the operation to be performed on the replication channel.
    * 
    * This parameter is required.
    * 

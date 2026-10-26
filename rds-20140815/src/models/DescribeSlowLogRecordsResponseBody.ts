@@ -119,7 +119,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine type.
+   * The database engine.
    * 
    * @example
    * MySQL

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCDisksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Empty values and duplicate values are **not allowed**.
+   * The tag key. Empty values and duplicates are not allowed.
    * 
    * @example
    * testkey1
@@ -13,7 +13,7 @@ export class DescribeRCDisksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Empty values are **allowed**.
+   * The tag value. Empty values are allowed.
    * 
    * @example
    * testvalue1
@@ -45,7 +45,7 @@ export class DescribeRCDisksRequestTag extends $dara.Model {
 export class DescribeRCDisksRequest extends $dara.Model {
   /**
    * @remarks
-   * The disk IDs. The value is a JSON array that contains up to 100 IDs separated by commas (,). Format: `["Disk ID1","Disk ID2"]`.
+   * The disk IDs. The value is a JSON array that supports up to 100 IDs separated by commas (,). Example: ["DiskId1", "DiskId2"].
    * 
    * @example
    * ["rcd-bp67acfmxazb4p****", "rcd-bp67acfmxazb4g****", … "rcd-bp67acfmxazb4d****"]
@@ -53,10 +53,10 @@ export class DescribeRCDisksRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The type of cloud disk or elastic ephemeral disk to query. Valid values:
-   * ● all: queries both system cloud disks and data cloud disks.
-   * ● system: queries only system cloud disks.
-   * ● data: queries only data cloud disks.
+   * The type of the cloud disk or elastic ephemeral disk to query. Valid values:
+   * - all: Queries both system cloud disks and data cloud disks.
+   * - system: Queries only system cloud disks.
+   * - data: Queries only data cloud disks.
    * Default value: all.
    * 
    * @example
@@ -100,13 +100,13 @@ export class DescribeRCDisksRequest extends $dara.Model {
   /**
    * @remarks
    * The disk status. Valid values:
-   * ● In_use: in use.
-   * ● Available: to be attached.
-   * ● Attaching: being attached.
-   * ● Detaching: being detached.
-   * ● Creating: being created.
-   * ● ReIniting: being initialized.
-   * ● All: all statuses.
+   * - In_use: In use.
+   * - Available: Available.
+   * - Attaching: Attaching.
+   * - Detaching: Detaching.
+   * - Creating: Creating.
+   * - ReIniting: Initializing.
+   * - All: All statuses.
    * Default value: All.
    * 
    * @example

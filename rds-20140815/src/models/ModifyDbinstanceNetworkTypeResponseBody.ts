@@ -13,7 +13,7 @@ export class ModifyDBInstanceNetworkTypeResponseBody extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -21,7 +21,7 @@ export class ModifyDBInstanceNetworkTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 1025486523574

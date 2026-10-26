@@ -13,7 +13,7 @@ export class MigrateConnectionToOtherZoneResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error details.
+   * The error message.
    * 
    * @example
    * Invalid Parameter.

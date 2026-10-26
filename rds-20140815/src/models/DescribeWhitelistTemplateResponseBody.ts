@@ -13,7 +13,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The IP address list.
+   * The list of IP addresses.
    * 
    * @example
    * 10.1.X.X,2.3.X.X
@@ -21,7 +21,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   ips?: string;
   /**
    * @remarks
-   * The whitelist template ID.
+   * The ID of the whitelist template.
    * 
    * @example
    * 424
@@ -29,7 +29,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   templateId?: number;
   /**
    * @remarks
-   * The whitelist template name.
+   * The name of the whitelist template.
    * 
    * @example
    * template_123
@@ -37,7 +37,7 @@ export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $dara.Mod
   templateName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 16****
@@ -108,8 +108,8 @@ export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
    * The response code. Valid values:
    * - **200**: Normal.
    * - **400**: Client fault.
-   * - **401**: Authentication failed.
-   * - **404**: Request page not found.
+   * - **401**: Failed to authenticate during identity verification.
+   * - **404**: The requested page is not found.
    * - **500**: Server fault.
    * 
    * @example
@@ -118,13 +118,13 @@ export class DescribeWhitelistTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: DescribeWhitelistTemplateResponseBodyData;
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * - **200**: Normal.
    * - **400**: Client error.
    * - **500**: Server error.
    * 

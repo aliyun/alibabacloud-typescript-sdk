@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the cross-region backup feature. Valid values:
-   * * **Disable**: Disabled.
-   * * **Enable**: Enabled.
+   * Indicates whether the overall cross-region backup feature is enabled. Valid values:
+   * * **Disable**: The feature is disabled.
+   * * **Enable**: The feature is enabled.
    * 
    * @example
    * Enable
@@ -23,7 +23,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   crossBackupRegion?: string;
   /**
    * @remarks
-   * The type of cross-region backup retention. Default value: **1**, which indicates that all backups are retained.
+   * The retention type of cross-region backups. Default value: **1**, which indicates that all backups are retained.
    * 
    * @example
    * 1
@@ -39,9 +39,9 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of cross-region log backup. Valid values:
-   * * **Disable**: Disabled.
-   * * **Enable**: Enabled.
+   * Indicates whether cross-region log backup is enabled. Valid values:
+   * * **Disable**: Cross-region log backup is disabled.
+   * * **Enable**: Cross-region log backup is enabled.
    * 
    * @example
    * Enable
@@ -49,7 +49,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   logBackupEnabled?: string;
   /**
    * @remarks
-   * The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +65,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The cross-region backup retention method. Default value: **1**, which indicates retention by duration.
+   * The retention method for cross-region backups. Default value: **1**, which indicates that backups are retained based on a specified retention period.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ModifyInstanceCrossBackupPolicyResponseBody extends $dara.Model {
   retentType?: number;
   /**
    * @remarks
-   * The number of days for which cross-region backups are retained. Valid values: **7 to 1825**.
+   * The retention period of cross-region backups. Valid values: **7 to 1825**. Unit: days.
    * 
    * @example
    * 15

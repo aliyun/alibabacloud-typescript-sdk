@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to obtain this parameter.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The estimated instance size. Unit: GB.
+   * The estimated size of the instance. Unit: GB.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   estimatedSize?: number;
   /**
    * @remarks
-   * The address of the source MySQL instance.
+   * The address of the source MySQL database.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the source MySQL user, encoded in Base64.
+   * The Base64-encoded password of the source MySQL database user.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The port number of the source MySQL instance.
+   * The port number of the source MySQL database.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain this parameter.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The type of the source instance. Valid values:
+   * The type of the source platform. Valid values:
    * - ECS
    * 
    * @example
@@ -91,7 +91,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   streamPort?: number;
   /**
    * @remarks
-   * The username of the source MySQL instance.
+   * The username of the source MySQL database.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class ValidateImportTaskRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The path of the Xtrabackup tool on the source instance.
+   * The path to the XtraBackup tool on the source instance.
    * 
    * @example
    * /usr/local/bin/xtrabackup

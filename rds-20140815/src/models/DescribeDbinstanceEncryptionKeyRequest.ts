@@ -13,7 +13,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The custom key ID.
+   * The ID of the custom key.
    * 
    * @example
    * 749c1df7-****-****-****-****
@@ -23,7 +23,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the DescribeRegions operation to query the available regions.
+   * The region ID of the instance. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -34,7 +34,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The destination region ID. You can call the DescribeRegions operation to query the available regions.
+   * The ID of the destination region. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-qingdao

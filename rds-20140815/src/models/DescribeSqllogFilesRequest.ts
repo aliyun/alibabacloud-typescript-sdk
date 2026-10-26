@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLLogFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 

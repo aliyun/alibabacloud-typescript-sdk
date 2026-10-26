@@ -8,14 +8,14 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
    * The description of the enhanced monitoring metric.
    * 
    * @example
-   * sys cpu usage, sys cpu usage / total cpu
+   * sys CPU usage, sys CPU used / total CPU
    */
   description?: string;
   /**
    * @remarks
    * The category of the enhanced monitoring metric. Valid values:
-   * - **os**: operating system metric.
-   * - **db**: database metric.
+   * - **os**: operating system metrics
+   * - **db**: database metrics
    * 
    * @example
    * os
@@ -34,15 +34,15 @@ export class DescribeAvailableMetricsResponseBodyItems extends $dara.Model {
    * The name of the group to which the enhanced monitoring metric belongs.
    * 
    * @example
-   * CPU Usage
+   * CPU usage
    */
   groupKeyType?: string;
   /**
    * @remarks
    * The statistical method of the enhanced monitoring metric. Valid values:
-   * - **avg**: average value.
-   * - **min**: minimum value.
-   * - **max**: maximum value.
+   * - **avg**: average value
+   * - **min**: minimum value
+   * - **max**: maximum value
    * 
    * @example
    * avg
@@ -133,7 +133,7 @@ export class DescribeAvailableMetricsResponseBody extends $dara.Model {
   items?: DescribeAvailableMetricsResponseBodyItems[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5CD61041-35F7-10F7-BE94-33A48B221218

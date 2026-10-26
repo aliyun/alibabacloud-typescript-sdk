@@ -84,7 +84,7 @@ export class DescribeMigrateTasksResponseBody extends $dara.Model {
   items?: DescribeMigrateTasksResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The number of the returned page.
    * 
    * @example
    * 1
@@ -92,7 +92,7 @@ export class DescribeMigrateTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -100,7 +100,7 @@ export class DescribeMigrateTasksResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4E356DDF-6B83-45DB-99D5-4B1E8A0D286B
@@ -108,7 +108,7 @@ export class DescribeMigrateTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the specified conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 30

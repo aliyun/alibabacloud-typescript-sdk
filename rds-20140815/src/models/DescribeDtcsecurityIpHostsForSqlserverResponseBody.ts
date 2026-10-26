@@ -74,7 +74,7 @@ export class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends $dara.Mo
   items?: DescribeDTCSecurityIpHostsForSQLServerResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2CA62A70-2203-45C6-8E90-8971D5ACC0C2

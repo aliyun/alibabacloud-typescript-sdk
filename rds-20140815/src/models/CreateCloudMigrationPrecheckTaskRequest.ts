@@ -16,7 +16,7 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The username. The database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
+   * The username of the database account. This is the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
    * 
    * This parameter is required.
    * 
@@ -28,8 +28,8 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
    * @remarks
    * The type of the self-managed PostgreSQL database. Valid values:
    * 
-   * - **idcOnVpc**: IDC-based self-managed PostgreSQL database (the IDC is connected to the VPC).
-   * - **ecsOnVpc**: ECS-based self-managed PostgreSQL database on Alibaba Cloud.
+   * - **idcOnVpc**: a self-managed PostgreSQL database in an on-premises data center that is connected to a VPC.
+   * - **ecsOnVpc**: a self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
    * 
    * This parameter is required.
    * 
@@ -41,8 +41,8 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
    * @remarks
    * The internal IP address of the self-managed PostgreSQL database.
    * 
-   * - For one-click migration of an ECS-based self-managed PostgreSQL database, set this parameter to the private IP address of the ECS instance. For more information about how to obtain the IP address, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-   * - For one-click migration of an IDC-based self-managed PostgreSQL database, set this parameter to the internal IP address of the IDC.
+   * - For the one-click cloud migration scenario of a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
+   * - For the one-click cloud migration scenario of a self-managed PostgreSQL database in an IDC, set this parameter to the internal IP address of the IDC.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
   sourceIpAddress?: string;
   /**
    * @remarks
-   * The password. The password of the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
+   * The password of the database account. This is the password of the database account created in the [Create a migration account](https://help.aliyun.com/document_detail/369500.html) step.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
   sourcePassword?: string;
   /**
    * @remarks
-   * The port of the self-managed PostgreSQL database. You can run the `netstat -a | grep PGSQL` command to view the port.
+   * The port number of the self-managed PostgreSQL database. You can run the `netstat -a | grep PGSQL` command to view the port number.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class CreateCloudMigrationPrecheckTaskRequest extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The task name. You can specify a custom name. If you do not specify this parameter, the system automatically generates a name.
+   * The name of the task. You can specify a custom name. If you do not specify a name, the system automatically generates one.
    * 
    * @example
    * slf7w7wj3g

@@ -13,7 +13,7 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The IDs of the created nodes. The value is of the String type. Multiple node IDs are separated by commas (,).
+   * The IDs of the created nodes. The value is a string. Multiple node IDs are separated by commas (`,`).
    * 
    * @example
    * rn-abcd2****
@@ -21,7 +21,7 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   nodeIds?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 2133400000****
@@ -29,7 +29,7 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7A41C147-C8D0-4DAE-A1A2-17EBCD60DFA1

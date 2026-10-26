@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Specifies the language of the response. Valid values:
    * 
-   * - **zh-CN**: Chinese
-   * - **en-US**: English
+   * - **zh-CN**: Chinese.
+   * - **en-US**: English.
    * 
    * > Default value: **en-US**.
    * 
@@ -18,7 +18,7 @@ export class DescribeSecretsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -26,7 +26,7 @@ export class DescribeSecretsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * @example
    * rm-xjkljj****
@@ -36,7 +36,7 @@ export class DescribeSecretsRequest extends $dara.Model {
    * @remarks
    * The database engine type.
    * 
-   * > This parameter currently supports only the value MySQL.
+   * > This parameter currently only supports the value MySQL.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class DescribeSecretsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+   * The page number of the query result. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
    * 
    * > Default value: 1.
    * 
@@ -80,7 +80,7 @@ export class DescribeSecretsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the instance.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-acfmxypivk***

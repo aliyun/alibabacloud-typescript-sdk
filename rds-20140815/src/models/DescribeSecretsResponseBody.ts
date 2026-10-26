@@ -13,7 +13,7 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The description of the credential.
+   * The description of the credential provided by the user.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user credential of the Data API account.
+   * The user credential of the created Data API account.
    * 
    * @example
    * acs:rds:cn-hangzhou:1335786****:dbInstance/rm-bp1m7l3j63****
@@ -37,7 +37,7 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The credential name.
+   * The name of the user credential.
    * 
    * @example
    * Foo
@@ -85,7 +85,7 @@ export class DescribeSecretsResponseBodySecrets extends $dara.Model {
 export class DescribeSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the query result.
    * 
    * @example
    * 1

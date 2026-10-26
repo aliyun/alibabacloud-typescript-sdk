@@ -71,7 +71,7 @@ export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
   enabled?: string;
   /**
    * @remarks
-   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {masking position, masking length}}.
+   * The algorithms for the rule. Multiple algorithms are supported. Additional parameters can be added for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
    * 
    * @example
    * [{"name": "aes-128-gcm"},
@@ -85,7 +85,7 @@ export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
   ruleConfig?: DescribeMaskingRulesResponseBodyDataRulesRuleConfig;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
    * test

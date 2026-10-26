@@ -13,7 +13,7 @@ export class DescribeAvailableRecoveryTimeResponseBody extends $dara.Model {
   crossBackupId?: number;
   /**
    * @remarks
-   * The start time of the restorable time range for the cross-region backup file. The time follows the format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * The start time of the time range to which data can be restored from the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2024-03-04T21:00:47Z
@@ -21,7 +21,7 @@ export class DescribeAvailableRecoveryTimeResponseBody extends $dara.Model {
   recoveryBeginTime?: string;
   /**
    * @remarks
-   * The end time of the restorable time range for the cross-region backup file. The time follows the format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * The end time of the time range to which data can be restored from the cross-region backup file. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2024-03-07T02:23:26Z
@@ -29,7 +29,7 @@ export class DescribeAvailableRecoveryTimeResponseBody extends $dara.Model {
   recoveryEndTime?: string;
   /**
    * @remarks
-   * The region where the source instance resides.
+   * The region of the source instance.
    * 
    * @example
    * cn-chengdu

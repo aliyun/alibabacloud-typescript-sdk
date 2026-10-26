@@ -14,6 +14,7 @@ export class DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances exten
   /**
    * @remarks
    * The database engine. Valid values:
+   * 
    * - **MySQL**
    * - **SQLServer**
    * - **PostgreSQL**
@@ -24,9 +25,9 @@ export class DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances exten
   engine?: string;
   /**
    * @remarks
-   * The purpose of the key. Valid values:
+   * The usage of the key. Valid values:
    * 
-   * - **DiskEncryption**: cloud disk data encryption.
+   * - **DiskEncryption**: cloud disk encryption.
    * - **TDE**: transparent data encryption.
    * 
    * @example
@@ -41,10 +42,10 @@ export class DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances exten
    * - **ACTIVATION**: The instance is running.
    * - **DELETING**: The instance is being deleted.
    * - **RESTARTING**: The instance is being restarted.
-   * - **CLASS_CHANGING**: The instance specifications are being changed.
-   * - **INS_MAINTAINING**: The instance is being maintained.
-   * - **BACKUP_RECOVERING**: A backup is being restored.
-   * - **NET_MODIFYING**: The network is being changed.
+   * - **CLASS_CHANGING**: The instance is undergoing a specification change.
+   * - **INS_MAINTAINING**: The instance is undergoing maintenance.
+   * - **BACKUP_RECOVERING**: The instance is being restored from a backup.
+   * - **NET_MODIFYING**: The network configuration of the instance is being changed.
    * 
    * @example
    * ACTIVATION
@@ -87,8 +88,8 @@ export class DescribeKmsAssociateResourcesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether associated ApsaraDB RDS instances exist.
    * 
-   * - **true**: Associated instances exist.
-   * - **false**: No associated instances exist.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -96,7 +97,7 @@ export class DescribeKmsAssociateResourcesResponseBody extends $dara.Model {
   associateStatus?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 38F6B598-A6D7-508A-8401-12BB9936****

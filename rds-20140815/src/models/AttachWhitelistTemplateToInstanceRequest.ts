@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +33,7 @@ export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The whitelist template ID. You can call DescribeAllWhitelistTemplate to obtain the ID.
+   * The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to query the ID.
    * 
    * This parameter is required.
    * 

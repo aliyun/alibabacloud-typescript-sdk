@@ -13,7 +13,7 @@ export class CreateDBInstanceSecurityGroupRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response code message.
+   * The response message.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class CreateDBInstanceSecurityGroupRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 07F6177E-6DE4-408A-BB4F-0723301340F4

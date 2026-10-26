@@ -20,7 +20,7 @@ export class DescribeSQLCollectorRetentionResponseBody extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D5CEDCC2-CA75-43F7-9508-92F418CE6391

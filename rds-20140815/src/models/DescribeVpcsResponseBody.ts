@@ -45,7 +45,7 @@ export class DescribeVpcsResponseBodyVpcsVSwitchs extends $dara.Model {
   izNo?: string;
   /**
    * @remarks
-   * The vSwitch status.
+   * The status of the vSwitch.
    * 
    * @example
    * Available
@@ -161,7 +161,7 @@ export class DescribeVpcsResponseBodyVpcs extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The VPC status.
+   * The status of the VPC.
    * 
    * @example
    * Available

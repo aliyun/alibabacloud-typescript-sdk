@@ -146,7 +146,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   items?: DescribeCrossRegionBackupsResponseBodyItems;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -188,7 +188,7 @@ export class DescribeCrossRegionBackupsResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

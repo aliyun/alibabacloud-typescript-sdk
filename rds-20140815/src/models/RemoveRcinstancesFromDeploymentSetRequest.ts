@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRCInstancesFromDeploymentSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The deployment set ID.
+   * The ID of the deployment set.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveRCInstancesFromDeploymentSetRequest extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance IDs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RemoveRCInstancesFromDeploymentSetRequest extends $dara.Model {
   RCInstanceIds?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 

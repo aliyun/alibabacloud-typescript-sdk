@@ -65,7 +65,7 @@ export class CreateMaskingRulesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * testdb
@@ -81,7 +81,7 @@ export class CreateMaskingRulesRequest extends $dara.Model {
   defaultAlgo?: string;
   /**
    * @remarks
-   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
+   * The rule algorithm. You can specify multiple algorithms. Additional parameters can be added for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
    * 
    * @example
    * [{"name": "aes-128-gcm"},
@@ -101,12 +101,12 @@ export class CreateMaskingRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The rule configuration in JSON string format, which contains matching rules for databases, tables, and columns.
+   * The rule configuration. The value is a JSON string that contains the matching rules for databases, tables, and columns.
    */
   ruleConfig?: CreateMaskingRulesRequestRuleConfig;
   /**
    * @remarks
-   * The rule name. Only one rule name can be specified at a time.
+   * The name of the rule. Only one rule name can be specified at a time.
    * 
    * This parameter is required.
    * 

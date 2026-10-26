@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The user backup ID.
+   * The ID of the user backup.
    * 
    * @example
    * b-kwwvr7v8t7of****
@@ -13,7 +13,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The binary log file information in the backup file. This parameter is returned if incremental data exists during the backup process.
+   * The information about the binlog files in the backup file. This parameter is returned if incremental data is generated during the backup process.
    * 
    * @example
    * {\\"binlogPosition\\":\\"154\\",\\"binlogFile\\":\\"0.000002\\"}
@@ -29,7 +29,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the user backup import started. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the import of the user backup started. The time is in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1623231084000
@@ -53,7 +53,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The time when the user backup was successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the user backup was successfully imported. The time is in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1623231750000
@@ -61,7 +61,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The time when the user backup import was completed. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the import of the user backup was completed. The time is in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1623231750000
@@ -69,7 +69,7 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The name of the OSS bucket in which the user backup file is stored.
+   * The name of the OSS bucket where the user backup file is stored.
    * 
    * @example
    * BackupTest

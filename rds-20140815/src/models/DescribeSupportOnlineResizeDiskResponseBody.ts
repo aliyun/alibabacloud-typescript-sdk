@@ -13,7 +13,7 @@ export class DescribeSupportOnlineResizeDiskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The response dataset.
    * 
    * @example
    * {
@@ -25,7 +25,7 @@ export class DescribeSupportOnlineResizeDiskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned for the response code.
+   * The response message.
    * 
    * @example
    * success
@@ -41,7 +41,7 @@ export class DescribeSupportOnlineResizeDiskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

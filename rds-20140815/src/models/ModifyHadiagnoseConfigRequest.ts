@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHADiagnoseConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ModifyHADiagnoseConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,9 @@ export class ModifyHADiagnoseConfigRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The availability detection method of the instance. Valid values:
-   * - **SHORT**: short-lived connection
-   * - **LONG**: persistent connection
+   * The availability check method of the instance. Valid values:
+   * - **SHORT**: Short connection.
+   * - **LONG**: Long connection.
    * 
    * @example
    * SHORT

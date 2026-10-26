@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchDBInstanceVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SwitchDBInstanceVpcRequest extends $dara.Model {
   /**
    * @remarks
    * The private IP address of the instance. The IP address must be within the CIDR block of the vSwitch specified by the **VSwitchId** parameter.
-   * > You can call DescribeVSwitches to query the CIDR block of the target vSwitch.
+   * > You can call the DescribeVSwitches operation to query the CIDR block of the vSwitch.
    * 
    * @example
    * 10.23.XX.XX
@@ -27,7 +27,7 @@ export class SwitchDBInstanceVpcRequest extends $dara.Model {
    * @remarks
    * The VPC ID.
    * 
-   * > The VPC must be in the same region as the ApsaraDB RDS instance.
+   * > The VPC and the ApsaraDB RDS instance must be in the same region.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class SwitchDBInstanceVpcRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID.
    * 
-   * > The vSwitch must be in the same zone as the ApsaraDB RDS instance.
+   * > The vSwitch and the ApsaraDB RDS instance must be in the same zone.
    * 
    * This parameter is required.
    * 

@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCMetricListRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the monitoring data of specified resources in batches for Custom for SQL Server.
-   * Format: a collection of `key:value` pairs.
+   * The dimensions used to query the monitoring data of specified resources in batches for Custom for SQL Server. Format: a collection of `key:value` pairs.
    * 
    * @example
    * [{"instanceId":"rc-l9hv3rv74ql7oa******"},{"instanceId":"rc-b532l1uj8n6sex******"}]
@@ -14,7 +13,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   dimensions?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the `2024-08-06 10:15:00` format. The end time must be later than the start time.
+   * The end time of the query. Format: `2024-08-06 10:15:00`. The end time must be later than the start time.
    * 
    * @example
    * 2024-08-06 10:15:00
@@ -22,7 +21,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * None
@@ -38,7 +37,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of records per page for paging query.
+   * The number of records to return on each page for paging in a paged query.
    * 
    * Default value: 1000.
    * 
@@ -48,7 +47,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   length?: string;
   /**
    * @remarks
-   * The [monitoring metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+   * The [monitored metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
    * 
    * This parameter is required.
    * 
@@ -69,7 +68,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
    * The statistical period of the monitoring data. Unit: seconds. Valid values:
    * 
    * - 60 (default)
-   * - An integer multiple of 60
+   * - Any integer multiple of 60
    * 
    * @example
    * 60
@@ -85,7 +84,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `2024-08-06 10:05:00` format.
+   * The start time of the query. Format: `2024-08-06 10:05:00`.
    * 
    * @example
    * 2024-08-06 10:05:00

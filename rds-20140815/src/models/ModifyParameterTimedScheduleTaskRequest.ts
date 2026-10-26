@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyParameterTimedScheduleTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -13,7 +13,7 @@ export class ModifyParameterTimedScheduleTaskRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The scheduled switchover time to set. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The scheduled switchover time to set. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-05-06T09:24:00Z
@@ -21,7 +21,7 @@ export class ModifyParameterTimedScheduleTaskRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 440437220

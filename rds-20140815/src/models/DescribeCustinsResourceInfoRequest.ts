@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustinsResourceInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
+   * The instance IDs. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeCustinsResourceInfoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy*****

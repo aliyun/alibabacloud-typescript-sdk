@@ -60,7 +60,7 @@ export class DescribeMetaListResponseBodyItems extends $dara.Model {
 export class DescribeMetaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * rm-uf6wjk5****
@@ -85,7 +85,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 60F9A12A-16B8-4728-B099-4CA38D32C31C

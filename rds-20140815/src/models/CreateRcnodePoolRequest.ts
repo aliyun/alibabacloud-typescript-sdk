@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRCNodePoolRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The type of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported. For more information about standard SSDs and other cloud disk types, see the related documentation.
+   * The data cloud disk type. Currently, only **cloud_essd** (ESSD cloud disk) is supported.
    * 
    * @example
    * cloud_essd
@@ -13,7 +13,7 @@ export class CreateRCNodePoolRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -23,8 +23,9 @@ export class CreateRCNodePoolRequestDataDisk extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the data cloud disk. Valid values:
    * 
-   * - **true**
-   * - **false** (default)
+   * - **true**: yes.
+   * - **false**: no.
+   * Default value: **false**.
    * 
    * @example
    * false
@@ -32,12 +33,12 @@ export class CreateRCNodePoolRequestDataDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD cloud disk. For standard SSDs and other cloud disk types, this parameter is not applicable. Valid values:
+   * The performance level of the ESSD cloud disk. Valid values:
    * 
-   * - **PL0**: A single cloud disk can deliver up to 10,000 random read/write IOPS.
-   * - **PL1**: A single cloud disk can deliver up to 50,000 random read/write IOPS.
-   * - **PL2**: A single cloud disk can deliver up to 100,000 random read/write IOPS.
-   * - **PL3**: A single cloud disk can deliver up to 1,000,000 random read/write IOPS.
+   * - **PL0**: An ESSD can deliver up to 10,000 random read/write IOPS.
+   * - **PL1**: An ESSD can deliver up to 50,000 random read/write IOPS.
+   * - **PL2**: An ESSD can deliver up to 100,000 random read/write IOPS.
+   * - **PL3**: An ESSD can deliver up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL1
@@ -83,7 +84,7 @@ export class CreateRCNodePoolRequestDataDisk extends $dara.Model {
 export class CreateRCNodePoolRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The category of the system cloud disk. Only **cloud_essd** (Enterprise SSD) is supported.
+   * The category of the system cloud disk. Only **cloud_essd** (ESSD) is supported.
    * 
    * @example
    * cloud_essd
@@ -91,12 +92,12 @@ export class CreateRCNodePoolRequestSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD cloud disk. For standard SSDs and other cloud disk types, this parameter is not applicable. Valid values:
+   * The performance level of the ESSD cloud disk. Valid values:
    * 
-   * - **PL0**: A single cloud disk can deliver up to 10,000 random read/write IOPS.
-   * - **PL1**: A single cloud disk can deliver up to 50,000 random read/write IOPS.
-   * - **PL2**: A single cloud disk can deliver up to 100,000 random read/write IOPS.
-   * - **PL3**: A single cloud disk can deliver up to 1,000,000 random read/write IOPS.
+   * - **PL0**: An ESSD can deliver up to 10,000 random read/write IOPS.
+   * - **PL1**: An ESSD can deliver up to 50,000 random read/write IOPS.
+   * - **PL2**: An ESSD can deliver up to 100,000 random read/write IOPS.
+   * - **PL3**: An ESSD can deliver up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL1
@@ -138,7 +139,7 @@ export class CreateRCNodePoolRequestSystemDisk extends $dara.Model {
 export class CreateRCNodePoolRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can create up to N tag keys at a time. Valid values of N: **1 to 20**. The tag key cannot be an empty string.
+   * The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
    * 
    * @example
    * testkey1
@@ -178,7 +179,7 @@ export class CreateRCNodePoolRequestTag extends $dara.Model {
 export class CreateRCNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of RDS Custom instances to create. This parameter is applicable only to batch creation of RDS Custom instances.
+   * Specifies the number of RDS Custom instances to create. This parameter is applicable only when you create multiple RDS Custom instances at a time.
    * 
    * Valid values: **1** to **5**. Default value: **1**.
    * 
@@ -188,14 +189,13 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment.
-   * Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
    * - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false**: Only an order is generated. No payment is made.
+   * - **false**: Only an order is generated and no payment is made.
    * 
    * 
-   * > The default value is true. If your payment method has an insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+   * > Default value: **true**. If the balance of your payment method is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
    * >
    * 
    * @example
@@ -204,12 +204,12 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter is valid only when you create subscription instances. Valid values:
-   * * **true**
-   * * **false**
+   * Specifies whether to enable auto-renewal for the instance. This parameter is valid only when you create a subscription instance. Valid values:
+   * * **true**: yes.
+   * * **false**: no.
    * 
-   * > * If you purchase on a monthly basis, the auto-renewal epoch is 1 month.
-   * > * If you purchase on a yearly basis, the auto-renewal epoch is 1 year.
+   * > * If the subscription duration is one month, the auto-renewal cycle is 1 month.
+   * > * If the subscription duration is one year, the auto-renewal cycle is 1 year.
    * 
    * @example
    * true
@@ -217,7 +217,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -225,7 +225,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the RDS Custom container cluster.
+   * The RDS Custom container cluster ID.
    * 
    * This parameter is required.
    * 
@@ -235,10 +235,10 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allow the instance to join an ACK cluster. If this parameter settings is set to **1**, the created instance can be added to an ACK cluster for efficient container application management.
+   * Specifies whether the instance is allowed to join an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster for efficient management of containerized applications.
    * 
-   * - **1**: Yes.
-   * - **0** (default): No.
+   * - **1**: yes.
+   * - **0** (default): no.
    * 
    * @example
    * 1
@@ -246,7 +246,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The list of data cloud disks.
+   * The data cloud disks.
    */
   dataDisk?: CreateRCNodePoolRequestDataDisk[];
   /**
@@ -259,7 +259,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * The instance description. The description must be 2 to 256 characters in length and can contain letters and Chinese characters. The description cannot start with http:// or https://.
+   * The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * test
@@ -267,9 +267,9 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this request. Valid values:
-   * * **true**: performs a dry run without creating the instance. The system checks the request parameters, request format, service limits, and available stock.
-   * * **false** (default): sends the request. If the request passes the check, the instance is created.
+   * Specifies whether to perform a dry run before creating the instance. Valid values:
+   * * **true**: A dry run is performed and no instance is created. The system checks the request parameters, request format, service limits, and available resources.
+   * * **false** (default): A normal request is sent and the instance is created if the request passes the dry run.
    * 
    * @example
    * false
@@ -285,7 +285,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The image ID used by the instance.
+   * The image ID of the instance.
    * 
    * @example
    * image-dsvjzw2ii8n4fvr6de
@@ -311,7 +311,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance type. For the instance types supported by RDS Custom instances, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
+   * The instance type. For the instance types supported by RDS Custom, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
    * 
    * This parameter is required.
    * 
@@ -321,7 +321,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -329,7 +329,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -337,7 +337,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -345,7 +345,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The name of the key pair. Only a single name is supported.
+   * The key pair name. Only one key pair name is supported.
    * 
    * @example
    * dell5502
@@ -353,7 +353,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The name of the node pool.
+   * The node pool name.
    * 
    * @example
    * testNodePool
@@ -361,7 +361,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   nodePoolName?: string;
   /**
    * @remarks
-   * The password of the root account of the instance.
+   * The password of the root account for the instance.
    * 
    * @example
    * testPassword
@@ -377,9 +377,9 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration for the subscription billable methods. Valid values:
-   * - **Year**
-   * - **Month** (default)
+   * The time unit of the subscription billing method. Valid values:
+   * - **Year**: year.
+   * - **Month** (default): month.
    * 
    * @example
    * Year
@@ -405,7 +405,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -413,7 +413,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   securityEnhancementStrategy?: string;
   /**
    * @remarks
-   * The security group ID. You can specify an existing security group ID. If the security group does not exist, automatic creation of a security group is performed.
+   * The security group ID. You can specify an existing security group ID. If the specified security group does not exist, a security group is automatically created.
    * 
    * @example
    * sg-m5e9abdu1rtxa12b****
@@ -421,7 +421,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -429,7 +429,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The supported scenario. This parameter is required when **createMode** is set to **1**. Currently, only **edge** is supported.
+   * The supported scenario. This parameter is required when the **createMode** parameter is set to **1**. Only **edge** is supported.
    * 
    * @example
    * edge
@@ -437,17 +437,17 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   supportCase?: string;
   /**
    * @remarks
-   * The system cloud disk specifications.
+   * The system cloud disk.
    */
   systemDisk?: CreateRCNodePoolRequestSystemDisk;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: CreateRCNodePoolRequestTag[];
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * Reserved parameter. Not supported.
    * 
    * @example
    * None
@@ -457,7 +457,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID.
    * 
-   * > The vSwitch must be in the same zone as the ApsaraDB RDS instance.
+   * > The vSwitch must be in the same zone as the RDS instance.
    * 
    * This parameter is required.
    * 
@@ -468,7 +468,7 @@ export class CreateRCNodePoolRequest extends $dara.Model {
   /**
    * @remarks
    * The zone ID of the instance.
-   * > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the specified vSwitch. You can also leave this parameter empty, and the system automatically selects the zone of the specified vSwitch.
+   * > If you specify the VSwitchId parameter, the ZoneId parameter must be set to the zone where the vSwitch resides. You can also leave the ZoneId parameter empty, and the system automatically selects the zone where the specified vSwitch resides.
    * 
    * @example
    * cn-hangzhou-b

@@ -15,7 +15,7 @@ export class DescribeHostGroupElasticStrategyParametersRequest extends $dara.Mod
   dedicatedHostGroupName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeHostGroupElasticStrategyParametersRequest extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****

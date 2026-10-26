@@ -7,8 +7,8 @@ export class DescribeRCImageListRequest extends $dara.Model {
    * @remarks
    * The system architecture of the image. Valid values:
    * 
-   * - x86_64.
-   * - arm64.
+   * - x86_64
+   * - arm64
    * 
    * @example
    * x86_64
@@ -32,7 +32,7 @@ export class DescribeRCImageListRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Queries available images for the specified instance type.
+   * The instance type for which to query available images.
    * 
    * @example
    * mysql.x2.xlarge.6cm

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhitelistTemplateLinkedInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeWhitelistTemplateLinkedInstanceRequest extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty.
+   * The ID of the resource group. This parameter can be left empty.
    * 
    * @example
    * rg-acfmy*****
@@ -23,7 +23,7 @@ export class DescribeWhitelistTemplateLinkedInstanceRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The whitelist template ID. You can call DescribeAllWhitelistTemplate to obtain the ID.
+   * The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to query the ID.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CloneDBInstanceShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Specify this parameter to attach a tag to the instance.
+   * The tag key. You can specify this parameter to bind a tag to the instance.
    * 
-   * * If the specified tag key already exists, the tag is directly attached to the instance. You can call the ListTagResources operation to query existing tags.
-   * * If the specified tag key does not exist, the tag key is created and then attached to the instance.
+   * * If the specified tag key already exists, the tag key is directly bound to the instance. You can call the ListTagResources operation to query the created tags.
+   * * If the specified tag key does not exist, the tag key is created and then bound to the instance.
    * * Empty strings are not allowed.
-   * * This parameter must be used together with **Tag.Value**.
+   * * This parameter must be used together with the **Tag.Value** parameter and cannot be used alone.
    * 
    * @example
    * testkey1
@@ -18,11 +18,11 @@ export class CloneDBInstanceShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value that corresponds to the tag key. Specify this parameter to attach a tag to the instance.
+   * The tag value that corresponds to the tag key. You can specify this parameter to bind a tag to the instance.
    * 
-   * * If the specified tag value already exists for the corresponding tag key, the tag value is directly attached to the instance. You can call the ListTagResources operation to query existing tags.
-   * * If the specified tag value does not exist for the corresponding tag key, the tag value is created and then attached to the instance.
-   * * This parameter must be used together with **Tag.Key**.
+   * * If the specified tag value already exists for the corresponding tag key, the tag value is directly bound to the instance. You can call the ListTagResources operation to query the created tags.
+   * * If the specified tag value does not exist for the corresponding tag key, the tag value is created and then bound to the instance.
+   * * This parameter must be used together with the **Tag.Key** parameter and cannot be used alone.
    * 
    * @example
    * testvalue1
@@ -58,13 +58,9 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * 
    * 1. **true**: enables automatic payment. Make sure that your account balance is sufficient.
    * 
-   * 1. **false**: generates an order without charging the account.
+   * 1. **false**: generates an order but does not deduct fees.
    * 
-   * 
-   * 
-   * 
-   * > Default value: true. If your payment method has insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to pay for the order.
-   * >
+   * > Default value: true. If your payment method has an insufficient balance, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * true
@@ -72,11 +68,11 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
-   * You can call the DescribeBackups operation to query the backup set list.
+   * You can call the DescribeBackups operation to query the backup sets.
    * 
-   * > You must specify at least one of **BackupId** and **RestoreTime**.
+   * >You must specify at least one of the **BackupId** and **RestoreTime** parameters.
    * 
    * @example
    * 902****
@@ -96,10 +92,10 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   bpeEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the I/O burst feature for the Premium ESSD cloud disk. Valid values:
+   * Specifies whether to enable the I/O performance burst feature for Premium ESSD cloud disks. Valid values:
    * * **true**: enables the feature.
-   * * **false**: disables the feature.
-   * > For more information about the I/O burst feature, see [What is Premium ESSD?](https://help.aliyun.com/document_detail/2340501.html).
+   * * **false**: shutdown.
+   * > For more information about the I/O performance burst feature, see [What is a premium performance disk](https://help.aliyun.com/document_detail/2340501.html).
    * 
    * @example
    * false
@@ -110,16 +106,16 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * The instance edition. Valid values:
    * 
    * - **Basic**: Basic Edition.
-   * - **HighAvailability**: High-availability Edition.
+   * - **HighAvailability**: high availability Edition (active).
    * - **AlwaysOn**: Cluster Edition (SQL Server).
    * - **cluster**: Cluster Edition (MySQL).
-   * - **Finance**: Enterprise Edition. This value is supported only on the China site (aliyun.com).
+   * - **Finance**: Finance Edition (supported only on the China site).
    * 
    * **Serverless instances**
-   * - **serverless_basic**: Serverless Basic Edition. This value is valid only for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances.
-   * - **serverless_standard**: MySQL Serverless High-availability Edition.
-   * - **serverless_ha**: SQL Server Serverless High-availability Edition.
-   * > You do not need to specify this parameter. The clone instance uses the same edition as the source instance.
+   * - **serverless_basic**: Serverless Basic Edition (applicable only to MySQL and PostgreSQL).
+   * - **serverless_standard**: MySQL Serverless high availability Edition (active).
+   * - **serverless_ha**: SQL Server Serverless high availability Edition (active).
+   * > You do not need to specify this parameter. The cloned instance inherits the edition of the source instance.
    * 
    * @example
    * HighAvailability
@@ -127,18 +123,25 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The internal reserved field. You do not need to specify this parameter.
+   * 
+   * @example
+   * Internal reserved field. You do not need to specify this parameter
+   */
   customExtraInfo?: string;
   /**
    * @remarks
    * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
-   * > Default value: the instance type of the source instance.
+   * >Default value: the instance type of the primary instance.
    * 
    * @example
    * mysql.n1.micro.1
@@ -146,8 +149,8 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 255 characters in length. It must start with a letter or a Chinese character and can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
-   * > The name cannot start with http:// or https://.
+   * The instance name. It must be 2 to 255 characters in length. It must start with a letter or a Chinese character and can contain letters, digits, Chinese characters, underscores (_), and hyphens (-).
+   * >It cannot start with http:// or https://.
    * 
    * @example
    * testInstance
@@ -165,8 +168,8 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Instance storage capacity of the instance. Unit: GB. The value increases in increments of 5 GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
-   * > Default value: instance storage capacity of the source instance.
+   * Instance storage capacity of the instance. Unit: GB. Instance storage capacity increases in increments of 5 GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+   * >Default value: instance storage capacity of the primary instance.
    * 
    * @example
    * 1000
@@ -177,13 +180,13 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * The instance storage type. Valid values:
    * 
    * * **general_essd**: Premium ESSD (recommended).
-   * * **local_ssd**: local SSD.
+   * * **local_ssd**: premium local disk.
    * * **cloud_ssd**: standard SSD.
    * * **cloud_essd**: PL1 ESSD.
    * * **cloud_essd2**: PL2 ESSD.
    * * **cloud_essd3**: PL3 ESSD.
    * 
-   * > Serverless instances support only PL1 ESSDs and Premium ESSDs.
+   * > Serverless instances support only PL1 ESSD and Premium ESSD.
    * 
    * @example
    * general_essd
@@ -191,7 +194,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The database names in the following format: `OriginalDatabaseName1,OriginalDatabaseName2`.
+   * The names of the databases. Format: `Original database name 1,Original database name 2`.
    * 
    * @example
    * test1,test2
@@ -199,7 +202,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   dbNames?: string;
   /**
    * @remarks
-   * The dedicated cluster ID.
+   * The ID of the dedicated cluster.
    * 
    * @example
    * dhg-7a9****
@@ -218,10 +221,10 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * * **VPC**: virtual private cloud (VPC).
+   * * **VPC**: Virtual Private Cloud (VPC).
    * * **Classic**: classic network.
    * 
-   * > Default value: the network type of the source instance.
+   * >Default value: the network type of the primary instance.
    * 
    * @example
    * VPC
@@ -229,7 +232,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Buffer Pool Extension (BPE) feature for the Premium ESSD cloud disk. Valid values:
+   * Specifies whether to enable the Buffer Pool Extension (BPE) feature for Premium ESSD cloud disks. Valid values:
    * 
    *  - **1**: enables the feature.
    *  - **0**: disables the feature.
@@ -242,10 +245,10 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the instance. Valid values:
    * * **Postpaid**: pay-as-you-go.
    * * **Prepaid**: subscription.
-   * * **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances. For more information, see [Overview of MySQL Serverless instances](https://help.aliyun.com/document_detail/411291.html), [Overview of SQL Server Serverless instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of PostgreSQL Serverless instances](https://help.aliyun.com/document_detail/607742.html).
+   * * **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
    * 
    * This parameter is required.
    * 
@@ -255,11 +258,11 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * * **Year**
-   * * **Month**
+   * The subscription period of the subscription instance. Valid values:
+   * * **Year**: yearly subscription.
+   * * **Month**: monthly subscription.
    * 
-   * > This parameter is required if PayType is set to **Prepaid**.
+   * > This parameter is required when the billing method is set to **Prepaid**.
    * 
    * @example
    * Year
@@ -267,7 +270,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. The system automatically assigns an internal IP address based on the values of **VPCId** and **VSwitchId**.
+   * The internal network IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
    * 
    * @example
    * 172.XX.XX.69
@@ -275,7 +278,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to view the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -284,7 +287,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to restore individual databases and tables. Set this parameter to **true** to restore individual databases and tables. Otherwise, leave this parameter empty.
+   * Specifies whether to restore individual databases and tables. A value of **true** specifies that individual databases and tables are restored. If you do not want to restore individual databases and tables, leave this parameter empty.
    * 
    * @example
    * true
@@ -292,9 +295,9 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   restoreTable?: string;
   /**
    * @remarks
-   * Any point in time within the backup retention period. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The point in time to which you want to restore the instance. The point in time must be within the backup retention period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
-   * > You must specify at least one of **BackupId** and **RestoreTime**.
+   * >You must specify at least one of the **BackupId** and **RestoreTime** parameters.
    * 
    * @example
    * 2011-06-11T16:00:00Z
@@ -303,8 +306,8 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   serverlessConfigShrink?: string;
   /**
    * @remarks
-   * The information about the databases and tables that you want to restore. Format:
-   * ```[{"type":"db","name":"Database1Name","newname":"NewDatabase1Name","tables":[{"type":"table","name":"Table1NameInDatabase1","newname":"NewTable1Name"},{"type":"table","name":"Table2NameInDatabase1","newname":"NewTable2Name"}]},{"type":"db","name":"Database2Name","newname":"NewDatabase2Name","tables":[{"type":"table","name":"Table1NameInDatabase2","newname":"NewTable1Name"},{"type":"table","name":"Table2NameInDatabase2","newname":"NewTable2Name"}]}]```
+   * The information about the databases and tables that you want to restore. This parameter is required when you restore individual databases and tables. Format:
+   * ```[{"type":"db","name":"Name of database 1","newname":"New name of database 1","tables":[{"type":"table","name":"Name of table 1 in database 1","newname":"New name of table 1"},{"type":"table","name":"Name of table 2 in database 1","newname":"New name of table 2"}]},{"type":"db","name":"Name of database 2","newname":"New name of database 2","tables":[{"type":"table","name":"Name of table 1 in database 2","newname":"New name of table 1"},{"type":"table","name":"Name of table 2 in database 2","newname":"New name of table 2"}]}]```
    * 
    * @example
    * [{"type":"db","name":"testdb1","newname":"testdb1_new","tables":[{"type":"table","name":"testdb1table1","newname":"testdb1table1_new"}]}]
@@ -312,16 +315,16 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   tableMeta?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tag?: CloneDBInstanceShrinkRequestTag[];
   /**
    * @remarks
    * The subscription duration. Valid values:
-   * * If **Period** is set to **Year**, the value of UsedTime ranges from **1 to 3**.
-   * * If **Period** is set to **Month**, the value of UsedTime ranges from **1 to 9**.
+   * * Valid values when the **Period** parameter is set to **Year**: **1**, **2**, and **3**.
+   * * Valid values when the **Period** parameter is set to **Month**: **1** to **9**.
    * 
-   * > This parameter is required if PayType is set to **Prepaid**.
+   * > This parameter is required when the billing method is set to **Prepaid**.
    * 
    * @example
    * 1
@@ -330,7 +333,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The VPC ID.
-   * > Make sure that the VPC belongs to the corresponding region.
+   * >Make sure that the VPC belongs to the region where the instance is deployed.
    * 
    * @example
    * vpc-uf6f7l4fg90****
@@ -338,10 +341,10 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID. The zone of the vSwitch must correspond to the active zone ID specified in **ZoneId**.
+   * The vSwitch ID. The zone (active zone) where the vSwitch is located must match the zone (active zone) ID specified in **ZoneId**.
    * 
-   * - The network type (**InstanceNetworkType**) must be set to **VPC**.
-   * - If you specify **ZoneSlaveId1** (secondary zone ID), you must specify two vSwitch IDs separated by a comma (,).
+   * - The network type **InstanceNetworkType** must be set to **VPC**.
+   * - If you specify **ZoneSlaveId1** (the secondary active zone ID), you must specify two vSwitch IDs and separate them with commas (,).
    * 
    * @example
    * vsw-uf6adz52c2p****
@@ -349,9 +352,9 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The primary zone ID. You can call the DescribeRegions operation to query the zone ID.
+   * The primary zone ID. You can call the DescribeRegions operation to view the zone ID.
    * 
-   * > Default value: the zone of the source instance.
+   * >Default value: the zone ID of the source instance.
    * 
    * @example
    * cn-hangzhou-b
@@ -359,7 +362,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID of the secondary node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
+   * The secondary zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
    * 
    * @example
    * cn-hangzhou-c
@@ -367,9 +370,9 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
   zoneIdSlave1?: string;
   /**
    * @remarks
-   * <props="intl">The zone ID of the logger node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
+   * <props="intl">The logger zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
    * 
-   * <props="china">The zone ID of the secondary node or logger node. If this parameter is set to the same value as **ZoneId**, the single-zone deployment method is used. If this parameter is set to a different value from **ZoneId**, the multi-zone deployment method is used.
+   * <props="china">The secondary zone (active zone) ID or logger zone (active zone) ID. If this parameter is set to the same value as the **ZoneId** parameter, the instance uses a single-zone (active zone) deployment. If this parameter is set to a different value from the **ZoneId** parameter, the instance uses a multi-zone (active zone) deployment.
    * 
    * @example
    * cn-hangzhou-d

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComputeBurstConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Set this parameter to **disabled** to disable the committed serverless feature.
+   * To disable the provisioned Serverless feature, set this parameter to **disabled**.
    * 
    * @example
    * disabled
@@ -13,7 +13,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   burstStatus?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCziJZNwH****
@@ -37,7 +37,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   cpuShrinkThreshold?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -82,7 +82,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The maximum number of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
+   * The upper limit of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
    * 
    * @example
    * 2
@@ -90,18 +90,32 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   scaleMaxCpus?: string;
   /**
    * @remarks
-   * The maximum memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The value is adjusted in increments of 2 GB.
+   * The upper limit of memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The adjustment increment is 2 GB.
    * 
    * @example
    * 4
    */
   scaleMaxMemory?: string;
+  /**
+   * @remarks
+   * The upper limit of RCU scaling for ApsaraDB RDS for MySQL provisioned Serverless.
+   * 
+   * @example
+   * 8.0
+   */
   scaleMaxRcu?: number;
+  /**
+   * @remarks
+   * The lower limit of RCU scaling for ApsaraDB RDS for MySQL provisioned Serverless.
+   * 
+   * @example
+   * 0.5
+   */
   scaleMinRcu?: number;
   /**
    * @remarks
-   * The specified time at which the modification takes effect. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC).
-   * > This parameter is required when **SwitchTimeMode** is set to **2**.
+   * The specified time when the modification takes effect. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * >This parameter is required when **SwitchTimeMode** is set to **2**.
    * 
    * @example
    * 2025-05-06T09:24:00Z
@@ -110,9 +124,9 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The effective policy. Valid values:
-   * - **0**: The modification takes effect immediately.
-   * - **1**: The modification takes effect during the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
-   * - **2**: The modification takes effect at a specified point in time.
+   * - **0**: Takes effect immediately.
+   * - **1**: Takes effect within the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
+   * - **2**: Takes effect at a specified point in time.
    * 
    * @example
    * Immediate
@@ -120,7 +134,7 @@ export class ModifyComputeBurstConfigRequest extends $dara.Model {
   switchTimeMode?: string;
   /**
    * @remarks
-   * A reserved parameter. This parameter is not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None

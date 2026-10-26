@@ -45,7 +45,7 @@ export class DeleteDBInstanceEndpointResponseBodyData extends $dara.Model {
 export class DeleteDBInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: DeleteDBInstanceEndpointResponseBodyData;
   /**

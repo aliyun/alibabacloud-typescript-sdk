@@ -13,7 +13,7 @@ export class CreateSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user credential of the created Data API account.
+   * The ARN of the created Data API user credential.
    * 
    * @example
    * acs:rds:cn-hangzhou:1335786****:dbInstance/rm-bp1m7l3j63****
@@ -29,10 +29,10 @@ export class CreateSecretResponseBody extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

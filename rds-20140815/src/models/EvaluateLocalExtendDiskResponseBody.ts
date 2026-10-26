@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the expansion is available. Valid values:
+   * Indicates whether the resource is available. Valid values:
    * 
    * - **true**: Available.
    * 
-   * - **false**: Not available.
+   * - **false**: Unavailable.
    * 
    * @example
    * true
@@ -25,7 +25,7 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The transfer type of the database instance.
+   * The transmission type of the database instance.
    * 
    * @example
    * 0
@@ -41,7 +41,7 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
   localUpgradeDiskLimit?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A4C4D26F-E5CE-5A28-8C54-46A6FB318223

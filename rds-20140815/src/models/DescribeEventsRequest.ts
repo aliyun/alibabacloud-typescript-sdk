@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end time of the query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2019-06-12T15:00:00Z
@@ -14,7 +14,7 @@ export class DescribeEventsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
    * 
    * Default value: **1**.
    * 
@@ -37,7 +37,7 @@ export class DescribeEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the available regions.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeEventsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start time of the query. Specify the time in the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2019-06-11T15:00:00Z

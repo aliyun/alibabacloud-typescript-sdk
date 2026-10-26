@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateEipAddressWithRCInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EFFC7565-B3CF-5CFA-9E1F-164DD1E1F498

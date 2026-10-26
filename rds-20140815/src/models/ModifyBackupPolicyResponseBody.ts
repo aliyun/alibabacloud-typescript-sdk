@@ -6,11 +6,11 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The backup compression method. Valid values:
-   * * **0**: not compressed.
+   * * **0**: no compression.
    * * **1**: zlib compression.
    * * **2**: parallel zlib compression.
-   * * **4**: quicklz compression with database and table restoration enabled.
-   * * **8**: MySQL 8.0 quicklz compression without database and table restoration support.
+   * * **4**: quicklz compression. Database and table restoration is enabled.
+   * * **8**: quicklz compression for MySQL 8.0. Database and table restoration is not supported.
    * 
    * @example
    * 4
@@ -28,29 +28,44 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether instance log backup is enabled. Valid values:
    * * **1**: enabled.
-   * * **0**: disabled.
+   * * **0**: shutdown.
    * 
    * 
-   * > Instance log backup for SQL Server instances is enabled by default and cannot be disabled.
+   * > Instance log backup is enabled by default and cannot be shut down for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1
    */
   enableBackupLog?: string;
+  /**
+   * @remarks
+   * Indicates whether incremental backup is enabled.
+   */
   enableIncrementDataBackup?: boolean;
+  /**
+   * @remarks
+   * Indicates whether point-in-time recovery (PITR) is enabled for the ApsaraDB RDS for MySQL instance.
+   */
   enablePitrProtection?: boolean;
   /**
    * @remarks
-   * Indicates whether binary logs are unconditionally cleaned up when the storage usage of a **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB.
+   * Indicates whether binary log files are unconditionally deleted when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage space is less than 5 GB.
    * 
    * @example
    * Disable
    */
   highSpaceUsageProtection?: string;
+  /**
+   * @remarks
+   * The high-frequency incremental backup interval. Unit: minutes. Valid values: 60, 120, 240, 360, and 720.
+   * 
+   * @example
+   * 120
+   */
   incBackupInterval?: number;
   /**
    * @remarks
-   * The number of hours for which instance log backups are retained on the local storage of a **MySQL** instance.
+   * The number of hours for which instance log backups are retained locally on the **MySQL** instance.
    * 
    * @example
    * 18
@@ -58,7 +73,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionHours?: number;
   /**
    * @remarks
-   * The maximum loop space usage of binary logs for a **MySQL** instance.
+   * The maximum loop space usage of the local binary log on the **MySQL** instance.
    * 
    * @example
    * 30
@@ -66,7 +81,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionSpace?: string;
   /**
    * @remarks
-   * The number of binary logs retained locally for a **MySQL** instance.
+   * The number of binary log files retained locally on the **ApsaraDB RDS for MySQL** instance.
    * 
    * @example
    * 60

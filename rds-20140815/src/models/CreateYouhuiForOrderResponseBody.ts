@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYouhuiForOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successful

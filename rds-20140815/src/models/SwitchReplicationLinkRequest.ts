@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchReplicationLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source instance, which is the primary instance ID.
+   * The source instance ID, which is the primary instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SwitchReplicationLinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the target disaster recovery instance to which you want to switch.
+   * The name of the target disaster recovery instance.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class SwitchReplicationLinkRequest extends $dara.Model {
   targetInstanceName?: string;
   /**
    * @remarks
-   * The region of the target disaster recovery instance to which you want to switch.
+   * The region ID of the target disaster recovery instance.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The estimated data space. Unit: GB.
+   * The estimated data size. Unit: GB.
    * 
    * @example
    * 1000
@@ -23,7 +23,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   estimatedSize?: number;
   /**
    * @remarks
-   * The host IP address of the source MySQL instance. ApsaraDB RDS accesses this IP address to obtain the backup.
+   * The IP address of the source MySQL host. ApsaraDB RDS accesses this IP address to retrieve backups.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The port of the source MySQL instance.
+   * The port of the source MySQL database.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query available regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -80,7 +80,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The streaming port used to transfer the backup.
+   * The streaming port used to transfer backups.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   streamPort?: number;
   /**
    * @remarks
-   * The account of the source MySQL instance. The account must have permissions to create backups and set up replication. Refer to the following SQL statements for granting permissions:
+   * The source MySQL account. The account must have the permissions to create backups and configure replication. Refer to the following SQL statements for granting permissions:
    * ```
    * -- MySQL 5.7
    * mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"s3cret\\";
@@ -104,6 +104,7 @@ export class CreateImportTaskRequest extends $dara.Model {
    * mysql> GRANT SELECT ON performance_schema.keyring_component_status TO myadmin@\\"%\\";
    * mysql> GRANT SELECT ON performance_schema.replication_group_members TO myadmin@\\"%\\";
    * mysql> FLUSH PRIVILEGES;
+   * ```
    * 
    * This parameter is required.
    * 
@@ -113,7 +114,7 @@ export class CreateImportTaskRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The installation path of xtrabackup on the source instance.
+   * The installation path of XtraBackup on the source instance.
    * 
    * @example
    * /usr/bin/xtrabackup

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostgresExtensionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate requests. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -13,7 +13,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name of the instance. You can call DescribeDatabases to query the database name.
+   * The name of the database in the instance. You can call the DescribeDatabases operation to query the name.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   DBNames?: string;
   /**
    * @remarks
-   * The extension name. Separate multiple extensions with commas (,).
+   * The names of the plug-ins. Separate multiple plug-in names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UpdatePostgresExtensionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****

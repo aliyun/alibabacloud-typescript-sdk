@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceEndpointResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint ID of the instance.
+   * The ID of the endpoint.
    * 
    * @example
    * ep-****
@@ -45,12 +45,12 @@ export class ModifyDBInstanceEndpointResponseBodyData extends $dara.Model {
 export class ModifyDBInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned fields.
+   * The list of returned fields.
    */
   data?: ModifyDBInstanceEndpointResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F2911788-25E8-42E5-A3A3-1B38D263F01E

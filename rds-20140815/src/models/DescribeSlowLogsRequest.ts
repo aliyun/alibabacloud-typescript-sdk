@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,9 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end date of the query. The end date must be later than or equal to the start date, and the interval between the start date and the end date cannot exceed 31 days. Format: <i>yyyy-MM-dd</i>Z (UTC).
+   * The end date of the query. The end date cannot be earlier than the start date, and the interval between the start date and the end date cannot exceed 31 days. Format: <i>yyyy-MM-dd</i>Z (UTC).
    * 
-   * > If the end date is the same as the start date, the query starts from 08:00 on the start date and covers up to 24 hours of slow query log statistics.
+   * > If the end date is the same as the start date, the query starts from 08:00 on the start date by default, and slow query log statistics for up to 24 hours are queried.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: any positive integer up to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -58,12 +58,12 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   /**
    * @remarks
    * The sorting criterion. Valid values:
-   * * **TotalExecutionCounts**: sorted by total number of executions in descending order.
-   * * **TotalQueryTimes**: sorted by total execution duration in descending order.
-   * * **TotalLogicalReads**: sorted by total number of logical reads in descending order.
-   * * **TotalPhysicalReads**: sorted by total number of physical reads in descending order.
+   * * **TotalExecutionCounts**: total number of executions
+   * * **TotalQueryTimes**: total execution time
+   * * **TotalLogicalReads**: total number of logical reads
+   * * **TotalPhysicalReads**: total number of physical reads
    * 
-   * > This parameter is supported only for SQL Server 2008 R2 instances.
+   * > This parameter is supported only for ApsaraDB RDS for SQL Server 2008 R2 instances.
    * 
    * @example
    * TotalExecutionCounts

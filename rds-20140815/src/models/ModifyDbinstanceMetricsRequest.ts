@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyDBInstanceMetricsRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The monitoring metrics to configure for the instance. You can specify multiple metric keys separated by commas (,). A maximum of 30 metric keys can be specified.
+   * The monitoring metrics of the instance. You can specify multiple metric keys and separate them with commas (,). A maximum of 30 metric keys can be specified.
    * 
-   * You can call the DescribeAvailableMetrics operation to obtain the enhanced monitoring metric keys.
+   * You can call the DescribeAvailableMetrics operation to query the keys of enhanced monitoring metrics.
    * 
    * This parameter is required.
    * 
@@ -29,8 +29,8 @@ export class ModifyDBInstanceMetricsRequest extends $dara.Model {
   /**
    * @remarks
    * The scope of the modification. Valid values:
-   * * **instance**: instance level. The modification is applied only to cloud disk instance.
-   * * **region**: region level. The modification is applied to all ApsaraDB RDS for PostgreSQL instances that use the same storage type as cloud disk instance in the current region. For example, if cloud disk instance uses cloud disks, the modification is applied to all ApsaraDB RDS for PostgreSQL instances with cloud disks in the current region.
+   * * **instance**: instance level. The modification applies only to cloud disk instance.
+   * * **region**: region level. The modification applies to all ApsaraDB RDS for PostgreSQL instances that use the same storage type as cloud disk instance in the current region. For example, if cloud disk instance uses cloud disks, the modification applies to all ApsaraDB RDS for PostgreSQL instances that use cloud disks in the current region.
    * 
    * This parameter is required.
    * 

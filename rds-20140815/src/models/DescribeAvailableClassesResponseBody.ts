@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStorageRange extends $dara.Model {
   /**
    * @remarks
-   * The maximum storage capacity. Unit: GB.
+   * The maximum storage space. Unit: GB.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
   maxValue?: number;
   /**
    * @remarks
-   * The minimum storage capacity. Unit: GB.
+   * The minimum storage space. Unit: GB.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
   minValue?: number;
   /**
    * @remarks
-   * The minimum granularity for storage capacity adjustment. The value is fixed at 5 GB increments.
+   * The minimum step size for adjusting the storage space. The storage space increases in fixed increments of 5 GB.
    * 
    * @example
    * 5
@@ -55,7 +55,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStor
 export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara.Model {
   /**
    * @remarks
-   * The instance type.
+   * The instance specification.
    * 
    * @example
    * rds.mysql.c1.large
@@ -63,7 +63,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance storage capacity range.
+   * The instance storage range.
    */
   DBInstanceStorageRange?: DescribeAvailableClassesResponseBodyDBInstanceClassesDBInstanceStorageRange;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DescribeAvailableClassesResponseBodyDBInstanceClasses extends $dara
 export class DescribeAvailableClassesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available instance types for the instance.
+   * The list of available instance specifications.
    */
   DBInstanceClasses?: DescribeAvailableClassesResponseBodyDBInstanceClasses[];
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance edition. Valid values:
+   * The instance series. Valid values:
    * - **Basic**: Basic Edition
-   * - **HighAvailability**: High-availability Edition
+   * - **HighAvailability**: high availability series
    * - **cluster**: Cluster Edition
    * - **serverless_basic**: Serverless
    * 
@@ -17,7 +17,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -29,7 +29,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * * **Standard**: standard access mode
    * * **Safe**: database proxy mode
    * 
-   * By default, instances in all access modes are returned.
+   * By default, instances of all access modes are returned.
    * 
    * @example
    * Standard
@@ -37,7 +37,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   connectionMode?: string;
   /**
    * @remarks
-   * The endpoint of the instance. Use this endpoint to query the corresponding instance.
+   * The endpoint of the instance. You can use the endpoint to query the corresponding instance.
    * 
    * @example
    * rm-uf6wjk5****.mysql.rds.aliyuncs.com
@@ -61,7 +61,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
+   * The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
    * 
    * @example
    * Running
@@ -131,7 +131,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   expired?: string;
   /**
    * @remarks
-   * The JSON string that contains the instance filter conditions and their values.
+   * The JSON string of instance filter parameters and their values.
    * 
    * @example
    * {"babelfishEnabled":"true"}
@@ -139,9 +139,9 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Specifies whether to return the instance edition (Category) information. Valid values:
-   * * **0**: does not return the information
-   * * **1**: returns the information
+   * Specifies whether to return the instance edition information. Valid values:
+   * * **0**: no
+   * * **1**: yes
    * 
    * @example
    * 0
@@ -150,8 +150,8 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * * **VPC**: an instance in a virtual private cloud (VPC)
-   * * **Classic**: an instance in the classic network
+   * * **VPC**: VPC
+   * * **Classic**: classic network
    * 
    * By default, instances of all network types are returned.
    * 
@@ -161,10 +161,10 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**.
+   * The maximum number of entries per page. Valid values: **1** to **100**.
    * 
    * Default value: **30**.
-   * >If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
+   * > If you specify this parameter, the **PageSize** and **PageNumber** parameters become invalid.
    * 
    * @example
    * 30
@@ -172,7 +172,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of **NextToken** that is returned from the last call to the **DescribeDBInstances** operation. If the results span multiple pages, pass in this value to retrieve the next page.
+   * The pagination token. The value is the **NextToken** parameter value returned from the previous call to the **DescribeDBInstances** operation. If the results are displayed across multiple pages, you can pass this value in the next call to display the next page.
    * 
    * @example
    * o7PORW5o2TJg****
@@ -182,7 +182,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any value greater than 0 that does not exceed the maximum value of Integer.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -212,7 +212,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to configure this parameter.
+   * Reserved parameter. You do not need to configure this parameter.
    * 
    * @example
    * test
@@ -220,7 +220,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   queryAutoRenewal?: boolean;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the available regions.
+   * The region ID. You can call the DescribeRegions operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -240,7 +240,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The keyword for fuzzy search based on the instance ID or instance description.
+   * The search key. You can perform a fuzzy search based on the instance ID or instance description.
    * 
    * @example
    * rm-uf6w
@@ -248,7 +248,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The tags that are bound to the instance, including TagKey and TagValue. You can specify up to five pairs of tags at a time. Format: {"key1":"value1","key2":"value2"...}. If the instance matches any of the specified tags, the instance information is returned.
+   * The tags that are added to the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: {"key1":"value1","key2":"value2"...}. If an instance matches any of the specified tags, the instance information is returned.
    * 
    * @example
    * {"key1":"value1"}
@@ -264,7 +264,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-uf6f7l4fg90****
@@ -280,7 +280,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** You do not need to configure this parameter.
    * 
    * @example
    * API

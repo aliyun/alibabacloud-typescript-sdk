@@ -29,7 +29,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The encrypted memory size for the security-enhanced instance family. Unit: GB.
+   * The encrypted memory size of the security-enhanced instance family. Unit: GB.
    * 
    * @example
    * 4
@@ -39,7 +39,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
    * @remarks
    * The architecture type of the instance type. Valid values:
    * 
-   * - If the instance uses the **x86** architecture, this parameter is empty by default.
+   * - If the instance uses the **x86** architecture, this parameter is left empty by default.
    * - If the instance uses the **arm** architecture, **arm** is returned.
    * 
    * @example
@@ -56,7 +56,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxConnections?: string;
   /**
    * @remarks
-   * The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
+   * The maximum I/O bandwidth for the instance type. Unit: Mbps.
    * 
    * @example
    * 1024Mbps
@@ -64,7 +64,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxIOMBPS?: string;
   /**
    * @remarks
-   * The maximum IOPS for the instance type.
+   * The maximum IOPS for the instance type. Unit: operations per second.
    * 
    * @example
    * 10000
@@ -72,7 +72,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   maxIOPS?: string;
   /**
    * @remarks
-   * The memory size for the instance type. Unit: GB.
+   * The memory capacity for the instance type. Unit: GB.
    * 
    * @example
    * 1GB
@@ -80,7 +80,7 @@ export class ListClassesResponseBodyItems extends $dara.Model {
   memoryClass?: string;
   /**
    * @remarks
-   * The price for the instance type.
+   * The price of the instance type.
    * 
    * <props="china">
    * * Unit: cents (CNY).
@@ -89,8 +89,8 @@ export class ListClassesResponseBodyItems extends $dara.Model {
    * * Unit: cents (USD).
    * 
    * 
-   * > * If you set the **CommodityCode** parameter to a pay-as-you-go commodity code, this parameter indicates the hourly price.
-   * > * If you set the **CommodityCode** parameter to a subscription commodity code, this parameter indicates the monthly price.
+   * > * If you specify a pay-as-you-go commodity code for the **CommodityCode** parameter, this parameter displays the hourly price.
+   * > * If you specify a subscription commodity code for the **CommodityCode** parameter, this parameter displays the monthly price.
    * 
    * @example
    * 2500
@@ -101,14 +101,14 @@ export class ListClassesResponseBodyItems extends $dara.Model {
    * The instance edition. Valid values:
    * * Regular instances
    *     * **Basic**: Basic Edition.
-   *     * **HighAvailability**: High availability series.
-   *     * **cluster**: MySQL or PostgreSQL Cluster Edition.
-   *     * **AlwaysOn**: SQL Server Cluster Edition.
+   *     * **HighAvailability**: High-availability Edition.
+   *     * **cluster**: Cluster Edition for MySQL or PostgreSQL.
+   *     * **AlwaysOn**: Cluster Edition for SQL Server.
    *     * **Finance**: RDS Enterprise Edition.
    * * Serverless instances
    *     * **serverless_basic**: Serverless Basic Edition. (Applicable only to MySQL and PostgreSQL)
-   *     * **serverless_standard**: Serverless high availability series. (Applicable only to MySQL and PostgreSQL)
-   *     * **serverless_ha**: SQL Server Serverless high availability series.
+   *     * **serverless_standard**: Serverless High-availability Edition. (Applicable only to MySQL and PostgreSQL)
+   *     * **serverless_ha**: Serverless High-availability Edition for SQL Server.
    * 
    * @example
    * Basic

@@ -13,7 +13,7 @@ export class RecoveryDBInstanceResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 2270972****
@@ -21,7 +21,7 @@ export class RecoveryDBInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E4CDD460-2618-51FE-BD0B-A1****

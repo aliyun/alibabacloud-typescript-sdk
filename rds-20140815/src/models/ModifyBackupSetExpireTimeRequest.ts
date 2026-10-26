@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID. You can invoke DescribeBackups to query the backup set ID. The backup set must meet the following conditions:
+   * The ID of the backup set. You can call the DescribeBackups operation to query the ID. The supported backup set must meet the following conditions:
    * 
    * - Engine (database type): SQLServer
-   * - BackupMode (backup pattern): Manual (manual backup)
-   * - BackupMethod: Physical (physical backup)
-   * - BackupType: FullBackup (full backup)
-   * - BackupStatus: Success (backup completed)
+   * - BackupMode (backup mode): Manual (manual backup)
+   * - BackupMethod (backup method): Physical (physical backup)
+   * - BackupType (backup type): FullBackup (full backup)
+   * - BackupStatus (backup set status): Success (backup completed)
    * 
    * This parameter is required.
    * 
@@ -21,7 +21,7 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   backupId?: number;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The time to which you want to extend the expiration time of the backup set. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+   * The new expiration time of the backup set. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
-   * The specified time cannot be earlier than the current expiration time. You can call DescribeBackups to query the current expiration time (ExpectExpireTime).
+   * The specified time cannot be earlier than the current expiration time. You can call the DescribeBackups operation to query the current expiration time (ExpectExpireTime).
    * 
    * This parameter is required.
    * 

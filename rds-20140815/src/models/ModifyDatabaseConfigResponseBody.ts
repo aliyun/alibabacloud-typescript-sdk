@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDatabaseConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyDatabaseConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * successful

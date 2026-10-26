@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The remaining available days of the instance. Valid values: **0** to **180**.
+   * The number of remaining available days of the instance. Valid values: **0** to **180**.
    * 
    * @example
    * 180
@@ -26,7 +26,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -46,7 +46,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -54,7 +54,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
    * 
    * @example
    * rg-acfmy****
@@ -64,7 +64,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags that are bound to the instance, including TagKey and TagValue. You can specify up to 5 tag pairs at a time. Format: `{"key1":"value1","key2":"value2"...}`.
+   * The tags added to the instances to be queried, including TagKey and TagValue. You can specify up to 5 tags in a single request. Format: `{"key1":"value1","key2":"value2"...}`.
    * 
    * @example
    * {"key1":"value1"}
@@ -72,7 +72,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** This parameter is deprecated and does not need to be configured.
    * 
    * @example
    * API

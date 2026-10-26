@@ -13,7 +13,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 76364A52-E0AB-5CC8-9818-CF1DC482C092
@@ -29,7 +29,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   sourceIpAddress?: string;
   /**
    * @remarks
-   * The port of the self-managed PostgreSQL database.
+   * The port number of the self-managed PostgreSQL database.
    * 
    * @example
    * 5432
@@ -37,7 +37,7 @@ export class ActivateMigrationTargetInstanceResponseBody extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 440913675

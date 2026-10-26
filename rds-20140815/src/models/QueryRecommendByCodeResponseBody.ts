@@ -25,10 +25,10 @@ export class QueryRecommendByCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Specifies whether the request is successful. Valid values:
    * 
    * - **true**: The request is successful.
-   * - **false**: The request failed.
+   * - **false**: The request fails.
    * 
    * @example
    * true

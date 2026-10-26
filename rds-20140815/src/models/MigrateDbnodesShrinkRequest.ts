@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateDBNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -13,7 +13,7 @@ export class MigrateDBNodesShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
+   * Instance ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,15 +23,15 @@ export class MigrateDBNodesShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The list of cluster nodes.
+   * The list of nodes in the cluster.
    */
   DBNodeShrink?: string;
   /**
    * @remarks
-   * The migration time. Valid values:
-   * * **Immediately**: The migration is performed immediately. This is the default value.
-   * * **MaintainTime**: The migration is performed during the maintenance window.
-   * * **ScheduleTime**: The migration is performed at the specified time.
+   * The time when the migration takes effect. Valid values:
+   * * **Immediately**: The migration takes effect immediately. This is the default value.
+   * * **MaintainTime**: The migration takes effect during the maintenance window.
+   * * **ScheduleTime**: The migration takes effect at a specified time.
    * 
    * > If you set this parameter to **ScheduleTime**, you must also specify the SwitchTime parameter.
    * 
@@ -45,7 +45,7 @@ export class MigrateDBNodesShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scheduled time for the migration. Perform the migration during off-peak hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the modification is performed. Perform the modification during off-peak hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-05-06T09:24:00Z
@@ -53,7 +53,7 @@ export class MigrateDBNodesShrinkRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-****

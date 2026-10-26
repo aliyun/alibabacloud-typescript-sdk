@@ -18,7 +18,7 @@ export class DeleteMaskingRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5EEE1ED1-A459-38D2-840C-0C49********

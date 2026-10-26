@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLCollectorPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -14,8 +14,8 @@ export class DescribeSQLCollectorPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the SQL Explorer (SQL Audit) feature. Valid values:
-   * * **Enable**: enabled.
-   * * **Disabled**: disabled.
+   * * **Enable**: Enabled.
+   * * **Disabled**: Disabled.
    * 
    * @example
    * Enable

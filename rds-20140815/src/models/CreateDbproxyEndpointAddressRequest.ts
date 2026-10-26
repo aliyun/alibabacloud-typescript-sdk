@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the new database proxy endpoint. Specify a custom value.
+   * The prefix of the new database proxy endpoint. You can customize the prefix.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
    * @remarks
    * The network type of the new database proxy endpoint. Valid values:
    * * **Public**: Internet
-   * * **VPC** (default): virtual private cloud (VPC)
+   * * **VPC** (default): VPC
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyConnectStringNetType?: string;
   /**
    * @remarks
-   * The ID of the database proxy endpoint. You can call DescribeDBProxyEndpoint to query the ID.
+   * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the database proxy endpoint ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * The reserved parameter. You do not need to specify this parameter.
    * 
    * @example
    * normal
@@ -55,7 +55,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The port of the new database proxy endpoint. Default value:
+   * The port of the new database proxy endpoint. Default values:
    * 
    * - MySQL: **3306**
    * - PostgreSQL: **5432**
@@ -66,7 +66,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyNewConnectStringPort?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -82,9 +82,9 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The VPC ID of the new database proxy endpoint. You can call DescribeDBInstanceAttribute to query the VPC ID.
+   * The VPC ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
    * 
-   * >This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
+   * > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
    * 
    * @example
    * vpc-bp****
@@ -92,9 +92,9 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the new database proxy endpoint. You can call DescribeDBInstanceAttribute to query the vSwitch ID.
+   * The vSwitch ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
    * 
-   * >This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
+   * > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
    * 
    * @example
    * vsw-bp****

@@ -6,9 +6,9 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false**: An order is generated but payment is not automatically made.
-   * > If your payment method balance is insufficient, set the parameter AutoPay to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+   * - **true** (default): enables automatic payment. Make sure that your account balance is sufficient.
+   * - **false**: generates an order without deducting fees.
+   * > If your account balance is insufficient, you can set the AutoPay parameter to false. An unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
    * >
    * 
    * @example
@@ -18,10 +18,10 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically use coupons. Valid values:
-   * * **true** (default): Coupons are automatically used.
-   * * **false**: Coupons are not used.
+   * * **true**: automatically uses coupons. This is the default value.
+   * * **false**: does not automatically use coupons.
    * 
-   * > If you use coupons and then perform a downgrade, the amount deducted by coupons is not refunded.
+   * > If you use a coupon and then downgrade the instance type, the amount deducted by the voucher is not refunded.
    * 
    * @example
    * true
@@ -30,10 +30,10 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The type of the Upgrade/Downgrade. Valid values:
-   * > This parameter does not need to be uploaded. The system can automatically determine whether the change is an upgrade or a downgrade. If you upload this parameter, follow the rules below.
-   * - **Up** (default): Upgrades the instance type. Make sure that your account payment method balance is sufficient.
-   * - **Down**: Downgrades the instance type. Set Direction to down when the instance type specified by InstanceType is lower than the current instance type.
+   * The instance upgrade or downgrade type. Valid values:
+   * > You do not need to specify this parameter. The system automatically determines whether to upgrade or downgrade the instance type. If you want to specify it, follow these rules:
+   * - **Up** (default): upgrades the instance type. Make sure that your account balance is sufficient.
+   * - **Down**: downgrades the instance type. When the instance type specified in InstanceType is lower than the current instance type, set Direction to Down.
    * 
    * @example
    * Up
@@ -41,9 +41,9 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * * **true**: Performs a dry run without creating the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
-   * * **false** (default): Sends the request. If the request passes the check, the instance is created.
+   * Specifies whether to perform a precheck on the instance creation operation. Valid values:
+   * * **true**: performs a precheck without creating an instance. Check items include request parameters, request format, service limits, and inventory.
+   * * **false**: sends a normal request and directly creates the instance after the request passes the precheck. This is the default value.
    * 
    * @example
    * true
@@ -59,7 +59,7 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The target instance type. For information about the instance types supported by RDS Custom instances, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
+   * The destination instance type. For more information about the instance types supported by RDS Target instances, see [RDS Target instance types](https://help.aliyun.com/document_detail/2844823.html).
    * 
    * @example
    * mysql.i8.large.2cm
@@ -77,8 +77,8 @@ export class ModifyRCInstanceRequest extends $dara.Model {
    * @remarks
    * The restart time of the instance.
    * 
-   * - If **RebootWhenFinished** is set to **false** and the instance status is **Running**, you **must** set a restart time within 48 hours.
-   * - The time follows the ISO 8601 standard in UTC+0. Format: `yyyy-MM-ddTHH:mmZ`.
+   * - If **RebootWhenFinished** is set to **false** and the instance is in the **Running** state, you **must** specify a restart time within 48 hours.
+   * - Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
    * 
    * @example
    * 2025-04-03T12:05Z
@@ -86,12 +86,12 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   rebootTime?: string;
   /**
    * @remarks
-   * Specifies whether to immediately restart the instance after the specification change is complete. Valid values:
+   * Specifies whether to immediately restart the instance after the instance type change is complete. Valid values:
    * 
-   * - **true** (default): The instance is restarted immediately.
-   * - **false**: The instance is not restarted.
+   * - **true**: restarts the instance immediately. This is the default value.
+   * - **false**: does not restart the instance immediately.
    * 
-   * > If the instance is in the **Stopped** state, the instance remains in the Stopped state and is not restarted even if you set `RebootWhenFinished=true`.
+   * > If the instance is in the **Stopped** state, it remains in the Stopped state and is not restarted even if you set RebootWhenFinished to true.
    * 
    * @example
    * true

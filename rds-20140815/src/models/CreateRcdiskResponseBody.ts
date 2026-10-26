@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRCDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud disk ID.
+   * The ID of the cloud disk.
    * 
    * @example
    * rcd-2zegrjtnkp6dqbe1****
@@ -13,7 +13,7 @@ export class CreateRCDiskResponseBody extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 100789370230206
@@ -21,7 +21,7 @@ export class CreateRCDiskResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F2911788-25E8-42E5-A3A3-1B38D263F01E

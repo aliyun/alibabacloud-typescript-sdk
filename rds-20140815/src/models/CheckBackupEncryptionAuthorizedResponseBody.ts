@@ -23,7 +23,7 @@ export class CheckBackupEncryptionAuthorizedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Alibaba Resource Name (ARN) of the service-linked role associated with Cloud Hardware Security Module (CloudHSM) for backup encryption.
+   * The ARN of the backup encryption service-linked role.
    * 
    * @example
    * acs:ram::1139916************:role/AliyunServiceRoleForRdsBackupEncryption

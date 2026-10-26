@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportUserBackupFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The user backup ID.
+   * The ID of the user backup.
    * 
    * @example
    * b-n8tpg24c6i0v****
@@ -24,7 +24,7 @@ export class ImportUserBackupFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the user backup is imported. The value **true** is returned if the import is successful. Otherwise, an error message is returned.
+   * Indicates whether the user backup is imported. If the import is successful, **true** is returned. Otherwise, an error message is returned.
    * 
    * @example
    * true

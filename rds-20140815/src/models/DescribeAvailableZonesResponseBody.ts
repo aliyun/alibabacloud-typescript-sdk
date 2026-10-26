@@ -43,7 +43,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
   category?: string;
   /**
    * @remarks
-   * The list of supported storage types available for sale.
+   * The list of available storage types.
    */
   supportedStorageTypes?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions extends $dara.Model {
   /**
    * @remarks
-   * The list of supported instance editions available for sale.
+   * The list of available instance editions.
    */
   supportedCategorys?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorys[];
   /**
@@ -123,7 +123,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines ex
   engine?: string;
   /**
    * @remarks
-   * The list of supported database engine versions available for sale.
+   * The list of available database engine versions.
    */
   supportedEngineVersions?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZones extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The list of supported database engines available for sale.
+   * The list of available database engines.
    */
   supportedEngines?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines[];
   /**

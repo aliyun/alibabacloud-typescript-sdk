@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the replication channel, which identifies the replication task.
+   * The name of the replication channel, which is used to identify the replication task.
    * 
    * @example
    * replication-channel-001
@@ -13,7 +13,7 @@ export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the most recent region list.
+   * The region ID. You can call the DescribeRegions operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

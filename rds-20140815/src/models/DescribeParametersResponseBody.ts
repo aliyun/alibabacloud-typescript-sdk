@@ -60,7 +60,7 @@ export class DescribeParametersResponseBodyConfigParameters extends $dara.Model 
 export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameter template ID.
+   * The ID of the parameter template.
    * 
    * @example
    * rpg-sys-01040401010200
@@ -68,7 +68,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   paramGroupId?: string;
   /**
    * @remarks
-   * The parameter template description.
+   * The description of the parameter template.
    * 
    * @example
    * sync_binlog=1000, innodb_flush_log_at_trx_commit=2, async
@@ -76,7 +76,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   parameterGroupDesc?: string;
   /**
    * @remarks
-   * The parameter template name.
+   * The name of the parameter template.
    * 
    * @example
    * mysql_innodb_8.0_basic_normal_high
@@ -84,7 +84,7 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
   parameterGroupName?: string;
   /**
    * @remarks
-   * The parameter templatetype.
+   * The templatetype of the parameter template.
    * 
    * @example
    * 0
@@ -198,12 +198,12 @@ export class DescribeParametersResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The parameter template information.
+   * The information about the parameter template.
    */
   paramGroupInfo?: DescribeParametersResponseBodyParamGroupInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

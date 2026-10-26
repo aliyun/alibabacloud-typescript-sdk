@@ -58,7 +58,7 @@ export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
   databases?: DescribeDBInstanceTDEResponseBodyDatabases;
   /**
    * @remarks
-   * The ID of the key used for TDE encryption.
+   * The ID of the key used for TDE.
    * 
    * @example
    * key-szz644a355asjcuilll4u
@@ -66,7 +66,7 @@ export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C816A4BF-A6EC-4722-95F9-2055859CCFD2
@@ -74,7 +74,7 @@ export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The key mode of instance-level TDE encryption. Valid values:
+   * The key management method for instance-level TDE. Valid values:
    * - **Aliyun_Generate_Key**
    * - **Customer_Provided_Key**
    * - **Unknown**

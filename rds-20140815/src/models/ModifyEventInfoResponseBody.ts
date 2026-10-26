@@ -37,7 +37,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The successful event ID.
+   * The success event ID.
    * 
    * @example
    * 234221

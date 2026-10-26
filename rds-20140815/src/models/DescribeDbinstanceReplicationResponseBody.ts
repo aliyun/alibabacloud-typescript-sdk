@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the replication channel.
+   * 
    * @example
    * my_test_channel
    */
   channelName?: string;
   /**
+   * @remarks
+   * The executed GTID set.
+   * 
    * @example
    * bd2a34b9-8b8d-11ef-8917-00163e1298b9:1-20567
    */
   executedGtidSet?: string;
   /**
    * @remarks
-   * A value of 0 indicates no error. Other values indicate specific error codes.
+   * The last error code.
    * 
    * @example
    * 0
@@ -23,7 +29,7 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastErrno?: number;
   /**
    * @remarks
-   * A value of 0 indicates no error. Other values indicate error codes of the I/O thread.
+   * The last error code of the I/O thread.
    * 
    * @example
    * 0
@@ -31,12 +37,15 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastIoErrno?: number;
   /**
    * @remarks
-   * The error message description of the I/O thread.
+   * The last error message of the I/O thread.
+   * 
+   * @example
+   * error connecting to master \\"user@192.0.2.1:3306\\" - retry-time: 60  retries: 5
    */
   lastIoError?: string;
   /**
    * @remarks
-   * A value of 0 indicates no error. Other values indicate error codes of the SQL thread.
+   * The last error code of the SQL thread.
    * 
    * @example
    * 0
@@ -44,81 +53,120 @@ export class DescribeDBInstanceReplicationResponseBodySlaveStatusList extends $d
   lastSqlErrno?: number;
   /**
    * @remarks
-   * The error message description of the SQL thread.
+   * The last error message of the SQL thread.
+   * 
+   * @example
+   * Coordinator stopped because there were error(s) in the worker(s). The most recent failure being: Worker 1 failed executing transaction \\"00000000-0000-0000-0000-000000000000:1\\" at source log mysql-bin.000001, end_log_pos 12345. See error log and/or performance_schema.replication_applier_status_by_worker table for more details about this failure or others, if any.
    */
   lastSqlError?: string;
   /**
+   * @remarks
+   * The address of the primary database.
+   * 
    * @example
    * 192.168.10.100
    */
   masterHost?: string;
   /**
+   * @remarks
+   * The account of the primary database.
+   * 
    * @example
    * repl_user
    */
   masterUser?: string;
   /**
+   * @remarks
+   * The UUID of the primary database.
+   * 
    * @example
    * bd2a34b9-8b8d-11ef-8917-00163e1298b9
    */
   masterUuid?: string;
   /**
+   * @remarks
+   * The databases included in replication.
+   * 
    * @example
    * test_db,test_db_1
    */
   replicateDoDb?: string;
   /**
+   * @remarks
+   * The tables included in replication.
+   * 
    * @example
    * test_table,test_table_1
    */
   replicateDoTable?: string;
   /**
+   * @remarks
+   * The databases ignored in replication.
+   * 
    * @example
    * information_schema,performance_schema
    */
   replicateIgnoreDb?: string;
   /**
+   * @remarks
+   * The tables ignored in replication.
+   * 
    * @example
    * temp_table,temp_table_1
    */
   replicateIgnoreTable?: string;
   /**
+   * @remarks
+   * The tables included in replication. Wildcards are supported.
+   * 
    * @example
    * test_table.%
    */
   replicateWildDoTable?: string;
   /**
+   * @remarks
+   * The tables ignored in replication. Wildcards are supported.
+   * 
    * @example
    * temp_table.%
    */
   replicateWildIgnoreTable?: string;
   /**
+   * @remarks
+   * The data delay, in seconds.
+   * 
    * @example
    * 0
    */
   secondsBehindMaster?: number;
   /**
    * @remarks
-   * Valid values: Yes (running) and No (stopped).
+   * The running status of the replication I/O thread.
    * 
    * @example
    * Yes
    */
   slaveIoRunning?: string;
   /**
+   * @remarks
+   * The state of the replication I/O thread.
+   * 
    * @example
    * Waiting for master to send event
    */
   slaveIoState?: string;
   /**
    * @remarks
-   * Valid values: Yes (running) and No (stopped).
+   * The running status of the replication SQL thread.
    * 
    * @example
    * Yes
    */
   slaveSqlRunning?: string;
   /**
+   * @remarks
+   * The running status of the replication SQL thread.
+   * 
    * @example
    * Slave has read all relay log; waiting for more updates
    */
@@ -245,7 +293,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   replicationPort?: string;
   /**
    * @remarks
-   * The replication source of native replication.
+   * The replication source for native replication.
    * 
    * @example
    * 192.168.XX.XX
@@ -253,7 +301,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   replicationSource?: string;
   /**
    * @remarks
-   * The current replication status. Valid values:
+   * The current replication state. Valid values:
    * 
    * - **Running**: Running.
    * - **Connecting**: Connecting.
@@ -273,6 +321,9 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The replication status information returned by the SHOW SLAVE STATUS statement for the instance.
+   * 
    * @example
    * [{"SlaveIoRunning": "Yes", "SlaveSqlRunning": "Yes", "SecondsBehindMaster": 0, "SlaveIoState": "Waiting for master to send event", "SlaveSqlRunningState": "Slave has read all relay log; waiting for more updates", "ExecutedGtidSet": "bd2a34b9-8b8d-11ef-8917-00163e1298b9:1-20567", "MasterHost": "192.168.10.100", "MasterUser": "repl_user", "MasterUuid": "bd2a34b9-8b8d-11ef-8917-00163e1298b9", "LastErrno": 0, "LastSqlErrno": 0, "LastIoErrno": 0, "LastSqlError": "", "LastIoError": "", "ChannelName": "my_test_channel", "ReplicateDoDb": "test_db,test_db_1", "ReplicateIgnoreDb": "information_schema,performance_schema", "ReplicateDoTable": "test_table,test_table_1", "ReplicateIgnoreTable": "temp_table,temp_table_1", "ReplicateWildDoTable": "test_table.%", "ReplicateWildIgnoreTable": "temp_table.%"}]
    */

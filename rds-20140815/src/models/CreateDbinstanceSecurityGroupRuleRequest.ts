@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceSecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) to obtain the instance ID.
+   * Instance ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDBInstanceSecurityGroupRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The transport layer protocol type. Valid values:
+   * The transport-layer protocol type. Valid values:
    * 
    * - TCP
    * - UDP
@@ -36,9 +36,7 @@ export class CreateDBInstanceSecurityGroupRuleRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The range of destination ports for the transport layer protocol (TCP/UDP) that the security group opens.
-   * 
-   * Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
+   * The range of destination ports for the transport layer protocol (TCP or UDP) specified in the security group rule. Valid values: 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
    * 
    * This parameter is required.
    * 
@@ -50,7 +48,7 @@ export class CreateDBInstanceSecurityGroupRuleRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address range. CIDR format and IPv4 format are supported.
+   * The source IP address range. IP address ranges in CIDR format and IPv4 format are supported.
    * 
    * @example
    * 192.XX.XX.100

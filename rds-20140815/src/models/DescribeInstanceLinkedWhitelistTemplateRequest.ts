@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceLinkedWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeInstanceLinkedWhitelistTemplateRequest extends $dara.Model 
   insName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query available regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeInstanceLinkedWhitelistTemplateRequest extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty.
+   * The ID of the resource group. This parameter can be left empty.
    * 
    * @example
    * rg-aek3dbzqb******

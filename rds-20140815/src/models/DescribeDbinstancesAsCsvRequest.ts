@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** This parameter is deprecated. You do not need to configure it.
    * 
    * @example
    * API
@@ -13,7 +13,7 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   cachedAsync?: boolean;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query instance IDs.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * @example
    * rm-uf6wjk5****
@@ -21,7 +21,7 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** This parameter is deprecated. You do not need to configure it.
    * 
    * @example
    * API
@@ -30,7 +30,7 @@ export class DescribeDBInstancesAsCsvRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query available region IDs.
+   * The region ID. You can call the DescribeRegions operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

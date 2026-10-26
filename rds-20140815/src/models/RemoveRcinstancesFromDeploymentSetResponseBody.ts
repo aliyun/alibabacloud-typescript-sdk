@@ -14,8 +14,8 @@ export class RemoveRCInstancesFromDeploymentSetResponseBodyResults extends $dara
   /**
    * @remarks
    * The node status. Valid values:
-   * * **Success**: Succeeded.
-   * * **Failed**: Failed.
+   * * **Success**: successful
+   * *  **Failed**: failed
    * 
    * @example
    * Success
@@ -47,7 +47,7 @@ export class RemoveRCInstancesFromDeploymentSetResponseBodyResults extends $dara
 export class RemoveRCInstancesFromDeploymentSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C816A4BF-A6EC-4722-95F9-2055859CCFD2
@@ -55,7 +55,7 @@ export class RemoveRCInstancesFromDeploymentSetResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The call results of the operation.
+   * The results of the API call.
    */
   results?: RemoveRCInstancesFromDeploymentSetResponseBodyResults[];
   static names(): { [key: string]: string } {

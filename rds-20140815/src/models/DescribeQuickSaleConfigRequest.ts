@@ -8,6 +8,7 @@ export class DescribeQuickSaleConfigRequest extends $dara.Model {
    * The commodity code. Valid values:
    * 
    * - rds: subscription
+   * 
    * - bards: pay-as-you-go
    * 
    * @example
@@ -16,7 +17,7 @@ export class DescribeQuickSaleConfigRequest extends $dara.Model {
   commodity?: string;
   /**
    * @remarks
-   * The database engine. Valid values:
+   * The database engine type. Valid values:
    * * **MySQL**
    * * **SQLServer**
    * * **PostgreSQL**
@@ -28,7 +29,7 @@ export class DescribeQuickSaleConfigRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the available regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

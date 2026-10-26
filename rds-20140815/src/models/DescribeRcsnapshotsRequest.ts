@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCSnapshotsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag value.
+   * The tag key.
    * 
    * @example
    * testRC
@@ -13,7 +13,7 @@ export class DescribeRCSnapshotsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag key.
+   * The tag value.
    * 
    * @example
    * test01
@@ -51,6 +51,13 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
    * rcd-wz9c8isqly8637zw****
    */
   diskId?: string;
+  /**
+   * @remarks
+   * The ID of the RDS Custom instance.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
   instanceId?: string;
   /**
    * @remarks
@@ -70,7 +77,7 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query available regions.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -78,9 +85,7 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of snapshots.
-   * 
-   * You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs can be specified.
+   * The snapshot IDs. You can specify up to 100 IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["rcds-bp67acfmxazb4p****", "rcds-bp67acfmxazb5p****", … "rcds-bp67acfmxazb6p****"]

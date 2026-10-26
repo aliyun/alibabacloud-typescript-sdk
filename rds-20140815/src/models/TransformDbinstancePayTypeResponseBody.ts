@@ -6,8 +6,8 @@ export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - POSTPAY: pay-as-you-go
-   * - PREPAY: subscription
+   * - POSTPAY: Pay-as-you-go.
+   * - PREPAY: Subscription.
    * 
    * @example
    * POSTPAY
@@ -32,7 +32,7 @@ export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20515760028****
@@ -40,7 +40,7 @@ export class TransformDBInstancePayTypeResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5E6E09DE-5B12-4BFF-A55E-1C86EDE06D9A

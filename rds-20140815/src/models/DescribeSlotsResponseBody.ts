@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlotsResponseBodySlots extends $dara.Model {
   /**
    * @remarks
-   * The name of the database in which the replication slot resides.
+   * The name of the database where the replication slot resides.
    * 
    * @example
    * db_test01
@@ -30,8 +30,8 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   /**
    * @remarks
    * The status of the replication slot. Valid values:
-   * - ACTIVE: Active.
-   * - INACTIVE: Inactive.
+   * - ACTIVE: active
+   * - INACTIVE: inactive
    * 
    * @example
    * INACTIVE
@@ -40,8 +40,8 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   /**
    * @remarks
    * The type of the replication slot. Valid values:
-   * - physical: Physical.
-   * - logical: Logical.
+   * - physical: physical
+   * - logical: logical
    * 
    * @example
    * logical
@@ -49,7 +49,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   slotType?: string;
   /**
    * @remarks
-   * The specific latency of the logical subscription on the subscriber corresponding to the current replication slot. Unit: seconds.
+   * The latency of the logical subscription for the subscriber that corresponds to the current replication slot, in seconds.
    * 
    * @example
    * 0
@@ -58,8 +58,8 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the replication slot is temporary. Valid values:
-   * - true: The replication slot is temporary.
-   * - false: The replication slot is not temporary.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -67,7 +67,7 @@ export class DescribeSlotsResponseBodySlots extends $dara.Model {
   temporary?: string;
   /**
    * @remarks
-   * The amount of logs accumulated by the replication slot.
+   * The volume of accumulated logs in the replication slot.
    * 
    * @example
    * 16 MB
@@ -119,7 +119,7 @@ export class DescribeSlotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of replication slots of the instance.
+   * The list of replication slots for the instance.
    */
   slots?: DescribeSlotsResponseBodySlots[];
   static names(): { [key: string]: string } {

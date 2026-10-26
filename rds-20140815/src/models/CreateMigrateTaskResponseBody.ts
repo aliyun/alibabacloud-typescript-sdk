@@ -6,7 +6,7 @@ export class CreateMigrateTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the cloud migration task. Valid values:
-   * * **FULL**: performs a restore operation by using a full backup file.
+   * * **FULL**: restores data by using a full backup file.
    * * **UPDF**: restores incremental data by using an incremental backup file or log file.
    * 
    * @example
@@ -23,7 +23,7 @@ export class CreateMigrateTaskResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * test02
@@ -31,7 +31,7 @@ export class CreateMigrateTaskResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The migration task ID.
+   * The ID of the migration task.
    * 
    * @example
    * 564563****

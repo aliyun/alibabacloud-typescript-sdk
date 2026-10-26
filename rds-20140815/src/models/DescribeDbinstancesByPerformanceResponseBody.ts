@@ -86,7 +86,7 @@ export class DescribeDBInstancesByPerformanceResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 23907437-79B9-411A-9EE6-75A8F0F1C619
@@ -94,7 +94,7 @@ export class DescribeDBInstancesByPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances returned by the query.
+   * The total number of queried instances.
    * 
    * @example
    * 28

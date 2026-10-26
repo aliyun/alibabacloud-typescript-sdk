@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable fuzzy search. Valid values:
+   * Specifies whether to enable fuzzy match. Valid values:
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.
@@ -16,7 +16,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   fuzzySearch?: boolean;
   /**
    * @remarks
-   * The number of records per page. Valid values: 10, 30, and 50.
+   * The number of entries per page. Valid values: 10, 30, and 50.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   maxRecordsPerPage?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   pageNumbers?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the available regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -44,7 +44,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. For more information about resource groups, see What is a resource group.
+   * The ID of the resource group. For more information, see What is a resource group?
    * 
    * @example
    * rg-acfmyhigx******
@@ -54,7 +54,7 @@ export class DescribeAllWhitelistTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the whitelist template. Specify this parameter for fuzzy search. Fuzzy match is supported for template names. You can call the DescribeWhitelistTemplate operation to obtain the template name.
+   * The name of the whitelist template. Specify this parameter for fuzzy match. You can call the DescribeWhitelistTemplate operation to obtain the template name.
    * 
    * @example
    * template

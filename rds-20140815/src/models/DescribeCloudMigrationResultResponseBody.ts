@@ -21,7 +21,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the task was last modified.
+   * The time when the task was modified.
    * 
    * @example
    * 2022-03-01T06:39:51Z
@@ -31,12 +31,12 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
    * @remarks
    * The migration stage. Valid values:
    * 
-   * - **precheck**: Precheck.
-   * - **basebackup**: Full backup.
-   * - **startup**: Link setup.
-   * - **increment**: Incremental synchronization.
-   * - **switch**: Cloud switchover.
-   * - **success**: Migration completed.
+   * - **precheck**: precheck
+   * - **basebackup**: full backup
+   * - **startup**: link setup
+   * - **increment**: incremental synchronization
+   * - **switch**: cloud cutover
+   * - **success**: cloud migration completed
    * 
    * @example
    * switch
@@ -52,13 +52,13 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   replicationInfo?: string;
   /**
    * @remarks
-   * The replication status. Valid values:
+   * The replication state. Valid values:
    * 
-   * - **unstarted**: Not started.
-   * - **catchup**: Catching up.
-   * - **streaming**: Streaming.
-   * - **disconnect**: Disconnected.
-   * - **finish**: Completed.
+   * - **unstarted**: not started
+   * - **catchup**: catching up
+   * - **streaming**: streaming
+   * - **disconnect**: disconnected
+   * - **finish**: completed
    * 
    * @example
    * streaming
@@ -76,8 +76,8 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
    * @remarks
    * The type of the self-managed PostgreSQL database. Valid values:
    * 
-   * - **idcOnVpc**: A self-managed PostgreSQL database in an IDC that is connected to a VPC.
-   * - **ecsOnVpc**: A self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
+   * - **idcOnVpc**: self-managed PostgreSQL database in an on-premises data center that is connected to a VPC
+   * - **ecsOnVpc**: self-managed PostgreSQL database on an Alibaba Cloud ECS instance
    * 
    * @example
    * ecsonvpc
@@ -109,7 +109,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The switchover time.
+   * The cutover time.
    * 
    * @example
    * 2022-03-01T06:40:51Z
@@ -117,7 +117,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * A reserved parameter. The query result is empty.
+   * A reserved parameter. The value is empty.
    * 
    * @example
    * null
@@ -133,7 +133,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   targetInstanceName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 440437220
@@ -141,7 +141,7 @@ export class DescribeCloudMigrationResultResponseBodyItems extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * 362c6c7a-4d20-4eac-898c-1495ceab374c
@@ -230,7 +230,7 @@ export class DescribeCloudMigrationResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of queried entries.
    * 
    * @example
    * 1

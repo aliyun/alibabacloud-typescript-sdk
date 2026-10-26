@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RecoveryDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID. You can call the DescribeBackups operation to query backup sets.
+   * The ID of the backup set. You can call the DescribeBackups operation to query the backup set ID.
    * 
-   * If you specify this parameter, the **DBInstanceId** parameter is optional.
+   * When you specify this parameter, the **DBInstanceId** parameter is optional.
    * 
-   * > You must specify at least one of **BackupId** and **RestoreTime**.
+   * > You must specify at least one of the **BackupId** and **RestoreTime** parameters.
    * 
    * @example
    * 29304****
@@ -25,10 +25,10 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID of the original instance.
+   * The ID of the original instance.
    * 
-   * > * If you want to recover data by backup set (by specifying the BackupId parameter), this parameter is optional.
-   * > * If you want to recover data to a point in time (by specifying the RestoreTime parameter), this parameter is required.
+   * > * This parameter is not required when you restore data from a backup set (by specifying the BackupId parameter).
+   * > * This parameter is required when you restore data to a point in time (by specifying the RestoreTime parameter).
    * 
    * @example
    * rm-bp18****
@@ -36,9 +36,9 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance storage capacity of the new instance. Unit: GB. For details, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+   * The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
-   * > The disk space of the new instance cannot be smaller than that of the original instance.
+   * > The storage capacity of the new instance cannot be less than that of the original instance.
    * 
    * @example
    * 40
@@ -46,10 +46,10 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The instance storage type of the new instance. Valid values:
-   * * **local_ssd/ephemeral_ssd**: local SSD.
-   * * **cloud_ssd**: standard SSD cloud disk.
-   * * **cloud_essd**: Enterprise SSD (ESSD) cloud disk.
+   * The storage type of the new instance. Valid values:
+   * * **local_ssd/ephemeral_ssd**: local SSD
+   * * **cloud_ssd**: standard SSD
+   * * **cloud_essd**: ESSD
    * 
    * @example
    * cloud_essd
@@ -57,7 +57,7 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The database name. To restore data to a new instance, use the following format: `Original database name 1,New database name 2`.
+   * The names of the databases. When you restore data to a new instance, specify the names in the `Original database name 1,New database name 2` format.
    * 
    * > To restore data to an existing instance, see [CopyDatabaseBetweenInstances](https://help.aliyun.com/document_detail/2628854.html).
    * 
@@ -70,10 +70,10 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the new instance. Valid values:
-   * * **Classic**: classic network.
-   * * **VPC**: virtual private cloud (VPC).
+   * * **Classic**: classic network
+   * * **VPC**: Virtual Private Cloud (VPC)
    * 
-   * Default value: the network type of the original instance.
+   * The default value is the network type of the original instance.
    * 
    * @example
    * VPC
@@ -82,8 +82,8 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the new instance. Valid values:
-   * * **Postpaid**: pay-as-you-go.
-   * * **Prepaid**: subscription.
+   * * **Postpaid**: pay-as-you-go
+   * * **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -91,11 +91,11 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration of the new instance. Valid values:
-   * * **Year**: year.
-   * * **Month**: month.
+   * The subscription period of the new subscription instance. Valid values:
+   * * **Year**: yearly subscription
+   * * **Month**: monthly subscription
    * 
-   * > This parameter is required if **PayType** is set to **Prepaid**.
+   * > This parameter is required if the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
    * Month
@@ -103,7 +103,7 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically assigns an IP address based on the values of **VPCId** and **VSwitchId**.
+   * The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically allocates an IP address based on the **VPCId** and **VSwitchId** parameters.
    * 
    * @example
    * 172.XX.XX.69
@@ -112,11 +112,11 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Any point in time within the backup retention period. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The point in time to which you want to restore data. The point in time must be within the backup retention period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
-   * If you specify this parameter, the **DBInstanceId** parameter is required.
+   * When you specify this parameter, the **DBInstanceId** parameter is required.
    * 
-   * > You must specify at least one of **BackupId** and **RestoreTime**.
+   * > You must specify at least one of the **BackupId** and **RestoreTime** parameters.
    * 
    * @example
    * 2011-06-11T16:00:00Z
@@ -124,7 +124,7 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The instance ID of the target instance.
+   * The ID of the target instance.
    * 
    * @example
    * rm-bp17****
@@ -133,10 +133,10 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription duration of the new instance. Valid values:
-   * * If **Period** is set to **Year**, the value of **UsedTime** ranges from **1 to 3**.
-   * * If **Period** is set to **Month**, the value of **UsedTime** ranges from **1 to 9**.
+   * * If the **Period** parameter is set to **Year**, the value of the **UsedTime** parameter ranges from **1** to **3**.
+   * * If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **9**.
    * 
-   * > This parameter is required if **PayType** is set to **Prepaid**.
+   * > This parameter is required if the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class RecoveryDBInstanceRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the new instance. Separate multiple values with commas (,).
+   * The vSwitch ID of the new instance. Separate multiple IDs with commas (,).
    * 
    * @example
    * vsw-****

@@ -47,7 +47,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * @remarks
    * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
    * @example
    * test
@@ -63,7 +63,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * This parameter is deprecated. You do not need to specify it.
    * 
    * @example
    * None
@@ -71,7 +71,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
   instantAccess?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * This parameter is deprecated. You do not need to specify it.
    * 
    * @example
    * None
@@ -95,9 +95,9 @@ export class CreateRCSnapshotRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Settings for the retention period of the snapshot. Unit: days. The snapshot is subject to automatic release after the retention period expires. Valid values: 1 to 65536.
+   * Settings for the retention period of the snapshot. Unit: days. After the retention period expires, the snapshot is subject to automatic release. Valid values: 1 to 65536.
    * 
-   * Default value: null, which indicates that the snapshot is not subject to automatic release.
+   * Default value: empty, which indicates that the snapshot is not subject to automatic release.
    * 
    * @example
    * 2
@@ -110,7 +110,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
   tag?: CreateRCSnapshotRequestTag[];
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be specified.
+   * This parameter is deprecated. You do not need to specify it.
    * 
    * @example
    * None

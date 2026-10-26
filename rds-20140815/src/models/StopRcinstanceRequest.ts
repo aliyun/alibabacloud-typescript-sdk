@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class StopRCInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to forcefully stop the instance. Valid values:
+   * Specifies whether to force a shutdown. Valid values:
    * 
-   * -   **true**: Forcefully stops the instance.
+   * - **true**: Forces a shutdown.
    * 
-   * -   **false** (default): Gracefully stops the instance.
+   * - **false** (default): Performs a normal shutdown.
    * 
    * @example
    * false
@@ -35,14 +35,14 @@ export class StopRCInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The stop mode of the instance. Valid values:
+   * The stop mode configured when the instance is stopped. Valid values:
    * 
-   *   - StopCharging: economical mode. After economical mode is enabled:
+   *   - StopCharging: Economical mode. After economical mode is enabled:
    *     - Billing for compute resources is suspended.
-   *     - Billing for system cloud disks and data cloud disks continues.
-   *     - Because compute resources are released, the instance may fail to start due to insufficient resources. Try again later or change the instance type. 
+   *     - Billing for the system cloud disk and data cloud disks continues.
+   *     - Because compute resources are reclaimed, the instance may fail to start due to insufficient inventory. Try again later or change the instance type. 
    * 
-   *   - KeepCharging: standard mode. Billing continues after the instance is stopped.
+   *   - KeepCharging: Standard mode. The instance continues to be billed after it is stopped.
    * 
    * @example
    * KeepCharging

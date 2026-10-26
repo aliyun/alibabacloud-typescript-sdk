@@ -7,8 +7,8 @@ export class ResizeRCInstanceDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false**: Only an order is generated. No payment is made.
-   * > If your payment method has an insufficient balance, set AutoPay to false. An unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+   * - **false**: Only an order is generated and no payment is deducted.
+   * > If your payment method has an insufficient balance, you can set AutoPay to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
    * >
    * 
    * @example
@@ -25,9 +25,9 @@ export class ResizeRCInstanceDiskRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * * **true**: performs a dry run without creating the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
-   * * **false** (default): sends the request. If the request passes the check, the instance is created.
+   * Specifies whether to perform a precheck on the operation. Valid values:
+   * * **true**: A precheck is performed, and the operation is not executed. Check items include request parameters, request format, business limits, and inventory.
+   * * **false** (default): A normal request is sent, and the operation is executed immediately after the precheck is passed.
    * 
    * @example
    * false
@@ -43,7 +43,7 @@ export class ResizeRCInstanceDiskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The size of the disk after expansion. Unit: GiB.
+   * The new size of the disk after expansion. Unit: GiB.
    * 
    * @example
    * 100

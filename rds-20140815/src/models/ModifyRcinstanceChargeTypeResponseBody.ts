@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.Model {
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.
   currency?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.
   fee?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -56,8 +56,8 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - **POSTPAY**: pay-as-you-go.
-   * - **PREPAY**: subscription.
+   * - **POSTPAY**: pay-as-you-go
+   * - **PREPAY**: subscription
    * 
    * @example
    * POSTPAY
@@ -71,7 +71,7 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   expiredTime?: string[];
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    */
   feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances[];
   /**

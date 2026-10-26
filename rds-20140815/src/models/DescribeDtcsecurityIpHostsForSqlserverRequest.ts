@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDTCSecurityIpHostsForSQLServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDTCSecurityIpHostsForSQLServerRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeDBInstanceAttribute to obtain the region ID.
+   * The region ID. You can call the DescribeDBInstanceAttribute operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeDTCSecurityIpHostsForSQLServerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
    * 
    * @example
    * rg-acfmy****

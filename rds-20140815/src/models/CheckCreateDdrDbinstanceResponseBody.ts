@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCreateDdrDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the disaster recovery instance can be created. Valid values:
+   * Indicates whether a disaster recovery instance can be created. Valid values:
    * - **true**
    * - **false**
    * 

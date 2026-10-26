@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLCollectorRetentionRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeSQLCollectorRetentionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
    * 
    * @example
    * rg-acfmy****

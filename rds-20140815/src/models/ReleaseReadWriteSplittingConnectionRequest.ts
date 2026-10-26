@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary instance. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the primary instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,13 @@ export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The type of the read/write splitting endpoint to be released. Valid values: ReadOnlyAddress (unified read-only endpoint) and BackupAddress (read-only endpoint of the secondary instance).
+   * 
+   * @example
+   * ReadOnlyAddress
+   */
   RWAddressType?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

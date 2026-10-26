@@ -15,7 +15,7 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * myDB

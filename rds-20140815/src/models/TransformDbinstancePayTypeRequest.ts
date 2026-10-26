@@ -7,11 +7,11 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * * **true**: Enabled.
-   * * **false**: Disabled.
+   * * **true**: Enables auto-renewal.
+   * * **false**: Disables auto-renewal.
    * 
    * > * This parameter takes effect only when you change the billing method from pay-as-you-go to subscription.
-   * > * All non-**true** strings are treated as **false**.
+   * > * Any string other than **true** is processed as **false**.
    * 
    * @example
    * true
@@ -19,10 +19,10 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons to offset fees. Valid values:
+   * Specifies whether to use vouchers to offset fees. Valid values:
    * 
-   * - **true**: Uses coupons to offset fees.
-   * - **false**: Does not use coupons to offset fees. This is the default value.
+   * - **true**: Uses vouchers.
+   * - **false**: Does not use vouchers. This is the default value.
    * 
    * @example
    * true
@@ -30,7 +30,7 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The additional business information about the instance.
+   * The extended business parameters.
    * 
    * @example
    * 123456789
@@ -38,7 +38,7 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -46,7 +46,7 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -58,9 +58,9 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the instance after the change. Valid values:
-   * * **Postpaid**: pay-as-you-go
-   * * **Prepaid**: subscription
+   * The billing method to which the instance is changed. Valid values:
+   * * **Postpaid**: Pay-as-you-go.
+   * * **Prepaid**: Subscription.
    * 
    * This parameter is required.
    * 
@@ -70,11 +70,11 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The renewal cycle of the subscription instance. Valid values:
-   * * **Year**: yearly subscription
-   * * **Month**: monthly subscription
+   * The subscription type of the subscription instance. Valid values:
+   * * **Year**: Yearly subscription.
+   * * **Month**: Monthly subscription.
    * 
-   * > This parameter is required if **PayType** is set to **Prepaid**.
+   * > This parameter is required if the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
    * Month
@@ -93,10 +93,10 @@ export class TransformDBInstancePayTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription duration. Valid values:
-   * * If **Period** is set to **Year**, the value of UsedTime ranges from **1 to 5**.
-   * * If **Period** is set to **Month**, the value of UsedTime ranges from **1 to 11**.
+   * * If the **Period** parameter is set to **Year**, the value of the UsedTime parameter ranges from **1** to **5**.
+   * * If the **Period** parameter is set to **Month**, the value of the UsedTime parameter ranges from **1** to **11**.
    * 
-   * > This parameter is required if **PayType** is set to **Prepaid**.
+   * > This parameter is required if the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
    * 1

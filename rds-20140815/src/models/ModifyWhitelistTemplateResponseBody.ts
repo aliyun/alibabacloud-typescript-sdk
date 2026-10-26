@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWhitelistTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The return status. Valid values:
-   * - **ok**: Normal return.
-   * - **error**: Error return.
+   * The returned status. Valid values:
+   * - **ok**: Normal response.
+   * - **error**: Error response.
    * 
    * @example
    * ok
@@ -41,7 +41,7 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
    * - **200**: Normal.
    * - **400**: Client error.
    * - **401**: Authentication failed.
-   * - **404**: Request page not found.
+   * - **404**: The requested page is not found.
    * - **500**: Server error.
    * 
    * @example
@@ -50,7 +50,7 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data list.
+   * The list of returned data.
    */
   data?: ModifyWhitelistTemplateResponseBodyData;
   /**
@@ -74,7 +74,7 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Each request has a unique ID, which facilitates troubleshooting.
+   * The request ID. The ID is unique for each request and can be used for troubleshooting.
    * 
    * @example
    * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
@@ -82,10 +82,10 @@ export class ModifyWhitelistTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

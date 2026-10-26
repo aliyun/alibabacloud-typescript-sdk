@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the ID.
+   * The ID of the instance. You can call the DescribeDBInstances operation to query the ID.
    * 
-   * > For ApsaraDB RDS for PostgreSQL instances, if you specify an instance ID, only minor versions later than the current minor version of the instance are returned.
+   * > For an ApsaraDB RDS for PostgreSQL instance, if you specify the instance ID, the system queries only the minor engine versions that are later than the current minor engine version of the instance.
    * 
    * @example
    * rm-uf6wjk5****
@@ -15,7 +15,7 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the ID.
+   * The ID of the dedicated cluster. You can call the DescribeDedicatedHostGroups operation to query the ID.
    * 
    * @example
    * dhg-4n****
@@ -23,7 +23,7 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The database engine. Set the value to **MySQL** or **PostgreSQL**.
+   * The database engine. Valid values: **MySQL** and **PostgreSQL**.
    * 
    * @example
    * MySQL
@@ -32,8 +32,8 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The database engine version. Valid values:
-   * * MySQL: **8.0**, **5.7**, **5.6**, **5.5**
-   * * PostgreSQL: **17.0**, **16.0**, **15.0**, **14.0**, **13.0**, **12.0**, **11.0**, **10.0**
+   * * MySQL: **8.0**, **5.7**, **5.6**, and **5.5**.
+   * * PostgreSQL: **17.0**, **16.0**, **15.0**, **14.0**, **13.0**, **12.0**, **11.0**, and **10.0**.
    * 
    * @example
    * 5.7
@@ -41,7 +41,7 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The minor engine version number. Specify this parameter to query the details of the specified minor version.
+   * The minor engine version number of the instance. Specify this parameter to query the details of a specific minor engine version.
    * 
    * > This parameter is applicable only to ApsaraDB RDS for MySQL.
    * 
@@ -53,7 +53,7 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
    * @remarks
    * The instance edition. Valid values:
    * * **Basic**: Basic Edition.
-   * * **HighAvailability**: high-availability series.
+   * * **HighAvailability**: High-availability Edition.
    * * **cluster**: Cluster Edition.
    * * **Finance**: RDS Enterprise Edition.
    * 
@@ -63,7 +63,7 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -75,12 +75,12 @@ export class DescribeDBMiniEngineVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The instance storage type. Valid values:
-   * * **local_ssd**: Premium Local SSDs.
+   * * **local_ssd**: premium local SSD.
    * * **general_essd**: premium performance disk.
-   * * **cloud_ssd**: standard SSDs.
-   * * **cloud_essd**: PL1 ESSDs.
-   * * **cloud_essd2**: PL2 ESSDs.
-   * * **cloud_essd3**: PL3 ESSDs.
+   * * **cloud_ssd**: standard SSD.
+   * * **cloud_essd**: PL1 ESSD.
+   * * **cloud_essd2**: PL2 ESSD.
+   * * **cloud_essd3**: PL3 ESSD.
    * 
    * @example
    * local_ssd

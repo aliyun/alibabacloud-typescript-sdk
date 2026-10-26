@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBProxyEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDBProxyEndpointRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The proxy endpoint. You can call the [DescribeDBProxy](https://help.aliyun.com/document_detail/610507.html) operation to query the proxy endpoint.
+   * The proxy endpoint. You can call the DescribeDBProxy operation to query the endpoint.
    * 
    * @example
    * testproxy****.rwlb.rds.aliyuncs.com
@@ -23,7 +23,7 @@ export class DescribeDBProxyEndpointRequest extends $dara.Model {
   DBProxyConnectString?: string;
   /**
    * @remarks
-   * The proxy endpoint name. You can call the [DescribeDBProxy](https://help.aliyun.com/document_detail/610507.html) operation to query the proxy endpoint name.
+   * The name of the proxy endpoint. You can call the DescribeDBProxy operation to query the name.
    * 
    * @example
    * keaxncrjluwu0gue****
@@ -31,7 +31,7 @@ export class DescribeDBProxyEndpointRequest extends $dara.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to configure this parameter.
+   * A reserved parameter. No configuration is required.
    * 
    * @example
    * normal
@@ -40,7 +40,7 @@ export class DescribeDBProxyEndpointRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

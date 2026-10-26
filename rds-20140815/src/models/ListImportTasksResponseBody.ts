@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImportTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC. The time follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -29,7 +29,7 @@ export class ListImportTasksResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance ID of the target instance.
+   * The ID of the target instance.
    * 
    * @example
    * rm-bp*****
@@ -103,7 +103,7 @@ export class ListImportTasksResponseBody extends $dara.Model {
    * The number of entries per page. Valid values: **1 to 100**.
    * 
    * Default value: **30**.
-   * >If you specify this parameter, the **PageSize** and **PageNumber** parameters are not available.
+   * > If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
    * 
    * @example
    * 30

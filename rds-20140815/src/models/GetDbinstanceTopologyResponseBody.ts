@@ -76,8 +76,8 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The dedicated cluster ID.
-   * >This parameter is empty for non-dedicated cluster instances.
+   * The ID of the dedicated cluster.
+   * > An empty value is returned for instances that are not deployed in a dedicated cluster.
    * 
    * @example
    * dhg-4n****
@@ -85,8 +85,8 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The host ID in the dedicated cluster.
-   * >This parameter is empty for non-dedicated cluster instances.
+   * The ID of the host in the dedicated cluster.
+   * > An empty value is returned for instances that are not deployed in a dedicated cluster.
    * 
    * @example
    * i-bp****
@@ -95,7 +95,7 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
    * The unique identifier of the instance.
-   * >This parameter returns **-1** for non-dedicated cluster instances.
+   * > **-1** is returned for instances that are not deployed in a dedicated cluster.
    * 
    * @example
    * 349054
@@ -103,7 +103,7 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The node type. Valid values:
+   * The role of the node. Valid values:
    * * **Master**: primary node.
    * * **Slave**: secondary node.
    * 
@@ -153,7 +153,7 @@ export class GetDBInstanceTopologyResponseBodyDataNodes extends $dara.Model {
 export class GetDBInstanceTopologyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The network connectivity information of the instance.
+   * The list of network connection information for the instance.
    */
   connections?: GetDBInstanceTopologyResponseBodyDataConnections[];
   /**
@@ -166,7 +166,7 @@ export class GetDBInstanceTopologyResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The node list.
+   * The nodes.
    */
   nodes?: GetDBInstanceTopologyResponseBodyDataNodes[];
   static names(): { [key: string]: string } {

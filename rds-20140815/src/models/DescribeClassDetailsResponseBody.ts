@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClassDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The edition. Valid values:
+   * The instance edition. Valid values:
    * * **Basic**: Basic Edition
-   * * **HighAvailability**: High-availability Edition
+   * * **HighAvailability**: high availability series
    * * **AlwaysOn**: Cluster Edition
    * * **Finance**: RDS Enterprise Edition
    * 
@@ -33,7 +33,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   classGroup?: string;
   /**
    * @remarks
-   * The number of CPU cores for the instance type. Unit: cores.
+   * The number of CPU cores of the instance type. Unit: cores.
    * 
    * @example
    * 4
@@ -54,7 +54,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * The architecture.
+   * The instruction set architecture.
    * 
    * @example
    * x86
@@ -70,7 +70,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   maxConnections?: string;
   /**
    * @remarks
-   * The maximum I/O bandwidth for the instance type. Unit: Mbit/s.
+   * The maximum I/O bandwidth of the instance type. Unit: Mbit/s.
    * 
    * @example
    * 1024
@@ -78,7 +78,7 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   maxIOMBPS?: string;
   /**
    * @remarks
-   * The maximum IOPS for the instance type. Unit: operations per second.
+   * The maximum IOPS of the instance type. Unit: operations per second.
    * 
    * @example
    * N/A
@@ -94,13 +94,13 @@ export class DescribeClassDetailsResponseBody extends $dara.Model {
   memoryClass?: string;
   /**
    * @remarks
-   * The price.
+   * The reference price.
    * 
    * <props="china">Unit: cents (CNY).
    * <props="intl">Unit: cents (USD).
    * 
-   * > * If you set the CommodityCode parameter to a pay-as-you-go commodity code, the hourly price is returned.
-   * > * If you set the CommodityCode parameter to a subscription commodity code, the monthly price is returned.
+   * >* If you specify a pay-as-you-go commodity code in the CommodityCode parameter, the hourly price is displayed.
+   * >* If you specify a subscription commodity code in the CommodityCode parameter, the monthly price is displayed.
    * 
    * @example
    * 13400

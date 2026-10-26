@@ -31,8 +31,8 @@ export class DescribeImportTaskValidationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The request is successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

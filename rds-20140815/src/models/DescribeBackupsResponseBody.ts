@@ -201,7 +201,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1A6D328C-84B8-40DC-BF49-6C73984D7494
@@ -209,7 +209,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The size of the snapshot chain of the instance. Unit: bytes.
+   * The size of the snapshot chain for the instance. Unit: bytes.
    * 
    * @example
    * 0
@@ -217,7 +217,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   totalEcsSnapshotSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -13,7 +13,7 @@ export class CreateDBInstanceForRebuildResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

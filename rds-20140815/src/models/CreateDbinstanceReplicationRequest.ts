@@ -13,7 +13,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The address of the primary database host. IP addresses and domain names are supported.
+   * The host address of the primary database. Both IP addresses and domain names are supported.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterHost?: string;
   /**
    * @remarks
-   * The password of the primary database, which is used to authenticate the replication user. The password must be Base64-encoded in advance.
+   * The password of the primary database used to authenticate the replication user. The password must be Base64-encoded in advance.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterPassword?: string;
   /**
    * @remarks
-   * The port number of the primary database. The default port is 3306 for MySQL.
+   * The port number of the primary database. Typically, the port is 3306 for MySQL.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateDBInstanceReplicationRequest extends $dara.Model {
   masterPort?: number;
   /**
    * @remarks
-   * The username of the primary database, which is used to establish the replication connection.
+   * The username of the primary database used to establish a replication connection.
    * 
    * This parameter is required.
    * 

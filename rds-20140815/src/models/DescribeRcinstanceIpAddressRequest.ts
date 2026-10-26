@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1, which indicates that the first page is returned.
+   * The number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -23,8 +23,8 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
    * @remarks
    * The DDoS mitigation status of the assets that are assigned public IP addresses to query. Valid values:
    * 
-   * - **defense**: Cleaning. Assets that are assigned public IP addresses for which Anti-DDoS Origin scrubs traffic are queried.
-   * - **blackhole**: Black Hole Activated. Assets that are assigned public IP addresses that are in the blackhole filtering status are queried.
+   * - **defense**: Cleaning. Queries assets that are assigned public IP addresses and for which the system scrubs traffic.
+   * - **blackhole**: Black Hole Activated. Queries assets that are assigned public IP addresses and are under the blackhole filtering status.
    * 
    * @example
    * defense
@@ -32,7 +32,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   ddosStatus?: string;
   /**
    * @remarks
-   * The instance ID of the Custom instance to which the assets that are assigned public IP addresses belong.
+   * The instance ID of the RDS Custom instance to which the assets that are assigned public IP addresses belong.
    * 
    * @example
    * rc-y6dn4pyuub1r89******
@@ -48,7 +48,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceIp?: string;
   /**
    * @remarks
-   * The name of the Custom instance to which the assets that are assigned public IP addresses belong.
+   * The name of the RDS Custom instance to which the assets that are assigned public IP addresses belong.
    * 
    * @example
    * rc-y6dn4pyuub1r89******
@@ -64,7 +64,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Settings for paged query. The number of instances to return on each page for paging.
+   * The number of instances per page in a paged query.
    * 
    * @example
    * 10
@@ -72,7 +72,7 @@ export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the Custom instance.
+   * The region ID of the RDS Custom instance.
    * 
    * @example
    * cn-beijing

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachRCInstancesResponseBodyResponses extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class AttachRCInstancesResponseBodyResponses extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The RDS Custom instance ID.
+   * The instance ID of the RDS Custom instance.
    * 
    * @example
    * rc-e2g521l55k038cr8****
@@ -21,9 +21,9 @@ export class AttachRCInstancesResponseBodyResponses extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The returned message of the request.
    * 
-   * > If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful

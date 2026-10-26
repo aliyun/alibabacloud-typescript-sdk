@@ -13,7 +13,7 @@ export class DescribeLocalAvailableRecoveryTimeResponseBody extends $dara.Model 
   DBInstanceId?: string;
   /**
    * @remarks
-   * The start time of the restorable time range for backups.
+   * The start time of the restorable time range.
    * 
    * @example
    * 2023-09-11T09:48:52Z
@@ -21,7 +21,7 @@ export class DescribeLocalAvailableRecoveryTimeResponseBody extends $dara.Model 
   recoveryBeginTime?: string;
   /**
    * @remarks
-   * The end time of the restorable time range for backups.
+   * The end time of the restorable time range.
    * 
    * @example
    * 2023-09-18T08:03:09Z

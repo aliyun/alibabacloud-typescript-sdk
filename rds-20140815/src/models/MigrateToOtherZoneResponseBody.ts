@@ -13,7 +13,7 @@ export class MigrateToOtherZoneResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The order ID. This parameter is applicable only to ApsaraDB RDS for MySQL instances.
+   * The order ID. This parameter is only applicable to ApsaraDB RDS for MySQL instances.
    * 
    * @example
    * 21334157599****

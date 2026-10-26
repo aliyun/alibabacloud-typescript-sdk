@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set used for restoration from a backup set. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
+   * The ID of the backup set that is used for restoration from a backup set. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
    * > This parameter is required when **RestoreType** is set to **0**.
    * 
    * @example
@@ -24,7 +24,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance storage of the destination instance. Valid values: **5 to 2000**. The value is incremented in steps of 5 GB. Unit: GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+   * The instance storage of the destination instance. Valid values: **5 to 2000**. The value increments by 5 GB. Unit: GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
    * This parameter is required.
    * 
@@ -47,13 +47,13 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the destination database engine. The valid values vary based on the value of **Engine**.
+   * The version of the destination database engine. Valid values vary based on the **Engine** parameter:
    * 
    * - MySQL: **5.5/5.6/5.7/8.0**
-   * - SQL Server: **2008r2 (instances with Premium Local SSDs, discontinued)/08r2_ent_ha (instances with cloud disks, discontinued)/2012/2012_ent_ha/2012_std_ha/2012_web/2014_std_ha/2016_ent_ha/2016_std_ha/2016_web/2017_std_ha/2017_ent/2019_std_ha/2019_ent**
+   * - SQL Server: **2008r2 (Premium Local SSD, discontinued)/08r2_ent_ha (cloud disk, discontinued)/2012/2012_ent_ha/2012_std_ha/2012_web/2014_std_ha/2016_ent_ha/2016_std_ha/2016_web/2017_std_ha/2017_ent/2019_std_ha/2019_ent**
    * - PostgreSQL: **10.0/11.0/12.0/13.0/14.0/15.0**
    * 
-   * > For SQL Server instances, `_ent` indicates Enterprise Cluster Edition, `_ent_ha` indicates Enterprise Edition, `_std_ha` indicates Standard Edition, and `_web` indicates Web Edition.
+   * > For SQL Server instances, `_ent` indicates the Enterprise Cluster Edition, `_ent_ha` indicates the Enterprise Edition, `_std_ha` indicates the Standard Edition, and `_web` indicates the Web Edition.
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the destination instance. You can call the DescribeRegions operation to query the region ID.
+   * The region ID of the destination instance. You can call the DescribeRegions operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
    * 
    * @example
    * rg-acfmy****
@@ -84,7 +84,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time to which you want to restore data when you restore data to a point in time. The point in time must be earlier than the current time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The point in time to which you want to restore data. The point in time must be earlier than the current time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * > This parameter is required when **RestoreType** is set to **1**.
    * 
    * @example
@@ -95,8 +95,8 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
    * @remarks
    * The restoration method. Valid values:
    * 
-   * - **0** (default): restores data from a backup set. If you set this parameter to 0, you must also specify **BackupSetId**.
-   * - **1**: restores data to a point in time. If you set this parameter to 1, you must also specify **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName**.
+   * - **0** (default): Restoration from a backup set. If you set this parameter to 0, you must also specify the **BackupSetId** parameter.
+   * - **1**: Point-in-time restoration. If you set this parameter to 1, you must also specify the **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName** parameters.
    * 
    * This parameter is required.
    * 
@@ -106,7 +106,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The ID of the source instance when you restore data to a point in time.
+   * The ID of the source instance.
    * > This parameter is required when **RestoreType** is set to **1**.
    * 
    * @example
@@ -115,7 +115,7 @@ export class CheckCreateDdrDBInstanceRequest extends $dara.Model {
   sourceDBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the source region when you restore data to a point in time.
+   * The region ID of the source instance.
    * > This parameter is required when **RestoreType** is set to **1**.
    * 
    * @example

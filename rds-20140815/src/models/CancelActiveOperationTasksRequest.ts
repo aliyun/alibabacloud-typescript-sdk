@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of task IDs to cancel in batch. Separate multiple IDs with commas (,). We recommend that you specify no more than 25 IDs at a time.
+   * The list of IDs for batch cancellation. Separate multiple IDs with commas (,). Specify no more than 25 IDs at a time.
    * 
    * This parameter is required.
    * 

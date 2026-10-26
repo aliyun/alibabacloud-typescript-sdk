@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig extends $dara.Model {
   /**
    * @remarks
-   * The basic DDoS Mitigation Threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
+   * The basic protection Mitigation Threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
    * 
    * @example
    * 5200
@@ -13,7 +13,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
   blackholeThreshold?: number;
   /**
    * @remarks
-   * The traffic scrubbing threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
+   * The traffic scrubbing threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
    * 
    * @example
    * 300
@@ -21,7 +21,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
   defenseBpsThreshold?: number;
   /**
    * @remarks
-   * The message rate scrubbing threshold of the assets that are assigned public IP addresses. Unit: pps.
+   * The packet rate scrubbing threshold for the assets that are assigned public IP addresses. Unit: pps.
    * 
    * @example
    * 70000
@@ -29,7 +29,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
   defensePpsThreshold?: number;
   /**
    * @remarks
-   * The DDoS burstable Mitigation Threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
+   * The burstable Mitigation Threshold for the assets that are assigned public IP addresses. Unit: Mbit/s.
    * 
    * @example
    * 12310
@@ -47,9 +47,9 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
    * @remarks
    * The DDoS mitigation status of the assets that are assigned public IP addresses. Valid values:
    * 
-   * - **mitigating**: Cleaning.
-   * - **blackholed**: Black Hole Activated.
-   * - **normal**: Normal.
+   * - **mitigating**: Cleaning
+   * - **blackholed**: Black Hole Activated
+   * - **normal**: Normal
    * 
    * @example
    * normal
@@ -57,7 +57,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
   ipStatus?: string;
   /**
    * @remarks
-   * The IP protocol version of the instance. Valid values:
+   * The IP version of the instance. Valid values:
    * 
    * - **v4**
    * - **v6**
@@ -68,10 +68,10 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
   ipVersion?: string;
   /**
    * @remarks
-   * Indicates whether the assets that are assigned public IP addresses is attached to Anti-DDoS Origin. Valid values:
+   * Indicates whether the public IP asset is attached to Anti-DDoS Origin. Valid values:
    * 
-   * - **true**: Attached.
-   * - **false**: Not attached.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -81,7 +81,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
    * @remarks
    * Indicates whether best-effort protection is enabled for the assets that are assigned public IP addresses in Anti-DDoS Origin. Valid values:
    * 
-   * - **0**: Best-effort protection is not enabled.
+   * - **0**: Best-effort protection is disabled.
    * - **1**: Best-effort protection is enabled.
    * 
    * @example
@@ -138,7 +138,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfi
 export class DescribeRCInstanceIpAddressResponseBodyRCInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The Custom instance ID.
+   * The instance ID of the RDS Custom instance.
    * 
    * @example
    * rc-kti8hw44yy0x53******
@@ -146,7 +146,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceList extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The Custom instance name.
+   * The name of the RDS Custom instance.
    * 
    * @example
    * rc-kti8hw44yy0x53******
@@ -165,7 +165,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceList extends $dara
   instanceStatus?: string;
   /**
    * @remarks
-   * The type of the assets that are assigned public IP addresses. The value is fixed as **ecs**.
+   * The type of the assets that are assigned public IP addresses. Set the value to **ecs**.
    * 
    * @example
    * ecs
@@ -211,7 +211,7 @@ export class DescribeRCInstanceIpAddressResponseBodyRCInstanceList extends $dara
 export class DescribeRCInstanceIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of instances to which the assets that are assigned public IP addresses belong.
+   * The details of the instances to which the assets that are assigned public IP addresses belong.
    */
   RCInstanceList?: DescribeRCInstanceIpAddressResponseBodyRCInstanceList[];
   /**
@@ -224,7 +224,7 @@ export class DescribeRCInstanceIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of assets that are assigned public IP addresses returned.
+   * The total number of assets that are assigned public IP addresses.
    * 
    * @example
    * 1

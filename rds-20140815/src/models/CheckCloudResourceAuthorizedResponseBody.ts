@@ -7,7 +7,7 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
    * @remarks
    * The authorization status. Valid values:
    * - **1**: Authorized.
-   * - **0**: Not authorized.
+   * - **0**: Unauthorized.
    * 
    * @example
    * 1

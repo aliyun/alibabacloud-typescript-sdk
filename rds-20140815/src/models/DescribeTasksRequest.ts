@@ -15,7 +15,7 @@ export class DescribeTasksRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2020-11-20T02:00Z
@@ -25,7 +25,7 @@ export class DescribeTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30 to 100**. Default value: **30**.
+   * The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -43,7 +43,7 @@ export class DescribeTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2020-11-20T01:00Z

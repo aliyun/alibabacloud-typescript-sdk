@@ -13,8 +13,7 @@ export class DescribeDedicatedHostGroupsRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * The host image based on which you want to query dedicated clusters. Valid values:
-   * 
+   * The host image category used to query dedicated clusters. Valid values:
    * * **WindowsWithMssqlStdLicense**: Windows (with SQL Server Standard Edition license).
    * * **WindowsWithMssqlEntLisence**: Windows (with SQL Server Enterprise Edition license).
    * * **WindowsWithMssqlWebLisence**: Windows (with SQL Server Web Edition license).

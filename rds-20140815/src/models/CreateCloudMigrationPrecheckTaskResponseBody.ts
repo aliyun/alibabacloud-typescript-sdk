@@ -21,7 +21,7 @@ export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 439946016
@@ -29,7 +29,7 @@ export class CreateCloudMigrationPrecheckTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * slf7w7wj3g

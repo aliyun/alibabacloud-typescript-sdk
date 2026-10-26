@@ -13,8 +13,8 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   DBInstanceID?: string;
   /**
    * @remarks
-   * A JSON array that contains DTS synchronization information.
-   * >Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the synchronization task ID and request ID of DTS.
+   * The JSON array that contains the Data Transmission Service (DTS) synchronization information.
+   * > Each unit node (secondary node) synchronizes data with the central node (primary node) through DTS. This parameter contains the DTS synchronization link ID and request ID.
    * 
    * @example
    * {\\"dtsInstanceId\\":\\"dtsm9t107c****\\",\\"dtsRequestId\\":\\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\\"}
@@ -23,7 +23,7 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   /**
    * @remarks
    * The database engine of the node in the cluster.
-   * >Only **mysql** is supported.
+   * > Only **mysql** is supported.
    * 
    * @example
    * mysql
@@ -55,9 +55,9 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node type in the active geo-redundancy database cluster. Valid values:
-   * * **CENTRAL**: central node. The only primary node in the cluster. All unit nodes synchronize data from this node.
-   * * **UNIT**: unit node. A cluster can contain up to 10 unit nodes. All unit nodes synchronize data from the central node.
+   * The role of the node in the GAD cluster. Valid values:
+   * * **CENTRAL**: the central node, which is the only primary node in the cluster. All unit nodes synchronize data from this node.
+   * * **UNIT**: the unit node. A cluster can have up to 10 unit nodes, and all unit nodes synchronize data from the central node.
    * 
    * @example
    * CENTRAL
@@ -65,9 +65,9 @@ export class DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers exte
   role?: string;
   /**
    * @remarks
-   * The node status. Valid values:
-   * * **activation**: running.
-   * * **creating**: being created.
+   * The status of the node. Valid values:
+   * * **activation**: running
+   * * **creating**: being created
    * 
    * @example
    * activation
@@ -119,7 +119,7 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * GadTest
@@ -132,7 +132,7 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   gadInstanceMembers?: DescribeGadInstancesResponseBodyGadInstancesGadInstanceMembers[];
   /**
    * @remarks
-   * The ID of the active geo-redundancy database cluster.
+   * The ID of the GAD cluster.
    * 
    * @example
    * gad-rm-bp1npi2j8****
@@ -148,8 +148,8 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The engine of the active geo-redundancy database cluster.
-   * >Only **mysql** is supported.
+   * The database engine of the GAD cluster.
+   * > Only **mysql** is supported.
    * 
    * @example
    * mysql
@@ -157,10 +157,10 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The cluster status. Valid values:
-   * * **activation**: running.
-   * * **creating**: being created.
-   * * **replica_adding**: a node is being added.
+   * The status of the cluster. Valid values:
+   * * **activation**: running
+   * * **creating**: being created
+   * * **replica_adding**: adding nodes
    * 
    * @example
    * activation
@@ -205,7 +205,7 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $dara.Model {
 export class DescribeGadInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of active geo-redundancy database clusters.
+   * The list of GAD clusters.
    */
   gadInstances?: DescribeGadInstancesResponseBodyGadInstances[];
   /**

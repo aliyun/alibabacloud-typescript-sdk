@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $dara.Model {
   /**
    * @remarks
-   * The community minor version that corresponds to the minor engine version.
+   * The community minor engine version that corresponds to the minor engine version.
    * 
    * @example
    * 5.7.38
@@ -13,7 +13,7 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   communityMinorVersion?: string;
   /**
    * @remarks
-   * The database engine that corresponds to the minor version.
+   * The database engine that corresponds to the minor engine version.
    * 
    * @example
    * MySQL
@@ -21,7 +21,7 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   engine?: string;
   /**
    * @remarks
-   * The database engine version that corresponds to the minor version.
+   * The database engine version that corresponds to the minor engine version.
    * 
    * @example
    * 5.7
@@ -29,7 +29,7 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the minor engine version.
+   * The expiration date of the minor engine version. The date is in the YYYYMMDD format.
    * 
    * @example
    * 20231213
@@ -37,12 +37,12 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   expireDate?: string;
   /**
    * @remarks
-   * The expiration status of the minor engine version. Valid values:
+   * The expiration status of the minor Milvus version. Valid values:
    * 
-   * - **vaild**: Milvus version is valid.
-   * - **expired**: Milvus version has expired.
+   * - **vaild**: The minor Milvus version is valid.
+   * - **expired**: The minor Milvus version has expired.
    * 
-   * > If the offline status is Offline, Milvus version has been taken offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, Milvus version has exceeded its lifecycle. If the offline status is Online and the expiration status is vaild, Milvus version is still within its lifecycle.
+   * > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
    * 
    * @example
    * vaild
@@ -58,7 +58,7 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   isHotfixVersion?: boolean;
   /**
    * @remarks
-   * The version number of the minor engine version.
+   * The minor engine version number.
    * 
    * @example
    * rds_20220731
@@ -66,9 +66,9 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   minorVersion?: string;
   /**
    * @remarks
-   * The instance edition that corresponds to the minor version. Valid values:
+   * The instance edition that corresponds to the minor engine version. Valid values:
    * * **Basic**: Basic Edition.
-   * * **HighAvailability**: high-availability series.
+   * * **HighAvailability**: High-availability Edition.
    * * **Finance**: RDS Enterprise Edition.
    * 
    * @example
@@ -77,7 +77,7 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   nodeType?: string;
   /**
    * @remarks
-   * The URL of the release notes for the minor version.
+   * The URL of the release notes for the minor engine version.
    * 
    * @example
    * https://example.com
@@ -86,8 +86,8 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   /**
    * @remarks
    * The release type. Valid values:
-   * * **LTS**: Long-term support version.
-   * * **BETA**: Preview version.
+   * * **LTS**: Long-term support (LTS) version.
+   * * **BETA**: Beta version.
    * 
    * @example
    * BETA
@@ -95,11 +95,11 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   releaseType?: string;
   /**
    * @remarks
-   * The offline status of the minor engine version. Valid values:
-   * - **Offline**: Milvus version has been taken offline.
-   * - **Online**: Milvus version is online.
+   * The offline status of the minor Milvus version. Valid values:
+   * - **Offline**: The minor Milvus version is offline.
+   * - **Online**: The minor Milvus version is online.
    * 
-   * > If the offline status is Offline, Milvus version has been taken offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, Milvus version has exceeded its lifecycle. If the offline status is Online and the expiration status is vaild, Milvus version is still within its lifecycle.
+   * > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
    * 
    * @example
    * Online
@@ -107,12 +107,12 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   statusDesc?: string;
   /**
    * @remarks
-   * The tag that corresponds to the minor engine version. Valid values:
+   * Instance tag that corresponds to the minor engine version. Valid values:
    * 
-   * - **pgsql_docker_image**: general instance tag.
-   * - **pgsql_babelfish_image**: Babelfish instance tag.
+   * - **pgsql_docker_image**: Instance tag for general instances.
+   * - **pgsql_babelfish_image**: Instance tag for Babelfish-enabled instances.
    * 
-   * > This value is returned only for **PostgreSQL**.
+   * > This parameter is returned only for **PostgreSQL**.
    * 
    * @example
    * pgsql_babelfish_image
@@ -172,7 +172,7 @@ export class DescribeDBMiniEngineVersionsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -193,7 +193,7 @@ export class DescribeDBMiniEngineVersionsResponseBody extends $dara.Model {
   pageNumbers?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EFB6083A-7699-489B-8278-C0CB4793A96E
@@ -201,7 +201,7 @@ export class DescribeDBMiniEngineVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries returned.
    * 
    * @example
    * 2

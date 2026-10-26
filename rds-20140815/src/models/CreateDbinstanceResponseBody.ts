@@ -13,10 +13,10 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID. If you set the **Amount** parameter to a value greater than **1**, the number of instance IDs that corresponds to the value is returned, separated by commas.
+   * The instance ID. If the **Amount** parameter is set to a value greater than **1**, the number of instance IDs returned corresponds to the value, separated by commas.
    * 
-   * For example, if **Amount** is set to **3**, three instance IDs are returned. Example:
-   * `rm-uf6wjk5*****1，rm-uf6wjk5*****2，rm-uf6wjk5*****3`
+   * For example, if the **Amount** parameter is set to **3**, three instance IDs are returned. Example:
+   * `rm-uf6wjk5*****1, rm-uf6wjk5*****2, rm-uf6wjk5*****3`
    * 
    * @example
    * rm-uf6wjk5****
@@ -24,10 +24,10 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Indicates that a dry run is performed before the instance is created.
+   * Indicates whether the current request requires a precheck before creating the instance.
    * 
-   * * The return value is always **true**.
-   * * If no dry run is performed, this parameter is not returned.
+   * * The return value is fixed to **true**.
+   * * If no precheck is performed, this parameter is not returned.
    * 
    * @example
    * true
@@ -35,12 +35,12 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Indicates whether the dry run for instance creation passed. Valid values:
-   * * **true**: The dry run passed.
-   * * **false**: The dry run failed.
+   * Indicates whether the precheck for creating the instance is successful. Valid values:
+   * * **true**: Passed.
+   * * **false**: Failed.
    * 
-   * > * If no dry run is performed, this parameter is not returned.
-   * > * If the dry run fails, the corresponding error is returned.
+   * > * If no precheck is performed, this parameter is not returned.
+   * > * If the precheck fails, the corresponding error is returned.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   dryRunResult?: boolean;
   /**
    * @remarks
-   * The message for the batch creation task.
+   * The prompt message for the batch creation task.
    * 
    * > This parameter is returned only when the **Amount** parameter is greater than 1.
    * 
@@ -66,7 +66,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The port number that corresponds to the internal endpoint of the instance.
+   * The port number corresponding to the internal endpoint of the instance.
    * 
    * @example
    * 3306
@@ -82,11 +82,11 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether tags are successfully bound to the instance. Valid values:
-   * * **true**: Tags are successfully bound.
-   * * **false**: Tags failed to be bound.
+   * Indicates whether the instance is successfully tagged. Valid values:
+   * * **true**: Succeeded.
+   * * **false**: Failed.
    * 
-   * > If no tags are bound to the instance, this parameter is not returned.
+   * > If no tag is bound to the instance, this parameter is not returned.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * The task ID of the batch creation task.
    * 
    * * This parameter is returned only when the **Amount** parameter is greater than 1.
-   * * Querying tasks by **TaskId** is not supported at this time.
+   * * Currently, you cannot view the task by using the value of **TaskId**.
    * 
    * @example
    * s2365879-a9d0-55af-fgae-f2****

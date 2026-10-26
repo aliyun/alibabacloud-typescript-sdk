@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachWhitelistTemplateToInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DetachWhitelistTemplateToInstanceRequest extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to obtain the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DetachWhitelistTemplateToInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. For more information about resource groups, see What is a resource group.
+   * The ID of the resource group. For more information about resource groups, see What is a resource group.
    * 
    * @example
    * rg-acfmz3kjr******
@@ -33,7 +33,7 @@ export class DetachWhitelistTemplateToInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The whitelist template ID. You can call DescribeAllWhitelistTemplate to obtain the ID.
+   * The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to query the ID.
    * 
    * This parameter is required.
    * 

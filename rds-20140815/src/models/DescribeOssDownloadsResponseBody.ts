@@ -92,7 +92,7 @@ export class DescribeOssDownloadsResponseBody extends $dara.Model {
   migrateTaskId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A5409D02-D661-4BF3-8F3D-0A814D0574E7

@@ -13,7 +13,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The creation time in UTC.
+   * The creation time (UTC).
    * 
    * @example
    * 2022-02-25T06:57:41Z
@@ -21,7 +21,7 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time in UTC.
+   * The modification time (UTC).
    * 
    * @example
    * 2022-03-01T06:39:51Z
@@ -37,11 +37,11 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   replicationInfo?: string;
   /**
    * @remarks
-   * The synchronization status. Valid values:
+   * The synchronization state. Valid values:
    * 
-   * - **steaming**: Synchronizing.
-   * - **finish**: Completed.
-   * - **disconnect**: Disconnected.
+   * - **steaming**: Synchronization is in progress.
+   * - **finish**: Synchronization is completed.
+   * - **disconnect**: Synchronization is disconnected.
    * 
    * @example
    * finish
@@ -75,8 +75,8 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
    * @remarks
    * The category of the source instance. Valid values:
    * 
-   * - other: Other.
-   * - aliyunRDS: ApsaraDB RDS instance.
+   * - other: The source instance is of another type.
+   * - aliyunRDS: The source instance is an ApsaraDB RDS instance.
    * 
    * @example
    * aliyunRDS
@@ -116,12 +116,12 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The task stage. Valid values:
+   * The node stage. Valid values:
    * 
-   * - **precheck**: Dry run.
-   * - **basebackup**: Basic backup.
-   * - **startup**: Startup.
-   * - **increment**: Incremental synchronization.
+   * - **precheck**: The node is in the dry run stage.
+   * - **basebackup**: The node is in the basic backup stage.
+   * - **startup**: The node is in the startup stage.
+   * - **increment**: The node is in the incremental synchronization stage.
    * 
    * @example
    * increment
@@ -131,9 +131,9 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - **success**: Succeeded.
-   * - **failure**: Failed.
-   * - **running**: Running.
+   * - **success**: The task is successful.
+   * - **failure**: The task failed.
+   * - **running**: The task is running.
    * 
    * @example
    * success
@@ -142,8 +142,8 @@ export class DescribeReplicationLinkLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **create**: Create a replication link.
-   * - **create-dryrun**: Dry run for creating a replication link.
+   * - **create**: Creates a synchronization link.
+   * - **create-dryrun**: Performs a precheck for creating a synchronization link.
    * 
    * @example
    * create

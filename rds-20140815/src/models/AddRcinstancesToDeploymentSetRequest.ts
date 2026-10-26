@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddRCInstancesToDeploymentSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The group number of the ECS instance in the deployment set when the deployment set policy is high availability group (AvailabilityGroup). You can use this parameter to specify the group number. Valid values: 1 to 7. If no value is specified, the system automatically assigns an active group.
+   * The group number of the instance in the deployment set. This parameter is valid only when the deployment set strategy of the ECS instance to be added or adjusted is AvailabilityGroup. Valid values: 1 to 7.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class AddRCInstancesToDeploymentSetRequest extends $dara.Model {
   deploymentSetGroupNo?: string;
   /**
    * @remarks
-   * The deployment set ID.
+   * The ID of the deployment set.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,9 @@ export class AddRCInstancesToDeploymentSetRequest extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly release running instances. Valid values:
-   * 
-   * * **true**: Forcibly release.
-   * * **false** (default): Do not forcibly release.
+   * Specifies whether to forcibly release the running instance. Valid values:
+   * * **true**: yes.
+   * * **false** (default): no.
    * 
    * @example
    * false
@@ -34,7 +33,7 @@ export class AddRCInstancesToDeploymentSetRequest extends $dara.Model {
   force?: boolean;
   /**
    * @remarks
-   * The instance ID.
+   * The instance IDs.
    * 
    * This parameter is required.
    * 
@@ -44,7 +43,7 @@ export class AddRCInstancesToDeploymentSetRequest extends $dara.Model {
   RCInstanceIds?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query available regions.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 

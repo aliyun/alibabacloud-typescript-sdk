@@ -115,7 +115,7 @@ export class DescribeDBProxyEndpointResponseBodyEndpointConnectItems extends $da
 export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for consistency reads. Unit: milliseconds. Default value: **10**. Valid values: **0 to 60000**.
+   * The timeout period for consistent reads. Unit: milliseconds. Default value: **10**. Valid values: **0** to **60000**.
    * 
    * @example
    * 10
@@ -148,6 +148,13 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * 3306
    */
   DBProxyConnectStringPort?: string;
+  /**
+   * @remarks
+   * The execution cost threshold for SQL statements in automatic request distribution among row store and column store nodes for HTAP.
+   * 
+   * @example
+   * 30000
+   */
   DBProxyEndpointCostThresholdForDuckdb?: string;
   /**
    * @remarks
@@ -175,16 +182,16 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The settings of the proxy endpoint in JSON format. The following parameters are included:
-   * * **TransactionReadSqlRouteOptimizeStatus**: the transaction splitting setting. The value is **0** (disabled) or **1** (enabled).
-   * * **ConnectionPersist**: the connection pool setting. The value is **0** (disabled), **1** (session-level connection pool), or **2** (transaction-level connection pooling).
-   * * **ReadWriteSpliting**: the read/write splitting setting. The value is **0** (disabled) or **1** (enabled).
-   * * **AZProximityAccess**: the nearest access feature. The value is **0** (disabled) or **1** (enabled).
-   * * **CausalConsistRead**: the read consistency setting. The value is **0** (eventual consistency), **1** (session consistency), or **2** (global consistency).
-   * * **HtapFilter**: the automatic request distribution among row store and column store nodes setting. The value is **0** (disabled) or **1** (enabled).
-   * * **PinPreparedStmt**: visible only for ApsaraDB RDS for PostgreSQL. This is an internal parameter.
+   * The settings of the proxy endpoint. The value is in JSON format and includes the following parameters:
+   * * **TransactionReadSqlRouteOptimizeStatus**: the transaction splitting setting. Valid values: **0** (disabled) and **1** (enabled).
+   * * **ConnectionPersist**: the connection pool setting. Valid values: **0** (disabled), **1** (session-level connection pool), and **2** (transaction-level connection pooling).
+   * * **ReadWriteSpliting**: the read/write splitting setting. Valid values: **0** (disabled) and **1** (enabled).
+   * * **AZProximityAccess**: the nearest access setting. Valid values: **0** (disabled) and **1** (enabled).
+   * * **CausalConsistRead**: the read consistency setting. Valid values: **0** (eventual consistency), **1** (session consistency), and **2** (global consistency).
+   * * **HtapFilter**: the automatic request distribution among row store and column store nodes for HTAP setting. Valid values: **0** (disabled) and **1** (enabled).
+   * * **PinPreparedStmt**: an internal parameter visible only in ApsaraDB RDS for PostgreSQL.
    * 
-   * > ApsaraDB RDS for PostgreSQL supports modification of only **ReadWriteSpliting**. **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** are set to 1 by default.
+   * > For ApsaraDB RDS for PostgreSQL, only **ReadWriteSpliting** can be modified. **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** are set to 1 by default.
    * 
    * @example
    * TransactionReadSqlRouteOptimizeStatus:1;ConnectionPersist:0;ReadWriteSpliting:1
@@ -201,8 +208,8 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   dbProxyEndpointAliases?: string;
   /**
    * @remarks
-   * The read/write type of the proxy endpoint. Valid values:
-   * * **ReadWrite**: read/write splitting mode.
+   * The read/write mode of the proxy endpoint. Valid values:
+   * * **ReadWrite**: read/write mode.
    * * **ReadOnly**: read-only mode.
    * 
    * @example
@@ -238,8 +245,8 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * @remarks
    * The read weight distribution mode. For more information, see [Read weight distribution](https://help.aliyun.com/document_detail/96076.html). Valid values:
    * 
-   * * **Standard**: automatically distributes weights based on instance specifications.
-   * * **Custom**: uses custom weight distribution.
+   * * **Standard**: automatic allocation based on instance specifications
+   * * **Custom**: custom weight allocation
    * 
    * @example
    * Standard
@@ -247,7 +254,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   readOnlyInstanceDistributionType?: string;
   /**
    * @remarks
-   * The latency threshold for read/write splitting. When the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds.
+   * The latency threshold for read/write splitting. If the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds.
    * 
    * @example
    * 30
@@ -255,12 +262,12 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   readOnlyInstanceMaxDelayTime?: string;
   /**
    * @remarks
-   * The read weight distribution information, which specifies the read request weights of the primary instance and read-only instances. The value is in JSON format and includes the following parameters:
-   * * **DBInstanceId**: the instance ID.
-   * * **DBInstanceType**: the instance type. The value is **Master** (primary instance) or **ReadOnly** (read-only instance).
-   * * **NodeID**: the node ID of the primary node or secondary node of the primary instance in the Cluster Edition.
-   * * **NodeType**: the node type in the Cluster Edition. The value is **Primary** (primary node of the primary instance) or **Secondary** (secondary node of the primary instance).
-   * * **Weight**: the read request weight. The value increases in increments of **100**. Maximum value: **10000**.
+   * The read weight distribution information, which specifies the read request weights of the primary and read-only instances. The value is in JSON format and includes the following parameters:
+   * * **DBInstanceId**: instance ID of the instance.
+   * * **DBInstanceType**: the type of the instance. Valid values: **Master** (primary instance) and **ReadOnly** (read-only instance).
+   * * **NodeID**: instance IDs of the primary and secondary nodes of the primary instance in the Cluster Edition.
+   * * **NodeType**: the type of the node in the Cluster Edition. Valid values: **Primary** (primary node of the primary instance) and **Secondary** (secondary node of the primary instance).
+   * * **Weight**: the read request weight. The weight increases in increments of **100**, and the maximum value is **10000**.
    * 
    * @example
    * [{\\"Availability\\":\\"Available\\",\\"DBInstanceId\\":\\"rm-2z****\\"，\\"DBInstanceType\\":\\"Master\\",\\"NodeId\\":\\"rn-t2****\\",\\"NodeType\\":\\"Primary\\",\\"Weight\\":0}, {\\"Availability\\":\\"Available\\",\\"DBInstanceId\\":\\"rm-2z****\\"，\\"DBInstanceType\\":\\"Master\\",\\"NodeId\\":\\"rn-z9****\\",\\"NodeType\\":\\"Secondary\\",\\"Weight\\":400}, {\\"Availability\\":\\"Available\\",,\\"DBInstanceId\\":\\"rm-2z****\\"，\\"DBInstanceType\\":\\"Master\\",\\"NodeId\\":\\"rn-1c****\\",\\"NodeType\\":\\"Secondary\\",\\"Weight\\":400}]]
@@ -268,7 +275,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   readOnlyInstanceWeight?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 847BA085-B377-4BFA-8267-F82345ECE1D2

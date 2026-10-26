@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImportTaskValidationRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeImportTaskValidationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The task ID. The task ID returned when you call the **ValidateImportTask** operation to create an import task dry run.
+   * The task ID. This ID is returned when you call the **ValidateImportTask** operation to create a precheck for the import task.
    * 
    * This parameter is required.
    * 

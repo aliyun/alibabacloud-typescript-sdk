@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup task ID.
+   * The ID of the backup task.
    * 
    * @example
    * 476****
@@ -13,7 +13,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   backupJobId?: number;
   /**
    * @remarks
-   * The backup task status. Valid values:
+   * The status of the backup task. Valid values:
    * * **NoStart**: not started
    * * **Progressing**: in progress
    * 
@@ -25,7 +25,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   backupJobStatus?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
+   * The backup pattern. Valid values:
    * * **Automated**: automatic backup
    * * **Manual**: manual backup
    * 
@@ -35,7 +35,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -43,7 +43,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * None

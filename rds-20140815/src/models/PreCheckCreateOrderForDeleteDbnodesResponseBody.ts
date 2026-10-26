@@ -58,7 +58,7 @@ export class PreCheckCreateOrderForDeleteDBNodesResponseBody extends $dara.Model
   failures?: PreCheckCreateOrderForDeleteDBNodesResponseBodyFailures;
   /**
    * @remarks
-   * The precheck result.
+   * The pre-check result.
    * 
    * @example
    * True

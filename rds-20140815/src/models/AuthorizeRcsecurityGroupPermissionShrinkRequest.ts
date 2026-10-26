@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeRCSecurityGroupPermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the rule. Valid values:
+   * The rule direction. Valid values:
    * 
-   * - **ingress**: inbound.
-   * - **egress**: outbound.
+   * - **ingress**: inbound traffic to the security group.
+   * - **egress**: outbound traffic from the security group.
    * 
    * @example
    * ingress

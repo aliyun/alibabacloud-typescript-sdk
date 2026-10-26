@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserBackupFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The user backup ID. You can call ListUserBackupFiles to obtain the ID.
+   * The ID of the user backup. You can call the ListUserBackupFiles operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateUserBackupFileRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The new description to set for the user backup.
+   * The new description of the user backup.
    * 
    * @example
    * CommentTest
@@ -24,7 +24,7 @@ export class UpdateUserBackupFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class UpdateUserBackupFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
    * @example
    * rg-acfmy****

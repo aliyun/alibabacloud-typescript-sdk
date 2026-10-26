@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The user backup ID.
+   * The ID of the user backup.
    * 
    * @example
    * 603524****
@@ -13,8 +13,8 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   backupId?: number;
   /**
    * @remarks
-   * The cross-region backup file ID.
-   * >You must specify either **CrossBackupId** or the time range parameters (**StartTime** and **EndTime**).
+   * The ID of the cross-region backup file.
+   * >You must specify either **CrossBackupId** or the start and end time parameters (**StartTime** and **EndTime**).
    * 
    * @example
    * 14562
@@ -40,9 +40,9 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+   * The end time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
+   * > If the time zone is not UTC+0, you must subtract 8 hours from the actual time.
    * 
    * @example
    * 2024-03-05T02:24:37Z
@@ -51,7 +51,7 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -85,7 +85,7 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****
@@ -95,9 +95,9 @@ export class DescribeCrossRegionBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+   * The start time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
+   * > If the time zone is not UTC+0, you must subtract 8 hours from the actual time.
    * 
    * @example
    * 2024-03-05T02:21:00Z

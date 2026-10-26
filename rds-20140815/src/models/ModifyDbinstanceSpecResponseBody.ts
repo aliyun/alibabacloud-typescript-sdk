@@ -13,7 +13,7 @@ export class ModifyDBInstanceSpecResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20793850608****
@@ -21,7 +21,7 @@ export class ModifyDBInstanceSpecResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3C5CFDEE-F774-4DED-89A2-1D76EC63C575

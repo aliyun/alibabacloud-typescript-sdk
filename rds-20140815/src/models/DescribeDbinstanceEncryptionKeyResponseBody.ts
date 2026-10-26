@@ -21,7 +21,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   creator?: string;
   /**
    * @remarks
-   * The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2022-05-08T08:14:16Z
@@ -46,8 +46,8 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   /**
    * @remarks
    * The status of the key. Valid values:
-   * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * - **Enabled**: The key is enabled.
+   * - **Disabled**: The key is disabled.
    * 
    * @example
    * Enabled
@@ -56,8 +56,8 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   /**
    * @remarks
    * The type of the key. Valid values:
-   * - CMK: customer master key (CMK).
-   * - ServiceKey: service key.
+   * - CMK: customer master key
+   * - ServiceKey: service key
    * 
    * @example
    * ServiceKey
@@ -65,7 +65,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   keyType?: string;
   /**
    * @remarks
-   * The purpose of the key.
+   * The usage of the key.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -73,7 +73,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   keyUsage?: string;
   /**
    * @remarks
-   * The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The expiration time of the key material. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-10-18T08:14:16Z
@@ -89,7 +89,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extend
   origin?: string;
   /**
    * @remarks
-   * The usage of the key. Valid values:
+   * The usage of the key:
    * 
    * - **TDE**: transparent data encryption.
    * - **DiskEncryption**: cloud disk encryption.
@@ -150,7 +150,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The estimated time when the key is deleted. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2022-05-08T08:14:16Z
@@ -180,8 +180,8 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the key. Valid values:
-   * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * - **Enabled**: The key is enabled.
+   * - **Disabled**: The key is disabled.
    * 
    * @example
    * Enabled
@@ -189,7 +189,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   encryptionKeyStatus?: string;
   /**
    * @remarks
-   * The purpose of the key.
+   * The usage of the key.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -197,7 +197,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   keyUsage?: string;
   /**
    * @remarks
-   * The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The expiration time of the key material. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-10-18T08:14:16Z

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the backup migration task. Valid values:
+   * The type of the OSS backup migration task. Valid values:
    * 
-   * - **FULL**: The restore operation is performed by using a full backup file.
-   * - **UPDF**: The incremental data is restored by using an incremental backup file or log file.
+   * - **FULL**: restores data by using a full log file.
+   * - **UPDF**: restores incremental data by using differential or log log files.
    * 
    * @example
    * FULL
@@ -16,7 +16,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The time when the backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The time when the OSS backup migration task was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-30T12:11:04Z
@@ -32,7 +32,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * mytestdb
@@ -40,7 +40,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The description of the backup migration task.
+   * The description of the OSS backup migration task.
    * 
    * @example
    * Success to DBCC checkdb asynchronously
@@ -48,7 +48,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The time when the OSS backup migration task ended. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2021-05-30T15:15:05Z
@@ -56,10 +56,10 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the import is an overwrite import. Valid values: 
+   * Specifies whether the import overwrites the existing database. Valid values: 
    * 
-   * - **False**: No.
-   * - **True**: Yes.
+   * - **False**: no
+   * - **True**: yes
    * 
    * @example
    * False
@@ -75,7 +75,7 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   migrateTaskId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6ED3635A-01F9-47BD-B9C8-CB3FD70A336E
@@ -83,12 +83,13 @@ export class DescribeMigrateTaskByIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the backup migration task. Valid values:
-   * - **NoStart**: Not started.
-   * - **Running**: Running.
-   * - **Success**: Succeeded.
-   * - **Failed**: Failed.
-   * - **Waiting**: Waiting for incremental backup file import.
+   * The status of the OSS backup migration task. Valid values:
+   * 
+   * - **NoStart**: The task is not started.
+   * - **Running**: The task is running.
+   * - **Success**: The task is successful.
+   * - **Failed**: The task failed.
+   * - **Waiting**: The task is waiting for the import of incremental backup files.
    * 
    * @example
    * Success

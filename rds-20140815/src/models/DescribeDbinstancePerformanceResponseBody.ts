@@ -126,7 +126,7 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The end time of the query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2012-06-19T15:00Z
@@ -143,7 +143,7 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   performanceKeys?: DescribeDBInstancePerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A5409D02-D661-4BF3-8F3D-0A814D0574E7
@@ -151,7 +151,7 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The start time of the query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2012-06-10T15:00Z

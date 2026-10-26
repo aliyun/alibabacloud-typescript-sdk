@@ -26,10 +26,10 @@ export class CreateMaskingRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

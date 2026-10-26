@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyImportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 069EB9B1-DE12-54B9-8C20-822****
@@ -21,7 +21,7 @@ export class ModifyImportTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 41698****
@@ -29,7 +29,7 @@ export class ModifyImportTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * task_1234

@@ -6,10 +6,10 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically use coupons. Valid values:
-   * * **true** (default): Automatically uses coupons.
-   * * **false**: Does not automatically use coupons.
+   * * **true** (default): Yes.
+   * * **false**: No.
    * 
-   * > After a coupon is used, the amount deducted by the coupon is not refunded if you downgrade the instance specifications.
+   * > After a coupon is used, if a downgrade is required, the amount deducted by the coupon will not be refunded.
    * 
    * @example
    * true
@@ -17,7 +17,7 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the [I/O burst feature for premium performance disks](https://help.aliyun.com/document_detail/2340501.html). Valid values:
+   * Specifies whether to enable the [I/O performance burst feature for Premium ESSD cloud disks](https://help.aliyun.com/document_detail/2340501.html). Valid values:
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.
@@ -40,7 +40,7 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * <props="china">Specifies whether to enable the [cold data archiving feature](https://help.aliyun.com/document_detail/2701832.html) for general-purpose cloud disks. Valid values:
+   * <props="china">Specifies whether to enable the [data archiving feature for general cloud disks](https://help.aliyun.com/document_detail/2701832.html). Valid values:
    * 
    * - <props="china">**true**: Enabled.
    * 
@@ -62,7 +62,7 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -72,10 +72,10 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The [target storage capacity](https://help.aliyun.com/document_detail/26312.html), in GB. You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the available storage capacity range for the target instance type.
+   * The [target storage capacity](https://help.aliyun.com/document_detail/26312.html). Unit: GB. You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the available storage capacity range for the target instance type.
    * 
    * > * You must specify at least one of this parameter and the **DBInstanceClass** parameter.
-   * > * You can call [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) to query the current storage capacity of the instance.
+   * > * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to view the current storage capacity of the instance.
    * 
    * @example
    * 500
@@ -85,7 +85,7 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The instance storage type. Valid values:
    * 
-   * * **general_essd**: premium performance disk (recommended)
+   * * **general_essd**: Premium ESSD (recommended)
    * * **cloud_essd**: PL1 ESSD
    * * **cloud_essd2**: PL2 ESSD
    * * **cloud_essd3**: PL3 ESSD
@@ -101,9 +101,9 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   DBNodesShrink?: string;
   /**
    * @remarks
-   * The type of specification change. Valid values:
+   * The type of specification change for the instance. Valid values:
    * 
-   * - **Up** (default): Upgrades a subscription instance or upgrades/downgrades a pay-as-you-go instance.
+   * - **Up** (default): Upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
    * - **Down**: Downgrades a subscription instance.
    * 
    * @example
@@ -112,11 +112,11 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The time when the new configurations take effect. Valid values:
-   * > **Changing some configurations may affect the instance**. Read the impact section in the [feature documentation](https://help.aliyun.com/document_detail/96061.html) before you configure this parameter. Perform the operation during off-peak hours.
-   * * **Immediate** (default): The new configurations take effect immediately.
-   * * **MaintainTime**: The new configurations take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html).
-   * * **ScheduleTime**: The new configurations take effect at a specified time. The specified time must be at least 12 hours later than the current time. The actual switchover time follows the formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * The effective period for the new configurations. Valid values:
+   * > **Changing some configurations may affect the instance**. Read the [Impact section in the feature documentation](https://help.aliyun.com/document_detail/96061.html) carefully before you configure this parameter, and perform the operation during off-peak hours.
+   * * **Immediate** (default): Takes effect immediately.
+   * * **MaintainTime**: Takes effect within the [maintenance window](https://help.aliyun.com/document_detail/610402.html).
+   * * **ScheduleTime**: Specifies a time for the switchover. The time must be at least 12 hours later than the current time, and the actual switch time follows the formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * Immediate
@@ -124,10 +124,10 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable the [Buffer Pool Extension (BPE) feature](https://help.aliyun.com/document_detail/2527067.html) for premium performance disks. Valid values:
+   * Specifies whether to enable the [Buffer Pool Extension (BPE) feature for Premium ESSD cloud disks](https://help.aliyun.com/document_detail/2527067.html). Valid values:
    * 
-   * - **1**: Enabled.
-   * - **0**: Disabled.
+   * -  **1**: Enabled.
+   * -  **0**: Disabled.
    * 
    * @example
    * 0
@@ -145,9 +145,9 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The parameters and their values. All parameter values are of the STRING type. You can call DescribeParameterTemplates to query parameter names and values.
+   * The parameters and their values. All parameter values are of the string type. You can call the DescribeParameterTemplates operation to query parameter names and values.
    * 
-   * > If you specify the **ParameterGroupId** parameter and both the ParameterGroupId and Parameters parameters modify the same parameter, the modification specified by the Parameters parameter takes precedence.
+   * > If you specify the **ParameterGroupId** parameter and a parameter is modified by both the ParameterGroupId and Parameters parameters, the modification in the Parameters parameter takes precedence.
    */
   parametersShrink?: string;
   /**
@@ -170,8 +170,8 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scheduled time for executing the parameter modification. The EffectiveTime parameter must be set to ScheduleTime. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-   * > The specified time must be later than the current time (the time when the call is made).
+   * Specifies the execution time for modifying the parameter. This parameter is required when EffectiveTime is set to ScheduleTime. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+   * > The time must be later than the current time (the time when the API call is executed).
    * 
    * @example
    * 2019-10-17T18:50:00Z
@@ -179,9 +179,9 @@ export class ModifyDBInstanceShrinkRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The [minor engine version](https://help.aliyun.com/document_detail/126002.html) of the PostgreSQL instance. If the specification change fails because the current minor engine version is not supported, specify the minor engine version to **upgrade the minor engine version during the specification change**.
+   * The [minor engine version](https://help.aliyun.com/document_detail/126002.html) of the PostgreSQL instance. When you change the instance type and an error indicates that the minor engine version is not supported, you must specify this parameter **to upgrade the minor engine version during the instance type change**.
    * 
-   * Format: `rds_postgres_<major version>00_<minor version>`. Example for version 12 with minor version 20200830: `rds_postgres_1200_20200830`.
+   * Format: `rds_postgres_<Major version number>00_<Minor version number>`. Example for version 12 on 20200830: `rds_postgres_1200_20200830`.
    * 
    * @example
    * rds_postgres_1200_20200830

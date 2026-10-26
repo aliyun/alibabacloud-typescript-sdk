@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID of the target instance. You can invoke the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. Valid values: any positive integer up to the maximum value of the Integer type. Default value: **1**.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,8 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30** to **100**. Default value: 30.
+   * The number of entries per page. Valid values: **30** to **100**.
+   * Default value: 30.
    * 
    * This parameter is required.
    * 
@@ -36,10 +37,10 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The private or public IP address that is used to connect to the self-managed PostgreSQL instance.
+   * The internal IP address or public IP address of the self-managed PostgreSQL database.
    * 
-   * *   If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, enter the private IP address of the ECS instance. For more information about how to obtain the private IP address of an ECS instance, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-   * *   If the self-managed PostgreSQL instance resides in an on-premises data center, enter the private IP address of the on-premises data center.
+   * - In the one-click cloud migration scenario for a self-managed PostgreSQL database on an ECS instance, set this parameter to the private IP address of the ECS instance. For more information about how to obtain the IP address, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
+   * - In the one-click cloud migration scenario for a self-managed PostgreSQL database in a data center, set this parameter to the internal IP address of the data center.
    * 
    * @example
    * 172.2.XX.XX
@@ -47,7 +48,7 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   sourceIpAddress?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the self-managed PostgreSQL instance. You can run the netstat -a | grep PGSQL command to obtain the port number.
+   * The port of the self-managed PostgreSQL database. You can run the `netstat -a | grep PGSQL` command to view the port.
    * 
    * @example
    * 5432
@@ -55,7 +56,7 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   sourcePort?: number;
   /**
    * @remarks
-   * The task ID. You can obtain the task ID from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
+   * The ID of the task. You can obtain the task ID from the response message when you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
    * 
    * @example
    * 439946016
@@ -63,7 +64,7 @@ export class DescribeCloudMigrationPrecheckResultRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name. You can obtain the task name from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
+   * The name of the task. You can obtain the task name from the response message when you call the CreateCloudMigrationPrecheckTask operation to create a pre-check task for one-click cloud migration.
    * 
    * @example
    * slf7w7wj3g

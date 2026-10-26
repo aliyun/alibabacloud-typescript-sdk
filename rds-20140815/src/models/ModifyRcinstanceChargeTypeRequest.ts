@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -15,11 +15,11 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * * **true**: Enabled (default).
-   * * **false**: Disabled.
+   * * **true**: enables auto-renewal (default)
+   * * **false**: disables auto-renewal
    * 
-   * > * This parameter takes effect only when you switch from pay-as-you-go to subscription.
-   * > * All non-**true** strings are treated as **false**.
+   * > * This parameter takes effect only when you change the billing method from pay-as-you-go to subscription.
+   * > * Any string other than **true** is processed as **false**.
    * 
    * @example
    * true
@@ -27,9 +27,9 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons. Valid values:
-   * * **true** (default): Coupons are used.
-   * * **false**: Coupons are not used.
+   * Specifies whether to use vouchers. Valid values:
+   * * **true** (default): uses vouchers.
+   * * **false**: does not use vouchers.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The business extension parameter.
+   * The business extension parameters.
    * 
    * @example
    * None
@@ -45,7 +45,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The custom token that is used to ensure the idempotence of the request. 
+   * The client token that is used to ensure the idempotence of the request. 
    * > The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
@@ -54,7 +54,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -62,7 +62,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -70,7 +70,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   includeDataDisks?: boolean;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -88,7 +88,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * The reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -97,8 +97,8 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance after the change. Valid values:
-   * * **Prepaid**: subscription.
-   * * **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: subscription
+   * * **Postpaid**: pay-as-you-go
    * 
    * @example
    * Postpaid
@@ -106,9 +106,9 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * * **Year**: yearly subscription.
-   * * **Month**: monthly subscription.
+   * Specifies the subscription period unit. Valid values:
+   * * **Year**: year
+   * * **Month**: month
    * 
    * > This parameter is required if **PayType** is set to **Prepaid**.
    * 
@@ -139,11 +139,11 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subscription duration. Valid values:
-   * * If **Period** is set to **Year**, the valid values of UsedTime are **1 to 5**.
-   * * If **Period** is set to **Month**, the valid values of UsedTime are **1 to 11**.
+   * Specifies the subscription duration. Valid values:
+   * * If the **Period** parameter is set to **Year**, the value of UsedTime ranges from **1** to **5**.
+   * * If the **Period** parameter is set to **Month**, the value of UsedTime ranges from **1** to **11**.
    * 
-   * > This parameter is required if PayType is set to **Prepaid**.
+   * > This parameter is required if the billing method is set to **Prepaid**.
    * 
    * @example
    * 2

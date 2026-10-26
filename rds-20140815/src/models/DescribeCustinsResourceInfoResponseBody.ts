@@ -13,7 +13,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuAdjustDeadline?: string;
   /**
    * @remarks
-   * The maximum adjustable CPU ratio.
+   * The maximum adjustable ratio for the CPU.
    * 
    * @example
    * 30
@@ -29,7 +29,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   cpuAdjustableMaxValue?: string;
   /**
    * @remarks
-   * The CPU usage.
+   * The CPU increase ratio.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   maxIopsIncreaseRatioValue?: string;
   /**
    * @remarks
-   * The maximum adjustable memory ratio.
+   * The maximum adjustable ratio for the memory.
    * 
    * @example
    * 60
@@ -157,7 +157,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   memoryIncreaseRatioValue?: string;
   /**
    * @remarks
-   * The number of CPU cores of the instance.
+   * The number of CPUs of the instance.
    * 
    * @example
    * 2
@@ -181,7 +181,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
   originMaxIops?: string;
   /**
    * @remarks
-   * The actual memory usage. Unit: MB.
+   * The actual memory used. Unit: MB.
    * 
    * @example
    * 20
@@ -260,7 +260,7 @@ export class DescribeCustinsResourceInfoResponseBody extends $dara.Model {
   data?: DescribeCustinsResourceInfoResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D4D4BE8A-DD46-440A-BFCD-EE31DA81C9DD

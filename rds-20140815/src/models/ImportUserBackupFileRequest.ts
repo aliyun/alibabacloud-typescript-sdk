@@ -5,13 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ImportUserBackupFileRequest extends $dara.Model {
   /**
    * @remarks
-   * A JSON array that describes the backup file information in the OSS bucket. Example:
+   * The JSON array that describes the information about the backup file in the OSS bucket. Example:
    * `{"Bucket":"test", "Object":"test/test_db_employees.xb","Location":"ap-southeast-1"}`
    * 
-   * The following list describes the parameters in the array:
-   * * **Bucket**: the name of the OSS bucket that stores the backup file. You can call [GetBucket](https://help.aliyun.com/document_detail/31965.html) to query the bucket name.
-   * * **Object**: the full path of the backup file in the directory. You can call [GetObject](https://help.aliyun.com/document_detail/31980.html) to query the path.
-   * * **Location**: the region ID of the OSS bucket. You can call [GetBucketLocation](https://help.aliyun.com/document_detail/31967.html) to query the region ID.
+   * Parameters in the array:
+   * * **Bucket**: the name of the OSS bucket where the backup file is stored. You can call the [GetBucket](https://help.aliyun.com/document_detail/31965.html) operation to query the name.
+   * * **Object**: the detailed path of the directory where the backup file is stored. You can call the [GetObject](https://help.aliyun.com/document_detail/31980.html) operation to query the path.
+   * * **Location**: the region ID of the OSS bucket. You can call the [GetBucketLocation](https://help.aliyun.com/document_detail/31967.html) operation to query the region ID.
+   * 
+   * This parameter is required when **Mode** is set to **oss**. For **Location**, specify the region ID of the OSS bucket. You can call the GetBucketLocation operation to query the region ID.
    * 
    * @example
    * {"Bucket":"test", "Object":"test/test_db_employees.xb","Location":"ap-southeast-1"}
@@ -19,7 +21,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   backupFile?: string;
   /**
    * @remarks
-   * The region ID of the OSS bucket that stores the backup file of the self-managed MySQL 5.7 database. You can call DescribeRegions to query the region ID.
+   * The region ID of the OSS bucket where the backup file of the self-managed MySQL 5.7 database is stored. You can call the DescribeRegions operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -28,10 +30,10 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically set up replication. Valid values:
-   * - true: automatically sets up replication. The `MasterInfo` parameter is required.
-   * - false: does not set up replication.
+   * - true: yes. The MasterInfo parameter is required.
+   * - false: no.
    * 
-   * > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call this operation.
+   * > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
    * 
    * @example
    * true
@@ -55,7 +57,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The version of the MySQL database engine. Valid values: **5.7** and **8.0**.
+   * The version of the MySQL database. Valid values: **5.7** and **8.0**.
    * 
    * @example
    * 5.7
@@ -63,20 +65,19 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * A JSON array that contains the master information for setting up MySQL replication (case-sensitive). Example:
+   * The case-sensitive JSON array that provides the master information for setting up MySQL replication. Example:
    * 
    * ```
    * {"masterIp":"172.20.xx.xx","masterPort":"3306","masterUser":"replica","masterPassword":"W33uopkehBQ="}
-   * 
    * ```
    * 
-   * The following list describes the parameters in the array:
-   * - `masterIp`: the IP address of the primary database.
-   * - `masterPort`: the port of the primary database.
-   * - `masterUser`: the replication account of the primary database.
-   * - `masterPassword`: the password of the replication account for the primary database. The password must be Base64-encoded.
+   * Parameters in the array:
+   * - masterIp: the IP address of the primary database.
+   * - masterPort: the port of the primary database.
+   * - masterUser: the replication account of the primary database.
+   * - masterPassword: the password of the replication account of the primary database. The password must be Base64-encoded.
    * 
-   * > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call this operation.
+   * > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
    * 
    * @example
    * {"masterIp":"172.20.xx.xx","masterPort":"3306","masterUser":"replica","masterPassword":"W33uopkehBQ="}
@@ -86,7 +87,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
    * @remarks
    * The import mode. Valid values:
    * 
-   * - oss: imports the backup from OSS.
+   * - oss: downloads the backup from OSS and imports it.
    * - stream: imports the backup over the network.
    * 
    * @example
@@ -96,9 +97,9 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the ApsaraDB RDS instance. You can call DescribeRegions to query the region ID.
+   * The region ID of the ApsaraDB RDS instance. You can call the DescribeRegions operation to query the most recent region list.
    * 
-   * > * The value of this parameter specifies the region ID in which you want to create the ApsaraDB RDS instance.
+   * > * The value of this parameter is the region ID where you want to create the ApsaraDB RDS instance.
    * > * The value must be the same as the value of the **BucketRegion** parameter.
    * 
    * This parameter is required.
@@ -109,7 +110,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
    * 
    * @example
    * rg-acfmy****
@@ -138,21 +139,19 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * A JSON array that provides the source information for the full backup (case-sensitive). Example:
+   * The case-sensitive JSON array that provides the source information of the full backup. Example:
    * 
    * ```
-   * {"sourceIp":"172.20.xx
-   * .xx","sourcePort":"9999"}
-   * 
+   * {"sourceIp":"172.20.xx.xx","sourcePort":"9999"}
    * ```
    * 
-   * The following list describes the parameters in the array:
+   * Parameters in the array:
    * 
-   * - `sourceIp`: the source IP address.
+   * - sourceIp: the source IP address.
    * 
-   * - `sourcePort`: the Netcat listening port on the source.
+   * - sourcePort: the port listened by Netcat on the source.
    * 
-   * > This parameter takes effect only for native replication instances. You must specify the `DBInstanceId` parameter when you call this operation.
+   * > This parameter takes effect only for native replication instances. You must specify the DBInstanceId parameter when you call this operation.
    * 
    * @example
    * {"sourceIp":"172.20.xx.xx","sourcePort":"9999"}
@@ -160,10 +159,10 @@ export class ImportUserBackupFileRequest extends $dara.Model {
   sourceInfo?: string;
   /**
    * @remarks
-   * The zone ID. You can call DescribeRegions to query the zone ID.
+   * The zone ID. You can call the DescribeRegions operation to query the most recent zone list.
    * 
-   * > * After you specify a zone, the system creates a second-level snapshot in the zone, which significantly reduces the time required for backup import.
-   * > * When you call CreateDBInstance to create an instance from the user backup, this zone is the zone in which the new instance resides.
+   * > * After you specify a zone, the system creates a snapshot within seconds in the zone, which significantly reduces the time required to import the backup.
+   * > * When you call the CreateDBInstance operation to create an instance by using the user backup, the instance is created in this zone.
    * 
    * @example
    * cn-hangzhou-b

@@ -23,7 +23,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of records per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task ID. The task ID returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
+   * The task ID. This ID is returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
    * 
    * @example
    * 8413252
@@ -39,7 +39,7 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name. The task name returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
+   * The task name. This is the name of the task when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
    * 
    * @example
    * test01
@@ -48,8 +48,8 @@ export class DescribeReplicationLinkLogsRequest extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **create**: Create a replication link.
-   * - **create-dryrun**: Dry run for creating a replication link.
+   * - **create**: Creates a synchronization link.
+   * - **create-dryrun**: Performs a precheck for creating a synchronization link.
    * 
    * This parameter is required.
    * 

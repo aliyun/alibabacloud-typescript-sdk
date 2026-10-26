@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The type of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported.
+   * The category of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported.
    * 
    * @example
    * cloud_essd
@@ -23,8 +23,8 @@ export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $dara.Mo
    * @remarks
    * Indicates whether the cloud disk is encrypted. Valid values:
    * 
-   * - **true**: Encrypted.
-   * - **false** (default): Not encrypted.
+   * - **true**: The cloud disk is encrypted.
+   * - **false** (default): The cloud disk is not encrypted.
    * 
    * @example
    * false
@@ -32,12 +32,12 @@ export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $dara.Mo
   encrypted?: string;
   /**
    * @remarks
-   * The performance level (PL) of the standard SSD. Valid values:
+   * The performance level of the ESSD cloud disk. Valid values:
    * 
-   * - **PL0**: A maximum of 10,000 random read/write IOPS per cloud disk.
-   * - **PL1**: A maximum of 50,000 random read/write IOPS per cloud disk.
-   * - **PL2**: A maximum of 100,000 random read/write IOPS per cloud disk.
-   * - **PL3**: A maximum of 1,000,000 random read/write IOPS per cloud disk.
+   * - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
+   * - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
+   * - **PL2**: A single cloud disk delivers up to 100,000 random read/write IOPS.
+   * - **PL3**: A single cloud disk delivers up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL0
@@ -83,7 +83,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $dara.Mo
 export class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The type of the system cloud disk. Only **cloud_essd** (Enterprise SSD (ESSD)) is supported.
+   * The category of the system cloud disk. Only **cloud_essd** (ESSD) is supported.
    * 
    * @example
    * cloud_essd
@@ -91,12 +91,12 @@ export class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk extends $dara.
   category?: string;
   /**
    * @remarks
-   * The performance level (PL) of the standard SSD. Valid values:
+   * The performance level of the ESSD cloud disk. Valid values:
    * 
-   * - **PL0**: A maximum of 10,000 random read/write IOPS per cloud disk.
-   * - **PL1**: A maximum of 50,000 random read/write IOPS per cloud disk.
-   * - **PL2**: A maximum of 100,000 random read/write IOPS per cloud disk.
-   * - **PL3**: A maximum of 1,000,000 random read/write IOPS per cloud disk.
+   * - **PL0**: A single cloud disk delivers up to 10,000 random read/write IOPS.
+   * - **PL1**: A single cloud disk delivers up to 50,000 random read/write IOPS.
+   * - **PL2**: A single cloud disk delivers up to 100,000 random read/write IOPS.
+   * - **PL3**: A single cloud disk delivers up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL1
@@ -180,7 +180,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
    * @remarks
    * Indicates whether automatic payment is enabled. Valid values:
    * - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false**: Only an order is generated. No payment is made.
+   * - **false**: Only an order is generated and no payment is made.
    * 
    * @example
    * true
@@ -190,8 +190,8 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
    * @remarks
    * Indicates whether auto-renewal is enabled for the instance. Valid values:
    * 
-   * * **true** (default): Enabled.
-   * * **false**: Disabled.
+   * * **true** (default): Auto-renewal is enabled.
+   * * **false**: Auto-renewal is disabled.
    * 
    * @example
    * true
@@ -207,7 +207,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Indicates whether the node is allowed to join an ACK cluster.
+   * Indicates whether joining an ACK cluster is allowed.
    * 
    * @example
    * 1
@@ -220,7 +220,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   dataDisk?: DescribeRCNodePoolResponseBodyNodePoolListDataDisk[];
   /**
    * @remarks
-   * The deployment set ID.
+   * The ID of the deployment set.
    * 
    * @example
    * ds-bp18ukv66rlyuffv****
@@ -228,7 +228,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
    * test
@@ -253,8 +253,8 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * * **Prepaid**: subscription.
-   * * **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: Subscription.
+   * * **Postpaid**: Pay-as-you-go.
    * 
    * @example
    * Prepaid
@@ -262,7 +262,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * test
@@ -310,7 +310,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The node pool ID.
+   * The ID of the node pool.
    * 
    * @example
    * np31da1b38983f4511b490fc62108a****
@@ -326,7 +326,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   nodePoolName?: string;
   /**
    * @remarks
-   * The password of the root account of the instance.
+   * The password of the root account for the instance.
    * 
    * @example
    * testPassword
@@ -334,7 +334,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The subscription duration of the resource.
+   * The subscription duration.
    * 
    * @example
    * 1
@@ -342,9 +342,9 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription billable methods duration. Valid values:
-   * - **Year**: year.
-   * - **Month** (default): month.
+   * The unit of the subscription duration for the subscription Billable methods. Valid values:
+   * - **Year**: Year.
+   * - **Month** (default): Month.
    * 
    * @example
    * Year
@@ -360,7 +360,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****
@@ -376,7 +376,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   securityEnhancementStrategy?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-uf6av412xaxixuez****
@@ -392,7 +392,7 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The system cloud disk specifications.
+   * The specifications of the system cloud disk.
    */
   systemDisk?: DescribeRCNodePoolResponseBodyNodePoolListSystemDisk;
   /**

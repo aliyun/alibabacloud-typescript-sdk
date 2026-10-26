@@ -8,6 +8,7 @@ export class DescribeQuickSaleConfigResponseBody extends $dara.Model {
    * The commodity code. Valid values:
    * 
    * - rds: subscription
+   * 
    * - bards: pay-as-you-go
    * 
    * @example
@@ -16,7 +17,7 @@ export class DescribeQuickSaleConfigResponseBody extends $dara.Model {
   commodity?: string;
   /**
    * @remarks
-   * The commodity configuration details.
+   * The product configuration details.
    */
   items?: { [key: string]: any };
   /**

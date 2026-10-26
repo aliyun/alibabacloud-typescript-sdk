@@ -13,7 +13,7 @@ export class DescribeRCNodePoolRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The node pool ID.
+   * The ID of the node pool.
    * 
    * @example
    * np31da1b38983f4511b490fc62108a****

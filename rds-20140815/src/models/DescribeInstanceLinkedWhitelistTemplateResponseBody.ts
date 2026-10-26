@@ -13,7 +13,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
   id?: number;
   /**
    * @remarks
-   * The IP address list.
+   * The list of IP addresses.
    * 
    * @example
    * 12.0.X.X,10.2.X.X
@@ -21,7 +21,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
   ips?: string;
   /**
    * @remarks
-   * The whitelist template ID.
+   * The ID of the whitelist template.
    * 
    * @example
    * 412
@@ -29,7 +29,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
   templateId?: number;
   /**
    * @remarks
-   * The whitelist template name.
+   * The name of the whitelist template.
    * 
    * @example
    * template_123
@@ -37,7 +37,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
   templateName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 16****
@@ -75,7 +75,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates ex
 export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * rm-bp191w771k******
@@ -83,7 +83,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $da
   insName?: string;
   /**
    * @remarks
-   * The whitelist template information returned in a paged manner.
+   * The paginated whitelist template information.
    */
   templates?: DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates[];
   static names(): { [key: string]: string } {
@@ -117,10 +117,10 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
    * @remarks
    * The response code. Valid values:
    * - **200**: Normal.
-   * - **400**: Client fault.
+   * - **400**: Client error.
    * - **401**: Authentication failed.
-   * - **404**: Request page not found.
-   * - **500**: Server fault.
+   * - **404**: The requested page is not found.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -128,13 +128,13 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The returned data list.
+   * The list of returned data.
    */
   data?: DescribeInstanceLinkedWhitelistTemplateResponseBodyData;
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * - **200**: Normal.
    * - **400**: Client error.
    * - **500**: Server error.
    * 
@@ -152,7 +152,7 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
@@ -160,9 +160,9 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request is successful.
    * - **false**: The request failed.
    * 
    * @example

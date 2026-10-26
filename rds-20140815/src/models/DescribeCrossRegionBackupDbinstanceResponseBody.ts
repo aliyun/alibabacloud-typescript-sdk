@@ -94,7 +94,7 @@ export class DescribeCrossRegionBackupDBInstanceResponseBody extends $dara.Model
   items?: DescribeCrossRegionBackupDBInstanceResponseBodyItems;
   /**
    * @remarks
-   * The number of items in the cross-region backup settings list.
+   * The number of entries in the cross-region backup settings list.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class DescribeCrossRegionBackupDBInstanceResponseBody extends $dara.Model
   itemsNumbers?: number;
   /**
    * @remarks
-   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -136,7 +136,7 @@ export class DescribeCrossRegionBackupDBInstanceResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

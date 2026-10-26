@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can generate the token on your client. Make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOC****
@@ -15,7 +13,7 @@ export class DescribeSlotsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 

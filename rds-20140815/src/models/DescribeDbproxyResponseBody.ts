@@ -249,7 +249,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyConnectStringItems?: DescribeDBProxyResponseBodyDBProxyConnectStringItems;
   /**
    * @remarks
-   * An internal parameter. You can ignore this parameter.
+   * This is an internal parameter and can be ignored.
    * 
    * @example
    * normal
@@ -294,7 +294,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyInstanceNum?: number;
   /**
    * @remarks
-   * This parameter is supported only for ApsaraDB RDS for PostgreSQL. The actual specification size of the proxy instance.
+   * This parameter is supported only by ApsaraDB RDS for PostgreSQL. It indicates the actual specifications of the proxy instance.
    * 
    * Format: `CPU/Memory`.
    * 
@@ -307,7 +307,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The running status of the proxy instance. Valid values:
-   * - DBInstanceClassChanging: The specification is being changed.
+   * - DBInstanceClassChanging: The specifications are being changed.
    * - Creating: The instance is being created.
    * - Running: The instance is running.
    * - Deleting: The instance is being deleted.
@@ -319,11 +319,11 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the proxy service. Valid values:
-   * - 1: shared database proxy
-   * - 2: dedicated database proxy
+   * - 1: shared proxy
+   * - 2: dedicated proxy
    * - 3: general-purpose database proxy
    * 
-   * > ApsaraDB RDS for PostgreSQL does not support shared database proxies.
+   * > ApsaraDB RDS for PostgreSQL does not support shared proxies.
    * 
    * @example
    * 2
@@ -331,7 +331,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyInstanceType?: string;
   /**
    * @remarks
-   * An internal parameter. You can ignore this parameter.
+   * This is an internal parameter and can be ignored.
    * 
    * @example
    * 18
@@ -340,10 +340,10 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodes;
   /**
    * @remarks
-   * The persistent connection status. Valid values:
-   * - **Enabled**: Persistent connections are enabled.
-   * - **Disabled**: Persistent connections are disabled.
-   * - **Unsupported**: The instance does not support persistent connections.
+   * The status of connection persistence. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: disabled
+   * - **Unsupported**: The instance does not support connection persistence.
    * 
    * @example
    * Disabled
@@ -362,7 +362,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   dbProxyEndpointItems?: DescribeDBProxyResponseBodyDbProxyEndpointItems;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 909A69EE-71C8-4417-A0B9-FF085407E1E3
@@ -370,7 +370,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****

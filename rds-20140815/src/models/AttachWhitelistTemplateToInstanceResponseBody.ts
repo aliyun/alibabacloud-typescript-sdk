@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The return status. Valid values:
-   * - **ok**: Success.
+   * The returned status. Valid values:
+   * - **ok**: Normal.
    * - **error**: Error.
    * 
    * @example
@@ -39,10 +39,10 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
    * @remarks
    * The response code. Valid values:
    * - **200**: Normal.
-   * - **400**: Client fault.
+   * - **400**: Client error.
    * - **401**: Authentication failed.
-   * - **404**: Request page not found.
-   * - **500**: Server fault.
+   * - **404**: Requested page not found.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -50,13 +50,13 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: AttachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * - **200**: Normal.
    * - **400**: Client error.
    * - **500**: Server error.
    * 
@@ -66,7 +66,7 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

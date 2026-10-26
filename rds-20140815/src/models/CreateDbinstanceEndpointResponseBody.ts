@@ -55,7 +55,7 @@ export class CreateDBInstanceEndpointResponseBodyData extends $dara.Model {
 export class CreateDBInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: CreateDBInstanceEndpointResponseBodyData;
   /**

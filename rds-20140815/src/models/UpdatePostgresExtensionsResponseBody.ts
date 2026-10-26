@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostgresExtensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC

@@ -15,7 +15,7 @@ export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Set this parameter to 1, which specifies a forced switchover.
+   * Set the value to 1, which specifies a forced switchover.
    * 
    * @example
    * 1
@@ -24,7 +24,7 @@ export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A reserved parameter. This parameter does not take effect.
+   * The reserved parameter. This parameter does not take effect.
    * 
    * @example
    * 2022-02-25T06:57:41Z
@@ -34,7 +34,7 @@ export class ActivateMigrationTargetInstanceRequest extends $dara.Model {
    * @remarks
    * The switchover time mode for cloud migration.
    * 
-   * Set this parameter to 0, which specifies an immediate switchover.
+   * Set the value to 0, which specifies an immediate switchover.
    * 
    * @example
    * 0

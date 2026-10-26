@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRCDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk that you want to release.
+   * The ID of the cloud disk to be released.
    * 
    * This parameter is required.
    * 

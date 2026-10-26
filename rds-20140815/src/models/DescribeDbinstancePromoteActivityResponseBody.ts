@@ -13,7 +13,7 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * - Chinese site: 26842
+   * - China site: 26842
    * - International site: 26888
    * 
    * @example
@@ -22,7 +22,7 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID.
    * 
    * @example
    * rm-uf6wjk5******
@@ -49,10 +49,10 @@ export class DescribeDBInstancePromoteActivityResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The dynamic property of the instance. For more information, see [Instance dynamics](https://help.aliyun.com/document_detail/2391834.html).
+   * The dynamic attributes of the instance. For more information, see [Instance dynamics](https://help.aliyun.com/document_detail/2391834.html).
    * 
    * @example
-   * 1 (indicates that the target instance is not participating in any promotions)
+   * 1 (indicating that the target instance does not participate in any promotional activities)
    */
   isActivity?: string;
   /**

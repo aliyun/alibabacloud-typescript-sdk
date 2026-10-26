@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCInstanceDdosCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the assets that are assigned public IP addresses to query.
+   * The region ID of the public IP address asset to query.
    * 
    * @example
    * cn-beijing
@@ -13,7 +13,7 @@ export class DescribeRCInstanceDdosCountRequest extends $dara.Model {
   ddosRegionId?: string;
   /**
    * @remarks
-   * The instance type of the assets that are assigned public IP addresses to query. Set the value to **ecs**.
+   * The instance type of the public IP address asset to query. Set the value to **ecs**.
    * 
    * @example
    * ecs

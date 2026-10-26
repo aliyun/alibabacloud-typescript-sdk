@@ -281,7 +281,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   items?: DescribeDBInstancesResponseBodyItems;
   /**
    * @remarks
-   * The pagination token. If the results are displayed on multiple pages, pass this value in the **NextToken** parameter in the next request to display the next page.
+   * The pagination token. If the response is paginated, you can pass this value to the **NextToken** parameter in the next call to retrieve the next page.
    * 
    * @example
    * o7PORW5o2TJg****
@@ -290,7 +290,8 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
-   * > If you specify the **MaxResults** or **NextToken** parameter, only **1** is returned for this parameter. You can ignore this return value.
+   * 
+   * > If you specify the **MaxResults** or **NextToken** parameter, this parameter returns only **1** and can be ignored.
    * 
    * @example
    * 1
@@ -315,7 +316,8 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of records.
-   * > If you specify the **MaxResults** or **NextToken** parameter, only the number of records on the current page is returned for this parameter. You can ignore this return value.
+   * 
+   * > If you specify the **MaxResults** or **NextToken** parameter, this parameter returns only the number of records on the current page and can be ignored.
    * 
    * @example
    * 100

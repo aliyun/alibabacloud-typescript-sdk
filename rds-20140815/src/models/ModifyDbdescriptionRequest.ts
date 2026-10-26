@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The database description.
+   * The description of the database.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyDBDescriptionRequest extends $dara.Model {
   DBDescription?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyDBDescriptionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * This parameter is required.
    * 

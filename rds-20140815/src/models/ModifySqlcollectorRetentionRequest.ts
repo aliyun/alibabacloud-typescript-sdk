@@ -6,11 +6,11 @@ export class ModifySQLCollectorRetentionRequest extends $dara.Model {
   /**
    * @remarks
    * The log retention period of SQL Explorer. Valid values:
-   * - 30: 30 days
-   * - 180: 180 days
-   * - 365: 1 year
-   * - 1095: 3 years
-   * - 1825: 5 years
+   * - 30: 30 days.
+   * - 180: 180 days.
+   * - 365: 1 year.
+   * - 1095: 3 years.
+   * - 1825: 5 years.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ModifySQLCollectorRetentionRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class ModifySQLCollectorRetentionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. You can call DescribeDBInstanceAttribute to obtain the resource group ID.
+   * The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
    * @example
    * rg-acfmy****

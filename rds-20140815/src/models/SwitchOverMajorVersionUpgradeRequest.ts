@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -13,7 +13,7 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pgm-m5e4gegx63fh92bn
@@ -23,7 +23,7 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query available regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   regionId?: Buffer;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****
@@ -41,7 +41,7 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum tolerable time for the switchover, in seconds. If the switchover exceeds this time, it is canceled. Valid values: 10 to 3600.
+   * Specifies the maximum tolerance time for the switchover. If the switchover exceeds this time, it is canceled. Unit: seconds. Valid values: 10 to 3600.
    * 
    * @example
    * 10
@@ -49,10 +49,10 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
   switchoverTimeout?: number;
   /**
    * @remarks
-   * The type of switchover operation. Valid values:
-   * * switch: performs the switchover.
-   * * cancel: cancels the switchover.
-   * * interrupt: interrupts the switchover.
+   * Specifies the operation type for the switchover. Valid values:
+   * * switch: Switchover.
+   * * cancel: Cancel.
+   * * interrupt: Interrupt.
    * 
    * @example
    * switch

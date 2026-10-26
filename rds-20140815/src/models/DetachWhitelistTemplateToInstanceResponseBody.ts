@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DetachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The return status. Valid values:
-   * - **ok**: Success.
-   * - **error**: Error.
+   * The returned status. Valid values:
+   * - **ok**: Successful.
+   * - **error**: Failed.
    * 
    * @example
    * ok
@@ -40,8 +40,8 @@ export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
    * The response code. Valid values:
    * - **200**: Normal.
    * - **400**: Client fault.
-   * - **401**: Authentication failed.
-   * - **404**: Request page not found.
+   * - **401**: Failed to authenticate.
+   * - **404**: The requested page is not found.
    * - **500**: Server fault.
    * 
    * @example
@@ -50,13 +50,13 @@ export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: DetachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * - **200**: Successful.
    * - **400**: Client error.
    * - **500**: Server error.
    * 
@@ -66,7 +66,7 @@ export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -74,7 +74,7 @@ export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 224DB9F7-3100-4899-AB9C-C938BCCB43E7
@@ -84,8 +84,8 @@ export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: Success.
-   * - **false**: Failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

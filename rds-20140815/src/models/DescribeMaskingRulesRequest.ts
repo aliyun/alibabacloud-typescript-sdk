@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMaskingRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMaskingRulesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * myDB
@@ -34,7 +34,7 @@ export class DescribeMaskingRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The rule names, separated by commas.
+   * The names of the rules, separated by commas.
    * 
    * @example
    * test1,test2

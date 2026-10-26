@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address range for outbound authorization. CIDR format and IPv4 IP address ranges are supported.
+   * The destination IP address range for outbound authorization. Both CIDR format and IPv4 format IP address ranges are supported.
    * 
    * @example
    * 192.168.0.1/12
@@ -13,13 +13,13 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   destCidrIp?: string;
   /**
    * @remarks
-   * The protocol type. This parameter is case-insensitive. Valid values: 
+   * The protocol type. This parameter is not case-sensitive. Valid values: 
    *          
    * - **ICMP**
    * - **GRE**
    * - **TCP**
    * - **UDP**
-   * - **ALL**: all protocols.
+   * - **ALL**: All protocols are supported.
    * 
    * @example
    * TCP
@@ -35,11 +35,11 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports for the transport layer protocol. Valid values:
-   * - TCP/UDP: valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example of a valid value: **1/200**. Example of an invalid value: **200/1**.
+   * The destination port range for the transport layer protocol. Valid values:
+   * - TCP or UDP: **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example: **1/200**. Invalid example: **200/1**.
    * - ICMP: **-1/-1**.
    * - GRE: **-1/-1**.
-   * - If IpProtocol is set to all: **-1/-1**.
+   * - ALL: **-1/-1**.
    * 
    * @example
    * 80/80
@@ -47,7 +47,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   portRange?: string;
   /**
    * @remarks
-   * The priority of the rule. Valid values: 1 to 100. A smaller value indicates a higher priority. If two security group rules have the same priority, the deny rule takes precedence.
+   * The rule priority. Valid values: 1 to 100. A smaller value indicates a higher priority. If multiple security group rules have the same priority, the drop rule takes precedence.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   priority?: number;
   /**
    * @remarks
-   * The source IP address range for inbound authorization. CIDR format and IPv4 IP address ranges are supported.
+   * The source IP address range for inbound authorization. Both CIDR format and IPv4 format IP address ranges are supported.
    * 
    * @example
    * 192.168.0.1/12
@@ -63,12 +63,12 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of source ports for the transport layer protocol. Valid values:
+   * The source port range for the transport layer protocol. Valid values:
    * 
-   * - TCP/UDP: valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example of a valid value: **1/200**. Example of an invalid value: **200/1**.
+   * - TCP or UDP: **1** to **65535**. Separate the start port and the end port with a forward slash (/). Example: **1/200**. Invalid example: **200/1**.
    * - ICMP: **-1/-1**.
    * - GRE: **-1/-1**.
-   * - If IpProtocol is set to all: **-1/-1**.
+   * - ALL: **-1/-1**.
    * 
    * @example
    * 80/80
@@ -110,10 +110,10 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
 export class AuthorizeRCSecurityGroupPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the rule. Valid values:
+   * The rule direction. Valid values:
    * 
-   * - **ingress**: inbound.
-   * - **egress**: outbound.
+   * - **ingress**: inbound traffic to the security group.
+   * - **egress**: outbound traffic from the security group.
    * 
    * @example
    * ingress

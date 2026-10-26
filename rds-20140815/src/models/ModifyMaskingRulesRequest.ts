@@ -89,7 +89,7 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   enabled?: string;
   /**
    * @remarks
-   * The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
+   * The rule algorithms. You can specify multiple algorithms and add extra parameters for masking algorithms. Format: {name: Algorithm 1}, {name: Algorithm 2, params: {encryption position, number of encrypted digits}}.
    * 
    * @example
    * [{"name": "sha256"},
@@ -114,7 +114,7 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   ruleConfig?: ModifyMaskingRulesRequestRuleConfig;
   /**
    * @remarks
-   * The name of the rule to modify.
+   * The name of the rule to be modified.
    * 
    * This parameter is required.
    * 

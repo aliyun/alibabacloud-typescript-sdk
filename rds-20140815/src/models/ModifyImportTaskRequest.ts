@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class ModifyImportTaskRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Valid values:
+   * The operation to perform. Valid values:
    * 
-   * - RETRY_IMPORT: retries the import task.
-   * - CANCEL: cancels the task.
+   * - RETRY_IMPORT: Retries the import.
+   * - CANCEL: Cancels the task.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyImportTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the destination region. You can call DescribeRegions to query region IDs.
+   * The ID of the destination region. You can call the DescribeRegions operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyImportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * This parameter is required.
    * 

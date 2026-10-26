@@ -13,7 +13,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowCancel?: string;
   /**
    * @remarks
-   * Indicates whether the task time can be modified. A value of 1 indicates that the time can be modified. A value of 0 indicates that the time cannot be modified.
+   * Indicates whether the execution time can be modified. A value of 1 indicates that the execution time can be modified. A value of 0 indicates that the execution time cannot be modified.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowChange?: string;
   /**
    * @remarks
-   * The event level code. S1 indicates system O&M. S0 indicates risk recovery.
+   * The event level code. Valid values: S1 (system O&M) and S0 (exception recovery).
    * 
    * @example
    * S1
@@ -40,12 +40,12 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * The event level in Chinese.
    * 
    * @example
-   * 系统运维
+   * System O&M
    */
   changeLevelZh?: string;
   /**
    * @remarks
-   * The creation time. The time is in UTC and follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -61,7 +61,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   currentAVZ?: string;
   /**
    * @remarks
-   * The database type, such as mysql, pgsql, or mssql.
+   * The database engine, such as mysql, pgsql, or mssql.
    * 
    * @example
    * mysql
@@ -69,7 +69,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The Milvus version number.
+   * The kernel version.
    * 
    * @example
    * 5.7
@@ -77,7 +77,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The latest deadline by which the task execution time can be adjusted. The time is in UTC and follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The latest time to which the task execution time can be adjusted. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T23:59:59Z
@@ -93,7 +93,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The event impact.
+   * The impact of the event.
    * 
    * @example
    * TransientDisconnection
@@ -101,7 +101,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impact?: string;
   /**
    * @remarks
-   * The event impact in English.
+   * The impact of the event in English.
    * 
    * @example
    * Transient instance disconnection
@@ -109,7 +109,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impactEn?: string;
   /**
    * @remarks
-   * The event impact in Chinese.
+   * The impact of the event in Chinese.
    * 
    * @example
    * Instance interruption
@@ -117,7 +117,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impactZh?: string;
   /**
    * @remarks
-   * The instance alias or instance description.
+   * The instance alias or description.
    * 
    * @example
    * test
@@ -133,7 +133,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The modification time. The time is in UTC and follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the task was modified. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -141,7 +141,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The preparation time required between the start time and the switchover time. The format is HH:mm:ss.
+   * The preparation time required between the start time and the switchover time. The time is in the HH:mm:ss format.
    * 
    * @example
    * 04:00:00
@@ -165,7 +165,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the backend executes the task. The time is in UTC and follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the backend executes the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T00:00:00Z
@@ -174,11 +174,11 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * * **3**: pending.
-   * * **4**: in progress.
-   * * **5**: succeeded.
-   * * **6**: failed.
-   * * **7**: canceled.
+   * * **3**: pending tasks.
+   * * **4**: tasks in progress.
+   * * **5**: successfully completed tasks.
+   * * **6**: failed tasks.
+   * * **7**: canceled tasks.
    * 
    * @example
    * 3
@@ -191,7 +191,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   subInsNames?: string[];
   /**
    * @remarks
-   * The time when the backend initiates the switchover. The time is in UTC and follows the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the backend initiates the switchover. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -211,7 +211,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * * **rds_apsaradb_ha**: primary/secondary node switch.
+   * * **rds_apsaradb_ha**: primary and secondary node switch.
    * * **rds_apsaradb_transfer**: instance migration.
    * * **rds_apsaradb_upgrade**: minor engine version update.
    * * **rds_apsaradb_maxscale**: proxy minor version upgrade.
@@ -222,7 +222,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The task reason in English.
+   * The task cause in English.
    * 
    * @example
    * Minor version update
@@ -230,10 +230,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskTypeEn?: string;
   /**
    * @remarks
-   * The task reason in Chinese.
+   * The task cause in Chinese.
    * 
    * @example
-   * 小版本升级
+   * Minor engine version update
    */
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
@@ -322,7 +322,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
    * @remarks
-   * The page number. The value must be greater than 0. Default value: 1.
+   * The page number, which must be greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -346,7 +346,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of task records returned.
+   * The total number of returned task records.
    * 
    * @example
    * 1

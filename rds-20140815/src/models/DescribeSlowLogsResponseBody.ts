@@ -208,7 +208,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The database engine type.
+   * The database engine.
    * 
    * @example
    * SQLServer

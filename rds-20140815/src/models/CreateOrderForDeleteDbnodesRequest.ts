@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically complete automatic payment. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * 1. **true**: automatically completes automatic payment. Make sure that your account balance is sufficient.
+   * 1. **true**: enables automatic payment. You must ensure that your account balance is sufficient.
    * 
-   * 1. **false**: generates the order without completing automatic payment.
+   * 1. **false**: generates an unpaid order without deducting fees.
    * 
-   * 
-   * 
-   * 
-   * > Default value: true. If your payment method has insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to complete automatic payment.
-   * >
+   * > Default value: true. If your payment method has an insufficient balance, you can change the Settings of the AutoPay parameter to false. In this case, an unpaid order is generated, and you can logon to the ApsaraDB RDS console to pay for the order.
    * 
    * @example
    * false
@@ -23,7 +19,7 @@ export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The additional business information about the instance.
+   * The business extension parameters.
    * 
    * @example
    * None
@@ -31,7 +27,7 @@ export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -58,7 +54,7 @@ export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance ID.
    * 
    * @example
    * rm-8vb9******
@@ -73,7 +69,7 @@ export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
    * @remarks
    * The current database engine version. Valid values:
    * 
-   * MySQL: **5.5, 5.6, 5.7, 8.0**
+   * MySQL: **5.5, 5.6, 5.7, and 8.0**
    * 
    * @example
    * 5.7
@@ -100,7 +96,7 @@ export class CreateOrderForDeleteDBNodesRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

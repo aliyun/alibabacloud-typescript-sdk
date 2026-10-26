@@ -41,7 +41,7 @@ export class DescribeParameterTimedScheduleTaskResponseBodyTaskList extends $dar
   switchTime?: string;
   /**
    * @remarks
-   * The ID of the scheduled task for parameter modification.
+   * The ID of the scheduled parameter modification task.
    * 
    * @example
    * 27056921

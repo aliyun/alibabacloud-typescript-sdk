@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The description of the enhanced monitoring metric.
+   * The description of the enhanced metric.
    * 
    * @example
-   * sys cpu使用率，sys cpu使用量 / cpu总量
+   * sys CPU usage, sys CPU usage / total CPU capacity
    */
   description?: string;
   /**
    * @remarks
-   * The category of the enhanced monitoring metric. Valid values:
-   * - **os**: operating system metric.
-   * - **db**: database metric.
+   * The category of the enhanced metric. Valid values:
+   * - **os**: operating system metrics.
+   * - **db**: database metrics.
    * 
    * @example
    * os
@@ -23,7 +23,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   dimension?: string;
   /**
    * @remarks
-   * The key of the group to which the enhanced monitoring metric belongs.
+   * The key of the group to which the enhanced metric belongs.
    * 
    * @example
    * os.cpu_usage
@@ -31,15 +31,15 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   groupKey?: string;
   /**
    * @remarks
-   * The name of the group to which the enhanced monitoring metric belongs.
+   * The name of the group to which the enhanced metric belongs.
    * 
    * @example
-   * CPU使用率
+   * CPU usage
    */
   groupKeyType?: string;
   /**
    * @remarks
-   * The statistical method of the enhanced monitoring metric. Valid values:
+   * The statistical method for the enhanced metric. Valid values:
    * - **avg**: average value.
    * - **min**: minimum value.
    * - **max**: maximum value.
@@ -50,7 +50,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The key of the enhanced monitoring metric.
+   * The key of the enhanced metric.
    * 
    * @example
    * os.cpu_usage.sys.avg
@@ -58,7 +58,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   metricsKey?: string;
   /**
    * @remarks
-   * The alias of the enhanced monitoring metric.
+   * The alias of the enhanced metric.
    * 
    * @example
    * os.cpu_usage.sys
@@ -66,7 +66,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   metricsKeyAlias?: string;
   /**
    * @remarks
-   * The sequence number of the enhanced monitoring metric.
+   * The sequence number of the enhanced metric.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class DescribeDBInstanceMetricsResponseBodyItems extends $dara.Model {
   sortRule?: number;
   /**
    * @remarks
-   * The unit of the enhanced monitoring metric.
+   * The unit of the enhanced metric.
    * 
    * @example
    * %
@@ -128,12 +128,12 @@ export class DescribeDBInstanceMetricsResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The list of enhanced monitoring metrics that are enabled for the instance.
+   * The list of enhanced metrics that are enabled for the instance.
    */
   items?: DescribeDBInstanceMetricsResponseBodyItems[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 318C3754-F6D0-54BB-A55C-23EAA04708B7
@@ -141,7 +141,7 @@ export class DescribeDBInstanceMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of enhanced monitoring metrics that are enabled for the instance.
+   * The total number of enhanced metrics that are enabled for the instance.
    * 
    * @example
    * 1

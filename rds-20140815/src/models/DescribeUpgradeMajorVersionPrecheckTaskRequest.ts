@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeMajorVersionPrecheckTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DescribeUpgradeMajorVersionPrecheckTaskRequest extends $dara.Model 
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the pre-upgrade check report.
+   * The page number of the check report for the major version upgrade.
    * 
-   * Valid values: a value greater than 0 that does not exceed the maximum value of the Integer data type. Default value: 1.
+   * Valid values: an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -27,9 +27,7 @@ export class DescribeUpgradeMajorVersionPrecheckTaskRequest extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page in the major engine version upgrade check report.
-   * 
-   * Valid values:
+   * The number of entries to return on each page for the check report before a major engine version upgrade. Valid values:
    * - 30 (default)
    * - 50
    * - 100
@@ -42,7 +40,7 @@ export class DescribeUpgradeMajorVersionPrecheckTaskRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The target instance version. The value must be greater than the current major engine version of the instance.
+   * The target major engine version of target instance. The value must be later than the current major engine version of target instance.
    * 
    * @example
    * 12.0
@@ -50,7 +48,7 @@ export class DescribeUpgradeMajorVersionPrecheckTaskRequest extends $dara.Model 
   targetMajorVersion?: string;
   /**
    * @remarks
-   * The ID of the pre-upgrade check task. You can obtain this value from the **TaskId** response parameter after you call the UpgradeDBInstanceMajorVersionPrecheck operation to perform a pre-upgrade check.
+   * The ID of the pre-upgrade check task. You can obtain the task ID from the **TaskId** response parameter after you call the UpgradeDBInstanceMajorVersionPrecheck operation to perform a pre-upgrade check.
    * 
    * @example
    * 416980000

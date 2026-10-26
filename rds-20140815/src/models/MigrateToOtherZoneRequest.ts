@@ -7,11 +7,11 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The instance edition. Valid values:
    * 
-   * * **Basic**: Basic Edition
-   * * **HighAvailability**: High-availability Edition
-   * * **AlwaysOn**: SQL Server Cluster Edition
-   * * **cluster**: MySQL Cluster Edition
-   * * **Finance**: RDS Enterprise Edition
+   * * **Basic**: Basic Edition.
+   * * **HighAvailability**: High-availability Edition.
+   * * **AlwaysOn**: Cluster Edition for SQL Server.
+   * * **cluster**: Cluster Edition for MySQL.
+   * * **Finance**: RDS Enterprise Edition.
    * 
    * @example
    * HighAvailability
@@ -20,10 +20,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   customExtraInfo?: string;
   /**
    * @remarks
-   * The target instance type of the destination instance. Only the instance type can be changed. The storage type cannot be changed.
-   * When the **IsModifySpec** parameter settings require **true**, you must specify at least one of this parameter and **DBInstanceStorage**.
+   * The instance type code of the destination instance. Only instance type changes are supported. Storage type changes are not supported.
+   * When the **IsModifySpec** parameter settings are **true**, you must specify at least one of this parameter and **DBInstanceStorage**.
    * 
-   * For more information about instance types, see [Primary ApsaraDB RDS for MySQL instance types](https://help.aliyun.com/document_detail/276975.html).
+   * For more information about instance type codes, see [ApsaraDB RDS for MySQL primary instance types](https://help.aliyun.com/document_detail/276975.html).
    * 
    * @example
    * mysql.x4.xlarge.2
@@ -31,7 +31,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -41,10 +41,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The destination storage capacity. When the **IsModifySpec** parameter settings require **true**, you must specify at least one of this parameter and **DBInstanceClass**.
+   * The destination storage capacity. When the **IsModifySpec** parameter settings are **true**, you must specify at least one of this parameter and **DBInstanceClass**.
    * 
    * Unit: GB.
-   * Valid values: The storage capacity varies based on the instance type. For more information, see [Primary ApsaraDB RDS for MySQL instance types](https://help.aliyun.com/document_detail/276975.html).
+   * Valid values: The storage capacity that can be expanded varies by instance type. For more information, see [ApsaraDB RDS for MySQL primary instance types](https://help.aliyun.com/document_detail/276975.html).
    * 
    * @example
    * 500
@@ -53,10 +53,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   /**
    * @remarks
    * The instance storage type. Valid values:
-   * - cloud_essd: PL1 ESSD cloud disk.
-   * - cloud_essd2: PL2 ESSD cloud disk.
-   * - cloud_essd3: PL3 ESSD cloud disk.
-   * - cloud_ssd: standard SSD (not recommended because standard SSDs are no longer available for purchase in some regions).
+   * - cloud_essd: PL1 ESSD.
+   * - cloud_essd2: PL2 ESSD.
+   * - cloud_essd3: PL3 ESSD.
+   * - cloud_ssd: standard SSD. This is not recommended because standard SSDs are no longer available in some regions.
    * 
    * @example
    * cloud_essd
@@ -65,9 +65,9 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   /**
    * @remarks
    * The effective period. Valid values:
-   * * **Immediate**: The migration takes effect immediately. This is the default value.
-   * * **MaintainTime**: The migration takes effect during the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * * **ScheduleTime**: The migration takes effect at a custom time.
+   * * **Immediate**: Takes effect immediately. This is the default value.
+   * * **MaintainTime**: Takes effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * * **ScheduleTime**: Takes effect at a specified time.
    * 
    * > If you set this parameter to **ScheduleTime**, you must also specify the **SwitchTime** parameter.
    * 
@@ -77,10 +77,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Buffer Pool Extension (BPE) feature for premium performance disks. Valid values:
+   * The Buffer Pool Extension (BPE) feature switch for premium cloud disks. Valid values:
    * 
-   *  - **1**: Enable.
-   *  - **0**: Disable.
+   *  - **1**: Enables the feature.
+   *  - **0**: Disables the feature.
    * 
    * > For more information about the BPE feature, see [Buffer Pool Extension (BPE)](https://help.aliyun.com/document_detail/2527067.html).
    * 
@@ -90,12 +90,12 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to change the instance specifications during zone migration.
+   * Specifies whether to change the specifications during zone migration. Valid values:
    * 
-   * - **true**: Change the specifications. When this parameter is set to **true**, you must specify at least one of the **DBInstanceClass** and **DBInstanceStorage** parameters.
-   * - **false**: Do not change the specifications. This is the default value.
+   * - **true**: Changes the specifications. If you set this parameter to **true**, you must specify at least one of the **DBInstanceClass** or **DBInstanceStorage** parameters.
+   * - **false**: Does not change the specifications. This is the default value.
    * 
-   * > This parameter is applicable only to ApsaraDB RDS for MySQL instances.
+   * > This parameter is only applicable to ApsaraDB RDS for MySQL instances.
    * 
    * @example
    * true
@@ -107,8 +107,8 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The custom time at which the zone switch takes effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
-   * > This parameter is used together with the **EffectiveTime** parameter and is required only when **EffectiveTime** is set to **ScheduleTime**.
+   * The custom effective time for switching zones. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+   * >This parameter is used together with the **EffectiveTime** parameter and is required only when **EffectiveTime** is set to **ScheduleTime**.
    * 
    * @example
    * 2021-12-14T15:15:15Z
@@ -116,10 +116,10 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID. The VPC cannot be changed during instance migration and must remain the same.
+   * The ID of the virtual private cloud (VPC). The VPC cannot be changed during instance migration and must remain the same.
    * 
-   * - This parameter is required when you migrate a VPC-connected instance to a different zone.
-   * - If the instance engine is SQL Server, the VPC can be changed during instance migration.
+   * - This parameter is required when you migrate a VPC-connected instance across zones.
+   * - If the instance runs SQL Server, the VPC can be changed during instance migration.
    * 
    * @example
    * vpc-****
@@ -128,8 +128,8 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID.
-   * - This parameter is required when you migrate a VPC-connected instance to a different zone. You can invoke DescribeVSwitches to query the vSwitches that have been created.
-   * - When you perform instance migration for an ApsaraDB RDS for PostgreSQL or SQL Server instance to a different zone with a secondary zone configured, you can specify multiple vSwitch IDs separated by commas (,), corresponding to the zones.
+   * - This parameter is required when you migrate a VPC-connected instance across zones. You can call the DescribeVSwitches operation to query the created vSwitches.
+   * - When you migrate an ApsaraDB RDS for PostgreSQL or ApsaraDB RDS for SQL Server instance across zones and configure a secondary zone, you can specify multiple vSwitch IDs separated by commas (,). The vSwitch IDs must correspond to the zones.
    * 
    * @example
    * vsw-uf6adz52c2p****
@@ -137,7 +137,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the destination zone. You can call DescribeRegions to query the zone ID.
+   * The ID of the destination zone. You can call the DescribeRegions operation to query the zone ID.
    * 
    * This parameter is required.
    * 
@@ -147,8 +147,8 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The secondary zone 1.
-   * > This parameter is required for instances that are not of the Basic Edition.
+   * The ID of secondary zone 1.
+   * >This parameter is required for instances that are not Basic Edition.
    * 
    * @example
    * cn-hangzhou-c
@@ -156,8 +156,8 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   zoneIdSlave1?: string;
   /**
    * @remarks
-   * The secondary zone 2.
-   * > This parameter is applicable only to RDS Enterprise Edition instances.
+   * The ID of secondary zone 2.
+   * >This parameter is only applicable to RDS Enterprise Edition instances.
    * 
    * @example
    * cn-hangzhou-d

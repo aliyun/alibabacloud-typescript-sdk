@@ -73,7 +73,7 @@ export class DescribeBackupTasksResponseBody extends $dara.Model {
   items?: DescribeBackupTasksResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 90496720-2319-42A8-87CD-FCE4DF95EBED

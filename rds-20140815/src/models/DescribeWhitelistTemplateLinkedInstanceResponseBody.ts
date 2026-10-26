@@ -10,7 +10,7 @@ export class DescribeWhitelistTemplateLinkedInstanceResponseBodyData extends $da
   insName?: string[];
   /**
    * @remarks
-   * The whitelist template ID.
+   * The ID of the whitelist template.
    * 
    * @example
    * 412
@@ -48,8 +48,8 @@ export class DescribeWhitelistTemplateLinkedInstanceResponseBody extends $dara.M
    * The response code. Valid values:
    * - **200**: Normal.
    * - **400**: Client fault.
-   * - **401**: Failed to authenticate.
-   * - **404**: Request page not found.
+   * - **401**: Authentication failed.
+   * - **404**: The requested page is not found.
    * - **500**: Server fault.
    * 
    * @example
@@ -58,13 +58,13 @@ export class DescribeWhitelistTemplateLinkedInstanceResponseBody extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: DescribeWhitelistTemplateLinkedInstanceResponseBodyData;
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * - **200**: Normal.
    * - **400**: Client error.
    * - **500**: Server error.
    * 
@@ -82,7 +82,7 @@ export class DescribeWhitelistTemplateLinkedInstanceResponseBody extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
@@ -90,10 +90,10 @@ export class DescribeWhitelistTemplateLinkedInstanceResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

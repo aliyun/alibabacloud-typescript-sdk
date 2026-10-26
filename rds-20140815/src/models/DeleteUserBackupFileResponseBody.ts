@@ -13,7 +13,7 @@ export class DeleteUserBackupFileResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F28AE40B-203B-4CFE-B81F-FD981CD97B17

@@ -29,7 +29,7 @@ export class UpgradeDBInstanceMajorVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * 416980000

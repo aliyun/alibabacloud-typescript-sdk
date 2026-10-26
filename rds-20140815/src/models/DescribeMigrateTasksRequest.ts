@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrateTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMigrateTasksRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DescribeMigrateTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
+   * The page number. Valid values: any positive integer up to the maximum value of the Integer type.
    * 
    * Default value: **1**.
    * 
@@ -44,7 +44,7 @@ export class DescribeMigrateTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****
@@ -54,7 +54,7 @@ export class DescribeMigrateTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
    * 
    * This parameter is required.
    * 

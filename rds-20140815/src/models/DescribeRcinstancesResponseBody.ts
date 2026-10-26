@@ -13,10 +13,10 @@ export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dar
   resourceId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
    * 
-   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
-   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
    * 
    * @example
    * ALIYUN::RDS::CUSTOM
@@ -76,10 +76,10 @@ export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model 
   resourceId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
    * 
-   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
-   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
    * 
    * @example
    * ALIYUN::RDS::CUSTOM
@@ -189,11 +189,22 @@ export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $da
 }
 
 export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether auto-renewal is enabled for the instance.
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The ID of the RDS Custom container cluster to which the instance belongs.
+   * 
+   * @example
+   * c463aaa89e2b84cacacfbf23c4867****
+   */
   clusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * testrdscustom
@@ -209,10 +220,10 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * Indicates whether the instance can be added to an ACK cluster. If the parameter settings for this field is **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation, which enables efficient management of container applications.
+   * Specifies whether the instance is allowed to join an ACK cluster. If the parameter settings are **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation to efficiently manage containerized applications. Valid values:
    * 
-   * - **1**: Yes.
-   * - **0** (default): No.
+   * - **1**: yes
+   * - **0** (default): no
    * 
    * @example
    * 0
@@ -243,15 +254,18 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * The hostname of the instance.
+   * 
    * @example
    * testHostName
    */
   ecsHostName?: string;
   /**
    * @remarks
-   * The time when the instance expires. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC+0.
+   * The time when the instance expires. The time follows the ISO 8601 standard and uses the UTC+0 time zone in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
-   * > The expiration time displayed on the console is UTC+8.
+   * > The expiration time displayed in the console is 8 hours ahead of this time.
    * 
    * @example
    * 2025-05-02T16:00:00Z
@@ -259,7 +273,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The task creation time (GMT).
+   * The time when the task was created in GMT.
    * 
    * @example
    * 2023-03-22 07:56:53.0
@@ -267,7 +281,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The host IP address.
+   * The IP address of the host.
    * 
    * @example
    * 172.16.XX.XX
@@ -275,7 +289,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   hostIp?: string;
   /**
    * @remarks
-   * The host name.
+   * The hostname of the host.
    * 
    * @example
    * i-2zeaiz4g9u23f40m****
@@ -292,8 +306,8 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * * **PrePaid**: subscription.
-   * * **PostPaid**: pay-as-you-go.
+   * * **PrePaid**: subscription
+   * * **PostPaid**: pay-as-you-go
    * 
    * @example
    * PrePaid
@@ -319,7 +333,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * @remarks
    * The instance type.
    * 
-   * For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
+   * For more information, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
    * 
    * @example
    * mysql.x2.xlarge.6cm
@@ -329,7 +343,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * @remarks
    * The instance family.
    * 
-   * For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
+   * For more information, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
    * 
    * @example
    * x.6cm
@@ -345,18 +359,27 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The node type. If the value **rds_vnode** is returned, the node is a container node.
+   * The node type. A value of **rds_vnode** indicates that the node is a container node.
    * 
    * @example
    * rds_vnode
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The name of the operating system.
+   * 
    * @example
-   * CentOS  7.4 64 位
+   * CentOS 7.4 64-bit
    */
   OSName?: string;
   /**
+   * @remarks
+   * The type of the operating system. The operating system can be Windows Server or Linux. Valid values:
+   * 
+   * - windows
+   * - linux
+   * 
    * @example
    * linux
    */
@@ -387,16 +410,19 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The bidding strategy for pay-as-you-go instances. Valid values:
+   * The bidding strategy for the pay-as-you-go instance. Valid values:
    * 
-   * - **NoSpot**: A regular pay-as-you-go instance.
-   * - **SpotAsPriceGo**: The system automatically bids, following the current market price.
+   * - **NoSpot**: The instance is a regular pay-as-you-go instance.
+   * - **SpotAsPriceGo**: The system automatically places bids based on the current market price.
    * 
    * @example
    * NoSpot
    */
   spotStrategy?: string;
   /**
+   * @remarks
+   * The last start time of the instance. The time is displayed in UTC and follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format.
+   * 
    * @example
    * 2017-12-10T04:04Z
    */
@@ -405,22 +431,29 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * - **Pending**: Being created.
-   * - **Running**: Running.
-   * - **Starting**: Being started.
-   * - **Stopping**: Being stopped.
-   * - **Stopped**: Stopped.
+   * - **Pending**: The instance is being created.
+   * - **Running**: The instance is running.
+   * - **Starting**: The instance is starting.
+   * - **Stopping**: The instance is being stopped.
+   * - **Stopped**: The instance is stopped.
    * 
-   * > The instance status returned by this operation may be delayed. If the value differs from the value returned by the **DescribeRCInstanceAttribute** operation, the value returned by **DescribeRCInstanceAttribute** prevails.
+   * > The instance status returned by this operation may be delayed. If the status differs from the value returned by the **DescribeRCInstanceAttribute** operation, the value returned by the **DescribeRCInstanceAttribute** operation prevails.
    * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The stop mode of the instance. KeepCharging indicates the standard mode. StopCharging indicates the economical mode. Not-applicable indicates that the instance does not support the economical mode.
+   * 
+   * @example
+   * KeepCharging
+   */
   stoppedMode?: string;
   /**
    * @remarks
-   * The details of the instances and tags.
+   * The queried instance and tag details.
    */
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
   /**
@@ -438,7 +471,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   vpcAttributes?: DescribeRCInstancesResponseBodyRCInstancesVpcAttributes;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
    * @example
    * vpc-uf6f7l4fg90****

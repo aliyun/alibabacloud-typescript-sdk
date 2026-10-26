@@ -180,7 +180,7 @@ export class DescribeSQLServerUpgradeVersionsResponseBody extends $dara.Model {
   items?: DescribeSQLServerUpgradeVersionsResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 866F5EB8-4650-4061-87F0-379F6F******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyParameterTimedScheduleTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6EF82B07-28D2-48D1-B5D6-7E78FED277C7

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeMajorVersionTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeUpgradeMajorVersionTasksRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Valid values: a value greater than 0 that does not exceed the maximum value of Integer.
+   * Valid values: an integer greater than 0 and up to the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -57,7 +57,7 @@ export class DescribeUpgradeMajorVersionTasksRequest extends $dara.Model {
   targetMajorVersion?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to configure this parameter.
+   * A reserved parameter. No configuration is required.
    * 
    * @example
    * 417450000

@@ -13,7 +13,7 @@ export class CreateGADInstanceResponseBodyResult extends $dara.Model {
   createMemberCount?: string;
   /**
    * @remarks
-   * The GAD cluster ID.
+   * The ID of the global active database cluster.
    * 
    * @example
    * gad-rm-bp1npi2j8****

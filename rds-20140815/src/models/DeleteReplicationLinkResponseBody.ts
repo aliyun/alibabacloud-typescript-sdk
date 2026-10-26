@@ -14,7 +14,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1EFCFB59-7152-19C4-8C53-F887D107AFD3
@@ -22,7 +22,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 159****
@@ -30,7 +30,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * zbtest

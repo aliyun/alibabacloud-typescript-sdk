@@ -13,7 +13,7 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DA2ECBA0-4745-4491-9166-799FF8984AC9
@@ -21,7 +21,7 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The target minor engine version to which the instance is upgraded.
+   * The target minor engine version.
    * 
    * @example
    * xcluster80_20210305
@@ -29,7 +29,7 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 226917711

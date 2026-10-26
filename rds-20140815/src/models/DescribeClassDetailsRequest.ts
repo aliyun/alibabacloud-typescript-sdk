@@ -15,7 +15,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -63,7 +63,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query available region IDs.
+   * The region ID. You can call the DescribeRegions operation to query the available region IDs.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class DescribeClassDetailsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain this value.
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID.
    * 
    * @example
    * rg-acfmy****

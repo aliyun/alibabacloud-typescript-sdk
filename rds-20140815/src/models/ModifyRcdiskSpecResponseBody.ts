@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCDiskSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 24505392472****
@@ -13,7 +13,7 @@ export class ModifyRCDiskSpecResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

@@ -64,7 +64,7 @@ export class CalculateDBInstanceWeightResponseBody extends $dara.Model {
   items?: CalculateDBInstanceWeightResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C816A4BF-A6EC-4722-95F9-2055859CCFD2

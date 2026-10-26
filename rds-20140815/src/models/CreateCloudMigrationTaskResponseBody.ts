@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudMigrationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the target instance.
+   * The name of the destination instance.
    * 
    * @example
    * pgm-bp102g323jd4****

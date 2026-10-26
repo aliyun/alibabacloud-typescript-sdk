@@ -13,7 +13,7 @@ export class DescribeImportTaskResponseBody extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The Milvus version number.
+   * The kernel version number.
    * 
    * @example
    * 5.7
@@ -21,7 +21,7 @@ export class DescribeImportTaskResponseBody extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The detailed information about the task.
+   * The task details.
    * 
    * @example
    * Error Message
@@ -37,7 +37,7 @@ export class DescribeImportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The category of the source instance.
+   * The category of the source instance. Valid values:
    * 
    * - **ECS**: Alibaba Cloud ECS.
    * - **other**: Other.
@@ -96,7 +96,7 @@ export class DescribeImportTaskResponseBody extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The task type. This parameter is used to query tasks of specific types. Separate multiple task types with commas (,). A maximum of 30 task types are supported. If this parameter is left empty, tasks of all types are queried.
+   * The task type, which is used to query tasks of specific types. Separate multiple values with commas (,). A maximum of 30 values are supported. By default, this parameter is left empty, which indicates that no limit is applied.
    * 
    * @example
    * import

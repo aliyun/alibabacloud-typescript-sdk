@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * > This parameter returns **Successful** if the request is successful. If the request fails, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * successful
@@ -55,10 +55,10 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

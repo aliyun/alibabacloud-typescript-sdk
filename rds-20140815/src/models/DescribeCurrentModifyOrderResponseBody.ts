@@ -13,7 +13,7 @@ export class DescribeCurrentModifyOrderResponseBodyModifyOrder extends $dara.Mod
   classGroup?: string;
   /**
    * @remarks
-   * The number of CPU cores for the instance type. Unit: cores.
+   * The number of CPU cores that correspond to the instance specifications. Unit: cores.
    * 
    * @example
    * 8
@@ -29,9 +29,9 @@ export class DescribeCurrentModifyOrderResponseBodyModifyOrder extends $dara.Mod
   dbInstanceId?: string;
   /**
    * @remarks
-   * The effective period. Valid values:
-   * * **Immediate** (default): The specification change takes effect immediately.
-   * * **MaintainTime**: The specification change takes effect during the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
+   * The effective time. Valid values:
+   * * **Immediate** (default): takes effect immediately.
+   * * **MaintainTime**: takes effect within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
    * 
    * @example
    * MaintainTime
@@ -47,7 +47,7 @@ export class DescribeCurrentModifyOrderResponseBodyModifyOrder extends $dara.Mod
   mark?: string;
   /**
    * @remarks
-   * The memory capacity for the instance type. Unit: GB.
+   * The memory capacity that corresponds to the instance specifications. Unit: GB.
    * 
    * @example
    * 1024
@@ -71,7 +71,7 @@ export class DescribeCurrentModifyOrderResponseBodyModifyOrder extends $dara.Mod
   storage?: string;
   /**
    * @remarks
-   * The target instance type for the specification change.
+   * The target instance specifications for the specification change.
    * 
    * @example
    * mysql.x2.medium.2c

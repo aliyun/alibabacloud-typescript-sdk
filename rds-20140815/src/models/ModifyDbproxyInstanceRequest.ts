@@ -14,7 +14,7 @@ export class ModifyDBProxyInstanceRequestDBProxyNodes extends $dara.Model {
   cpuCores?: string;
   /**
    * @remarks
-   * The number of proxy nodes in the zone. Valid values: **1** to **2**.
+   * The number of proxy nodes in the zone. Valid values: **1** and **2**.
    * > This parameter is required when **DBProxyNodes** is specified.
    * 
    * @example
@@ -58,7 +58,7 @@ export class ModifyDBProxyInstanceRequestDBProxyNodes extends $dara.Model {
 export class ModifyDBProxyInstanceRequestMigrateAZ extends $dara.Model {
   /**
    * @remarks
-   * The proxy endpoint ID. You can call DescribeDBProxyEndpoint to obtain the proxy endpoint ID.
+   * The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
    * > This parameter is required when **MigrateAZ** is specified.
    * 
    * @example
@@ -111,7 +111,7 @@ export class ModifyDBProxyInstanceRequestMigrateAZ extends $dara.Model {
 export class ModifyDBProxyInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** This parameter is deprecated and does not need to be configured.
    * 
    * @example
    * normal
@@ -129,8 +129,8 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The number of proxy instances. If this parameter is set to 0, the proxy service of this type is disabled for the instance. Valid values: **1** to **16**.
-   * > More proxy instances can handle more requests. You can check the load of proxy instances based on monitoring data and then specify an appropriate number of proxy instances.
+   * The number of proxy instances. A value of 0 indicates that the proxy service of this type is disabled for the instance. Valid values: **1** to **16**.
+   * > More proxy instances can process more requests. You can check the load of the proxy instances based on monitoring data and specify an appropriate number of proxy instances.
    * 
    * This parameter is required.
    * 
@@ -153,12 +153,12 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The list of proxy nodes.
-   * > This parameter is required when the current proxy instance uses multi-active zone deployment.
+   * > This parameter is required when the current proxy instance is active in a multi-zone deployment.
    */
   DBProxyNodes?: ModifyDBProxyInstanceRequestDBProxyNodes[];
   /**
    * @remarks
-   * The specified time for the modification to take effect. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The specified time when the modifications take effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * > This parameter is required when **EffectiveTime** is set to **SpecificTime**.
    * 
    * @example
@@ -167,11 +167,11 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   effectiveSpecificTime?: string;
   /**
    * @remarks
-   * The effective period. Valid values:
+   * The time when the modifications take effect. Valid values:
    * 
-   * * **Immediate**: The modification takes effect immediately.
-   * * **MaintainTime**: The modification takes effect during the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * * **SpecificTime**: The modification takes effect at a specified time.
+   * * **Immediate**: The modifications take effect immediately.
+   * * **MaintainTime**: The modifications take effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * * **SpecificTime**: The modifications take effect at a specified time.
    * 
    * Default value: **MaintainTime**.
    * 
@@ -181,14 +181,14 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The list of active zones for proxy migration.
-   * > Currently, only ApsaraDB RDS for MySQL proxy instances with cloud disks support active zone migration.
+   * The list of zones to which the proxy is migrated.
+   * > Currently, only ApsaraDB RDS for MySQL instances with cloud disks support proxy instance migration across zones.
    */
   migrateAZ?: ModifyDBProxyInstanceRequestMigrateAZ[];
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -198,7 +198,7 @@ export class ModifyDBProxyInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** This parameter is deprecated and does not need to be configured.
    * 
    * @example
    * vsw-uf6adz52c2p****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHADiagnoseConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeHADiagnoseConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

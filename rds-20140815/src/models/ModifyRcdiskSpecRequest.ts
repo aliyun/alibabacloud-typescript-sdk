@@ -7,9 +7,9 @@ export class ModifyRCDiskSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
-   * - **false**: Only an order is generated. No payment is made.
+   * - **false**: Only an order is generated, and no payment is made.
    * 
-   * > If your payment method has an insufficient balance, set AutoPay to false. An unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+   * > If the balance of your payment method is insufficient, you can change the Settings of the parameter AutoPay to false. An unpaid order is generated. You can logon to the ApsaraDB RDS console to complete the payment.
    * >
    * 
    * @example
@@ -18,7 +18,7 @@ export class ModifyRCDiskSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The type of the cloud disk. Valid values:
+   * The new category of the cloud disk. Valid values:
    * - **cloud_essd** (default): ESSD cloud disk.
    * - **cloud_auto**: ESSD AutoPL cloud disk.
    * - **cloud_ssd**: standard SSD.
@@ -29,7 +29,7 @@ export class ModifyRCDiskSpecRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The cloud disk ID.
+   * The ID of the cloud disk.
    * 
    * @example
    * rcd-wz9f3peueu5npsl****
@@ -38,8 +38,8 @@ export class ModifyRCDiskSpecRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run for this operation. Valid values:
-   * * **true**: A dry run is performed without executing the change. The check items include request parameters, request format, business limits, and inventory.
-   * * **false** (default): A normal request is sent. After the check is passed, the change is directly executed.
+   * * **true**: A dry run is performed, and the modification is not executed. The check items include request parameters, request format, business limits, and inventory.
+   * * **false** (default): A normal request is sent, and the modification is executed after the check is passed.
    * 
    * @example
    * false
@@ -47,13 +47,13 @@ export class ModifyRCDiskSpecRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD cloud disk. Valid values:
+   * The new performance level (PL) of the ESSD cloud disk. Valid values:
    * 
-   * - **PL1** (default): A maximum of 50,000 random read/write IOPS per disk.
+   * - **PL1** (default): A single disk delivers up to 50,000 random read/write IOPS.
    * 
-   * - **PL2**: A maximum of 100,000 random read/write IOPS per disk.
+   * - **PL2**: A single disk delivers up to 100,000 random read/write IOPS.
    * 
-   * - **PL3**: A maximum of 1,000,000 random read/write IOPS per disk.
+   * - **PL3**: A single disk delivers up to 1,000,000 random read/write IOPS.
    * 
    * @example
    * PL2

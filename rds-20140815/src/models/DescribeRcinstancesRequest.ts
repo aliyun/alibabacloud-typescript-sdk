@@ -3,23 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The RDS Custom container cluster ID used to filter instances.
+   * 
+   * @example
+   * c463aaa89e2b84cacacfbf23c4867****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The description used to filter instances.
+   * 
+   * @example
+   * Instance_Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The keyword used to perform a fuzzy match on the instance description.
+   * 
+   * @example
+   * Instance
+   */
   descriptionForFuzzy?: string;
   /**
    * @remarks
-   * Queries instances by host IP address.
+   * The host IP address used to filter instances.
    * 
    * @example
    * 172.16.XX.XX
    */
   hostIp?: string;
+  /**
+   * @remarks
+   * The image ID used to filter instances.
+   * 
+   * @example
+   * image-dsvjzw2ii8n4******
+   */
   imageId?: string;
   /**
    * @remarks
    * The instance ID. This parameter is used to query a single instance.
    * 
-   * > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is passed), the operation returns detailed information about all RDS Custom instances in the specified region.
+   * > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is specified), the details of all RDS Custom instances in the specified region are returned.
    * 
    * @example
    * rc-i2p26bde8bckf141****
@@ -29,9 +57,9 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * @remarks
    * The instance IDs.
    * 
-   * This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). A maximum of 100 IDs are supported. Input format: `["InstanceID1","InstanceID2"]`.
+   * This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). You can specify up to 100 instance IDs. Input format: `["InstanceId1","InstanceId2"]`.
    * 
-   * > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** takes precedence.
+   * > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** prevails.
    * 
    * @example
    * ["rc-i2p26bde8bckf141****","rc-l1753m982otq2s2m****"]
@@ -49,7 +77,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * @remarks
    * The page number of the instance status list.
    * 
-   * Minimum value: 1. Default value: 1.
+   * Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +85,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page in a paging query.
    * 
    * Maximum value: 100. Default value: 10.
    * 
@@ -67,7 +95,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Queries instances by public IP address.
+   * The public IP address used to filter instances.
    * 
    * @example
    * 121.89.XX.XX
@@ -85,11 +113,11 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * - **Pending**: Being created.
-   * - **Running**: Running.
-   * - **Starting**: Being started.
-   * - **Stopping**: Being stopped.
-   * - **Stopped**: Stopped.
+   * - **Pending**: The instance is being created.
+   * - **Running**: The instance is running.
+   * - **Starting**: The instance is starting.
+   * - **Stopping**: The instance is being stopped.
+   * - **Stopped**: The instance is stopped.
    * 
    * @example
    * Running
@@ -97,7 +125,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Queries instances by the specified tag. Input format: `{"TagKey":"TagValue"}`.
+   * The tags used to filter instances. Input format: `{"TagKey":"TagValue"}`.
    * 
    * @example
    * {"testRC":"test01"}
@@ -105,7 +133,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
    * @example
    * vpc-uf6f7l4fg90****

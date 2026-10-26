@@ -83,7 +83,7 @@ export class DescribeErrorLogsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 98504E07-BB0E-40FC-B152-E4882615812C

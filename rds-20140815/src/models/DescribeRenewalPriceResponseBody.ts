@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceResponseBodyPriceInfoActivityInfo extends $dara.Model {
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * Error description
@@ -139,13 +139,13 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRuleIds extends $dara.Mode
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The promotion information.
+   * The pricing information.
    */
   activityInfo?: DescribeRenewalPriceResponseBodyPriceInfoActivityInfo;
   coupons?: DescribeRenewalPriceResponseBodyPriceInfoCoupons;
   /**
    * @remarks
-   * The currency unit.
+   * The currency.
    * 
    * @example
    * CNY
@@ -153,7 +153,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount.
+   * The discount.
    * 
    * @example
    * 27
@@ -170,7 +170,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   ruleIds?: DescribeRenewalPriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount amount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 111
@@ -281,7 +281,7 @@ export class DescribeRenewalPriceResponseBody extends $dara.Model {
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DC9F4EF6-D038-4405-B497-1F48E722C9F2

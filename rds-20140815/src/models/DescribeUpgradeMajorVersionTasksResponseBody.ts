@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The statistics information collection pattern.
+   * The statistics collection mode.
    * 
    * Valid values:
    * - **After**: Upgrade after the cutover.
@@ -17,7 +17,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   collectStatMode?: string;
   /**
    * @remarks
-   * The detailed information about the task.
+   * The detailed information of the task.
    * 
    * @example
    * 2021-10-27 15:03:05 --- do upgrade precheck on slave succcess.\\n2021-10-27 15:03:11 --- begin to upgrade major version, source instance will locked in readonly mode.\\n2021-10-27 15:03:21 --- upgrade master success.\\n2021-10-27 15:06:10 --- exchange source and target instance dns success.\\n
@@ -35,10 +35,10 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   endTime?: string;
   /**
    * @remarks
-   * The final result of the task. Valid values:
-   * * **Success**: The task is successful.
-   * * **Failed**: The task failed.
-   * * **Running**: The migration is in progress.
+   * The final result of the task.
+   * * **Success**: Successful.
+   * * **Failed**: Failed.
+   * * **Running**: In progress.
    * 
    * @example
    * Success
@@ -54,7 +54,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   sourceInsName?: string;
   /**
    * @remarks
-   * The version of the original instance before the upgrade.
+   * The major engine version of the original instance before the upgrade.
    * 
    * @example
    * 11.0
@@ -72,7 +72,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   startTime?: string;
   /**
    * @remarks
-   * The end time of the instance switchover from the original instance to the new instance.
+   * The end time of the switchover from the original instance to the new instance.
    * 
    * The value is a UNIX timestamp. Unit: milliseconds.
    * 
@@ -82,7 +82,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   switchEndTime?: string;
   /**
    * @remarks
-   * The time of the instance switchover from the original instance to the new instance.
+   * The time when the service is switched over from the original instance to the new instance.
    * 
    * The value is a UNIX timestamp. Unit: milliseconds.
    * 
@@ -125,8 +125,8 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
    * The upgrade mode.
    * 
    * Valid values:
-   * - **clone**: no cutover
-   * - **switch**: cutover
+   * - **clone**: No cutover.
+   * - **switch**: Cutover.
    * 
    * @example
    * switch
@@ -136,8 +136,8 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
    * @remarks
    * Indicates whether a cutover is performed.
    * 
-   * - **true**: A cutover is performed.
-   * - **false**: No cutover is performed.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -145,8 +145,8 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   cutOver?: boolean;
   /**
    * @remarks
-   * The estimated synchronization time for the logical replication lag. Unit: seconds.
-   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * The estimated synchronization time for the logical replication latency. Unit: seconds.
+   * > This parameter is only applicable to **zero-downtime** major engine version upgrades.
    * 
    * @example
    * 10
@@ -154,9 +154,9 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   totalLogicRepDelayTime?: number;
   /**
    * @remarks
-   * The size of the logical replication lag. Unit: MB.
+   * The logical replication latency. Unit: MB.
    * 
-   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * > This parameter is only applicable to **zero-downtime** major engine version upgrades.
    * 
    * @example
    * 1
@@ -164,8 +164,8 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   totalLogicRepLatencyMB?: number;
   /**
    * @remarks
-   * The temporary internal endpoint of the higher-version instance for the zero-downtime major engine version upgrade. The format is `****.pg.rds.aliyuncs.com`.
-   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * The temporary **internal endpoint** of the higher-version instance for zero-downtime major engine version upgrades. The format is `****.pg.rds.aliyuncs.com`.
+   * > This parameter is only applicable to **zero-downtime** major engine version upgrades.
    * 
    * @example
    * ****.pg.rds.aliyuncs.com
@@ -174,7 +174,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
   /**
    * @remarks
    * The port of the higher-version instance, which is the same as the port of the source instance.
-   * > This parameter is used only for **zero-downtime** major engine version upgrades.
+   * > This parameter is only applicable to **zero-downtime** major engine version upgrades.
    * 
    * @example
    * 5432
@@ -251,7 +251,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30

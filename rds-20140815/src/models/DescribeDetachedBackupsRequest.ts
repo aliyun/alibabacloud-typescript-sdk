@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDetachedBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
    * @example
    * 327****
@@ -15,8 +15,8 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * - **Automated**: automatic backup.
-   * - **Manual**: manual backup.
+   * - **Automated**: automatic backup
+   * - **Manual**: manual backup
    * 
    * @example
    * Automated
@@ -24,8 +24,8 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The backup set status. Valid values:
-   * - **Success**: The backup is complete.
+   * The status of the backup set. Valid values:
+   * - **Success**: The backup is completed.
    * - **Failed**: The backup failed.
    * 
    * @example
@@ -34,7 +34,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * @example
    * rm-uf6wjk5****
@@ -44,7 +44,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
    * @remarks
    * The end time of the query. The end time must be later than the start time.
    * 
-   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
    * 
    * @example
    * 2021-03-15T16:00Z
@@ -52,7 +52,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
    * 
    * > Default value: 1.
    * 
@@ -75,7 +75,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy****
@@ -96,7 +96,7 @@ export class DescribeDetachedBackupsRequest extends $dara.Model {
    * @remarks
    * The start time of the query.
    * 
-   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC time).
    * 
    * @example
    * 2021-03-01T16:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The content of the assessment report.
+   * The content of the pre-check report for cloud migration.
    * 
    * @example
    * [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n [Check triggers]\\nCheck triggers compatible: success\\n[Check user functions]\\nCheck user functions compatible: success\\n*Migrate check success*
@@ -37,10 +37,10 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   sourceAccount?: string;
   /**
    * @remarks
-   * The environment in which the self-managed PostgreSQL instance runs.
+   * The type of the self-managed PostgreSQL database. Valid values:
    * 
-   * *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-   * *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+   * - **idcOnVpc**: a self-managed PostgreSQL database in an on-premises data center that is connected to a VPC.
+   * - **ecsOnVpc**: a self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
    * 
    * @example
    * ecsonvpc
@@ -48,7 +48,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   sourceCategory?: string;
   /**
    * @remarks
-   * The private IP address that is used to connect to the self-managed PostgreSQL instance.
+   * The internal IP address of the self-managed PostgreSQL database.
    * 
    * @example
    * 172.2.XX.XX
@@ -64,7 +64,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   sourcePassword?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the self-managed PostgreSQL instance.
+   * The port of the self-managed PostgreSQL database.
    * 
    * @example
    * 5432
@@ -72,7 +72,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   sourcePort?: number;
   /**
    * @remarks
-   * A reserved parameter. The return value of this parameter is empty.
+   * A reserved parameter. The query result is empty.
    * 
    * @example
    * null
@@ -80,7 +80,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   targetEip?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID of the target instance.
    * 
    * @example
    * pgm-bp102g323jd4****
@@ -88,7 +88,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   targetInstanceName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 440420798
@@ -96,7 +96,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * lxbv6rtxno8
@@ -148,7 +148,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBodyItems extends $dara
 export class DescribeCloudMigrationPrecheckResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the assessment report.
+   * The list of pre-check reports for one-click cloud migration.
    */
   items?: DescribeCloudMigrationPrecheckResultResponseBodyItems[];
   /**
@@ -161,7 +161,7 @@ export class DescribeCloudMigrationPrecheckResultResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 10

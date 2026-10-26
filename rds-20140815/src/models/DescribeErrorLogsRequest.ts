@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeErrorLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+   * The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeErrorLogsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be less than 31 days. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be less than 31 days. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeErrorLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -47,7 +47,7 @@ export class DescribeErrorLogsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

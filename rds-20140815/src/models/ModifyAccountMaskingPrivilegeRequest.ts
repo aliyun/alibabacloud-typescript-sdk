@@ -15,7 +15,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * myDB
@@ -23,7 +23,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The permission expiration time in UTC format. This parameter is required only for the fullAccess privilege.
+   * The expiration time of the permission in UTC format. This parameter is required only for the fullAccess permission.
    * 
    * @example
    * 2026-01-22T02:01:20Z
@@ -32,7 +32,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The privilege type. Valid values: noneAccess, restrictedAccess, and fullAccess.
+   * The permission type. Valid values: noneAccess, restrictedAccess, and fullAccess.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The account name. You can specify multiple accounts separated by commas.
+   * The name of the account. You can specify multiple account names separated by commas.
    * 
    * This parameter is required.
    * 

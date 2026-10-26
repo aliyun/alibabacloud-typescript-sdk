@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The creation time in the format of YYYY-MM-DDTHH:mm:ssZ.
+   * The creation time. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -13,9 +13,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   createdTime?: string;
   /**
    * @remarks
-   * The cycle time. Multiple values are separated by commas (,).
-   * * If cycleType is set to Week, valid values are 1 to 7, which represent Monday to Sunday.
-   * * If cycleType is set to Month, valid values are 1 to 28.
+   * The cycle time. Multiple values are separated by commas. If cycleType is Week, valid values are 1 to 7, which represent Monday to Sunday. If cycleType is Month, valid values are 1 to 28.
    * 
    * @example
    * 1
@@ -31,8 +29,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleType?: string;
   /**
    * @remarks
-   * The end time of the O&M time window in UTC.
-   * Default value: 20:00:00Z.
+   * The end time of the O&M time window in UTC. Default value: 20:00:00Z.
    * 
    * @example
    * 20:00:00Z
@@ -40,8 +37,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the O&M time window in UTC.
-   * Default value: 18:00:00Z.
+   * The start time of the O&M time window in UTC. Default value: 18:00:00Z.
    * 
    * @example
    * 18:00:00Z
@@ -49,7 +45,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainStartTime?: string;
   /**
    * @remarks
-   * The modification time in the format of YYYY-MM-DDTHH:mm:ssZ, such as 2018-05-30T14:30:00Z.
+   * The modification time. The format is YYYY-MM-DDTHH:mm:ssZ, such as 2018-05-30T14:30:00Z.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -57,9 +53,9 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   modifiedTime?: string;
   /**
    * @remarks
-   * Indicates whether the configuration is effective. Valid values: 
-   * * 1: Valid. 
-   * * 2: Invalid.
+   * Specifies whether the configuration takes effect. Valid values: 
+   * - 1: Valid. 
+   * - 2: Invalid.
    * 
    * @example
    * 1
@@ -106,9 +102,9 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether the configuration has been set. The value is 0 for the first access. Valid values:
-   * * 1: Yes. 
-   * * 0: No.
+   * Specifies whether the configuration has been set. The value is 0 when you access the configuration for the first time. Valid values:
+   * - 1: Yes. 
+   * - 0: No.
    * 
    * @example
    * 1

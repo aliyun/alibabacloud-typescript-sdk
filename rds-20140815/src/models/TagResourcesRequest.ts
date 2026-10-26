@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Empty values and duplicate values are **not allowed**.
+   * The tag key. The tag key **cannot** be empty or duplicate.
    * 
-   * > An existing tag key is overwritten by a new tag key with the same name.
+   * > Duplicate tag keys are overwritten.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Empty values are **allowed**.
+   * The tag value. The tag value **can** be empty.
    * 
    * @example
    * testvalue1
@@ -50,7 +50,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -74,11 +74,11 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - **INSTANCE**: regular ApsaraDB RDS instance.
-   * - **CUSTOM**: RDS Custom instance.
-   * - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set.
-   * - **CUSTOMDISK**: RDS Custom cloud disk.
-   * - **CUSTOMSNAPSHOT**: RDS Custom snapshot.
+   * - **INSTANCE**: regular ApsaraDB RDS instances.
+   * - **CUSTOM**: ApsaraDB RDS Custom instances.
+   * - **CUSTOMDEPLOYMENTSET**: ApsaraDB RDS Custom deployment sets.
+   * - **CUSTOMDISK**: ApsaraDB RDS Custom cloud disks.
+   * - **CUSTOMSNAPSHOT**: ApsaraDB RDS Custom snapshots.
    * 
    * This parameter is required.
    * 

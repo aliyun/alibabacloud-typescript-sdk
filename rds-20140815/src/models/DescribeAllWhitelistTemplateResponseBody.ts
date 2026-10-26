@@ -13,7 +13,7 @@ export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $dara
   id?: number;
   /**
    * @remarks
-   * The IP address list.
+   * The list of IP addresses.
    * 
    * @example
    * 12.2.X.X,10.0.X.X
@@ -21,7 +21,7 @@ export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $dara
   ips?: string;
   /**
    * @remarks
-   * The whitelist template ID.
+   * The ID of the whitelist template.
    * 
    * @example
    * 412
@@ -29,7 +29,7 @@ export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $dara
   templateId?: number;
   /**
    * @remarks
-   * The whitelist template name.
+   * The name of the whitelist template.
    * 
    * @example
    * template_123
@@ -37,7 +37,7 @@ export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $dara
   templateName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 168****
@@ -75,7 +75,7 @@ export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $dara
 export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -83,7 +83,8 @@ export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   currPageNumbers?: number;
   /**
    * @remarks
-   * Indicates whether there is a next page of data that meets the conditions. Valid values:
+   * Indicates whether the queried data has a next page. Valid values:
+   * 
    * - **true**: Yes.
    * - **false**: No.
    * 
@@ -93,7 +94,8 @@ export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   hasNext?: boolean;
   /**
    * @remarks
-   * Indicates whether there is a previous page of data that meets the conditions. Valid values:
+   * Indicates whether the queried data has a previous page. Valid values:
+   * 
    * - **true**: Yes.
    * - **false**: No.
    * 
@@ -103,7 +105,7 @@ export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   hasPrev?: boolean;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -111,7 +113,7 @@ export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   maxRecordsPerPage?: number;
   /**
    * @remarks
-   * The whitelist template information returned by page.
+   * The whitelist templates returned on the current page.
    */
   templates?: DescribeAllWhitelistTemplateResponseBodyDataTemplates[];
   /**
@@ -124,7 +126,7 @@ export class DescribeAllWhitelistTemplateResponseBodyData extends $dara.Model {
   totalPageNumbers?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 402
@@ -170,11 +172,12 @@ export class DescribeAllWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. Valid values:
+   * 
    * - **200**: Normal.
-   * - **400**: Client fault.
-   * - **401**: Authentication failed.
-   * - **404**: Request page not found.
-   * - **500**: Server fault.
+   * - **400**: Client error.
+   * - **401**: Failed to authenticate.
+   * - **404**: Requested page not found.
+   * - **500**: Server error.
    * 
    * @example
    * 200
@@ -188,7 +191,8 @@ export class DescribeAllWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code. Valid values:
-   * - **200**: Success.
+   * 
+   * - **200**: Normal.
    * - **400**: Client error.
    * - **500**: Server error.
    * 
@@ -206,7 +210,7 @@ export class DescribeAllWhitelistTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 16C62438-491B-5C02-9B49-BA924A1372A2

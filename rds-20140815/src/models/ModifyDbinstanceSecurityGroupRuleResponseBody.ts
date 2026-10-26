@@ -13,7 +13,7 @@ export class ModifyDBInstanceSecurityGroupRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response code message.
+   * The response message.
    * 
    * @example
    * successful

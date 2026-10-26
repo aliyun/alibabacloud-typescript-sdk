@@ -13,7 +13,7 @@ export class ModifyDBInstanceMetricsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B55934BB-FFAA-5276-80A8-E0FDB12810B3

@@ -70,7 +70,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   items?: DescribeDBInstancesByExpireTimeResponseBodyItems;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type.
+   * The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type.
    * 
    * Default value: **1**.
    * 
@@ -96,7 +96,7 @@ export class DescribeDBInstancesByExpireTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 200

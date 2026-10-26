@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call DescribeDBInstances to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type of the database proxy endpoint to be modified. Valid values:
+   * The network type of the database proxy endpoint that you want to modify. Valid values:
    * * **Public**: Internet
-   * * **VPC** (default): virtual private cloud (VPC)
+   * * **VPC** (default): VPC
    * 
    * 
    * > This parameter is required when the database engine is RDS MySQL.
@@ -28,7 +28,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyConnectStringNetType?: string;
   /**
    * @remarks
-   * The ID of the database proxy endpoint. You can call DescribeDBProxyEndpoint to query the ID.
+   * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * A deprecated parameter. You do not need to configure this parameter.
+   * **[Deprecated]** You do not need to configure this parameter.
    * 
    * @example
    * normal
@@ -46,7 +46,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The prefix of the new database proxy endpoint. You can customize this value.
+   * The prefix of the new database proxy endpoint. You can customize the prefix.
    * >You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
    * 
    * @example
@@ -55,7 +55,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyNewConnectString?: string;
   /**
    * @remarks
-   * The port number of the new database proxy endpoint. You can customize this value.
+   * The port of the new database proxy endpoint. You can customize the port.
    * >You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
    * 
    * @example

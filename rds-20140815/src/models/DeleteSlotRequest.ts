@@ -7,7 +7,7 @@ export class DeleteSlotRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the value from your client and make sure that the value is unique across different requests. The client token supports only ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOC****
@@ -15,7 +15,7 @@ export class DeleteSlotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Target instance ID. You can call the DescribeDBInstances operation to query target instance ID.
+   * Instance ID of the target instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteSlotRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty.
+   * The ID of the resource group. This parameter can be left empty.
    * 
    * @example
    * rg-acfmy****
@@ -37,7 +37,7 @@ export class DeleteSlotRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The replication slot name. You can call the DescribeSlots operation to query the replication slot name.
+   * The name of the replication slot. You can call the DescribeSlots operation to query the name.
    * 
    * This parameter is required.
    * 
@@ -47,9 +47,9 @@ export class DeleteSlotRequest extends $dara.Model {
   slotName?: string;
   /**
    * @remarks
-   * The replication slot status. You can call the DescribeSlots operation to query the replication slot status. Valid values:
-   * - **ACTIVE**: active.
-   * - **INACTIVE**: inactive.
+   * The status of the replication slot. You can call the DescribeSlots operation to query the status. Valid values:
+   * - **ACTIVE**: The replication slot is active.
+   * - **INACTIVE**: The replication slot is inactive.
    * 
    * This parameter is required.
    * 

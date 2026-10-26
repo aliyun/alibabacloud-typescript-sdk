@@ -84,7 +84,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of SQL Audit log entries on the current page.
+   * The number of SQL audit logs on the current page.
    * 
    * @example
    * 30
@@ -100,7 +100,7 @@ export class DescribeSQLLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 100

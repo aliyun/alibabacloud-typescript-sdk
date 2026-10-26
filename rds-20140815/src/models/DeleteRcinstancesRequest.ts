@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRCInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this release operation. Valid values:
-   * * **true**: Performs a dry run without releasing the instance.
-   * * **false** (default): Sends a normal request and directly releases the instance after the request passes the check.
+   * Specifies whether to perform a precheck before releasing the instances. Valid values:
+   * * **true**: Performs a precheck and does not release the instances.
+   * * **false** (default): Sends a normal request and directly releases the instances after the check passes.
    * 
    * @example
    * false
@@ -15,9 +15,9 @@ export class DeleteRCInstancesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to forcefully release running instances. Valid values:
-   * * **Yes**: Forcefully releases the instances.
-   * * **No** (default): Does not forcefully release the instances.
+   * Specifies whether to forcibly release running instances. Valid values:
+   * * **Yes**: Forcibly releases the instances.
+   * * **No** (default): Does not forcibly release the instances.
    * 
    * @example
    * Yes
@@ -40,7 +40,7 @@ export class DeleteRCInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * None
