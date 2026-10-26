@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteProjectNotifyReceiversRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
+   * The instance ID of the Bastionhost instance.
    * 
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
    * 
    * @example
    * bastionhost-cn-st220aw****
@@ -16,7 +16,7 @@ export class DeleteProjectNotifyReceiversRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the notification recipients to delete.
-   * > You can call the GetProject operation to query this parameter.
+   * > You can call the GetProject operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -26,8 +26,8 @@ export class DeleteProjectNotifyReceiversRequest extends $dara.Model {
   receiverIds?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

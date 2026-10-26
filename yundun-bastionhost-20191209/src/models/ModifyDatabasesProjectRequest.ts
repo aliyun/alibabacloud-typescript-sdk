@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDatabasesProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the database instances that you want to move. This parameter is a JSON-formatted string. You can specify up to 100 database instance IDs. Separate multiple database instance IDs with commas (,).
+   * The IDs of the database instances that you want to move. The value is a JSON string. You can specify up to 100 database instance IDs. Separate multiple IDs with commas (,).
    * 
-   * > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query this parameter.
+   * > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,8 @@ export class ModifyDatabasesProjectRequest extends $dara.Model {
   databaseIds?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -36,8 +36,8 @@ export class ModifyDatabasesProjectRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -45,8 +45,8 @@ export class ModifyDatabasesProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the target project to which you want to move the database instances.
-   * > You can call the ListProjectsForProjectAuthorizationPrincipal operation to query this parameter.
+   * The ID of the destination project to which you want to move the database instances.
+   * > You can call the ListProjectsForProjectAuthorizationPrincipal operation to query the project ID.
    * 
    * This parameter is required.
    * 

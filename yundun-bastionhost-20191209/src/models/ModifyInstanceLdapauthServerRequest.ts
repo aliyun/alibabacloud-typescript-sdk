@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the account that is used for the LDAP server.
+   * The account of the server.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The Base distinguished name (DN).
+   * The base distinguished name (Base DN).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   baseDN?: string;
   /**
    * @remarks
-   * The field that is used to indicate the email address of a user on the LDAP server.
+   * The server attribute name that corresponds to the user email address.
    * 
    * @example
    * emailAttr
@@ -33,7 +33,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   emailMapping?: string;
   /**
    * @remarks
-   * The condition that is used to filter users.
+   * The filter condition for users.
    * 
    * @example
    * (objectClass=top)
@@ -41,9 +41,8 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the parameter value.
    * 
    * This parameter is required.
    * 
@@ -53,11 +52,10 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to support SSL. Valid values:
+   * Specifies whether SSL is supported. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -65,7 +63,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   isSSL?: string;
   /**
    * @remarks
-   * The field that is used to indicate the logon name of a user on the LDAP server.
+   * The server attribute name that corresponds to the user logon name.
    * 
    * @example
    * userNameAttr
@@ -73,7 +71,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   loginNameMapping?: string;
   /**
    * @remarks
-   * The field that is used to indicate the mobile phone number of a user on the LDAP server.
+   * The server attribute name that corresponds to the user mobile phone number.
    * 
    * @example
    * mobileAttr
@@ -81,7 +79,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   mobileMapping?: string;
   /**
    * @remarks
-   * The field that is used to indicate the name of a user on the LDAP server.
+   * The server attribute name that corresponds to the username.
    * 
    * @example
    * nameAttr
@@ -89,7 +87,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   nameMapping?: string;
   /**
    * @remarks
-   * The password of the account that is used for the LDAP server. You must configure a password when you configure LDAP authentication. If you leave this parameter empty when you modify the settings of LDAP authentication, the current password is used.
+   * The password of the server account. This parameter is required when you add an LDAP authentication server. When you modify the information of an LDAP authentication server, if you do not specify this parameter, the current password is retained.
    * 
    * @example
    * ******
@@ -97,7 +95,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The port that is used to access the LDAP server.
+   * The port used to access the server.
    * 
    * This parameter is required.
    * 
@@ -107,8 +105,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
+   * The region ID of the Bastionhost instance.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -117,7 +114,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The address of the LDAP server.
+   * The address of the server.
    * 
    * This parameter is required.
    * 
@@ -127,7 +124,7 @@ export class ModifyInstanceLDAPAuthServerRequest extends $dara.Model {
   server?: string;
   /**
    * @remarks
-   * The address of the secondary LDAP server.
+   * The address of the standby server.
    * 
    * @example
    * 192.168.XX.XX

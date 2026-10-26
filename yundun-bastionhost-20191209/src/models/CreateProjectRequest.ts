@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The project description.
+   * The description of the project.
    * 
    * @example
    * comment
@@ -13,8 +13,8 @@ export class CreateProjectRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,8 +24,8 @@ export class CreateProjectRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of member account UIDs to associate with the project.
-   * > You can call the ListMembersNotForProject operation to query this parameter.
+   * The UIDs of the member accounts to associate with the project.
+   * > You can call the ListMembersNotForProject operation to obtain this parameter.
    * 
    * @example
    * 161****6121
@@ -33,7 +33,7 @@ export class CreateProjectRequest extends $dara.Model {
   memberIds?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * This parameter is required.
    * 
@@ -43,8 +43,8 @@ export class CreateProjectRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

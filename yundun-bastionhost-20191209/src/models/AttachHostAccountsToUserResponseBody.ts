@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the user was authorized to manage the host accounts. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result returned for the operation of authorizing host accounts for the user. Valid values:
+   * - **OK**: The operation is successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
    * 
    * @example
    * OK
@@ -31,7 +26,7 @@ export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $da
   hostAccountId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated. You can ignore it.
    * 
    * @example
    * None
@@ -65,21 +60,18 @@ export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $da
 export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the call was successful. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result of the API call. Valid values:
+   * - **OK**: The operation is successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
    * 
-   * > Make sure that the request parameters are valid and call the operation again.
+   *     > Check the request parameters, ensure that they are correct, and then call the operation again.
    * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
    * 
-   * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   *     > Check whether the ID of the Bastionhost instance exists, whether the host exists, and whether the host ID is correct, and then call the operation again.
    * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
    * 
    * @example
    * OK
@@ -87,7 +79,7 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of authorizing the user to manage the host accounts.
+   * The results returned for the operation of authorizing host accounts for the user.
    */
   hostAccounts?: AttachHostAccountsToUserResponseBodyResultsHostAccounts[];
   /**
@@ -100,7 +92,7 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated. You can ignore it.
    * 
    * @example
    * None
@@ -149,7 +141,7 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
 export class AttachHostAccountsToUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -157,7 +149,7 @@ export class AttachHostAccountsToUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The results of the API call.
    */
   results?: AttachHostAccountsToUserResponseBodyResults[];
   static names(): { [key: string]: string } {

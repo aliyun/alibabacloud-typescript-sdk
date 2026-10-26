@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDatabasesProjectResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the database.
+   * The database instance ID.
    * 
    * @example
    * 53
@@ -13,7 +13,7 @@ export class ModifyDatabasesProjectResponseBodyResults extends $dara.Model {
   assetId?: string;
   /**
    * @remarks
-   * The error code. A value of **200** indicates that the operation is successful. Other values indicate that the operation failed.
+   * The error code. An error code of **200** indicates that the operation is successful. Other error codes indicate that the operation failed.
    * 
    * @example
    * 200
@@ -55,7 +55,7 @@ export class ModifyDatabasesProjectResponseBodyResults extends $dara.Model {
 export class ModifyDatabasesProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -63,12 +63,12 @@ export class ModifyDatabasesProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The call results.
+   * The results of the operation.
    */
   results?: ModifyDatabasesProjectResponseBodyResults[];
   /**
    * @remarks
-   * The number of database instances that are moved.
+   * The number of successful operations.
    * 
    * @example
    * 10

@@ -13,8 +13,8 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
   hostAccountName?: string;
   /**
    * @remarks
-   * The ID of the host for which you want to query host accounts.
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the value of this parameter.
+   * The ID of the host for which you want to query the host accounts.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -24,8 +24,8 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance to which the user group belongs. Specify this parameter to query the host account authorization list.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
+   * The instance ID of the Bastionhost instance to which the user group belongs. You can query the list of host accounts with authorization for this user group.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -43,8 +43,8 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page for paging in a paged query.
-   * The maximum value of the PageSize parameter is 100. The default number of entries returned per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * The maximum number of entries to return on each page for paging in a paged query.  
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned.
    * > Do not leave this parameter empty.
    * 
    * @example
@@ -61,8 +61,8 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Specifies the region ID of the Bastionhost instance where the user group resides. You can query the list of authorized host accounts for the user group.
-   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance that contains the user group for which you want to query the list of authorized host accounts.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -71,7 +71,7 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the user group whose authorized host accounts you want to query.
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain the value of this parameter.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 

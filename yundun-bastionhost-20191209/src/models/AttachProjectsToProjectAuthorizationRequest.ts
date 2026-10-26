@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachProjectsToProjectAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The project authorization ID.
-   * > You can call the ListProjectAuthorizations operation to query this parameter.
+   * The ID of the project authorization.
+   * > You can call the ListProjectAuthorizations operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class AttachProjectsToProjectAuthorizationRequest extends $dara.Model {
   authorizationId?: number;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of Bastionhost.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,8 +27,8 @@ export class AttachProjectsToProjectAuthorizationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The array of IDs of the projects that can be managed.
-   * > You can call the ListProjects operation to query this parameter.
+   * The IDs of the projects that can be managed.
+   * > You can call the ListProjects operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -38,8 +38,8 @@ export class AttachProjectsToProjectAuthorizationRequest extends $dara.Model {
   projectIds?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

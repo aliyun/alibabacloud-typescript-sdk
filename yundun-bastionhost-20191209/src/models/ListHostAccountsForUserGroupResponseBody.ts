@@ -21,6 +21,14 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
   hostAccountName?: string;
   /**
    * @remarks
+   * The type of the host account.
+   * 
+   * @example
+   * "Normal"
+   */
+  hostAccountType?: string;
+  /**
+   * @remarks
    * The ID of the host to which the host account belongs.
    * 
    * @example
@@ -31,7 +39,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
    * @remarks
    * Indicates whether the host account is authorized for the current user group. Valid values:
    * - **true**: Authorized.
-   * - **false**: Not authorized.
+   * - **false**: Unauthorized.
    * 
    * @example
    * true
@@ -51,6 +59,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
     return {
       hostAccountId: 'HostAccountId',
       hostAccountName: 'HostAccountName',
+      hostAccountType: 'HostAccountType',
       hostId: 'HostId',
       isAuthorized: 'IsAuthorized',
       protocolName: 'ProtocolName',
@@ -61,6 +70,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
     return {
       hostAccountId: 'string',
       hostAccountName: 'string',
+      hostAccountType: 'string',
       hostId: 'string',
       isAuthorized: 'boolean',
       protocolName: 'string',
@@ -79,7 +89,7 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
 export class ListHostAccountsForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The host accounts returned.
+   * The host accounts.
    */
   hostAccounts?: ListHostAccountsForUserGroupResponseBodyHostAccounts[];
   /**

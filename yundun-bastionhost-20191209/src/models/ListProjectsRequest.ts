@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ListProjectsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The project name to query. Fuzzy match is supported.
+   * The name of the project to query. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -24,7 +24,7 @@ export class ListProjectsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries to return. Default value: 20. Maximum value: 100.
+   * The number of entries to query. If you do not specify this parameter, 20 entries are queried by default. A maximum of 100 entries can be queried in a single request.
    * 
    * @example
    * 20
@@ -32,8 +32,8 @@ export class ListProjectsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token required for the next query in cursor-based pagination.
-   * > Leave this parameter empty for the first query. For subsequent requests, set this parameter to the value of NextToken returned in the previous response.
+   * The token required for the next cursor-based query.
+   * > Leave this parameter empty for the first query. For subsequent requests, specify the value of the NextToken field returned in the previous response.
    * 
    * @example
    * 42bc833a0a0002dae0b5e8707e68181f
@@ -41,8 +41,8 @@ export class ListProjectsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -51,7 +51,7 @@ export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to skip.
-   * > This parameter takes effect only when NextToken is empty.
+   * > This parameter takes effect only when the NextToken parameter is left empty.
    * 
    * @example
    * 2

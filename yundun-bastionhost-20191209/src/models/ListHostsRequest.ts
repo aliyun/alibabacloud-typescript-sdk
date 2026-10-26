@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostsRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the host. A domain name or an IP address is supported. Only exact match is supported.
+   * The address of the host. You can use a domain name or an IP address. Fuzzy match is not supported. Only exact match is supported.
    * 
    * @example
    * 1.1.XX.XX
@@ -14,7 +14,7 @@ export class ListHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the host group to which the host belongs.
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the host group ID.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to obtain the host group ID.
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class ListHostsRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The name of the host. Only exact match is supported.
+   * The name of the host. Fuzzy match is not supported. Only exact match is supported.
    * 
    * @example
    * host
@@ -30,7 +30,7 @@ export class ListHostsRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance.
+   * The instance ID of the Bastionhost instance whose hosts you want to query.
    * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
@@ -59,7 +59,7 @@ export class ListHostsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * Settings for paging. Specifies the number of host information entries to return per page in a paged query. Default value: **10**, which indicates that 10 host information entries are displayed per page.
+   * Specifies the number of hosts to return per page in a paged query. Default value: **10**, which indicates that 10 hosts are returned per page.
    * > Do not leave PageSize empty.
    * 
    * @example
@@ -88,7 +88,7 @@ export class ListHostsRequest extends $dara.Model {
    * The source of the host. Valid values:
    * - **Local**: local host
    * - **Ecs**: ECS instance
-   * - **Rds**: ApsaraDB RDS dedicated cluster host
+   * - **Rds**: RDS dedicated cluster host
    * 
    * @example
    * Local
@@ -96,7 +96,7 @@ export class ListHostsRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ECS instance ID or the dedicated cluster host ID that corresponds to the host. Only exact match is supported.
+   * The ECS instance ID or the dedicated cluster host ID to which the host corresponds. Fuzzy match is not supported. Only exact match is supported.
    * 
    * @example
    * i-bp19ienyt0yax748****

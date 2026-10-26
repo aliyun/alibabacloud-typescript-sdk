@@ -6,8 +6,7 @@ export class ListInstanceRdMembersRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ListInstanceRdMembersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of RD member accounts to return. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of member accounts in a resource directory to return per request. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -25,7 +24,7 @@ export class ListInstanceRdMembersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for a paged query. If this is your first query, leave this parameter empty.
+   * The request token. Leave this parameter empty or do not specify it for the first request.
    * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
@@ -34,8 +33,7 @@ export class ListInstanceRdMembersRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RenewAssetOperationTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
+   * The ID of the Bastionhost instance.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,8 @@ export class RenewAssetOperationTokenRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -24,11 +27,15 @@ export class RenewAssetOperationTokenRequest extends $dara.Model {
   /**
    * @remarks
    * The O&M token to be renewed.
+   * 
+   * @example
+   * NmYyMmEzNmMwYzljNGY******
    */
   token?: string;
   /**
    * @remarks
-   * The ID of the O&M token to be renewed. You can call the [GenerateAssetOperationToken](https://help.aliyun.com/document_detail/2758861.html) operation to obtain the token ID.
+   * The ID of the O&M token to be renewed.
+   * > You can call the [GenerateAssetOperationToken](https://help.aliyun.com/document_detail/2758861.html) operation to obtain this parameter.
    * 
    * @example
    * NmYyMmEzNmMwYzljNGYxMjh******

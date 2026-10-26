@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsForProjectAuthorizationPrincipalRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class ListProjectsForProjectAuthorizationPrincipalRequest extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token for the paging query. Leave this parameter empty or do not specify this character for the first request.
+   * The paging token used to start a paged query. For the first request, do not pass this parameter or pass an empty string of characters.
    * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
@@ -40,8 +40,8 @@ export class ListProjectsForProjectAuthorizationPrincipalRequest extends $dara.M
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -49,8 +49,8 @@ export class ListProjectsForProjectAuthorizationPrincipalRequest extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * The number of entries to skip.
-   * > This parameter takes effect only when NextToken is empty.
+   * The number of items to skip.
+   * > This parameter takes effect only when NextToken is left empty.
    * 
    * @example
    * 0

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AttachMembersToProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
+   * The Bastionhost instance ID.
    * 
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,8 @@ export class AttachMembersToProjectRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The UIDs of the member accounts that you want to associate with the project.
-   * > You can call the ListMembersNotForProject operation to query this parameter.
+   * The UIDs of the member accounts to associate with the project.
+   * > You can call the ListMembersNotForProject operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,8 +28,8 @@ export class AttachMembersToProjectRequest extends $dara.Model {
   memberIds?: string;
   /**
    * @remarks
-   * The ID of the project with which you want to associate member accounts.
-   * > You can call the ListProjects operation to query this parameter.
+   * The ID of the project to which you want to associate member accounts.
+   * > You can call the ListProjects operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,9 @@ export class AttachMembersToProjectRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

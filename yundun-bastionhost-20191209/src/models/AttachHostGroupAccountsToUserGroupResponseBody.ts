@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the user group was authorized to manage the specified host account. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code returned for granting the user group access to the host accounts. Valid values:
+   * - **OK**: The call is successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
    * 
    * @example
    * OK
@@ -31,7 +26,7 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNam
   hostAccountName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -65,17 +60,12 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNam
 export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the call was successful. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code of the call. Valid values:
+   * - **OK**: The call is successful.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
    * 
    * @example
    * OK
@@ -83,7 +73,7 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $dara
   code?: string;
   /**
    * @remarks
-   * The result of authorizing the user group to manage the specified host accounts.
+   * The results returned for granting the user group access to the host accounts.
    */
   hostAccountNames?: AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames[];
   /**
@@ -96,7 +86,7 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $dara
   hostGroupId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -153,7 +143,7 @@ export class AttachHostGroupAccountsToUserGroupResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The results of the call.
    */
   results?: AttachHostGroupAccountsToUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {

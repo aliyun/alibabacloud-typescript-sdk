@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHostShareKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The shared key ID.
-   * 
-   * > You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * The ID of the host shared key.
+   * > This parameter is required. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to retrieve this parameter.
    * 
    * @example
    * 11206
@@ -15,9 +14,8 @@ export class DeleteHostShareKeyRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,9 +25,8 @@ export class DeleteHostShareKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

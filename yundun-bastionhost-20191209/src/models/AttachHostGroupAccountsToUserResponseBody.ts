@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the user was authorized to manage the host account. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code of the operation to grant the user access to the host account. Valid values:
+   * - **OK**: The operation succeeded.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
-   * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **INVALID_ARGUMENT**: The specified request parameter is invalid.
+   * - **OBJECT_NOT_FOUND**: The specified object does not exist.
+   * - **OBJECT_AlREADY_EXISTS** : The specified object already exists.
    * 
    * @example
    * OK
@@ -31,7 +26,7 @@ export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames ex
   hostAccountName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
    * 
    * @example
    * None
@@ -65,17 +60,12 @@ export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames ex
 export class AttachHostGroupAccountsToUserResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The return code that indicates whether the call was successful. Valid values:
-   * 
-   * - **OK**: The call was successful.
-   * 
+   * The result code of the API call. Valid values:
+   * - **OK**: The operation succeeded.
    * - **UNEXPECTED**: An unknown error occurred.
-   * 
-   * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * 
-   * - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-   * 
-   * - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * - **INVALID_ARGUMENT**: The specified request parameter is invalid.
+   * - **OBJECT_NOT_FOUND**: The specified object does not exist.
+   * - **OBJECT_AlREADY_EXISTS** : The specified object already exists.
    * 
    * @example
    * OK
@@ -83,7 +73,7 @@ export class AttachHostGroupAccountsToUserResponseBodyResults extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The result of authorizing the user to manage the host accounts.
+   * The results of the operation to grant the user access to the host accounts.
    */
   hostAccountNames?: AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames[];
   /**
@@ -96,7 +86,7 @@ export class AttachHostGroupAccountsToUserResponseBodyResults extends $dara.Mode
   hostGroupId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
    * 
    * @example
    * None
@@ -145,7 +135,7 @@ export class AttachHostGroupAccountsToUserResponseBodyResults extends $dara.Mode
 export class AttachHostGroupAccountsToUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -153,7 +143,7 @@ export class AttachHostGroupAccountsToUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The results of the API call.
    */
   results?: AttachHostGroupAccountsToUserResponseBodyResults[];
   static names(): { [key: string]: string } {

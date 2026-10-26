@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachProjectsToReviewRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class AttachProjectsToReviewRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The array of project IDs to associate.
-   * > You can call the ListProjects operation to query this parameter.
+   * The IDs of the projects to associate.
+   * > You can call the ListProjects operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,8 +27,8 @@ export class AttachProjectsToReviewRuleRequest extends $dara.Model {
   projectIds?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +37,7 @@ export class AttachProjectsToReviewRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the audit policy.
-   * > You can invoke the ListReviewRules operation to query this parameter.
+   * > You can invoke the ListReviewRules operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

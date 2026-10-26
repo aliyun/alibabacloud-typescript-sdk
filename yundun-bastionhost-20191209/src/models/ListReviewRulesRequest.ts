@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReviewRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the bastion host instance ID.
+   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +23,7 @@ export class ListReviewRulesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of audit policies to return per request. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of audit policy entries to return in a single request. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -33,7 +31,7 @@ export class ListReviewRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the paging query. Leave this parameter empty or do not specify it for the first request.
+   * The token that is used to start a paged query. Do not specify this parameter or specify an empty character string for the first request.
    * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
@@ -41,8 +39,7 @@ export class ListReviewRulesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the bastion host. 
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -50,9 +47,7 @@ export class ListReviewRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of entries to skip.
-   * 
-   * > This parameter takes effect only when NextToken is empty.
+   * The number of entries to skip. This parameter takes effect only when NextToken is left empty.
    * 
    * @example
    * 0

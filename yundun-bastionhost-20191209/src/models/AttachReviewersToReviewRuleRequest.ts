@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachReviewersToReviewRuleRequestPrincipals extends $dara.Model {
   /**
    * @remarks
-   * When PrincipalType is set to RamUser, specify the RAM user ID of the auditor to associate. When PrincipalType is set to RamRole, specify the RAM role ARN of the auditor to associate.
+   * The ID of the RAM user or the ARN of the RAM role of the auditor to be associated. If PrincipalType is set to RamUser, specify the RAM user ID. If PrincipalType is set to RamRole, specify the ARN of the RAM role.
    * 
    * @example
    * 160****9214
@@ -13,7 +13,7 @@ export class AttachReviewersToReviewRuleRequestPrincipals extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The display name of the associated auditor\\"s RAM user or RAM role.
+   * The display name of the RAM user or RAM role of the associated auditor.
    * 
    * @example
    * name
@@ -21,7 +21,7 @@ export class AttachReviewersToReviewRuleRequestPrincipals extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The type of the auditor to associate. Valid values:
+   * The type of the auditor to be associated. Valid values:
    * 
    * - **RamUser**: Resource Access Management (RAM) user.
    * 
@@ -59,8 +59,8 @@ export class AttachReviewersToReviewRuleRequestPrincipals extends $dara.Model {
 export class AttachReviewersToReviewRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host instance.
-   * > You can call the DescribeInstances operation to obtain the bastion host instance ID.
+   * The ID of the Bastionhost instance.
+   * > You can call the DescribeInstances operation to obtain the Bastionhost instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,13 +70,13 @@ export class AttachReviewersToReviewRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The information about the auditors associated with the audit policy.
+   * The information about the auditors to be associated with the audit policy.
    */
   principals?: AttachReviewersToReviewRuleRequestPrincipals[];
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -85,7 +85,7 @@ export class AttachReviewersToReviewRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the audit policy.
-   * > You can call the ListReviewRules operation to obtain this parameter.
+   * > You can invoke the ListReviewRules operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   /**
    * @remarks
    * The email address of the recipient.
-   * > You must specify at least one of Phone or Email.
+   * > You must specify at least one of the mobile phone number and the email address.
    * 
    * @example
    * 1099**@qq.com
@@ -14,8 +14,8 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/462953.html) operation to query this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/462953.html) operation to retrieve this parameter.
    * 
    * @example
    * bastionhost-cn-st220aw****
@@ -23,7 +23,7 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the recipient. The name must be 1 to 128 characters in length, cannot start with a special character, and can contain only the following special characters: periods (.), underscores (_), hyphens (-), backslashes (\\), and spaces.
+   * The name of the recipient. The name must be 1 to 128 characters in length. It cannot start with a special character and can contain only the following special characters: periods (.), underscores (_), hyphens (-), backslashes (\\), and spaces.
    * 
    * This parameter is required.
    * 
@@ -33,8 +33,8 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The phone number of the recipient.
-   * > You must specify at least one of Phone or Email.
+   * The mobile phone number of the recipient.
+   * > You must specify at least one of the mobile phone number and the email address.
    * 
    * @example
    * 131****1421
@@ -43,7 +43,7 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   /**
    * @remarks
    * The project ID.
-   * > You can call the ListProjects operation to query this parameter.
+   * > You can call the ListProjects operation to retrieve this parameter.
    * 
    * This parameter is required.
    * 
@@ -53,8 +53,8 @@ export class CreateProjectNotifyReceiverRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

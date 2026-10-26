@@ -193,6 +193,9 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   /**
    * @remarks
    * The status of the HSM hardware encryption module. Indicates whether the Bastionhost instance is integrated with an HSM.
+   * 
+   * @example
+   * Disable
    */
   HSMModule?: string;
   /**

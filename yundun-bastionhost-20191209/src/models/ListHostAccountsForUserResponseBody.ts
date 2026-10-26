@@ -21,6 +21,14 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
   hostAccountName?: string;
   /**
    * @remarks
+   * The type of the host account.
+   * 
+   * @example
+   * "Normal"
+   */
+  hostAccountType?: string;
+  /**
+   * @remarks
    * The ID of the host to which the host account belongs.
    * 
    * @example
@@ -29,9 +37,9 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
   hostId?: string;
   /**
    * @remarks
-   * Indicates whether the host account is authorized to the current user. Valid values:
-   * - **true**: Authorized.
-   * - **false**: Unauthorized.
+   * Indicates whether the host account is authorized for the current user. Valid values:
+   * - **true**: authorized
+   * - **false**: unauthorized
    * 
    * @example
    * true
@@ -39,7 +47,7 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
   isAuthorized?: boolean;
   /**
    * @remarks
-   * The protocol name of the host account. Valid values:
+   * The protocol of the host account. Valid values:
    * - **SSH**
    * - **RDP**
    * 
@@ -51,6 +59,7 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
     return {
       hostAccountId: 'HostAccountId',
       hostAccountName: 'HostAccountName',
+      hostAccountType: 'HostAccountType',
       hostId: 'HostId',
       isAuthorized: 'IsAuthorized',
       protocolName: 'ProtocolName',
@@ -61,6 +70,7 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
     return {
       hostAccountId: 'string',
       hostAccountName: 'string',
+      hostAccountType: 'string',
       hostId: 'string',
       isAuthorized: 'boolean',
       protocolName: 'string',
@@ -79,7 +89,7 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
 export class ListHostAccountsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of host accounts returned.
+   * The host accounts returned.
    */
   hostAccounts?: ListHostAccountsForUserResponseBodyHostAccounts[];
   /**

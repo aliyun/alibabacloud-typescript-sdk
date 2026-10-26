@@ -13,8 +13,8 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   hostAccountName?: string;
   /**
    * @remarks
-   * The ID of the host to which the host accounts belong.
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain this parameter.
+   * The ID of the host for which you want to query the host accounts.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,8 +24,8 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance to which the user belongs. This parameter is used to query the host account authorization list for the user.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance to which the user whose host accounts with authorization you want to query belongs.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number for the paged query. This parameter is used for paging. Default value: **1**.
+   * The page number for paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -43,8 +43,9 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paged query. This parameter is used for paging. Maximum value: 100. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
-   * > Specify a value for this parameter.
+   * The maximum number of entries to return on each page for paging in a paged query.  
+   * The maximum value of the PageSize parameter is 100. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+   * > Specify a value for the PageSize parameter.
    * 
    * @example
    * 20
@@ -60,7 +61,7 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance to which the user belongs.
+   * The region ID of the Bastionhost instance where the user whose authorized host accounts you want to query is located.
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
@@ -69,8 +70,8 @@ export class ListHostAccountsForUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user whose host accounts you want to query.
-   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain this parameter.
+   * The ID of the user whose authorized and unauthorized host accounts you want to query.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 

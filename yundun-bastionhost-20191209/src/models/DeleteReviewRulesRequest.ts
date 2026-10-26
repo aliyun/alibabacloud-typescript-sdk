@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteReviewRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class DeleteReviewRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host. 
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance. 
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +26,7 @@ export class DeleteReviewRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The array of audit policy IDs to delete.
-   * > You can invoke the ListReviewRules operation to query this parameter.
+   * > You can call the ListReviewRules operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

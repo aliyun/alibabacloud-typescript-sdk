@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMembersNotForProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * 
+   * The instance ID of the Bastionhost instance.
    * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
@@ -17,7 +16,7 @@ export class ListMembersNotForProjectRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The UID of the member accounts to query. Fuzzy match is supported.
+   * The UIDs of the member accounts to query. Fuzzy match is supported.
    * 
    * @example
    * 162****5213
@@ -25,7 +24,7 @@ export class ListMembersNotForProjectRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries to query. Default value: 20. Maximum value: 100.
+   * The maximum number of entries to return. If you do not specify this parameter, the default value 20 is used. You can query up to 100 entries at a time.
    * 
    * @example
    * 20
@@ -33,7 +32,7 @@ export class ListMembersNotForProjectRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The request token. Leave this parameter empty or set it to an empty string for the first request.
+   * The pagination token. For the first request, leave this parameter empty or pass an empty string.
    * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
@@ -50,8 +49,8 @@ export class ListMembersNotForProjectRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

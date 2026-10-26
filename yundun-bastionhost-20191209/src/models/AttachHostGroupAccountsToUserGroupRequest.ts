@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostGroupAccountsToUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host group and the name of the host account that you want to authorize the user group to manage. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the user group is authorized to manage only the specified host groups. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+   * The IDs of the host groups and the names of the host accounts to which you want to grant the user group access. You can specify up to 10 host group IDs and up to 10 host account names for each host group. If you do not specify host account names, the user group is granted access only to the host groups. For more information about the structure of this parameter, see the HostGroups parameter structure description in the Request parameters section.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query host group IDs and call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query host account names.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class AttachHostGroupAccountsToUserGroupRequest extends $dara.Model {
   hostGroups?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to authorize the user group to manage the specified host groups and host accounts.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance where the user group resides. The user group is to be authorized to access host groups and host accounts.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,8 @@ export class AttachHostGroupAccountsToUserGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host for which you want to authorize the user group to manage the specified host groups and host accounts.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * Specifies the region ID of the Bastionhost instance that manages the user group to which you want to grant permissions on host groups and host accounts.
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -39,9 +36,8 @@ export class AttachHostGroupAccountsToUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group that you want to authorize to manage the specified host groups and host accounts.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * The ID of the user group to which you want to grant permissions on host groups and host accounts.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationHostAccountsResponseBodyHostAccountsSSHConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether SFTP channels are enabled for the account.
+   * Indicates whether the SFTP channel is enabled for the account.
    */
   enableSFTPChannel?: boolean;
   /**
    * @remarks
-   * Indicates whether SSH channels are enabled for the account.
+   * Indicates whether the SSH channel is enabled for the account.
    */
   enableSSHChannel?: boolean;
   static names(): { [key: string]: string } {
@@ -39,11 +39,10 @@ export class ListOperationHostAccountsResponseBodyHostAccountsSSHConfig extends 
 export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a password is configured for the host account.
+   * Indicates whether a password is set for the host account.
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: A password is set.
+   * - **false**: No password is set.
    * 
    * @example
    * true
@@ -51,7 +50,7 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   hasPassword?: boolean;
   /**
    * @remarks
-   * The host account ID.
+   * The ID of the host account.
    * 
    * @example
    * 1
@@ -59,7 +58,7 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   hostAccountId?: string;
   /**
    * @remarks
-   * The host account name.
+   * The name of the host account.
    * 
    * @example
    * root
@@ -67,7 +66,7 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   hostAccountName?: string;
   /**
    * @remarks
-   * The host ID.
+   * The ID of the host.
    * 
    * @example
    * １
@@ -75,7 +74,7 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   hostId?: string;
   /**
    * @remarks
-   * The ID of the shared key that is associated with the host.
+   * The ID of the host shared key.
    * 
    * @example
    * 3
@@ -91,10 +90,8 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   privateKeyFingerprint?: string;
   /**
    * @remarks
-   * The protocol that is used by the host account.
-   * 
+   * The protocol name of the host account.
    * - **SSH**
-   * 
    * - **RDP**
    * 
    * @example
@@ -103,7 +100,7 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
   protocolName?: string;
   /**
    * @remarks
-   * Indicates whether the Secure File Transfer Protocol (SFTP) channels or the SSH channels are enabled for the host account that uses the SSH protocol.
+   * The O&M permissions of the SSH account.
    */
   SSHConfig?: ListOperationHostAccountsResponseBodyHostAccountsSSHConfig;
   static names(): { [key: string]: string } {
@@ -147,12 +144,12 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
 export class ListOperationHostAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The host accounts returned.
+   * The host accounts.
    */
   hostAccounts?: ListOperationHostAccountsResponseBodyHostAccounts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -160,7 +157,7 @@ export class ListOperationHostAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of host accounts returned.
+   * The total number of host accounts.
    * 
    * @example
    * 1
