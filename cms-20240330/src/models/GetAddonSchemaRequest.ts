@@ -11,6 +11,10 @@ export class GetAddonSchemaRequest extends $dara.Model {
    * zh
    */
   aliyunLang?: string;
+  /**
+   * @example
+   * v2
+   */
   apiVersion?: string;
   /**
    * @remarks

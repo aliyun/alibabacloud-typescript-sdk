@@ -13,7 +13,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   createdAt?: string;
   /**
    * @remarks
-   * The HTTP API URL.
+   * The HTTP API endpoint.
    * 
    * @example
    * http://xxxxxxxx
@@ -102,7 +102,7 @@ export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The next token for the next page. It is empty when all results are returned.
+   * The next token for the next page. This parameter is empty when all results are returned.
    */
   nextToken?: string;
   /**
@@ -115,7 +115,7 @@ export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances returned.
+   * The total number of returned instances.
    */
   totalCount?: string;
   static names(): { [key: string]: string } {

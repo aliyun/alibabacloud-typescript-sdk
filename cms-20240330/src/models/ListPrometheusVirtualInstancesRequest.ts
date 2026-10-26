@@ -18,7 +18,7 @@ export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The next paging token for the paged query.
+   * The next token for the paging query.
    */
   nextToken?: string;
   /**

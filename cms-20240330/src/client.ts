@@ -1845,6 +1845,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建订阅
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubscriptionResponse
+   */
+  async createSubscriptionWithOptions(request: $_model.CreateSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.CreateSubscriptionResponse({}));
+  }
+
+  /**
+   * 创建订阅
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @returns CreateSubscriptionResponse
+   */
+  async createSubscription(request: $_model.CreateSubscriptionRequest): Promise<$_model.CreateSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSubscriptionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
    * 
    * @param request - CreateTicketRequest
@@ -3144,6 +3190,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除订阅
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubscriptionResponse
+   */
+  async deleteSubscriptionWithOptions(subscriptionId: string, request: $_model.DeleteSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions/${$dara.URL.percentEncode(subscriptionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSubscriptionResponse({}));
+  }
+
+  /**
+   * 删除订阅
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @returns DeleteSubscriptionResponse
+   */
+  async deleteSubscription(subscriptionId: string, request: $_model.DeleteSubscriptionRequest): Promise<$_model.DeleteSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a Umodel configuration.
    * 
    * @remarks
@@ -3568,6 +3659,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停订阅
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSubscriptionResponse
+   */
+  async disableSubscriptionWithOptions(subscriptionId: string, request: $_model.DisableSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions/${$dara.URL.percentEncode(subscriptionId)}/disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.DisableSubscriptionResponse({}));
+  }
+
+  /**
+   * 暂停订阅
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @returns DisableSubscriptionResponse
+   */
+  async disableSubscription(subscriptionId: string, request: $_model.DisableSubscriptionRequest): Promise<$_model.DisableSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+  }
+
+  /**
    * Enables a silence policy.
    * 
    * @remarks
@@ -3667,6 +3803,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+  }
+
+  /**
+   * 启动订阅
+   * 
+   * @param request - EnableSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSubscriptionResponse
+   */
+  async enableSubscriptionWithOptions(subscriptionId: string, request: $_model.EnableSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions/${$dara.URL.percentEncode(subscriptionId)}/enable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.EnableSubscriptionResponse({}));
+  }
+
+  /**
+   * 启动订阅
+   * 
+   * @param request - EnableSubscriptionRequest
+   * @returns EnableSubscriptionResponse
+   */
+  async enableSubscription(subscriptionId: string, request: $_model.EnableSubscriptionRequest): Promise<$_model.EnableSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableSubscriptionWithOptions(subscriptionId, request, headers, runtime);
   }
 
   /**
@@ -5258,6 +5439,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取订阅
+   * 
+   * @param request - GetSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscriptionResponse
+   */
+  async getSubscriptionWithOptions(subscriptionId: string, request: $_model.GetSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions/${$dara.URL.percentEncode(subscriptionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.GetSubscriptionResponse({}));
+  }
+
+  /**
+   * 获取订阅
+   * 
+   * @param request - GetSubscriptionRequest
+   * @returns GetSubscriptionResponse
+   */
+  async getSubscription(subscriptionId: string, request: $_model.GetSubscriptionRequest): Promise<$_model.GetSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves Umodel configuration information.
    * 
    * @remarks
@@ -5438,10 +5664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the releases of an add-on.
+   * Lists add-on releases.
    * 
    * @remarks
-   * Queries the list of integration configurations.
+   * Queries the list of add-on configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @param headers - map
@@ -5486,10 +5712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the releases of an add-on.
+   * Lists add-on releases.
    * 
    * @remarks
-   * Queries the list of integration configurations.
+   * Queries the list of add-on configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @returns ListAddonReleasesResponse
@@ -7623,6 +7849,95 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询订阅规则列表
+   * 
+   * @param request - ListSubscriptionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubscriptionsResponse
+   */
+  async listSubscriptionsWithOptions(request: $_model.ListSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSubscriptionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentUuid)) {
+      query["agentUuid"] = request.agentUuid;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.notifyStrategyUuid)) {
+      query["notifyStrategyUuid"] = request.notifyStrategyUuid;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.subscriptionId)) {
+      query["subscriptionId"] = request.subscriptionId;
+    }
+
+    if (!$dara.isNull(request.subscriptionName)) {
+      query["subscriptionName"] = request.subscriptionName;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["subscriptionType"] = request.subscriptionType;
+    }
+
+    if (!$dara.isNull(request.unbound)) {
+      query["unbound"] = request.unbound;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSubscriptions",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSubscriptionsResponse>(await this.callApi(params, req, runtime), new $_model.ListSubscriptionsResponse({}));
+  }
+
+  /**
+   * 查询订阅规则列表
+   * 
+   * @param request - ListSubscriptionsRequest
+   * @returns ListSubscriptionsResponse
+   */
+  async listSubscriptions(request: $_model.ListSubscriptionsRequest): Promise<$_model.ListSubscriptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSubscriptionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries labels associated with resources.
    * 
    * @param tmpReq - ListTagResourcesRequest
@@ -7691,6 +8006,143 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * List History name
+   * 
+   * @param request - ListUserNotifyHistoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserNotifyHistoriesResponse
+   */
+  async listUserNotifyHistoriesWithOptions(request: $_model.ListUserNotifyHistoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserNotifyHistoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["batchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.bizSource)) {
+      query["bizSource"] = request.bizSource;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.channelCategory)) {
+      query["channelCategory"] = request.channelCategory;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!$dara.isNull(request.group)) {
+      query["group"] = request.group;
+    }
+
+    if (!$dara.isNull(request.incidentId)) {
+      query["incidentId"] = request.incidentId;
+    }
+
+    if (!$dara.isNull(request.includeNoChannel)) {
+      query["includeNoChannel"] = request.includeNoChannel;
+    }
+
+    if (!$dara.isNull(request.isDesc)) {
+      query["isDesc"] = request.isDesc;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.notifyStrategyId)) {
+      query["notifyStrategyId"] = request.notifyStrategyId;
+    }
+
+    if (!$dara.isNull(request.notifyStrategyName)) {
+      query["notifyStrategyName"] = request.notifyStrategyName;
+    }
+
+    if (!$dara.isNull(request.partitionKey)) {
+      query["partitionKey"] = request.partitionKey;
+    }
+
+    if (!$dara.isNull(request.receiver)) {
+      query["receiver"] = request.receiver;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["ruleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["ruleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sendType)) {
+      query["sendType"] = request.sendType;
+    }
+
+    if (!$dara.isNull(request.severity)) {
+      query["severity"] = request.severity;
+    }
+
+    if (!$dara.isNull(request.subscriptionId)) {
+      query["subscriptionId"] = request.subscriptionId;
+    }
+
+    if (!$dara.isNull(request.subscriptionName)) {
+      query["subscriptionName"] = request.subscriptionName;
+    }
+
+    if (!$dara.isNull(request.success)) {
+      query["success"] = request.success;
+    }
+
+    if (!$dara.isNull(request.to)) {
+      query["to"] = request.to;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserNotifyHistories",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/userHistories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserNotifyHistoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserNotifyHistoriesResponse({}));
+  }
+
+  /**
+   * List History name
+   * 
+   * @param request - ListUserNotifyHistoriesRequest
+   * @returns ListUserNotifyHistoriesResponse
+   */
+  async listUserNotifyHistories(request: $_model.ListUserNotifyHistoriesRequest): Promise<$_model.ListUserNotifyHistoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserNotifyHistoriesWithOptions(request, headers, runtime);
   }
 
   /**
