@@ -11,6 +11,10 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
    * 1672285044000
    */
   endTimeStamp?: number;
+  /**
+   * @example
+   * 1234567890123456
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

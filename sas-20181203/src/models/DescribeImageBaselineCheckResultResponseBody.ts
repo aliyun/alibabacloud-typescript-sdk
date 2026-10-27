@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends $dara.Model {
   /**
    * @remarks
-   * The type key of the baseline item.
+   * The key of the baseline item type.
    * 
    * @example
    * identification
@@ -24,12 +24,12 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
    * The alias of the baseline item.
    * 
    * @example
-   * 身份鉴别
+   * Identity authentication
    */
   baselineNameAlias?: string;
   /**
    * @remarks
-   * The name key of the baseline item.
+   * The key of the baseline item name.
    * 
    * @example
    * identification
@@ -40,7 +40,7 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
    * The risk level of the baseline. Valid values:
    * - **high**: high risk
    * - **medium**: medium risk
-   * - **low**: low risk.
+   * - **low**: low risk
    * 
    * @example
    * high
@@ -48,7 +48,7 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
   baselineNameLevel?: string;
   /**
    * @remarks
-   * The timestamp of the first scan, in milliseconds.
+   * The timestamp of the first scan. Unit: milliseconds.
    * 
    * @example
    * 1610304058366
@@ -64,7 +64,7 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
   highRiskItemCount?: number;
   /**
    * @remarks
-   * The timestamp of the most recent scan, in milliseconds.
+   * The timestamp of the latest scan. Unit: milliseconds.
    * 
    * @example
    * 1610304058301
@@ -89,8 +89,8 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
   /**
    * @remarks
    * The fix status of the baseline risk. Valid values:
-   * - **0**: Unfixed.
-   * - **1**: Fixed.
+   * - **0**: unfixed
+   * - **1**: fixed
    * 
    * @example
    * 1
@@ -140,7 +140,7 @@ export class DescribeImageBaselineCheckResultResponseBodyBaselineResult extends 
 export class DescribeImageBaselineCheckResultResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page when using paging.
+   * The number of entries returned on the current page when paging in a paged query.
    * 
    * @example
    * 10
@@ -148,7 +148,7 @@ export class DescribeImageBaselineCheckResultResponseBodyPageInfo extends $dara.
   count?: number;
   /**
    * @remarks
-   * The page number of the current page when using paging.
+   * The page number of the current page when paging in a paged query.
    * 
    * @example
    * 1
@@ -156,7 +156,7 @@ export class DescribeImageBaselineCheckResultResponseBodyPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging.
+   * The maximum number of entries returned per page when paging in a paged query.
    * 
    * @example
    * 20
@@ -205,7 +205,7 @@ export class DescribeImageBaselineCheckResultResponseBody extends $dara.Model {
   baselineResult?: DescribeImageBaselineCheckResultResponseBodyBaselineResult[];
   /**
    * @remarks
-   * The paging information.
+   * The paging information for a paged query.
    */
   pageInfo?: DescribeImageBaselineCheckResultResponseBodyPageInfo;
   /**

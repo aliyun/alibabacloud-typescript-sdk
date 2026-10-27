@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityEventMarkMissListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+   * The number of the page to return. Default value: **1**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSecurityEventMarkMissListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The alert event name (child class).
+   * The name of the alert event (subtype).
    * 
    * @example
    * Login with unusual location
@@ -23,7 +23,7 @@ export class DescribeSecurityEventMarkMissListRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The number of whitelist rules to display on each page in a paged query. Default value: **20**, which indicates that 20 whitelist rules are displayed on each page.
+   * The number of whitelist rules to return on each page during paging. Default value: **20**, which indicates that 20 whitelist rules are returned on each page.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeSecurityEventMarkMissListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The asset search keyword. You can enter the IP address, public IP address, private IP address, or asset name for fuzzy matching.
+   * The asset search criterion. You can specify the IP address, public IP address, private IP address, or name of an asset for fuzzy matching.
    * 
    * @example
    * 192.168.XX.XX

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySoarStrategySubscribeRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy ID.
-   * >Call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain this parameter.
+   * The strategy ID.
+   * You can call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,9 +16,9 @@ export class ModifySoarStrategySubscribeRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The add or remove status. Valid values:
-   * - true: adds the policy template to My Policies
-   * - false: removes the policy template from My Policies.
+   * Specifies whether to add or remove the strategy template. Valid values:
+   * - true: Adds the strategy template to My Strategies.
+   * - false: Removes the strategy template from My Strategies.
    * 
    * This parameter is required.
    * 

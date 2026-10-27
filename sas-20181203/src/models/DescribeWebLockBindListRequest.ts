@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockBindListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query. Minimum value: 1. Default value: 1.
+   * The page number of the current page returned for a paging query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -23,7 +23,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query. Default value: 20.
+   * The maximum number of entries to return on each page for a paging query. Default value: 20.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The fuzzy match field for the server. The value can be a server name or IP address.
+   * The fuzzy match keyword for the server, which can be the server name or IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -39,7 +39,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 116.30.XX.XX
@@ -47,7 +47,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The protection status of the servers that you want to query. Valid values:
+   * The protection status of the servers to query. Valid values:
    * - **on**: Protection is enabled.
    * - **off**: Protection is disabled.
    * 
@@ -57,8 +57,8 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the asset that you want to query.
-   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
+   * The UUID of the asset to query.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * 7151f27e-1d51-4e98-a540-8936a****

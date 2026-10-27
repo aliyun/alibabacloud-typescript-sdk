@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -17,8 +17,7 @@ export class DeleteHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the management node.
-   * 
-   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

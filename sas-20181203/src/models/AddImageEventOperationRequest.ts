@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddImageEventOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule conditions. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **condition**: the matching condition.
-   * *   **type**: the matching type.
-   * *   **value**: the matching value.
+   * The rule conditions. The value is in JSON format. Valid keys:
+   * - **condition**: The matching condition.
+   * - **type**: The matching type.
+   * - **value**: The matching value.
    * 
    * @example
    * [{\\"condition\\": \\"MD5\\", \\"type\\": \\"equals\\", \\"value\\": \\"0083a31cc0083a31ccf7c10367a6e783e\\"}]
@@ -17,7 +16,7 @@ export class AddImageEventOperationRequest extends $dara.Model {
   conditions?: string;
   /**
    * @remarks
-   * The keyword of the alert item.
+   * The alert metric keyword.
    * 
    * @example
    * PEM
@@ -25,7 +24,7 @@ export class AddImageEventOperationRequest extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the alert item.
+   * The alert metric name.
    * 
    * @example
    * PEM
@@ -33,9 +32,8 @@ export class AddImageEventOperationRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The alert type.
-   * 
-   * *   Set the value to **sensitiveFile**.
+   * The Alarm Metric for alerting. Valid values:
+   * - **sensitiveFile**: Sensitive file.
    * 
    * @example
    * sensitiveFile
@@ -43,7 +41,7 @@ export class AddImageEventOperationRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The remarks that you want to add.
+   * The note to add.
    * 
    * @example
    * test
@@ -51,9 +49,8 @@ export class AddImageEventOperationRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The operation code.
-   * 
-   * *   Set the value to **whitelist** to add the alert item to the whitelist.
+   * The operation code. Valid values:
+   * - **whitelist**: Whitelist.
    * 
    * @example
    * whitelist
@@ -61,10 +58,10 @@ export class AddImageEventOperationRequest extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * The application scope of the rule. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **type**
-   * *   **value**
+   * The rule scope. The value is in JSON format. Valid keys:
+   * - **type**: The scope type.
+   * - **value**: The scope value.
+   * > This parameter and **Source** cannot be empty at the same time. If **Source** is set to **agentless**, this parameter does not take effect.
    * 
    * @example
    * {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
@@ -73,9 +70,9 @@ export class AddImageEventOperationRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the whitelist. Valid values:
-   * 
-   * *   **image**: image.
-   * *   **agentless**: agentless detection.
+   * - **image**: Image.
+   * - **agentless**: Agentless detection.
+   * > This parameter and **Scenarios** cannot be empty at the same time. If this parameter is set to **agentless**, the **Scenarios** parameter does not take effect.
    * 
    * @example
    * agentless

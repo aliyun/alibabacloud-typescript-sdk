@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetSelectionSelectedTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the asset selection.
+   * The unique identifier for the current asset selection.
    * 
    * This parameter is required.
    * 

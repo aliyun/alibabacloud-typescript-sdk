@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyScaProcessDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned on the current page for paging in a paged query.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPageInfo extends $dara.
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page for paging in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of processes returned on each page for paging in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -73,7 +73,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPropertys extends $dara
   cmdline?: string;
   /**
    * @remarks
-   * The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
+   * The timestamp of the latest scan by Asset Fingerprints. Unit: milliseconds.
    * 
    * @example
    * 1597987834000
@@ -89,7 +89,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPropertys extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the server.
+   * The name of the server instance.
    * 
    * @example
    * hc-host-****
@@ -121,7 +121,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPropertys extends $dara
   name?: string;
   /**
    * @remarks
-   * The ID of the process.
+   * The process ID.
    * 
    * @example
    * 522
@@ -137,7 +137,7 @@ export class DescribePropertyScaProcessDetailResponseBodyPropertys extends $dara
   uuid?: string;
   /**
    * @remarks
-   * The version of web application service.
+   * The version of the web application service.
    * 
    * @example
    * 3.10.0
@@ -190,12 +190,12 @@ export class DescribePropertyScaProcessDetailResponseBody extends $dara.Model {
   pageInfo?: DescribePropertyScaProcessDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * The processes collected by the asset fingerprints feature.
+   * The list of processes in Asset Fingerprints.
    */
   propertys?: DescribePropertyScaProcessDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ADE57832-9666-511C-9A80-B87DE2E8****

@@ -56,6 +56,9 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
   /**
    * @remarks
    * The plug-in status.
+   * 
+   * @example
+   * online
    */
   pluginStatus?: string;
   /**

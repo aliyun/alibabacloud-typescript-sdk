@@ -24,7 +24,7 @@ export class DescribeBruteForceRecordsRequest extends $dara.Model {
    * The ID of the server.
    * 
    * @example
-   * i-bp1fu4aqltf1huhc****
+   * i-bp1g6wxdwps7s9dz****
    */
   instanceId?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeBruteForceRecordsRequest extends $dara.Model {
    * The name or IP address of the server to query.
    * 
    * @example
-   * 222.185.XX.XX
+   * 1.2.XX.XX
    */
   remark?: string;
   resourceOwnerId?: number;

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChartListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type for the request and response messages. Valid values:
-   * - **zh**: Chinese
+   * The language type of the request and response messages. Valid values:
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
@@ -17,7 +17,7 @@ export class DescribeChartListRequest extends $dara.Model {
    * @remarks
    * The project code. Valid values:
    * 
-   * - **customize_report**: custom report.
+   * - **customize_report**: Custom report.
    * 
    * This parameter is required.
    * 

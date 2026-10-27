@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRiskNumRequestInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-wz9fdluqx20mp2x7****
@@ -13,7 +13,7 @@ export class ListInstanceRiskNumRequestInstanceList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The UUID of the instance.
+   * The UUID of the instance. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain the UUID of the server.
    * 
    * @example
    * f2d6e901-1004-4ca8-9dae-53ec04a9****
@@ -45,7 +45,7 @@ export class ListInstanceRiskNumRequestInstanceList extends $dara.Model {
 export class ListInstanceRiskNumRequest extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The instance list.
    */
   instanceList?: ListInstanceRiskNumRequestInstanceList[];
   static names(): { [key: string]: string } {

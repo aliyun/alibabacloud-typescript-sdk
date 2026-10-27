@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**.
+   * Specifies the page number of the returned results. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,10 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The UUID of the image.
+   * The image UUID.
+   * > You can call the [DescribeImageListBySensitiveFile](~~DescribeImageListBySensitiveFile~~) operation to obtain this parameter from the ImageInfos[].Uuid field in the response.
+   * This parameter is required. If you do not specify this parameter, the API returns an HTTP 400 error with the error code -101.
+   * The ByKey suffix in the operation name indicates filtering by sensitive file type. To locate an image, you must specify this parameter (imageUuid). SensitiveFileKey is an optional filter condition for the sensitive file type.
    * 
    * @example
    * 0083a31ccf7c10367a6e783e8601****
@@ -21,7 +24,7 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -31,7 +34,7 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paging query. Default value: **20**.
+   * Specifies the maximum number of entries to return on each page in a paging query. Default value: **20**.
    * 
    * @example
    * 20
@@ -47,12 +50,12 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
   scanRange?: string[];
   /**
    * @remarks
-   * The alerting type of the sensitive file. Valid values:
+   * The sensitive file alerting type. Valid values:
    * 
    * - **npm_token**: NPM access token
    * - **ftp_cfg**: FTP configuration
    * - **google_oauth_key**: Google OAuth key
-   * - **planetscale_passwd**: Planetscale password
+   * - **planetscale_passwd**: PlanetScale password
    * - **github_ssh_key**: GitHub SSH key
    * - **msbuild_publish_profile**: MSBuild publish profile
    * - **fastly_cdn_token**: Fastly CDN token
@@ -65,7 +68,7 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
    * - **aws_access_key**: AWS access key
    * - **esmtp_cfg**: ESMTP mail server configuration
    * - **docker_registry_cfg**: Docker image repository configuration
-   * - **pem**: PEM
+   * - **pem**: PEM file
    * - **common_cred**: common credential
    * - **sftp_cfg**: SFTP connection configuration
    * - **grafana_token**: Grafana token
@@ -84,15 +87,15 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
    * - **wordpress_database_cfg**: WordPress database configuration
    * - **googlecloud_api_key**: Google Cloud API key
    * - **vscode_sftp**: VSCode SFTP configuration
-   * - **apache_htpasswd**: Apache htpasswd
-   * - **planetscale_token**: Planetscale token
+   * - **apache_htpasswd**: Apache htpasswd file
+   * - **planetscale_token**: PlanetScale token
    * - **contentful_preview_token**: Contentful preview token
    * - **php_database_cfg**: PHP application database password
    * - **atom_remote_sync**: Atom remote synchronization configuration
    * - **aws_session_token**: AWS session token
    * - **atom_sftp_cfg**: Atom SFTP configuration
    * - **asana_client_private_key**: Asana project management platform client key
-   * - **tencentcloud_ak**: SecretId of other cloud service providers
+   * - **tencentcloud_ak**: Tencent Cloud SecretId
    * - **rsa_private_key**: RSA private key
    * - **github_personal_token**: GitHub personal access token
    * - **pgp**: PGP encrypted file
@@ -133,11 +136,11 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
    * - **jetbrains_ides**: JetBrains IDEs configuration
    * - **heroku_api_key**: Heroku API key
    * - **messagebird_token**: MessageBird token
-   * - **github_app_token**: GitHub app token
+   * - **github_app_token**: GitHub App token
    * - **hashicorp_vault_token**: HashiCorp Vault token
    * - **pgp_private_key**: PGP private key
    * - **sshpasswd**: SSH password
-   * - **huaweicloud_ak**: Secret access key of other cloud service providers
+   * - **huaweicloud_ak**: Huawei Cloud Secret Access Key
    * - **aws_s3cmd**: AWS S3cmd configuration
    * - **php_config**: PHP configuration
    * - **common_private_key**: common private key type
@@ -159,7 +162,7 @@ export class DescribeImageSensitiveFileByKeyRequest extends $dara.Model {
    * - **rails_app_token**: Rails app token
    * - **git_cred**: Git user credential
    * - **newrelic_api_key**: New Relic user API key
-   * - **github_hub**: Hub configuration that stores GitHub tokens
+   * - **github_hub**: hub configuration that stores GitHub tokens
    * - **rubygem**: RubyGems token
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFunctionTrialStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the function module.
+   * The name of the feature module.
    * 
    * @example
    * trail_file_detect_api_reward

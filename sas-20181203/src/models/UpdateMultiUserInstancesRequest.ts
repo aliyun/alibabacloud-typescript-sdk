@@ -97,6 +97,9 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   /**
    * @remarks
    * The number of platform configuration check instance authorizations allocated to the member accounts.
+   * 
+   * @example
+   * 0
    */
   cspmInstanceCapacity?: number;
   /**

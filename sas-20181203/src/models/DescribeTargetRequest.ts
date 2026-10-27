@@ -10,7 +10,7 @@ export class DescribeTargetRequest extends $dara.Model {
    * - **cms**: Web-CMS vulnerability
    * - **sys**: Windows system vulnerability
    * - **cve**: Linux software vulnerability
-   * - **emg**: emergency vulnerability.
+   * - **emg**: emergency vulnerability
    * 
    * @example
    * {"vulType":"cms"}
@@ -18,7 +18,7 @@ export class DescribeTargetRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The query type. Set this parameter to vul.
+   * The query type. Set the value to vul.
    * 
    * @example
    * vul

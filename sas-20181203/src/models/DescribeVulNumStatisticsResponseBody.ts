@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of application vulnerability entries detected by the scanner on your assets.
+   * The number of scanner application vulnerability records in the assets.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   appCnt?: number;
   /**
    * @remarks
-   * The number of application vulnerabilities detected by the scanner on your assets.
+   * The number of scanner application vulnerabilities in the assets.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   appNum?: number;
   /**
    * @remarks
-   * The total number of handled CMS vulnerabilities.
+   * The number of handled Web-CMS vulnerabilities.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cmsDealedTotalNum?: number;
   /**
    * @remarks
-   * The number of Web-CMS vulnerabilities on your assets.
+   * The number of the Web-CMS vulnerability in the assets.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cmsNum?: number;
   /**
    * @remarks
-   * The number of Linux software vulnerabilities on your assets.
+   * The number of the Linux system vulnerability in the assets.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cveNum?: number;
   /**
    * @remarks
-   * The number of urgent vulnerabilities on your assets.
+   * The number of emergency vulnerabilities in the assets.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   emgNum?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E22C89D2-FE13-5800-8746-9D0EF1827A59
@@ -61,7 +61,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of middleware vulnerabilities on your assets.
+   * The number of middleware vulnerabilities in the assets.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   scaNum?: number;
   /**
    * @remarks
-   * The number of Windows system vulnerabilities on your assets.
+   * The number of the Windows system vulnerability in the assets.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   sysNum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities with a high fix priority.
+   * The number of high-priority vulnerabilities.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulAsapSum?: number;
   /**
    * @remarks
-   * This field is deprecated.
+   * **[Deprecated]** This field is deprecated.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulDealedTotalNum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities with a medium fix priority.
+   * The number of medium-priority vulnerabilities.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulLaterSum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities with a low fix priority.
+   * The number of low-priority vulnerabilities.
    * 
    * @example
    * 0

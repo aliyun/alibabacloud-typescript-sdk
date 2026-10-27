@@ -7,7 +7,7 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperationsCondi
    * @remarks
    * The condition key. Valid values:
    * - **MD5**: MD5.
-   * - **PATH**: path.
+   * - **PATH**: Path.
    * 
    * @example
    * MD5
@@ -63,7 +63,7 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperations exte
   /**
    * @remarks
    * The operation code. Valid values:
-   * - **whitelist**: whitelist.
+   * - **whitelist**: Whitelist.
    * 
    * @example
    * whitelist
@@ -109,7 +109,7 @@ export class DescribeImageEventOperationConditionResponseBodyData extends $dara.
   /**
    * @remarks
    * The alerting type. Valid values:
-   * - **sensitiveFile**: sensitive file.
+   * - **sensitiveFile**: Sensitive file.
    * 
    * @example
    * sensitiveFile
@@ -159,7 +159,7 @@ export class DescribeImageEventOperationConditionResponseBodyData extends $dara.
 export class DescribeImageEventOperationConditionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the call.
+   * The return code.
    * 
    * @example
    * 200
@@ -188,9 +188,9 @@ export class DescribeImageEventOperationConditionResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

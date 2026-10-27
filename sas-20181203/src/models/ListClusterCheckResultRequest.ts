@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterCheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Fuzzy search key for check items.
+   * The keyword for fuzzy search of check items.
    * 
    * @example
    * container
@@ -13,7 +13,7 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   checkKey?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Page number for the current page in a paginated query. The default value is **1**.
+   * Specifies the page number of the current page during paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -31,11 +31,9 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Language type for requests and responses. The default value is **zh**. Values:
-   * 
-   * - **zh**: Chinese
-   * 
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * This parameter is required.
    * 
@@ -45,7 +43,7 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Number of records to display per page when performing a paginated query. The default value is **20**, indicating 20 records per page.
+   * The Settings for paging in a paged query. Specifies the number of records to display on each page. Default value: **20**, which indicates that 20 records are displayed on each page.
    * 
    * @example
    * 20
@@ -53,15 +51,14 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of risk levels.
+   * The list of risk levels.
    */
   riskLevels?: string[];
   /**
    * @remarks
-   * Custom sorting type. Values:
+   * The custom sort type. Valid values:
    * 
    * - **RISK_LEVEL**: Risk level.
-   * 
    * - **STATUS**: Check item status.
    * 
    * @example
@@ -70,7 +67,7 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * List of check item statuses.
+   * The list of check item statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

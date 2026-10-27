@@ -37,7 +37,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68
@@ -62,8 +62,8 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether incremental scanning is enabled. Valid values:
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: disabled.
+   * - **1**: enabled.
    * 
    * @example
    * 1

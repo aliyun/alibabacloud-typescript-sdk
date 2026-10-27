@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceVulStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The vulnerability type of the Serverless asset. Valid values:
+   * The vulnerability types for serverless assets. Valid values:
    * 
-   * - **sca**: middleware vulnerability
+   * - **sca**: middleware vulnerabilities
    * 
-   * - **app**: scanner vulnerability
+   * - **app**: scanner vulnerabilities
    * 
    * >Serverless assets currently support only application vulnerability scanning.
    * 

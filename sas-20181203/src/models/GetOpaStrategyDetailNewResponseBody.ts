@@ -207,7 +207,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile extends $dara.Model {
   /**
    * @remarks
-   * The malicious sample item information.
+   * The information about malicious sample items.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem[];
   /**
@@ -370,8 +370,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
   /**
    * @remarks
    * The ID of the vulnerability type. Valid values:
-   * - **cve**: system vulnerability
-   * - **app**: application vulnerability
+   * - **cve**: System vulnerability.
+   * - **app**: Application vulnerability.
    * 
    * @example
    * cve
@@ -413,7 +413,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $dara.Model {
   /**
    * @remarks
-   * The vulnerability item information.
+   * The information about vulnerability items.
    */
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem[];
   /**
@@ -468,17 +468,17 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $dara.Mo
   baseline?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline;
   /**
    * @remarks
-   * The risky image build command information.
+   * The information about risky image build commands.
    */
   buildRisk?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk;
   /**
    * @remarks
-   * The malicious sample configuration information.
+   * The configuration information for malicious samples.
    */
   maliciousFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile;
   /**
    * @remarks
-   * The sensitive file information.
+   * The information about sensitive files.
    */
   sensitiveFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile;
   /**
@@ -533,7 +533,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $dara.Mo
 export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the policy in the cluster.
+   * The policy instance ID in the cluster.
    * 
    * @example
    * ack-0
@@ -543,8 +543,8 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
    * @remarks
    * Specifies whether all namespaces are included. Valid values:
    * 
-   * - **1**: yes
-   * - **0**: no
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -638,14 +638,14 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   imageName?: string[];
   /**
    * @remarks
-   * The image tag.
+   * The image label.
    */
   label?: string[];
   /**
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -655,8 +655,8 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * Specifies whether the policy supports malicious images from the Internet. Valid values:
    * 
-   * - **true**: supported
-   * - **false**: not supported
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -664,7 +664,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return per page during paging in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -673,9 +673,9 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The action to perform when the policy is matched. Valid values:
-   * - **1**: alert
-   * - **2**: block
-   * - **3**: allow
+   * - **1**: Alert.
+   * - **2**: Block.
+   * - **3**: Allow.
    * 
    * @example
    * 1
@@ -714,8 +714,8 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * Specifies whether the policy supports unscanned images. Valid values:
    * 
-   * - **true**: supported
-   * - **false**: not supported
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -797,7 +797,7 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
 export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to identify the cause of the failure.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -826,7 +826,7 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * E819FD71-D240-5E54-AA7F-20FED2ECBEB6

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page to display in a paged query.
+   * The page number of the current page returned for a paging query.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribePropertyUserItemRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether to forcefully refresh the data to be queried. Valid values:
-   * - **true**: Forcefully refresh.
-   * - **false**: Do not forcefully refresh.
+   * Specifies whether to forcibly refresh the data to be queried. Valid values:
+   * - **true**: Forces a refresh.
+   * - **false**: Does not force a refresh.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class DescribePropertyUserItemRequest extends $dara.Model {
   forceFlush?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to display on each page in a paged query.
+   * The maximum number of entries returned per page for a paging query.
    * 
    * @example
    * 2

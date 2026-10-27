@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWebLockStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type for requests and responses. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response messages. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
@@ -16,7 +16,7 @@ export class ModifyWebLockStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 125.71.XX.XX
@@ -24,11 +24,11 @@ export class ModifyWebLockStatusRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The protection status of the server. Valid values:
+   * Specifies the protection status of the server. Valid values:
    * - **on**: Enables protection.
-   * - **off**: Shuts down protection.    
+   * - **off**: Initiates a shutdown of protection.    
    * 
-   * > After you shut down web tamper-proofing for the server, a tamper-proofing authorization quota is released.
+   * > After you initiate a shutdown of web tamper-proofing for the current server, a tamper-proofing authorization quota is released.
    * 
    * This parameter is required.
    * 
@@ -38,8 +38,8 @@ export class ModifyWebLockStatusRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the server for which you want to modify the brute-force attacks prevention status.
-   * You can invoke the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
+   * The UUID of the server for which you want to modify the protection status against brute-force attacks.
+   * You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
    * 
    * This parameter is required.
    * 

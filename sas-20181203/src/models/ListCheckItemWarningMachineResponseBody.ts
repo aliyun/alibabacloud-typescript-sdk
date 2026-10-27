@@ -89,7 +89,7 @@ export class ListCheckItemWarningMachineResponseBodyListWarningRiskList extends 
 export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * Type of cloud product assets
+   * The type of the cloud service asset.
    * 
    * @example
    * 0
@@ -97,14 +97,14 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The edition of Security Center that is authorized to protect the asset. Valid values:
+   * The authorization version of the asset. Valid values:
    * 
-   * *   **1**: Basic edition
-   * *   **6**: Anti-virus edition
-   * *   **5**: Advanced edition
-   * *   **3**: Enterprise edition
-   * *   **7**: Ultimate edition
-   * *   **10**: Value-added Plan edition
+   * - **1**: Free Edition
+   * - **6**: Anti-virus Edition
+   * - **5**: Premium Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
+   * - **10**: Value-added Service Edition
    * 
    * @example
    * 3
@@ -112,10 +112,10 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   authVersion?: number;
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to protect the asset. Valid values:
+   * Indicates whether the asset is bound to an authorization. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The asset is bound to an authorization.
+   * - **false**: The asset is not bound to an authorization.
    * 
    * @example
    * true
@@ -139,14 +139,15 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The details of the baselines for which the risk item can be fixed.
+   * The list of fixable baselines in which the risk of this check item is detected.
    */
   fixList?: ListCheckItemWarningMachineResponseBodyListFixList[];
   /**
    * @remarks
-   * Whether the repair is supported. Valid values:
-   * *   **0**: Supported
-   * *   **1**: Not Supported
+   * Indicates whether fixing is supported. Valid values:
+   * 
+   * - **0**: not supported
+   * - **1**: supported
    * 
    * @example
    * 1
@@ -162,7 +163,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * sql-test-0****
@@ -170,7 +171,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the affected asset.
+   * The public IP address of the affected asset instance.
    * 
    * @example
    * 8.210.XX.XX
@@ -178,7 +179,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the affected asset.
+   * The private IP address of the affected asset instance.
    * 
    * @example
    * 172.25.XX.XX
@@ -186,7 +187,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp of the latest processing of the check item risk of the machine. Unit: milliseconds.
+   * The timestamp of the latest handling of the check item risk on the server. Unit: milliseconds.
    * 
    * @example
    * 1694692471000
@@ -194,7 +195,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   lastHandleTime?: number;
   /**
    * @remarks
-   * The timestamp generated when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the latest scan. Unit: milliseconds.
    * 
    * @example
    * 1694692471000
@@ -202,10 +203,11 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   lastScanTime?: number;
   /**
    * @remarks
-   * Indicates whether a port on the server is accessible over the Internet. Valid values:
+   * Indicates whether the server has ports open to the Internet. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The server has ports open to the Internet.
+   * 
+   * - **false**: The server does not have ports open to the Internet.
    * 
    * @example
    * true
@@ -213,7 +215,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   portOpen?: boolean;
   /**
    * @remarks
-   * The prompt for the risk item.
+   * The check prompt for the baseline check risk item.
    * 
    * @example
    * There is a weak password (username/password): root/he*****34
@@ -221,7 +223,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   prompt?: string;
   /**
    * @remarks
-   * The region ID of the asset.
+   * The ID of the region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -231,12 +233,12 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
    * @remarks
    * The status of the check item. Valid values:
    * 
-   * *   **1**: failed
-   * *   **2**: verifying
-   * *   **3**: passed
-   * *   **6**: ignored
-   * *   **7**: fixing
-   * *   **8**: fixed
+   * - **1**: failed
+   * - **2**: verifying
+   * - **3**: passed
+   * - **6**: ignored
+   * - **7**: fixing
+   * - **8**: fixed
    * 
    * @example
    * 1
@@ -244,7 +246,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The ID of the asset that is scanned.
+   * The ID of the scan target.
    * 
    * @example
    * 30****
@@ -252,7 +254,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset on which the malicious image sample is detected.
+   * The name of the scan target.
    * 
    * @example
    * jenkins****
@@ -260,10 +262,10 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The type of the asset. Valid values:
+   * The object type. Valid values:
    * 
-   * *   **ECS_SNAPSHOT**
-   * *   **ECS_IMAGE**
+   * - **ECS_SNAPSHOT**: snapshot
+   * - **ECS_IMAGE**: image
    * 
    * @example
    * ECS_IMAGE
@@ -279,7 +281,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The information about the baselines on which the risk item is detected.
+   * The list of baselines in which the risk of this check item is detected.
    * 
    * @deprecated
    */
@@ -364,7 +366,7 @@ export class ListCheckItemWarningMachineResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page during paging in a paged query.
    * 
    * @example
    * 1
@@ -372,7 +374,7 @@ export class ListCheckItemWarningMachineResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries displayed on each page during paging in a paged query.
    * 
    * @example
    * 20
@@ -380,7 +382,7 @@ export class ListCheckItemWarningMachineResponseBodyPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of affected assets.
+   * The total number of affected assets returned.
    * 
    * @example
    * 107
@@ -416,17 +418,17 @@ export class ListCheckItemWarningMachineResponseBodyPageInfo extends $dara.Model
 export class ListCheckItemWarningMachineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The servers on which the alerts are generated.
+   * The list of servers with alerts.
    */
   list?: ListCheckItemWarningMachineResponseBodyList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query results.
    */
   pageInfo?: ListCheckItemWarningMachineResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * 22B5615F-700E-575A-A6D5-DC8D7741****

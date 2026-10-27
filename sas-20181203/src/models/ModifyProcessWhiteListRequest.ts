@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyProcessWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -15,8 +15,8 @@ export class ModifyProcessWhiteListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The MD5 hash of the process startup file.
-   * > You can call the [DescribeWhiteListProcess](~~DescribeWhiteListProcess~~) operation to obtain this parameter.
+   * The MD5 hash value of the process startup file.
+   * > You can call the [DescribeWhiteListProcess](~~DescribeWhiteListProcess~~) operation to query the value.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ModifyProcessWhiteListRequest extends $dara.Model {
   md5s?: string;
   /**
    * @remarks
-   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically retrieves the value.
    * 
    * @example
    * 173.128.XX.XX
@@ -34,9 +34,9 @@ export class ModifyProcessWhiteListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The whitelist status of the process. Valid values:
-   * - **1**: Remove from the whitelist.
-   * - **2**: Add to the whitelist.
+   * Specifies the whitelist status of the process. Valid values:
+   * - **1**: remove from the whitelist
+   * - **2**: add to the whitelist
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyProcessWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the policy.
-   * > You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain this parameter.
+   * > You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to query the ID.
    * 
    * This parameter is required.
    * 

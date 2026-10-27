@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFileProtectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the core file monitoring rules that you want to delete.
+   * The IDs of the rules to delete.
    */
   id?: number[];
   static names(): { [key: string]: string } {

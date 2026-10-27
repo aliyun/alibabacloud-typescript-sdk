@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use different tokens for different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -13,15 +13,14 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run on the request. Valid values:
-   * - true: Performs a dry run. The system checks the request but does not perform the actual operation.
-   * - false: Performs the request normally.
-   * Default value: false.
+   * Specifies whether to only precheck the request. Valid values:
+   * - true: Only prechecks the request and does not perform the actual operation.
+   * - false: Performs the actual operation.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The switch configuration of the EDR module.
+   * The switch configuration for the EDR module.
    */
   edrModuleSwitchShrink?: string;
   /**
@@ -40,7 +39,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    * The edition to which new assets are automatically bound for host and container protection. Valid values:
    * - **1**: Free Edition 
    * - **3**: Enterprise Edition
-   * - **5**: Advanced Edition
+   * - **5**: Premium Edition
    * - **6**: Anti-virus Edition    
    * - **7**: Ultimate Edition
    * 
@@ -52,7 +51,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    * @remarks
    * The pay-as-you-go instance ID. This parameter is required.
    * 
-   * > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain the value of this parameter.
+   * > Invoke the [DescribeVersionConfig](~~DescribeVersionConfig~~) operation to obtain this parameter.
    * 
    * @example
    * postpay-sas-**
@@ -60,7 +59,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   postPayInstanceId?: string;
   /**
    * @remarks
-   * The switch status of pay-as-you-go modules. The value is a JSON string. Valid values:
+   * The switch status of the pay-as-you-go modules. The value is a JSON string. Valid values:
    * - Key:
    *   - **VUL**: Vulnerability fixing module
    *   - **CSPM**: Cloud Security Posture Management module
@@ -72,7 +71,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    *   - **RASP**: Application protection module
    *   - **CTDR_STORAGE**: Log management module
    *   - **ANTI_RANSOMWARE**: Anti-ransomware management
-   * - Value: 0 indicates disabled. 1 indicates enabled.
+   * - Value: 0 indicates disabled, and 1 indicates enabled.
    * 
    * > The values of modules that are not specified remain unchanged.
    * 
@@ -84,8 +83,8 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   postPayModuleSwitch?: string;
   /**
    * @remarks
-   * The switches of pay-as-you-go modules.
-   * >Notice:  This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
+   * The switch status of the pay-as-you-go modules.
+   * >Notice: This parameter has the same meaning as the PostPayModuleSwitch parameter. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
    */
   postPayModuleSwitchObjShrink?: string;
   static names(): { [key: string]: string } {

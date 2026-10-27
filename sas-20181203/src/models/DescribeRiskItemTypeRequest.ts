@@ -8,7 +8,7 @@ export class DescribeRiskItemTypeRequest extends $dara.Model {
    * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh

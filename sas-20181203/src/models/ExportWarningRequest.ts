@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ExportWarningRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the baseline issues are handled. Valid values:
+   * Specifies whether the baseline issue is handled. Valid values:
    * 
-   * - **Y**: handled
-   * - **N**: unhandled
+   * - **Y**: The issue is handled.
+   * - **N**: The issue is not handled.
    * 
    * @example
    * N
@@ -16,7 +16,7 @@ export class ExportWarningRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The type of the export task. Set the value to **hc_check_warning**, which indicates that baseline check results are exported.
+   * The type of the export task. Set the value to **hc_check_warning**, which indicates exporting baseline check results.
    * 
    * @example
    * hc_check_warning
@@ -33,10 +33,10 @@ export class ExportWarningRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The export method for weak password baseline check results. Valid values:
+   * Specifies the export method for weak password baseline check results. Valid values:
    * 
-   * - **0**: Export weak passwords after masking.
-   * - **1**: Export weak passwords in plaintext.
+   * - **0**: Weak passwords are masked before export.
+   * - **1**: Weak passwords are exported in plaintext.
    * 
    * @example
    * 0
@@ -44,10 +44,10 @@ export class ExportWarningRequest extends $dara.Model {
   isCleartextPwd?: number;
   /**
    * @remarks
-   * Specifies whether to export a summary of the baseline check results. Valid values:
+   * Specifies whether to export the baseline check results in summary mode. Valid values:
    * 
-   * - **0**: no
-   * - **1**: yes
+   * - **0**: The results are not exported in summary mode.
+   * - **1**: The results are exported in summary mode.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ExportWarningRequest extends $dara.Model {
   isSummaryExport?: number;
   /**
    * @remarks
-   * Specifies the language of the request and response. Default value: **zh**. Valid values:
+   * Specifies the language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
    * - **en**: English
@@ -76,9 +76,9 @@ export class ExportWarningRequest extends $dara.Model {
    * @remarks
    * The risk levels of the baselines. Separate multiple risk levels with commas (,). Valid values:
    * 
-   * - **high**: high-risk
-   * - **medium**: medium-risk
-   * - **low**: low-risk
+   * - **high**: High
+   * - **medium**: Medium
+   * - **low**: Low
    * 
    * @example
    * high,medium
@@ -104,8 +104,8 @@ export class ExportWarningRequest extends $dara.Model {
    * @remarks
    * The statuses of the risk items in the baseline check results. Separate multiple status values with commas (,). Valid values:
    * 
-   * - **3**: passed
-   * - **1**: failed
+   * - **3**: Passed
+   * - **1**: Failed
    * 
    * @example
    * 1,3
@@ -150,7 +150,7 @@ export class ExportWarningRequest extends $dara.Model {
   typeNames?: string;
   /**
    * @remarks
-   * The UUIDs of the servers for which you want to export the baseline check results. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the server assets for which you want to export the baseline check results. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * inet-7c676676-06fa-442e-90fb-b802e****,inet-7c676676-06fa-442e-90fb-b****

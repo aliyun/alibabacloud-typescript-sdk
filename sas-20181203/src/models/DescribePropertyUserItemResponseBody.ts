@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page in a paged query.
+   * The number of entries returned on the current page for a paging query.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page to display in a paged query.
+   * The page number of the current page returned for a paging query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries displayed on each page in a paged query.
+   * The maximum number of entries returned per page for a paging query.
    * 
    * @example
    * 2
@@ -73,7 +73,7 @@ export class DescribePropertyUserItemResponseBodyPropertyItems extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * @example
    * adm
@@ -115,7 +115,7 @@ export class DescribePropertyUserItemResponseBody extends $dara.Model {
   propertyItems?: DescribePropertyUserItemResponseBodyPropertyItems[];
   /**
    * @remarks
-   * The unique identifier that Alibaba Cloud generated for the request.
+   * The ID of the request.
    * 
    * @example
    * 76068BE2-F9C4-4EDD-967B-F503B8CCDD3D

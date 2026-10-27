@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the whitelist rule. If you do not specify this parameter, a whitelist rule is created.
+   * The ID of the whitelist rule for sensitive file alerts in agentless detection. This parameter is optional. If you do not specify this parameter, a new rule is created. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to obtain the ID of the whitelist rule for sensitive files.
    * 
    * @example
    * 1
@@ -13,9 +13,8 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   configId?: number;
   /**
    * @remarks
-   * The name of the alert.
-   * 
-   * *   Set the value to **ALL**, which indicates all alert types.
+   * The alerting name. Valid values:
+   * - **ALL**: all Alarm Metrics.
    * 
    * @example
    * ALL
@@ -23,7 +22,7 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   eventName?: string;
   /**
    * @remarks
-   * The field that you want to use in the whitelist rule.
+   * The field used to determine the whitelist for sensitive file alerts.
    * 
    * @example
    * fileMd5
@@ -31,7 +30,7 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   field?: string;
   /**
    * @remarks
-   * The value of the field that you want to use in the whitelist rule.
+   * The expected field value to be whitelisted.
    * 
    * @example
    * b2cf9747ee49d8d9b105cf16e078cc16
@@ -39,9 +38,8 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   fieldValue?: string;
   /**
    * @remarks
-   * The logical operator that you want to use in the whitelist rule.
-   * 
-   * *   Set the value to strEqual, which indicates the equality operator (=).
+   * The operator used to evaluate the rule. Valid values:
+   * - strEqual: equal to.
    * 
    * @example
    * strEqual
@@ -49,9 +47,8 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   operator?: string;
   /**
    * @remarks
-   * The feature to which this operation belongs.
-   * 
-   * *   Set the value to agentless, which indicates the agentless detection feature.
+   * The business source. Valid values:
+   * - agentless: agentless detection.
    * 
    * @example
    * agentless
@@ -59,10 +56,9 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   source?: string;
   /**
    * @remarks
-   * The type of the assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   SELECTION_KEY: selected assets
+   * The type of the target to which the rule applies. Valid values:
+   * - ALL: all assets.
+   * - SELECTION_KEY: assets selected by using the asset selection component.
    * 
    * @example
    * ALL
@@ -70,10 +66,9 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
   targetType?: string;
   /**
    * @remarks
-   * The assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   Others: selected assets
+   * The scope of the target to which the rule applies. Valid values:
+   * - ALL: all assets.
+   * - Other values: the key of the asset scope selected by using the asset selection component.
    * 
    * @example
    * ALL
@@ -117,7 +112,7 @@ export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $d
 export class BatchUpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The whitelist rules.
+   * The list of whitelist rules for sensitive file alerts in agentless detection.
    */
   configList?: BatchUpdateMaliciousFileWhitelistConfigRequestConfigList[];
   static names(): { [key: string]: string } {

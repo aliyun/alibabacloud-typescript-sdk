@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterScannerYamlRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster to query.
+   * The ID of the container cluster.
    * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.

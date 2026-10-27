@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcProbeListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1, which indicates that the first page is returned.
+   * Specifies the page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -21,8 +21,8 @@ export class DescribeIdcProbeListRequest extends $dara.Model {
   idcName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-   * > Do not leave PageSize empty.
+   * Specifies the maximum number of entries to return on each page for a paging query. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for the PageSize parameter.
    * 
    * @example
    * 20
@@ -30,10 +30,10 @@ export class DescribeIdcProbeListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The usage status of the probe. Valid values:
+   * The status of the probe. Valid values:
    * 
-   * - **0**: enabled
-   * - **1**: disabled.
+   * - **0**: Enabled.
+   * - **1**: Disabled.
    * 
    * @example
    * 0

@@ -10,7 +10,7 @@ export class CreateHybridProxyClusterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * Chester-Test
    */
   clusterName?: string;
   /**
@@ -19,7 +19,7 @@ export class CreateHybridProxyClusterRequest extends $dara.Model {
    * >  You can specify an IP address or a domain name
    * 
    * @example
-   * 117.71.xx.xx
+   * 192.168.xx.xx
    */
   ip?: string;
   /**
@@ -27,7 +27,7 @@ export class CreateHybridProxyClusterRequest extends $dara.Model {
    * The description of the cluster.
    * 
    * @example
-   * testRemark
+   * remark test
    */
   remark?: string;
   static names(): { [key: string]: string } {

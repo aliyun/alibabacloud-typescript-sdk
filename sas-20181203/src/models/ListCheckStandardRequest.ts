@@ -5,26 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckStandardRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs of the cloud services to which the check items belong.
+   * The target cloud service instance ID for the check item.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The subtypes of cloud services.
+   * The subtype of the cloud service.
    */
   instanceSubTypes?: string[];
   /**
    * @remarks
-   * The asset types of cloud services.
+   * The asset type of the cloud service.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese
-   * 
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,21 +31,16 @@ export class ListCheckStandardRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   /**
    * @remarks
-   * The cloud service providers. Valid values:
-   * 
+   * The list of cloud vendors. Valid values:
    * - **ALIYUN**: Alibaba Cloud.
-   * 
    * - **TENCENT**: Tencent Cloud.
-   * 
    * - **HUAWEICLOUD**: Huawei Cloud.
-   * 
-   * - **MICROSOFT**: Microsoft Azure.
-   * 
+   * - **MICROSOFT**: Azure.
    * - **AWS**: Amazon Web Services (AWS).
    */
   vendors?: string[];

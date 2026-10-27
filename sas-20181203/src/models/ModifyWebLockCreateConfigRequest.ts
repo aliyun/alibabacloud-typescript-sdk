@@ -7,8 +7,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
    * @remarks
    * The defense mode. Valid values:
    * 
-   * - **block**: Block mode.
-   * - **audit**: Alert mode.
+   * - **block**: Blocks requests.
+   * - **audit**: Generates alerts.
    * 
    * This parameter is required.
    * 
@@ -28,8 +28,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   dir?: string;
   /**
    * @remarks
-   * The folder to exclude from web tamper proofing protection.
-   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
+   * The directory that does not require web tamper-proofing (excluded directory).
+   * > If the defense pattern **Mode** is set to **blacklist**, you must configure this parameter.
    * 
    * @example
    * /home/admin/test
@@ -37,8 +37,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveDir?: string;
   /**
    * @remarks
-   * The file to exclude from web tamper proofing protection.
-   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
+   * The files that do not require web tamper-proofing (excluded files).
+   * > If the defense pattern **Mode** is set to **blacklist**, you must configure this parameter.
    * 
    * @example
    * /home/admin/apache.log
@@ -46,7 +46,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveFile?: string;
   /**
    * @remarks
-   * The file types to exclude from web tamper proofing protection. Separate multiple file types with semicolons (;). Valid values:
+   * The file types that do not require web tamper-proofing (excluded file types). Separate multiple file types with a semicolon. Valid values:
    * - php
    * - jsp
    * - asp
@@ -62,7 +62,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
    * - gif
    * - png
    * 
-   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
+   * > If the defense pattern **Mode** is set to **blacklist**, you must configure this parameter.
    * 
    * @example
    * jpg
@@ -70,8 +70,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveFileType?: string;
   /**
    * @remarks
-   * The file to protect.
-   * > This parameter is required when the Defense mode **Mode** is set to **whitelist** pattern.
+   * The files that require protection.
+   * > If the defense pattern **Mode** is set to **whitelist**, you must configure this parameter.
    * 
    * @example
    * /home/admin/test.log
@@ -79,7 +79,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   inclusiveFile?: string;
   /**
    * @remarks
-   * The file types to protect with web tamper proofing. Separate multiple file types with semicolons (;). Valid values:
+   * The file types that require web tamper-proofing. Separate multiple file types with a semicolon. Valid values:
    * - php
    * - jsp
    * - asp
@@ -95,7 +95,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
    * - gif
    * - png
    * 
-   * > This parameter is required when the Defense mode **Mode** is set to **whitelist** pattern.
+   * > If the defense pattern **Mode** is set to **whitelist**, you must configure this parameter.
    * 
    * @example
    * jpg
@@ -103,9 +103,9 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   inclusiveFileType?: string;
   /**
    * @remarks
-   * The language type of the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -113,7 +113,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The local backup path used for secure backup of the protected directory.
+   * The local backup path used for the secure backup of the protected directory.
    * 
    * This parameter is required.
    * 
@@ -123,9 +123,9 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   localBackupDir?: string;
   /**
    * @remarks
-   * The protection directory mode. Valid values:
-   * - **whitelist**: whitelist mode. Protects only the specified directories and file types.
-   * - **blacklist**: blacklist mode. Protects all subdirectories, file types, and specified files under the protected directory that are not excluded.
+   * The protection mode of the directory. Valid values:
+   * - **whitelist**: Whitelist mode. Protects the added protected directories and file types.
+   * - **blacklist**: Blacklist mode. Protects all subdirectories, file types, and specified files under the added protected directory that are not excluded.
    * 
    * @example
    * whitelist
@@ -133,7 +133,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 39.170.XX.XX

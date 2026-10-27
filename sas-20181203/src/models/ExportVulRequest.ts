@@ -53,8 +53,8 @@ export class ExportVulRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The asset type where the vulnerability is detected. Separate multiple types with commas (,). Valid values:
-   * - **ECS**: host asset
+   * The asset type where the vulnerability resides. Separate multiple types with commas (,). Valid values:
+   * - **ECS**: server asset
    * - **CONTAINER**: container asset
    * 
    * @example
@@ -63,9 +63,9 @@ export class ExportVulRequest extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The additional vulnerability type when querying application vulnerabilities. This parameter is required when Type is set to app. The value is fixed as **sca**.
+   * The additional vulnerability type when you query application vulnerabilities. You must configure this parameter when you query application vulnerabilities, which means the Type parameter is set to app. Set the value to **sca**.
    * 
-   * > If this parameter is set to **sca**, both application vulnerabilities (**app** type) and software composition analysis (**sca** type) vulnerabilities are queried. If this parameter is not set, only application vulnerabilities are queried.
+   * > If you set this parameter to **sca**, you can query application vulnerabilities (type **app**) and software composition analysis (type **sca**) vulnerabilities. If you do not set this parameter, only application vulnerabilities are queried.
    * 
    * @example
    * sca
@@ -73,7 +73,7 @@ export class ExportVulRequest extends $dara.Model {
   attachTypes?: string;
   /**
    * @remarks
-   * The name of the container affected by the vulnerability.
+   * The name of the container affected by the vulnerabilities to be queried.
    * 
    * @example
    * xxljob-7b87597b99-mcskr
@@ -81,7 +81,7 @@ export class ExportVulRequest extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The end of the time range during which the first scan was performed.
+   * The end time of the first scan.
    * > The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
@@ -90,7 +90,7 @@ export class ExportVulRequest extends $dara.Model {
   createTsEnd?: number;
   /**
    * @remarks
-   * The start of the time range during which the first scan was performed.
+   * The start time of the first scan.
    * > The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
@@ -107,10 +107,10 @@ export class ExportVulRequest extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * Specifies whether the vulnerability is fixed. Valid values:
+   * Specifies whether the vulnerabilities to be queried are fixed. Valid values:
    * 
    * - **y**: fixed
-   * - **n**: not fixed
+   * - **n**: unfixed
    * 
    * @example
    * n
@@ -118,8 +118,8 @@ export class ExportVulRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The ID of the asset group to which the server with the vulnerability belongs.
-   * > Call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain this parameter.
+   * The ID of the asset group to which the servers affected by the vulnerabilities to be queried belong.
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the value of this parameter.
    * 
    * @example
    * 8834224
@@ -127,7 +127,7 @@ export class ExportVulRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the image affected by the vulnerability.
+   * The name of the image affected by the vulnerabilities to be queried.
    * 
    * @example
    * container-***:****
@@ -135,7 +135,7 @@ export class ExportVulRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * 
    * - zh: Chinese
    * - en: English
@@ -146,7 +146,7 @@ export class ExportVulRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The priority of the vulnerability to query. Separate multiple priorities with commas (,). Valid values:
+   * The priorities of the vulnerabilities to be queried. Separate multiple priorities with commas (,). Valid values:
    * 
    * - **asap**: high
    * - **later**: medium
@@ -158,7 +158,7 @@ export class ExportVulRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The path of the process affected by the vulnerability.
+   * The path of the process affected by the vulnerabilities to be queried.
    * 
    * @example
    * /etc/test
@@ -166,10 +166,10 @@ export class ExportVulRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether runtime application self-protection (RASP) supports real-time protection against the vulnerability. Valid values:
+   * Specifies whether Runtime Application Self-Protection (RASP) supports real-time protection against the vulnerability. Valid values:
    * 
-   * - **0**: Not supported.
-   * - **1**: Supported.
+   * - **0**: not supported
+   * - **1**: supported
    * 
    * @example
    * 0
@@ -185,11 +185,11 @@ export class ExportVulRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Filters results by label. Valid values:
+   * The tags used for filtering. Valid values:
    * 
    * <props="china">
    * - Restart required
-   * - Remote utilization
+   * - Remote exploitation
    * - EXP exists
    * - Exploitable
    * - Privilege escalation
@@ -201,8 +201,8 @@ export class ExportVulRequest extends $dara.Model {
    * - **Remote utilization**
    * - **EXP exists**
    * - **Available**
-   * - **Elevation of Privilege**
-   * - **Code Execution**
+   * - **Elevation of privilege**
+   * - **Code execution**
    * 
    * @example
    * Restart required
@@ -210,7 +210,7 @@ export class ExportVulRequest extends $dara.Model {
   searchTags?: string;
   /**
    * @remarks
-   * The type of vulnerabilities to export. Valid values:
+   * The type of the vulnerabilities to be exported. Valid values:
    * 
    * - **cve**: Linux software vulnerability
    * - **sys**: Windows system vulnerability
@@ -226,7 +226,7 @@ export class ExportVulRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUIDs of the servers to query for vulnerabilities. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers on which you want to query vulnerabilities. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * 1587bedb-fdb4-48c4-9330-****
@@ -234,8 +234,8 @@ export class ExportVulRequest extends $dara.Model {
   uuids?: string;
   /**
    * @remarks
-   * The instance IDs of the VPC-connected instances to query for vulnerabilities. Separate multiple IDs with commas (,).
-   * > Invoke the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain this parameter.
+   * The IDs of the VPC-connected instances where the vulnerabilities to be queried reside. Separate multiple IDs with commas (,).
+   * > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain the value of this parameter.
    * 
    * @example
    * ins-133****,ins-5414****

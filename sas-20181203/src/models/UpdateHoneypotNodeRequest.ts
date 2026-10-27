@@ -36,7 +36,7 @@ export class UpdateHoneypotNodeRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The collection of allowed CIDR blocks.
+   * The list of allowed CIDR blocks.
    */
   securityGroupProbeIpList?: string[];
   static names(): { [key: string]: string } {

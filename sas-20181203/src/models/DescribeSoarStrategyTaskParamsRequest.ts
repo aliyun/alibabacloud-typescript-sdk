@@ -6,7 +6,7 @@ export class DescribeSoarStrategyTaskParamsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the policy task.
-   * >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
+   * > You can call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to query this parameter.
    * 
    * @example
    * 100

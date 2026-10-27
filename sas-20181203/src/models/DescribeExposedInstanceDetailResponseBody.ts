@@ -152,7 +152,7 @@ export class DescribeExposedInstanceDetailResponseBodyExposedChainsCspmRiskList 
    * The name of the check item.
    * 
    * @example
-   * 使用SSH密钥对登录
+   * Create Alert Rule
    */
   checkName?: string;
   /**
@@ -381,7 +381,7 @@ export class DescribeExposedInstanceDetailResponseBodyExposedChains extends $dar
    * The server group to which the server belongs.
    * 
    * @example
-   * test-group****
+   * sg-bp1iw5enua6gf5i2xr7z
    */
   groupNo?: string;
   /**

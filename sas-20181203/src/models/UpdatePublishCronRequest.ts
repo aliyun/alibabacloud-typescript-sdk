@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublishCronRequest extends $dara.Model {
   /**
    * @remarks
-   * The Cron expression for the upgrade start time.
+   * The cron expression for the upgrade start time.
    * 
    * This parameter is required.
    * 
@@ -16,12 +16,12 @@ export class UpdatePublishCronRequest extends $dara.Model {
   /**
    * @remarks
    * The day of the week for the upgrade time. Valid values:
-   * - **MON**: Monday
-   * - **TUE**: Tuesday
-   * - **WED**: Wednesday
-   * - **THU**: Thursday
-   * - **FRI**: Friday
-   * - **SAT**: Saturday
+   * - **MON**: Monday.
+   * - **TUE**: Tuesday.
+   * - **WED**: Wednesday.
+   * - **THU**: Thursday.
+   * - **FRI**: Friday.
+   * - **SAT**: Saturday.
    * - **SUN**: Sunday.
    * 
    * @example
@@ -30,7 +30,7 @@ export class UpdatePublishCronRequest extends $dara.Model {
   cronDay?: string;
   /**
    * @remarks
-   * The publish start timestamp. Unit: milliseconds.
+   * The start timestamp of the release, in milliseconds.
    * 
    * @example
    * 1657407600000
@@ -38,9 +38,9 @@ export class UpdatePublishCronRequest extends $dara.Model {
   cronTime?: number;
   /**
    * @remarks
-   * The upgrade start cycle type. Valid values:
-   * - **day**: every day
-   * - **week**: every week.
+   * The cycle type for the upgrade start time. Valid values:
+   * - **day**: Daily.
+   * - **week**: Weekly.
    * 
    * @example
    * day
@@ -48,7 +48,7 @@ export class UpdatePublishCronRequest extends $dara.Model {
   cronType?: string;
   /**
    * @remarks
-   * The upgrade duration. Unit: hours.
+   * The duration of the upgrade, in hours.
    * 
    * This parameter is required.
    * 

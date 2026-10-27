@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSyncAssetTaskLogDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of IDC scan task details returned on the current page.
+   * The number of IDC scan task details displayed on the current page.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class DescribeSyncAssetTaskLogDetailResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number of the current page during paging in a paged query.
+   * The page number of the current page in a paged query during paging.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSyncAssetTaskLogDetailResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of IDC scan node details returned on each page during paging in a paged query. Default value: 20, which indicates that 20 IDC scan node details are returned per page.
+   * The number of IDC scan node details displayed on each page in a paged query. Default value: 20. This indicates that 20 IDC scan node details are displayed on each page during paging.
    * 
    * @example
    * 20
@@ -90,12 +90,12 @@ export class DescribeSyncAssetTaskLogDetailResponseBodyTaskRecordDetails extends
   /**
    * @remarks
    * The status of the task. Valid values:
-   * - **INIT**: Pending.
-   * - **START**: Started.
-   * - **MESSAGE_SEND**: Command issued.
-   * - **SUCCESS**: Completed.
-   * - **FAIL**: Failed.
-   * - **TIMEOUT**: Timed out.
+   * - **INIT**: pending
+   * - **START**: started
+   * - **MESSAGE_SEND**: command issued
+   * - **SUCCESS**: completed
+   * - **FAIL**: failed
+   * - **TIMEOUT**: timed out
    * 
    * @example
    * INIT
@@ -111,7 +111,7 @@ export class DescribeSyncAssetTaskLogDetailResponseBodyTaskRecordDetails extends
   taskMsg?: string;
   /**
    * @remarks
-   * The timestamp when the task was reported.
+   * The timestamp of the report time.
    * 
    * @example
    * 1671614217000

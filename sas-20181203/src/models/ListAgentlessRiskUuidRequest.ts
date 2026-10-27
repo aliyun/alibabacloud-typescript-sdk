@@ -45,6 +45,14 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
+   * 报告语言。取值：zh（中文）、en（英文）。不传或为空时使用 zh。
+   * 
+   * @example
+   * en
+   */
+  lang?: string;
+  /**
+   * @remarks
    * The instance name.
    * 
    * @example
@@ -98,6 +106,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      lang: 'Lang',
       machineName: 'MachineName',
       pageSize: 'PageSize',
       risk: 'Risk',
@@ -113,6 +122,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      lang: 'string',
       machineName: 'string',
       pageSize: 'number',
       risk: 'boolean',

@@ -10,7 +10,7 @@ export class ModifyOpenLogShipperRequest extends $dara.Model {
    * - **aegis**: Server Guard edition.
    * - **sas**: Security Center edition.
    * 
-   * > Server Guard users must use **aegis**, and Security Center users must use **sas**.
+   * > If you use Server Guard, set this parameter to **aegis**. If you use Security Center, set this parameter to **sas**.
    * 
    * @example
    * sas
@@ -18,8 +18,8 @@ export class ModifyOpenLogShipperRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource directory (Alibaba Cloud account).
-   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the member accounts (Alibaba Cloud account) in the resource folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListContainerDefenseRuleRequestConditions extends $dara.Model {
   /**
    * @remarks
-   * The condition type. The following type is supported:
+   * The condition type. The following types are supported:
    * 
-   * - **ruleName**: rule name.
+   * - **ruleName**: the rule name.
    * 
    * @example
    * ruleName
@@ -52,7 +52,7 @@ export class ListContainerDefenseRuleRequest extends $dara.Model {
   conditions?: ListContainerDefenseRuleRequestConditions[];
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * Specifies the page number from which to display the query results. Default value: **1**.
    * 
    * @example
    * 1
@@ -60,7 +60,7 @@ export class ListContainerDefenseRuleRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether the rule is a system default rule.>Notice: This parameter is deprecated..
+   * Specifies whether the rule is a system default rule. <notice>**[Deprecated]**</notice>
    * 
    * @example
    * 1
@@ -68,9 +68,9 @@ export class ListContainerDefenseRuleRequest extends $dara.Model {
   isDefaultRule?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -78,8 +78,8 @@ export class ListContainerDefenseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-   * > Do not leave PageSize empty.
+   * Specifies the maximum number of entries to return on each page in a paging query. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for PageSize.
    * 
    * @example
    * 20
@@ -89,7 +89,7 @@ export class ListContainerDefenseRuleRequest extends $dara.Model {
    * @remarks
    * The rule type. Valid values:
    * - 1: system rule
-   * - 2: user rule.
+   * - 2: user rule
    * 
    * @example
    * 1

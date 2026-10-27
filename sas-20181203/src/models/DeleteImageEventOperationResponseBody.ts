@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageEventOperationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The primary key of the alert disposal rule.
+   * The primary key of the alert handling rule.
    * 
    * @example
    * 443496
@@ -35,7 +35,7 @@ export class DeleteImageEventOperationResponseBodyData extends $dara.Model {
 export class DeleteImageEventOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the API call.
    * 
    * @example
    * 200
@@ -48,7 +48,7 @@ export class DeleteImageEventOperationResponseBody extends $dara.Model {
   data?: DeleteImageEventOperationResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * successful
@@ -56,7 +56,7 @@ export class DeleteImageEventOperationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * A3D7C47D-3F11-57BB-90E8-E5C20C61****
@@ -64,9 +64,9 @@ export class DeleteImageEventOperationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

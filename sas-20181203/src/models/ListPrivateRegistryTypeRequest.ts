@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateRegistryTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response messages. Valid values:
    * - **zh**: Chinese.
    * - **en**: English.
    * 

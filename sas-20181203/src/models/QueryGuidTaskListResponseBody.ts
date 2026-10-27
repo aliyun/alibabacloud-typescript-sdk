@@ -6,7 +6,7 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigListRewardData extends 
   /**
    * @remarks
    * The claim status. Valid values:
-   * - **1**: Not claimed.
+   * - **1**: Unclaimed.
    * - **2**: Claimed.
    * 
    * @example
@@ -16,11 +16,11 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigListRewardData extends 
   /**
    * @remarks
    * The reward name. Valid values:
-   * - **addTrialDay**: trial days reward
-   * - **addAntiRansomwareCapacity**: anti-ransomware capacity reward
-   * - **addImageScanAuthCount**: image scan authorization quota reward
-   * - **addWebLockAuthCount**: web tamper-proofing authorization quota reward
-   * - **addSlsCapacity**: log analysis storage capacity reward.
+   * - **addTrialDay**: Add trial days
+   * - **addAntiRansomwareCapacity**: Add anti-ransomware capacity
+   * - **addImageScanAuthCount**: Add image scan authorizations
+   * - **addWebLockAuthCount**: Add web tamper-proofing authorizations
+   * - **addSlsCapacity**: Add log analysis storage space
    * 
    * @example
    * addAntiRansomwareCapacity
@@ -29,13 +29,13 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigListRewardData extends 
   /**
    * @remarks
    * The reward configuration information. This parameter is in JSON format.
-   * > The key in the JSON object indicates the reward content, and the value indicates the reward amount. Valid values of the key:
-   * - **webLockAuthCount**: the web tamper-proofing authorization quota
-   * - **ransomwareCapacity**: the anti-ransomware capacity, in GB
-   * - **slsCapacity**: the log analysis capacity, in GB
-   * - **days**: the number of usage days
-   * - **imageScanAuthCount**: the image scan authorization quota
-   * - **honeypotAuthCount**: the cloud honeypot authorization quota.
+   * > The JSON key indicates the reward content, and the value indicates the reward amount. Valid values for the key:
+   * - **webLockAuthCount**: Web tamper-proofing authorizations
+   * - **ransomwareCapacity**: Anti-ransomware capacity, in GB
+   * - **slsCapacity**: Log analysis capacity, in GB
+   * - **days**: Number of days
+   * - **imageScanAuthCount**: Image scan authorizations
+   * - **honeypotAuthCount**: Cloud honeypot authorizations
    * 
    * @example
    * {"days":60,"ransomwareCapacity":10}
@@ -74,7 +74,7 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigList extends $dara.Mode
   rewardData?: QueryGuidTaskListResponseBodyGuideTaskConfigListRewardData;
   /**
    * @remarks
-   * The security score increase that can be gained by completing this task.
+   * The points added to the security score upon task completion.
    * 
    * @example
    * 80
@@ -101,21 +101,21 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigList extends $dara.Mode
   taskId?: number;
   /**
    * @remarks
-   * The node name. Valid values:
+   * The task name. Valid values:
    * 
-   * - **guid_task_security_score_promote_video**: the node of watching the beginner quick start video
-   * - **guide_sub_task_config_defence_hbr**: the anti-ransomware configuration node for servers
-   * - **guide_sub_task_config_uni_defence_hbr**: the anti-ransomware configuration node for databases
-   * - **guid_task_log_analysis_config**: the log analysis node
-   * - **guide_sub_task_web_lock_config**: the web tamper-proofing node
-   * - **guide_sub_task_config_anti_crack**: the anti-brute-force attacks node
-   * - **guid_task_container_security_video**: the container security video node
-   * - **guid_task_container_image_scan_config**: the container image scan node
-   * - **guid_task_k8s_log_analysis_config**: the Kubernetes threat detection node
-   * - **guid_task_container_network**: the container visualization node
-   * - **guide_sub_task_config_add_collection**: the node of adding the console to favorites
-   * - **guide_sub_task_vul_scan**: the vulnerability scanning node
-   * - **guide_sub_task_virusKill**: the virus scan node.
+   * - **guid_task_security_score_promote_video**: Watch the quick start video task
+   * - **guide_sub_task_config_defence_hbr**: Server anti-ransomware configuration task
+   * - **guide_sub_task_config_uni_defence_hbr**: Database anti-ransomware configuration task
+   * - **guid_task_log_analysis_config**: Log analysis task
+   * - **guide_sub_task_web_lock_config**: Web tamper-proofing task
+   * - **guide_sub_task_config_anti_crack**: Anti-brute-force attacks task
+   * - **guid_task_container_security_video**: Container security video task
+   * - **guid_task_container_image_scan_config**: Container image scanning task
+   * - **guid_task_k8s_log_analysis_config**: Kubernetes threat detection task
+   * - **guid_task_container_network**: Container visualization task
+   * - **guide_sub_task_config_add_collection**: Add console to favorites task
+   * - **guide_sub_task_vul_scan**: Vulnerability scanning task
+   * - **guide_sub_task_virusKill**: Virus scan and removal task
    * 
    * @example
    * guide_sub_task_config_add_collection
@@ -156,12 +156,12 @@ export class QueryGuidTaskListResponseBodyGuideTaskConfigList extends $dara.Mode
 export class QueryGuidTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of beginner task information.
+   * The list of onboarding task information.
    */
   guideTaskConfigList?: QueryGuidTaskListResponseBodyGuideTaskConfigList[];
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447D****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud service asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud product asset.
+   * > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the subtype of the cloud service asset.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList exte
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud product asset.
+   * > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the type of the cloud service asset.
    * 
    * This parameter is required.
    * 
@@ -29,9 +29,9 @@ export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList exte
   assetType?: number;
   /**
    * @remarks
-   * Cloud product asset instance ID.
+   * The instance ID of the cloud service asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset instance ID.
+   * > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the instance ID of the cloud service asset.
    * 
    * This parameter is required.
    * 
@@ -41,9 +41,9 @@ export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList exte
   instanceId?: string;
   /**
    * @remarks
-   * Region ID of the cloud product asset instance.
+   * The region ID of the cloud service asset instance.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud product asset instance.
+   * > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the region ID of the cloud service asset instance.
    * 
    * This parameter is required.
    * 
@@ -53,9 +53,9 @@ export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList exte
   regionId?: string;
   /**
    * @remarks
-   * Cloud product asset vendor.
+   * The vendor of the cloud service asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset vendor.
+   * > You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the vendor of the cloud service asset.
    * 
    * This parameter is required.
    * 
@@ -95,15 +95,15 @@ export class CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList exte
 export class CreateAttackPathSensitiveAssetConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * List of cloud product assets.
+   * The list of cloud service assets.
    * 
    * This parameter is required.
    */
   attackPathAssetList?: CreateAttackPathSensitiveAssetConfigRequestAttackPathAssetList[];
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - asset_instance: Asset.
+   * The configuration type. Valid values:
+   * - asset_instance: asset.
    * 
    * This parameter is required.
    * 

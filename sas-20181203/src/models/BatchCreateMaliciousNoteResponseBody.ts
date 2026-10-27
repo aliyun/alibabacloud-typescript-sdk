@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateMaliciousNoteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success, whereas other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class BatchCreateMaliciousNoteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message returned in the response.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class BatchCreateMaliciousNoteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****
@@ -37,10 +37,9 @@ export class BatchCreateMaliciousNoteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

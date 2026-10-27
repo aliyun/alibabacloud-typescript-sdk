@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddFileProtectBindMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of servers for which the alert protection level is enabled.
+   * The list of servers with the alert protection level enabled.
    */
   alertUuids?: string[];
   /**
    * @remarks
-   * The list of servers for which tamper-proofing is enabled.
+   * The list of servers with tamper-proofing enabled.
    */
   blockUuids?: string[];
   /**
    * @remarks
-   * The list of servers for which file protection is disabled.
+   * The list of servers with the file protection feature disabled.
    */
   noneUuids?: string[];
   static names(): { [key: string]: string } {

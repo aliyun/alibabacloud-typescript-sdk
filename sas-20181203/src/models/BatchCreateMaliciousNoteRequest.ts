@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateMaliciousNoteRequestImageMaliciousFileList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert.
-   * 
-   * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the alert IDs.
+   * The alert ID. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query this parameter.
    * 
    * @example
    * 1
@@ -15,7 +13,7 @@ export class BatchCreateMaliciousNoteRequestImageMaliciousFileList extends $dara
   eventId?: number;
   /**
    * @remarks
-   * The description.
+   * The note.
    * 
    * @example
    * Malware sample
@@ -47,7 +45,7 @@ export class BatchCreateMaliciousNoteRequestImageMaliciousFileList extends $dara
 export class BatchCreateMaliciousNoteRequest extends $dara.Model {
   /**
    * @remarks
-   * The batches.
+   * The batch list.
    */
   imageMaliciousFileList?: BatchCreateMaliciousNoteRequestImageMaliciousFileList[];
   static names(): { [key: string]: string } {

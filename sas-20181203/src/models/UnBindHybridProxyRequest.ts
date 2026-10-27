@@ -15,7 +15,7 @@ export class UnBindHybridProxyRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The UUIDs of the servers that you want to remove from the proxy cluster.
+   * The list of Security Center client UUIDs for the machines connected to the proxy.
    * 
    * This parameter is required.
    */

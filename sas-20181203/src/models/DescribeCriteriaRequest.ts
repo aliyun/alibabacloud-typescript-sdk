@@ -7,7 +7,7 @@ export class DescribeCriteriaRequest extends $dara.Model {
    * @remarks
    * The Asset Type to query. Valid values:
    * 
-   * - **ecs**: queries all ECS servers.
+   * - **ecs**: Queries all ECS servers.
    * 
    * @example
    * ecs
@@ -15,8 +15,8 @@ export class DescribeCriteriaRequest extends $dara.Model {
   machineTypes?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account of the member accounts in the resource folder.
-   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the Alibaba Cloud account for the member accounts in the resource folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -24,10 +24,10 @@ export class DescribeCriteriaRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether the fuzzy query field supports automatic matching. Default value: **false**. Valid values:
+   * Specifies whether the entered fuzzy query field supports automatic matching. Default value: **false**. Valid values:
    * 
-   * - **true**: Supported.
-   * - **false**: Not supported.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true

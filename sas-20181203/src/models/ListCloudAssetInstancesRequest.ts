@@ -173,6 +173,9 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud account for the member account in the resource directory.
    * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 1234567890123456
    */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {

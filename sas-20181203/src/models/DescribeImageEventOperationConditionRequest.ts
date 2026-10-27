@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageEventOperationConditionRequest extends $dara.Model {
   /**
    * @remarks
-   * The alerting type.
-   * - **sensitiveFile**: sensitive file.
+   * The alerting type. Valid values:
+   * - **sensitiveFile**: Sensitive file.
    * 
    * @example
    * sensitiveFile
@@ -14,8 +14,8 @@ export class DescribeImageEventOperationConditionRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * - **zh**: Chinese
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example

@@ -7,7 +7,7 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
    * @remarks
    * The subtype of the cloud service asset.
    * 
-   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the subtypes of cloud service assets.
+   * > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the subtype of the cloud service asset.
    * 
    * @example
    * 2
@@ -17,7 +17,7 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
    * @remarks
    * The type of the cloud service asset.
    * 
-   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the types of cloud service assets.
+   * > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the type of the cloud service asset.
    * 
    * @example
    * 17
@@ -26,8 +26,8 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - **start**: start node.
-   * - **end**: end node.
+   * - **start**: the start node
+   * - **end**: the end node
    * 
    * @example
    * start
@@ -36,7 +36,7 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   /**
    * @remarks
    * The vendor of the cloud service asset.
-   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the vendors of cloud service assets.
+   * > You can call the [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) operation to query the vendor of the cloud service asset.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   attackPathAssetList?: ListAttackPathEventRequestAttackPathAssetList[];
   /**
    * @remarks
-   * The page number of the results to return. Default value: 1, which indicates the first page.
+   * The number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time as a timestamp. Unit: milliseconds.
+   * The timestamp of the end time. Unit: milliseconds.
    * 
    * @example
    * 1668064495000
@@ -96,7 +96,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
    * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en
@@ -104,7 +104,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Default value: **20**.
+   * The maximum number of entries to return on each page in a paging query. Default value: **20**.
    * 
    * @example
    * 20
@@ -112,8 +112,8 @@ export class ListAttackPathEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The path name description.
-   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
+   * The description of the path name.
+   * > You can call the [ListAvailableAttackPath](~~ListAvailableAttackPath~~) operation to query the description of the path name.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -122,7 +122,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   /**
    * @remarks
    * The path type.
-   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
+   * > You can call the [ListAvailableAttackPath](~~ListAvailableAttackPath~~) operation to query the path type.
    * 
    * @example
    * role_escalation
@@ -135,7 +135,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   riskLevelList?: string[];
   /**
    * @remarks
-   * The start time as a timestamp. Unit: milliseconds.
+   * The timestamp of the start time. Unit: milliseconds.
    * 
    * @example
    * 1666886400000

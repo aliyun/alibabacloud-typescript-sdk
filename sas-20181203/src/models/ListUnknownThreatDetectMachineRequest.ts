@@ -11,6 +11,10 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @example
+   * 1
+   */
   eventStatus?: number;
   /**
    * @remarks

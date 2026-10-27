@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList extends $dara.Model {
   /**
    * @remarks
-   * The classification key of the baseline main item.
+   * The classification key of the primary baseline item.
    * 
    * @example
    * identification
@@ -13,7 +13,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
   classKey?: string;
   /**
    * @remarks
-   * The key of the baseline subitem.
+   * The key of the sub-baseline item.
    * 
    * @example
    * duplicate_pwd_hash
@@ -21,7 +21,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
   itemKey?: string;
   /**
    * @remarks
-   * The name key of the baseline main item.
+   * The name key of the primary baseline item.
    * 
    * @example
    * identification
@@ -68,7 +68,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
   baselineItemList?: DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList[];
   /**
    * @remarks
-   * The retention period of baseline risks. Unit: days.
+   * The retention period of baseline risks, in days.
    * 
    * @example
    * 90
@@ -92,7 +92,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
   strategyId?: number;
   /**
    * @remarks
-   * The Policy Name.
+   * The policy name.
    * 
    * @example
    * default
@@ -110,9 +110,9 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
    * @remarks
    * The type of the baseline check policy. Valid values:
    * 
-   * - **default**: default policy
-   * - **full**: full baseline item policy
-   * - **normal**: common baseline item policy.
+   * - **default**: Default policy
+   * - **full**: Full baseline item policy
+   * - **normal**: Standard baseline item policy
    * 
    * @example
    * default

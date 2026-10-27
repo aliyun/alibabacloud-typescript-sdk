@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemAggregationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule cluster ID.
+   * The ID of the rule aggregation.
    */
   aggregationIds?: number[];
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page for a paged query. This parameter is used for paging.
    * 
    * This parameter is required.
    * 
@@ -20,9 +20,9 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language type of the request and response. Default value: **zh**. Valid values:
+   * Specifies the language type for requests and responses. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -30,7 +30,7 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries to return on each page for a paged query. This parameter is used for paging.
    * 
    * This parameter is required.
    * 
@@ -40,10 +40,10 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
-   * 规则****
+   * Rule****
    */
   ruleName?: string;
   /**
@@ -57,7 +57,7 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
    * 
    * - **2**: Windows
    * - **1**: Linux
-   * - **0**: all.
+   * - **0**: All
    * 
    * @example
    * 0

@@ -17,6 +17,9 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
   /**
    * @remarks
    * The type of free quota used for the binding operation.
+   * 
+   * @example
+   * freeEnterprise
    */
   freeType?: string;
   /**

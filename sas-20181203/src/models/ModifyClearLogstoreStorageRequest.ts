@@ -13,10 +13,10 @@ export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the user LogStore.
+   * The name of the Logstore for user log storage.
    * 
    * @example
    * sas_sls_storage

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dara.Model {
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   **0**: server synchronization task
-   * *   **1**: cloud service synchronization task
-   * *   **2**: scheduled AccessKey pair verification task
+   * The configuration type. Valid values:
+   * - **0**: Host refresh task
+   * - **1**: Cloud service refresh task
+   * - **2**: AccessKey scheduled check task
    * 
    * @example
    * 2
@@ -19,12 +18,12 @@ export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dar
    * @remarks
    * The synchronization cycle. Valid values:
    * 
-   * *   **60**: 60 minutes
-   * *   **180**: 3 hours
-   * *   **360**: 6 hours
-   * *   **720**: 12 hours
-   * *   **1440**: 1 day
-   * *   **10080**: 7 days
+   *  - **60**: 60 minutes
+   *  - **180**: 3 hours
+   *  - **360**: 6 hours
+   *  - **720**: 12 hours
+   *  - **1440**: 1 day
+   *  - **10080**: 7 days
    * 
    * @example
    * 360
@@ -32,10 +31,9 @@ export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dar
   schedulePeriod?: number;
   /**
    * @remarks
-   * The status of the configuration. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * The enabling status of the configuration. Valid values:
+   *  - **1**: Enabled
+   * - **0**: Disabled
    * 
    * @example
    * 1
@@ -43,7 +41,7 @@ export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dar
   status?: number;
   /**
    * @remarks
-   * The ID of the data entry containing the AccessKey pair that you specify when you configure the scheduled AccessKey pair verification task.
+   * The ID of the specified AccessKey record when you configure an AccessKey scheduled check task.
    * 
    * @example
    * 2308
@@ -51,11 +49,11 @@ export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dar
   targetId?: number;
   /**
    * @remarks
-   * The service provider of the cloud asset. Valid values:
+   * The cloud asset vendor. Valid values:
    * 
-   * *   **3**: Tencent Cloud
-   * *   **4**: Huawei Cloud
-   * *   **7**: Amazon Web Services (AWS) Cloud
+   * - **3**: Tencent Cloud
+   * - **4**: Huawei Cloud
+   * - **7**: Amazon Web Services
    * 
    * @example
    * 3
@@ -93,12 +91,12 @@ export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $dar
 export class ChangeAssetRefreshTaskConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The asset synchronization configuration.
+   * The list of asset refresh configurations.
    */
   assetRefreshConfigs?: ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs[];
   /**
    * @remarks
-   * The region in which your Security Center service resides.
+   * The region of the Security Center instance.
    * 
    * @example
    * cn-hangzhou

@@ -51,7 +51,7 @@ export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $dara
    * The type of the alert event.
    * 
    * @example
-   * 异常登录
+   * Unusual logon
    */
   eventTypeOriginal?: string;
   /**

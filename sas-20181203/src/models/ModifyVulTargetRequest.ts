@@ -8,10 +8,10 @@ export class ModifyVulTargetRequest extends $dara.Model {
    * The configuration target. This parameter is in JSON format and contains the following fields:
    * 
    * - **vulType**: The vulnerability type. Valid values:
-   *      - **cve**: Linux software vulnerability.
-   *     - **sys**: Windows system vulnerability.
-   *     - **cms**: Web-CMS vulnerability.
-   *     - **emg**: Emergency vulnerability.
+   *   - **cve**: Linux system vulnerability.
+   *   - **sys**: Windows system vulnerability.
+   *   - **cms**: Web-CMS vulnerability.
+   *   - **emg**: Emergency vulnerability.
    * 
    * @example
    * {\\"vulType\\":\\"sys\\"}
@@ -24,8 +24,8 @@ export class ModifyVulTargetRequest extends $dara.Model {
    * - **target**: The UUID of the target machine.
    * - **targetType**: The target type. Fixed value: uuid.
    * - **flag**: The flag. Valid values:
-   *     - **add**: Selected.
-   *     - **del**: Deselected.
+   *   - **add**: Selected.
+   *   - **del**: Deselected.
    * 
    * @example
    * [{\\"target\\": \\"9cd5c684-7201-4de5-ad2c-cea89a5e****\\", \\"targetType\\": \\"uuid\\", \\"flag\\": \\"add\\"}]

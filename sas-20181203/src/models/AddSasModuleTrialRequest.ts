@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddSasModuleTrialRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,10 +15,9 @@ export class AddSasModuleTrialRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code of the feature. Valid values:
-   * 
-   * *   **vulFix**: vulnerability fixing.
-   * *   **cloudSiem**: threat analysis and response.
+   * The module code. Valid values:
+   * - **vulFix**: vulnerability remediation
+   * - **cloudSiem**: threat analysis and response
    * 
    * @example
    * vulFix

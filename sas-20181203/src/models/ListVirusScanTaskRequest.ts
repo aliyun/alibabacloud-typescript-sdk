@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirusScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the results to return. Default value: **1**, which indicates that results start from page 1.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The timestamp of the task end time to query, in milliseconds.
+   * The end time of the queried task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1680919232999
@@ -37,10 +37,10 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The language type of the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -56,7 +56,7 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   machineName?: string;
   /**
    * @remarks
-   * The number of tasks per page in a paged query. Default value: **20**, which indicates that each page contains 20 tasks.
+   * The paging Settings for the number of nodes per page in a paged query. Default value: **20**, which indicates 20 nodes per page.
    * 
    * @example
    * 20
@@ -64,7 +64,7 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether the task is the root task of the virus scan.
+   * Specifies whether the queried task is the main virus scan task.
    * 
    * @example
    * true
@@ -72,8 +72,8 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   rootTask?: boolean;
   /**
    * @remarks
-   * The root task ID.
-   * > Call [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) to obtain this parameter.
+   * The ID of the root task.
+   * > You can call the [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) operation to obtain the value of this parameter.
    * 
    * @example
    * 89f5d7813bd59dd237580a8664b3xxxx
@@ -83,8 +83,8 @@ export class ListVirusScanTaskRequest extends $dara.Model {
    * @remarks
    * The scan type of the virus scan task to query. Valid values:
    * 
-   * - **system**: automatic system scan
-   * - **user**: custom user scan.
+   * - **system**: automatic scan
+   * - **user**: custom scan
    * 
    * @example
    * user
@@ -92,7 +92,7 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The timestamp of the task start time to query, in milliseconds.
+   * The start time of the queried task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1680919232000
@@ -101,10 +101,10 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The execution status of the virus scan task. Valid values:
-   * - **1**: Scanning.
-   * - **2**: Completed.
-   * - **3**: Failed.
-   * - **4**: Timed out.
+   * - **1**: scanning
+   * - **2**: completed
+   * - **3**: failed
+   * - **4**: timed out
    * 
    * @example
    * 1
@@ -112,13 +112,13 @@ export class ListVirusScanTaskRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The list of statuses used to filter tasks by multiple statuses.
+   * The list of statuses used to filter the query results.
    */
   statusList?: number[];
   /**
    * @remarks
    * The ID of the virus scan task to query.
-   * > Call [ListVirusScanTask](~~ListVirusScanTask~~) to obtain this parameter.
+   * > You can call the [ListVirusScanTask](~~ListVirusScanTask~~) operation to obtain the value of this parameter.
    * 
    * @example
    * 1471d8ebb96795b41ede090b9758****

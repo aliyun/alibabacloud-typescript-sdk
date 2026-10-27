@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConsoleFuncGrayStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Name of the function module.
+   * The name of the feature module.
    * 
    * @example
    * vpcConsoleSwitch
@@ -13,7 +13,7 @@ export class GetConsoleFuncGrayStatusRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Set the language type for request and response messages. Default value: **zh**. Values:
+   * Sets the language for requests and responses. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
    * - **en**: English

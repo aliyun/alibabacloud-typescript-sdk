@@ -7,7 +7,7 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * > Call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.
+   * > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.
    * 
    * @example
    * 16
@@ -15,9 +15,9 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -25,7 +25,7 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The reason for adding the whitelist entry.
+   * The reason for adding the item to the whitelist.
    * 
    * @example
    * Manually processed.
@@ -41,14 +41,14 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The list of asset UUIDs for which container names are to be removed from the whitelist.
+   * The list of UUIDs of the assets whose container names need to be removed from the whitelist.
    */
   removeContainerUuids?: string[];
   /**
    * @remarks
    * The data source. Valid values:
-   * - **default**: host
-   * - **agentless**: agentless.
+   * - **default**: Server
+   * - **agentless**: agentless
    * 
    * @example
    * agentless
@@ -56,9 +56,9 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the target on which the whitelist takes effect. Valid values:
-   * - **all_instance**: all servers
-   * - **instance**: specific servers.
+   * The type of the target to which the whitelist applies. Valid values:
+   * - **all_instance**: All servers
+   * - **instance**: Specified servers
    * 
    * @example
    * all_instance

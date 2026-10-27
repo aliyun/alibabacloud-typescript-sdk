@@ -13,7 +13,7 @@ export class ListInterceptionTargetPageRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates the first page.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class ListInterceptionTargetPageRequest extends $dara.Model {
   imageList?: string[];
   /**
    * @remarks
-   * The namespace of the network object.
+   * The namespace to which the network object belongs.
    * 
    * @example
    * default
@@ -34,8 +34,8 @@ export class ListInterceptionTargetPageRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for paging. Default value: 20. If you leave this parameter empty, 20 entries are returned by default.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries to return per page in a paging query. Default value: 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Do not leave this parameter empty.
    * 
    * @example
    * 20
@@ -57,7 +57,7 @@ export class ListInterceptionTargetPageRequest extends $dara.Model {
   /**
    * @remarks
    * The object type. Valid values:
-   * - IMAGE: image.
+   * - IMAGE: Image.
    * 
    * @example
    * IMAGE

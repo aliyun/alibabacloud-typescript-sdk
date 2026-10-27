@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityStatInfoResponseBodyAttackEvent extends $dara.Model {
   /**
    * @remarks
-   * The collection of statistical time points in the attack count trend chart.
+   * The statistical time points in the trend chart of attacks.
    */
   dateArray?: string[];
   /**
@@ -18,7 +18,7 @@ export class DescribeSecurityStatInfoResponseBodyAttackEvent extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * The collection of attack counts at each statistical time point.
+   * The numbers of attacks at each statistical time point.
    */
   valueArray?: string[];
   static names(): { [key: string]: string } {
@@ -55,12 +55,12 @@ export class DescribeSecurityStatInfoResponseBodyAttackEvent extends $dara.Model
 export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model {
   /**
    * @remarks
-   * The collection of statistical time points in the baseline issue trend chart.
+   * The statistical time points in the trend chart of baseline check issues.
    */
   dateArray?: string[];
   /**
    * @remarks
-   * The number of high-risk baseline issues on the current day.
+   * The number of high-risk baseline check issues on the current day.
    * 
    * @example
    * 10
@@ -68,17 +68,17 @@ export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model
   highCount?: number;
   /**
    * @remarks
-   * The collection of high-risk baseline counts at each statistical time point.
+   * The numbers of high-risk baseline check issues at each statistical time point.
    */
   highList?: string[];
   /**
    * @remarks
-   * The collection of baseline risk levels included in the statistics.
+   * The risk levels of baseline check issues included in the statistics.
    */
   levelsOn?: string[];
   /**
    * @remarks
-   * The number of low-risk baseline issues on the current day.
+   * The number of low-risk baseline check issues on the current day.
    * 
    * @example
    * 0
@@ -86,12 +86,12 @@ export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model
   lowCount?: number;
   /**
    * @remarks
-   * The collection of low-risk baseline issue counts at each statistical time point.
+   * The numbers of low-risk baseline check issues that occurred at each statistical time point.
    */
   lowList?: string[];
   /**
    * @remarks
-   * The number of medium-risk baseline issues on the current day.
+   * The number of medium-risk baseline check issues on the current day.
    * 
    * @example
    * 21
@@ -99,17 +99,17 @@ export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model
   mediumCount?: number;
   /**
    * @remarks
-   * The collection of medium-risk baseline issue counts at each statistical time point.
+   * The numbers of medium-risk baseline check issues that occurred at each statistical time point.
    */
   mediumList?: string[];
   /**
    * @remarks
-   * The collection of statistical time periods for baselines.
+   * The statistical time periods for baseline check issues.
    */
   timeArray?: string[];
   /**
    * @remarks
-   * The total number of baseline issues on the current day.
+   * The total number of baseline check issues on the current day.
    * 
    * @example
    * 32
@@ -117,7 +117,7 @@ export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * The collection of total baseline counts at each statistical time point.
+   * The total numbers of baseline check issues at each statistical time point.
    */
   valueArray?: string[];
   static names(): { [key: string]: string } {
@@ -185,12 +185,12 @@ export class DescribeSecurityStatInfoResponseBodyHealthCheck extends $dara.Model
 export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Model {
   /**
    * @remarks
-   * The collection of statistical time points in the pending alert trend chart.
+   * The statistical time points in the trend chart of pending alerts.
    */
   dateArray?: string[];
   /**
    * @remarks
-   * The collection of alert severity levels included in the statistics for pending alerts.
+   * The severity levels of pending alerts included in the statistics.
    */
   levelsOn?: string[];
   /**
@@ -203,12 +203,12 @@ export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Mod
   remindCount?: number;
   /**
    * @remarks
-   * The collection of Reminder-level alert counts at each statistical time point.
+   * The numbers of alerts with the Reminder severity level that occurred at each statistical time point.
    */
   remindList?: string[];
   /**
    * @remarks
-   * The number of alerts with the **Urgent** severity level on the current day.
+   * The number of alerts with the **Urgent** severity level that occurred on the current day.
    * 
    * @example
    * 404
@@ -216,12 +216,12 @@ export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Mod
   seriousCount?: number;
   /**
    * @remarks
-   * The collection of Urgent-level alert counts at each statistical time point.
+   * The numbers of alert events with the Urgent severity level that occurred at each statistical time point.
    */
   seriousList?: string[];
   /**
    * @remarks
-   * The number of alerts with the **Suspicious** severity level on the current day.
+   * The number of alerts with the **Suspicious** severity level that occurred on the current day.
    * 
    * @example
    * 148
@@ -229,12 +229,12 @@ export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Mod
   suspiciousCount?: number;
   /**
    * @remarks
-   * The collection of Suspicious-level alert counts at each statistical time point.
+   * The numbers of alert events with the Suspicious severity level that occurred at each statistical time point.
    */
   suspiciousList?: string[];
   /**
    * @remarks
-   * The collection of statistical time periods for alerts.
+   * The statistical time periods for the same alerts.
    */
   timeArray?: string[];
   /**
@@ -247,7 +247,7 @@ export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Mod
   totalCount?: number;
   /**
    * @remarks
-   * The collection of pending alert counts at each statistical time point.
+   * The numbers of pending alerts at each statistical time point.
    */
   valueArray?: string[];
   static names(): { [key: string]: string } {
@@ -315,7 +315,7 @@ export class DescribeSecurityStatInfoResponseBodySecurityEvent extends $dara.Mod
 export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Model {
   /**
    * @remarks
-   * The number of unfixed vulnerabilities with **high** priority on the current day.
+   * The number of vulnerabilities to be fixed with the **High** priority on the current day.
    * 
    * @example
    * 109
@@ -323,17 +323,17 @@ export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Mod
   asapCount?: number;
   /**
    * @remarks
-   * The collection of high-priority unfixed vulnerability counts at each statistical time point.
+   * The numbers of vulnerabilities to be fixed with the High priority at each statistical time point.
    */
   asapList?: string[];
   /**
    * @remarks
-   * The collection of statistical time points in the unfixed vulnerability trend chart.
+   * The statistical time points in the trend chart of vulnerabilities to be fixed.
    */
   dateArray?: string[];
   /**
    * @remarks
-   * The number of unfixed vulnerabilities with **medium** priority on the current day.
+   * The number of vulnerabilities to be fixed with the **Medium** priority on the current day.
    * 
    * @example
    * 275
@@ -341,17 +341,17 @@ export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Mod
   laterCount?: number;
   /**
    * @remarks
-   * The collection of medium-priority unfixed vulnerability counts at each statistical time point.
+   * The numbers of vulnerabilities to be fixed with the Medium priority at each statistical time point.
    */
   laterList?: string[];
   /**
    * @remarks
-   * The collection of vulnerability priority levels included in the statistics for unfixed vulnerabilities.
+   * The priorities of vulnerabilities to be fixed included in the statistics.
    */
   levelsOn?: string[];
   /**
    * @remarks
-   * The number of unfixed vulnerabilities with **low** priority on the current day.
+   * The number of vulnerabilities to be fixed with the **Low** priority on the current day.
    * 
    * @example
    * 0
@@ -359,17 +359,17 @@ export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Mod
   nntfCount?: number;
   /**
    * @remarks
-   * The collection of low-priority unfixed vulnerability counts at each statistical time point.
+   * The numbers of vulnerabilities to be fixed with the Low priority at each statistical time point.
    */
   nntfList?: string[];
   /**
    * @remarks
-   * The collection of statistical time periods for unfixed vulnerabilities.
+   * The statistical time periods for vulnerabilities to be fixed.
    */
   timeArray?: string[];
   /**
    * @remarks
-   * The number of unfixed vulnerabilities on the current day.
+   * The total number of vulnerabilities to be fixed on the current day.
    * 
    * @example
    * 384
@@ -377,7 +377,7 @@ export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Mod
   totalCount?: number;
   /**
    * @remarks
-   * The collection of unfixed vulnerability counts at each statistical time point.
+   * The numbers of vulnerabilities to be fixed at each statistical time point.
    */
   valueArray?: string[];
   static names(): { [key: string]: string } {
@@ -445,17 +445,17 @@ export class DescribeSecurityStatInfoResponseBodyVulnerability extends $dara.Mod
 export class DescribeSecurityStatInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics of attack events.
+   * The statistical details of attacks.
    */
   attackEvent?: DescribeSecurityStatInfoResponseBodyAttackEvent;
   /**
    * @remarks
-   * The statistics of baseline issues.
+   * The statistical details of baseline check issues.
    */
   healthCheck?: DescribeSecurityStatInfoResponseBodyHealthCheck;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * A3E61730-85E2-4789-8017-B9B1B70F0568
@@ -463,12 +463,12 @@ export class DescribeSecurityStatInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics of pending security alerts.
+   * The statistical details of pending alerts.
    */
   securityEvent?: DescribeSecurityStatInfoResponseBodySecurityEvent;
   /**
    * @remarks
-   * Indicates whether the query is successful. Valid values:
+   * Indicates whether the query was successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 
@@ -478,7 +478,7 @@ export class DescribeSecurityStatInfoResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The statistics information of unfixed vulnerabilities.
+   * The statistics information of vulnerabilities to be fixed.
    */
   vulnerability?: DescribeSecurityStatInfoResponseBodyVulnerability;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetModuleConfigStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The service modules that you want to query.
+   * The list of product modules to query.
    * 
    * This parameter is required.
    */

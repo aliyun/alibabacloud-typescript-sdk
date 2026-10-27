@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomizeReportStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The pinning time. Unit: milliseconds.
+   * The time when the report is pinned. Unit: milliseconds.
    * 
    * @example
    * 1717430400000
@@ -14,7 +14,7 @@ export class UpdateCustomizeReportStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The report ID.
-   * >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
+   * >You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -24,9 +24,9 @@ export class UpdateCustomizeReportStatusRequest extends $dara.Model {
   reportId?: number;
   /**
    * @remarks
-   * The report status. Valid values:
-   *  - **0**: Disabled.
-   *  - **1**: Enabled.
+   * The status of the report. Valid values:
+   *  - **0**: disabled
+   *  - **1**: enabled
    * 
    * This parameter is required.
    * 

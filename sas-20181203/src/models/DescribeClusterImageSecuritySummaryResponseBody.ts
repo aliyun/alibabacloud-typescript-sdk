@@ -15,9 +15,9 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
    * @remarks
    * The risk level. Valid values:
    * 
-   * - **high**: High.
-   * - **medium**: Medium.
-   * - **low**: Low.
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * medium
@@ -57,11 +57,11 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
   count?: number;
   /**
    * @remarks
-   * The warning level. Valid values:
+   * The alert level. Valid values:
    * 
-   * - **asap**: High. Fix the vulnerability at the earliest opportunity.
-   * - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
-   * - **later**: Low. The vulnerability can be left unfixed.
+   * - **asap**: High. Fix as soon as possible.
+   * - **nntf**: Medium. Can be fixed later.
+   * - **later**: Low. Can be left unfixed.
    * 
    * @example
    * later
@@ -103,9 +103,9 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
    * @remarks
    * The risk level. Valid values:
    * 
-   * - **high**: High.
-   * - **medium**: Medium.
-   * - **low**: Low.
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * medium
@@ -145,11 +145,11 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
   count?: number;
   /**
    * @remarks
-   * The warning level. Valid values:
+   * The alert level. Valid values:
    * 
-   * - **asap**: High. Fix the vulnerability at the earliest opportunity.
-   * - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
-   * - **later**: Low. The vulnerability can be left unfixed.
+   * - **asap**: High. Fix as soon as possible.
+   * - **nntf**: Medium. Can be fixed later.
+   * - **later**: Low. Can be left unfixed.
    * 
    * @example
    * later

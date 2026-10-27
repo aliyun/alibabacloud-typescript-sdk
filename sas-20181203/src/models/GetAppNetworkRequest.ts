@@ -16,7 +16,7 @@ export class GetAppNetworkRequest extends $dara.Model {
    * @remarks
    * The timestamp of the end time. Unit: milliseconds.
    * 
-   * > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
+   * > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
    * 
    * @example
    * 1650470399999
@@ -26,7 +26,7 @@ export class GetAppNetworkRequest extends $dara.Model {
    * @remarks
    * The timestamp of the start time. Unit: milliseconds.
    * 
-   * > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
+   * > The interval between the start timestamp and the end timestamp cannot exceed **7** days.
    * 
    * @example
    * 1649260800000

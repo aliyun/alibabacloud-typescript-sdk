@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRegistryExtraRequest extends $dara.Model {
   /**
    * @remarks
-   * The image repository ID.
-   * >Call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
+   * The ID of the image registry.
+   * >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

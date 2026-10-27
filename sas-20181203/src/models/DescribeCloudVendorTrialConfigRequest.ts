@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudVendorTrialConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique ID of the AK.
+   * The unique ID of the AccessKey.
    * 
-   * > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to get the AuthId.
+   * > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to obtain the AuthId.
    * > -
    * 
    * This parameter is required.
@@ -18,7 +18,7 @@ export class DescribeCloudVendorTrialConfigRequest extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * Cloud asset vendor. Values:
+   * The cloud asset vendor. Valid values:
    * - **Tencent**: Tencent Cloud
    * - **AWS**: Amazon Web Services
    * 

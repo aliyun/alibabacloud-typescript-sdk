@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindAegisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use the request ID to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * 825F5526-2A17-4279-857F-F790E9590171

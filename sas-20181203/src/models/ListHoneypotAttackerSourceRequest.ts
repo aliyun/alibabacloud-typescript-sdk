@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range to query. This value is a timestamp.
+   * The end time in UNIX timestamp format.
    * 
    * @example
    * 1676945366221
@@ -21,11 +21,10 @@ export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   endTimeStamp?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese
-   * 
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -33,7 +32,7 @@ export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return on each page in a paging query.
    * 
    * @example
    * 20
@@ -41,7 +40,7 @@ export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * An array that consists of risk levels.
+   * The list of risk levels.
    */
   riskLevelList?: string[];
   /**
@@ -54,7 +53,7 @@ export class ListHoneypotAttackerSourceRequest extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a timestamp.
+   * The start time in UNIX timestamp format.
    * 
    * @example
    * 1674007632124

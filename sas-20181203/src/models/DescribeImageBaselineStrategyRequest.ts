@@ -7,7 +7,7 @@ export class DescribeImageBaselineStrategyRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,8 +16,8 @@ export class DescribeImageBaselineStrategyRequest extends $dara.Model {
   /**
    * @remarks
    * The data source. If this parameter is left empty, the image baseline policy is queried by default. Valid values:
-   * - **default**: image
-   * - **agentless**: agentless.
+   * - **default**: Image
+   * - **agentless**: Agentless
    * 
    * @example
    * agentless

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientConfStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource tag of the client to query.
+   * Specifies the client resource tag to query.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class DescribeClientConfStrategyRequest extends $dara.Model {
    * The tag value of the asset. Valid values:
    * - major
    * - advanced
-   * - basic.
+   * - basic
    * 
    * This parameter is required.
    * 

@@ -72,6 +72,10 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   remark?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

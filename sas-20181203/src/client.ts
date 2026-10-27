@@ -133,7 +133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a whitelist rule for a baseline check item.
+   * Creates a baseline whitelist record.
    * 
    * @param request - AddBaselineCheckWhiteRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -180,7 +180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a whitelist rule for a baseline check item.
+   * Creates a baseline whitelist record.
    * 
    * @param request - AddBaselineCheckWhiteRecordRequest
    * @returns AddBaselineCheckWhiteRecordResponse
@@ -841,7 +841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert handling rule.
+   * Adds an image alert handling rule.
    * 
    * @param request - AddImageEventOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -900,7 +900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert handling rule.
+   * Adds an image alert handling rule.
    * 
    * @param request - AddImageEventOperationRequest
    * @returns AddImageEventOperationResponse
@@ -1287,7 +1287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
+   * Adds a trial for the value-added modules of Security Center, including vulnerability remediation and threat analysis and response.
    * 
    * @param request - AddSasModuleTrialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1322,7 +1322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
+   * Adds a trial for the value-added modules of Security Center, including vulnerability remediation and threat analysis and response.
    * 
    * @param request - AddSasModuleTrialRequest
    * @returns AddSasModuleTrialResponse
@@ -1597,7 +1597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds alert description in batches.
+   * Adds notes to multiple security alerts.
    * 
    * @param request - BatchCreateMaliciousNoteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1628,7 +1628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds alert description in batches.
+   * Adds notes to multiple security alerts.
    * 
    * @param request - BatchCreateMaliciousNoteRequest
    * @returns BatchCreateMaliciousNoteResponse
@@ -1639,7 +1639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+   * Deletes multiple whitelist rules for sensitive file alerts in agentless detection.
    * 
    * @param request - BatchDeleteMaliciousFileWhitelistConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1670,7 +1670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+   * Deletes multiple whitelist rules for sensitive file alerts in agentless detection.
    * 
    * @param request - BatchDeleteMaliciousFileWhitelistConfigRequest
    * @returns BatchDeleteMaliciousFileWhitelistConfigResponse
@@ -1727,7 +1727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+   * Modifies multiple whitelist rules for sensitive file alerts in agentless detection.
    * 
    * @param request - BatchUpdateMaliciousFileWhitelistConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1758,7 +1758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+   * Modifies multiple whitelist rules for sensitive file alerts in agentless detection.
    * 
    * @param request - BatchUpdateMaliciousFileWhitelistConfigRequest
    * @returns BatchUpdateMaliciousFileWhitelistConfigResponse
@@ -1863,7 +1863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+   * Connects servers to a proxy server. After you create a cluster and deploy the proxy server, you can add servers as clients to the proxy cluster. This enables the servers to connect to Security Center through the proxy for protection.
    * 
    * @param request - BindHybridProxyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1898,7 +1898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+   * Connects servers to a proxy server. After you create a cluster and deploy the proxy server, you can add servers as clients to the proxy cluster. This enables the servers to connect to Security Center through the proxy for protection.
    * 
    * @param request - BindHybridProxyRequest
    * @returns BindHybridProxyResponse
@@ -1951,7 +1951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the interval of asset synchronization configurations.
+   * Modifies the custom refresh cycle configuration for assets.
    * 
    * @param request - ChangeAssetRefreshTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1986,7 +1986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the interval of asset synchronization configurations.
+   * Modifies the custom refresh cycle configuration for assets.
    * 
    * @param request - ChangeAssetRefreshTaskConfigRequest
    * @returns ChangeAssetRefreshTaskConfigResponse
@@ -2367,7 +2367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+   * Authenticates an STS token and returns the Alibaba Cloud account ID.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckStsTokenAuthResponse
@@ -2389,7 +2389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+   * Authenticates an STS token and returns the Alibaba Cloud account ID.
    * @returns CheckStsTokenAuthResponse
    */
   async checkStsTokenAuth(): Promise<$_model.CheckStsTokenAuthResponse> {
@@ -2820,7 +2820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create attack path sensitive asset configuration.
+   * Creates the sensitive asset configuration for attack paths.
    * 
    * @param request - CreateAttackPathSensitiveAssetConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2855,7 +2855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create attack path sensitive asset configuration.
+   * Creates the sensitive asset configuration for attack paths.
    * 
    * @param request - CreateAttackPathSensitiveAssetConfigRequest
    * @returns CreateAttackPathSensitiveAssetConfigResponse
@@ -3686,9 +3686,9 @@ export default class Client extends OpenApi {
    * Initiates deep analysis for a malicious file.
    * 
    * @remarks
-   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
-   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
-   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
    * - accepted: The request is accepted.
    * - authorized: The purchase verification for the source is passed.
    * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3697,7 +3697,7 @@ export default class Client extends OpenApi {
    * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
    * - done: The current analysis process is completed.
    * - error: A processing exception occurs, including the error code and message.
-   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
    * 
    * @param request - CreateFileDeepAnalyzeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3761,9 +3761,9 @@ export default class Client extends OpenApi {
    * Initiates deep analysis for a malicious file.
    * 
    * @remarks
-   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
-   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
-   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
    * - accepted: The request is accepted.
    * - authorized: The purchase verification for the source is passed.
    * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3772,7 +3772,7 @@ export default class Client extends OpenApi {
    * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
    * - done: The current analysis process is completed.
    * - error: A processing exception occurs, including the error code and message.
-   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
    * 
    * @param request - CreateFileDeepAnalyzeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3822,9 +3822,9 @@ export default class Client extends OpenApi {
    * Initiates deep analysis for a malicious file.
    * 
    * @remarks
-   * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
-   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
-   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+   * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
+   * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
+   * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
    * - accepted: The request is accepted.
    * - authorized: The purchase verification for the source is passed.
    * - alertResolved: The file hash is parsed from the alert or input parameters.
@@ -3833,7 +3833,7 @@ export default class Client extends OpenApi {
    * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
    * - done: The current analysis process is completed.
    * - error: A processing exception occurs, including the error code and message.
-   * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+   * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
    * 
    * @param request - CreateFileDeepAnalyzeRequest
    * @returns CreateFileDeepAnalyzeResponse
@@ -6842,7 +6842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes snapshots of anti-ransomware backups in Security Center.
+   * Deletes the snapshots of anti-ransomware backups for servers in Security Center.
    * 
    * @param request - DeleteBackupSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6881,7 +6881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes snapshots of anti-ransomware backups in Security Center.
+   * Deletes the snapshots of anti-ransomware backups for servers in Security Center.
    * 
    * @param request - DeleteBackupSnapshotRequest
    * @returns DeleteBackupSnapshotResponse
@@ -6892,7 +6892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the whitelist record for a baseline check item.
+   * Deletes baseline whitelist records.
    * 
    * @param request - DeleteBaselineCheckWhiteRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6935,7 +6935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the whitelist record for a baseline check item.
+   * Deletes baseline whitelist records.
    * 
    * @param request - DeleteBaselineCheckWhiteRecordRequest
    * @returns DeleteBaselineCheckWhiteRecordResponse
@@ -7260,7 +7260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the blocking records of specific IP addresses that are custom-defined on one or more servers.
+   * Deletes the blocking records for specific IP addresses on one or more user-defined servers.
    * 
    * @param request - DeleteCustomBlockRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7295,7 +7295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the blocking records of specific IP addresses that are custom-defined on one or more servers.
+   * Deletes the blocking records for specific IP addresses on one or more user-defined servers.
    * 
    * @param request - DeleteCustomBlockRecordRequest
    * @returns DeleteCustomBlockRecordResponse
@@ -7540,7 +7540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes core file monitoring rules.
+   * Deletes core file protection rules.
    * 
    * @param request - DeleteFileProtectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7571,7 +7571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes core file monitoring rules.
+   * Deletes core file protection rules.
    * 
    * @param request - DeleteFileProtectRuleRequest
    * @returns DeleteFileProtectRuleResponse
@@ -7585,7 +7585,7 @@ export default class Client extends OpenApi {
    * Deletes a server group.
    * 
    * @remarks
-   * You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to **Ungrouped** by default.
+   * You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to the **Ungrouped** group by default.
    * 
    * @param request - DeleteGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7623,7 +7623,7 @@ export default class Client extends OpenApi {
    * Deletes a server group.
    * 
    * @remarks
-   * You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to **Ungrouped** by default.
+   * You cannot delete the default server group provided by Security Center, which is **Ungrouped**. After you delete a group, the assets in the group are moved to the **Ungrouped** group by default.
    * 
    * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
@@ -7680,7 +7680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified management node.
+   * Deletes a specified honeypot node.
    * 
    * @param request - DeleteHoneypotNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7715,7 +7715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified management node.
+   * Deletes a specified honeypot node.
    * 
    * @param request - DeleteHoneypotNodeRequest
    * @returns DeleteHoneypotNodeResponse
@@ -7998,7 +7998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert disposal rule.
+   * Deletes an alert handling rule.
    * 
    * @param request - DeleteImageEventOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8029,7 +8029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert disposal rule.
+   * Deletes an alert handling rule.
    * 
    * @param request - DeleteImageEventOperationRequest
    * @returns DeleteImageEventOperationResponse
@@ -8320,7 +8320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a whitelist rule for agentless detection of sensitive file alerts.
+   * Deletes a whitelist rule for sensitive file alerts in agentless detection.
    * 
    * @param request - DeleteMaliciousFileWhitelistConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8351,7 +8351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a whitelist rule for agentless detection of sensitive file alerts.
+   * Deletes a whitelist rule for sensitive file alerts in agentless detection.
    * 
    * @param request - DeleteMaliciousFileWhitelistConfigRequest
    * @returns DeleteMaliciousFileWhitelistConfigResponse
@@ -8452,7 +8452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a risky image blocking policy.
+   * Deletes risky image blocking policies.
    * 
    * @param request - DeleteOpaStrategyNewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8483,7 +8483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a risky image blocking policy.
+   * Deletes risky image blocking policies.
    * 
    * @param request - DeleteOpaStrategyNewRequest
    * @returns DeleteOpaStrategyNewResponse
@@ -9135,7 +9135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configurations of vulnerabilities that can be automatically fixed in the vulnerability task center in batches.
+   * Deletes the auto-repair configurations for vulnerabilities in the task center in batches.
    * 
    * @param request - DeleteVulAutoRepairConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9174,7 +9174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configurations of vulnerabilities that can be automatically fixed in the vulnerability task center in batches.
+   * Deletes the auto-repair configurations for vulnerabilities in the task center in batches.
    * 
    * @param request - DeleteVulAutoRepairConfigRequest
    * @returns DeleteVulAutoRepairConfigResponse
@@ -9596,7 +9596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
+   * Queries the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
    * 
    * @remarks
    * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation.
@@ -9632,7 +9632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
+   * Queries the list of assets that contain a specific type of sensitive file detected by the agentless detection feature.
    * 
    * @remarks
    * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation.
@@ -10757,7 +10757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data of anti-ransomware restoration tasks.
+   * Queries the data of anti-ransomware restoration tasks.
    * 
    * @remarks
    * If you have created anti-ransomware restoration tasks, you can call this operation to query the number of anti-ransomware restoration tasks in the **Restored** and **Restoring** states.
@@ -10782,7 +10782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data of anti-ransomware restoration tasks.
+   * Queries the data of anti-ransomware restoration tasks.
    * 
    * @remarks
    * If you have created anti-ransomware restoration tasks, you can call this operation to query the number of anti-ransomware restoration tasks in the **Restored** and **Restoring** states.
@@ -11258,7 +11258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the charts supported for statistics in Security Center security reports.
+   * Queries the statistical charts supported by Security Center security reports.
    * 
    * @param request - DescribeChartListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11297,7 +11297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the charts supported for statistics in Security Center security reports.
+   * Queries the statistical charts supported by Security Center security reports.
    * 
    * @param request - DescribeChartListRequest
    * @returns DescribeChartListResponse
@@ -11855,7 +11855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the machine configuration information for different client tags.
+   * Queries the server configuration information for clients with different tags.
    * 
    * @param request - DescribeClientConfStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11890,7 +11890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the machine configuration information for different client tags.
+   * Queries the server configuration information for clients with different tags.
    * 
    * @param request - DescribeClientConfStrategyRequest
    * @returns DescribeClientConfStrategyResponse
@@ -12192,7 +12192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the trail configuration attributes of the corresponding AK configuration
+   * Queries the integration configurations for audit logs of third-party cloud assets.
    * 
    * @param request - DescribeCloudVendorTrialConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12219,7 +12219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the trail configuration attributes of the corresponding AK configuration
+   * Queries the integration configurations for audit logs of third-party cloud assets.
    * 
    * @param request - DescribeCloudVendorTrialConfigRequest
    * @returns DescribeCloudVendorTrialConfigResponse
@@ -12280,7 +12280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security statistics of a host.
+   * Queries the statistics on host security information.
    * 
    * @param request - DescribeClusterHostSecuritySummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12331,7 +12331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security statistics of a host.
+   * Queries the statistics on host security information.
    * 
    * @param request - DescribeClusterHostSecuritySummaryRequest
    * @returns DescribeClusterHostSecuritySummaryResponse
@@ -12342,7 +12342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security statistics of container images.
+   * Retrieves image security statistics.
    * 
    * @param request - DescribeClusterImageSecuritySummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12405,7 +12405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security statistics of container images.
+   * Retrieves image security statistics.
    * 
    * @param request - DescribeClusterImageSecuritySummaryRequest
    * @returns DescribeClusterImageSecuritySummaryResponse
@@ -12608,7 +12608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global configuration of the master switch.
+   * Queries the global configuration of the main switch.
    * 
    * @param request - DescribeCommonOverallConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12643,7 +12643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global configuration of the master switch.
+   * Queries the global configuration of the main switch.
    * 
    * @param request - DescribeCommonOverallConfigRequest
    * @returns DescribeCommonOverallConfigResponse
@@ -13103,7 +13103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+   * Queries the Kritis status of a Container Service for Kubernetes cluster.
    * 
    * @param request - DescribeContainerServiceK8sClusterKritisStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13142,7 +13142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+   * Queries the Kritis status of a Container Service for Kubernetes cluster.
    * 
    * @param request - DescribeContainerServiceK8sClusterKritisStatusRequest
    * @returns DescribeContainerServiceK8sClusterKritisStatusResponse
@@ -13258,7 +13258,7 @@ export default class Client extends OpenApi {
    * Queries the alert statistics of container assets.
    * 
    * @remarks
-   * Only users who have purchased Container Registry Enterprise instances can invoke this operation.
+   * Only users who have purchased Container Registry Enterprise instances can invoke this API operation.
    * 
    * @param request - DescribeContainerStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13292,7 +13292,7 @@ export default class Client extends OpenApi {
    * Queries the alert statistics of container assets.
    * 
    * @remarks
-   * Only users who have purchased Container Registry Enterprise instances can invoke this operation.
+   * Only users who have purchased Container Registry Enterprise instances can invoke this API operation.
    * 
    * @param request - DescribeContainerStatisticsRequest
    * @returns DescribeContainerStatisticsResponse
@@ -13400,7 +13400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics on scanned image data.
+   * Retrieves statistics on scanned images.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCountScannedImageResponse
@@ -13422,7 +13422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics on scanned image data.
+   * Retrieves statistics on scanned images.
    * @returns DescribeCountScannedImageResponse
    */
   async describeCountScannedImage(): Promise<$_model.DescribeCountScannedImageResponse> {
@@ -13431,7 +13431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
+   * Queries the fuzzy match criteria for asset properties displayed during asset queries.
    * 
    * @param request - DescribeCriteriaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13474,7 +13474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
+   * Queries the fuzzy match criteria for asset properties displayed during asset queries.
    * 
    * @param request - DescribeCriteriaRequest
    * @returns DescribeCriteriaResponse
@@ -13547,7 +13547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries brute-force attacks interception records for custom blocked IP addresses defined on one or more servers.
+   * Queries interception records for IP addresses blocked due to brute-force attacks on one or more servers.
    * 
    * @param request - DescribeCustomBlockRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13594,7 +13594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries brute-force attacks interception records for custom blocked IP addresses defined on one or more servers.
+   * Queries interception records for IP addresses blocked due to brute-force attacks on one or more servers.
    * 
    * @param request - DescribeCustomBlockRecordsRequest
    * @returns DescribeCustomBlockRecordsResponse
@@ -13725,7 +13725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the upload result of a custom weak password file.
+   * Retrieves the upload results of custom weak passwords.
    * 
    * @param request - DescribeCustomizedDictRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13756,7 +13756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the upload result of a custom weak password file.
+   * Retrieves the upload results of custom weak passwords.
    * 
    * @param request - DescribeCustomizedDictRequest
    * @returns DescribeCustomizedDictResponse
@@ -15659,7 +15659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of malicious sample files in container images.
+   * Queries the list of malicious sample files in images.
    * 
    * @param request - DescribeGroupedMaliciousFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15750,7 +15750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of malicious sample files in container images.
+   * Queries the list of malicious sample files in images.
    * 
    * @param request - DescribeGroupedMaliciousFilesRequest
    * @returns DescribeGroupedMaliciousFilesResponse
@@ -16001,7 +16001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the top 5 VPCs or assets ranked by the number of security alerts.
+   * Queries the top 5 VPCs or assets by number of security alerts.
    * 
    * @param request - DescribeHoneyPotSuspStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16044,7 +16044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the top 5 VPCs or assets ranked by the number of security alerts.
+   * Queries the top 5 VPCs or assets by number of security alerts.
    * 
    * @param request - DescribeHoneyPotSuspStatisticsRequest
    * @returns DescribeHoneyPotSuspStatisticsResponse
@@ -16055,7 +16055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries proxy clusters by using paging.
+   * Queries the list of proxy clusters by using paging.
    * 
    * @param request - DescribeHybridProxyClusterListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16094,7 +16094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries proxy clusters by using paging.
+   * Queries the list of proxy clusters by using paging.
    * 
    * @param request - DescribeHybridProxyClusterListRequest
    * @returns DescribeHybridProxyClusterListResponse
@@ -16305,7 +16305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of IDC probe instances used for asset discovery in the multi-cloud configuration management feature.
+   * Queries the list of IDC probes for asset discovery in the multi-cloud configuration management feature.
    * 
    * @param request - DescribeIdcProbeListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16348,7 +16348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of IDC probe instances used for asset discovery in the multi-cloud configuration management feature.
+   * Queries the list of IDC probes for asset discovery in the multi-cloud configuration management feature.
    * 
    * @param request - DescribeIdcProbeListRequest
    * @returns DescribeIdcProbeListResponse
@@ -16479,7 +16479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results of image security scans.
+   * Queries the results of image security scans.
    * 
    * @param request - DescribeImageBaselineCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16538,7 +16538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results of image security scans.
+   * Queries the results of image security scans.
    * 
    * @param request - DescribeImageBaselineCheckResultRequest
    * @returns DescribeImageBaselineCheckResultResponse
@@ -16917,7 +16917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves image search criteria.
+   * Retrieves the image search criteria.
    * 
    * @param request - DescribeImageCriteriaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16948,7 +16948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves image search criteria.
+   * Retrieves the image search criteria.
    * 
    * @param request - DescribeImageCriteriaRequest
    * @returns DescribeImageCriteriaResponse
@@ -17514,7 +17514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about images affected by sensitive files.
+   * Queries the details of images affected by sensitive files.
    * 
    * @param tmpReq - DescribeImageListBySensitiveFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17591,7 +17591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about images affected by sensitive files.
+   * Queries the details of images affected by sensitive files.
    * 
    * @param request - DescribeImageListBySensitiveFileRequest
    * @returns DescribeImageListBySensitiveFileResponse
@@ -17804,7 +17804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics information on image defense switch configurations.
+   * Retrieves the statistics of image defense switch configurations.
    * 
    * @param request - DescribeImageRepoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17871,7 +17871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics information on image defense switch configurations.
+   * Retrieves the statistics of image defense switch configurations.
    * 
    * @param request - DescribeImageRepoListRequest
    * @returns DescribeImageRepoListResponse
@@ -18022,7 +18022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sensitive files in an image.
+   * Queries the sensitive files in an image.
    * 
    * @param tmpReq - DescribeImageSensitiveFileByKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18079,7 +18079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sensitive files in an image.
+   * Queries the sensitive files in an image.
    * 
    * @param request - DescribeImageSensitiveFileByKeyRequest
    * @returns DescribeImageSensitiveFileByKeyResponse
@@ -18516,12 +18516,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of commands for manually installing the Security Center agent.
+   * Queries the list of installation commands for manually installing the Security Center agent.
    * 
    * @remarks
-   * This operation queries the commands for manually installing the Security Center agent on servers. The query results include installation verification codes and server-related information. If you need to manually install the Security Center agent on a server, call this operation to obtain the manual installation commands.
-   * ### Rate limit
-   * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
+   * This operation queries the installation commands used to manually install the Security Center agent on a server. The query result includes the installation verification code and server-related information. When you need to manually install the Security Center agent on a server, you can call this operation to obtain the manual installation commands.
+   * ### QPS limits
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstallCodesResponse
@@ -18543,12 +18543,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of commands for manually installing the Security Center agent.
+   * Queries the list of installation commands for manually installing the Security Center agent.
    * 
    * @remarks
-   * This operation queries the commands for manually installing the Security Center agent on servers. The query results include installation verification codes and server-related information. If you need to manually install the Security Center agent on a server, call this operation to obtain the manual installation commands.
-   * ### Rate limit
-   * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
+   * This operation queries the installation commands used to manually install the Security Center agent on a server. The query result includes the installation verification code and server-related information. When you need to manually install the Security Center agent on a server, you can call this operation to obtain the manual installation commands.
+   * ### QPS limits
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
    * @returns DescribeInstallCodesResponse
    */
   async describeInstallCodes(): Promise<$_model.DescribeInstallCodesResponse> {
@@ -18711,7 +18711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries vulnerability statistics for a cluster.
+   * Queries the vulnerability statistics of a cluster.
    * 
    * @param request - DescribeInstanceVulStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18746,7 +18746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries vulnerability statistics for a cluster.
+   * Queries the vulnerability statistics of a cluster.
    * 
    * @param request - DescribeInstanceVulStatisticsRequest
    * @returns DescribeInstanceVulStatisticsResponse
@@ -18788,7 +18788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of log analysis in Security Center.
+   * Queries the log analysis configurations of Security Center.
    * 
    * @param request - DescribeLogMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18831,7 +18831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of log analysis in Security Center.
+   * Queries the log analysis configurations of Security Center.
    * 
    * @param request - DescribeLogMetaRequest
    * @returns DescribeLogMetaResponse
@@ -20259,7 +20259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+   * Queries the list of Java processes collected by the Asset Fingerprints feature of Security Center for your assets.
    * 
    * @param request - DescribePropertyScaProcessDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20314,7 +20314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+   * Queries the list of Java processes collected by the Asset Fingerprints feature of Security Center for your assets.
    * 
    * @param request - DescribePropertyScaProcessDetailRequest
    * @returns DescribePropertyScaProcessDetailResponse
@@ -21242,10 +21242,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of all cloud service configuration check items.
+   * Queries the types of configuration check items for all cloud services.
    * 
    * @remarks
-   * This operation is offline. Use the upgraded operation ListCheckStandard instead.
+   * This operation is deprecated. Use the upgraded operation ListCheckStandard instead.
    * 
    * @deprecated OpenAPI DescribeRiskItemType is deprecated
    * 
@@ -21286,10 +21286,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of all cloud service configuration check items.
+   * Queries the types of configuration check items for all cloud services.
    * 
    * @remarks
-   * This operation is offline. Use the upgraded operation ListCheckStandard instead.
+   * This operation is deprecated. Use the upgraded operation ListCheckStandard instead.
    * 
    * @deprecated OpenAPI DescribeRiskItemType is deprecated
    * 
@@ -21668,7 +21668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the filter conditions that are used to search for assets.
+   * Queries the filter conditions for the Security Center asset list.
    * 
    * @param request - DescribeSearchConditionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21707,7 +21707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the filter conditions that are used to search for assets.
+   * Queries the filter conditions for the Security Center asset list.
    * 
    * @param request - DescribeSearchConditionRequest
    * @returns DescribeSearchConditionResponse
@@ -21837,7 +21837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto-whitelist rules for security alerts.
+   * Queries the automatic whitelist rules for alerts.
    * 
    * @param request - DescribeSecurityEventMarkMissListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21888,7 +21888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto-whitelist rules for security alerts.
+   * Queries the automatic whitelist rules for alerts.
    * 
    * @param request - DescribeSecurityEventMarkMissListRequest
    * @returns DescribeSecurityEventMarkMissListResponse
@@ -22007,7 +22007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of each security check item and the daily statistics in the security check item trend chart.
+   * Queries the statistical values of each security check item and the daily statistical values in the trend chart of security check items.
    * 
    * @param request - DescribeSecurityStatInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22046,7 +22046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of each security check item and the daily statistics in the security check item trend chart.
+   * Queries the statistical values of each security check item and the daily statistical values in the trend chart of security check items.
    * 
    * @param request - DescribeSecurityStatInfoRequest
    * @returns DescribeSecurityStatInfoResponse
@@ -22285,10 +22285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the execution details of a remediation task playbook
+   * Retrieves the execution results of the playbook corresponding to a policy in Task Center.
    * 
    * @remarks
-   * This API is only supported by the Enterprise and Flagship editions of Cloud Security Center, other versions do not support it.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - DescribeSoarPlaybookTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22327,10 +22327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the execution details of a remediation task playbook
+   * Retrieves the execution results of the playbook corresponding to a policy in Task Center.
    * 
    * @remarks
-   * This API is only supported by the Enterprise and Flagship editions of Cloud Security Center, other versions do not support it.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - DescribeSoarPlaybookTaskDetailRequest
    * @returns DescribeSoarPlaybookTaskDetailResponse
@@ -22493,10 +22493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters of a policy task in the task center.
+   * Queries the parameters of a policy task in the Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+   * This API operation is supported only by the Enterprise and Ultimate editions of Security Center.
    * 
    * @param request - DescribeSoarStrategyTaskParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22523,10 +22523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters of a policy task in the task center.
+   * Queries the parameters of a policy task in the Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+   * This API operation is supported only by the Enterprise and Ultimate editions of Security Center.
    * 
    * @param request - DescribeSoarStrategyTaskParamsRequest
    * @returns DescribeSoarStrategyTaskParamsResponse
@@ -22893,7 +22893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Strict mode supports alarm queries
+   * Queries the names of all alerts that support strict mode.
    * 
    * @param request - DescribeStrictEventNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22920,7 +22920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Strict mode supports alarm queries
+   * Queries the names of all alerts that support strict mode.
    * 
    * @param request - DescribeStrictEventNameRequest
    * @returns DescribeStrictEventNameResponse
@@ -22977,7 +22977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest system vulnerability discovery time.
+   * Queries the discovery time of the latest system vulnerability.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupervisonInfoResponse
@@ -22999,7 +22999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the latest system vulnerability discovery time.
+   * Queries the discovery time of the latest system vulnerability.
    * @returns DescribeSupervisonInfoResponse
    */
   async describeSupervisonInfo(): Promise<$_model.DescribeSupervisonInfoResponse> {
@@ -23499,7 +23499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Alarm Security Event Statistics
+   * Queries the statistics on security alert events.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
@@ -23521,7 +23521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Alarm Security Event Statistics
+   * Queries the statistics on security alert events.
    * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
    */
   async describeSuspiciousSecurityEventyStatistics(): Promise<$_model.DescribeSuspiciousSecurityEventyStatisticsResponse> {
@@ -23692,7 +23692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the machine list settings for vulnerability scanning.
+   * Queries the machine list settings for enabled vulnerability scanning.
    * 
    * @param request - DescribeTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23727,7 +23727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the machine list settings for vulnerability scanning.
+   * Queries the machine list settings for enabled vulnerability scanning.
    * 
    * @param request - DescribeTargetRequest
    * @returns DescribeTargetResponse
@@ -24236,7 +24236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers that have anti-ransomware backup policies enabled.
+   * Queries the servers that have the anti-ransomware backup policy enabled.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserBackupMachinesResponse
@@ -24258,7 +24258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers that have anti-ransomware backup policies enabled.
+   * Queries the servers that have the anti-ransomware backup policy enabled.
    * @returns DescribeUserBackupMachinesResponse
    */
   async describeUserBackupMachines(): Promise<$_model.DescribeUserBackupMachinesResponse> {
@@ -25269,7 +25269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get vulnerability statistics.
+   * Retrieves vulnerability statistics information.
    * 
    * @param request - DescribeVulNumStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25304,7 +25304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get vulnerability statistics.
+   * Retrieves vulnerability statistics information.
    * 
    * @param request - DescribeVulNumStatisticsRequest
    * @returns DescribeVulNumStatisticsResponse
@@ -25593,7 +25593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of servers that have web tamper-proofing protection enabled.
+   * Queries the list of servers protected by web tamper-proofing.
    * 
    * @param request - DescribeWebLockBindListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25648,7 +25648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of servers that have web tamper-proofing protection enabled.
+   * Queries the list of servers protected by web tamper-proofing.
    * 
    * @param request - DescribeWebLockBindListRequest
    * @returns DescribeWebLockBindListResponse
@@ -25856,7 +25856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebLock file type summary.
+   * Queries the summary of WebLock file types.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebLockFileTypeSummaryResponse
@@ -25878,7 +25878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebLock file type summary.
+   * Queries the summary of WebLock file types.
    * @returns DescribeWebLockFileTypeSummaryResponse
    */
   async describeWebLockFileTypeSummary(): Promise<$_model.DescribeWebLockFileTypeSummaryResponse> {
@@ -26927,10 +26927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the multi-account management feature of Security Center.
+   * Enables the multi-account security management feature of Security Center.
    * 
    * @remarks
-   * Call this operation by using the management account of the resource directory or a delegated administrator account of Security Center.
+   * You must use the management account of a resource directory or the delegated administrator account of Security Center to call this operation.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableServiceAccessResourceDirectoryResponse
@@ -26952,10 +26952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the multi-account management feature of Security Center.
+   * Enables the multi-account security management feature of Security Center.
    * 
    * @remarks
-   * Call this operation by using the management account of the resource directory or a delegated administrator account of Security Center.
+   * You must use the management account of a resource directory or the delegated administrator account of Security Center to call this operation.
    * @returns EnableServiceAccessResourceDirectoryResponse
    */
   async enableServiceAccessResourceDirectory(): Promise<$_model.EnableServiceAccessResourceDirectoryResponse> {
@@ -26964,7 +26964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a baseline check on machines within a specified policy.
+   * Executes a specified policy to scan the servers within the policy for check items.
    * 
    * @param request - ExecStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27003,7 +27003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a baseline check on machines within a specified policy.
+   * Executes a specified policy to scan the servers within the policy for check items.
    * 
    * @param request - ExecStrategyRequest
    * @returns ExecStrategyResponse
@@ -27064,7 +27064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
+   * Exports the detection results of the Asset Center, cloud platform configuration assessment, image security scanning, attack analysis, AccessKey leak detection, and baseline checks to an Excel file.
    * 
    * @remarks
    * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
@@ -27114,7 +27114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
+   * Exports the detection results of the Asset Center, cloud platform configuration assessment, image security scanning, attack analysis, AccessKey leak detection, and baseline checks to an Excel file.
    * 
    * @remarks
    * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
@@ -27262,13 +27262,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a vulnerability list.
+   * Exports the vulnerability list.
    * 
    * @remarks
-   * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-   * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
+   * This operation exports vulnerability lists. You can use it to export lists of Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+   * This operation is used together with the DescribeVulExportInfo operation. After you use this operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation and specify the ID of the vulnerability export task to view the progress of the export task.
    * ### QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - ExportVulRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27375,13 +27375,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a vulnerability list.
+   * Exports the vulnerability list.
    * 
    * @remarks
-   * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-   * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
+   * This operation exports vulnerability lists. You can use it to export lists of Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+   * This operation is used together with the DescribeVulExportInfo operation. After you use this operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation and specify the ID of the vulnerability export task to view the progress of the export task.
    * ### QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - ExportVulRequest
    * @returns ExportVulResponse
@@ -27392,10 +27392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the list of baseline check results. This operation is deprecated.
+   * *[Deprecated]** This operation is deprecated. Use ExportRecord instead.
    * 
    * @remarks
-   * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
+   * *[Deprecated]** Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
    * 
    * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
    * 
@@ -27488,10 +27488,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the list of baseline check results. This operation is deprecated.
+   * *[Deprecated]** This operation is deprecated. Use ExportRecord instead.
    * 
    * @remarks
-   * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
+   * *[Deprecated]** Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
    * 
    * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
    * 
@@ -28687,7 +28687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries attack path event statistics.
+   * Queries the statistics of attack path events.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAttackPathEventStatisticsResponse
@@ -28709,7 +28709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries attack path event statistics.
+   * Queries the statistics of attack path events.
    * @returns GetAttackPathEventStatisticsResponse
    */
   async getAttackPathEventStatistics(): Promise<$_model.GetAttackPathEventStatisticsResponse> {
@@ -29939,7 +29939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scan access configuration of a Kubernetes cluster.
+   * Queries the scan integration configuration for a Kubernetes cluster.
    * 
    * @param request - GetClusterScannerYamlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29970,7 +29970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scan access configuration of a Kubernetes cluster.
+   * Queries the scan integration configuration for a Kubernetes cluster.
    * 
    * @param request - GetClusterScannerYamlRequest
    * @returns GetClusterScannerYamlResponse
@@ -30100,7 +30100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query whether the core function\\"s gray switch is hit
+   * Retrieves the grayscale status of console feature modules.
    * 
    * @param request - GetConsoleFuncGrayStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30135,7 +30135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query whether the core function\\"s gray switch is hit
+   * Retrieves the grayscale status of console feature modules.
    * 
    * @param request - GetConsoleFuncGrayStatusRequest
    * @returns GetConsoleFuncGrayStatusResponse
@@ -30146,7 +30146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a non-image program defense rule.
+   * Retrieves the details of a defense rule for non-image programs.
    * 
    * @param request - GetContainerDefenseRuleDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30181,7 +30181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a non-image program defense rule.
+   * Retrieves the details of a defense rule for non-image programs.
    * 
    * @param request - GetContainerDefenseRuleDetailRequest
    * @returns GetContainerDefenseRuleDetailResponse
@@ -30312,7 +30312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rankings of images by various dimensions.
+   * Queries the rankings of images across different dimensions.
    * 
    * @param request - GetDockerhubImageRiskRankInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30343,7 +30343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rankings of images by various dimensions.
+   * Queries the rankings of images across different dimensions.
    * 
    * @param request - GetDockerhubImageRiskRankInfoRequest
    * @returns GetDockerhubImageRiskRankInfoResponse
@@ -30396,7 +30396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the usage information of the malicious file detection SDK.
+   * Retrieves the usage information of the malicious file detection SDK.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileDetectApiInvokeInfoResponse
@@ -30418,7 +30418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the usage information of the malicious file detection SDK.
+   * Retrieves the usage information of the malicious file detection SDK.
    * @returns GetFileDetectApiInvokeInfoResponse
    */
   async getFileDetectApiInvokeInfo(): Promise<$_model.GetFileDetectApiInvokeInfoResponse> {
@@ -30916,7 +30916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Trial Status
+   * Retrieves the trial eligibility status of a feature.
    * 
    * @param request - GetFunctionTrialStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30947,7 +30947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Trial Status
+   * Retrieves the trial eligibility status of a feature.
    * 
    * @param request - GetFunctionTrialStatusRequest
    * @returns GetFunctionTrialStatusResponse
@@ -31000,7 +31000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack event statistics information of a honeypot attack source.
+   * Retrieves the statistics on attack events from honeypot attack sources.
    * 
    * @param request - GetHoneypotAttackStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31059,7 +31059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack event statistics information of a honeypot attack source.
+   * Retrieves the statistics on attack events from honeypot attack sources.
    * 
    * @param request - GetHoneypotAttackStatisticsRequest
    * @returns GetHoneypotAttackStatisticsResponse
@@ -31342,7 +31342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get statistics on honey pot usage.
+   * Retrieves the statistics on honeypot usage.
    * 
    * @param request - GetHoneypotStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31373,7 +31373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get statistics on honey pot usage.
+   * Retrieves the statistics on honeypot usage.
    * 
    * @param request - GetHoneypotStatisticsRequest
    * @returns GetHoneypotStatisticsResponse
@@ -31955,7 +31955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
+   * Queries whether the features of the purchased Security Center modules are enabled or configured.
    * 
    * @param tmpReq - GetModuleConfigStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31992,7 +31992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
+   * Queries whether the features of the purchased Security Center modules are enabled or configured.
    * 
    * @param request - GetModuleConfigStatusRequest
    * @returns GetModuleConfigStatusResponse
@@ -32338,7 +32338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+   * Queries the installation status of the container proactive defense component.
    * 
    * @param request - GetOpaPluginStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32369,7 +32369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+   * Queries the installation status of the container proactive defense component.
    * 
    * @param request - GetOpaPluginStatusRequest
    * @returns GetOpaPluginStatusResponse
@@ -32380,7 +32380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a risky image blocking policy.
+   * Retrieves the details of a risky image blocking policy.
    * 
    * @param request - GetOpaStrategyDetailNewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32411,7 +32411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a risky image blocking policy.
+   * Retrieves the details of a risky image blocking policy.
    * 
    * @param request - GetOpaStrategyDetailNewRequest
    * @returns GetOpaStrategyDetailNewResponse
@@ -33825,10 +33825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch processes malicious sample alerts.
+   * Processes malicious sample alerts in batches.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - HandleSimilarMaliciousFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33875,10 +33875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch processes malicious sample alerts.
+   * Processes malicious sample alerts in batches.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - HandleSimilarMaliciousFilesRequest
    * @returns HandleSimilarMaliciousFilesResponse
@@ -34300,10 +34300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs the CloudMonitor agent on a specified server.
+   * Installs the CloudMonitor agent on specified servers.
    * 
    * @remarks
-   * > Before installation, make sure that the Security Center client on your server is online and that your server can access Alibaba Cloud services over the network.
+   * > Before installation, ensure that the Security Center agent on your server is online and that your server has Normal access to Alibaba Cloud services.
    * 
    * @param request - InstallCloudMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34350,10 +34350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs the CloudMonitor agent on a specified server.
+   * Installs the CloudMonitor agent on specified servers.
    * 
    * @remarks
-   * > Before installation, make sure that the Security Center client on your server is online and that your server can access Alibaba Cloud services over the network.
+   * > Before installation, ensure that the Security Center agent on your server is online and that your server has Normal access to Alibaba Cloud services.
    * 
    * @param request - InstallCloudMonitorRequest
    * @returns InstallCloudMonitorResponse
@@ -34983,6 +34983,10 @@ export default class Client extends OpenApi {
       query["IntranetIp"] = request.intranetIp;
     }
 
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!$dara.isNull(request.machineName)) {
       query["MachineName"] = request.machineName;
     }
@@ -35437,7 +35441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of attack path events.
+   * Queries the attack path events.
    * 
    * @param request - ListAttackPathEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35500,7 +35504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of attack path events.
+   * Queries the attack path events.
    * 
    * @param request - ListAttackPathEventRequest
    * @returns ListAttackPathEventResponse
@@ -35511,7 +35515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack path whitelist.
+   * Queries the attack path whitelists.
    * 
    * @param request - ListAttackPathWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35562,7 +35566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack path whitelist.
+   * Queries the attack path whitelists.
    * 
    * @param request - ListAttackPathWhitelistRequest
    * @returns ListAttackPathWhitelistResponse
@@ -35707,7 +35711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup records.
+   * Queries the backup records.
    * 
    * @param request - ListBackupRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35758,7 +35762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup records.
+   * Queries the backup records.
    * 
    * @param request - ListBackupRecordRequest
    * @returns ListBackupRecordResponse
@@ -35977,7 +35981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of warning machines for a specific baseline check item.
+   * Queries the list of servers affected by baseline check item risks.
    * 
    * @param request - ListCheckItemWarningMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36056,7 +36060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of warning machines for a specific baseline check item.
+   * Queries the list of servers affected by baseline check item risks.
    * 
    * @param request - ListCheckItemWarningMachineRequest
    * @returns ListCheckItemWarningMachineResponse
@@ -36439,7 +36443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the standards of configuration checks.
+   * Retrieves the list of standards for cloud platform configuration checks.
    * 
    * @param request - ListCheckStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36490,7 +36494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the standards of configuration checks.
+   * Retrieves the list of standards for cloud platform configuration checks.
    * 
    * @param request - ListCheckStandardRequest
    * @returns ListCheckStandardResponse
@@ -36920,7 +36924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cluster Check Item Scan Results
+   * Queries the details of risk items in cluster configuration check results.
    * 
    * @param request - ListClusterCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36979,7 +36983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cluster Check Item Scan Results
+   * Queries the details of risk items in cluster configuration check results.
    * 
    * @param request - ListClusterCheckResultRequest
    * @returns ListClusterCheckResultResponse
@@ -37224,7 +37228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of defense rules for non-image programs.
+   * Queries a list of non-image program defense rules.
    * 
    * @param request - ListContainerDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37275,7 +37279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of defense rules for non-image programs.
+   * Queries a list of non-image program defense rules.
    * 
    * @param request - ListContainerDefenseRuleRequest
    * @returns ListContainerDefenseRuleResponse
@@ -37792,7 +37796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of server groups for the current user.
+   * Retrieves the list of server groups.
    * 
    * @param request - ListGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37839,7 +37843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of server groups for the current user.
+   * Retrieves the list of server groups.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -38012,7 +38016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack source IP addresses that are used to attack a honeypot.
+   * Retrieves a list of attack sources that launched attacks on honeypots.
    * 
    * @param request - ListHoneypotAttackerSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38067,7 +38071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attack source IP addresses that are used to attack a honeypot.
+   * Retrieves a list of attack sources that launched attacks on honeypots.
    * 
    * @param request - ListHoneypotAttackerSourceRequest
    * @returns ListHoneypotAttackerSourceResponse
@@ -38452,7 +38456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the extra configuration information of an image repository.
+   * Queries the additional configuration information of an image registry.
    * 
    * @param request - ListImageRegistryExtraRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38483,7 +38487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the extra configuration information of an image repository.
+   * Queries the additional configuration information of an image registry.
    * 
    * @param request - ListImageRegistryExtraRequest
    * @returns ListImageRegistryExtraResponse
@@ -38598,7 +38602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset types and asset subtypes for configuration assessment.
+   * Queries the assets and sub-assets for cloud platform configuration checks.
    * 
    * @param request - ListInstanceCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38653,7 +38657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset types and asset subtypes for configuration assessment.
+   * Queries the assets and sub-assets for cloud platform configuration checks.
    * 
    * @param request - ListInstanceCatalogRequest
    * @returns ListInstanceCatalogResponse
@@ -38706,7 +38710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics about risks in instances.
+   * Retrieves the number of security issues for instances.
    * 
    * @param request - ListInstanceRiskNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38737,7 +38741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics about risks in instances.
+   * Retrieves the number of security issues for instances.
    * 
    * @param request - ListInstanceRiskNumRequest
    * @returns ListInstanceRiskNumResponse
@@ -39099,7 +39103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Serverless Application Engine (SAE) applications of a serverless instance.
+   * Queries the SAE applications of a serverless instance.
    * 
    * @param request - ListMachineAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39158,7 +39162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Serverless Application Engine (SAE) applications of a serverless instance.
+   * Queries the SAE applications of a serverless instance.
    * 
    * @param request - ListMachineAppsRequest
    * @returns ListMachineAppsResponse
@@ -40338,7 +40342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of system rule clusters.
+   * Queries the details of system rule aggregations.
    * 
    * @param request - ListSystemAggregationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40365,7 +40369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of system rule clusters.
+   * Queries the details of system rule aggregations.
    * 
    * @param request - ListSystemAggregationRulesRequest
    * @returns ListSystemAggregationRulesResponse
@@ -40477,7 +40481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the aggregation types of system defense rules.
+   * Queries the clustering types of system defense rules.
    * 
    * @param request - ListSystemRuleAggregationTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40504,7 +40508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the aggregation types of system defense rules.
+   * Queries the clustering types of system defense rules.
    * 
    * @param request - ListSystemRuleAggregationTypesRequest
    * @returns ListSystemRuleAggregationTypesResponse
@@ -41039,7 +41043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves VPC data for the user in a specified region by using the third-party image repository integration feature of Container Asset in Security Center.
+   * Retrieves the VPC data of users in a specified region by using the container assets and third-party image repository access features of Security Center.
    * 
    * @param request - ListUserVpcRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41070,7 +41074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves VPC data for the user in a specified region by using the third-party image repository integration feature of Container Asset in Security Center.
+   * Retrieves the VPC data of users in a specified region by using the container assets and third-party image repository access features of Security Center.
    * 
    * @param request - ListUserVpcRequest
    * @returns ListUserVpcResponse
@@ -41081,7 +41085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the UUIDs of Serverless instances by application ID.
+   * Queries the UUIDs of Serverless instances based on the application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41132,7 +41136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the UUIDs of Serverless instances by application ID.
+   * Queries the UUIDs of Serverless instances based on the application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @returns ListUuidsByAppIdResponse
@@ -41309,7 +41313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virus scan tasks that match specified conditions such as scan type, scan status, and scanned machine information.
+   * Queries virus scan tasks that meet the specified conditions based on the scan type, scan status, and machine information.
    * 
    * @param request - ListVirusScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41392,7 +41396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virus scan tasks that match specified conditions such as scan type, scan status, and scanned machine information.
+   * Queries virus scan tasks that meet the specified conditions based on the scan type, scan status, and machine information.
    * 
    * @param request - ListVirusScanTaskRequest
    * @returns ListVirusScanTaskResponse
@@ -42241,10 +42245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the storage capacity space for log analysis.
+   * Clears the storage capacity for log analysis.
    * 
    * @remarks
-   * Cleared logs cannot be recovered. Before calling this operation, perform a log export and save the logs to a local device, and then call this operation to clear the logs and free up storage capacity space.
+   * Logs cannot be recovered after they are cleared. Perform log export and store the logs locally before you call this operation to clear the logs and release storage capacity.
    * 
    * @param request - ModifyClearLogstoreStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42287,10 +42291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the storage capacity space for log analysis.
+   * Clears the storage capacity for log analysis.
    * 
    * @remarks
-   * Cleared logs cannot be recovered. Before calling this operation, perform a log export and save the logs to a local device, and then call this operation to clear the logs and free up storage capacity space.
+   * Logs cannot be recovered after they are cleared. Perform log export and store the logs locally before you call this operation to clear the logs and release storage capacity.
    * 
    * @param request - ModifyClearLogstoreStorageRequest
    * @returns ModifyClearLogstoreStorageResponse
@@ -44035,7 +44039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies notification configuration information.
+   * Modifies the notification configuration.
    * 
    * @param request - ModifyNoticeConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44094,7 +44098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies notification configuration information.
+   * Modifies the notification configuration.
    * 
    * @param request - ModifyNoticeConfigRequest
    * @returns ModifyNoticeConfigResponse
@@ -44105,15 +44109,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates Simple Log Service.
+   * Enables Simple Log Service.
    * 
    * @remarks
    * *Before you begin**
    * Activate <props="china">[Simple Log Service](https://help.aliyun.com/document_detail/48863.html)
-   * <props="intl">[Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items).
-   * Create a service-linked role and authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
-   * **Common scenarios**
-   * Before you use the log analysis feature of Security Center, call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+   * <props="intl">[Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) first, and create a service-linked role to authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
+   * **Scenarios**
+   * Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to enable Simple Log Service.
    * 
    * @param request - ModifyOpenLogShipperRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44148,15 +44151,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates Simple Log Service.
+   * Enables Simple Log Service.
    * 
    * @remarks
    * *Before you begin**
    * Activate <props="china">[Simple Log Service](https://help.aliyun.com/document_detail/48863.html)
-   * <props="intl">[Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items).
-   * Create a service-linked role and authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
-   * **Common scenarios**
-   * Before you use the log analysis feature of Security Center, call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+   * <props="intl">[Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) first, and create a service-linked role to authorize Security Center to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role and authorize Security Center to access cloud resources.
+   * **Scenarios**
+   * Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to enable Simple Log Service.
    * 
    * @param request - ModifyOpenLogShipperRequest
    * @returns ModifyOpenLogShipperResponse
@@ -44317,10 +44319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds processes to or removes processes from the whitelist in the application whitelist feature.
+   * Adds a process to or removes a process from the application whitelist.
    * 
    * @remarks
-   * The application whitelist is a China-site public preview feature that is no longer open for new applications. Users who have already applied for or are using this feature can call this operation as expected.
+   * The application whitelist feature is in public preview and is no longer available for new applications. Users who have already applied for or are currently using this feature can call this operation as usual.
    * 
    * @param request - ModifyProcessWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44367,10 +44369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds processes to or removes processes from the whitelist in the application whitelist feature.
+   * Adds a process to or removes a process from the application whitelist.
    * 
    * @remarks
-   * The application whitelist is a China-site public preview feature that is no longer open for new applications. Users who have already applied for or are using this feature can call this operation as expected.
+   * The application whitelist feature is in public preview and is no longer available for new applications. Users who have already applied for or are currently using this feature can call this operation as usual.
    * 
    * @param request - ModifyProcessWhiteListRequest
    * @returns ModifyProcessWhiteListResponse
@@ -44866,10 +44868,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or removes a policy template to or from My Policies in the task center.
+   * Adds or removes a strategy template to or from My Strategies in Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this call.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - ModifySoarStrategySubscribeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44904,10 +44906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or removes a policy template to or from My Policies in the task center.
+   * Adds or removes a strategy template to or from My Strategies in Task Center.
    * 
    * @remarks
-   * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this call.
+   * Only the Enterprise and Ultimate editions of Security Center support this API operation.
    * 
    * @param request - ModifySoarStrategySubscribeRequest
    * @returns ModifySoarStrategySubscribeResponse
@@ -44918,7 +44920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the one-click scan feature on the vulnerability management page of the console.
+   * Enables the quick scan feature on the Vulnerability Management page in the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44965,7 +44967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the one-click scan feature on the vulnerability management page of the console.
+   * Enables the quick scan feature on the Vulnerability Management page in the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @returns ModifyStartVulScanResponse
@@ -45359,7 +45361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the machine-level toggle settings for vulnerability scanning.
+   * Modifies the machine switch settings for vulnerability scanning.
    * 
    * @param request - ModifyVulTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45394,7 +45396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the machine-level toggle settings for vulnerability scanning.
+   * Modifies the machine switch settings for vulnerability scanning.
    * 
    * @param request - ModifyVulTargetRequest
    * @returns ModifyVulTargetResponse
@@ -45845,7 +45847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or shuts down web tamper-proofing for a server.
+   * Enables or initiates a shutdown of the web tamper-proofing protection status of a server.
    * 
    * @param request - ModifyWebLockStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45888,7 +45890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or shuts down web tamper-proofing for a server.
+   * Enables or initiates a shutdown of the web tamper-proofing protection status of a server.
    * 
    * @param request - ModifyWebLockStatusRequest
    * @returns ModifyWebLockStatusResponse
@@ -45899,7 +45901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the web tamper proofing protection folder from a specified server.
+   * Dissociates the web tamper-proofing protected directory from a specified server.
    * 
    * @param request - ModifyWebLockUnbindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45930,7 +45932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the web tamper proofing protection folder from a specified server.
+   * Dissociates the web tamper-proofing protected directory from a specified server.
    * 
    * @param request - ModifyWebLockUnbindRequest
    * @returns ModifyWebLockUnbindResponse
@@ -46081,7 +46083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the anti-ransomware managed service to configure server backup policies with one click. This operation can be called only after you purchase the anti-ransomware managed service.
+   * Enables the one-click configuration of anti-ransomware backup policies for servers in the managed anti-ransomware service. You can call this operation only after you purchase the managed anti-ransomware service.
    * 
    * @param request - OpenBackupAutoConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46112,7 +46114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the anti-ransomware managed service to configure server backup policies with one click. This operation can be called only after you purchase the anti-ransomware managed service.
+   * Enables the one-click configuration of anti-ransomware backup policies for servers in the managed anti-ransomware service. You can call this operation only after you purchase the managed anti-ransomware service.
    * 
    * @param request - OpenBackupAutoConfigRequest
    * @returns OpenBackupAutoConfigResponse
@@ -47737,7 +47739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Security Center provides rewards such as value-added service authorization quotas and log analysis storage capacity to users who complete tasks. Queries the completion status and reward information of configuration tasks.
+   * Queries the completion status and reward information of onboarding tasks. Security Center provides rewards such as value-added service authorizations and log analysis storage capacity for users who complete tasks. You can call this API operation to query the completion status and reward information of configured tasks.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryGuidTaskListResponse
@@ -47759,7 +47761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Security Center provides rewards such as value-added service authorization quotas and log analysis storage capacity to users who complete tasks. Queries the completion status and reward information of configuration tasks.
+   * Queries the completion status and reward information of onboarding tasks. Security Center provides rewards such as value-added service authorizations and log analysis storage capacity for users who complete tasks. You can call this API operation to query the completion status and reward information of configured tasks.
    * @returns QueryGuidTaskListResponse
    */
   async queryGuidTaskList(): Promise<$_model.QueryGuidTaskListResponse> {
@@ -47902,7 +47904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Claims a trial reward for the cloud honeypot or malicious file detection SDK feature after completing a task.
+   * Grants the trial reward for enabling the cloud honeypot or malicious file detection SDK feature upon task completion.
    * 
    * @param request - ReceiveFunctionTrialRewardByAliUidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47937,7 +47939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Claims a trial reward for the cloud honeypot or malicious file detection SDK feature after completing a task.
+   * Grants the trial reward for enabling the cloud honeypot or malicious file detection SDK feature upon task completion.
    * 
    * @param request - ReceiveFunctionTrialRewardByAliUidRequest
    * @returns ReceiveFunctionTrialRewardByAliUidResponse
@@ -48328,7 +48330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+   * Resets and upgrades the log analysis feature. You can invoke this operation only in the pay-as-you-go pattern for logs.
    * 
    * @param request - ResetLogShipperRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48367,7 +48369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+   * Resets and upgrades the log analysis feature. You can invoke this operation only in the pay-as-you-go pattern for logs.
    * 
    * @param request - ResetLogShipperRequest
    * @returns ResetLogShipperResponse
@@ -49772,7 +49774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers ISO 27001 compliance checks of Security Center.
+   * Triggers an ISO 27001 compliance check task in Security Center.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TriggerCheckResponse
@@ -49794,7 +49796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers ISO 27001 compliance checks of Security Center.
+   * Triggers an ISO 27001 compliance check task in Security Center.
    * @returns TriggerCheckResponse
    */
   async triggerCheck(): Promise<$_model.TriggerCheckResponse> {
@@ -49803,7 +49805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes servers from a proxy cluster.
+   * Dissociates the client from the current proxy cluster.
    * 
    * @param request - UnBindHybridProxyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49838,7 +49840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes servers from a proxy cluster.
+   * Dissociates the client from the current proxy cluster.
    * 
    * @param request - UnBindHybridProxyRequest
    * @returns UnBindHybridProxyResponse
@@ -49891,14 +49893,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds non-Alibaba Cloud servers from Security Center.
+   * Unbinds a non-Alibaba Cloud server from Security Center.
    * 
    * @remarks
-   * If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, the server no longer consumes your Security Center quota (the number of servers or compute cores). The released quota can then be used to protect other servers.
-   * > Only non-Alibaba Cloud servers require the unbinding operation. Alibaba Cloud ECS instances do not require unbinding. For ECS instances, even if you uninstall the agent, the server still appears in the asset management list in an offline state and is not removed from the list.  
+   * If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, it no longer consumes the quota of Security Center (the number of protected servers or CPU cores). The released quota can be used to protect other servers.
+   * > Only non-Alibaba Cloud servers need to be unbound. You do not need to unbind Alibaba Cloud ECS instances. Even if you uninstall the agent from an ECS instance, the instance remains in the asset management list in the offline state and is not removed from the list.  
    * **Before you begin**
-   * - The agent on the non-Alibaba Cloud server that you want to unbind has been paused (the client status is disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
-   * - Client self-protection has been disabled on the non-Alibaba Cloud server that you want to unbind. For more information, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
+   * - The agent on the non-Alibaba Cloud server that you want to unbind is paused (the client status is Disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
+   * - Client self-protection is disabled for the non-Alibaba Cloud server that you want to unbind. For more information about how to disable client self-protection, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
    * 
    * @param request - UnbindAegisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49929,14 +49931,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds non-Alibaba Cloud servers from Security Center.
+   * Unbinds a non-Alibaba Cloud server from Security Center.
    * 
    * @remarks
-   * If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, the server no longer consumes your Security Center quota (the number of servers or compute cores). The released quota can then be used to protect other servers.
-   * > Only non-Alibaba Cloud servers require the unbinding operation. Alibaba Cloud ECS instances do not require unbinding. For ECS instances, even if you uninstall the agent, the server still appears in the asset management list in an offline state and is not removed from the list.  
+   * If you no longer need Security Center to protect your non-Alibaba Cloud servers, you can call the UnbindAegis operation to unbind the servers. After a non-Alibaba Cloud server is unbound, it no longer consumes the quota of Security Center (the number of protected servers or CPU cores). The released quota can be used to protect other servers.
+   * > Only non-Alibaba Cloud servers need to be unbound. You do not need to unbind Alibaba Cloud ECS instances. Even if you uninstall the agent from an ECS instance, the instance remains in the asset management list in the offline state and is not removed from the list.  
    * **Before you begin**
-   * - The agent on the non-Alibaba Cloud server that you want to unbind has been paused (the client status is disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
-   * - Client self-protection has been disabled on the non-Alibaba Cloud server that you want to unbind. For more information, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
+   * - The agent on the non-Alibaba Cloud server that you want to unbind is paused (the client status is Disabled). You can call the [PauseClient](~~PauseClient~~) operation to pause the agent.
+   * - Client self-protection is disabled for the non-Alibaba Cloud server that you want to unbind. For more information about how to disable client self-protection, see [Client self-protection](https://help.aliyun.com/document_detail/460802.html).
    * 
    * @param request - UnbindAegisRequest
    * @returns UnbindAegisResponse
@@ -50141,7 +50143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Attack Path Whitelist.
+   * Updates the attack path whitelist.
    * 
    * @param request - UpdateAttackPathWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50196,7 +50198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Attack Path Whitelist.
+   * Updates the attack path whitelist.
    * 
    * @param request - UpdateAttackPathWhitelistRequest
    * @returns UpdateAttackPathWhitelistResponse
@@ -51147,7 +51149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the QPS for client file uploads.
+   * Modifies the QPS limit for client file uploads.
    * 
    * @param request - UpdateFileUploadLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51178,7 +51180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the QPS for client file uploads.
+   * Modifies the QPS limit for client file uploads.
    * 
    * @param request - UpdateFileUploadLimitRequest
    * @returns UpdateFileUploadLimitResponse
@@ -52249,8 +52251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the client upgrade time.
-   * To use this feature, contact technical support.
+   * Modifies the client upgrade time configuration. To use this feature, contact technical support.
    * 
    * @param request - UpdatePublishCronRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52297,8 +52298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the client upgrade time.
-   * To use this feature, contact technical support.
+   * Modifies the client upgrade time configuration. To use this feature, contact technical support.
    * 
    * @param request - UpdatePublishCronRequest
    * @returns UpdatePublishCronResponse
@@ -53141,7 +53141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates check items.
+   * Validates check item dimensions.
    * 
    * @param request - VerifyCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53184,7 +53184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates check items.
+   * Validates check item dimensions.
    * 
    * @param request - VerifyCheckResultRequest
    * @returns VerifyCheckResultResponse

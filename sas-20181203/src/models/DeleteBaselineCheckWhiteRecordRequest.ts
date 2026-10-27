@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBaselineCheckWhiteRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of check items.
+   * The list of check item IDs.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -21,15 +21,14 @@ export class DeleteBaselineCheckWhiteRecordRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IDs of the whitelist records.
+   * The list of whitelist record IDs.
    */
   recordIds?: number[];
   /**
    * @remarks
    * The data source. Valid values:
-   * 
-   * *   **default**: host baseline
-   * *   **agentless**: agentless detection
+   * - **default**: server baseline
+   * - **agentless**: agentless baseline
    * 
    * @example
    * agentless

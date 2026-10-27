@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ExecStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action to perform. Default value: **exec**. Valid values:
+   * Specifies the action for this execution. Default value: **exec**. Valid values:
    * 
-   * - **exec**: exec.
-   * - **terminate**: stop.
+   * - **exec**: Execute.
+   * - **terminate**: Stop.
    * 
    * @example
    * terminate
@@ -16,7 +16,7 @@ export class ExecStrategyRequest extends $dara.Model {
   execAction?: string;
   /**
    * @remarks
-   * The language of the request and response. Default value: **zh**. Valid values:
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese.
    * - **en**: English.
@@ -28,7 +28,7 @@ export class ExecStrategyRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the baseline check policy.
-   * >You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to obtain this parameter.
+   * >You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to obtain the policy ID.
    * 
    * @example
    * 215421

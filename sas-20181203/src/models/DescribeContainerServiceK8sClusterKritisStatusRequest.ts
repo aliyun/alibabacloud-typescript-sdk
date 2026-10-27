@@ -14,7 +14,7 @@ export class DescribeContainerServiceK8sClusterKritisStatusRequest extends $dara
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 119.145.XXX.XXX

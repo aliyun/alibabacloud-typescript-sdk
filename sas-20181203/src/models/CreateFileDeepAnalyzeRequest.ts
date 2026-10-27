@@ -31,9 +31,9 @@ export class CreateFileDeepAnalyzeRequest extends $dara.Model {
    * @remarks
    * The request source. The system verifies the purchased edition based on the request source. Valid values:
    * 
-   * - **edr**: AgenticEDR
+   * - **edr**: AgenticEDR.
    * 
-   * - **secOpsAgent**: Security O&M agent
+   * - **secOpsAgent**: Security operations agent.
    * 
    * @example
    * edr

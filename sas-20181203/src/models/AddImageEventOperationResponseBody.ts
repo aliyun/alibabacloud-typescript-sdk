@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddImageEventOperationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The rule conditions. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **condition**: the matching condition.
-   * *   **type**: the matching type.
-   * *   **value**: the matching value.
+   * The rule conditions. The value is in JSON format. Valid keys:
+   * - **condition**: The matching condition.
+   * - **type**: The matching type.
+   * - **value**: The matching value.
    * 
    * @example
    * [{\\"condition\\": \\"MD5\\", \\"type\\": \\"equals\\", \\"value\\": \\"0083a31cc0083a31ccf7c10367a6e783e\\"}]
@@ -17,7 +16,7 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
   conditions?: string;
   /**
    * @remarks
-   * The keyword of the alert item.
+   * The alert metric keyword.
    * 
    * @example
    * PEM
@@ -25,7 +24,7 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the alert item.
+   * The alert metric name.
    * 
    * @example
    * PEM
@@ -33,9 +32,8 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The alert type.
-   * 
-   * *   Only **sensitiveFile** may be returned.
+   * The Alarm Metric for alerting. Valid values:
+   * - **sensitiveFile**: Sensitive file.
    * 
    * @example
    * sensitiveFile
@@ -51,9 +49,8 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The operation code.
-   * 
-   * *   Only **whitelist** may be returned, which indicates that the alert item is added to the whitelist.
+   * The operation code. Valid values:
+   * - **whitelist**: Whitelist.
    * 
    * @example
    * whitelist
@@ -61,10 +58,9 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * The application scope of the rule. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **type**
-   * *   **value**
+   * The rule scope. The value is in JSON format. Valid keys:
+   * - **type**: The scope type.
+   * - **value**: The scope value.
    * 
    * @example
    * {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
@@ -106,7 +102,7 @@ export class AddImageEventOperationResponseBodyData extends $dara.Model {
 export class AddImageEventOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -119,7 +115,7 @@ export class AddImageEventOperationResponseBody extends $dara.Model {
   data?: AddImageEventOperationResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * successful
@@ -127,7 +123,7 @@ export class AddImageEventOperationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0C8487EF-50C2-54BB-8634-10F8C35D****
@@ -135,10 +131,10 @@ export class AddImageEventOperationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The API call succeeded.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

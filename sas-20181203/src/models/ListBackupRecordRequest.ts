@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBackupRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup end time. The value is a timestamp in milliseconds.
+   * The end time of the backup. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1699600611000
@@ -13,7 +13,7 @@ export class ListBackupRecordRequest extends $dara.Model {
   backupEndTime?: number;
   /**
    * @remarks
-   * The backup start time. The value is a timestamp in milliseconds.
+   * The start time of the backup. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1699514211000
@@ -21,7 +21,7 @@ export class ListBackupRecordRequest extends $dara.Model {
   backupStartTime?: number;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates the first page.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -37,8 +37,8 @@ export class ListBackupRecordRequest extends $dara.Model {
   machineRemark?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
-   * > Do not leave PageSize empty.
+   * The maximum number of entries to return on each page in a paged query. The default number of entries per page for paging is 20. If the PageSize parameter is empty, 20 entries are returned by default.
+   * > Do not leave the PageSize parameter empty.
    * 
    * @example
    * 20
@@ -47,9 +47,9 @@ export class ListBackupRecordRequest extends $dara.Model {
   /**
    * @remarks
    * The list of backup task statuses. Valid values:
-   * - **BACKUP_COMPLETE**: backup succeeded
-   * - **BACKUP_FAILED**: backup failed
-   * - **PARTIAL_COMPLETE**: partial backup succeeded.
+   * - **BACKUP_COMPLETE**: The backup is successful.
+   * - **BACKUP_FAILED**: The backup fails.
+   * - **PARTIAL_COMPLETE**: The backup is partially successful.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {

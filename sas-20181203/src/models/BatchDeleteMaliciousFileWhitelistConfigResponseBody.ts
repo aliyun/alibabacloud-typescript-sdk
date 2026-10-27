@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $dara.M
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The additional message returned for the request result.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A3D7C47D-3F11-57BB-90E8-E5C20C61****
@@ -37,10 +37,10 @@ export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The API call is successful.
+   * - **false**: The API call fails.
    * 
    * @example
    * true

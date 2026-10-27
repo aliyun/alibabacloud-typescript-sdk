@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceCatalogRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response messages. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,10 +15,10 @@ export class ListInstanceCatalogRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to filter the assets that support custom checks. Valid values:
+   * Specifies whether to filter assets that support custom checks. Valid values:
    * 
-   * *   **true**: Filter assets that support custom checks.
-   * *   **false**: All assets are selected. This is the default value.
+   * - **true**: Filters assets that support custom checks.
+   * - **false**: All check assets. This is the default value.
    * 
    * @example
    * true
@@ -27,10 +26,10 @@ export class ListInstanceCatalogRequest extends $dara.Model {
   onlyCustom?: boolean;
   /**
    * @remarks
-   * The ID of the region in which the asset resides. Valid values:
+   * The ID of the region where the instance to be queried is located. Valid values:
    * 
-   * *   **cn-hangzhou**: International
-   * *   **ap-southeast-1**: Singapore
+   * - **cn-hangzhou**: Center.
+   * - **ap-southeast-1**: Singapore.
    * 
    * @example
    * cn-hangzhou
@@ -38,22 +37,22 @@ export class ListInstanceCatalogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of requirement items.
+   * The list of requirement IDs.
    */
   requirementIds?: number[];
   /**
    * @remarks
-   * The IDs of standards.
+   * The list of standard IDs.
    */
   standardIds?: number[];
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   /**
    * @remarks
-   * The types of check standards.
+   * The list of types to which the check standards belong.
    */
   types?: string[];
   static names(): { [key: string]: string } {

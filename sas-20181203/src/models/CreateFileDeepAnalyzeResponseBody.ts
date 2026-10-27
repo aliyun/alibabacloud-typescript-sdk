@@ -20,7 +20,7 @@ export class CreateFileDeepAnalyzeResponseBody extends $dara.Model {
    *   "result": 0,
    *   "file_analysis": {
    *     "summary": {
-   *       "ai_interpretation": "The file is a script for the JetBrains PhpStorm stub generation tool, which is a legitimate developer tool. The code uses the PhpParser library to parse PHP source code and generate the PhpStormStubsMap.php mapping file. The engine analysis did not detect any attempts to invoke dangerous functions, external input processing, code obfuscation, or malicious behavior characteristics, and the file is determined to be normal."
+   *       "ai_interpretation": "The file is a JetBrains PhpStorm stub generation tool script and is a legitimate developer tool. The code uses the PhpParser library to parse PHP source code and generate the PhpStormStubsMap.php mapping file. The DPI engine analysis did not detect any dangerous function invoke, external input processing, code obfuscation, or malicious behavior characteristics. The file is determined to be normal."
    *     }
    *   }
    * }
@@ -28,7 +28,7 @@ export class CreateFileDeepAnalyzeResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The stage description.
+   * The phase description.
    * 
    * @example
    * File hash parsed
@@ -44,7 +44,7 @@ export class CreateFileDeepAnalyzeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The stage status.
+   * The phase status.
    * 
    * @example
    * RUNNING

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListUuidsByAppIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAE application.
+   * The SAE application ID.
+   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the value of this parameter.
+   * This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -14,6 +16,8 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
+   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the value of this parameter.
+   * This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +51,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The UID of the resource directory.
+   * The UID of the associated resource directory.
    * 
    * @example
    * 123456

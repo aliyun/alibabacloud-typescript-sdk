@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud product asset.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud asset.
    * 
    * @example
    * 0
@@ -15,9 +15,9 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud product asset.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud asset.
    * 
    * @example
    * 0
@@ -25,9 +25,9 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
   assetType?: number;
   /**
    * @remarks
-   * Cloud product asset instance ID.
+   * Instance ID of the cloud asset instance.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset instance ID.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query instance ID of the cloud asset instance.
    * 
    * @example
    * i-8vb0e8qdaj0yyxjo****
@@ -35,9 +35,9 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Node type, with values:
-   * - **start**: Start point.
-   * - **end**: End point.
+   * The node type. Valid values:
+   * - **start**: start node.
+   * - **end**: end node.
    * 
    * @example
    * start
@@ -45,9 +45,9 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
   nodeType?: string;
   /**
    * @remarks
-   * Region ID of the cloud product asset instance.
+   * The region ID of the cloud asset instance.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud product asset instance.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud asset instance.
    * 
    * @example
    * cn-shanghai
@@ -55,9 +55,9 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * Vendor of the cloud product asset.
+   * The vendor of the cloud asset.
    * 
-   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the vendor of the cloud product asset.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the vendor of the cloud asset.
    * 
    * @example
    * 0
@@ -97,13 +97,13 @@ export class UpdateAttackPathWhitelistRequestAttackPathAssetList extends $dara.M
 export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * List of cloud product assets in the attack path.
+   * The list of cloud assets in the attack path.
    */
   attackPathAssetList?: UpdateAttackPathWhitelistRequestAttackPathAssetList[];
   /**
    * @remarks
-   * Attack path whitelist ID.
-   * > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query the attack path whitelist ID.
+   * The ID of the attack path whitelist.
+   * > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query the ID of the attack path whitelist.
    * 
    * This parameter is required.
    * 
@@ -113,7 +113,7 @@ export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   attackPathWhitelistId?: string;
   /**
    * @remarks
-   * Path name.
+   * The path name.
    * 
    * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path name.
    * 
@@ -123,7 +123,7 @@ export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   pathName?: string;
   /**
    * @remarks
-   * Path type.
+   * The path type.
    * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path type.
    * 
    * @example
@@ -132,7 +132,7 @@ export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   pathType?: string;
   /**
    * @remarks
-   * Remark information.
+   * The remark.
    * 
    * @example
    * test
@@ -140,7 +140,7 @@ export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Whitelist name.
+   * The name of the whitelist.
    * 
    * @example
    * test
@@ -148,10 +148,10 @@ export class UpdateAttackPathWhitelistRequest extends $dara.Model {
   whitelistName?: string;
   /**
    * @remarks
-   * Whitelist type. Values:
+   * The whitelist type. Valid values:
    * 
-   * - **ALL_ASSET**: All assets
-   * - **PART_ASSET**: Partial assets
+   * - **ALL_ASSET**: all assets.
+   * - **PART_ASSET**: partial assets.
    * 
    * @example
    * ALL_ASSET

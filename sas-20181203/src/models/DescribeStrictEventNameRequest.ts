@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStrictEventNameRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default is **zh**. Values:
+   * Specifies the language for requests and response messages. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh

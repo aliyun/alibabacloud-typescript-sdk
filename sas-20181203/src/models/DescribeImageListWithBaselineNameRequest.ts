@@ -16,7 +16,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the container cluster to query.
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain the value of this parameter.
    * 
    * @example
    * cc20a1024011c44b6a8710d6f8b****
@@ -24,7 +24,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * docker-law
@@ -32,7 +32,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The container ID.
+   * The ID of the container.
    * 
    * @example
    * c08d5fc1a329a4b88950a253d082f****
@@ -51,7 +51,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
    * The query type for the baseline. Valid values:
    * 
    * - **BaselineNameAlias**: baseline name
-   * - **BaselineClassAlias**: baseline category.
+   * - **BaselineClassAlias**: baseline classification
    * 
    * @example
    * BaselineNameAlias
@@ -59,7 +59,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -67,7 +67,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The container image name.
+   * The name of the container image.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
@@ -75,7 +75,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The SHA256 value of the image digest.
+   * The SHA-256 value of the image digest.
    * 
    * @example
    * 2e6daffce524ffeae66cccaa90c8fc47de912346dcec295c27395b6d66db6423
@@ -83,10 +83,10 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   imageDigest?: string;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -102,7 +102,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Settings for paged query paging. The number of image baseline check result details to display per page. Default value: **10**, which indicates that 10 image baseline check result details are displayed per page.
+   * The Settings for the number of image baseline check result details to return on each page in a paged query. Default value: **10**, which indicates that 10 image baseline check result details are displayed on each page during paging.
    * 
    * @example
    * 10

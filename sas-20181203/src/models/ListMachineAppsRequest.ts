@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The SAE application ID.
+   * The ID of the SAE application.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -13,7 +13,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The SAE application name.
+   * The name of the SAE application.
    * 
    * @example
    * agent-commprice-shop
@@ -34,7 +34,7 @@ export class ListMachineAppsRequest extends $dara.Model {
    * - **5**: Premium Edition
    * - **3**: Enterprise Edition
    * - **7**: Ultimate Edition
-   * - **10**: value-added service Edition.
+   * - **10**: Value-added Service Edition
    * 
    * @example
    * 7
@@ -42,7 +42,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   authVersion?: string;
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page returned during paging in a paged query.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class ListMachineAppsRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -60,7 +60,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries to return per page during paging in a paged query.
    * 
    * @example
    * 20

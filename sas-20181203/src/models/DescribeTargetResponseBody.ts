@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTargetResponseBodyTargets extends $dara.Model {
   /**
    * @remarks
-   * The flag. This parameter can be empty.
+   * The flag. This field can be empty.
    * 
    * @example
    * del
@@ -13,7 +13,7 @@ export class DescribeTargetResponseBodyTargets extends $dara.Model {
   flag?: string;
   /**
    * @remarks
-   * The target. The value is a machine UUID or a machine group ID.
+   * The target, which is the UUID of the server or the ID of the server group.
    * 
    * @example
    * 5c5f0169-3527-40a2-b5ff-0bc1db8f****
@@ -23,8 +23,8 @@ export class DescribeTargetResponseBodyTargets extends $dara.Model {
    * @remarks
    * The target type. Valid values:
    * 
-   * - **uuid**: added by individual asset
-   * - **groupId**: added by server group.
+   * - **uuid**: add a single asset
+   * - **groupId**: add a server group
    * 
    * @example
    * uuid
@@ -66,12 +66,12 @@ export class DescribeTargetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The machine settings for the vulnerability type.
+   * The machine settings corresponding to the vulnerability type.
    */
   targets?: DescribeTargetResponseBodyTargets[];
   /**
    * @remarks
-   * The total number of machine configuration entries returned.
+   * The total number of queried machine configurations.
    * 
    * @example
    * 10

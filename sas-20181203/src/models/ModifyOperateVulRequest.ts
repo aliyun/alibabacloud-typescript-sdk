@@ -76,6 +76,9 @@ export class ModifyOperateVulRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud account associated with a member account in the resource directory.
    * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 1234567890123456
    */
   resourceDirectoryAccountId?: number;
   /**

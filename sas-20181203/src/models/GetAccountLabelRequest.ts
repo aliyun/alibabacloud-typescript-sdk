@@ -12,10 +12,10 @@ export class GetAccountLabelRequest extends $dara.Model {
   labelList?: string[];
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * Specifies the language type for requests and response messages. Default value: **zh**. Valid values:
    * 
-   * - **zh**: Chinese
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh

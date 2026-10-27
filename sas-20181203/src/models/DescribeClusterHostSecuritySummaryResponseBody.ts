@@ -13,10 +13,10 @@ export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventAlarm
   count?: number;
   /**
    * @remarks
-   * The warning level. Valid values:
-   * - **serious**: urgent.
-   * - **suspicious**: suspicious.
-   * - **remind**: reminder.
+   * The alert level. Valid values:
+   * - **serious**: Urgent.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * remind
@@ -57,9 +57,9 @@ export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventBasel
   /**
    * @remarks
    * The baseline risk level. Valid values:
-   * - **high**: high risk.
-   * - **medium**: medium risk.
-   * - **low**: low risk.
+   * - **high**: High.
+   * - **medium**: Medium.
+   * - **low**: Low.
    * 
    * @example
    * medium
@@ -99,10 +99,10 @@ export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventVulEv
   count?: number;
   /**
    * @remarks
-   * The warning level. Valid values:
-   * - **asap**: high. Fix the vulnerability at the earliest opportunity.
-   * - **nntf**: medium. The vulnerability can be temporarily left unfixed.
-   * - **later**: low. The vulnerability can be left unfixed.
+   * The vulnerability severity. Valid values:
+   * - **asap**: High. Fix as soon as possible.
+   * - **nntf**: Medium. Fix later.
+   * - **later**: Low. Fix is optional.
    * 
    * @example
    * later
@@ -134,17 +134,17 @@ export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventVulEv
 export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEvent extends $dara.Model {
   /**
    * @remarks
-   * The host alert details.
+   * The details of host alerts.
    */
   alarmEvent?: DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventAlarmEvent[];
   /**
    * @remarks
-   * The host baseline details.
+   * The details of host baselines.
    */
   baselineEvent?: DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventBaselineEvent[];
   /**
    * @remarks
-   * The host vulnerability details.
+   * The details of host vulnerabilities.
    */
   vulEvent?: DescribeClusterHostSecuritySummaryResponseBodyClusterHostEventVulEvent[];
   static names(): { [key: string]: string } {
@@ -184,12 +184,12 @@ export class DescribeClusterHostSecuritySummaryResponseBodyClusterHostEvent exte
 export class DescribeClusterHostSecuritySummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The host alert details.
+   * The details of host alerts.
    */
   clusterHostEvent?: DescribeClusterHostSecuritySummaryResponseBodyClusterHostEvent;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF4****

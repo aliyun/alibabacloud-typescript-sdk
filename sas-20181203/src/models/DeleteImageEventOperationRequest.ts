@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageEventOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The primary key of the alert disposal rule.
+   * The primary key of the alert handling rule.
    * 
    * @example
    * 1404656

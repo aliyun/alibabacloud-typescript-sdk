@@ -15,7 +15,7 @@ export class BindHybridProxyRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The UUIDs of servers that you want to add to Security Center over the proxy server.
+   * The UUIDs of the servers connected to the proxy.
    * 
    * This parameter is required.
    */

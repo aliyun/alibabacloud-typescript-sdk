@@ -15,7 +15,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The name of the field that is used to query containers.
+   * The name of the container security query parameter.
    * 
    * @example
    * clusterId
@@ -23,7 +23,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   containerFieldName?: string;
   /**
    * @remarks
-   * The value of the field that is used to query containers.
+   * The value of the container security query parameter.
    * 
    * @example
    * ce89cdd0ea732472a8703821b19e****
@@ -31,7 +31,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number of the page to return. Pages start from page **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -39,9 +39,8 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the asset group.
-   * 
-   * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID of the asset group.
+   * The ID of the asset group to query.
+   * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to obtain the value of this parameter.
    * 
    * @example
    * 1161****
@@ -49,10 +48,10 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -60,9 +59,8 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to display on each page during paging in a paged query. Default value: 20. If you leave the PageSize parameter empty, 20 entries are returned by default.
+   * > Do not leave this parameter empty.
    * 
    * @example
    * 20
@@ -70,7 +68,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword that is used to query servers in fuzzy match mode.
+   * The fuzzy match keyword for servers.
    * 
    * @example
    * 225
@@ -78,9 +76,8 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member accounts in the resource folder (Alibaba Cloud account).
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 1082098404740323
@@ -88,7 +85,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The type of the check item.
+   * The category to which the check item belongs.
    * 
    * @example
    * cis
@@ -96,10 +93,9 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   riskType?: string;
   /**
    * @remarks
-   * The data source. Default value: default. Valid values:
-   * 
-   * *   **default**: The check items of baselines for hosts.
-   * *   **agentless**: The check items of baselines for agentless detection.
+   * The data source. If you leave this parameter empty, the baseline check results for servers are queried by default. Valid values:
+   * - **default**: server
+   * - **agentless**: agentless
    * 
    * @example
    * agentless
@@ -107,14 +103,14 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The status of the check item. Valid values:
+   * The status of the check item. Default value: null. Valid values:
    * 
-   * *   **1**: failed
-   * *   **2**: verifying
-   * *   **3**: passed
-   * *   **6**: ignored
-   * *   **7**: fixing
-   * *   **8**: fixed
+   * - **1**: failed
+   * - **2**: verifying
+   * - **3**: passed
+   * - **6**: ignored
+   * - **7**: fixing
+   * - **8**: fixed
    * 
    * @example
    * 3
@@ -122,7 +118,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The UUID array of the servers.
+   * The list of server UUIDs.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number when using paging. Default value: **1**.
+   * The page number Settings of the current page for paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en
@@ -23,7 +23,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging. Default value: 20.
+   * The maximum number of entries to return per page for paging in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -32,7 +32,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The path name description.
-   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
+   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -41,7 +41,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The path type.
-   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
+   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
    * 
    * @example
    * role_escalation

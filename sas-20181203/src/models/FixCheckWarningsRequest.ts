@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class FixCheckWarningsRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the baseline check items to fix. The following parameters are included:
+   * The parameters of the baseline check items to be fixed. Parameter description:
    * - **checkId**: The ID of the check item.
-   * - **rules**: The fix rules (in array format).
-   *     - **value**: Specifies whether the fix method is selected. Valid values: **0** (not selected), **1** (selected).
+   * - **rules**: The fix rules. This parameter is an array.
+   *     - **value**: Specifies whether the fix method is selected. Valid values: **0** (not selected) and **1** (selected).
    *     - **ruleId**: The ID of the fix method.
-   *     - **paramList**: The list of fix methods (in array format).  
+   *     - **paramList**: The list of fix methods. This parameter is an array.  
    *                 • **paramName**: The name of the fix method.  
-   *                 • **value**: The value of the fix method.
+   *                 • **value**: The specific value of the fix method.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class FixCheckWarningsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The retention period of the snapshot to create when performing the baseline fix operation. Valid values: 1 to 365. Unit: days.
+   * The retention period of the snapshot created when the baseline fix operation is performed. Valid values: 1 to 365. Unit: days.
    * 
    * @example
    * 1
@@ -42,7 +42,7 @@ export class FixCheckWarningsRequest extends $dara.Model {
    * @remarks
    * The ID of the risk item.
    * 
-   * > To query the check item information for a specified risk item and a specified server, you must provide the risk item ID. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain the ID.
+   * > To query the check item information for a specified risk item and server, you must provide the risk item ID. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain the ID.
    * 
    * @example
    * 10354
@@ -50,7 +50,7 @@ export class FixCheckWarningsRequest extends $dara.Model {
   riskId?: number;
   /**
    * @remarks
-   * The name of the snapshot to create when performing the baseline fix operation.
+   * The name of the snapshot created when the baseline fix operation is performed.
    * 
    * @example
    * sas_fix_2024-12-04
@@ -58,7 +58,7 @@ export class FixCheckWarningsRequest extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address.
    * 
    * @example
    * 165.225.XX.XX
@@ -66,7 +66,7 @@ export class FixCheckWarningsRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The unique ID of the asset instance to fix. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to obtain the ID.
+   * The UUIDs of the asset instances to be fixed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to obtain the UUIDs.
    * 
    * @example
    * 75a417dda5f25edb5bed8f208a9a****,c7e10fd794262a1510d5648f9e5d****

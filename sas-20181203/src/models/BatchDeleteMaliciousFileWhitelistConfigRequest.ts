@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteMaliciousFileWhitelistConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the whitelist rules. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of whitelist rules.
+   * The list of sensitive file whitelist rule IDs. Call [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) to obtain the IDs of sensitive file whitelist rules.
    */
   configIdList?: number[];
   static names(): { [key: string]: string } {
