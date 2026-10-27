@@ -235,6 +235,14 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   metadata?: UpdateIdentityProviderSCIMResponseBodyDataMetadata;
   /**
    * @remarks
+   * PENDING/RUNNING 时轮询 GetIdentityProviderSCIM；保留失败、暂停和取消事实，不表示 SAML 状态。
+   * 
+   * @example
+   * PENDING
+   */
+  operationStatus?: string;
+  /**
+   * @remarks
    * The logon protocol. Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
    * 
    * @example
@@ -246,6 +254,14 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
    * The SAML logon configuration. The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This field can be omitted if it is not configured.
    */
   saml?: UpdateIdentityProviderSCIMResponseBodyDataSaml;
+  /**
+   * @remarks
+   * 独立 SCIM 状态；不改变原 status 的共享资源及登录配置含义。与查询接口的 data.status 对应。
+   * 
+   * @example
+   * UPDATING
+   */
+  scimStatus?: string;
   /**
    * @remarks
    * The operation status of shared resources and logon configurations. It indicates the user pool lifecycle and logon configuration task status of CustomSSO, and does not represent the SCIM operation result. Query GetIdentityProviderSCIM.operationStatus for the SCIM switch result. You cannot use this field to determine whether all protocols are configured.
@@ -284,8 +300,10 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
       loginCallbackUrl: 'loginCallbackUrl',
       loginEnabled: 'loginEnabled',
       metadata: 'metadata',
+      operationStatus: 'operationStatus',
       protocol: 'protocol',
       saml: 'saml',
+      scimStatus: 'scimStatus',
       status: 'status',
       syncEnabled: 'syncEnabled',
       updatedAt: 'updatedAt',
@@ -302,8 +320,10 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
       loginCallbackUrl: 'string',
       loginEnabled: 'boolean',
       metadata: UpdateIdentityProviderSCIMResponseBodyDataMetadata,
+      operationStatus: 'string',
       protocol: 'string',
       saml: UpdateIdentityProviderSCIMResponseBodyDataSaml,
+      scimStatus: 'string',
       status: 'string',
       syncEnabled: 'boolean',
       updatedAt: 'string',
