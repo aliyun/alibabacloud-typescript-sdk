@@ -13,7 +13,7 @@ export class GetManagerInfoByAuthCodeResponseBody extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The mobile number.
+   * The phone number.
    * 
    * @example
    * 1301234****
@@ -45,7 +45,7 @@ export class GetManagerInfoByAuthCodeResponseBody extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The ID of the Elastic Desktop Service account.
+   * The Wuying account ID of the tenant.
    * 
    * @example
    * 12345678901234****

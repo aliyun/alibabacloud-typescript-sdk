@@ -21,7 +21,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModelFailedP
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 390
@@ -29,7 +29,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModelFailedP
   propertyId?: number;
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * HR
@@ -65,7 +65,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModelFailedP
 export class CreatePropertyResponseBodyCreateResultSavePropertyValueModelSavePropertyValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * HR
@@ -73,7 +73,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModelSavePro
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 978
@@ -110,7 +110,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModel extend
   failedPropertyValues?: CreatePropertyResponseBodyCreateResultSavePropertyValueModelFailedPropertyValues[];
   /**
    * @remarks
-   * Details of the property values that were created.
+   * The successfully created property values.
    */
   savePropertyValues?: CreatePropertyResponseBodyCreateResultSavePropertyValueModelSavePropertyValues[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class CreatePropertyResponseBodyCreateResultSavePropertyValueModel extend
 export class CreatePropertyResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the property.
+   * The property ID.
    * 
    * @example
    * 390
@@ -153,7 +153,7 @@ export class CreatePropertyResponseBodyCreateResult extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The name of the property.
+   * The property key.
    * 
    * @example
    * department
@@ -161,7 +161,7 @@ export class CreatePropertyResponseBodyCreateResult extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * The result of creating the property value.
+   * The property value creation result.
    */
   savePropertyValueModel?: CreatePropertyResponseBodyCreateResultSavePropertyValueModel;
   static names(): { [key: string]: string } {
@@ -195,12 +195,12 @@ export class CreatePropertyResponseBodyCreateResult extends $dara.Model {
 export class CreatePropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of creating the property.
+   * The creation result.
    */
   createResult?: CreatePropertyResponseBodyCreateResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

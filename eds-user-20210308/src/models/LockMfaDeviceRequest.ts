@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LockMfaDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain of the Active Directory (AD) workspace.
+   * The address of the AD office network.
    * 
    * @example
    * upower.vip
@@ -13,7 +13,7 @@ export class LockMfaDeviceRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class LockMfaDeviceRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The serial number of the virtual MFA device. The serial number is unique for each device.
+   * The serial number of the bound virtual MFA device. The user must first complete the MFA binding in the client authentication flow. You can call [DescribeMfaDevices](~~DescribeMfaDevices~~) to query the serial number of the bound device.
    * 
    * @example
    * dc856334-446b-4035-bfbc-18af261e****

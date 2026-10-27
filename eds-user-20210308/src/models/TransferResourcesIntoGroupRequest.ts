@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class TransferResourcesIntoGroupRequestResources extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * ecd-0jl0dwz61hn59tto****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * DESKTOP
    */
@@ -45,20 +54,33 @@ export class TransferResourcesIntoGroupRequestResources extends $dara.Model {
 
 export class TransferResourcesIntoGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel.
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
+   * @remarks
+   * The WUYING product type.
+   * 
    * @example
    * AliyunConsole
    */
   platform?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-ckf3cx7isinhk***
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The list of resource objects.
+   */
   resources?: TransferResourcesIntoGroupRequestResources[];
   static names(): { [key: string]: string } {
     return {

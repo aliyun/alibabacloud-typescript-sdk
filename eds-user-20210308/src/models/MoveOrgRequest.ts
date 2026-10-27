@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveOrgRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class MoveOrgRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The ID of the parent organization.
+   * The ID of the target parent organization.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class MoveOrgRequest extends $dara.Model {
   newParentOrgId?: string;
   /**
    * @remarks
-   * The ID of the organization that you want to move.
+   * The ID of the organization to be moved.
    * 
    * This parameter is required.
    * 

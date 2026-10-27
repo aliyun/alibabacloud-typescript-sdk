@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available for use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class CreateGroupRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -29,10 +29,10 @@ export class CreateGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The group name.
+   * The name of the user group.
    * 
    * @example
-   * 开发组
+   * Development Group
    */
   groupName?: string;
   /**

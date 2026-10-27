@@ -5,14 +5,50 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ThirdAppOidcSsoConfigEndpoints extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization endpoint.
+   */
   authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * The discovery endpoint.
+   */
   discoveryEndpoint?: string;
+  /**
+   * @remarks
+   * The guest authorization endpoint.
+   */
   guestAuthorizationEndpoint?: string;
+  /**
+   * @remarks
+   * Issuer
+   */
   issuer?: string;
+  /**
+   * @remarks
+   * The signature public key endpoint.
+   */
   jwksEndpoint?: string;
+  /**
+   * @remarks
+   * The logout endpoint.
+   */
   logoutEndpoint?: string;
+  /**
+   * @remarks
+   * The revocation endpoint.
+   */
   revokeEndpoint?: string;
+  /**
+   * @remarks
+   * The token endpoint.
+   */
   tokenEndpoint?: string;
+  /**
+   * @remarks
+   * The user information endpoint.
+   */
   userinfoEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,15 +88,55 @@ export class ThirdAppOidcSsoConfigEndpoints extends $dara.Model {
 }
 
 export class ThirdAppOidcSsoConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 1
+   */
   accessTokenEffectiveTime?: number;
+  /**
+   * @remarks
+   * 1
+   */
   codeEffectiveTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable authorized logon.
+   */
   enableAuthLogin?: boolean;
+  /**
+   * @remarks
+   * The endpoints.
+   */
   endpoints?: ThirdAppOidcSsoConfigEndpoints;
+  /**
+   * @remarks
+   * The grant scopes.
+   */
   grantScopes?: string[];
+  /**
+   * @remarks
+   * The grant types.
+   */
   grantTypes?: string[];
+  /**
+   * @remarks
+   * The signature type.
+   */
   idTokenAlgorithmType?: string;
+  /**
+   * @remarks
+   * 1
+   */
   idTokenEffectiveTime?: number;
+  /**
+   * @remarks
+   * The URI whitelist.
+   */
   redirectUris?: string[];
+  /**
+   * @remarks
+   * 1
+   */
   refreshTokenEffective?: number;
   static names(): { [key: string]: string } {
     return {
@@ -114,7 +190,15 @@ export class ThirdAppOidcSsoConfig extends $dara.Model {
 }
 
 export class ThirdAppSecrets extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether it is enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The ciphertext.
+   */
   secret?: string;
   static names(): { [key: string]: string } {
     return {
@@ -140,9 +224,25 @@ export class ThirdAppSecrets extends $dara.Model {
 }
 
 export class ThirdApp extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appKey?: string;
+  /**
+   * @remarks
+   * The application name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The OIDC configuration.
+   */
   oidcSsoConfig?: ThirdAppOidcSsoConfig;
+  /**
+   * @remarks
+   * The secrets.
+   */
   secrets?: ThirdAppSecrets[];
   static names(): { [key: string]: string } {
     return {

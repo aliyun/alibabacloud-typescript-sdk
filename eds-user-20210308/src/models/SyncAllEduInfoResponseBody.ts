@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncAllEduInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SyncAllEduInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class SyncAllEduInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class SyncAllEduInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -37,7 +37,7 @@ export class SyncAllEduInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

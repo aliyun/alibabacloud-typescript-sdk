@@ -19,28 +19,43 @@ export class DescribeUsersRequest extends $dara.Model {
   endUserIds?: string[];
   /**
    * @remarks
-   * The list of usernames (EndUserId) to exclude exactly.
+   * The list of usernames (EndUserId) to be exactly excluded.
    */
   excludeEndUserIds?: string[];
+  /**
+   * @remarks
+   * Excludes convenience users that belong to the specified user group.
+   * 
+   * @example
+   * ug-12341234****
+   */
   excludeGroupId?: string;
   /**
    * @remarks
-   * The fuzzy search string that supports matching by username (EndUserId) and email (Email). This field supports wildcards (*). For example, if you set this field to `a*m`, all results whose username or email starts with `a` and ends with `m` are returned.
+   * The fuzzy search string. This parameter supports matching usernames (EndUserId) and email addresses (Email). This field supports wildcards (*). For example, if you set this field to `a*m`, all results where the username or email address starts with `a` and ends with `m` are returned.
    * 
    * @example
    * a*m
    */
   filter?: string;
+  /**
+   * @remarks
+   * The mapping of fuzzy match conditions for user information. This parameter supports usernames, nicknames, mobile phone numbers, email addresses, remarks, and employee IDs.
+   */
   filterMap?: { [key: string]: string };
+  /**
+   * @remarks
+   * Filters users based on the allocation relationship of specified resources. The mapping key is the resource type.
+   */
   filterWithAssignedResource?: { [key: string]: string };
   /**
    * @remarks
-   * Filters users based on whether cloud resources are assigned.
+   * Filters users based on whether cloud resources are allocated.
    */
   filterWithAssignedResources?: { [key: string]: boolean };
   /**
    * @remarks
-   * Performs an exact match by user group ID and queries the list of accounts that belong to the specified user group.
+   * The user group ID for exact match. Queries the list of accounts that belong to the specified user group.
    * 
    * @example
    * ug-12341234****
@@ -56,9 +71,8 @@ export class DescribeUsersRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries per page for a paged query.  
-   * 
-   * - Valid values: 1 to 500.  
+   * The number of entries to return on each page in a paging query.
+   * - Valid values: 1 to 500.
    * - Default value: 200.
    * 
    * @example
@@ -67,7 +81,8 @@ export class DescribeUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. You do not need to set this parameter for the first request. If not all results are returned in a single query, a non-empty NextToken is returned. You can pass the returned NextToken in subsequent requests to continue the query.
+   * The token for the next query. You do not need to specify this parameter for the first call.      
+   * If the results returned in a single call do not include all entries, a non-empty NextToken is returned. You can use the returned NextToken in subsequent calls to continue the query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -75,7 +90,7 @@ export class DescribeUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Performs an exact match by organization ID and queries the list of accounts that belong to the specified organization.
+   * The organization ID for exact match. Queries the list of accounts that belong to the specified organization.
    * 
    * @example
    * org-4mdgc1cocc59z****
@@ -83,13 +98,16 @@ export class DescribeUsersRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * Queries extended user information.
+   * The extended information of users to query.
    */
   showExtras?: { [key: string]: any };
   solutionId?: string;
   /**
    * @remarks
    * The status.
+   * 
+   * @example
+   * 0
    */
   status?: number;
   static names(): { [key: string]: string } {

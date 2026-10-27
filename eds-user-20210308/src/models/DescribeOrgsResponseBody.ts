@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeOrgsResponseBodyOrgsResourcePolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The resource policy ID.
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The Policy Name.
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,9 +39,10 @@ export class DescribeOrgsResponseBodyOrgsResourcePolicyList extends $dara.Model 
 export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   /**
    * @remarks
-   * The access type of the organization node. Valid values:
-   * - MANAGEABLE: indicates a manageable node.
-   * - PATH_ONLY: indicates a node used only to display the full path to the root organization.
+   * The access type of the organization node. A value of MANAGEABLE indicates a manageable node. A value of PATH_ONLY indicates that the node is used only to display the full path to the root organization.
+   * 
+   * @example
+   * MANAGEABLE
    */
   accessType?: string;
   /**
@@ -46,21 +55,32 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The organization name.
+   * The name of the organization.
    * 
    * @example
-   * DesignDepartment****
+   * Design Department****
    */
   orgName?: string;
+  /**
+   * @remarks
+   * The name path from the root organization to the current organization.
+   * 
+   * @example
+   * Product Department/Design Department
+   */
   orgNamePath?: string;
   /**
    * @remarks
-   * The parent organization ID.
+   * The ID of the parent organization.
    * 
    * @example
    * org-ezqr****
    */
   parentOrgId?: string;
+  /**
+   * @remarks
+   * The list of resource policies associated with the organization.
+   */
   resourcePolicyList?: DescribeOrgsResponseBodyOrgsResourcePolicyList[];
   static names(): { [key: string]: string } {
     return {
@@ -99,7 +119,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
 export class DescribeOrgsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The pagination token. Set the value to the NextToken parameter returned by the previous API call.
    * 
    * @example
    * AAAAAV3MpHK****

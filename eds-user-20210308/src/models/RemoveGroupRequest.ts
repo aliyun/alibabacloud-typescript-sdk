@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class RemoveGroupRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The ID of the user group to be deleted.
+   * The ID of the user group to delete.
    * 
    * @example
    * ug-dzjax1ez5qgph****
@@ -21,7 +21,7 @@ export class RemoveGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The IDs of the user groups to be deleted.
+   * The IDs of the user groups to delete.
    */
   groupIds?: string[];
   static names(): { [key: string]: string } {

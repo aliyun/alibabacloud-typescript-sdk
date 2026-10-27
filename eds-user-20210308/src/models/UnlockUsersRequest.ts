@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnlockUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The date on which the convenience users are automatically locked.
+   * The date when the convenience user is automatically locked. The format is YYYY-MM-DD.
    * 
    * @example
    * 2023-03-03
@@ -13,7 +13,7 @@ export class UnlockUsersRequest extends $dara.Model {
   autoLockTime?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class UnlockUsersRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The usernames of the convenience users that you want to unlock.
+   * The list of usernames of the convenience users to unlock.
    * 
    * This parameter is required.
    * 

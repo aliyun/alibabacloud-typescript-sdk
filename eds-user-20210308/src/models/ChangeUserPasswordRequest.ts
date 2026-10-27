@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeUserPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class ChangeUserPasswordRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The new password for the user.
+   * The new password for the user. The password must meet the password length and character type policies of the current enterprise. If no policy is configured, the password must be at least 10 characters in length and contain uppercase letters, lowercase letters, and digits.
    * 
    * @example
    * Admin@12***

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMfaDevicesResponseBodyMfaDevicesAdUser extends $dara.Model {
+  /**
+   * @remarks
+   * The display name of the AD user.
+   * 
+   * @example
+   * aduser
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The new display name of the AD user.
+   * 
+   * @example
+   * Zhang San
+   */
   displayNameNew?: string;
+  /**
+   * @remarks
+   * The AD username.
+   * 
+   * @example
+   * aduser
+   */
   endUser?: string;
+  /**
+   * @remarks
+   * The user principal name of the AD user.
+   * 
+   * @example
+   * alice@example.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +63,14 @@ export class DescribeMfaDevicesResponseBodyMfaDevicesAdUser extends $dara.Model 
 }
 
 export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the AD user associated with the virtual MFA device.
+   */
   adUser?: DescribeMfaDevicesResponseBodyMfaDevicesAdUser;
   /**
    * @remarks
-   * The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
+   * The number of consecutive failures to bind or authenticate the virtual MFA device.
    * 
    * @example
    * 0
@@ -46,7 +78,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   consecutiveFails?: number;
   /**
    * @remarks
-   * The type of the virtual MFA device. Set the value to `TOTP_VIRTUAL`, which indicates a virtual MFA device that complies with the Time-based One-time Password (TOTP) algorithm.
+   * The type of the virtual MFA device. Currently, only `TOTP_VIRTUAL` is supported, which indicates a virtual MFA device that complies with the TOTP algorithm.
    * 
    * @example
    * TOTP_VIRTUAL
@@ -54,7 +86,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * > This parameter is not in use.
+   * > This parameter is not available.
    * 
    * @example
    * username@example.com
@@ -62,7 +94,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username of the convenience user who uses the virtual MFA device.
+   * The username of the convenience account that uses the virtual MFA device.
    * 
    * @example
    * alice
@@ -70,7 +102,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was enabled. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time when the virtual MFA device was enabled. The time is specified in ISO 8601 format in UTC. Format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-06-22T06:20:49Z
@@ -78,7 +110,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   gmtEnabled?: string;
   /**
    * @remarks
-   * The time when the locked virtual MFA device is automatically unlocked. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The automatic unlock time after the virtual MFA device is locked. The time is specified in ISO 8601 format in UTC. Format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-06-23T06:20:49Z
@@ -153,12 +185,12 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
 export class DescribeMfaDevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of virtual MFA devices.
+   * The information about the virtual MFA devices.
    */
   mfaDevices?: DescribeMfaDevicesResponseBodyMfaDevices[];
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6na6YlN9asMM31MsMcdQNpp

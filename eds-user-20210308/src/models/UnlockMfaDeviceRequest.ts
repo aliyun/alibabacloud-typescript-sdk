@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnlockMfaDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain of the Active Directory (AD) workspace.
+   * The address of the AD office network.
    * 
    * @example
    * welab.co.id
@@ -13,7 +13,7 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The serial number of the virtual MFA device. The serial number is unique for each device.
+   * The serial number of the virtual MFA device. You can call [DescribeMfaDevices](~~DescribeMfaDevices~~) to obtain the serial number.
    * 
    * This parameter is required.
    * 

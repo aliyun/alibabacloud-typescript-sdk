@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
   /**
    * @remarks
-   * External User ID.
+   * The external user ID.
    * 
    * @example
    * oijjnabsf****
@@ -13,7 +13,7 @@ export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
   externalId?: string;
   /**
    * @remarks
-   * External information name.
+   * The external information name.
    * 
    * @example
    * Alex
@@ -21,7 +21,7 @@ export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
   externalName?: string;
   /**
    * @remarks
-   * Employee ID.
+   * The employee ID.
    * 
    * @example
    * 15412***
@@ -29,7 +29,7 @@ export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
   jobNumber?: string;
   /**
    * @remarks
-   * SSO logon type.
+   * The SSO logon type.
    * 
    * @example
    * OIDC
@@ -65,7 +65,7 @@ export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
 export class DescribeUserResponseBodyUserProperties extends $dara.Model {
   /**
    * @remarks
-   * Attribute key.
+   * The property key.
    * 
    * @example
    * role
@@ -73,7 +73,7 @@ export class DescribeUserResponseBodyUserProperties extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Attribute value.
+   * The property value.
    * 
    * @example
    * teacher
@@ -105,7 +105,7 @@ export class DescribeUserResponseBodyUserProperties extends $dara.Model {
 export class DescribeUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * Mailbox.
+   * The email address.
    * 
    * @example
    * alex@test-email.com
@@ -113,7 +113,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * @example
    * alex
@@ -121,36 +121,43 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Associated external user information.
+   * The associated external user information.
    */
   externalInfo?: DescribeUserResponseBodyUserExternalInfo;
   /**
    * @remarks
-   * Extension information.
+   * The extended information.
    */
   extras?: { [key: string]: string };
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 2025-01-01 12:00:00
    */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The display nickname of the convenience user.
+   * 
+   * @example
+   * Li**
+   */
   nickName?: string;
   /**
    * @remarks
-   * List of organization IDs.
+   * The list of organization IDs.
    */
   orgIds?: string[];
   /**
    * @remarks
-   * List of organizations.
+   * The list of organizations.
    */
   orgPaths?: string[];
   /**
    * @remarks
-   * Phone number.
+   * The mobile phone number.
    * 
    * @example
    * 1888888****
@@ -158,12 +165,12 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * User attributes.
+   * The user properties.
    */
   properties?: DescribeUserResponseBodyUserProperties[];
   /**
    * @remarks
-   * Remarks.
+   * The remark.
    * 
    * @example
    * remark
@@ -171,7 +178,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * User status.
+   * The user status.
    * 
    * @example
    * 0
@@ -179,7 +186,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Unique ID of the Wuying user.
+   * The unique ID of the Wuying user.
    * 
    * @example
    * aisdfumj****
@@ -248,7 +255,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
 export class DescribeUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -256,7 +263,7 @@ export class DescribeUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * User information.
+   * The user information.
    */
   user?: DescribeUserResponseBodyUser;
   static names(): { [key: string]: string } {

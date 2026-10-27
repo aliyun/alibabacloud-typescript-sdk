@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPropertyValueResponseBodyPropertyValueInfos extends $dara.Model {
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * HR
@@ -13,7 +13,7 @@ export class ListPropertyValueResponseBodyPropertyValueInfos extends $dara.Model
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 978
@@ -45,12 +45,12 @@ export class ListPropertyValueResponseBodyPropertyValueInfos extends $dara.Model
 export class ListPropertyValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about property values.
+   * The list of property values.
    */
   propertyValueInfos?: ListPropertyValueResponseBodyPropertyValueInfos[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C52013A5-3422-5D1F-B22C-A57110972AD9

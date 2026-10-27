@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TransferResourcesOutofGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D2B1DF9E-576B-5B91-BAF6-2C3DD1****
    */

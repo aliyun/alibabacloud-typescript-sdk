@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The fuzzy search string that matches the username (EndUserId) and email address (Email) of the regular user.
+   * The fuzzy search string. This parameter supports matching the username (EndUserId) and email address (Email).
    * 
    * @example
    * user
@@ -37,7 +37,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. You can obtain this parameter from the response parameters of the last call to this operation.
+   * The token for the next query. You can obtain the token from the response parameters of the previous call to this operation.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -53,7 +53,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * >  This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * co-0esnf80jab***

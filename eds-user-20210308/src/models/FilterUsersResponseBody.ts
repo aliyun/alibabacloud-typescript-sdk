@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FilterUsersResponseBodyUsersExternalInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapped external account.
+   * The name of the external account associated with the user.
    * 
    * @example
    * account
@@ -13,7 +13,7 @@ export class FilterUsersResponseBodyUsersExternalInfo extends $dara.Model {
   externalName?: string;
   /**
    * @remarks
-   * The ID of the external account, such as a student ID or an employee ID.
+   * The external account, student ID, or employee ID associated with the user.
    * 
    * @example
    * 030801
@@ -43,7 +43,21 @@ export class FilterUsersResponseBodyUsersExternalInfo extends $dara.Model {
 }
 
 export class FilterUsersResponseBodyUsersGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The user group ID.
+   * 
+   * @example
+   * ug-2412ojkwtybd****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The user group name.
+   * 
+   * @example
+   * TestGroup
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,17 +85,26 @@ export class FilterUsersResponseBodyUsersGroups extends $dara.Model {
 export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
   /**
    * @remarks
-   * The organization ID.
+   * The organization structure ID.
+   * 
+   * @example
+   * org-1mox****
    */
   orgId?: string;
   /**
    * @remarks
-   * The organization name.
+   * The organization structure name.
+   * 
+   * @example
+   * Design Department
    */
   orgName?: string;
   /**
    * @remarks
-   * The organization name path.
+   * The organization structure name path.
+   * 
+   * @example
+   * Product Department/Design Department
    */
   orgNamePath?: string;
   static names(): { [key: string]: string } {
@@ -110,7 +133,15 @@ export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
 }
 
 export class FilterUsersResponseBodyUsersResourcePolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The resource policy ID.
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The resource policy name.
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -138,12 +169,18 @@ export class FilterUsersResponseBodyUsersResourcePolicyList extends $dara.Model 
 export class FilterUsersResponseBodyUsersSupportLoginIdps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the identity provider (IdP).
+   * The enterprise identity source ID.
+   * 
+   * @example
+   * idp-hlyexfvwert9m8****
    */
   idpId?: string;
   /**
    * @remarks
-   * The name of the identity provider (IdP).
+   * The enterprise identity source name.
+   * 
+   * @example
+   * DingTalk
    */
   idpName?: string;
   static names(): { [key: string]: string } {
@@ -172,7 +209,7 @@ export class FilterUsersResponseBodyUsersSupportLoginIdps extends $dara.Model {
 export class FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues extends $dara.Model {
   /**
    * @remarks
-   * The property value.
+   * The user property value.
    * 
    * @example
    * dev
@@ -180,7 +217,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues e
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The user property value ID.
    * 
    * @example
    * 42
@@ -212,7 +249,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues e
 export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user property.
+   * The user property ID.
    * 
    * @example
    * 12
@@ -220,7 +257,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
   propertyId?: number;
   /**
    * @remarks
-   * The name of the user property.
+   * The user property name.
    * 
    * @example
    * department
@@ -228,7 +265,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
   propertyKey?: string;
   /**
    * @remarks
-   * The type of the user property.
+   * The user property number.
    * 
    * @example
    * 2
@@ -236,12 +273,12 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
   propertyType?: number;
   /**
    * @remarks
-   * The property values.
+   * The user property value.
    */
   propertyValues?: FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues[];
   /**
    * @remarks
-   * The ID of the user associated with the property.
+   * The ID of the user to which the property is bound.
    * 
    * @example
    * 4205**
@@ -249,7 +286,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
   userId?: number;
   /**
    * @remarks
-   * The user name associated with the property.
+   * The username of the user to which the property is bound.
    * 
    * @example
    * alice
@@ -292,7 +329,7 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
 export class FilterUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The date the account will be automatically locked.
+   * The date when the account is automatically locked, in the YYYY-MM-DD format.
    * 
    * @example
    * 2023-03-03
@@ -300,7 +337,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   autoLockTime?: string;
   /**
    * @remarks
-   * The number of cloud desktops assigned to the user.
+   * The number of cloud computers assigned to the user.
    * 
    * @example
    * 1
@@ -308,7 +345,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   desktopCount?: number;
   /**
    * @remarks
-   * The number of desktop groups the user can access. This parameter is returned only when `IncludeDesktopGroupCount` is set to `true`.
+   * The number of cloud computer pools authorized for the user. This value is returned when `IncludeDesktopGroupCount` is set to `true`.
    * 
    * @example
    * 2
@@ -324,7 +361,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the user has local administrator permissions.
+   * Indicates whether the user is a local administrator.
    * 
    * @example
    * true
@@ -332,7 +369,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   enableAdminAccess?: boolean;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
    * alice
@@ -340,9 +377,13 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * External user information.
+   * The extended user information.
    */
   externalInfo?: FilterUsersResponseBodyUsersExternalInfo;
+  /**
+   * @remarks
+   * The list of user groups to which the convenience user belongs.
+   */
   groups?: FilterUsersResponseBodyUsersGroups[];
   /**
    * @remarks
@@ -362,12 +403,12 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   isTenantManager?: boolean;
   /**
    * @remarks
-   * A list of organizations the user belongs to.
+   * The list of organizations to which the user belongs.
    */
   orgList?: FilterUsersResponseBodyUsersOrgList[];
   /**
    * @remarks
-   * The account ownership type.
+   * The ownership type of the account.
    * 
    * @example
    * Normal
@@ -375,9 +416,9 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The password validity period in days. By default, passwords do not expire. Set this to a value from 30 to 365 to enforce an expiration policy. When a password expires, the user must change it before logging on again.
+   * The password of the user account is valid permanently by default. You can use this parameter to set a password validity period of 30 to 365 days. After the password expires, the end user must change the password before logging on again.
    * 
-   * > This feature is in preview and available by invitation only. To use this feature, submit a ticket.
+   * > This feature is currently in invitational preview. To use this feature, submit a ticket.
    * 
    * @example
    * 30
@@ -385,7 +426,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   passwordExpireDays?: number;
   /**
    * @remarks
-   * The number of days until the password expires.
+   * The remaining days of the password validity period for the account.
    * 
    * @example
    * 10
@@ -393,7 +434,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   passwordExpireRestDays?: number;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
    * @example
    * 1381111****
@@ -401,24 +442,28 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The user\\"s nickname.
+   * The user nickname.
    * 
    * @example
-   * 小明
+   * Xiaoming
    */
   realNickName?: string;
   /**
    * @remarks
-   * The remark about the user.
+   * The user remarks.
    * 
    * @example
-   * 测试专用
+   * For testing only
    */
   remark?: string;
+  /**
+   * @remarks
+   * The list of resource policies associated with the convenience user.
+   */
   resourcePolicyList?: FilterUsersResponseBodyUsersResourcePolicyList[];
   /**
    * @remarks
-   * The status of the convenience account.
+   * The status of the convenience user.
    * 
    * @example
    * 0
@@ -426,12 +471,12 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * A list of identity providers (IdPs) that the user can use to log on.
+   * The supported logon identity sources.
    */
   supportLoginIdps?: FilterUsersResponseBodyUsersSupportLoginIdps[];
   /**
    * @remarks
-   * A list of user properties.
+   * The collection of user properties.
    */
   userSetPropertiesModels?: FilterUsersResponseBodyUsersUserSetPropertiesModels[];
   static names(): { [key: string]: string } {
@@ -516,7 +561,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
 export class FilterUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for paginated results. If the response is truncated, this parameter is returned. To retrieve the next page of results, include this value in a subsequent request.
+   * The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in a subsequent query to continue the query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -532,7 +577,7 @@ export class FilterUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of convenience accounts.
+   * The collection of convenience user information.
    */
   users?: FilterUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

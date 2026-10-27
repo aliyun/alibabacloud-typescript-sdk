@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAdUsersCountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of Active Directory (AD) users.
+   * 
    * @example
    * 1000
    */
   adUserCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

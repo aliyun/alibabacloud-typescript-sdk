@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveUserOrgRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,14 +13,14 @@ export class MoveUserOrgRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The user IDs.
+   * The list of user IDs.
    * 
    * This parameter is required.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The organization ID.
+   * The ID of the organizational structure.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-91mvbosdjsdfh****
@@ -16,12 +16,12 @@ export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
    * The name of the user group.
    * 
    * @example
-   * 开发组
+   * Development team
    */
   groupName?: string;
   /**
    * @remarks
-   * The number of members in the user group.
+   * The number of members.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
 export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * >  This field is deprecated.
+   * > **[Deprecated]** This field is deprecated.
    * 
    * @example
    * xx-xx-xx
@@ -63,7 +63,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * >  This field is deprecated.
+   * > **[Deprecated]** This field is deprecated.
    * 
    * @example
    * https://avatar.****.com
@@ -79,7 +79,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
    * alex****
@@ -95,7 +95,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the user was added to the user group.
+   * The time when the member was added.
    * 
    * @example
    * 2024-08-26T02:59:22.000+00:00
@@ -103,7 +103,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   gmtJoinGroup?: string;
   /**
    * @remarks
-   * >  This field is deprecated.
+   * > **[Deprecated]** This field is deprecated.
    * 
    * @example
    * 123
@@ -119,7 +119,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The mobile number.
+   * The mobile phone number.
    * 
    * @example
    * 138****1111
@@ -127,7 +127,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The remarks on the user.
+   * The remarks of the user.
    * 
    * @example
    * remark
@@ -175,12 +175,12 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
 export class DescribeGroupUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * >  This field is deprecated.
+   * > **[Deprecated]** This field is deprecated.
    */
   groups?: DescribeGroupUserResponseBodyGroups[];
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, all results have been queried.
+   * The token for the next query. If NextToken is empty, all results have been returned.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -188,7 +188,7 @@ export class DescribeGroupUserResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * AA8D67CB-345D-5CDA-986E-FFAC7D0****
@@ -196,7 +196,7 @@ export class DescribeGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The members.
+   * The list of members.
    */
   users?: DescribeGroupUserResponseBodyUsers[];
   static names(): { [key: string]: string } {

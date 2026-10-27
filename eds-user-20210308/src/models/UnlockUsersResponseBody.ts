@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnlockUsersResponseBodyUnlockUsersResultFailedUsers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the convenience user that failed to be unlocked.
+   * The convenience user that fails to be unlocked.
    * 
    * @example
    * alice
@@ -55,12 +55,12 @@ export class UnlockUsersResponseBodyUnlockUsersResultFailedUsers extends $dara.M
 export class UnlockUsersResponseBodyUnlockUsersResult extends $dara.Model {
   /**
    * @remarks
-   * The convenience users that failed to be unlocked.
+   * The list of convenience users that fail to be unlocked.
    */
   failedUsers?: UnlockUsersResponseBodyUnlockUsersResultFailedUsers[];
   /**
    * @remarks
-   * The convenience users that were unlocked.
+   * The list of convenience users that are successfully unlocked.
    */
   unlockedUsers?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class UnlockUsersResponseBodyUnlockUsersResult extends $dara.Model {
 export class UnlockUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 023F4EC4-3602-4A3E-A514-4970847D59DB
@@ -103,7 +103,7 @@ export class UnlockUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of unlocking the convenience user.
+   * The result of the unlock operation for the convenience users.
    */
   unlockUsersResult?: UnlockUsersResponseBodyUnlockUsersResult;
   static names(): { [key: string]: string } {

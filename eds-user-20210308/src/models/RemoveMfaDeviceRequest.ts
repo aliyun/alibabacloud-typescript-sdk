@@ -13,7 +13,7 @@ export class RemoveMfaDeviceRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,7 +21,7 @@ export class RemoveMfaDeviceRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to get this information.
+   * The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to obtain the serial number.
    * 
    * This parameter is required.
    * 

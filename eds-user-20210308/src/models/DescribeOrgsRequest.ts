@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOrgsRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel.
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
+  /**
+   * @remarks
+   * The list of organization IDs to query.
+   */
   includeOrgIds?: string[];
   /**
    * @remarks
@@ -19,8 +23,7 @@ export class DescribeOrgsRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The maximum number of results to return. Valid values: 1 to 100.    
-   * Default value: 100.
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 20
@@ -28,7 +31,7 @@ export class DescribeOrgsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The pagination token. Set the value to the NextToken parameter returned by the previous API call.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -36,20 +39,24 @@ export class DescribeOrgsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The organization name.
+   * The name of the organization.
    * 
    * @example
-   * ProductDepartment
+   * Product Department
    */
   orgName?: string;
   /**
    * @remarks
-   * The parent organization ID.
+   * The ID of the parent organization.
    * 
    * @example
    * org-11fs****
    */
   parentOrgId?: string;
+  /**
+   * @remarks
+   * The switch mapping for additional response information. This parameter controls whether to return organization paths and resource policy information.
+   */
   showExtras?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

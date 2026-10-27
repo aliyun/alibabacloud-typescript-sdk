@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class LockUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel.
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
+  /**
+   * @remarks
+   * Specifies whether to log off the current session of the convenience account when the account is locked.
+   */
   logoutSession?: boolean;
   /**
    * @remarks

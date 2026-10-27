@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Business type.
+   * The business type.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class DescribeUserRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * @example
    * alex
@@ -21,7 +21,7 @@ export class DescribeUserRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * List of attributes to query.
+   * The list of attributes to query.
    */
   requireExtraAttributes?: string[];
   static names(): { [key: string]: string } {

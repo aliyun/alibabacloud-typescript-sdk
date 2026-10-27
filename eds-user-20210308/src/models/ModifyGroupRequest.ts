@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -31,12 +31,12 @@ export class ModifyGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the new user group.
+   * The new name of the user group.
    * 
    * This parameter is required.
    * 
    * @example
-   * 开发组
+   * Development group
    */
   newGroupName?: string;
   static names(): { [key: string]: string } {

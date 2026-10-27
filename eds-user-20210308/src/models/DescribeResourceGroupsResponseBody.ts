@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceGroupsResponseBodyResourceGroupAppRules extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application rule.
+   * 
+   * @example
+   * ruleId1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the application rule.
+   * 
+   * @example
+   * ruleName1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the application rule.
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +55,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupAppRules extends $da
 export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $dara.Model {
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * pl-a8jnatl8kjasb***
@@ -42,7 +63,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
   id?: string;
   /**
    * @remarks
-   * Indicates whether the policy is the default policy.
+   * Specifies whether the policy is the default policy.
    * 
    * @example
    * False
@@ -53,7 +74,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
    * The policy name.
    * 
    * @example
-   * TestPolicy123
+   * Test policy 123
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -82,10 +103,17 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
 }
 
 export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara.Model {
+  /**
+   * @remarks
+   * The association status between the scheduled task and the resource group.
+   * 
+   * @example
+   * BIND
+   */
   bindStatus?: string;
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * @example
    * t-asdzx0mbjhg***
@@ -93,13 +121,27 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
   id?: string;
   /**
    * @remarks
-   * The scheduled task name.
+   * The name of the scheduled task.
    * 
    * @example
-   * TestTask123
+   * Test task 123
    */
   name?: string;
+  /**
+   * @remarks
+   * The running status of the scheduled task.
+   * 
+   * @example
+   * AVAILABLE
+   */
   timerStatus?: string;
+  /**
+   * @remarks
+   * The type of the scheduled task.
+   * 
+   * @example
+   * TIMER
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,15 +173,26 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
 }
 
 export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
+   * 
+   * @example
+   * JVSClaw
+   */
   agentType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-123456
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The list of application rules associated with the resource group.
+   */
   appRules?: DescribeResourceGroupsResponseBodyResourceGroupAppRules[];
   /**
    * @remarks
@@ -151,7 +204,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   authCount?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in ISO 8601 UTC format.
    * 
    * @example
    * 2022-11-29T17:25:40.000000000Z
@@ -160,8 +213,8 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   /**
    * @remarks
    * > The policies associated with the resource group.
-   * > - Associated policies take effect on cloud computers in the resource group. If multiple policies are associated, they take effect based on policy priority.
-   * > - If a cloud computer in the resource group already has other policies specified, the policies associated with the resource group take effect first.
+   * > - The associated policies take effect on the cloud computers in the resource group. If multiple policies exist, they take effect based on their priorities.
+   * > - If a cloud computer in the resource group is already assigned another policy, the policy associated with the resource group takes precedence.
    */
   policies?: DescribeResourceGroupsResponseBodyResourceGroupPolicies[];
   /**
@@ -174,7 +227,15 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   resourceCount?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The description of the resource group. If not set, an empty string is returned.
+   * 
+   * @example
+   * Department A resource group
+   */
+  resourceGroupDescription?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
    * 
    * @example
    * rg-cyo0il2pzge1***
@@ -182,16 +243,16 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
-   * TestResourceGroup
+   * Test resource group
    */
   resourceGroupName?: string;
   /**
    * @remarks
-   * > The associated scheduled tasks.
-   * > - Associated scheduled tasks take effect on cloud computers in the resource group. If a cloud computer in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take effect first.
+   * > The scheduled tasks associated with the resource group.
+   * > - The associated scheduled tasks take effect on the cloud computers in the resource group. If a cloud computer in the resource group is already associated with another scheduled task, the task associated with the resource group takes precedence.
    */
   timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
   static names(): { [key: string]: string } {
@@ -203,6 +264,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
       createTime: 'CreateTime',
       policies: 'Policies',
       resourceCount: 'ResourceCount',
+      resourceGroupDescription: 'ResourceGroupDescription',
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
       timers: 'Timers',
@@ -218,6 +280,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
       createTime: 'string',
       policies: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupPolicies },
       resourceCount: 'string',
+      resourceGroupDescription: 'string',
       resourceGroupId: 'string',
       resourceGroupName: 'string',
       timers: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupTimers },
@@ -245,7 +308,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
 export class DescribeResourceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 68BA1DF7-8814-5AED-B844-F8F7F7****

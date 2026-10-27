@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePropertyRequestPropertyValues extends $dara.Model {
   /**
    * @remarks
-   * The new property value.
+   * The updated property value.
    * 
    * @example
    * testvalue
@@ -13,7 +13,7 @@ export class UpdatePropertyRequestPropertyValues extends $dara.Model {
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of property value that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property value ID.
+   * The ID of the updated property value.
    * 
    * @example
    * 978
@@ -45,7 +45,7 @@ export class UpdatePropertyRequestPropertyValues extends $dara.Model {
 export class UpdatePropertyRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
@@ -53,7 +53,7 @@ export class UpdatePropertyRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The ID of the property that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
+   * The ID of the property to update. You can call [ListProperty](~~ListProperty~~) to query the property ID.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class UpdatePropertyRequest extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The new property name.
+   * The updated property name.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,9 @@ export class UpdatePropertyRequest extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * The values of property.
+   * The list of all updated property values for the property.
+   * 
+   * >Notice: The property values specified here overwrite the existing property values instead of appending to them.
    */
   propertyValues?: UpdatePropertyRequestPropertyValues[];
   static names(): { [key: string]: string } {

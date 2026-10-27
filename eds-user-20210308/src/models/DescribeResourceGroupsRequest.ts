@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
+   * 
+   * @example
+   * JVSClaw
+   */
   agentType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The IDs of the cloud platform resource groups.
    */
   aliyunResourceGroupIds?: string[];
   /**
@@ -44,7 +51,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * > Fixed value: AliyunConsole.
-   * > - For Elastic Desktop Service Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
+   * > - For Wuying Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
    * 
    * @example
    * AliyunConsole
@@ -52,20 +59,23 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The resource classification within the resource group.
+   * The resource classification in the resource group.
+   * 
+   * @example
+   * Default
    */
   resourceClassification?: string;
   /**
    * @remarks
-   * The list of resource group IDs.
+   * The IDs of the resource groups.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
-   * DepartmentAResourceGroup
+   * Department A resource group
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {

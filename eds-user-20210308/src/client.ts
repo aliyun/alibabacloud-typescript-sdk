@@ -30,10 +30,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add or remove local administrator permissions on a cloud computer for a convenience account.
+   * Grants or revokes local administrator permissions on a cloud desktop for a convenience account.
    * 
    * @remarks
-   * A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
+   * A convenience account with local administrator permissions can install software or modify specific system settings on the cloud desktop.
    * 
    * @param request - BatchSetDesktopManagerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72,10 +72,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add or remove local administrator permissions on a cloud computer for a convenience account.
+   * Grants or revokes local administrator permissions on a cloud desktop for a convenience account.
    * 
    * @remarks
-   * A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
+   * A convenience account with local administrator permissions can install software or modify specific system settings on the cloud desktop.
    * 
    * @param request - BatchSetDesktopManagerRequest
    * @returns BatchSetDesktopManagerResponse
@@ -86,7 +86,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the administrator activates the mode, you can use this API to modify the user logon password.
+   * Modifies the logon password of a user in administrator activation mode.
    * 
    * @param request - ChangeUserPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -125,7 +125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the administrator activates the mode, you can use this API to modify the user logon password.
+   * Modifies the logon password of a user in administrator activation mode.
    * 
    * @param request - ChangeUserPasswordRequest
    * @returns ChangeUserPasswordResponse
@@ -136,7 +136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the number of convenience accounts associated with a specified custom property.
+   * Queries the number of convenience accounts associated with a specified custom property.
    * 
    * @param request - CheckUsedPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -171,7 +171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the number of convenience accounts associated with a specified custom property.
+   * Queries the number of convenience accounts associated with a specified custom property.
    * 
    * @param request - CheckUsedPropertyRequest
    * @returns CheckUsedPropertyResponse
@@ -182,7 +182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the number of convenience accounts associated with a specified custom attribute value.
+   * Queries the number of convenience accounts associated with a specified custom property value.
    * 
    * @param request - CheckUsedPropertyValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -221,7 +221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the number of convenience accounts associated with a specified custom attribute value.
+   * Queries the number of convenience accounts associated with a specified custom property value.
    * 
    * @param request - CheckUsedPropertyValueRequest
    * @returns CheckUsedPropertyValueResponse
@@ -232,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a group.
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -283,7 +283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a group.
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -294,7 +294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an organization.
+   * Creates an organization.
    * 
    * @param request - CreateOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -333,7 +333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an organization.
+   * Creates an organization.
    * 
    * @param request - CreateOrgRequest
    * @returns CreateOrgResponse
@@ -344,11 +344,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a user attribute.
+   * Creates a user property.
    * 
    * @remarks
-   * - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
-   * - You can add up to 50 different attribute values to a single property.
+   * - You can create up to 10 different properties under an Alibaba Cloud account. Each property includes a property key (PropertyKey) and multiple property values (PropertyValue).
+   * - You can add up to 50 different property values to a single property.
    * 
    * @param request - CreatePropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -387,11 +387,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a user attribute.
+   * Creates a user property.
    * 
    * @remarks
-   * - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
-   * - You can add up to 50 different attribute values to a single property.
+   * - You can create up to 10 different properties under an Alibaba Cloud account. Each property includes a property key (PropertyKey) and multiple property values (PropertyValue).
+   * - You can add up to 50 different property values to a single property.
    * 
    * @param request - CreatePropertyRequest
    * @returns CreatePropertyResponse
@@ -435,6 +435,10 @@ export default class Client extends OpenApi {
       query["ResourceClassification"] = request.resourceClassification;
     }
 
+    if (!$dara.isNull(request.resourceGroupDescription)) {
+      query["ResourceGroupDescription"] = request.resourceGroupDescription;
+    }
+
     if (!$dara.isNull(request.resourceGroupName)) {
       query["ResourceGroupName"] = request.resourceGroupName;
     }
@@ -468,13 +472,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Easily create accounts for your end users.
+   * Creates a convenience account for an end user.
    * 
    * @remarks
-   * <props="china">
-   * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
-   * <props="intl">
-   * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
+   * <props="china">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username, email address, and phone number. The username is required, and you must specify at least one of the email address and phone number.
+   * <props="intl">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username and email address, both of which are required.
    * 
    * @param request - CreateUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -527,13 +529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Easily create accounts for your end users.
+   * Creates a convenience account for an end user.
    * 
    * @remarks
-   * <props="china">
-   * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
-   * <props="intl">
-   * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
+   * <props="china">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username, email address, and phone number. The username is required, and you must specify at least one of the email address and phone number.
+   * <props="intl">A convenience account is an account system dedicated to Wuying Workspace, which is suitable for simple scenarios where you do not want to connect to an enterprise Active Directory (AD). The information of a convenience account includes the username and email address, both of which are required.
    * 
    * @param request - CreateUsersRequest
    * @returns CreateUsersResponse
@@ -544,7 +544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a resource group.
+   * Deletes a resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -583,7 +583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a resource group.
+   * Deletes a resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @returns DeleteResourceGroupResponse
@@ -594,7 +594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detach a user from a user attribute.
+   * Dissociates a user from a user property.
    * 
    * @param request - DeleteUserPropertyValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -637,7 +637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detach a user from a user attribute.
+   * Dissociates a user from a user property.
    * 
    * @param request - DeleteUserPropertyValueRequest
    * @returns DeleteUserPropertyValueResponse
@@ -648,7 +648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query group members.
+   * Queries the members of a user group.
    * 
    * @param request - DescribeGroupUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query group members.
+   * Queries the members of a user group.
    * 
    * @param request - DescribeGroupUserRequest
    * @returns DescribeGroupUserResponse
@@ -796,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists virtual MFA devices bound to directory accounts.
+   * Queries the virtual MFA devices bound to convenience accounts.
    * 
    * @param request - DescribeMfaDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -851,7 +851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists virtual MFA devices bound to directory accounts.
+   * Queries the virtual MFA devices bound to convenience accounts.
    * 
    * @param request - DescribeMfaDevicesRequest
    * @returns DescribeMfaDevicesResponse
@@ -862,7 +862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find subordinate organizations.
+   * Queries subordinate organizations.
    * 
    * @param request - DescribeOrgByLayerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find subordinate organizations.
+   * Queries subordinate organizations.
    * 
    * @param request - DescribeOrgByLayerRequest
    * @returns DescribeOrgByLayerResponse
@@ -915,7 +915,7 @@ export default class Client extends OpenApi {
    * Queries the list of organizations.
    * 
    * @remarks
-   * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
+   * Organizations use a tree structure. The root organization ID is org-aliyun-wy-org-id.
    * 
    * @param tmpReq - DescribeOrgsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -983,7 +983,7 @@ export default class Client extends OpenApi {
    * Queries the list of organizations.
    * 
    * @remarks
-   * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
+   * Organizations use a tree structure. The root organization ID is org-aliyun-wy-org-id.
    * 
    * @param request - DescribeOrgsRequest
    * @returns DescribeOrgsResponse
@@ -1072,7 +1072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query user basic information
+   * Queries the basic information of a user.
    * 
    * @param request - DescribeUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1111,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query user basic information
+   * Queries the basic information of a user.
    * 
    * @param request - DescribeUserRequest
    * @returns DescribeUserResponse
@@ -1122,7 +1122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries convenience account information, such as usernames, email addresses, and remarks.
+   * Queries the information of convenience users, such as usernames, email addresses, and remarks.
    * 
    * @param tmpReq - DescribeUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1237,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries convenience account information, such as usernames, email addresses, and remarks.
+   * Queries the information of convenience users, such as usernames, email addresses, and remarks.
    * 
    * @param request - DescribeUsersRequest
    * @returns DescribeUsersResponse
@@ -1248,7 +1248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Filter account information by user attribute.
+   * Queries convenience account information by filtering based on user property.
    * 
    * @param tmpReq - FilterUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1361,7 +1361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Filter account information by user attribute.
+   * Queries convenience account information by filtering based on user property.
    * 
    * @param request - FilterUsersRequest
    * @returns FilterUsersResponse
@@ -1372,11 +1372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户数量
+   * Retrieves the number of Active Directory (AD) users.
    * 
    * @remarks
-   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - GetAdUsersCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,11 +1417,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户数量
+   * Retrieves the number of Active Directory (AD) users.
    * 
    * @remarks
-   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - GetAdUsersCountRequest
    * @returns GetAdUsersCountResponse
@@ -1432,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about the current logon administrator based on the authorization code.
+   * Retrieves the information about the currently logged-on administrator based on the authorization code.
    * 
    * @param request - GetManagerInfoByAuthCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,7 +1463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about the current logon administrator based on the authorization code.
+   * Retrieves the information about the currently logged-on administrator based on the authorization code.
    * 
    * @param request - GetManagerInfoByAuthCodeRequest
    * @returns GetManagerInfoByAuthCodeResponse
@@ -1474,11 +1474,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户数量
+   * Retrieves the total number of Wuying convenience users.
    * 
    * @remarks
-   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - GetUsersCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1519,11 +1519,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户数量
+   * Retrieves the total number of Wuying convenience users.
    * 
    * @remarks
-   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
-   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the returned data is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - GetUsersCountRequest
    * @returns GetUsersCountResponse
@@ -1534,7 +1534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initialize the organization ID.
+   * Initializes the organization ID.
    * 
    * @param request - InitTenantAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1565,7 +1565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initialize the organization ID.
+   * Initializes the organization ID.
    * 
    * @param request - InitTenantAliasRequest
    * @returns InitTenantAliasResponse
@@ -1576,7 +1576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of existing user attributes under the current account.
+   * Queries the list of user properties under the current account.
    * 
    * @param request - ListPropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1607,7 +1607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of existing user attributes under the current account.
+   * Queries the list of user properties under the current account.
    * 
    * @param request - ListPropertyRequest
    * @returns ListPropertyResponse
@@ -1618,7 +1618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of attribute values for a specific user attribute.
+   * Queries the list of property values for a specific user property.
    * 
    * @param request - ListPropertyValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1653,7 +1653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of attribute values for a specific user attribute.
+   * Queries the list of property values for a specific user property.
    * 
    * @param request - ListPropertyValueRequest
    * @returns ListPropertyValueResponse
@@ -1664,10 +1664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lock the virtual MFA device attached to a convenience account.
+   * Locks the virtual MFA device bound to a convenience account.
    * 
    * @remarks
-   * After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
+   * After the device is locked, the status of the virtual MFA device changes to LOCKED. When the corresponding convenience account logs on to a Wuying terminal through an office network with MFA enabled, the logon fails because the MFA device cannot be authenticated. You can call [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock the device.
    * 
    * @param request - LockMfaDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1706,10 +1706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lock the virtual MFA device attached to a convenience account.
+   * Locks the virtual MFA device bound to a convenience account.
    * 
    * @remarks
-   * After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
+   * After the device is locked, the status of the virtual MFA device changes to LOCKED. When the corresponding convenience account logs on to a Wuying terminal through an office network with MFA enabled, the logon fails because the MFA device cannot be authenticated. You can call [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock the device.
    * 
    * @param request - LockMfaDeviceRequest
    * @returns LockMfaDeviceResponse
@@ -1720,11 +1720,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+   * Locks one or more convenience accounts. Locked convenience accounts cannot log on to cloud desktop terminals.
    * 
    * @remarks
-   * For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
-   * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to cloud desktop terminals and therefore cannot access any cloud desktop resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the response is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - LockUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,11 +1765,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+   * Locks one or more convenience accounts. Locked convenience accounts cannot log on to cloud desktop terminals.
    * 
    * @remarks
-   * For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
-   * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
+   * For security purposes, you can lock convenience accounts. Locked convenience users cannot log on to cloud desktop terminals and therefore cannot access any cloud desktop resources.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the `Status` value in the response is 0, the convenience account is not locked. If the `Status` value is 9, the convenience account is locked.
    * 
    * @param request - LockUsersRequest
    * @returns LockUsersResponse
@@ -1780,7 +1780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the name and description of a group.
+   * Modifies the name and description of a user group.
    * 
    * @param request - ModifyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1823,7 +1823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the name and description of a group.
+   * Modifies the name and description of a user group.
    * 
    * @param request - ModifyGroupRequest
    * @returns ModifyGroupResponse
@@ -1834,7 +1834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an organization.
+   * Updates an organization.
    * 
    * @param request - ModifyOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1873,7 +1873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an organization.
+   * Updates an organization.
    * 
    * @param request - ModifyOrgRequest
    * @returns ModifyOrgResponse
@@ -1884,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the contact information of a convenience account.
+   * Updates the contact information of a convenience account.
    * 
    * @param request - ModifyUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1927,7 +1927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the contact information of a convenience account.
+   * Updates the contact information of a convenience account.
    * 
    * @param request - ModifyUserRequest
    * @returns ModifyUserResponse
@@ -1938,7 +1938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shift organization.
+   * Moves an organization.
    * 
    * @param request - MoveOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1977,7 +1977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shift organization.
+   * Moves an organization.
    * 
    * @param request - MoveOrgRequest
    * @returns MoveOrgResponse
@@ -1988,7 +1988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shift users to the target organization architecture.
+   * Moves users to the target organizational structure.
    * 
    * @param request - MoveUserOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2027,7 +2027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shift users to the target organization architecture.
+   * Moves users to the target organizational structure.
    * 
    * @param request - MoveUserOrgRequest
    * @returns MoveUserOrgResponse
@@ -2038,7 +2038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the user synchronization status.
+   * Queries the user synchronization status.
    * 
    * @param request - QuerySyncStatusByAliUidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2069,7 +2069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the user synchronization status.
+   * Queries the user synchronization status.
    * 
    * @param request - QuerySyncStatusByAliUidRequest
    * @returns QuerySyncStatusByAliUidResponse
@@ -2080,7 +2080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a group. Supports batch operations.
+   * Deletes one or more user groups. Batch operations are supported.
    * 
    * @param request - RemoveGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2119,7 +2119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a group. Supports batch operations.
+   * Deletes one or more user groups. Batch operations are supported.
    * 
    * @param request - RemoveGroupRequest
    * @returns RemoveGroupResponse
@@ -2130,10 +2130,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the virtual MFA device attached to a convenience account.
+   * Deletes the virtual MFA device bound to a convenience user.
    * 
    * @remarks
-   * Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
+   * Deleting the virtual MFA device bound to a convenience user unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The convenience user must bind a new virtual MFA device when logging on to the Wuying terminal.
    * 
    * @param request - RemoveMfaDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2172,10 +2172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the virtual MFA device attached to a convenience account.
+   * Deletes the virtual MFA device bound to a convenience user.
    * 
    * @remarks
-   * Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
+   * Deleting the virtual MFA device bound to a convenience user unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The convenience user must bind a new virtual MFA device when logging on to the Wuying terminal.
    * 
    * @param request - RemoveMfaDeviceRequest
    * @returns RemoveMfaDeviceResponse
@@ -2186,7 +2186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove an organization.
+   * Removes an organization.
    * 
    * @param request - RemoveOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2221,7 +2221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove an organization.
+   * Removes an organization.
    * 
    * @param request - RemoveOrgRequest
    * @returns RemoveOrgResponse
@@ -2232,7 +2232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a set of user attributes.
+   * Deletes a set of user properties.
    * 
    * @param request - RemovePropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2269,7 +2269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a set of user attributes.
+   * Deletes a set of user properties.
    * 
    * @param request - RemovePropertyRequest
    * @returns RemovePropertyResponse
@@ -2280,7 +2280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete one or more convenience accounts.
+   * Deletes one or more convenience users.
    * 
    * @param request - RemoveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2288,6 +2288,11 @@ export default class Client extends OpenApi {
    */
   async removeUsersWithOptions(request: $_model.RemoveUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveUsersResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.unbindDesktops)) {
+      query["UnbindDesktops"] = request.unbindDesktops;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.businessChannel)) {
       body["BusinessChannel"] = request.businessChannel;
@@ -2298,6 +2303,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2315,7 +2321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete one or more convenience accounts.
+   * Deletes one or more convenience users.
    * 
    * @param request - RemoveUsersRequest
    * @returns RemoveUsersResponse
@@ -2326,7 +2332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
+   * Resets the password of a convenience user, including generating a password reset token and sending a password reset email to the email address of the convenience user.
    * 
    * @param request - ResetUserPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2365,7 +2371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
+   * Resets the password of a convenience user, including generating a password reset token and sending a password reset email to the email address of the convenience user.
    * 
    * @param request - ResetUserPasswordRequest
    * @returns ResetUserPasswordResponse
@@ -2376,7 +2382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associate a user attribute with a specific user.
+   * Associates a user property with a specified user.
    * 
    * @param request - SetUserPropertyValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2423,7 +2429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associate a user attribute with a specific user.
+   * Associates a user property with a specified user.
    * 
    * @param request - SetUserPropertyValueRequest
    * @returns SetUserPropertyValueResponse
@@ -2434,7 +2440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronize all education information.
+   * Synchronizes all education information.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncAllEduInfoResponse
@@ -2456,7 +2462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronize all education information.
+   * Synchronizes all education information.
    * @returns SyncAllEduInfoResponse
    */
   async syncAllEduInfo(): Promise<$_model.SyncAllEduInfoResponse> {
@@ -2465,7 +2471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源转移到资源组中
+   * Transfers resources to a resource group.
    * 
    * @param request - TransferResourcesIntoGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2508,7 +2514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源转移到资源组中
+   * Transfers resources to a resource group.
    * 
    * @param request - TransferResourcesIntoGroupRequest
    * @returns TransferResourcesIntoGroupResponse
@@ -2519,7 +2525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源从资源组中转出
+   * Moves resources out of a resource group.
    * 
    * @param request - TransferResourcesOutofGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2528,12 +2534,20 @@ export default class Client extends OpenApi {
   async transferResourcesOutofGroupWithOptions(request: $_model.TransferResourcesOutofGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferResourcesOutofGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.appRuleId)) {
+      query["AppRuleId"] = request.appRuleId;
+    }
+
     if (!$dara.isNull(request.businessChannel)) {
       query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.platform)) {
       query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -2546,6 +2560,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.targetResourceGroupId)) {
       query["TargetResourceGroupId"] = request.targetResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.timerId)) {
+      query["TimerId"] = request.timerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2566,7 +2584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源从资源组中转出
+   * Moves resources out of a resource group.
    * 
    * @param request - TransferResourcesOutofGroupRequest
    * @returns TransferResourcesOutofGroupResponse
@@ -2577,7 +2595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlock the virtual MFA device attached to a convenience account.
+   * Unlocks the virtual MFA device bound to a convenience account.
    * 
    * @param request - UnlockMfaDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2616,7 +2634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlock the virtual MFA device attached to a convenience account.
+   * Unlocks the virtual MFA device bound to a convenience account.
    * 
    * @param request - UnlockMfaDeviceRequest
    * @returns UnlockMfaDeviceResponse
@@ -2627,11 +2645,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+   * Unlocks one or more convenience users. Unlocked convenience users can log on to Wuying terminals.
    * 
    * @remarks
-   * Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
-   * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
+   * Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources. To allow a convenience user to log on to a Wuying terminal, you must unlock the user first.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query the information of convenience users. If the `Status` parameter in the response is 0, the convenience user is not locked. If the `Status` parameter is 9, the convenience user is locked.
    * 
    * @param request - UnlockUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2672,11 +2690,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+   * Unlocks one or more convenience users. Unlocked convenience users can log on to Wuying terminals.
    * 
    * @remarks
-   * Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
-   * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
+   * Locked convenience users cannot log on to Wuying terminals and therefore cannot access any Wuying cloud resources. To allow a convenience user to log on to a Wuying terminal, you must unlock the user first.
+   * > You can call [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query the information of convenience users. If the `Status` parameter in the response is 0, the convenience user is not locked. If the `Status` parameter is 9, the convenience user is locked.
    * 
    * @param request - UnlockUsersRequest
    * @returns UnlockUsersResponse
@@ -2687,7 +2705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify User Attributes.
+   * Updates user properties.
    * 
    * @param request - UpdatePropertyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2732,7 +2750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify User Attributes.
+   * Updates user properties.
    * 
    * @param request - UpdatePropertyRequest
    * @returns UpdatePropertyResponse
@@ -2743,7 +2761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add users to a group in batch.
+   * Adds users to a user group in batches.
    * 
    * @param request - UserBatchJoinGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2782,7 +2800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add users to a group in batch.
+   * Adds users to a user group in batches.
    * 
    * @param request - UserBatchJoinGroupRequest
    * @returns UserBatchJoinGroupResponse
@@ -2793,7 +2811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove users from a group in batch.
+   * Removes multiple users from a user group.
    * 
    * @param request - UserBatchQuitGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2832,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove users from a group in batch.
+   * Removes multiple users from a user group.
    * 
    * @param request - UserBatchQuitGroupRequest
    * @returns UserBatchQuitGroupResponse

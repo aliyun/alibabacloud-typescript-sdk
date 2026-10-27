@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPropertyRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UserBatchJoinGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE

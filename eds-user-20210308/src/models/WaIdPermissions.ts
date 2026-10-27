@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WaIdPermissions extends $dara.Model {
+  /**
+   * @remarks
+   * code
+   */
   code?: string;
+  /**
+   * @remarks
+   * basic
+   */
   isBasicChild?: boolean;
+  /**
+   * @remarks
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * subPermissions
+   */
   subPermissions?: WaIdPermissions[];
+  /**
+   * @remarks
+   * type
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

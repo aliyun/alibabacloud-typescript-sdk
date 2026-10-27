@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagerInfoByAuthCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization code.
+   * The authorization code. The code is obtained by the authorized enterprise account by calling CreateAuthCode and then used by the corresponding service provider account within the validity period. If the calling account does not match the service provider specified by the authorization code, the request is rejected.
    * 
    * This parameter is required.
    * 

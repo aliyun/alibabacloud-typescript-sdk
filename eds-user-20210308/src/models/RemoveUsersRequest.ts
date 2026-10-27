@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
+  unbindDesktops?: boolean;
   /**
    * @remarks
-   * The usernames of the convenience users that you want to remove.
+   * The usernames of the convenience users to delete.
    * 
    * This parameter is required.
    * 
@@ -24,6 +25,7 @@ export class RemoveUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessChannel: 'BusinessChannel',
+      unbindDesktops: 'UnbindDesktops',
       users: 'Users',
     };
   }
@@ -31,6 +33,7 @@ export class RemoveUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessChannel: 'string',
+      unbindDesktops: 'boolean',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }

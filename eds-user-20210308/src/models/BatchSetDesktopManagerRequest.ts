@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchSetDesktopManagerRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,12 +13,7 @@ export class BatchSetDesktopManagerRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * Whether the convenience account has the local administrator permissions on cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   0: no
-   * *   1 (default): yes
+   * Specifies whether the convenience account has local administrator permissions on the cloud desktop.
    * 
    * @example
    * 1
@@ -26,7 +21,7 @@ export class BatchSetDesktopManagerRequest extends $dara.Model {
   isDesktopManager?: string;
   /**
    * @remarks
-   * The convenience accounts.
+   * The list of convenience accounts.
    * 
    * This parameter is required.
    */

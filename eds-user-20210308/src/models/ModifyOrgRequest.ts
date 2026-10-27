@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOrgRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -28,7 +28,7 @@ export class ModifyOrgRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 开发部。
+   * Development Department
    */
   orgName?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUsersRequestUsers extends $dara.Model {
   /**
    * @remarks
-   * The email address of the convenience user. This email address is used for notifications, such as an alert when a cloud computer is assigned. You must specify either this parameter or the `Phone` parameter.
+   * The email address. The email address is used to receive relevant emails, such as notification emails for cloud computer allocation. You must specify either the email address or the phone number.
    * 
    * @example
    * username@example.com
@@ -13,7 +13,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The user name. The user name must be 3 to 24 characters long and can contain lowercase letters, digits, and underscores (_).
+   * The username. The username is custom and must be 3 to 24 characters in length. It can contain only lowercase letters, digits, and underscores.
    * 
    * This parameter is required.
    * 
@@ -21,10 +21,14 @@ export class CreateUsersRequestUsers extends $dara.Model {
    * alice
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The IDs of the user groups to join.
+   */
   groupIdList?: string[];
   /**
    * @remarks
-   * The ID of the organization to which the convenience user belongs.
+   * The organization to which the user belongs.
    * 
    * @example
    * design
@@ -40,9 +44,9 @@ export class CreateUsersRequestUsers extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The password for the convenience user.
+   * The user password.
    * 
-   * > The password must be at least 10 characters long and contain characters from at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (excluding spaces).
+   * > The password must be at least 10 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (excluding spaces).
    * 
    * @example
    * Wuying1234
@@ -50,15 +54,9 @@ export class CreateUsersRequestUsers extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * <props="china">
+   * <props="china">The phone number. The phone number is used to receive relevant text messages, such as notification text messages for cloud computer allocation. You must specify either the email address or the phone number.
    * 
-   * The phone number of the convenience user. This phone number is used for notifications, such as a text message when a cloud computer is assigned. You must specify either this parameter or the `Email` parameter.
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * Phone numbers are not supported on the international site.
+   * <props="intl">Phone numbers are not supported on the international site.
    * 
    * @example
    * 1381111****
@@ -66,7 +64,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The display name of the convenience user.
+   * The display name of the user.
    * 
    * @example
    * Bean
@@ -74,7 +72,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
   realNickName?: string;
   /**
    * @remarks
-   * A remark for the convenience user.
+   * The user remarks.
    * 
    * @example
    * remark1
@@ -123,7 +121,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
 export class CreateUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The date and time when the system automatically locks the convenience user\\"s account. The value must be in the `yyyy-MM-dd HH:mm:ss` format.
+   * The date when the account is automatically locked. Specify the date in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2025-11-28 00:00:00
@@ -131,7 +129,7 @@ export class CreateUsersRequest extends $dara.Model {
   autoLockTime?: string;
   /**
    * @remarks
-   * The business channel.
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -139,7 +137,7 @@ export class CreateUsersRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * Specifies whether to set the convenience user as a local administrator.
+   * Specifies whether to set the convenience account as a local administrator.
    * 
    * @example
    * true
@@ -147,7 +145,7 @@ export class CreateUsersRequest extends $dara.Model {
   isLocalAdmin?: boolean;
   /**
    * @remarks
-   * The initial password. If you do not specify this parameter, the system sends a password reset email to the convenience user\\"s email address.
+   * The initial password. If you do not specify this parameter, a password reset email is sent to the user\\"s email address.
    * 
    * @example
    * Test123****
@@ -155,9 +153,9 @@ export class CreateUsersRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * By default, a convenience user\\"s password does not expire. You can use this parameter to specify a password validity period of 30 to 365 days. After the password expires, the user must reset it to log in again.
+   * The validity period of the password for the user account. By default, the password never expires. You can set this parameter to a value from 30 to 365 to specify the validity period in days. After the password expires, the end user must change the password before logging on again.
    * 
-   * > This feature is in invited preview. To use this feature, submit a ticket.
+   * > This feature is in invitational preview. To use this feature, submit a ticket.
    * 
    * @example
    * 30
@@ -165,7 +163,7 @@ export class CreateUsersRequest extends $dara.Model {
   passwordExpireDays?: string;
   /**
    * @remarks
-   * Details about the convenience users.
+   * The convenience account information.
    * 
    * This parameter is required.
    * 

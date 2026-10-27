@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUsersResponseBodyRemoveUsersResultFailedUsers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the convenience user that failed to be removed.
+   * The convenience user that failed to be deleted.
    * 
    * @example
    * test2
@@ -55,25 +55,31 @@ export class RemoveUsersResponseBodyRemoveUsersResultFailedUsers extends $dara.M
 export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
   /**
    * @remarks
-   * The convenience users that failed to be removed.
+   * The information about the users that failed to be deleted.
    */
   failedUsers?: RemoveUsersResponseBodyRemoveUsersResultFailedUsers[];
+  processingUsers?: string[];
   /**
    * @remarks
-   * The convenience users that were removed.
+   * The convenience users that are successfully deleted.
    */
   removedUsers?: string[];
+  submittedUsers?: string[];
   static names(): { [key: string]: string } {
     return {
       failedUsers: 'FailedUsers',
+      processingUsers: 'ProcessingUsers',
       removedUsers: 'RemovedUsers',
+      submittedUsers: 'SubmittedUsers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       failedUsers: { 'type': 'array', 'itemType': RemoveUsersResponseBodyRemoveUsersResultFailedUsers },
+      processingUsers: { 'type': 'array', 'itemType': 'string' },
       removedUsers: { 'type': 'array', 'itemType': 'string' },
+      submittedUsers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -81,8 +87,14 @@ export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
     if(Array.isArray(this.failedUsers)) {
       $dara.Model.validateArray(this.failedUsers);
     }
+    if(Array.isArray(this.processingUsers)) {
+      $dara.Model.validateArray(this.processingUsers);
+    }
     if(Array.isArray(this.removedUsers)) {
       $dara.Model.validateArray(this.removedUsers);
+    }
+    if(Array.isArray(this.submittedUsers)) {
+      $dara.Model.validateArray(this.submittedUsers);
     }
     super.validate();
   }
@@ -95,12 +107,12 @@ export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
 export class RemoveUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of removing the convenience user.
+   * The result of deleting the convenience users.
    */
   removeUsersResult?: RemoveUsersResponseBodyRemoveUsersResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

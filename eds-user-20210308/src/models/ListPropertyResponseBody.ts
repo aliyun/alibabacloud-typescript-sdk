@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPropertyResponseBodyPropertiesPropertyValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * A
@@ -13,7 +13,7 @@ export class ListPropertyResponseBodyPropertiesPropertyValues extends $dara.Mode
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 42
@@ -45,7 +45,7 @@ export class ListPropertyResponseBodyPropertiesPropertyValues extends $dara.Mode
 export class ListPropertyResponseBodyProperties extends $dara.Model {
   /**
    * @remarks
-   * The ID of the property.
+   * The property ID.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class ListPropertyResponseBodyProperties extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The name of the property.
+   * The property name.
    * 
    * @example
    * department
@@ -61,7 +61,7 @@ export class ListPropertyResponseBodyProperties extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * Details about the property values.
+   * The property value information.
    */
   propertyValues?: ListPropertyResponseBodyPropertiesPropertyValues[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListPropertyResponseBodyProperties extends $dara.Model {
 export class ListPropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used for the next query. If this parameter is empty, all results have been returned.
+   * The token used to start the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -103,12 +103,12 @@ export class ListPropertyResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about the properties.
+   * The property information.
    */
   properties?: ListPropertyResponseBodyProperties[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

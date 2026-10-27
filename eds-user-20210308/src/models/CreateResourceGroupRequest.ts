@@ -23,19 +23,34 @@ export class CreateResourceGroupRequest extends $dara.Model {
   isResourceGroupWithOfficeSite?: number;
   /**
    * @remarks
-   * For WUYING Workspace Enterprise Edition, set this parameter to `AliyunConsole`. Other platforms are not supported.
+   * For Elastic Desktop Service (EDS) Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
    * 
    * @example
    * AliyunConsole
    */
   platform?: string;
+  /**
+   * @remarks
+   * The resource category.
+   * 
+   * @example
+   * Default
+   */
   resourceClassification?: string;
+  /**
+   * @remarks
+   * The description of the resource group. This parameter is optional. The description can be up to 500 characters in length and is saved as-is.
+   * 
+   * @example
+   * Department A resource group
+   */
+  resourceGroupDescription?: string;
   /**
    * @remarks
    * The name of the resource group.
    * 
    * @example
-   * 部门A资源组
+   * Department A resource group
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -46,6 +61,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
       platform: 'Platform',
       resourceClassification: 'ResourceClassification',
+      resourceGroupDescription: 'ResourceGroupDescription',
       resourceGroupName: 'ResourceGroupName',
     };
   }
@@ -58,6 +74,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       isResourceGroupWithOfficeSite: 'number',
       platform: 'string',
       resourceClassification: 'string',
+      resourceGroupDescription: 'string',
       resourceGroupName: 'string',
     };
   }

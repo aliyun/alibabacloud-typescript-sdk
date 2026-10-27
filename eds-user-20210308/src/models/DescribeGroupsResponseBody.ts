@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The Policy Name of the logon policy.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the logon policy.
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,15 +37,19 @@ export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.M
 }
 
 export class DescribeGroupsResponseBodyGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The logon policy associated with the user group.
+   */
   attachedLoginPolicy?: DescribeGroupsResponseBodyGroupsAttachedLoginPolicy;
   /**
    * @remarks
-   * The list of assigned resources.
+   * The list of allocated resources.
    */
   authedResources?: { [key: string]: string };
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the ISO 8601 standard in the UTC+08:00 time zone.
    * 
    * @example
    * 2025-08-07T13:40:40+08:00
@@ -53,12 +65,12 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether download requires approval.
+   * Indicates whether approval is required for downloads.
    */
   downloadNeedApproval?: boolean;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-2412ojkwtybd****
@@ -66,7 +78,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * TestGroup
@@ -74,7 +86,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether file approval is enabled.
+   * Specifies whether file approval is enabled.
    * 
    * @example
    * false
@@ -82,7 +94,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   transferFileNeedApproval?: boolean;
   /**
    * @remarks
-   * Indicates whether upload requires approval.
+   * Indicates whether approval is required for uploads.
    */
   uploadNeedApproval?: boolean;
   /**
@@ -141,7 +153,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
 export class DescribeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned in the query result.
+   * The number of query results.
    * 
    * @example
    * 1
@@ -154,7 +166,7 @@ export class DescribeGroupsResponseBody extends $dara.Model {
   groups?: DescribeGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

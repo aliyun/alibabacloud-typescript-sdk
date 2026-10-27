@@ -13,7 +13,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   email?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
    * test1
@@ -29,7 +29,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   phone?: string;
   /**
    * @remarks
-   * The display name.
+   * The display name of the user.
    * 
    * @example
    * Bean
@@ -37,7 +37,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   realNickName?: string;
   /**
    * @remarks
-   * The user\\"s remark.
+   * The user remarks.
    * 
    * @example
    * remark1
@@ -83,7 +83,7 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
   email?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
    * test2
@@ -145,12 +145,12 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
 export class CreateUsersResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The convenience accounts that were successfully created.
+   * The information about the convenience accounts that are created.
    */
   createdUsers?: CreateUsersResponseBodyCreateResultCreatedUsers[];
   /**
    * @remarks
-   * The convenience accounts that failed to be created.
+   * The information about the convenience accounts that failed to be created.
    */
   failedUsers?: CreateUsersResponseBodyCreateResultFailedUsers[];
   static names(): { [key: string]: string } {
@@ -183,10 +183,14 @@ export class CreateUsersResponseBodyCreateResult extends $dara.Model {
 }
 
 export class CreateUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether all convenience accounts are created.
+   */
   allSucceed?: boolean;
   /**
    * @remarks
-   * The result of creating convenience accounts.
+   * The result of the convenience account creation operation.
    */
   createResult?: CreateUsersResponseBodyCreateResult;
   /**

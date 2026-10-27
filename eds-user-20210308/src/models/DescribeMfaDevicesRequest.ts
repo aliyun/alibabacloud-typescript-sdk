@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMfaDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The AD domain name.
+   * The address of the AD office network.
    * 
    * @example
    * cn.misumi.pri
@@ -13,7 +13,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * The business channel.
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -21,16 +21,23 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * An array of end user usernames.
+   * The list of usernames of the convenience accounts.
    * 
    * @example
    * test
    */
   endUserIds?: string[];
+  /**
+   * @remarks
+   * Filters the virtual MFA devices by convenience account username.
+   * 
+   * @example
+   * alice
+   */
   filter?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page. Valid range: 1–500.<br>Default value: 100.<br>
+   * The maximum number of results to return. Valid values: 1 to 500. Default value: 100.
    * 
    * @example
    * 100
@@ -38,7 +45,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. This value is the `NextToken` returned from a previous call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -46,7 +53,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * An array of serial numbers for virtual MFA devices.
+   * The list of serial numbers of the virtual MFA devices.
    * 
    * @example
    * c2d9ae94-a64b-4a0d-8024-9519ca50****

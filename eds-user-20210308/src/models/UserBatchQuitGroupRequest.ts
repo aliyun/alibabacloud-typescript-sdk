@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UserBatchQuitGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The business channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class UserBatchQuitGroupRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The user IDs.
+   * The list of user IDs.
    */
   endUserIds?: string[];
   /**

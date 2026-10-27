@@ -16,7 +16,7 @@ export class DescribeOrgByLayerResponseBodyOrgs extends $dara.Model {
    * The name of the organization.
    * 
    * @example
-   * 开发部
+   * Development Department
    */
   orgName?: string;
   /**
@@ -55,12 +55,12 @@ export class DescribeOrgByLayerResponseBodyOrgs extends $dara.Model {
 export class DescribeOrgByLayerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The organizations.
+   * The list of organization information.
    */
   orgs?: DescribeOrgByLayerResponseBodyOrgs[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

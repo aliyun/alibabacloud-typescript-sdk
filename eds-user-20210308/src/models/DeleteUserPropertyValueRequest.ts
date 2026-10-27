@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserPropertyValueRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property ID.
+   * The property ID. You can call [ListProperty](~~ListProperty~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The property value ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property value ID.
+   * The property value ID. You can call [ListProperty](~~ListProperty~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   propertyValueId?: number;
   /**
    * @remarks
-   * The user ID. You can call the [DescribeUsers](~~DescribeUsers~~) operation to query the user ID, which is the return value of the `Id` parameter.
+   * The user ID. You can call [DescribeUsers](~~DescribeUsers~~) to obtain this parameter, which corresponds to the value of the `Id` response parameter.
    * 
    * This parameter is required.
    * 

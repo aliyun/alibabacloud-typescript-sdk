@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUsersCountRequest extends $dara.Model {
   /**
+   * @remarks
+   * > This parameter is not available.
+   * 
    * @example
    * ENTERPRISE
    */
   bizType?: string;
   /**
+   * @remarks
+   * The business channel type.
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
+   * @remarks
+   * > This parameter is currently not available.
+   * 
    * @example
    * co-0esnf80jab***
    */

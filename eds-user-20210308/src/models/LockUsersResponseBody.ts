@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LockUsersResponseBodyLockUsersResultFailedUsers extends $dara.Model {
   /**
    * @remarks
-   * The username of the convenience account that failed to lock.
+   * The convenience account that failed to be locked.
    * 
    * @example
    * alice
@@ -55,12 +55,12 @@ export class LockUsersResponseBodyLockUsersResultFailedUsers extends $dara.Model
 export class LockUsersResponseBodyLockUsersResult extends $dara.Model {
   /**
    * @remarks
-   * A list of convenience accounts that failed to lock.
+   * The list of convenience accounts that failed to be locked.
    */
   failedUsers?: LockUsersResponseBodyLockUsersResultFailedUsers[];
   /**
    * @remarks
-   * A list of successfully locked convenience accounts.
+   * The list of convenience accounts that are successfully locked.
    */
   lockedUsers?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class LockUsersResponseBodyLockUsersResult extends $dara.Model {
 export class LockUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the LockUsers operation.
+   * The result of the lock operation for the convenience accounts.
    */
   lockUsersResult?: LockUsersResponseBodyLockUsersResult;
   /**

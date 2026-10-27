@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
   /**
    * @remarks
-   * The property ID.
+   * The ID of the attribute.
    * 
    * @example
    * 328
@@ -13,7 +13,7 @@ export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The property value ID.
+   * The IDs of the attribute values.
    * 
    * @example
    * 1255
@@ -45,7 +45,7 @@ export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
 export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.Model {
   /**
    * @remarks
-   * The property key.
+   * The name of the attribute.
    * 
    * @example
    * job
@@ -53,7 +53,7 @@ export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.M
   propertyKey?: string;
   /**
    * @remarks
-   * The property value.
+   * The values of the attribute.
    * 
    * @example
    * dev
@@ -93,21 +93,25 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The usernames (`EndUserId`) to exclude by exact match.
+   * The list of usernames (EndUserIds) to exclude by exact match.
    */
   excludeEndUserIds?: string[];
   /**
    * @remarks
-   * The string for a fuzzy search on the username (`EndUserId`) and email address (`Email`). The wildcard character (`*`) is supported. For example, if you set this parameter to `a*m`, the query returns all results where the username or email address starts with `a` and ends with `m`.
+   * The fuzzy search string. This parameter supports matching the username (EndUserId) and email address (Email). Wildcards (*) are supported. For example, if you set this parameter to a*m, all results where the username or email address starts with a and ends with m are returned.
    * 
    * @example
    * a*m
    */
   filter?: string;
+  /**
+   * @remarks
+   * The fuzzy match condition mapping for user information. This parameter supports fields such as the username, remarks, phone number, email address, nickname, and employee ID.
+   */
   filterMapShrink?: string;
   /**
    * @remarks
-   * Specifies whether to return the number of cloud desktops that are assigned to the user.
+   * Specifies whether to return the number of cloud computers assigned to the user.
    * 
    * @example
    * true
@@ -115,21 +119,25 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   includeDesktopCount?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the number of desktop groups that are assigned to the user.
+   * Specifies whether to return the number of cloud computer pools assigned to the user.
    * 
    * @example
    * false
    */
   includeDesktopGroupCount?: boolean;
+  /**
+   * @remarks
+   * The list of convenience account usernames to include in the query results.
+   */
   includeEndUserIds?: string[];
   /**
    * @remarks
-   * Specifies whether to include organization information in the response.
+   * Specifies whether to include organization information.
    */
   includeOrgInfo?: boolean;
   /**
    * @remarks
-   * Specifies whether to include the supported logon types in the response.
+   * Specifies whether to include the supported logon types.
    */
   includeSupportIdps?: boolean;
   /**
@@ -139,7 +147,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries per page. If you specify a value greater than 100, the system automatically sets this parameter to 100.
+   * The number of entries per page in a paged query. If the value exceeds 100, it is automatically reset to 100.
    * 
    * @example
    * 10
@@ -147,7 +155,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the number of results exceeds the value of the `MaxResults` parameter, a `NextToken` is returned. You can use the `NextToken` to query the next page of results.
+   * The token for the next query. You do not need to specify this parameter when you call this operation for the first time. If the response does not contain all results, a non-empty NextToken is returned. You can use the returned NextToken in subsequent queries to obtain the remaining results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -155,12 +163,12 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sorting parameters.
+   * The supported sorting parameters.
    */
   orderParamShrink?: string;
   /**
    * @remarks
-   * The organization ID.
+   * The ID of the enterprise organization.
    * 
    * @example
    * org-aliyun-wy-org-id
@@ -176,18 +184,22 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The user properties for a fuzzy search.
+   * The list of user attributes for fuzzy queries.
    */
   propertyFilterParam?: FilterUsersShrinkRequestPropertyFilterParam[];
   /**
    * @remarks
-   * The information about property keys and property values.
+   * The list of attribute names and attribute values.
    */
   propertyKeyValueFilterParam?: FilterUsersShrinkRequestPropertyKeyValueFilterParam[];
+  /**
+   * @remarks
+   * The switch mapping for additional response information. This parameter controls whether to include desktop policy information.
+   */
   showExtras?: { [key: string]: string };
   /**
    * @remarks
-   * The user status by which to filter the results.
+   * The user status used to filter results.
    * 
    * @example
    * 0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitTenantAliasResponseBodyAliasInfo extends $dara.Model {
   /**
    * @remarks
-   * The reason why modification is not allowed.
+   * The reason why editing is not allowed.
    * 
    * @example
    * FrequencyExceedsLimit
@@ -13,7 +13,7 @@ export class InitTenantAliasResponseBodyAliasInfo extends $dara.Model {
   aliasEditDisabledReason?: string;
   /**
    * @remarks
-   * Indicates whether modification is allowed.
+   * Indicates whether editing is allowed.
    * 
    * @example
    * False
@@ -23,18 +23,13 @@ export class InitTenantAliasResponseBodyAliasInfo extends $dara.Model {
    * @remarks
    * The source of the organization ID.
    * 
-   * Valid values:
-   * 
-   * *   Generated: auto-generated.
-   * *   Customized: user-defined.
-   * 
    * @example
    * Customized
    */
   aliasSourceType?: string;
   /**
    * @remarks
-   * The time window during which modification is allowed.
+   * The time when editing is allowed, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-04-17 20:31:48
@@ -70,12 +65,12 @@ export class InitTenantAliasResponseBodyAliasInfo extends $dara.Model {
 export class InitTenantAliasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   aliasInfo?: InitTenantAliasResponseBodyAliasInfo;
   /**
    * @remarks
-   * The generated ID of the organization.
+   * The generated organization ID.
    * 
    * @example
    * WY23***

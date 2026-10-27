@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOrgResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0296EDF8-3C8A-5128-8682-27B29C99****

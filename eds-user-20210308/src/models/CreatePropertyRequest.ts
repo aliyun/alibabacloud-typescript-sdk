@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePropertyRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class CreatePropertyRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The property name.
+   * The property key.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreatePropertyRequest extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * The values of the property. You can specify up to 50 values for a property.
+   * The property values. You can add up to 50 different property values to a single property.
    */
   propertyValues?: string[];
   static names(): { [key: string]: string } {

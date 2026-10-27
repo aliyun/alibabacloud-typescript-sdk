@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitTenantAliasRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE

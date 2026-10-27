@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUsersResponseBodyUsersExtrasResourcePolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the resource policy.
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The Policy Name of the resource policy.
+   */
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,9 +39,13 @@ export class DescribeUsersResponseBodyUsersExtrasResourcePolicyList extends $dar
 export class DescribeUsersResponseBodyUsersExtras extends $dara.Model {
   /**
    * @remarks
-   * The number of assigned cloud resources.
+   * The number of allocated cloud resources.
    */
   assignedResourceCount?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of resource policies associated with the user.
+   */
   resourcePolicyList?: DescribeUsersResponseBodyUsersExtrasResourcePolicyList[];
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +79,7 @@ export class DescribeUsersResponseBodyUsersExtras extends $dara.Model {
 export class DescribeUsersResponseBodyUsersGroups extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-12341234****
@@ -75,10 +87,10 @@ export class DescribeUsersResponseBodyUsersGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
-   * UserGroup1
+   * User Group 1
    */
   groupName?: string;
   static names(): { [key: string]: string } {
@@ -107,7 +119,7 @@ export class DescribeUsersResponseBodyUsersGroups extends $dara.Model {
 export class DescribeUsersResponseBodyUsersOrgs extends $dara.Model {
   /**
    * @remarks
-   * The department ID.
+   * The ID of the department.
    * 
    * @example
    * org-4mdgc1cocc59z****
@@ -115,12 +127,19 @@ export class DescribeUsersResponseBodyUsersOrgs extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The department name.
+   * The name of the department.
    * 
    * @example
-   * Department1
+   * Department 1
    */
   orgName?: string;
+  /**
+   * @remarks
+   * The name path from the root organization to the current organization.
+   * 
+   * @example
+   * Product Department/Design Department
+   */
   orgNamePath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,12 +212,12 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
    * The work address of the user.
    * 
    * @example
-   * Hangzhou ***
+   * Hangzhou***
    */
   address?: string;
   /**
    * @remarks
-   * The URL of the user\\"s profile picture.
+   * The URL of the profile picture.
    * 
    * @example
    * https://cdn.*****
@@ -214,7 +233,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether administrator access permissions are enabled.
+   * Specifies whether to enable administrator access permissions.
    */
   enableAdminAccess?: boolean;
   /**
@@ -227,8 +246,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The username imported from an external source.
-   * 
+   * The name of the externally imported user.
    * > This field is not publicly available.
    * 
    * @example
@@ -237,17 +255,17 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   externalName?: string;
   /**
    * @remarks
-   * The extended user information.
+   * The extended information of the user.
    */
   extras?: DescribeUsersResponseBodyUsersExtras;
   /**
    * @remarks
-   * The collection of user groups to which the convenience account belongs.
+   * The collection of user groups to which the convenience user belongs.
    */
   groups?: DescribeUsersResponseBodyUsersGroups[];
   /**
    * @remarks
-   * The convenience account ID.
+   * The ID of the convenience user.
    * 
    * @example
    * 4205**
@@ -255,7 +273,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the user is a user administrator. If the convenience account is of the administrator-activated type, a user administrator must be specified. Notifications such as password resets initiated by end users through the client are sent to the user administrator\\"s email or phone. For more information, see [Create a convenience account](https://help.aliyun.com/document_detail/214472.html).
+   * Indicates whether the user is a tenant administrator. If the convenience user to be created uses the administrator activation type, you must specify a tenant administrator. Notifications such as password resets initiated by end users through the client are sent to the email address or mobile phone number of the tenant administrator. For more information, see [Create a convenience user](https://help.aliyun.com/document_detail/214472.html).
    * 
    * @example
    * true
@@ -271,7 +289,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   jobNumber?: string;
   /**
    * @remarks
-   * The nickname of the user. The value is determined in the following order:
+   * The nickname of the user. The value is obtained in the following order:
    * - RealNickName
    * - Remark
    * - EndUserId
@@ -282,8 +300,8 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The department ID to which the convenience account belongs.
-   * > This parameter will be deprecated soon.
+   * The ID of the department to which the convenience user belongs.
+   * > **[Deprecated]** This parameter will be deprecated soon.
    * 
    * @example
    * org-4mdgc1cocc59z****
@@ -291,25 +309,38 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The collection of departments to which the convenience account belongs.
+   * The collection of departments to which the convenience user belongs.
    */
   orgs?: DescribeUsersResponseBodyUsersOrgs[];
   /**
    * @remarks
-   * The convenience account type, which includes:
-   * 
-   * * Administrator-activated type: The administrator sets the username and password. User notifications such as password resets are sent to the administrator\\"s email or phone.
-   * * User-activated type: The administrator sets the username and the user\\"s email or phone for receiving notifications. User notifications such as cloud computer provisioning notifications (including the initial password) are sent to the user\\"s email or phone.
+   * The convenience user type. Valid values:
+   * - CreateFromManager: administrator-activated. The administrator sets the username and password. User notifications such as password reset notifications are sent to the email address or mobile phone number of the administrator.
+   * - Normal: user-activated. The administrator sets the username and the email address or mobile phone number for receiving notifications. User notifications such as cloud desktop activation notifications (including the initial password) are sent to the email address or mobile phone number of the user.
    * 
    * @example
    * Normal
    */
   ownerType?: string;
+  /**
+   * @remarks
+   * The password validity period, in days. Valid values: 30 to 365. By default, the password never expires.
+   * 
+   * @example
+   * 30
+   */
   passwordExpireDays?: number;
+  /**
+   * @remarks
+   * The remaining days of the password validity period.
+   * 
+   * @example
+   * 10
+   */
   passwordExpireRestDays?: number;
   /**
    * @remarks
-   * The phone number. This parameter is not returned if it is not set.
+   * The mobile phone number. This parameter is not returned if it is not configured.
    * 
    * @example
    * 1381111****
@@ -330,7 +361,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   realNickName?: string;
   /**
    * @remarks
-   * The remark of the convenience account.
+   * The remarks for the convenience user.
    * 
    * @example
    * Test user.
@@ -346,7 +377,7 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The globally unique ID of the convenience account.
+   * The globally unique ID of the convenience user.
    * 
    * @example
    * 41fd1254d8f7****
@@ -432,12 +463,15 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
 export class DescribeUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of users that meet the query conditions
+   * The total number of users that meet the query conditions.
+   * 
+   * @example
+   * 0
    */
   count?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty NextToken indicates that no more results exist.
+   * The token for the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -453,7 +487,7 @@ export class DescribeUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The collection of convenience account information.
+   * The collection of convenience user information.
    */
   users?: DescribeUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

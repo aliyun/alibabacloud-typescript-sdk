@@ -11,15 +11,22 @@ export class DescribeGroupsRequest extends $dara.Model {
    * ENTERPRISE
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The business channel.
+   * 
+   * @example
+   * ENTERPRISE
+   */
   businessChannel?: string;
   /**
    * @remarks
-   * Specifies whether to exclude user groups that have associated logon policies.
+   * Specifies whether to exclude user groups that are associated with logon policies.
    */
   excludeAttachedLoginPolicyGroups?: boolean;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-16nf7xxh4o9gc****
@@ -27,21 +34,28 @@ export class DescribeGroupsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * TestGroup
    */
   groupName?: string;
+  /**
+   * @remarks
+   * Filters user groups by the identity provider ID.
+   * 
+   * @example
+   * idp-hlyexfvwert9m8****
+   */
   idpId?: string;
   /**
    * @remarks
-   * Filters user groups by the specified associated logon policy.
+   * Specifies the ID of the associated logon policy for filtering.
    */
   loginPolicyId?: string;
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number for paging in the paged query.
    * 
    * @example
    * 1
@@ -49,7 +63,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The number of entries per page for paging in the paged query Settings. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -65,7 +79,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   solutionId?: string;
   /**
    * @remarks
-   * Indicates whether file approval is enabled.
+   * Specifies whether file approval is enabled.
    * 
    * @example
    * false

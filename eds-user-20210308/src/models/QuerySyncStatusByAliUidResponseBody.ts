@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Alibaba Cloud account ID.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 131239236086****
@@ -21,7 +21,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 2020-06-30 07:50:42
@@ -29,7 +29,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The updated at time.
+   * The modification time.
    * 
    * @example
    * 2022-03-02 14:27:39
@@ -37,7 +37,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Auto increment ID.
+   * The auto-increment ID.
    * 
    * @example
    * 18500
@@ -45,7 +45,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The latest start time.
+   * The last start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-03-02 14:31:39
@@ -53,7 +53,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   latestBeginTime?: string;
   /**
    * @remarks
-   * The latest end time, regardless of whether the operation succeeded or failed.
+   * The last end time, regardless of success or failure. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-03-02 16:13:12
@@ -61,7 +61,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   latestEndTime?: string;
   /**
    * @remarks
-   * The latest success time.
+   * The last success time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-03-02 18:24:01
@@ -115,7 +115,7 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
 export class QuerySyncStatusByAliUidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * System status code.
+   * The system status code.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class QuerySyncStatusByAliUidResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message returned if the request fails.
    * 
    * @example
    * success
@@ -152,7 +152,7 @@ export class QuerySyncStatusByAliUidResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

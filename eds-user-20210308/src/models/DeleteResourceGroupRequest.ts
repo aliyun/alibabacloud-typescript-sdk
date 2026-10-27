@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,9 +13,9 @@ export class DeleteResourceGroupRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * >  The ID of the resource group that you want to delete.
+   * The ID of the resource group to delete.
    * 
-   * *   If you also specify ResourceGroupIds, both parameters take effect.
+   * > If the `ResourceGroupIds` parameter is not empty, both parameters take effect.
    * 
    * @example
    * rg-aj01tck67a0szp***
@@ -23,9 +23,9 @@ export class DeleteResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * >  The IDs of the resource groups that you want to delete.
+   * The list of IDs of the resource groups to delete.
    * 
-   * *   If you also specify ResourceGroupId, both parameters take effect.
+   * > If the `ResourceGroupIds` parameter is not empty, both parameters take effect.
    */
   resourceGroupIds?: string[];
   static names(): { [key: string]: string } {

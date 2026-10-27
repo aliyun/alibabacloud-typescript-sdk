@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetUserPasswordResponseBodyResetUsersResultFailedUsers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the convenience user whose password failed to be reset.
+   * The convenience user for whom the password reset failed.
    * 
    * @example
    * alice
@@ -55,12 +55,12 @@ export class ResetUserPasswordResponseBodyResetUsersResultFailedUsers extends $d
 export class ResetUserPasswordResponseBodyResetUsersResult extends $dara.Model {
   /**
    * @remarks
-   * The information about the convenience users whose passwords failed to be reset.
+   * The list of convenience users for whom the password reset failed.
    */
   failedUsers?: ResetUserPasswordResponseBodyResetUsersResultFailedUsers[];
   /**
    * @remarks
-   * The convenience users to which the system sent a password reset email.
+   * The list of convenience users to whom the password reset emails have been sent.
    */
   resetUsers?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ResetUserPasswordResponseBodyResetUsersResult extends $dara.Model {
 export class ResetUserPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 32D05B39-E6EE-4D7A-9FD0-762A26859D0D
@@ -103,7 +103,7 @@ export class ResetUserPasswordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of resetting the password of the convenience user.
+   * The result of the password reset operation for the convenience users.
    */
   resetUsersResult?: ResetUserPasswordResponseBodyResetUsersResult;
   static names(): { [key: string]: string } {

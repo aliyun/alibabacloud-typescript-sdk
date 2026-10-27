@@ -21,7 +21,7 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelFailedP
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the property.
+   * The property ID.
    * 
    * @example
    * 390
@@ -29,7 +29,7 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelFailedP
   propertyId?: number;
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * testvalue
@@ -65,7 +65,7 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelFailedP
 export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelSavePropertyValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the property.
+   * The property value.
    * 
    * @example
    * testvalue2
@@ -73,7 +73,7 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelSavePro
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 978
@@ -105,12 +105,12 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelSavePro
 export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModel extends $dara.Model {
   /**
    * @remarks
-   * The property values that failed to be modified.
+   * The property values that failed to update.
    */
   failedPropertyValues?: UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelFailedPropertyValues[];
   /**
    * @remarks
-   * The property values that were modified.
+   * The successfully updated property values.
    */
   savePropertyValues?: UpdatePropertyResponseBodyUpdateResultSavePropertyValueModelSavePropertyValues[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class UpdatePropertyResponseBodyUpdateResultSavePropertyValueModel extend
 export class UpdatePropertyResponseBodyUpdateResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the property.
+   * The property ID.
    * 
    * @example
    * 390
@@ -153,7 +153,7 @@ export class UpdatePropertyResponseBodyUpdateResult extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The name of the property.
+   * The property name.
    * 
    * @example
    * testkey2
@@ -161,7 +161,7 @@ export class UpdatePropertyResponseBodyUpdateResult extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * The result of the property value modification.
+   * The property value update result.
    */
   savePropertyValueModel?: UpdatePropertyResponseBodyUpdateResultSavePropertyValueModel;
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class UpdatePropertyResponseBodyUpdateResult extends $dara.Model {
 export class UpdatePropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -203,7 +203,7 @@ export class UpdatePropertyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the modification.
+   * The update result.
    */
   updateResult?: UpdatePropertyResponseBodyUpdateResult;
   static names(): { [key: string]: string } {

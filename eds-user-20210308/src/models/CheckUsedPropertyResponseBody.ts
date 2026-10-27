@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUsedPropertyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 22C97624-2405-54AC-BD44-A63FBE97****
@@ -13,7 +13,7 @@ export class CheckUsedPropertyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of convenience users that are associated with the property.
+   * The number of convenience accounts associated with the specified custom property.
    * 
    * @example
    * 2

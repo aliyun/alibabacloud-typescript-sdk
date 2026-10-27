@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPropertyValueRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class ListPropertyValueRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
+   * The property ID. You can call [ListProperty](~~ListProperty~~) to query the property ID.
    * 
    * This parameter is required.
    * 
