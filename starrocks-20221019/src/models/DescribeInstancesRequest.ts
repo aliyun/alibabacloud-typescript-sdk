@@ -63,26 +63,26 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status. You can specify multiple statuses separated by commas. Valid values:
    * <ul>
-   * <li>unpaid: Pending payment.</li>
+   * <li>unpaid: Unpaid.</li>
    * <li>paid: Paid.</li>
    * <li>creating: Starting.</li>
    * <li>running: Running.</li>
-   * <li>updating: Updating.</li>
+   * <li>updating: Upgrading.</li>
    * <li>disable: Unavailable.</li>
    * <li>deleting: Releasing.</li>
    * <li>scaling_out: Scaling out.</li>
    * <li>scaling_in: Scaling in.</li>
    * <li>scaling_up: Scaling up.</li>
    * <li>scaling_down: Scaling down.</li>
-   * <li>upgrading: Upgrading.</li>
+   * <li>upgrading: Upgrading the version.</li>
    * <li>modifying_config: Updating configurations.</li>
-   * <li>enable_public_network: Enabling public network access.</li>
-   * <li>disable_public_network: Disabling public network access.</li>
+   * <li>enable_public_network: Enabling the public network.</li>
+   * <li>disable_public_network: Disabling the public network.</li>
    * <li>convert_from_trial_to_official: Upgrading the instance edition.</li>
    * <li>restarting: Restarting the cluster.</li>
    * <li>migration_cluster_to_serverless: Migrating the cluster.</li>
    * <li>actively_disabled: Stopped.</li>
-   * <li>enabling: Resuming.</li>
+   * <li>enabling: Recovering.</li>
    * <li>agent_creating: Creating the agent.</li>
    * <li>agent_scaling_up: Scaling up the agent.</li>
    * </ul>
@@ -101,7 +101,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {

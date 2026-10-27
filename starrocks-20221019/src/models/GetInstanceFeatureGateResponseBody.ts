@@ -51,6 +51,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
    * true
    */
   supportBackup?: boolean;
+  supportConvertComputeFreeToPostPaid?: boolean;
   /**
    * @remarks
    * Indicates whether agent creation is supported.
@@ -181,6 +182,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       mountDlfMetaToken: 'MountDlfMetaToken',
       supportAddConfigTypes: 'SupportAddConfigTypes',
       supportBackup: 'SupportBackup',
+      supportConvertComputeFreeToPostPaid: 'SupportConvertComputeFreeToPostPaid',
       supportCreateAgent: 'SupportCreateAgent',
       supportCreateNonStandardNodeGroup: 'SupportCreateNonStandardNodeGroup',
       supportEed: 'SupportEed',
@@ -208,6 +210,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       mountDlfMetaToken: 'boolean',
       supportAddConfigTypes: { 'type': 'array', 'itemType': 'string' },
       supportBackup: 'boolean',
+      supportConvertComputeFreeToPostPaid: 'boolean',
       supportCreateAgent: 'boolean',
       supportCreateNonStandardNodeGroup: 'boolean',
       supportEed: 'boolean',
