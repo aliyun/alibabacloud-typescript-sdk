@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceGroupInspectReportListRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. By default, the default agent is used. You can also specify the ID of an agent that is generated after DAS Agent is activated or manually created.
+   * Optional. The default agent is used by default. Alternatively, you can specify an agent that was generated after DAS Agent was activated or manually created.
    * 
    * @example
    * ag-472T0DxtmjIxxxxx
@@ -13,7 +13,7 @@ export class GetInstanceGroupInspectReportListRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The end time of the query. The time is a UNIX timestamp in milliseconds.
+   * The end time of the query, which is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -29,10 +29,17 @@ export class GetInstanceGroupInspectReportListRequest extends $dara.Model {
    * null
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The type of the inspection report.
+   * 
+   * @example
+   * daily
+   */
   reportType?: string;
   /**
    * @remarks
-   * The start time of the query. The time is a UNIX timestamp in milliseconds.
+   * The start time of the query, which is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

@@ -7,8 +7,8 @@ export class ModifyForwardSqlLogConfigRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the feature. Valid values:
    * 
-   * - **true**: Enable.
-   * - **false**: Disable.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyForwardSqlLogConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The service type. Valid values:
-   * DAS_OPS: enables TOP KEY delivery.
+   * - DAS_OPS: enables top key delivery.
    * 
    * This parameter is required.
    * 
@@ -39,8 +39,8 @@ export class ModifyForwardSqlLogConfigRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The task source. Valid values:
-   * - TOP_KEY: enables TOP KEY delivery.
+   * The source of the task. Valid values:
+   * - TOP_KEY: enables top key delivery.
    * 
    * This parameter is required.
    * 

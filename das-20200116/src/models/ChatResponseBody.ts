@@ -20,6 +20,11 @@ export class ChatResponseBody extends $dara.Model {
    */
   agentId?: string;
   /**
+   * @example
+   * direct_skill_rejected
+   */
+  code?: string;
+  /**
    * @remarks
    * The response content.
    * 
@@ -51,6 +56,11 @@ export class ChatResponseBody extends $dara.Model {
    * SQL performance diagnostics
    */
   label?: string;
+  /**
+   * @example
+   * [HdmApiClient] instance is not managed by the agent
+   */
+  message?: string;
   /**
    * @remarks
    * The message ID.
@@ -191,10 +201,12 @@ export class ChatResponseBody extends $dara.Model {
     return {
       activityType: 'ActivityType',
       agentId: 'AgentId',
+      code: 'Code',
       content: 'Content',
       delta: 'Delta',
       kind: 'Kind',
       label: 'Label',
+      message: 'Message',
       messageId: 'MessageId',
       name: 'Name',
       originatingToolCallId: 'OriginatingToolCallId',
@@ -219,10 +231,12 @@ export class ChatResponseBody extends $dara.Model {
     return {
       activityType: 'string',
       agentId: 'string',
+      code: 'string',
       content: 'string',
       delta: 'string',
       kind: 'string',
       label: 'string',
+      message: 'string',
       messageId: 'string',
       name: 'string',
       originatingToolCallId: 'string',

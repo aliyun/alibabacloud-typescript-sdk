@@ -45,7 +45,7 @@ export class DescribeSlowLogHistogramAsyncRequestFilters extends $dara.Model {
 export class DescribeSlowLogHistogramAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. Specify a UNIX timestamp in milliseconds.
+   * The end time of the query. Specify the time as a UNIX timestamp in milliseconds.
    * > The end time must be later than the start time.
    * 
    * This parameter is required.
@@ -71,8 +71,8 @@ export class DescribeSlowLogHistogramAsyncRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node ID.
-   * > For PolarDB for MySQL instances, specify the node ID.
+   * The ID of the node.
+   * > For a PolarDB for MySQL instance, you must specify the node ID.
    * 
    * @example
    * r-****-db-0
@@ -80,7 +80,7 @@ export class DescribeSlowLogHistogramAsyncRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify a UNIX timestamp in milliseconds.
+   * The start time of the query task. Specify the time as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

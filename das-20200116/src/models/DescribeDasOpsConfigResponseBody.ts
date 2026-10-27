@@ -16,7 +16,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The payment method.
+   * The billing method.
    * 
    * @example
    * http://prodpopscanGGfYbZif.302prod.xaliyun.com
@@ -24,7 +24,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Managed Services instance ID.
+   * The instance ID of Alibaba Cloud Managed Services.
    * 
    * @example
    * pc-2zelo5v5u0678jx04
@@ -40,7 +40,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   ecoEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud Managed Services is enabled.
+   * Indicates whether Alibaba Cloud Managed Services is enabled.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1608888296000
@@ -56,7 +56,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud Managed Services is enabled.
+   * Indicates whether Alibaba Cloud Managed Services is enabled.
    */
   opsEnable?: boolean;
   /**
@@ -69,7 +69,7 @@ export class DescribeDasOpsConfigResponseBodyData extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1672531200000
@@ -130,7 +130,7 @@ export class DescribeDasOpsConfigResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -146,10 +146,10 @@ export class DescribeDasOpsConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request is successful.
-   * - **false**: The request fails.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

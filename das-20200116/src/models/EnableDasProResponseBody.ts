@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDasProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -21,9 +21,9 @@ export class EnableDasProResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -31,7 +31,7 @@ export class EnableDasProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7172BECE-588A-5961-8126-C216E16B****
@@ -41,9 +41,9 @@ export class EnableDasProResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**
+   * - **true**: The request was successful.
    * 
-   * - **false**
+   * - **false**: The request failed.
    * 
    * @example
    * true

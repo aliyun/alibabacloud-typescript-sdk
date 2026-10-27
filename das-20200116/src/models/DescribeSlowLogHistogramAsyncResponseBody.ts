@@ -11,7 +11,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
   /**
    * @remarks
    * The instance role ID.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    * 
    * @example
    * 2492
@@ -20,7 +20,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
   /**
    * @remarks
    * The instance role.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    * 
    * @example
    * userAdmin
@@ -28,7 +28,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
   insRole?: string;
   /**
    * @remarks
-   * The number of slow logs on the physical node.
+   * The number of slow query logs on the physical node.
    * 
    * @example
    * 10
@@ -67,19 +67,22 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
 export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara.Model {
   /**
    * @remarks
-   * The number of slow logs.
+   * The number of slow query logs.
    */
   count?: number[];
   /**
    * @remarks
    * The trend metrics.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   insItems?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems[];
   /**
    * @remarks
    * The instance role.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
+   * 
+   * @example
+   * userAdmin
    */
   insRole?: string;
   /**
@@ -92,7 +95,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara
   nodeId?: string;
   /**
    * @remarks
-   * The total number of slow logs.
+   * The total number of slow query logs.
    * 
    * @example
    * 20
@@ -136,19 +139,19 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara
 export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The average CPU processing duration. Unit: seconds (s).
+   * The average CPU processing time. Unit: seconds.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   avgCPUTime?: number[];
   /**
    * @remarks
-   * The average number of document rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The average number of scanned documents.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   avgDocExamined?: number[];
   /**
    * @remarks
-   * The average number of rows fetched.
+   * The average number of fetched rows.
    */
   avgFrows?: number[];
   /**
@@ -159,8 +162,8 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   avgIOWrites?: number[];
   /**
    * @remarks
-   * The average number of index rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The average number of scanned index rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   avgKeysExamined?: number[];
   /**
@@ -171,7 +174,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   avgLastRowsCountAffected?: number[];
   /**
    * @remarks
-   * The average lock wait time. Unit: seconds.
+   * The average lock wait time, in seconds.
    */
   avgLockTime?: number[];
   /**
@@ -188,8 +191,8 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   avgPhysicalIOReads?: number[];
   /**
    * @remarks
-   * The average number of rows returned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The average number of returned rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   avgReturnNum?: number[];
   /**
@@ -199,18 +202,18 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   avgRows?: number[];
   /**
    * @remarks
-   * The average number of rows affected.
+   * The average number of affected rows.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   avgRowsCountAffected?: number[];
   /**
    * @remarks
-   * The average number of rows scanned.
+   * The average number of scanned rows.
    */
   avgRowsExamined?: number[];
   /**
    * @remarks
-   * The average number of rows returned.
+   * The average number of returned rows.
    */
   avgRowsSent?: number[];
   /**
@@ -225,26 +228,26 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   avgScnt?: number[];
   /**
    * @remarks
-   * The CPU processing duration. Unit: seconds (s).
+   * The CPU processing time. Unit: seconds.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   CPUTime?: number[];
   /**
    * @remarks
-   * The slow log count trend.
+   * The trend of the number of slow query logs.
    */
   count?: number[];
   /**
    * @remarks
-   * The number of document rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The number of scanned documents.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   docExamined?: number[];
   /**
    * @remarks
-   * The number of rows fetched by the compute node (CN) of the PolarDB-X 2.0 database instance.
+   * The number of rows fetched by the compute nodes (CN) of a PolarDB-X 2.0 database instance.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    */
   frows?: number[];
   /**
@@ -260,8 +263,8 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   item?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItem[];
   /**
    * @remarks
-   * The number of index rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The number of scanned index rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   keysExamined?: number[];
   /**
@@ -272,7 +275,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   lastRowsCountAffected?: number[];
   /**
    * @remarks
-   * The total lock wait time. Unit: seconds.
+   * The total lock wait time, in seconds.
    */
   lockTime?: number[];
   /**
@@ -283,19 +286,19 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   logicalIOReads?: number[];
   /**
    * @remarks
-   * The maximum CPU processing duration. Unit: seconds (s).
+   * The maximum CPU processing time. Unit: seconds.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   maxCPUTime?: number[];
   /**
    * @remarks
-   * The maximum number of document rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The maximum number of scanned documents.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   maxDocExamined?: number[];
   /**
    * @remarks
-   * The maximum number of rows fetched.
+   * The maximum number of fetched rows.
    */
   maxFrows?: number[];
   /**
@@ -306,8 +309,8 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   maxIOWrites?: number[];
   /**
    * @remarks
-   * The maximum number of index rows scanned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The maximum number of scanned index rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   maxKeysExamined?: number[];
   /**
@@ -318,7 +321,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   maxLastRowsCountAffected?: number[];
   /**
    * @remarks
-   * The maximum lock wait time. Unit: seconds.
+   * The maximum lock wait time, in seconds.
    */
   maxLockTime?: number[];
   /**
@@ -335,8 +338,8 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   maxPhysicalIOReads?: number[];
   /**
    * @remarks
-   * The maximum number of rows returned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The maximum number of returned rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   maxReturnNum?: number[];
   /**
@@ -346,23 +349,23 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   maxRows?: number[];
   /**
    * @remarks
-   * The maximum number of rows affected.
+   * The maximum number of affected rows.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   maxRowsCountAffected?: number[];
   /**
    * @remarks
-   * The maximum number of rows scanned.
+   * The maximum number of scanned rows.
    */
   maxRowsExamined?: number[];
   /**
    * @remarks
-   * The maximum number of rows returned.
+   * The maximum number of returned rows.
    */
   maxRowsSent?: number[];
   /**
    * @remarks
-   * The maximum execution duration. Unit: seconds.
+   * The maximum execution duration, in seconds.
    */
   maxRt?: number[];
   /**
@@ -378,44 +381,44 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   physicalIOReads?: number[];
   /**
    * @remarks
-   * The number of rows returned.
-   * >Supported only for ApsaraDB for MongoDB instances.
+   * The number of returned rows.
+   * > This field is supported only by ApsaraDB for MongoDB instances.
    */
   returnNum?: number[];
   /**
    * @remarks
-   * The total number of rows updated or returned by compute nodes of the PolarDB-X 2.0 database instance.
+   * The total number of rows updated or returned by the compute nodes of a PolarDB-X 2.0 database instance.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    */
   rows?: number[];
   /**
    * @remarks
-   * The number of rows affected.
+   * The number of affected rows.
    * >Only ApsaraDB RDS for SQL Server instances are supported.
    */
   rowsCountAffected?: number[];
   /**
    * @remarks
-   * The total number of rows scanned.
-   * > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+   * The total number of scanned rows.
+   * > This field is supported by the following databases: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    */
   rowsExamined?: number[];
   /**
    * @remarks
-   * The number of rows returned.
+   * The number of returned rows.
    */
   rowsSent?: number[];
   /**
    * @remarks
-   * The total execution duration. Unit: seconds.
+   * The total execution duration, in seconds.
    */
   rt?: number[];
   /**
    * @remarks
-   * The number of DN requests from the compute node (CN) of the PolarDB-X 2.0 database instance.
+   * The number of requests sent to data nodes (DN) by the compute nodes (CN) of a PolarDB-X 2.0 database instance.
    * 
-   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   * > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
    */
   scnt?: number[];
   /**
@@ -436,12 +439,12 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
   totalCount?: number;
   /**
    * @remarks
-   * Used only for relational databases.
+   * The timestamp. This field is used only for relational databases.
    */
   ts?: number[];
   /**
    * @remarks
-   * Not used. Reserved field.
+   * Unused. Reserved field.
    */
   tsEnd?: number[];
   static names(): { [key: string]: string } {
@@ -743,7 +746,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
   errorCode?: number;
   /**
    * @remarks
-   * Indicates whether the task is finished.
+   * Indicates whether the task is completed.
    * 
    * @example
    * true
@@ -776,9 +779,9 @@ export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The current state. Valid values:
-   * - **RUNNING**: Running.
-   * - **SUCCESS**: Succeeded.
-   * - **FAIL**: Failed.
+   * - **RUNNING**: The task is running.
+   * - **SUCCESS**: The task was successful.
+   * - **FAIL**: The task failed.
    * 
    * @example
    * SUCCESS
@@ -786,7 +789,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The request time.
+   * The request time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1645668213000
@@ -833,7 +836,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
 export class DescribeSlowLogHistogramAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -841,13 +844,13 @@ export class DescribeSlowLogHistogramAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * AsyncResult<Histogram>。
+   * The AsyncResult<Histogram>.
    */
   data?: DescribeSlowLogHistogramAsyncResponseBodyData;
   /**
    * @remarks
    * The message returned for the request.
-   * >  This parameter returns **Successful** when the request succeeds. If the request fails, an exception message (such as an error code) is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -863,8 +866,7 @@ export class DescribeSlowLogHistogramAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful:
-   * 
+   * Indicates whether the request was successful. Valid values:
    * - **true**: The request was successful.
    * - **false**: The request failed.
    * 

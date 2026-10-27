@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of internal on-disk temporary tables that were created when the SQL statement was executed.
+   * The number of on-disk internal temporary tables created during statement execution.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   createTmpDiskTables?: number;
   /**
    * @remarks
-   * The number of internal temporary tables that were created when the SQL statement was executed.
+   * The number of internal temporary tables created during statement execution.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   createTmpTables?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * testDB
@@ -29,7 +29,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   db?: string;
   /**
    * @remarks
-   * The end ID of the event. By default, the value of this parameter is NULL when the event starts and is changed to the event ID when the event ends.
+   * The end event ID. This parameter is NULL by default when the event starts and is updated to the current event ID of the thread when the event ends.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   endEventId?: number;
   /**
    * @remarks
-   * The number of errors returned for the SQL statement.
+   * The number of errors in the SQL statement.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * The name of the event.
+   * The event name.
    * 
    * @example
    * statement/sql/select
@@ -69,7 +69,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The execution duration. Unit: millisecond.
+   * The execution duration, in milliseconds.
    * 
    * @example
    * 0.199
@@ -77,7 +77,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The lock wait duration. Unit: millisecond.
+   * The lock wait time, in milliseconds.
    * 
    * @example
    * 0.09
@@ -85,7 +85,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   lockLatency?: number;
   /**
    * @remarks
-   * The ID of the logical database.
+   * The logical database ID.
    * 
    * @example
    * xxxxx
@@ -93,11 +93,10 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   logicId?: string;
   /**
    * @remarks
-   * Indicates whether the server failed to find an index that can be used for the SQL statement. Valid values:
+   * Indicates whether the server could not find a good index to use for the statement. Valid values:
    * 
-   * - **1**: yes.
-   * 
-   * - **0**: no.
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -105,11 +104,10 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   noGoodIndexUsed?: number;
   /**
    * @remarks
-   * Indicates whether table scans were performed when indexes were not used. Valid values:
+   * Indicates whether the statement performed a table scan without using an index. Valid values:
    * 
-   * - **1**: yes.
-   * 
-   * - **0**: no.
+   * - **1**: Yes.
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -127,7 +125,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The number of rows affected by the SQL statement.
+   * The number of affected rows.
    * 
    * @example
    * 0
@@ -135,7 +133,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   rowsAffected?: number;
   /**
    * @remarks
-   * The number of rows scanned by the SQL statement.
+   * The number of scanned rows.
    * 
    * @example
    * 2048576
@@ -151,9 +149,8 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   rowsSent?: number;
   /**
    * @remarks
-   * The number of joins that are used to perform table scans without using indexes.
-   * 
-   * > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
+   * The number of joins that perform table scans without using indexes.
+   * >Notice: This parameter counts the joins that do not use indexes during a join query. If the value is not 0, check the table indexes.
    * 
    * @example
    * 0
@@ -161,7 +158,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   selectFullJoin?: number;
   /**
    * @remarks
-   * The number of joins that used ranges on referenced tables.
+   * The number of joins that use a range search on a reference table.
    * 
    * @example
    * 0
@@ -169,7 +166,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   selectFullRangeJoin?: number;
   /**
    * @remarks
-   * The number of joins that used ranges on the first table.
+   * The number of joins that use a range on the first table.
    * 
    * @example
    * 0
@@ -177,9 +174,8 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   selectRange?: number;
   /**
    * @remarks
-   * The number of joins that did not have key values. The keys and values were checked for each row of data.
-   * 
-   * > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
+   * The number of joins without keys that check for key usage after each row.
+   * >Notice: This parameter counts the joins that do not use indexes during a join query. If the value is not 0, check the table indexes.
    * 
    * @example
    * 0
@@ -195,7 +191,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   selectScan?: number;
   /**
    * @remarks
-   * The number of merges that the sorting algorithm must perform.
+   * The number of merge passes that the sort algorithm must perform.
    * 
    * @example
    * 0
@@ -203,7 +199,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   sortMergePasses?: number;
   /**
    * @remarks
-   * The number of times the data was sorted by using ranges.
+   * The number of sorts that use a range.
    * 
    * @example
    * 0
@@ -219,7 +215,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   sortRows?: number;
   /**
    * @remarks
-   * The number of sorts that were performed during table scans.
+   * The number of sort scans.
    * 
    * @example
    * 1
@@ -227,7 +223,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   sortScan?: number;
   /**
    * @remarks
-   * The sample SQL statement.
+   * The SQL sample.
    * 
    * @example
    * select * from xxxx where ****
@@ -235,7 +231,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The SQL statement ID.
+   * The SQL ID.
    * 
    * @example
    * 651b56fe9418d48edb8fdf0980ec****
@@ -251,7 +247,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   threadId?: number;
   /**
    * @remarks
-   * The time when the SQL statement was executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the SQL statement was executed. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1660100753556
@@ -267,7 +263,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The number of warnings returned for the SQL statement.
+   * The number of warnings for the SQL statement.
    * 
    * @example
    * 0
@@ -359,7 +355,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
 export class GetPfsSqlSampleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -367,14 +363,14 @@ export class GetPfsSqlSampleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The SQL sample data.
+   * The returned SQL sample data.
    */
   data?: GetPfsSqlSampleResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -393,7 +389,6 @@ export class GetPfsSqlSampleResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - **true**: The request was successful.
-   * 
    * - **false**: The request failed.
    * 
    * @example

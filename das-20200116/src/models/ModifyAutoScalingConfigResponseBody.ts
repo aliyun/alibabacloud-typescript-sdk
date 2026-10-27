@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoScalingConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -14,8 +14,7 @@ export class ModifyAutoScalingConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
-   * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -31,11 +30,11 @@ export class ModifyAutoScalingConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful:
    * 
-   * - **true**
+   * - **true**: The request was successful.
    * 
-   * - **false**
+   * - **false**: The request failed.
    * 
    * @example
    * true

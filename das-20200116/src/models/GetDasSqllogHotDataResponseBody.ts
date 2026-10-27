@@ -13,7 +13,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * testDB
@@ -21,7 +21,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The UTC time when the execution was recorded, formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The execution time. The time is in the UTC format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2023-05-23 T12:11:20Z
@@ -29,7 +29,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The extended information field. This is a reserved parameter.
    * 
    * @example
    * None
@@ -37,7 +37,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address of the client.
    * 
    * @example
    * 47.100.XX.XX
@@ -45,7 +45,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The latency, in microseconds.
+   * The execution duration. Unit: microseconds.
    * 
    * @example
    * 10000
@@ -53,7 +53,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   latancy?: number;
   /**
    * @remarks
-   * The lock wait time, in microseconds.
+   * The lock wait duration. Unit: microseconds.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   lockTime?: number;
   /**
    * @remarks
-   * The number of logical reads.
+   * The logical reads.
    * 
    * @example
    * 12
@@ -77,7 +77,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The precise UTC time when the execution was recorded, formatted as `yyyy-MM-ddTHH:mm:ss.SSSZ`.
+   * The execution time. The time is in the UTC format: `yyyy-MM-ddTHH:mm:ss.SSSZ`.
    * 
    * @example
    * 2023-05-23 T12:11:20.999Z
@@ -109,7 +109,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   returnRows?: number;
   /**
    * @remarks
-   * The SQL statement.
+   * The details of the SQL statement.
    * 
    * @example
    * select 1
@@ -125,12 +125,9 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   scanRows?: number;
   /**
    * @remarks
-   * The SQL type. Valid values:
-   * 
+   * The type of the SQL statement. Valid values:
    * - **select**
-   * 
    * - **update**
-   * 
    * - **delete**
    * 
    * @example
@@ -139,7 +136,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The execution status. A value of **0** indicates success. Any other value is an error code.
+   * The status. A value of **0** indicates that the execution is successful. Otherwise, an error code is returned.
    * 
    * @example
    * 0
@@ -155,7 +152,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   threadID?: number;
   /**
    * @remarks
-   * The transaction ID.
+   * The ID of the started transaction.
    * 
    * @example
    * 0
@@ -231,7 +228,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
 export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * None
@@ -239,7 +236,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   extra?: any;
   /**
    * @remarks
-   * A list of the returned data.
+   * The list of returned information.
    */
   list?: GetDasSQLLogHotDataResponseBodyDataList[];
   /**
@@ -252,7 +249,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -260,7 +257,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of returned records.
    * 
    * @example
    * 20
@@ -301,7 +298,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
 export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The returned HTTP status code.
    * 
    * @example
    * 200
@@ -314,9 +311,8 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   data?: GetDasSQLLogHotDataResponseBodyData;
   /**
    * @remarks
-   * The response message.
-   * 
-   * > If the request succeeds, **Successful** is returned. If the request fails, an error message is returned, which may include an error code.
+   * The returned message.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message, such as an error code, is returned.
    * 
    * @example
    * Successful
@@ -324,7 +320,7 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID generated by Alibaba Cloud.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 0A74B755-98B7-59DB-8724-1321B394****
@@ -332,11 +328,9 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

@@ -7,7 +7,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
    * @remarks
    * The average number of scanned rows.
    * 
-   * > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+   * > This field is supported by the following databases: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    * 
    * @example
    * 10000
@@ -15,7 +15,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   avgExaminedRows?: number;
   /**
    * @remarks
-   * The average number of rows that are fetched by compute nodes from data nodes on the PolarDB-X 2.0 instance.
+   * The average number of rows pulled by the compute node from the data node in the PolarDB-X 2.0 database instance.
    * 
    * @example
    * 0
@@ -23,7 +23,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   avgFetchRows?: number;
   /**
    * @remarks
-   * The average lock wait latency. Unit: seconds.
+   * The average lock wait time, in seconds.
    * 
    * @example
    * 0.00009589874265269765
@@ -63,7 +63,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   avgReturnedRows?: number;
   /**
    * @remarks
-   * The average execution duration.
+   * The average time to execute.
    * 
    * @example
    * 2.499
@@ -71,7 +71,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   avgRt?: number;
   /**
    * @remarks
-   * The average number of SQL statements.
+   * The average SQL count.
    * 
    * @example
    * 10000
@@ -81,7 +81,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
    * @remarks
    * The average number of updated rows.
    * 
-   * > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
+   * > This field is supported by the following databases: ApsaraDB RDS for MySQL and PolarDB-X 2.0.
    * 
    * @example
    * 10000
@@ -97,7 +97,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   count?: number;
   /**
    * @remarks
-   * The percentage of the total number of executions.
+   * The proportion of times the statements execute.
    * 
    * @example
    * 0.0586
@@ -113,7 +113,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   database?: string;
   /**
    * @remarks
-   * The number of failed executions.
+   * The number of execution errors.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
    * @remarks
    * The total number of scanned rows.
    * 
-   * > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+   * > This field is supported by the following databases: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    * 
    * @example
    * 10000
@@ -131,7 +131,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   examinedRows?: number;
   /**
    * @remarks
-   * The number of rows that are fetched by compute nodes from data nodes on the PolarDB-X 2.0 instance.
+   * The number of rows pulled by the compute node from the data node in the PolarDB-X 2.0 database instance.
    * 
    * @example
    * 0
@@ -139,7 +139,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   fetchRows?: number;
   /**
    * @remarks
-   * The IP address of the database instance.
+   * The network address of the instance.
    * 
    * @example
    * rm-uf6dyi58dm6****.mysql.rds.aliy****.com
@@ -147,7 +147,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   ip?: string;
   /**
    * @remarks
-   * The lock wait latency. Unit: seconds.
+   * The lock wait time, in seconds.
    * 
    * @example
    * 1089.4177720290281
@@ -179,7 +179,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   physicalSyncRead?: number;
   /**
    * @remarks
-   * The port number that is used to connect to the database instance.
+   * The port number.
    * 
    * @example
    * 3306
@@ -195,7 +195,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   psql?: string;
   /**
    * @remarks
-   * The total number of rows updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
+   * The total number of rows updated or returned by the compute node in the PolarDB-X 2.0 database instance.
    * 
    * @example
    * 0
@@ -203,7 +203,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   rows?: number;
   /**
    * @remarks
-   * The number of SQL statements that take longer than 1 second to execute.
+   * The number of SQL statements whose execution time is greater than 1 second.
    * 
    * @example
    * 20
@@ -211,7 +211,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   rtGreaterThanOneSecondCount?: number;
   /**
    * @remarks
-   * The execution duration percentage.
+   * The execution time proportion.
    * 
    * @example
    * 2.499
@@ -235,7 +235,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   sqlId?: string;
   /**
    * @remarks
-   * The total number of updated rows.
+   * The total number of changed rows.
    * 
    * @example
    * 100
@@ -243,12 +243,12 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   sumUpdatedRows?: number;
   /**
    * @remarks
-   * The names of tables in the database.
+   * The name of the database table.
    */
   tables?: string[];
   /**
    * @remarks
-   * The version number.
+   * The version.
    * 
    * @example
    * 1
@@ -256,7 +256,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
   version?: number;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-2zentqj1sk4qmolci****
@@ -351,12 +351,12 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
 export class GetFullRequestStatResultByInstanceIdResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The full request data.
+   * The list of full request data.
    */
   list?: GetFullRequestStatResultByInstanceIdResponseBodyDataResultList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total amount of data.
    * 
    * @example
    * 1
@@ -391,11 +391,11 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResult extends 
 export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the asynchronous request failed. Valid values:
+   * Indicates whether the request failed. Valid values:
    * 
-   * - **true**
+   * - **true**: yes.
    * 
-   * - **false**
+   * - **false**: no.
    * 
    * @example
    * false
@@ -403,11 +403,11 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
   fail?: boolean;
   /**
    * @remarks
-   * Indicates whether the asynchronous request was complete. Valid values:
+   * Indicates whether the asynchronous request is completed. Valid values:
    * 
-   * - **true**
+   * - **true**: yes.
    * 
-   * - **false**
+   * - **false**: no.
    * 
    * @example
    * true
@@ -420,7 +420,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
   result?: GetFullRequestStatResultByInstanceIdResponseBodyDataResult;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9CB97BC4-6479-55D0-B9D0-EA925AFE****
@@ -428,13 +428,13 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
   resultId?: string;
   /**
    * @remarks
-   * The state of the asynchronous request. Valid values:
+   * The execution status of the asynchronous request. Valid values:
    * 
-   * - **RUNNING**
+   * - **RUNNING**: running.
    * 
-   * - **SUCCESS**
+   * - **SUCCESS**: successful.
    * 
-   * - **FAIL**
+   * - **FAIL**: failed.
    * 
    * @example
    * SUCCESS
@@ -442,7 +442,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
   state?: string;
   /**
    * @remarks
-   * The time when the asynchronous request was sent. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The execution time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1645668213000
@@ -485,7 +485,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
 export class GetFullRequestStatResultByInstanceIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -498,9 +498,9 @@ export class GetFullRequestStatResultByInstanceIdResponseBody extends $dara.Mode
   data?: GetFullRequestStatResultByInstanceIdResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -518,9 +518,8 @@ export class GetFullRequestStatResultByInstanceIdResponseBody extends $dara.Mode
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

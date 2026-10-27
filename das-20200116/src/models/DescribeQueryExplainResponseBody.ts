@@ -5,71 +5,71 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   argument?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   avgRowSize?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   definedValues?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   estimateCPU?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   estimateExecutions?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   estimateIO?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   estimateRows?: string;
   /**
    * @remarks
-   * Additional information.
+   * The additional information.
    * 
    * @example
-   * 无
+   * None
    */
   extra?: string;
   /**
    * @remarks
-   * The ID of the query.
+   * The query ID.
    * 
    * @example
    * 1
@@ -77,12 +77,12 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * A reserved field for the PostgreSQL engine.
+   * The reserved field for the PostgreSQL engine.
    */
   indexList?: string[];
   /**
    * @remarks
-   * The index actually used in the execution plan.
+   * The index that is actually used in the execution plan.
    * 
    * @example
    * PRIMARY
@@ -90,7 +90,7 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The length of the index actually used.
+   * The length of the used index.
    * 
    * @example
    * 3
@@ -98,60 +98,60 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   keyLen?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   logicalOp?: string;
   /**
    * @remarks
-   * A reserved field for the PolarDB X engine.
+   * The reserved field for the PolarDB-X engine.
    */
   logicalPlanList?: string[];
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   nodeId?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   outputList?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   parallel?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   parent?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   physicalOp?: string;
   /**
    * @remarks
-   * The indexes that might be used.
+   * The possible indexes.
    * 
    * @example
    * test_idx
@@ -159,15 +159,15 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   possibleKeys?: string;
   /**
    * @remarks
-   * A reserved field for the PostgreSQL engine.
+   * The reserved field for the PostgreSQL engine.
    * 
    * @example
-   * 无
+   * None
    */
   queryPlan?: string;
   /**
    * @remarks
-   * The column used by the index.
+   * The columns used with the index.
    * 
    * @example
    * test_column
@@ -183,7 +183,7 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   rows?: string;
   /**
    * @remarks
-   * The type of the query.
+   * The select type.
    * 
    * @example
    * SIMPLE
@@ -191,23 +191,23 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   selectType?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   stmtId?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   stmtText?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test
@@ -215,15 +215,15 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * A reserved field for the PostgreSQL engine.
+   * The reserved field for the PostgreSQL engine.
    */
   tableList?: string[];
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   totalSubtreeCost?: string;
   /**
@@ -236,10 +236,10 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * A reserved field for the SQL Server engine.
+   * The reserved field for the SQL Server engine.
    * 
    * @example
-   * 无
+   * None
    */
   warnings?: string;
   static names(): { [key: string]: string } {
@@ -335,7 +335,7 @@ export class DescribeQueryExplainResponseBodyData extends $dara.Model {
 export class DescribeQueryExplainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. A value of 200 indicates success.
+   * The returned status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -343,14 +343,13 @@ export class DescribeQueryExplainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of execution plans.
+   * List<ExplainedSqlDO>
    */
   data?: DescribeQueryExplainResponseBodyData[];
   /**
    * @remarks
-   * The response message.
-   * 
-   * > If the request succeeds, this parameter returns Successful. If the request fails, this parameter returns error details such as an error code.
+   * The message returned for the request.
+   * > If the request is successful, Successful is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -358,7 +357,7 @@ export class DescribeQueryExplainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
@@ -366,10 +365,9 @@ export class DescribeQueryExplainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request succeeded.
-   * 
+   * - **true**: The request was successful.
    * - **false**: The request failed.
    * 
    * @example

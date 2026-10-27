@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyForwardSqlLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The LogStore name for real-time delivery to Simple Log Service.
+   * The name of the Simple Log Service Logstore for real-time log delivery.
    * 
    * @example
    * cdn222
@@ -68,9 +68,9 @@ export class ModifyForwardSqlLogConfigResponseBody extends $dara.Model {
   data?: ModifyForwardSqlLogConfigResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
-   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -78,7 +78,7 @@ export class ModifyForwardSqlLogConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
@@ -86,9 +86,9 @@ export class ModifyForwardSqlLogConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * * true: The request is successful.
-   * * false: The request fails.
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

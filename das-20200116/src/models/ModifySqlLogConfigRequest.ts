@@ -45,13 +45,11 @@ export class ModifySqlLogConfigRequestFilters extends $dara.Model {
 export class ModifySqlLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable DAS Enterprise Edition. Valid values:
+   * Specifies whether to enable DAS Enterprise Edition. Valid values:
    * 
-   * - **true**: enables DAS Enterprise Edition.
-   * 
-   * - **false**: disables DAS Enterprise Edition.
-   * 
-   * > This parameter is required when you enable DAS Enterprise Edition. By default, this operation enables the latest supported version.
+   * - **true**: Yes.
+   * - **false**: No.
+   * > This parameter is required when you enable DAS Enterprise Edition. By default, the latest supported version is enabled.
    * 
    * @example
    * true
@@ -59,7 +57,7 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Indicates whether to enable security audit.
+   * Specifies whether to enable security auditing.
    * 
    * @example
    * true
@@ -72,9 +70,9 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   filters?: ModifySqlLogConfigRequestFilters[];
   /**
    * @remarks
-   * The hot storage retention period, in days. The value must be an integer from 1 to 7.
+   * The hot data storage duration. Unit: days. The value is an integer in the range of [1, 7].
    * 
-   * > This parameter is required only if you enable DAS Enterprise Edition V3.
+   * > This parameter is required only when you enable DAS Enterprise Edition V3.
    * 
    * @example
    * 1
@@ -92,13 +90,11 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether to enable SQL Explorer. Valid values:
+   * Specifies whether to enable SQL Explorer. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * - **true**: enables SQL Explorer.
-   * 
-   * - **false**: disables SQL Explorer.
-   * 
-   * > This parameter is required only if you enable DAS Enterprise Edition V3.
+   * > This parameter is required only when you enable DAS Enterprise Edition V3.
    * 
    * @example
    * true
@@ -106,17 +102,14 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   requestEnable?: boolean;
   /**
    * @remarks
-   * The data retention period, in days. Valid values:
+   * The total data storage duration. Unit: days. Valid values:
    * 
    * - 7
-   * 
    * - 30
-   * 
    * - 180
-   * 
    * - 365
    * 
-   * > If you enable DAS Enterprise Edition V3, the value of this parameter must be 30 or greater.
+   * > When you enable DAS Enterprise Edition V3, the value of this parameter must be greater than or equal to 30.
    * 
    * @example
    * 30

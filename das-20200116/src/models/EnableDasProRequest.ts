@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDasProRequest extends $dara.Model {
   /**
    * @remarks
-   * The database instance ID.
+   * The instance ID of the database.
    * 
    * This parameter is required.
    * 
@@ -15,16 +15,12 @@ export class EnableDasProRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The storage duration of SQL Explorer data. Unit: day. Default value: **30**. Valid values:
+   * The storage duration of SQL Explorer data. Unit: days. Default value: **30**. Valid values:
    * 
    * - **30**
-   * 
    * - **180**
-   * 
    * - **365**
-   * 
    * - **1095**
-   * 
    * - **1825**
    * 
    * @example
@@ -33,9 +29,9 @@ export class EnableDasProRequest extends $dara.Model {
   sqlRetention?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to create the database instance.
+   * The instance ID, which is the ID of the Alibaba Cloud account that created the database instance.
    * 
-   * > This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
+   * > This parameter is optional. After you specify the ID of the target database instance, the system automatically obtains the instance ID when you call the API operation.
    * 
    * @example
    * 196278346919****

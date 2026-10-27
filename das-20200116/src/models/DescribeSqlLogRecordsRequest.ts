@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogRecordsRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The filter key.
+   * The filter parameter.
    * 
-   * > For details on supported filter keys and their values, see **Additional information about request parameters**.
+   * > For supported filter parameters and their valid values, refer to **Supplementary request parameter descriptions**.
    * 
    * @example
    * keyWords
@@ -15,7 +15,7 @@ export class DescribeSqlLogRecordsRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value.
+   * The value of the filter parameter.
    * 
    * @example
    * select
@@ -47,7 +47,7 @@ export class DescribeSqlLogRecordsRequestFilters extends $dara.Model {
 export class DescribeSqlLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * A list of filter conditions.
+   * The list of filter conditions.
    */
   filters?: DescribeSqlLogRecordsRequestFilters[];
   /**
@@ -74,8 +74,7 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * - This parameter is applicable only to ApsaraDB RDS for MySQL and PolarDB for MySQL cluster instances. If this parameter is omitted, the log details of the primary node are returned by default.
-   * 
+   * - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter applies only to Cluster Edition instances. If you do not specify this parameter, the log details of the primary node are queried by default.
    * - For PolarDB-X 2.0, set this parameter to **polarx_cn** (compute node) or **polarx_dn** (data node).
    * 
    * @example
@@ -84,7 +83,7 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number for paging. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -92,7 +91,7 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The maximum number of entries per page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -100,10 +99,9 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The role of the node in the PolarDB-X 2.0 database instance.
+   * The role of the node in the PolarDB-X 2.0 instance. Valid values:
    * 
    * - **polarx_cn**: compute node.
-   * 
    * - **polarx_dn**: data node.
    * 
    * @example
@@ -112,7 +110,7 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

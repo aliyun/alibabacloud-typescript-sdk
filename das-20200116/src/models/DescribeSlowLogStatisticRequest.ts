@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogStatisticRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The filter parameter.
+   * The filter key.
    * 
    * @example
    * KeyWords
@@ -13,7 +13,7 @@ export class DescribeSlowLogStatisticRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the filter parameter.
+   * The value of the filter key.
    * 
    * @example
    * select
@@ -45,7 +45,7 @@ export class DescribeSlowLogStatisticRequestFilters extends $dara.Model {
 export class DescribeSlowLogStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort results in ascending order. This feature is disabled by default.
+   * Specifies whether to sort the results in ascending order. Default value: false.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   asc?: boolean;
   /**
    * @remarks
-   * The end time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The end time of the query. The time is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -80,8 +80,8 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter is applicable only to cluster instances. If you do not specify this parameter, the log details of the primary node are queried by default.
-   * - For PolarDB-X 2.0, set this parameter to **polarx_cn** (compute node) or **polarx_dn** (data node).
+   * - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter applies only to Cluster Edition instances. If you do not specify this parameter, the slow query logs of the primary node are queried by default.
+   * - For PolarDB-X 2.0, set this parameter to **polarx_cn** for compute nodes or **polarx_dn** for data nodes.
    * 
    * @example
    * r-x****-db-0
@@ -107,7 +107,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The start time of the query task. The time is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -143,7 +143,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
    * @remarks
    * The task type.
    * 
-   * SQL engine-specific:
+   * Specific to SQL engines:
    * 
    * **SlowLogRequestOrigin**: aggregates logs by source IP address.
    * 
@@ -151,24 +151,23 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
    * 
    * **SQL**: aggregates logs by SQL ID.
    * 
-   * 
-   * MongoDB engine-specific:
+   * Specific to MongoDB engines:
    * 
    * **SlowLogRequestOrigin**: aggregates logs by source IP address.
    * 
    * **SlowLogRequestUser**: aggregates logs by source user.
    * 
-   * **SQL**: aggregates logs by Query ID.
+   * **SQL**: aggregates logs by query ID.
    * 
    * **SlowLogRequestOpType**: aggregates logs by operation type.
    * 
    * **SlowLogRequestNamespace**: aggregates logs by namespace.
    * 
-   * Redis engine-specific:
+   * Specific to Redis engines:
    * 
    * **SlowLogRequestNodeId**: aggregates logs by node ID.
    * 
-   * **SlowLogRequestHostInsId**: aggregates logs by HostInsId.
+   * **SlowLogRequestHostInsId**: aggregates logs by host instance ID.
    * 
    * @example
    * SQL
