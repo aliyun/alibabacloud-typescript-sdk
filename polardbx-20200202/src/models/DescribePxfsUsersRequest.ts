@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePxfsUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务关联的PolarDB-X实例ID。
+   * The instance ID of the PolarDB-X instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribePxfsUsersRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Agent文件服务实例所属地域的ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribePxfsUsersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Agent文件服务的租户ID。
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

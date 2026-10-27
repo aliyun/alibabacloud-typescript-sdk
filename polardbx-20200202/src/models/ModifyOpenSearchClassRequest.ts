@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOpenSearchClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The target disk size per node, in GB. If not specified, the current disk size is retained.
+   * The target disk size per node, in GB. If this parameter is not specified, the current disk size is retained.
    * 
    * @example
    * 500
@@ -33,7 +33,7 @@ export class ModifyOpenSearchClassRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The node specifications code of the PolarDB-X Search data node. This parameter is required. Active node specifications depend on the region and sales configuration, and must differ from the current node specifications.
+   * The node specifications code for PolarDBX Search data nodes. This parameter is required. The active node specifications depend on the region and sales configuration, and must differ from the current node specifications.
    * 
    * @example
    * opensearch.sn2ne.large.1

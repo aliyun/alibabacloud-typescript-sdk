@@ -21,21 +21,21 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   canFinish?: boolean;
   /**
    * @remarks
-   * Indicates whether the migration switchover can be performed. Valid values:
-   * - **true**: The migration switchover can be performed.
-   * - **false**: The migration switchover cannot be performed.
+   * Indicates whether a migration switchover can be performed. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * > This parameter is used by the one-click upgrade feature of PolarDB.
    */
   canSwitch?: boolean;
   /**
    * @remarks
-   * Indicates whether the switchover operation can be reverted.
+   * Indicates whether the switchover operation can be undone.
    */
   canUndoSwitch?: boolean;
   /**
    * @remarks
-   * The Enterprise Edition instance name.
+   * The name of the Enterprise instance.
    * 
    * @example
    * pxc-*****
@@ -56,7 +56,7 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   reportSummary?: { [key: string]: any };
   /**
    * @remarks
-   * The date when the data report was generated.
+   * The generation date of the data report.
    * 
    * @example
    * 2025-09-02 16:52:47.0
@@ -64,7 +64,7 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   reportTime?: number;
   /**
    * @remarks
-   * The standard instance name.
+   * The name of the standard instance.
    * 
    * @example
    * pxc-*****

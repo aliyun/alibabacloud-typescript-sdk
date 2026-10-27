@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenSearchInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeOpenSearchInfoRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the details of regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

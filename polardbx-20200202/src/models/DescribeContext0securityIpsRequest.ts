@@ -15,7 +15,7 @@ export class DescribeContext0SecurityIpsRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

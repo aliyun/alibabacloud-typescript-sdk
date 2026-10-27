@@ -45,7 +45,7 @@ export class CreateOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class CreateOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
 export class CreateOpenSearchAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * @example
    * polardbx_meta_ro
@@ -135,12 +135,12 @@ export class CreateOpenSearchAccountResponseBodyData extends $dara.Model {
 export class CreateOpenSearchAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: CreateOpenSearchAccountResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The details of the returned policy.
+   * The returned policy details.
    */
   data?: CreateOpenSearchAccountResponseBodyData;
   /**

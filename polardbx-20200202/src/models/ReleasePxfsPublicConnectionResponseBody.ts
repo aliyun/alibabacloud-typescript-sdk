@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The identity used for authentication in the request.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The diagnostic information.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * NoPermissionType
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * PolicyType
+   * 
    * @example
    * System
    */
@@ -74,7 +95,7 @@ export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $
 export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务关联的PolarDB-X实例ID。
+   * The instance ID of the PolarDB-X instance.
    * 
    * @example
    * pxc-xxxxxxxx
@@ -82,7 +103,7 @@ export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Agent文件服务实例ID。
+   * The instance ID of the Agent file service.
    * 
    * @example
    * pxfs-xxxxxxxx
@@ -90,7 +111,7 @@ export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
   pxfsInstanceId?: string;
   /**
    * @remarks
-   * 异步任务ID，可用于查询任务状态。
+   * The task ID.
    * 
    * @example
    * 123456789
@@ -122,15 +143,19 @@ export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
 }
 
 export class ReleasePxfsPublicConnectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * 接口返回的业务数据。
+   * The response data.
    */
   data?: ReleasePxfsPublicConnectionResponseBodyData;
   /**
    * @remarks
-   * 请求的唯一标识，可用于排查问题。
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

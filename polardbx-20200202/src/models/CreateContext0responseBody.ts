@@ -13,7 +13,7 @@ export class CreateContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class CreateContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -119,7 +119,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service dashboard instance.
+   * The dashboard instance name of the context service.
    * 
    * @example
    * pxt-*********-d
@@ -135,7 +135,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
   openSearchInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The service instance name of the context service.
    * 
    * @example
    * pxt-*********-s
@@ -185,7 +185,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
 export class CreateContext0ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: CreateContext0ResponseBodyAccessDeniedDetail;
   /**

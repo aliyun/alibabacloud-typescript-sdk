@@ -13,7 +13,7 @@ export class DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail extends $
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail extends $
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -53,7 +53,7 @@ export class DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -111,7 +111,7 @@ export class DescribeContext0SecurityIpsResponseBodyDataGroupItems extends $dara
   groupTag?: string;
   /**
    * @remarks
-   * The details of the whitelist group.
+   * The details of the whitelist in the group.
    * 
    * @example
    * 127.0.0.1,172.168.0.0
@@ -195,7 +195,7 @@ export class DescribeContext0SecurityIpsResponseBodyData extends $dara.Model {
 export class DescribeContext0SecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail;
   /**

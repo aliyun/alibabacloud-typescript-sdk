@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsRequest extends $dara.Model {
   /**
    * @remarks
-   * The node specification.
+   * The node specifications.
    * 
    * @example
    * polarx.pxfs.x4.xlarge
@@ -49,7 +49,7 @@ export class CreatePxfsRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The storage size.
+   * The storage capacity.
    * 
    * @example
    * 500

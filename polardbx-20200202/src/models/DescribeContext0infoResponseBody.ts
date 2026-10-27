@@ -433,6 +433,14 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Service 当前已确认的小版本完整 tag，未知时为空。
+   * 
+   * @example
+   * polardb-2.6.0_release_contextdb-20261023
+   */
+  minorVersion?: string;
+  /**
+   * @remarks
    * The number of nodes.
    * 
    * @example
@@ -507,6 +515,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
       createTime: 'CreateTime',
       DBInstanceName: 'DBInstanceName',
       instanceId: 'InstanceId',
+      minorVersion: 'MinorVersion',
       nodeCount: 'NodeCount',
       openSearchInstanceName: 'OpenSearchInstanceName',
       regionId: 'RegionId',
@@ -526,6 +535,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
       createTime: 'string',
       DBInstanceName: 'string',
       instanceId: 'string',
+      minorVersion: 'string',
       nodeCount: 'number',
       openSearchInstanceName: 'string',
       regionId: 'string',

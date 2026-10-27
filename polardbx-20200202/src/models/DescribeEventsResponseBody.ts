@@ -21,7 +21,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The supplementary information.
+   * The additional information.
    * 
    * @example
    * {\\"Domain\\": \\"rds-cn-hangzhou.aliyuncs.com\\"}
@@ -37,7 +37,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   eventReason?: string;
   /**
    * @remarks
-   * The record time.
+   * The record time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2021-10-15T06:39:49Z
@@ -45,7 +45,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   eventRecordTime?: string;
   /**
    * @remarks
-   * The event time.
+   * The event time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2021-10-15T06:35:00Z

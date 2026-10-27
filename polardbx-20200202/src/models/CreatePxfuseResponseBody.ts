@@ -45,7 +45,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of access denial.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
 export class CreatePxfuseResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance already exists.
+   * Indicates whether the resource already exists.
    * 
    * @example
    * False
@@ -160,7 +160,7 @@ export class CreatePxfuseResponseBody extends $dara.Model {
   accessDeniedDetail?: CreatePxfuseResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The policy details.
+   * The details of the returned policy.
    */
   data?: CreatePxfuseResponseBodyData;
   /**

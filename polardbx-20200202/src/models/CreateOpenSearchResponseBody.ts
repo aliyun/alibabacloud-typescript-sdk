@@ -13,7 +13,7 @@ export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the security principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the authentication principal belongs.
+   * The Alibaba Cloud account ID of the security principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * Same as above.
    * 
    * @example
    * 222

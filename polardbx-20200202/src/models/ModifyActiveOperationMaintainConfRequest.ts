@@ -15,9 +15,7 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   cycleTime?: string;
   /**
    * @remarks
-   * The cycle mode. Valid values:
-   * 
-   * - Week: weekly.
+   * The cycle type. Valid value: Week.
    * 
    * This parameter is required.
    * 
@@ -27,7 +25,7 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. Specify the time in the HH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -37,7 +35,7 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Specify the time in the HH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -57,7 +55,7 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the configuration. Valid values:
+   * Specifies whether to enable the feature. Valid values:
    * 
    * - **1**: Enabled.
    * - **0**: Disabled.

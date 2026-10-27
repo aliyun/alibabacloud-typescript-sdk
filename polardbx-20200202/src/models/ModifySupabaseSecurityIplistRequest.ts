@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseSecurityIPListRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifySupabaseSecurityIPListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The whitelist group name.
+   * The name of the whitelist group.
    * 
    * @example
    * default
@@ -23,10 +23,7 @@ export class ModifySupabaseSecurityIPListRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The modification mode. Valid values:
-   * - Cover: overwrites the existing whitelist.
-   * - Append: appends entries to the existing whitelist.
-   * - Delete: deletes entries from the existing whitelist.
+   * The modification mode. Valid values: Cover, Append, and Delete.
    * 
    * @example
    * Append
@@ -44,7 +41,7 @@ export class ModifySupabaseSecurityIPListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP whitelist. Separate multiple IP addresses with commas (,).
+   * The IP whitelist. Separate multiple IP addresses with commas.
    * 
    * This parameter is required.
    * 

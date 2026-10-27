@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   /**
    * @remarks
-   * The start time of the log.
+   * The start time of the log. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-09-09 10:27:46
@@ -13,7 +13,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The creation time of the file.
+   * The creation time of the file. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-09-09 10:27:46
@@ -21,7 +21,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The download link of the file. The link is valid for 2 days.
+   * The download URL of the file. The URL is valid for two days.
    * 
    * @example
    * http://polarx-cdc-binlog-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/polardbx_cdc/pxc-hzfd132143sfds1/binlog.000001?Expires=1636469502&OSSAccessKeyId=LT13fds12dsafddsf&Signature=fdpm%bdsfadsa%2F%bdsafdsaf%3D
@@ -29,7 +29,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   downloadLink?: string;
   /**
    * @remarks
-   * The end time of the current binary log.
+   * The end time of the binary log. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-11-09 10:27:46
@@ -45,7 +45,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The unique ID of the current record.
+   * The unique ID of the record.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The size of the current log file.
+   * The size of the log file.
    * 
    * @example
    * 536870912
@@ -61,7 +61,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   logSize?: number;
   /**
    * @remarks
-   * The last modified time.
+   * The last update time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2021-11-09 10:27:46
@@ -69,10 +69,10 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The purge status. Valid values:
+   * The cleanup status. Valid values:
    * 
-   * - 0: not deleted. 
-   * - 1: deleted.
+   * - 0: Not deleted. 
+   * - 1: Deleted.
    * 
    * @example
    * 0
@@ -90,9 +90,9 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
    * @remarks
    * The backup status. Valid values:
    * 
-   * - 0: not backed up. 
-   * - 1: being backed up. 
-   * - 2: backed up.
+   * - 0: Not backed up. 
+   * - 1: Being backed up. 
+   * - 2: Backed up.
    * 
    * @example
    * 2
@@ -147,7 +147,7 @@ export class DescribeBinaryLogListResponseBody extends $dara.Model {
   logList?: DescribeBinaryLogListResponseBodyLogList[];
   /**
    * @remarks
-   * The page number of the current query.
+   * The current page number.
    * 
    * @example
    * 1
@@ -155,7 +155,7 @@ export class DescribeBinaryLogListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of binary logs displayed on the current page.
+   * The number of binary logs returned on the current page.
    * 
    * @example
    * 30

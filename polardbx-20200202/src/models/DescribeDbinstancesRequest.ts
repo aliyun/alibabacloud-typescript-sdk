@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The database version.
+   * 
+   * @example
+   * 5.5
+   */
   dbVersion?: string;
   /**
    * @remarks
-   * The description of the database.
+   * The description or remark of the database.
    * 
    * @example
    * app-test
@@ -22,7 +29,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the instance must have a log engine.
+   * Specifies whether a log engine is required.
    * 
    * @example
    * true
@@ -38,7 +45,11 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values:
+   * The number of entries per page. Valid values:
+   * 
+   * - 30
+   * - 50
+   * - 100
    * 
    * @example
    * 30
@@ -56,7 +67,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmyst47******
@@ -65,6 +76,9 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance edition. Valid values:
+   * 
+   * - **enterprise**: Enterprise Edition
+   * - **standard**: Standard Edition
    * 
    * @example
    * enterprise

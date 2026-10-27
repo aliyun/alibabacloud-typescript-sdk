@@ -13,7 +13,7 @@ export class DescribeSupabaseInstancesResponseBodyAccessDeniedDetail extends $da
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class DescribeSupabaseInstancesResponseBodyAccessDeniedDetail extends $da
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAacnceTlBNjlFODgyLTlBMDUtNUUyRC04MzE5LUQwMzZDRjJFQTM3NA==
@@ -45,7 +45,7 @@ export class DescribeSupabaseInstancesResponseBodyAccessDeniedDetail extends $da
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The access denial type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class DescribeSupabaseInstancesResponseBodyAccessDeniedDetail extends $da
 export class DescribeSupabaseInstancesResponseBodyDataInstances extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the instance was created.
    * 
    * @example
    * 2026-06-08T07:19:05.000+0000
@@ -114,7 +114,7 @@ export class DescribeSupabaseInstancesResponseBodyDataInstances extends $dara.Mo
    * The instance description.
    * 
    * @example
-   * 我的 Supabase 项目
+   * My Supabase project
    */
   description?: string;
   /**
@@ -135,7 +135,7 @@ export class DescribeSupabaseInstancesResponseBodyDataInstances extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The Supabase specification code.
+   * The Supabase instance type code.
    * 
    * @example
    * polarx.supabase.x4.2xlarge
@@ -255,17 +255,17 @@ export class DescribeSupabaseInstancesResponseBodyData extends $dara.Model {
 export class DescribeSupabaseInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DescribeSupabaseInstancesResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The paginated result of the instance list.
+   * The paginated list of instances.
    */
   data?: DescribeSupabaseInstancesResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: If you do not specify this parameter or specify a value less than 10, the default value is 10. If you specify a value greater than 100, the default value is 100.
+   * The number of entries to return on each page in a paged query. Maximum value: 100. Default value: 10. If you do not specify the Settings or the Settings value is less than 10, the default value is 10. If the Settings value is greater than 100, the default value is 100. This parameter is used for paging.
    * 
    * @example
    * 1000
@@ -273,7 +273,7 @@ export class DescribeSupabaseInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * xxdds

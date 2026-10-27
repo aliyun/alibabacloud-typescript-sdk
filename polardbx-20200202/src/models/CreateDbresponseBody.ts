@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Empty if the request is successful. An error message is returned if the request fails.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * *****

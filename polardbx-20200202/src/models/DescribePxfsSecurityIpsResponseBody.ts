@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The identity used for authentication in the request.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The description is as described above.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The no-permission type.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -74,7 +95,7 @@ export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara
 export class DescribePxfsSecurityIpsResponseBodyDataGroups extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务白名单分组名称。
+   * The name of the whitelist group.
    * 
    * @example
    * default
@@ -82,7 +103,7 @@ export class DescribePxfsSecurityIpsResponseBodyDataGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * 白名单分组标签。
+   * The tag of the whitelist group.
    * 
    * @example
    * default
@@ -90,7 +111,7 @@ export class DescribePxfsSecurityIpsResponseBodyDataGroups extends $dara.Model {
   groupTag?: string;
   /**
    * @remarks
-   * 白名单分组中的IP地址或CIDR列表。
+   * The IP addresses.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1
@@ -124,7 +145,7 @@ export class DescribePxfsSecurityIpsResponseBodyDataGroups extends $dara.Model {
 export class DescribePxfsSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务在管控系统中的实例名称。
+   * The name of the managed instance.
    * 
    * @example
    * pxfs-xxxxxxxx
@@ -132,7 +153,7 @@ export class DescribePxfsSecurityIpsResponseBodyData extends $dara.Model {
   custinsName?: string;
   /**
    * @remarks
-   * Agent文件服务白名单分组列表。
+   * The whitelist groups.
    */
   groups?: DescribePxfsSecurityIpsResponseBodyDataGroups[];
   static names(): { [key: string]: string } {
@@ -162,15 +183,19 @@ export class DescribePxfsSecurityIpsResponseBodyData extends $dara.Model {
 }
 
 export class DescribePxfsSecurityIpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * 接口返回的业务数据。
+   * The response data.
    */
   data?: DescribePxfsSecurityIpsResponseBodyData;
   /**
    * @remarks
-   * 请求的唯一标识，可用于排查问题。
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

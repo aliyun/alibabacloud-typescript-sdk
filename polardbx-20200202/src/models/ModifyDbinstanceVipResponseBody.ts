@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceVipResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
-   * > This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+   * The message returned for the request.
+   * > This parameter is empty if the request is successful. If the request fails, an exception message such as an error code is returned.
    * 
    * @example
    * *****
@@ -22,7 +22,7 @@ export class ModifyDBInstanceVipResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

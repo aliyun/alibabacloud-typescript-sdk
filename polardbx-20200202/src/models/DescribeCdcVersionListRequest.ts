@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCdcVersionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-bjrl7****k2vp7
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The name of the CDC instance. This parameter specifies the CDC instance for which to query versions.
+   * 
+   * @example
+   * pxc-***
+   */
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-beijing

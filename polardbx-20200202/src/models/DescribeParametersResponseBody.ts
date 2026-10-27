@@ -108,6 +108,13 @@ export class DescribeParametersResponseBodyData extends $dara.Model {
    * The list of original parameters.
    */
   configParameters?: DescribeParametersResponseBodyDataConfigParameters[];
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * pxc-********
+   */
   DBInstanceId?: string;
   /**
    * @remarks

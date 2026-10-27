@@ -17,7 +17,12 @@ export class DescribeScaleOutMigrateTaskListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

@@ -13,6 +13,13 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The name of the CN cluster for the instance, such as default.
+   * 
+   * @example
+   * default
+   */
   instanceClusterName?: string;
   /**
    * @remarks
@@ -36,7 +43,7 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the access endpoint resides.
+   * The ID of the VPC where the endpoint is located.
    * 
    * This parameter is required.
    * 

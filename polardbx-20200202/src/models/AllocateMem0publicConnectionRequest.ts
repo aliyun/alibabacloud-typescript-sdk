@@ -25,7 +25,7 @@ export class AllocateMem0PublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class AllocateMem0PublicConnectionRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

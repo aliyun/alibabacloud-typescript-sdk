@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetMem0AccountPasswordResponseBodyAccessDeniedDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication action.
+   * 
+   * @example
+   * polardbx:ResetMem0AccountPassword
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * The display name of the security principal.
+   * 
+   * @example
+   * Sample RAM user
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * The owner ID of the security principal.
+   * 
+   * @example
+   * 111
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * The type of the security principal, such as RAM user SubUser or RAM role AssumedRoleUser.
+   * 
+   * @example
+   * SubUser
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * The diagnostic message.
+   * 
+   * @example
+   * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * The type of the missing permission.
+   * 
+   * @example
+   * ImplicitDeny
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * PRIORITY
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,6 +133,10 @@ export class ResetMem0AccountPasswordResponseBodyData extends $dara.Model {
 }
 
 export class ResetMem0AccountPasswordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: ResetMem0AccountPasswordResponseBodyAccessDeniedDetail;
   /**
    * @remarks

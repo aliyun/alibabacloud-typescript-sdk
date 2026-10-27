@@ -15,7 +15,7 @@ export class CreateOpenSearchAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the account. The password must be 6 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (!@#$&%^*()_+-=).
+   * The password of the account. The password must be 6 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (!@#$&%^*()_+-=).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateOpenSearchAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 

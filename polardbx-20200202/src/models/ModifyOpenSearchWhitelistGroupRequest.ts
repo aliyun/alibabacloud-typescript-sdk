@@ -25,7 +25,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The list of source IP address restrictions.
+   * The list of source IP addresses.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   IPs?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region of the instance.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * 000G2DJ1YGee321432

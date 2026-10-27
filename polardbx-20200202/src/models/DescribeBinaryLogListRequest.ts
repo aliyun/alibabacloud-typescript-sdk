@@ -15,7 +15,7 @@ export class DescribeBinaryLogListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The end time of the query for the binary log list.
+   * The end time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,17 @@ export class DescribeBinaryLogListRequest extends $dara.Model {
    * 2021-11-09 10:27:46
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * pxc-hzrh51fze****pon-cdc
+   */
   instanceName?: string;
   /**
    * @remarks
-   * The page number of the current binary log list. Default value: 1.
+   * The page number. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -34,7 +41,7 @@ export class DescribeBinaryLogListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of binary logs to return on each page. Default value: 30.
+   * The number of entries per page. Default value: 30.
    * 
    * @example
    * 30
@@ -52,7 +59,7 @@ export class DescribeBinaryLogListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query for the binary log list.
+   * The start time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * This parameter is required.
    * 

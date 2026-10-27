@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether cancellation is allowed. Valid values:
-   * - **-1**: allows cancellation of all O&M events.
-   * - **0**: not allowed. 
-   * - **1**: allowed.
+   * Specifies whether the event can be canceled. Valid values:
+   * - **-1**: All O&M events can be canceled.
+   * - **0**: The event cannot be canceled. 
+   * - **1**: The event can be canceled.
    * 
    * @example
    * -1
@@ -18,9 +18,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * Specifies whether the time can be modified. Valid values:
    * 
-   * - **-1**: allows modification of the time for all O&M events.
-   * - **0**: not allowed. 
-   * - **1**: allowed.
+   * - **-1**: The time of all O&M events can be modified.
+   * - **0**: The time cannot be modified. 
+   * - **1**: The time can be modified.
    * 
    * @example
    * -1
@@ -30,9 +30,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * The change level. Default value: all. Valid values:
    * 
-   * - **all**: all levels of exception repair and system O&M.
-   * - **S0**: exception repair.
-   * - **S1**: system O&M.
+   * - **all**: all exception fix and system O&M levels
+   * - **S0**: exception fix
+   * - **S1**: system O&M
    * 
    * @example
    * all
@@ -48,7 +48,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The instance name. Default value: empty string.
+   * The instance name. Default value: an empty string.
    * 
    * @example
    * pxc-xxxxx
@@ -100,9 +100,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - **-1**: all pending and running tasks.  
-   * - **3**: pending. 
-   * - **4**: running.
+   * - **-1**: all pending and running tasks  
+   * - **3**: pending 
+   * - **4**: running
    * 
    * @example
    * -1
@@ -110,7 +110,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The task type. A value of all indicates that all tasks of the user are queried. Set the value to all.
+   * The task type. Set the value to all to query all tasks under the current account.
    * 
    * @example
    * all

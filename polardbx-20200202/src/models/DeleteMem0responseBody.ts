@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMem0ResponseBodyAccessDeniedDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication action.
+   * 
+   * @example
+   * polardbx:DeleteMem0
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
+   * @example
+   * Sample RAM user
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
+   * @example
+   * 111
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * The type of the authentication principal, such as RAM user SubUser or RAM role AssumedRoleUser.
+   * 
+   * @example
+   * SubUser
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * The diagnostic information.
+   * 
+   * @example
+   * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * The no-permission type.
+   * 
+   * @example
+   * ImplicitDeny
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * PRIORITY
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,6 +123,10 @@ export class DeleteMem0ResponseBodyData extends $dara.Model {
 }
 
 export class DeleteMem0ResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed cause of the access denial.
+   */
   accessDeniedDetail?: DeleteMem0ResponseBodyAccessDeniedDetail;
   /**
    * @remarks

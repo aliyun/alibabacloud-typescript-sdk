@@ -13,7 +13,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
   authAction?: string;
   /**
    * @remarks
-   * The name of the authentication principal.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -37,7 +37,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
 export class DisableOpenSearchPublicEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail;
   /**

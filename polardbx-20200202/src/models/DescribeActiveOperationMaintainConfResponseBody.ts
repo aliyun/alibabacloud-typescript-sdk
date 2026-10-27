@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-08-11T10:08:27Z
@@ -29,7 +29,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleType?: string;
   /**
    * @remarks
-   * The O&M end time.
+   * The end time of the O&M window. The time is displayed in UTC in the HH:mm:ssZ format.
    * 
    * @example
    * 04:00:00Z
@@ -37,7 +37,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainEndTime?: string;
   /**
    * @remarks
-   * The O&M start time.
+   * The start time of the O&M window. The time is displayed in UTC in the HH:mm:ssZ format.
    * 
    * @example
    * 04:00:00Z
@@ -45,7 +45,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainStartTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-08-11T10:08:27Z
@@ -100,7 +100,7 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether the O&M window has been configured. Valid values:
+   * Specifies whether the settings are configured. Valid values:
    * 
    * - 1: Configured.
    * - 0: Not configured.

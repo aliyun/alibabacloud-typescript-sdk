@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * polardbx:QueryColumnarLog
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The type of the permission denial.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -74,7 +95,7 @@ export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Mode
 export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 租户容量配额，单位为字节；0表示禁止新增数据。
+   * The capacity quota.
    * 
    * @example
    * 107374182400
@@ -82,7 +103,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   quotaBytes?: number;
   /**
    * @remarks
-   * 租户文件数量配额；0表示禁止新增文件。
+   * The file count quota.
    * 
    * @example
    * 1000000
@@ -90,7 +111,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   quotaFiles?: number;
   /**
    * @remarks
-   * 租户每秒请求数上限；0表示不限制。
+   * The request rate limit.
    * 
    * @example
    * 1000
@@ -98,7 +119,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   rateLimitRps?: number;
   /**
    * @remarks
-   * 租户每秒写入字节数上限；0表示不限制。
+   * The write bandwidth limit.
    * 
    * @example
    * 104857600
@@ -106,7 +127,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   rateLimitWbps?: number;
   /**
    * @remarks
-   * 当前资源状态。
+   * The status.
    * 
    * @example
    * ACTIVE
@@ -114,7 +135,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Agent文件服务的租户ID。
+   * The tenant ID.
    * 
    * @example
    * tenant-001
@@ -122,7 +143,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * Agent文件服务的租户名称。
+   * The tenant name.
    * 
    * @example
    * agent-files
@@ -130,7 +151,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * 租户已使用的容量，单位为字节。
+   * The used capacity.
    * 
    * @example
    * 1048576
@@ -138,7 +159,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   usedBytes?: number;
   /**
    * @remarks
-   * 租户已使用的文件数量。
+   * The used file count.
    * 
    * @example
    * 128
@@ -182,15 +203,19 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
 }
 
 export class DescribePxfsTenantResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DescribePxfsTenantResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * 接口返回的业务数据。
+   * The returned data.
    */
   data?: DescribePxfsTenantResponseBodyData;
   /**
    * @remarks
-   * 请求的唯一标识，可用于排查问题。
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

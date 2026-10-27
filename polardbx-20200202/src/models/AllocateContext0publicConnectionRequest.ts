@@ -23,7 +23,7 @@ export class AllocateContext0PublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The target node type. Valid values: service and dashboard.
    * 
    * @example
    * dn
@@ -31,7 +31,7 @@ export class AllocateContext0PublicConnectionRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306

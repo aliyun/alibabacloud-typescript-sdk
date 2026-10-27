@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether cancellation is allowed. Valid values:
+   * Indicates whether the event can be canceled. Valid values:
    * 
-   * - **0**: not allowed.
-   * - **1**: allowed.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -16,10 +16,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowCancel?: string;
   /**
    * @remarks
-   * Indicates whether modification is allowed. Valid values:
+   * Indicates whether the time can be modified. Valid values:
    * 
-   * - **0**: not allowed.
-   * - **1**: allowed.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -27,7 +27,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowChange?: string;
   /**
    * @remarks
-   * The change level (can be ignored).
+   * The change level. This parameter can be ignored.
    * 
    * @example
    * Risk
@@ -51,7 +51,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   changeLevelZh?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -99,7 +99,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The impact (not output).
+   * The impact. This parameter is not returned.
    * 
    * @example
    * --
@@ -139,7 +139,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -163,7 +163,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The result information (can be ignored).
+   * The result information. This parameter can be ignored.
    * 
    * @example
    * --
@@ -171,7 +171,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -181,8 +181,8 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - **3**: pending. 
-   * - **4**: running.
+   * - **3**: pending 
+   * - **4**: running
    * 
    * @example
    * 3
@@ -195,7 +195,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   subInsNames?: string[];
   /**
    * @remarks
-   * The switchover time.
+   * The switchover time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -211,7 +211,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The task type in English (can be ignored).
+   * The task type in English. This parameter can be ignored.
    * 
    * @example
    * --
@@ -219,7 +219,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskTypeEn?: string;
   /**
    * @remarks
-   * The task type in Chinese (can be ignored).
+   * The task type in Chinese. This parameter can be ignored.
    * 
    * @example
    * --
@@ -304,7 +304,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of parameters.
+   * The list of items.
    */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
@@ -333,7 +333,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 23

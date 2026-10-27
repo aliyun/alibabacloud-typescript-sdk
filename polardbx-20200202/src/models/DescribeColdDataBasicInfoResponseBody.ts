@@ -6,36 +6,79 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of backup sets.
+   * 
+   * @example
+   * 0
    */
   backupSetCount?: number;
   /**
    * @remarks
    * The data size of valid backup sets.
+   * 
+   * @example
+   * 0
    */
   backupSetSpaceSize?: number;
   /**
    * @remarks
-   * The underlying storage cloud product.
+   * The underlying cloud storage service.
+   * 
+   * @example
+   * aliyunOSS
    */
   cloudProduct?: string;
   /**
    * @remarks
    * The data size of cold storage.
+   * 
+   * @example
+   * 0
    */
   currentSpaceSize?: number;
+  /**
+   * @remarks
+   * The data redundancy type of cold storage. LRS indicates locally redundant storage.
+   * 
+   * @example
+   * LRS
+   */
   dataRedundancyType?: string;
   /**
    * @remarks
    * Indicates whether cold storage is enabled.
    */
   enableStatus?: boolean;
+  /**
+   * @remarks
+   * The number of read accesses to cold data.
+   * 
+   * @example
+   * 0
+   */
   readAccessNum?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks
-   * The storage volume name.
+   * The name of the storage volume.
+   * 
+   * @example
+   * polardbx-oss-columnar-bucket-cn-hangzhou-1
    */
   volumeName?: string;
+  /**
+   * @remarks
+   * The number of write accesses to cold data.
+   * 
+   * @example
+   * 0
+   */
   writeAccessNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -85,6 +128,9 @@ export class DescribeColdDataBasicInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * requestId
+   * 
+   * @example
+   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
    */
   requestId?: string;
   static names(): { [key: string]: string } {

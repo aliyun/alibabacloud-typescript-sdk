@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarDBXInstanceNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID generated when the number of instance nodes is changed.
+   * The ID of the order generated when the number of nodes for the instance is changed.
    * 
    * @example
    * 20211103105558

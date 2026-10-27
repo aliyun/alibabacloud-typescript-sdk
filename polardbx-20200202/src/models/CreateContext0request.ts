@@ -25,7 +25,7 @@ export class CreateContext0Request extends $dara.Model {
   openSearchInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

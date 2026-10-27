@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsTenantRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务关联的PolarDB-X实例ID。
+   * The PolarDB-X instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * 租户容量配额，单位为字节；0表示禁止新增数据。
+   * The capacity quota.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   quotaBytes?: number;
   /**
    * @remarks
-   * 租户文件数量配额；0表示禁止新增文件。
+   * The file count quota.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   quotaFiles?: number;
   /**
    * @remarks
-   * 租户每秒请求数上限；0表示不限制。
+   * The request rate limit.
    * 
    * @example
    * 1000
@@ -43,7 +43,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   rateLimitRps?: number;
   /**
    * @remarks
-   * 租户每秒写入字节数上限；0表示不限制。
+   * The write bandwidth limit.
    * 
    * @example
    * 104857600
@@ -51,7 +51,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   rateLimitWbps?: number;
   /**
    * @remarks
-   * Agent文件服务实例所属地域的ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Agent文件服务的租户ID。
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class CreatePxfsTenantRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * Agent文件服务的租户名称。
+   * The name of the tenant.
    * 
    * This parameter is required.
    * 

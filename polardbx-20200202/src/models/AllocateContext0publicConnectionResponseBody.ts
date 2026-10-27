@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The description is the same as above.
+   * The action that is evaluated.
    * 
    * @example
    * xxx
@@ -31,7 +31,7 @@ export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail exte
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * The action that is evaluated.
    * 
    * @example
    * 222
@@ -97,7 +97,7 @@ export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail exte
 export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The connection string.
    * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -105,7 +105,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   connectionString?: string;
   /**
    * @remarks
-   * The context service instance name.
+   * The name of the context service instance.
    * 
    * @example
    * context0-example
@@ -121,7 +121,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   DBInstanceId?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * pxc-hzjasd****
@@ -129,7 +129,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   DBInstanceName?: string;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The network type of the connection string.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   DBInstanceNetType?: number;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The target node type. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -145,7 +145,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   nodeType?: string;
   /**
    * @remarks
-   * The port of the endpoint.
+   * The port number.
    * 
    * @example
    * 3300
@@ -161,7 +161,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   taskId?: number;
   /**
    * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
+   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
    * 
    * @example
    * https://anchashi.aliyun-inc.coM
@@ -207,7 +207,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
 export class AllocateContext0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The detailed reasons for access denial.
    */
   accessDeniedDetail?: AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail;
   /**

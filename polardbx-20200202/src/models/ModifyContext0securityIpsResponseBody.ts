@@ -13,7 +13,7 @@ export class ModifyContext0SecurityIpsResponseBodyAccessDeniedDetail extends $da
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class ModifyContext0SecurityIpsResponseBodyAccessDeniedDetail extends $da
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The identity type used for authentication in the request. Valid values:
+   * The type of identity used for authentication in the request. Valid values:
    * - SubUser: RAM user.
    * - AssumedRoleUser: RAM role.
    * - Federated: SSO federated identity.
@@ -114,7 +114,7 @@ export class ModifyContext0SecurityIpsResponseBodyData extends $dara.Model {
   DBInstanceId?: number;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-hzjasd****
@@ -122,7 +122,7 @@ export class ModifyContext0SecurityIpsResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * ******
@@ -178,7 +178,7 @@ export class ModifyContext0SecurityIpsResponseBody extends $dara.Model {
   data?: ModifyContext0SecurityIpsResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B2F3840-5C98-475C-B269-2D5C3A31797C

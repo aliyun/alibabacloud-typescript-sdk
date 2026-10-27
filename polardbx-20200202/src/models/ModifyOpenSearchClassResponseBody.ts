@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication action.
+   * The authorization action.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The display name of the authorization principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the authorization principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The identity type used for authentication in the request. Valid values:
+   * The type of identity used for authorization in the request. Valid values:
    * - SubUser: RAM user.
    * - AssumedRoleUser: RAM role.
    * - Federated: SSO federated identity.
@@ -40,7 +40,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted complete diagnostic message.
+   * The encoded full diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,7 +48,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny

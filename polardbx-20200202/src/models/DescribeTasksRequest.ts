@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeTasksRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the task. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class DescribeTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the task. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 

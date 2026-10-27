@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * As described above.
+   * Same as above.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends 
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * As described above.
+   * Same as above.
    * 
    * @example
    * 111
@@ -37,7 +37,7 @@ export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends 
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends 
 export class AllocatePxfsPublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarDB-X instance.
+   * The PolarDB-X instance ID.
    * 
    * @example
    * pxc-xxxxxxxx
@@ -103,7 +103,7 @@ export class AllocatePxfsPublicConnectionResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the agent file service instance.
+   * The Agent file service instance ID.
    * 
    * @example
    * pxfs-xxxxxxxx
@@ -145,7 +145,7 @@ export class AllocatePxfsPublicConnectionResponseBodyData extends $dara.Model {
 export class AllocatePxfsPublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail;
   /**

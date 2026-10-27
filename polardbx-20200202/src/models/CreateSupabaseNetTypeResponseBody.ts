@@ -13,7 +13,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The security principal name.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the security principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The security principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The encoded diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
 export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint.
+   * The public network connection endpoint.
    * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -145,7 +145,7 @@ export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
 export class CreateSupabaseNetTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: CreateSupabaseNetTypeResponseBodyAccessDeniedDetail;
   /**

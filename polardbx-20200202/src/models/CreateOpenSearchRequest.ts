@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOpenSearchRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Default value: true.
-   * 
-   * - **true**: enabled.
-   * - **false**: disabled.
+   * Specifies whether to enable auto-renewal. Default value: true. Valid values:
+   * - **true**: enables auto-renewal
+   * - **false**: disables auto-renewal
    * 
    * @example
    * true
@@ -16,7 +15,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request. Use a different value for each creation request.
+   * The idempotency token. Make sure that the value is unique for each creation request.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -27,12 +26,12 @@ export class CreateOpenSearchRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * TestInstance
+   * Test instance
    */
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The node specifications code of PolarDBX Search data nodes. Available specifications depend on the region and sales configuration. Use a PolarDBX Search specification code that is available for purchase in the current region.
+   * The code for the node specifications of the PolarDBX Search data node. The active node specifications vary by region and sales configuration. Use a PolarDBX Search node specifications code that is available for purchase in the current region.
    * 
    * This parameter is required.
    * 
@@ -42,7 +41,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   DBNodeClass?: string;
   /**
    * @remarks
-   * The PolarDBX Search DPI engine version. The value is fixed to 3.0. If this parameter is not specified, the default value 3.0 is used.
+   * The database engine version of PolarDBX Search. The current fixed DPI engine version is 3.0. If this parameter is not specified, 3.0 is used.
    * 
    * @example
    * 3.0
@@ -50,7 +49,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * A compatible parameter that does not take effect. Use DBNodeClass to specify the PolarDBX Search data node specifications.
+   * A compatible parameter. This parameter does not take effect. Specify the node specifications of the PolarDBX Search data node by using DBNodeClass.
    * 
    * @example
    * opensearch.sn2ne.large.1
@@ -58,7 +57,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   instanceSpec?: string;
   /**
    * @remarks
-   * The number of PolarDBX Search data nodes. The value must be a positive integer and a multiple of the number of selected zones.
+   * The number of PolarDBX Search data nodes. The value must be a positive integer and an integer multiple of the number of selected zones.
    * 
    * This parameter is required.
    * 
@@ -68,10 +67,9 @@ export class CreateOpenSearchRequest extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The billing method of the instance.
-   * 
-   * - **PREPAY**: subscription.
-   * - **POSTPAY**: pay-as-you-go.
+   * The billing method of the instance. Valid values:
+   * - **PREPAY**: subscription
+   * - **POSTPAY**: pay-as-you-go
    * 
    * This parameter is required.
    * 
@@ -81,7 +79,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing cycle. Valid values for subscription: Year and Month. Default value for pay-as-you-go: Hour.
+   * The billing cycle. For subscription instances, only Year and Month are supported. For pay-as-you-go instances, the default value is Hour.
    * 
    * @example
    * Month
@@ -89,7 +87,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -99,7 +97,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty. This parameter is not supported.
+   * The resource group ID. This parameter can be left empty and is not currently supported.
    * 
    * @example
    * rg-xxxxx
@@ -123,10 +121,9 @@ export class CreateOpenSearchRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The topology type. Valid values:
-   * 
-   * - **1azone**: single active zone.
-   * - **3azones**: three active zones.
+   * The active topology type. Valid values:
+   * - **1azone**: single-zone.
+   * - **3azones**: Three-zone deployment.
    * 
    * @example
    * 3azones
@@ -134,7 +131,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   topologyType?: string;
   /**
    * @remarks
-   * The subscription duration. Specify the number of months or years for prepaid instances.
+   * The subscription duration. You can specify a duration in months or years for subscription instances.
    * 
    * > When Period is set to Year, valid values for this parameter are 1, 2, and 3.
    * 
@@ -144,7 +141,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * This parameter is required.
    * 
@@ -164,7 +161,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The second zone. This parameter is required when TopologyType is set to 3azones. The value cannot be the same as other zones.
+   * The secondary zone. This parameter is required when TopologyType is set to 3azones, and the value must be different from other zones.
    * 
    * @example
    * cn-hangzhou-i
@@ -172,7 +169,7 @@ export class CreateOpenSearchRequest extends $dara.Model {
   zone2?: string;
   /**
    * @remarks
-   * The third zone. This parameter is required when TopologyType is set to 3azones. The value cannot be the same as other zones.
+   * The third zone for Three-zone deployment. This parameter is required when TopologyType is set to 3azones, and the value must be different from other active zones.
    * 
    * @example
    * cn-hangzhou-j

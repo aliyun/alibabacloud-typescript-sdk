@@ -15,7 +15,7 @@ export class ResetMem0AccountPasswordRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The API key.
+   * apikey
    * 
    * @example
    * aafdf2e7d0988ef623***

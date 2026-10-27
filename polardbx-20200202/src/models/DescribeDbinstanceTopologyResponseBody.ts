@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is activated. For the compute layer, only the primary zone node is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
+   * Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   activated?: boolean;
   /**
    * @remarks
-   * The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated by semicolons (;).
+   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
    * 
    * @example
    * cn-hangzhou-a
@@ -21,7 +21,10 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   azone?: string;
   /**
    * @remarks
-   * The node property. Valid values:
+   * The node attribute. Valid values:
+   * - **polarx_cn**: Compute node.
+   * - **polarx_store**: Data node.
+   * - **polarx_gms**: GMS node.
    * 
    * @example
    * Node role
@@ -45,7 +48,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   DBInstanceName?: string;
   /**
    * @remarks
-   * The physical instance name.
+   * The name of the physical instance.
    * 
    * @example
    * pxc-unrbk8oyz**********
@@ -53,7 +56,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   phyInstanceName?: string;
   /**
    * @remarks
-   * The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated by semicolons (;).
+   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
    * 
    * @example
    * cn-hangzhou
@@ -62,6 +65,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   /**
    * @remarks
    * The node role. Valid values:
+   * - **master**: Primary node.
+   * - **standby**: Secondary node.
    * 
    * @example
    * master
@@ -105,7 +110,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList extends $dara.Model {
   /**
    * @remarks
-   * The zone of a node in the RDS three-node cluster.
+   * The zone to which a specific node in the three-node ApsaraDB RDS deployment belongs.
    * 
    * @example
    * cn-hangzhou-a
@@ -113,7 +118,10 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   azone?: string;
   /**
    * @remarks
-   * The role of a node in the RDS three-node cluster. Valid values:
+   * The role of a specific node in the three-node ApsaraDB RDS deployment. Valid values:
+   * - **leader**: Primary node.
+   * - **follower**: Secondary node.
+   * - **logger**: Logger node.
    * 
    * @example
    * leader
@@ -195,7 +203,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is activated. For the compute layer, only the primary zone node is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
+   * Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
    * 
    * @example
    * true
@@ -203,7 +211,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   activated?: boolean;
   /**
    * @remarks
-   * The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated by semicolons (;).
+   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
    * 
    * @example
    * cn-hangzhou-a
@@ -211,12 +219,15 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   azone?: string;
   /**
    * @remarks
-   * The data information list of the RDS three-node cluster.
+   * The list of data information for the three-node ApsaraDB RDS deployment.
    */
   azoneRoleList?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList[];
   /**
    * @remarks
-   * The node property. Valid values:
+   * The node attribute. Valid values:
+   * - **polarx_cn**: Compute node.
+   * - **polarx_store**: Data node.
+   * - **polarx_gms**: GMS node.
    * 
    * @example
    * Node role
@@ -224,7 +235,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   characterType?: string;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   connectionIp?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp[];
   /**
@@ -237,7 +248,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   DBInstanceConnType?: number;
   /**
    * @remarks
-   * The instance creation time.
+   * The time when the instance was created.
    * 
    * @example
    * 2021-10-21T10:30:45Z
@@ -293,7 +304,10 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   diskSize?: number;
   /**
    * @remarks
-   * The engine version. Valid values:
+   * The DPI engine version. Valid values:
+   * - **mysql**
+   * - **polarx_cdc**
+   * - **polarx_dn**
    * 
    * @example
    * mysql
@@ -301,7 +315,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   engine?: string;
   /**
    * @remarks
-   * The engine version. Default value: 2.0.
+   * The DPI engine version. Default value: 2.0.
    * 
    * @example
    * 5.7
@@ -309,12 +323,17 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   engineVersion?: string;
   /**
    * @remarks
-   * The instance CN cluster name, such as default.
+   * The name of the CN cluster for the instance, such as default.
+   * 
+   * @example
+   * default
    */
   instanceClusterName?: string;
   /**
    * @remarks
-   * Indicates whether the node is locked. Valid values:
+   * The lock status. Valid values:
+   * - **0**: Unlocked.
+   * - **1**: Locked.
    * 
    * @example
    * 0
@@ -330,7 +349,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   lockReason?: string;
   /**
    * @remarks
-   * The O&M window end time.
+   * The end time of the O&M window.
    * 
    * @example
    * Not displayed
@@ -338,7 +357,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   maintainEndTime?: string;
   /**
    * @remarks
-   * The O&M window start time.
+   * The start time of the O&M window.
    * 
    * @example
    * Not displayed
@@ -362,7 +381,18 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   maxIops?: number;
   /**
    * @remarks
-   * The node specifications:
+   * The node specifications. Valid values:
+   * - **polarx.x4.medium.2e**: 2 vCPUs and 8 GB of memory.
+   * - **polarx.x4.large.2e**: 4 vCPUs and 16 GB of memory.
+   * - **polarx.x8.large.2e**: 4 vCPUs and 32 GB of memory.
+   * - **polarx.x4.xlarge.2e**: 8 vCPUs and 32 GB of memory.
+   * - **polarx.x8.xlarge.2e**: 8 vCPUs and 64 GB of memory.
+   * - **polarx.x4.2xlarge.2e**: 16 vCPUs and 64 GB of memory.
+   * - **polarx.x8.2xlarge.2e**: 16 vCPUs and 128 GB of memory.
+   * - **polarx.x4.4xlarge.2e**: 32 vCPUs and 128 GB of memory.
+   * - **polarx.x8.4xlarge.2e**: 32 vCPUs and 256 GB of memory.
+   * - **polarx.st.8xlarge.2e**: 60 vCPUs and 470 GB of memory.
+   * - **polarx.st.12xlarge.2e**: 90 vCPUs and 720 GB of memory.
    * 
    * @example
    * polarx.x4.large.2e
@@ -370,7 +400,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   nodeClass?: string;
   /**
    * @remarks
-   * The physical instance name.
+   * The name of the physical instance.
    * 
    * @example
    * pxc-unrbk8oyz**********
@@ -379,11 +409,14 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   /**
    * @remarks
    * The read/write type, such as ReadWrite.
+   * 
+   * @example
+   * ReadWrite
    */
   readType?: string;
   /**
    * @remarks
-   * The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated by semicolons (;).
+   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
    * 
    * @example
    * cn-hangzhou
@@ -392,6 +425,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   /**
    * @remarks
    * The node role. Valid values:
+   * - **master**: Primary node.
+   * - **standby**: Secondary node.
    * 
    * @example
    * master
@@ -399,7 +434,14 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   role?: string;
   /**
    * @remarks
-   * The node status:
+   * The node status. Valid values:
+   * - **0**: Running.
+   * - **1**: Creating.
+   * - **2**: Abnormal.
+   * - **3**: Expired.
+   * - **4**: Releasing.
+   * - **5**: Released.
+   * - **6**: Locked.
    * 
    * @example
    * 0
@@ -407,7 +449,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   status?: string;
   /**
    * @remarks
-   * The storage usage, in MB.
+   * The amount of used storage space. Unit: MB.
    * 
    * @example
    * 16681
@@ -415,7 +457,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   storageUsed?: string;
   /**
    * @remarks
-   * The log node version.
+   * The version of the logger node.
    * 
    * @example
    * polarx-cdc-kernel-2.0.0-3985896
@@ -517,7 +559,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   DBInstanceConnType?: string;
   /**
    * @remarks
-   * The instance creation time, in the format of yyyy-MM-dd HH:mm:ss.
+   * The time when the instance was created. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2021-10-21T10:30:45Z 04:00:00
@@ -581,7 +623,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   engine?: string;
   /**
    * @remarks
-   * The engine version. Default value: 2.0.
+   * The DPI engine version. Default value: 2.0.
    * 
    * @example
    * 2.0
@@ -589,17 +631,19 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   engineVersion?: string;
   /**
    * @remarks
-   * The historical node list.
+   * The list of historical nodes.
    */
   historyItems?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems[];
   /**
    * @remarks
-   * The node list.
+   * The list of nodes.
    */
   items?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems[];
   /**
    * @remarks
-   * The lock status:
+   * The lock status. Valid values:
+   * - **0**: Unlocked.
+   * - **1**: Locked.
    * 
    * @example
    * 0
@@ -610,12 +654,12 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
    * The lock reason.
    * 
    * @example
-   * Overdue
+   * Overdue payment
    */
   lockReason?: string;
   /**
    * @remarks
-   * The O&M window end time, in the format of HH:mm:ss.
+   * The end time of the O&M window. The format is HH:mm:ss.
    * 
    * @example
    * 05:00:00
@@ -623,7 +667,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   maintainEndTime?: string;
   /**
    * @remarks
-   * The O&M window start time, in the format of HH:mm:ss.
+   * The start time of the O&M window. The format is HH:mm:ss.
    * 
    * @example
    * 04:00:00
@@ -719,7 +763,7 @@ export class DescribeDBInstanceTopologyResponseBodyData extends $dara.Model {
 export class DescribeDBInstanceTopologyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DescribeDBInstanceTopologyResponseBodyData;
   /**

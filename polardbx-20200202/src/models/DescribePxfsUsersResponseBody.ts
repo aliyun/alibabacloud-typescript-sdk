@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePxfsUsersResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * NoPermissionType
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * System
    */
@@ -74,7 +95,7 @@ export class DescribePxfsUsersResponseBodyAccessDeniedDetail extends $dara.Model
 export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * 资源的创建时间。
+   * The creation time.
    * 
    * @example
    * 2026-09-03T12:00:00Z
@@ -82,7 +103,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Agent文件服务租户内的身份名称，不是阿里云账号UID。
+   * The identity name.
    * 
    * @example
    * agent-runtime
@@ -90,7 +111,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * 客户端业务进程使用的POSIX GID。
+   * POSIX GID
    * 
    * @example
    * 1000
@@ -98,7 +119,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   posixGid?: number;
   /**
    * @remarks
-   * 客户端业务进程使用的POSIX UID。
+   * POSIX UID
    * 
    * @example
    * 1000
@@ -106,7 +127,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   posixUid?: number;
   /**
    * @remarks
-   * 租户身份角色，取值为ADMIN或MEMBER。
+   * The identity role.
    * 
    * @example
    * MEMBER
@@ -114,7 +135,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * 当前资源状态。
+   * The status.
    * 
    * @example
    * ACTIVE
@@ -154,7 +175,7 @@ export class DescribePxfsUsersResponseBodyDataUsers extends $dara.Model {
 export class DescribePxfsUsersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务的租户ID。
+   * The tenant ID.
    * 
    * @example
    * tenant-001
@@ -162,7 +183,7 @@ export class DescribePxfsUsersResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * Agent文件服务租户身份列表。
+   * The list of tenant identities.
    */
   users?: DescribePxfsUsersResponseBodyDataUsers[];
   static names(): { [key: string]: string } {
@@ -192,15 +213,19 @@ export class DescribePxfsUsersResponseBodyData extends $dara.Model {
 }
 
 export class DescribePxfsUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DescribePxfsUsersResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * 接口返回的业务数据。
+   * The response data.
    */
   data?: DescribePxfsUsersResponseBodyData;
   /**
    * @remarks
-   * 请求的唯一标识，可用于排查问题。
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

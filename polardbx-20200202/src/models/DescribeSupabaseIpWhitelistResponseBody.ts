@@ -53,7 +53,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -95,7 +95,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
 export class DescribeSupabaseIpWhitelistResponseBodyDataGroupItems extends $dara.Model {
   /**
    * @remarks
-   * The group name.
+   * The name of the group.
    * 
    * @example
    * defaultGroup
@@ -103,7 +103,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyDataGroupItems extends $dara
   groupName?: string;
   /**
    * @remarks
-   * The group tag.
+   * The tag of the group.
    * 
    * @example
    * group1
@@ -185,7 +185,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyData extends $dara.Model {
 export class DescribeSupabaseIpWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail;
   /**

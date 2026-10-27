@@ -15,7 +15,7 @@ export class CreatePxfsAccessTokenRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePxfsAccessTokenRequest extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * The token label.
+   * The label of the token.
    * 
    * @example
    * production-agent
@@ -53,7 +53,7 @@ export class CreatePxfsAccessTokenRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The validity period of the token, in seconds.
+   * The validity period of the token.
    * 
    * @example
    * 86400

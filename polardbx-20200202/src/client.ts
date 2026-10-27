@@ -77,6 +77,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+   * 
    * @param request - AlignStoragePrimaryAzoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AlignStoragePrimaryAzoneResponse
@@ -122,6 +124,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+   * 
    * @param request - AlignStoragePrimaryAzoneRequest
    * @returns AlignStoragePrimaryAzoneResponse
    */
@@ -177,10 +181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a public network connection for a specified physical ReplicaSet of the context service.
+   * Enables public network connections for a specified physical ReplicaSet of the context service.
    * 
    * @remarks
-   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * This operation confirms that no active connections exist before a rollback task to ensure operational security.
    * 
    * @param request - AllocateContext0PublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -227,10 +231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a public network connection for a specified physical ReplicaSet of the context service.
+   * Enables public network connections for a specified physical ReplicaSet of the context service.
    * 
    * @remarks
-   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * This operation confirms that no active connections exist before a rollback task to ensure operational security.
    * 
    * @param request - AllocateContext0PublicConnectionRequest
    * @returns AllocateContext0PublicConnectionResponse
@@ -379,10 +383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a public domain name for a Mem0 instance.
+   * Enables the public domain name for a Mem0 instance.
    * 
    * @remarks
-   * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+   * This operation checks for active connections before a rollback task to ensure operational security.
    * 
    * @param request - AllocateMem0PublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -425,10 +429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a public domain name for a Mem0 instance.
+   * Enables the public domain name for a Mem0 instance.
    * 
    * @remarks
-   * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+   * This operation checks for active connections before a rollback task to ensure operational security.
    * 
    * @param request - AllocateMem0PublicConnectionRequest
    * @returns AllocateMem0PublicConnectionResponse
@@ -439,10 +443,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables public network access for the PXFS agent file service.
+   * Enables public network connection for PXFS.
    * 
    * @remarks
-   * Enables public network access for the agent file service.
+   * Enables public network connection for the agent file service.
    * 
    * @param request - AllocatePxfsPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -477,10 +481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables public network access for the PXFS agent file service.
+   * Enables public network connection for PXFS.
    * 
    * @remarks
-   * Enables public network access for the agent file service.
+   * Enables public network connection for the agent file service.
    * 
    * @param request - AllocatePxfsPublicConnectionRequest
    * @returns AllocatePxfsPublicConnectionResponse
@@ -954,7 +958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup by calling the CreateBackup operation.
+   * Creates a backup.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup by calling the CreateBackup operation.
+   * Creates a backup.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -1192,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database by calling the CreateDB operation.
+   * Creates a database.
    * 
    * @param request - CreateDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1263,7 +1267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database by calling the CreateDB operation.
+   * Creates a database.
    * 
    * @param request - CreateDBRequest
    * @returns CreateDBResponse
@@ -1274,7 +1278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+   * Creates a PolarDB-X instance.
    * 
    * @remarks
    * ***
@@ -1434,7 +1438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+   * Creates a PolarDB-X instance.
    * 
    * @remarks
    * ***
@@ -1539,7 +1543,7 @@ export default class Client extends OpenApi {
    * Creates an AI gateway consumer for a PolarDB-X instance.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - CreateGatewayConsumerForPolarDBXRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1577,7 +1581,7 @@ export default class Client extends OpenApi {
    * Creates an AI gateway consumer for a PolarDB-X instance.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - CreateGatewayConsumerForPolarDBXRequest
    * @returns CreateGatewayConsumerForPolarDBXResponse
@@ -1794,7 +1798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Memory Engine
+   * Enables the memory engine.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -1832,7 +1836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Memory Engine
+   * Enables the memory engine.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -1970,7 +1974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account for a PolarDB-X Search instance.
+   * Creates a PolarDB-X Search instance account.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -2016,7 +2020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account for a PolarDB-X Search instance.
+   * Creates a PolarDB-X Search instance account.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -2334,10 +2338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Agent文件服务租户
+   * Creates an Agent file service tenant.
    * 
    * @remarks
-   * 创建Agent文件服务租户。
+   * Creates an Agent file service tenant.
    * 
    * @param request - CreatePxfsTenantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2396,10 +2400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Agent文件服务租户
+   * Creates an Agent file service tenant.
    * 
    * @remarks
-   * 创建Agent文件服务租户。
+   * Creates an Agent file service tenant.
    * 
    * @param request - CreatePxfsTenantRequest
    * @returns CreatePxfsTenantResponse
@@ -2410,10 +2414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Agent文件服务租户身份
+   * Creates a tenant identity for the Agent file service.
    * 
    * @remarks
-   * 创建Agent文件服务租户身份。
+   * Creates a tenant identity for the Agent file service.
    * 
    * @param request - CreatePxfsUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2468,10 +2472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Agent文件服务租户身份
+   * Creates a tenant identity for the Agent file service.
    * 
    * @remarks
-   * 创建Agent文件服务租户身份。
+   * Creates a tenant identity for the Agent file service.
    * 
    * @param request - CreatePxfsUserRequest
    * @returns CreatePxfsUserResponse
@@ -2930,7 +2934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the public endpoint for a Supabase instance.
+   * Enables the public endpoint for Supabase.
    * 
    * @remarks
    * ***
@@ -2972,7 +2976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the public endpoint for a Supabase instance.
+   * Enables the public endpoint for Supabase.
    * 
    * @remarks
    * ***
@@ -3509,7 +3513,7 @@ export default class Client extends OpenApi {
    * Disables the memory engine.
    * 
    * @remarks
-   * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+   * Deletes the custom endpoint of a specified database instance and disables access to the domain name.
    * 
    * @param request - DeleteMem0Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3547,7 +3551,7 @@ export default class Client extends OpenApi {
    * Disables the memory engine.
    * 
    * @remarks
-   * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+   * Deletes the custom endpoint of a specified database instance and disables access to the domain name.
    * 
    * @param request - DeleteMem0Request
    * @returns DeleteMem0Response
@@ -4160,7 +4164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+   * Queries the O&M time configuration.
    * 
    * @param request - DescribeActiveOperationMaintainConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4191,7 +4195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+   * Queries the O&M time configuration.
    * 
    * @param request - DescribeActiveOperationMaintainConfRequest
    * @returns DescribeActiveOperationMaintainConfResponse
@@ -4240,7 +4244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries O&M events by calling the DescribeActiveOperationTasks operation.
+   * Queries O&M events.
    * 
    * @param request - DescribeActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,7 +4271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries O&M events by calling the DescribeActiveOperationTasks operation.
+   * Queries O&M events.
    * 
    * @param request - DescribeActiveOperationTasksRequest
    * @returns DescribeActiveOperationTasksResponse
@@ -4278,7 +4282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cold storage tables.
+   * Lists cold storage tables.
    * 
    * @param request - DescribeArchiveTableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4333,7 +4337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cold storage tables.
+   * Lists cold storage tables.
    * 
    * @param request - DescribeArchiveTableListRequest
    * @returns DescribeArchiveTableListResponse
@@ -4528,12 +4532,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries binary logs by calling the DescribeBinaryLogList operation.
+   * Queries binary logs.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+   * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeBinaryLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4588,12 +4592,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries binary logs by calling the DescribeBinaryLogList operation.
+   * Queries binary logs.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+   * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeBinaryLogListRequest
    * @returns DescribeBinaryLogListResponse
@@ -4710,12 +4714,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of CDC versions.
+   * Retrieves a list of CDC versions.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+   * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeCdcVersionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4754,12 +4758,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of CDC versions.
+   * Retrieves a list of CDC versions.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+   * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeCdcVersionListRequest
    * @returns DescribeCdcVersionListResponse
@@ -4816,7 +4820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information of cold storage.
+   * Queries the basic information of cold storage.
    * 
    * @param request - DescribeColdDataBasicInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4843,7 +4847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information of cold storage.
+   * Queries the basic information of cold storage.
    * 
    * @param request - DescribeColdDataBasicInfoRequest
    * @returns DescribeColdDataBasicInfoResponse
@@ -5164,7 +5168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of the context service.
+   * Queries the whitelist for the context service.
    * 
    * @remarks
    * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -5202,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of the context service.
+   * Queries the whitelist for the context service.
    * 
    * @remarks
    * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -5432,7 +5436,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+   * Queries the attributes of an instance.
+   * 
+   * @remarks
+   * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5471,7 +5478,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+   * Queries the attributes of an instance.
+   * 
+   * @remarks
+   * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -5592,7 +5602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the high availability (HA) information of an instance.
+   * Queries the high availability information of an instance.
    * 
    * @param request - DescribeDBInstanceHARequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5627,7 +5637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the high availability (HA) information of an instance.
+   * Queries the high availability information of an instance.
    * 
    * @param request - DescribeDBInstanceHARequest
    * @returns DescribeDBInstanceHAResponse
@@ -5638,7 +5648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SSL information.
+   * Retrieves SSL information.
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5673,7 +5683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SSL information.
+   * Retrieves SSL information.
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @returns DescribeDBInstanceSSLResponse
@@ -5730,7 +5740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topology information of an instance.
+   * Retrieves the topology information of an instance.
    * 
    * @param request - DescribeDBInstanceTopologyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5777,7 +5787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topology information of an instance.
+   * Retrieves the topology information of an instance.
    * 
    * @param request - DescribeDBInstanceTopologyRequest
    * @returns DescribeDBInstanceTopologyResponse
@@ -5834,7 +5844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances by calling the DescribeDBInstances operation.
+   * Queries a list of database instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5901,7 +5911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances by calling the DescribeDBInstances operation.
+   * Queries a list of database instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -6340,7 +6350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of global database network (GDN) instances.
+   * Queries the list of global database network (GDN) instances.
    * 
    * @param request - DescribeGdnInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6391,7 +6401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of global database network (GDN) instances.
+   * Queries the list of global database network (GDN) instances.
    * 
    * @param request - DescribeGdnInstancesRequest
    * @returns DescribeGdnInstancesResponse
@@ -6660,7 +6670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a PolarDB-X Search instance.
+   * Queries the details of PolarDB-X Search instances.
    * 
    * @remarks
    * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -6698,7 +6708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a PolarDB-X Search instance.
+   * Queries the details of PolarDB-X Search instances.
    * 
    * @remarks
    * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -7034,7 +7044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+   * Queries the instance parameter templates.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7077,7 +7087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+   * Queries the instance parameter templates.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @returns DescribeParameterTemplatesResponse
@@ -7308,10 +7318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务白名单
+   * Queries the whitelist for the Agent file service.
    * 
    * @remarks
-   * 查询Agent文件服务白名单。
+   * Queries the whitelist for the Agent file service.
    * 
    * @param request - DescribePxfsSecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7346,10 +7356,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务白名单
+   * Queries the whitelist for the Agent file service.
    * 
    * @remarks
-   * 查询Agent文件服务白名单。
+   * Queries the whitelist for the Agent file service.
    * 
    * @param request - DescribePxfsSecurityIpsRequest
    * @returns DescribePxfsSecurityIpsResponse
@@ -7360,10 +7370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务租户
+   * Queries the Agent file service tenant.
    * 
    * @remarks
-   * 查询Agent文件服务租户。
+   * Queries the Agent file service tenant.
    * 
    * @param request - DescribePxfsTenantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7402,10 +7412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务租户
+   * Queries the Agent file service tenant.
    * 
    * @remarks
-   * 查询Agent文件服务租户。
+   * Queries the Agent file service tenant.
    * 
    * @param request - DescribePxfsTenantRequest
    * @returns DescribePxfsTenantResponse
@@ -7416,10 +7426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务租户身份
+   * Queries the tenant identity of the Agent file service.
    * 
    * @remarks
-   * 查询Agent文件服务租户身份。
+   * Queries the tenant identity of the Agent file service.
    * 
    * @param request - DescribePxfsUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7458,10 +7468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent文件服务租户身份
+   * Queries the tenant identity of the Agent file service.
    * 
    * @remarks
-   * 查询Agent文件服务租户身份。
+   * Queries the tenant identity of the Agent file service.
    * 
    * @param request - DescribePxfsUsersRequest
    * @returns DescribePxfsUsersResponse
@@ -7783,7 +7793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the progress of a ScaleOut migration task.
+   * Retrieves the progress of a scale-out migration task.
    * 
    * @param request - DescribeScaleOutMigrateTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7834,7 +7844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the progress of a ScaleOut migration task.
+   * Retrieves the progress of a scale-out migration task.
    * 
    * @param request - DescribeScaleOutMigrateTaskListRequest
    * @returns DescribeScaleOutMigrateTaskListResponse
@@ -8279,8 +8289,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeSupabaseApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8319,8 +8329,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeSupabaseApiKeyRequest
    * @returns DescribeSupabaseApiKeyResponse
@@ -8386,7 +8396,7 @@ export default class Client extends OpenApi {
    * Queries a list of Supabase instances.
    * 
    * @remarks
-   * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+   * Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
    * 
    * @param request - DescribeSupabaseInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8444,7 +8454,7 @@ export default class Client extends OpenApi {
    * Queries a list of Supabase instances.
    * 
    * @remarks
-   * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+   * Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
    * 
    * @param request - DescribeSupabaseInstancesRequest
    * @returns DescribeSupabaseInstancesResponse
@@ -8455,12 +8465,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelist of a Supabase instance.
+   * Queries the Supabase IP whitelist.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeSupabaseIpWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8499,12 +8509,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelist of a Supabase instance.
+   * Queries the Supabase IP whitelist.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
    * 
    * @param request - DescribeSupabaseIpWhitelistRequest
    * @returns DescribeSupabaseIpWhitelistResponse
@@ -8565,7 +8575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task list of an instance.
+   * Retrieves the list of tasks for an instance.
    * 
    * @param request - DescribeTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8632,7 +8642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task list of an instance.
+   * Retrieves the list of tasks for an instance.
    * 
    * @param request - DescribeTasksRequest
    * @returns DescribeTasksResponse
@@ -8739,7 +8749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables public network access for PolarDB-X Search.
+   * Disables public network access to PolarDB-X Search.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -8781,7 +8791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables public network access for PolarDB-X Search.
+   * Disables public network access to PolarDB-X Search.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -9102,7 +9112,7 @@ export default class Client extends OpenApi {
    * Executes a metadata query.
    * 
    * @remarks
-   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
    * 
    * @param request - ExecuteMetaQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9152,7 +9162,7 @@ export default class Client extends OpenApi {
    * Executes a metadata query.
    * 
    * @remarks
-   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
    * 
    * @param request - ExecuteMetaQueryRequest
    * @returns ExecuteMetaQueryResponse
@@ -9415,7 +9425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+   * Modifies the time configuration for O&M events.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9442,7 +9452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+   * Modifies the time configuration for O&M events.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @returns ModifyActiveOperationMaintainConfResponse
@@ -9635,7 +9645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+   * Synchronously modifies the whitelists for the context service and dashboard.
    * 
    * @remarks
    * ***
@@ -9685,7 +9695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+   * Synchronously modifies the whitelists for the context service and dashboard.
    * 
    * @remarks
    * ***
@@ -9907,7 +9917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+   * Modifies the specifications of an instance.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9986,7 +9996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+   * Modifies the specifications of an instance.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @returns ModifyDBInstanceClassResponse
@@ -10219,10 +10229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+   * Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyDBInstanceVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10269,10 +10279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+   * Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyDBInstanceVipRequest
    * @returns ModifyDBInstanceVipResponse
@@ -10525,7 +10535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications of a PolarDB-X Search instance.
+   * Modifies the specifications of a PolarDBX Search instance.
    * 
    * @remarks
    * ***
@@ -10571,7 +10581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications of a PolarDB-X Search instance.
+   * Modifies the specifications of a PolarDBX Search instance.
    * 
    * @remarks
    * ***
@@ -10649,7 +10659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies instance parameters, including parameters at the compute layer and storage layer.
+   * Modifies the parameters of an instance, including the compute and storage layer parameters.
    * 
    * @param request - ModifyParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10700,7 +10710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies instance parameters, including parameters at the compute layer and storage layer.
+   * Modifies the parameters of an instance, including the compute and storage layer parameters.
    * 
    * @param request - ModifyParameterRequest
    * @returns ModifyParameterResponse
@@ -10953,7 +10963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist of a Supabase instance.
+   * Modifies the IP whitelist for Supabase.
    * 
    * @remarks
    * ***
@@ -11003,7 +11013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist of a Supabase instance.
+   * Modifies the IP whitelist for Supabase.
    * 
    * @remarks
    * ***
@@ -11577,10 +11587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭Agent文件服务公网连接
+   * Disables the public network connection for the Agent file service.
    * 
    * @remarks
-   * 关闭Agent文件服务公网连接。
+   * Disables the public network connection for the Agent file service.
    * 
    * @param request - ReleasePxfsPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11615,10 +11625,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭Agent文件服务公网连接
+   * Disables the public network connection for the Agent file service.
    * 
    * @remarks
-   * 关闭Agent文件服务公网连接。
+   * Disables the public network connection for the Agent file service.
    * 
    * @param request - ReleasePxfsPublicConnectionRequest
    * @returns ReleasePxfsPublicConnectionResponse
@@ -11762,7 +11772,7 @@ export default class Client extends OpenApi {
    * Resets the API key of the memory engine.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ResetMem0AccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11804,7 +11814,7 @@ export default class Client extends OpenApi {
    * Resets the API key of the memory engine.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ResetMem0AccountPasswordRequest
    * @returns ResetMem0AccountPasswordResponse
@@ -12727,6 +12737,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switches the zone of the primary node for a PolarDB-X instance.
+   * 
    * @param request - SwitchDBInstanceHARequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchDBInstanceHAResponse
@@ -12776,6 +12788,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switches the zone of the primary node for a PolarDB-X instance.
+   * 
    * @param request - SwitchDBInstanceHARequest
    * @returns SwitchDBInstanceHAResponse
    */
@@ -13093,7 +13107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies instance tags.
+   * Updates instance labels.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -13139,7 +13153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies instance tags.
+   * Updates instance labels.
    * 
    * @remarks
    * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -13265,7 +13279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+   * Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
    * 
    * @param request - UpdatePolarDBXInstanceNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13328,7 +13342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+   * Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
    * 
    * @param request - UpdatePolarDBXInstanceNodeRequest
    * @returns UpdatePolarDBXInstanceNodeResponse

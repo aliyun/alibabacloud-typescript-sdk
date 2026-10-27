@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteMetaQueryResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The description is the same as above.
+   * Same as above.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class ExecuteMetaQueryResponseBodyAccessDeniedDetail extends $dara.Model 
   authAction?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * Same as above.
    * 
    * @example
    * 222
@@ -73,15 +73,47 @@ export class ExecuteMetaQueryResponseBodyAccessDeniedDetail extends $dara.Model 
 }
 
 export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The actual top-level LIMIT offset applied to the SQL statement. If no offset is specified, the value is 0.
+   * 
+   * @example
+   * 0
+   */
   appliedOffset?: number;
+  /**
+   * @remarks
+   * The effective upper limit of returned rows for this request.
+   * 
+   * @example
+   * 100
+   */
   appliedRowLimit?: number;
   /**
    * @remarks
    * The column names.
    */
   columns?: string[];
+  /**
+   * @remarks
+   * Indicates whether the query result contains at least one more row beyond the effective row limit for this request.
+   */
   hasMore?: boolean;
+  /**
+   * @remarks
+   * The size in bytes of the Rows JSON array in the returned result after UTF-8 encoding, excluding protocol overhead.
+   * 
+   * @example
+   * 2048
+   */
   recordsSizeBytes?: number;
+  /**
+   * @remarks
+   * The actual number of result rows returned for this request.
+   * 
+   * @example
+   * 100
+   */
   returnedRowCount?: number;
   /**
    * @remarks
@@ -93,7 +125,7 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
   rowCount?: number;
   /**
    * @remarks
-   * The number of affected or returned rows. This field is available only for compute nodes (CNs).
+   * The number of affected or returned rows. This field is available only for CN.
    */
   rows?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -140,7 +172,7 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
 export class ExecuteMetaQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed information about the access denial.
    */
   accessDeniedDetail?: ExecuteMetaQueryResponseBodyAccessDeniedDetail;
   /**
@@ -150,7 +182,7 @@ export class ExecuteMetaQueryResponseBody extends $dara.Model {
   data?: ExecuteMetaQueryResponseBodyData;
   /**
    * @remarks
-   * The additional information returned by the operation. success is returned if the request is successful. Otherwise, an error code is returned.
+   * The additional message returned by the API operation. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
    * 
    * @example
    * ""

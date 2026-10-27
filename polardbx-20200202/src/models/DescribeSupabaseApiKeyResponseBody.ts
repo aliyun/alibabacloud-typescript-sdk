@@ -13,7 +13,7 @@ export class DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail extends $dara.
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The authentication principal name.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail extends $dara.
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -145,7 +145,7 @@ export class DescribeSupabaseApiKeyResponseBodyData extends $dara.Model {
 export class DescribeSupabaseApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail;
   /**

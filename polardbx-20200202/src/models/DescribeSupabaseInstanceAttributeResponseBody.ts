@@ -29,7 +29,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -220,7 +220,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   connAddrs?: DescribeSupabaseInstanceAttributeResponseBodyDataConnAddrs[];
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-13 10:01:50 +0800
@@ -263,7 +263,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
    * The minor engine version.
    * 
    * @example
-   * polardb-2.4.0_5.4.19-20250116_xcluster5.4.20-20241213
+   * polardb-2.6.0_xcluster8.4.21-20260716_pxbaas-20260915
    */
   minorVersion?: string;
   /**

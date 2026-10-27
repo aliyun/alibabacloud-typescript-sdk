@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateBackupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the backup set.
+   * 
+   * @example
+   * 111
+   */
   backupSetId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +40,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   data?: CreateBackupResponseBodyData;
   /**
    * @remarks
-   * Empty if the request is successful. An error message is returned if the request fails.
+   * The message. If the request is successful, this field is empty. If the request fails, an error message is returned.
    * 
    * @example
    * *****
@@ -49,7 +56,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The start time of the task, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
+   * The start time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2021-10-20T19:40:00Z
@@ -13,7 +13,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The database name associated with the task. This parameter is generally empty.
+   * The name of the database associated with the task. This field is usually empty.
    * 
    * @example
    * DBName
@@ -21,7 +21,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end time of the task, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
+   * The end time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2021-10-20T20:00:00Z
@@ -29,7 +29,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The task progress, in percentage (%).
+   * The task progress, in percentage.
    * 
    * @example
    * 80
@@ -37,7 +37,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The detailed progress information of the task. This parameter is generally empty.
+   * The detailed progress of the task. This field is usually empty.
    * 
    * @example
    * ProgressInfo
@@ -45,7 +45,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   progressInfo?: string;
   /**
    * @remarks
-   * The scale-out ID if the task is a scale-out task. This is a unique key in the backend.
+   * The scale-out token. If the task is a scale-out task, this field returns a scale-out ID, which is a unique backend key.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -54,7 +54,6 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * 
    * - **RUNNING**: The task is running.
    * - **FAILED**: The task failed and was interrupted.
    * 
@@ -64,7 +63,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task action, which is the unique key for the backend task type.
+   * The task action. This is a unique key for the backend task type.
    * 
    * @example
    * multi_scale_out
@@ -151,7 +150,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 30

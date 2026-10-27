@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSupabaseInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name. This parameter is used for exact match filtering. Separate multiple instance names with commas (,).
+   * The instance name. Exact match is used for filtering. Separate multiple names with commas.
    * 
    * @example
    * pxsp-hz********
@@ -13,7 +13,7 @@ export class DescribeSupabaseInstancesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The instance description. This parameter supports fuzzy match.
+   * The instance description. Fuzzy match is used for filtering.
    * 
    * @example
    * project name
@@ -21,7 +21,7 @@ export class DescribeSupabaseInstancesRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: If you do not specify this parameter or specify a value less than 10, the default value is 10. If you specify a value greater than 100, the default value is 100.
+   * The number of entries to return on each page in a paged query. Maximum value: 100. Default value: 10. If you do not specify the Settings or the Settings value is less than 10, the default value is 10. If the Settings value is greater than 100, the default value is 100. This parameter is used for paging.
    * 
    * @example
    * 1000
@@ -29,7 +29,7 @@ export class DescribeSupabaseInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * xxdds
@@ -37,7 +37,7 @@ export class DescribeSupabaseInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1

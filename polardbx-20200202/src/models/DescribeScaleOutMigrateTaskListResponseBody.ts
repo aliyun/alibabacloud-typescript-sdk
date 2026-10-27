@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScaleOutMigrateTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The migration task progress.
+   * The progress of the migration task.
    * 
    * @example
    * 32

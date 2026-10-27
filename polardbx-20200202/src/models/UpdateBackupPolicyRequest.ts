@@ -78,6 +78,10 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
    * 30
    */
   crossRegionDataBackupRetention?: number;
+  /**
+   * @example
+   * 3,7,1,5,6,2,4
+   */
   crossRegionFilterValue?: string;
   /**
    * @remarks

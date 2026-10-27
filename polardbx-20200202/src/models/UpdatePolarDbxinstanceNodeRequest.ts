@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The node specifications of the storage nodes to add.
+   * 
+   * @example
+   * mysql.n4.medium.25
+   */
   addDNSpec?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
   CNNodeCount?: number;
   /**
    * @remarks
-   * The client token, which is an arbitrary random string.
+   * The client token. It can be any random string.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -22,7 +29,7 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance name ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -46,6 +53,13 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
    * 3
    */
   dbInstanceNodeCount?: number;
+  /**
+   * @remarks
+   * The IDs of the storage nodes to remove.
+   * 
+   * @example
+   * pxc-xdb-s-pxcshr****rh7fn2654fc
+   */
   deleteDNIds?: string;
   /**
    * @remarks
@@ -57,6 +71,13 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the storage pool.
+   * 
+   * @example
+   * test
+   */
   storagePoolName?: string;
   static names(): { [key: string]: string } {
     return {

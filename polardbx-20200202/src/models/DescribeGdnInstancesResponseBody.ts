@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * The instance type.
    * 
    * @example
    * polarx.x4.medium.2e
@@ -13,7 +13,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   classCode?: string;
   /**
    * @remarks
-   * The CN node specifications.
+   * The CN node specifications. Valid values:
    * 
    * - **polarx.x4.medium.2e**: 2 cores, 8 GB
    * - **polarx.x4.large.2e**: 4 cores, 16 GB
@@ -33,7 +33,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   cnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of CN nodes.
+   * The number of compute nodes (CNs).
    * 
    * @example
    * 2
@@ -47,10 +47,15 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * drds_polarxpre_public_cn
    */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The data synchronization status of the member.
+   */
   dataSyncStatus?: string;
   /**
    * @remarks
-   * The DN node specifications.
+   * The DN node specifications. Valid values:
+   * 
    * - **mysql.n2.medium.25**: 2 cores, 4 GB
    * - **mysql.n4.medium.25**: 2 cores, 8 GB
    * - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -73,7 +78,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   dnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of DN nodes.
+   * The number of data nodes (DNs).
    * 
    * @example
    * 2
@@ -81,7 +86,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   dnNodeCount?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The format is YYYY-MM-DDTHH:mm:ss.SSS±HHmm, which includes the time zone offset.
    * 
    * @example
    * 2025-01-02T13:11:10.000+0000
@@ -97,7 +102,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   gmtCreated?: string;
   /**
    * @remarks
-   * The member name (PolarDB-X instance name).
+   * The name of the member, which is the name of the PolarDB-X instance.
    * 
    * @example
    * pxc-***
@@ -107,8 +112,8 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Prepaid
@@ -122,6 +127,10 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * cn-zhangjiakou-a
    */
   primaryZone?: string;
+  /**
+   * @remarks
+   * The read/write status of the member.
+   */
   readWriteStatus?: string;
   /**
    * @remarks
@@ -133,7 +142,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   regionId?: string;
   /**
    * @remarks
-   * The member role.
+   * The role of the member.
    * 
    * @example
    * primary、
@@ -150,7 +159,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   secondaryZone?: string;
   /**
    * @remarks
-   * The data replication lag.
+   * The data synchronization latency.
    * 
    * @example
    * 1s
@@ -158,7 +167,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   secondsBehindMaster?: string;
   /**
    * @remarks
-   * The member status.
+   * The status of the member.
    * 
    * @example
    * Creating
@@ -166,19 +175,19 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   status?: string;
   /**
    * @remarks
-   * The switchover task status.
+   * The status of the switchover task.
    * 
    * @example
-   * prepared: Parameter initialization is complete.
-   * set_old_primary_readonly: The original primary instance is set to read-only.
-   * set_new_primary_read_write: The switchover is complete.
-   * timeout: The task has timed out.
-   * rollback: The task has been rolled back
+   * prepared: Parameter initialization completed
+   * set_old_primary_readonly: Write operations disabled on the original primary instance
+   * set_new_primary_read_write: Switchover completed
+   * timeout: Task timed out
+   * rollback: Rolled back
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The zone for three-zone deployment. This zone is active along with the primary and secondary zones.
+   * The third active zone in a three-zone deployment.
    * 
    * @example
    * cn-zhangjiakou-a
@@ -264,12 +273,19 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The GDN instance name.
+   * The name of the GDN instance.
    * 
    * @example
    * gdn-***
    */
   gdnInstanceName?: string;
+  /**
+   * @remarks
+   * The replication mode of the GDN. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
+   * 
+   * @example
+   * gdn_mode_master_slave
+   */
   gdnMode?: string;
   /**
    * @remarks
@@ -281,7 +297,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   gmtCreated?: string;
   /**
    * @remarks
-   * The member list.
+   * The list of members.
    */
   memberList?: DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList[];
   /**
@@ -292,8 +308,26 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
    * 5.7
    */
   mysqlVersion?: string;
+  /**
+   * @remarks
+   * The replication conflict handling strategy. Valid values: DIRECT_OVERWRITE, OVERWRITE, IGNORE, and INTERRUPT.
+   * 
+   * @example
+   * OVERWRITE
+   */
   rplConflictStrategy?: string;
+  /**
+   * @remarks
+   * The DML replication policy. Valid values: MERGE, SERIAL, TRANSACTION, and SPLIT.
+   * 
+   * @example
+   * SPLIT
+   */
   rplDmlStrategy?: string;
+  /**
+   * @remarks
+   * Specifies whether to synchronously replicate DDL operations.
+   */
   rplSyncDdl?: boolean;
   /**
    * @remarks
@@ -305,7 +339,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The switchover history.
+   * The switchover logs.
    * 
    * @example
    * ""
@@ -423,8 +457,8 @@ export class DescribeGdnInstancesResponseBody extends $dara.Model {
   data?: DescribeGdnInstancesResponseBodyData;
   /**
    * @remarks
-   * The response message.
-   * > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * The message returned for the request.
+   * > This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * success
@@ -440,7 +474,7 @@ export class DescribeGdnInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

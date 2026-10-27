@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceHAResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The zone ID of the primary node.
+   * 
+   * @example
+   * cn-hangzhou-d
+   */
   primaryAzoneId?: string;
+  /**
+   * @remarks
+   * The region ID of the primary node.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   primaryRegionId?: string;
+  /**
+   * @remarks
+   * The zone ID of the secondary node.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   secondaryAzoneId?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary node.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   secondaryRegionId?: string;
+  /**
+   * @remarks
+   * The high availability topology type of the instance.
+   * 
+   * @example
+   * 3azones
+   */
   topologyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,9 +73,31 @@ export class DescribeDBInstanceHAResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDBInstanceHAResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The high availability deployment information of the instance.
+   */
   data?: DescribeDBInstanceHAResponseBodyData;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * successs
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

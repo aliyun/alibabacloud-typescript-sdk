@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Default value: true.
-   * 
-   * - **true**: Enable
-   * - **false**: Disable
+   * Specifies whether to enable auto-renewal. Default value: true. Valid values:
+   * - **true**: Enables auto-renewal.
+   * - **false**: Disables auto-renewal.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   CNNodeCount?: number;
   /**
    * @remarks
-   * The idempotency token. Ensure that a unique value is used for each creation request.
+   * The client token that is used to ensure the idempotence of the request. You must specify a unique token for each request.
    * 
    * @example
    * xxxxxx-xxx
@@ -32,39 +31,37 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The compute node specification. Required for creating Enterprise Edition instances. Not required for Standard Edition.
+   * The specifications of compute nodes. Required when you create an Enterprise Edition instance. Not required for a Standard Edition instance.
    * 
-   * Enterprise Edition local disk:
+   * Local node specifications for Enterprise Edition:
+   * - **polarx.x4.medium.2e**: 2 vCPUs, 8 GB (general-purpose)
+   * - **polarx.x4.large.2e**: 4 vCPUs, 16 GB (general-purpose)
+   * - **polarx.x4.xlarge.2e**: 8 vCPUs, 32 GB (general-purpose)
+   * - **polarx.x4.2xlarge.2e**: 16 vCPUs, 64 GB (general-purpose)
+   * - **polarx.x8.large.2e**: 4 vCPUs, 32 GB (dedicated)
+   * - **polarx.x2.large.2x**: 8 vCPUs, 16 GB (dedicated)
+   * - **polarx.x4.xlarge.2x**: 8 vCPUs, 32 GB (dedicated)
+   * - **polarx.x8.xlarge.2e**: 8 vCPUs, 64 GB (dedicated)
+   * - **polarx.x8.2xlarge.2e**: 16 vCPUs, 128 GB (dedicated)
+   * - **polarx.x4.4xlarge.2e**: 32 vCPUs, 128 GB (dedicated)
+   * - **polarx.x8.4xlarge.2e**: 32 vCPUs, 256 GB (dedicated)
+   * - **polarx.st.8xlarge.2e**: 60 vCPUs, 470 GB (dedicated)
+   * - **polarx.st.12xlarge.2e**: 90 vCPUs, 720 GB (dedicated)
    * 
-   * - **polarx.x4.medium.2e**:	2 Cores 8 GB (General Purpose)
-   * - **polarx.x4.large.2e**:	4 Cores 16 GB (General Purpose)
-   * - **polarx.x4.xlarge.2e**:	8 Cores 32 GB (General Purpose)
-   * - **polarx.x4.2xlarge.2e**:	16 Cores 64 GB (General Purpose)
-   * - **polarx.x8.large.2e**:	4 Cores 32 GB (Dedicated)
-   * - **polarx.x2.large.2x**:	8 Cores 16 GB (Dedicated)
-   * - **polarx.x4.xlarge.2x**:	8 Cores 32 GB (Dedicated)
-   * - **polarx.x8.xlarge.2e**:	8 Cores 64 GB (Dedicated)
-   * - **polarx.x8.2xlarge.2e**:	16 Cores 128 GB (Dedicated)
-   * - **polarx.x4.4xlarge.2e**:	32 Cores 128 GB (Dedicated)
-   * - **polarx.x8.4xlarge.2e**:	32 Cores 256 GB (Dedicated)
-   * - **polarx.st.8xlarge.2e**:	60 Cores 470 GB (Dedicated)
-   * - **polarx.st.12xlarge.2e**:	90 Cores 720 GB (Dedicated)
-   * 
-   * 
-   * Enterprise Edition cloud disk:
-   * - **polarx.x4.medium.c2e**:	2 Cores 8 GB (General Purpose)
-   * - **polarx.x4.large.c2e**:	4 Cores 16 GB (General Purpose)
-   * - **polarx.x4.xlarge.c2e**:	8 Cores 32 GB (General Purpose)
-   * - **polarx.x4.2xlarge.c2e**:	16 Cores 64 GB (General Purpose)
-   * - **polarx.x8.large.c2e**:	4 Cores 32 GB (Dedicated)
-   * - **polarx.x2.large.c2x**:	8 Cores 16 GB (Dedicated)
-   * - **polarx.x4.xlarge.c2x**:	8 Cores 32 GB (Dedicated)
-   * - **polarx.x8.xlarge.c2e**:	8 Cores 64 GB (Dedicated)
-   * - **polarx.x8.2xlarge.c2e**:	16 Cores 128 GB (Dedicated)
-   * - **polarx.x4.4xlarge.c2e**:	32 Cores 128 GB (Dedicated)
-   * - **polarx.x8.4xlarge.c2e**:	32 Cores 256 GB (Dedicated)
-   * - **polarx.st.8xlarge.c2e**:	60 Cores 470 GB (Dedicated)
-   * - **polarx.st.12xlarge.c2e**:	90 Cores 720 GB (Dedicated)
+   * Cloud node specifications for Enterprise Edition:
+   * - **polarx.x4.medium.c2e**: 2 vCPUs, 8 GB (general-purpose)
+   * - **polarx.x4.large.c2e**: 4 vCPUs, 16 GB (general-purpose)
+   * - **polarx.x4.xlarge.c2e**: 8 vCPUs, 32 GB (general-purpose)
+   * - **polarx.x4.2xlarge.c2e**: 16 vCPUs, 64 GB (general-purpose)
+   * - **polarx.x8.large.c2e**: 4 vCPUs, 32 GB (dedicated)
+   * - **polarx.x2.large.c2x**: 8 vCPUs, 16 GB (dedicated)
+   * - **polarx.x4.xlarge.c2x**: 8 vCPUs, 32 GB (dedicated)
+   * - **polarx.x8.xlarge.c2e**: 8 vCPUs, 64 GB (dedicated)
+   * - **polarx.x8.2xlarge.c2e**: 16 vCPUs, 128 GB (dedicated)
+   * - **polarx.x4.4xlarge.c2e**: 32 vCPUs, 128 GB (dedicated)
+   * - **polarx.x8.4xlarge.c2e**: 32 vCPUs, 256 GB (dedicated)
+   * - **polarx.st.8xlarge.c2e**: 60 vCPUs, 470 GB (dedicated)
+   * - **polarx.st.12xlarge.c2e**: 90 vCPUs, 720 GB (dedicated)
    * 
    * @example
    * polarx.x4.medium.2e
@@ -72,68 +69,68 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   cnClass?: string;
   /**
    * @remarks
-   * Required for creating Standard Edition instances. Not required for Enterprise Edition.
+   * Required when you create a Standard Edition instance. Not required for an Enterprise Edition instance.
    * 
-   * Standard Edition local disk specifications:
-   * - **mysql.n8.small.25**:	1 Core 8 GB (General Purpose)
-   * - **mysql.n2.medium.25**:	2 Cores 4 GB (General Purpose)
-   * - **mysql.n4.medium.25**:	2 Cores 8 GB (General Purpose)
-   * - **mysql.n8.medium.25**:	2 Cores 16 GB (General Purpose)
-   * - **mysql.n2.large.25**:	4 Cores 8 GB (General Purpose)
-   * - **mysql.n4.large.25**:	4 Cores 16 GB (General Purpose)
-   * - **mysql.n8.large.25**:	4 Cores 32 GB (General Purpose)
-   * - **mysql.n2.xlarge.25**:	8 Cores 16 GB (General Purpose)
-   * - **mysql.n4.xlarge.25**:	8 Cores 32 GB (General Purpose)
-   * - **mysql.n8.xlarge.25**:	8 Cores 64 GB (General Purpose)
-   * - **mysql.n2.2xlarge.25**:	16 Cores 32 GB (General Purpose)
-   * - **mysql.n4.2xlarge.25**:	16 Cores 64 GB (General Purpose)
-   * - **mysql.n8.2xlarge.25**:	16 Cores 128 GB (General Purpose)
-   * - **mysql.x2.medium.25**:	2 Cores 4 GB (Dedicated)
-   * - **mysql.x4.medium.25**:	2 Cores 8 GB (Dedicated)
-   * - **mysql.x8.medium.25**:	2 Cores 16 GB (Dedicated)
-   * - **mysql.x2.large.25**:	4 Cores 8 GB (Dedicated)
-   * - **mysql.x4.large.25**:	4 Cores 16 GB (Dedicated)
-   * - **mysql.x8.large.25**:	4 Cores 32 GB (Dedicated)
-   * - **mysql.x2.xlarge.25**:	8 Cores 16 GB (Dedicated)
-   * - **mysql.x4.xlarge.25**:	8 Cores 32 GB (Dedicated)
-   * - **mysql.x8.xlarge.25**:	8 Cores 64 GB (Dedicated)
-   * - **mysql.x2.2xlarge.25**:	16 Cores 32 GB (Dedicated)
-   * - **mysql.x4.2xlarge.25**:	16 Cores 64 GB (Dedicated)
-   * - **mysql.x8.2xlarge.25**:	16 Cores 128 GB (Dedicated)
-   * - **mysql.x4.4xlarge.25**:	32 Cores 128 GB (Dedicated)
-   * - **mysql.x8.4xlarge.25**:	32 Cores 256 GB (Dedicated)
-   * - **mysql.x4.8xlarge.25**:	64 Cores 256 GB (Dedicated)
-   * - **mysql.x8.8xlarge.25**:	64 Cores 512 GB (Dedicated)
-   * - **mysql.st.12xlarge.25**:	90 Cores 720 GB (Dedicated)
+   * Local disk specifications for Standard Edition:
+   * - **mysql.n8.small.25**: 1 vCPU, 8 GB (general-purpose)
+   * - **mysql.n2.medium.25**: 2 vCPUs, 4 GB (general-purpose)
+   * - **mysql.n4.medium.25**: 2 vCPUs, 8 GB (general-purpose)
+   * - **mysql.n8.medium.25**: 2 vCPUs, 16 GB (general-purpose)
+   * - **mysql.n2.large.25**: 4 vCPUs, 8 GB (general-purpose)
+   * - **mysql.n4.large.25**: 4 vCPUs, 16 GB (general-purpose)
+   * - **mysql.n8.large.25**: 4 vCPUs, 32 GB (general-purpose)
+   * - **mysql.n2.xlarge.25**: 8 vCPUs, 16 GB (general-purpose)
+   * - **mysql.n4.xlarge.25**: 8 vCPUs, 32 GB (general-purpose)
+   * - **mysql.n8.xlarge.25**: 8 vCPUs, 64 GB (general-purpose)
+   * - **mysql.n2.2xlarge.25**: 16 vCPUs, 32 GB (general-purpose)
+   * - **mysql.n4.2xlarge.25**: 16 vCPUs, 64 GB (general-purpose)
+   * - **mysql.n8.2xlarge.25**: 16 vCPUs, 128 GB (general-purpose)
+   * - **mysql.x2.medium.25**: 2 vCPUs, 4 GB (dedicated)
+   * - **mysql.x4.medium.25**: 2 vCPUs, 8 GB (dedicated)
+   * - **mysql.x8.medium.25**: 2 vCPUs, 16 GB (dedicated)
+   * - **mysql.x2.large.25**: 4 vCPUs, 8 GB (dedicated)
+   * - **mysql.x4.large.25**: 4 vCPUs, 16 GB (dedicated)
+   * - **mysql.x8.large.25**: 4 vCPUs, 32 GB (dedicated)
+   * - **mysql.x2.xlarge.25**: 8 vCPUs, 16 GB (dedicated)
+   * - **mysql.x4.xlarge.25**: 8 vCPUs, 32 GB (dedicated)
+   * - **mysql.x8.xlarge.25**: 8 vCPUs, 64 GB (dedicated)
+   * - **mysql.x2.2xlarge.25**: 16 vCPUs, 32 GB (dedicated)
+   * - **mysql.x4.2xlarge.25**: 16 vCPUs, 64 GB (dedicated)
+   * - **mysql.x8.2xlarge.25**: 16 vCPUs, 128 GB (dedicated)
+   * - **mysql.x4.4xlarge.25**: 32 vCPUs, 128 GB (dedicated)
+   * - **mysql.x8.4xlarge.25**: 32 vCPUs, 256 GB (dedicated)
+   * - **mysql.x4.8xlarge.25**: 64 vCPUs, 256 GB (dedicated)
+   * - **mysql.x8.8xlarge.25**: 64 vCPUs, 512 GB (dedicated)
+   * - **mysql.st.12xlarge.25**: 90 vCPUs, 720 GB (dedicated)
    * 
-   * Standard Edition cloud disk specifications:
-   * - **polarx.mysql.n2.medium.c25**:	2 Cores 4 GB (General Purpose)
-   * - **polarx.mysql.n4.medium.c25**:	2 Cores 8 GB (General Purpose)
-   * - **polarx.mysql.n8.medium.c25**:	2 Cores 16 GB (General Purpose)
-   * - **polarx.mysql.n2.large.c25**:	4 Cores 8 GB (General Purpose)
-   * - **polarx.mysql.n4.large.c25**:	4 Cores 16 GB (General Purpose)
-   * - **polarx.mysql.n8.large.c25**:	4 Cores 32 GB (General Purpose)
-   * - **polarx.mysql.n2.xlarge.c25**:	8 Cores 16 GB (General Purpose)
-   * - **polarx.mysql.n4.xlarge.c25**:	8 Cores 32 GB (General Purpose)
-   * - **polarx.mysql.n8.xlarge.c25**:	8 Cores 64 GB (General Purpose)
-   * - **polarx.mysql.x2.medium.c25**:	2 Cores 4 GB (Dedicated)
-   * - **polarx.mysql.x4.medium.c25**:	2 Cores 8 GB (Dedicated)
-   * - **polarx.mysql.x8.medium.c25**:	2 Cores 16 GB (Dedicated)
-   * - **polarx.mysql.x2.large.c25**:	4 Cores 8 GB (Dedicated)
-   * - **polarx.mysql.x4.large.c25**:	4 Cores 16 GB (Dedicated)
-   * - **polarx.mysql.x8.large.c25**:	4 Cores 32 GB (Dedicated)
-   * - **polarx.mysql.x2.xlarge.c25**:	8 Cores 16 GB (Dedicated)
-   * - **polarx.mysql.x4.xlarge.c25**:	8 Cores 32 GB (Dedicated)
-   * - **polarx.mysql.x8.xlarge.c25**:	8 Cores 64 GB (Dedicated)
-   * - **polarx.mysql.x2.2xlarge.c25**:	16 Cores 32 GB (Dedicated)
-   * - **polarx.mysql.x4.2xlarge.c25**:	16 Cores 64 GB (Dedicated)
-   * - **polarx.mysql.x8.2xlarge.c25**:	16 Cores 128 GB (Dedicated)
-   * - **polarx.mysql.x2.4xlarge.c25**:	32 Cores 64 GB (Dedicated)
-   * - **polarx.mysql.x4.4xlarge.c25**:	32 Cores 128 GB (Dedicated)
-   * - **polarx.mysql.x8.4xlarge.c25**:	32 Cores 256 GB (Dedicated)
-   * - **polarx.mysql.x2.8xlarge.c25**:	64 Cores 128 GB (Dedicated)
-   * - **polarx.mysql.x4.8xlarge.c25**:	64 Cores 256 GB (Dedicated)
-   * - **polarx.mysql.x8.8xlarge.c25**:	64 Cores 512 GB (Dedicated)
+   * Cloud disk specifications for Standard Edition:
+   * - **polarx.mysql.n2.medium.c25**: 2 vCPUs, 4 GB (general-purpose)
+   * - **polarx.mysql.n4.medium.c25**: 2 vCPUs, 8 GB (general-purpose)
+   * - **polarx.mysql.n8.medium.c25**: 2 vCPUs, 16 GB (general-purpose)
+   * - **polarx.mysql.n2.large.c25**: 4 vCPUs, 8 GB (general-purpose)
+   * - **polarx.mysql.n4.large.c25**: 4 vCPUs, 16 GB (general-purpose)
+   * - **polarx.mysql.n8.large.c25**: 4 vCPUs, 32 GB (general-purpose)
+   * - **polarx.mysql.n2.xlarge.c25**: 8 vCPUs, 16 GB (general-purpose)
+   * - **polarx.mysql.n4.xlarge.c25**: 8 vCPUs, 32 GB (general-purpose)
+   * - **polarx.mysql.n8.xlarge.c25**: 8 vCPUs, 64 GB (general-purpose)
+   * - **polarx.mysql.x2.medium.c25**: 2 vCPUs, 4 GB (dedicated)
+   * - **polarx.mysql.x4.medium.c25**: 2 vCPUs, 8 GB (dedicated)
+   * - **polarx.mysql.x8.medium.c25**: 2 vCPUs, 16 GB (dedicated)
+   * - **polarx.mysql.x2.large.c25**: 4 vCPUs, 8 GB (dedicated)
+   * - **polarx.mysql.x4.large.c25**: 4 vCPUs, 16 GB (dedicated)
+   * - **polarx.mysql.x8.large.c25**: 4 vCPUs, 32 GB (dedicated)
+   * - **polarx.mysql.x2.xlarge.c25**: 8 vCPUs, 16 GB (dedicated)
+   * - **polarx.mysql.x4.xlarge.c25**: 8 vCPUs, 32 GB (dedicated)
+   * - **polarx.mysql.x8.xlarge.c25**: 8 vCPUs, 64 GB (dedicated)
+   * - **polarx.mysql.x2.2xlarge.c25**: 16 vCPUs, 32 GB (dedicated)
+   * - **polarx.mysql.x4.2xlarge.c25**: 16 vCPUs, 64 GB (dedicated)
+   * - **polarx.mysql.x8.2xlarge.c25**: 16 vCPUs, 128 GB (dedicated)
+   * - **polarx.mysql.x2.4xlarge.c25**: 32 vCPUs, 64 GB (dedicated)
+   * - **polarx.mysql.x4.4xlarge.c25**: 32 vCPUs, 128 GB (dedicated)
+   * - **polarx.mysql.x8.4xlarge.c25**: 32 vCPUs, 256 GB (dedicated)
+   * - **polarx.mysql.x2.8xlarge.c25**: 64 vCPUs, 128 GB (dedicated)
+   * - **polarx.mysql.x4.8xlarge.c25**: 64 vCPUs, 256 GB (dedicated)
+   * - **polarx.mysql.x8.8xlarge.c25**: 64 vCPUs, 512 GB (dedicated)
    * 
    * @example
    * polarx.x4.2xlarge.2d
@@ -141,9 +138,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   DBNodeClass?: string;
   /**
    * @remarks
-   * The number of instance nodes:
+   * The number of nodes in the instance. Valid values:
    * * Standard Edition: 1
-   * * Enterprise Edition: >=2
+   * * Enterprise Edition: 2 or greater
    * 
    * @example
    * 3
@@ -167,48 +164,45 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The storage node specification. Required for creating Enterprise Edition instances. Not required for Standard Edition.
+   * The specifications of storage nodes. Required when you create an Enterprise Edition instance. Not required for a Standard Edition instance.
    * 
-   * Enterprise Edition local disk:
+   * Local node specifications for Enterprise Edition:
+   * - **mysql.n2.medium.25**: 2 vCPUs, 4 GB (general-purpose)
+   * - **mysql.n4.medium.25**: 2 vCPUs, 8 GB (general-purpose)
+   * - **mysql.n2.large.25**: 4 vCPUs, 8 GB (general-purpose)
+   * - **mysql.n4.large.25**: 4 vCPUs, 16 GB (general-purpose)
+   * - **mysql.n4.xlarge.25**: 8 vCPUs, 32 GB (general-purpose)
+   * - **mysql.n4.2xlarge.25**: 16 vCPUs, 64 GB (general-purpose)
+   * - **mysql.x4.large.25**: 4 vCPUs, 16 GB (dedicated)
+   * - **mysql.x8.large.25**: 4 vCPUs, 32 GB (dedicated)
+   * - **mysql.x2.xlarge.25**: 8 vCPUs, 16 GB (dedicated)
+   * - **mysql.x8.xlarge.25**: 8 vCPUs, 64 GB (dedicated)
+   * - **mysql.x8.2xlarge.25**: 16 vCPUs, 128 GB (dedicated)
+   * - **mysql.x4.4xlarge.25**: 32 vCPUs, 128 GB (dedicated)
+   * - **mysql.x8.4xlarge.25**: 32 vCPUs, 256 GB (dedicated)
+   * - **mysql.st.8xlarge.25**: 60 vCPUs, 470 GB (dedicated)
+   * - **mysql.st.12xlarge.25**: 90 vCPUs, 720 GB (dedicated)
+   * - **mysql.x8.45xlarge.25**: 180 vCPUs, 1440 GB (dedicated)
+   * - **mysql.x8.60xlarge.25**: 240 vCPUs, 1920 GB (dedicated)
    * 
-   * - **mysql.n2.medium.25**:	2 Cores 4 GB (General Purpose)
-   * - **mysql.n4.medium.25**:	2 Cores 8 GB (General Purpose)
-   * - **mysql.n2.large.25**:	4 Cores 8 GB (General Purpose)
-   * - **mysql.n4.large.25**:	4 Cores 16 GB (General Purpose)
-   * - **mysql.n4.xlarge.25**:	8 Cores 32 GB (General Purpose)
-   * - **mysql.n4.2xlarge.25**:	16 Cores 64 GB (General Purpose)
-   * - **mysql.x4.large.25**:	4 Cores 16 GB (Dedicated)
-   * - **mysql.x8.large.25**:	4 Cores 32 GB (Dedicated)
-   * - **mysql.x2.xlarge.25**:	8 Cores 16 GB (Dedicated)
-   * - **mysql.x8.xlarge.25**:	8 Cores 64 GB (Dedicated)
-   * - **mysql.x8.2xlarge.25**:	16 Cores 128 GB (Dedicated)
-   * - **mysql.x4.4xlarge.25**:	32 Cores 128 GB (Dedicated)
-   * - **mysql.x8.4xlarge.25**:	32 Cores 256 GB (Dedicated)
-   * - **mysql.st.8xlarge.25**:	60 Cores 470 GB (Dedicated)
-   * - **mysql.st.12xlarge.25**:	90 Cores 720 GB (Dedicated)
-   * - **mysql.x8.45xlarge.25**:	180 Cores 1440 GB (Dedicated)
-   * - **mysql.x8.60xlarge.25**:	240 Cores 1920 GB (Dedicated)
-   * 
-   * 
-   * Enterprise Edition cloud disk:
-   * 
-   * - **polarx.mysql.n2.medium.c25**:	2 Cores 4 GB (General Purpose)
-   * - **polarx.mysql.n4.medium.c25**:	2 Cores 8 GB (General Purpose)
-   * - **polarx.mysql.n2.large.c25**:	4 Cores 8 GB (General Purpose)
-   * - **polarx.mysql.n4.large.c25**:	4 Cores 16 GB (General Purpose)
-   * - **polarx.mysql.n4.xlarge.c25**:	8 Cores 32 GB (General Purpose)
-   * - **polarx.mysql.n4.2xlarge.c25**:	16 Cores 64 GB (General Purpose)
-   * - **polarx.mysql.x4.large.c25**:	4 Cores 16 GB (Dedicated)
-   * - **polarx.mysql.x8.large.c25**:	4 Cores 32 GB (Dedicated)
-   * - **polarx.mysql.x2.xlarge.c25**:	8 Cores 16 GB (Dedicated)
-   * - **polarx.mysql.x8.xlarge.c25**:	8 Cores 64 GB (Dedicated)
-   * - **polarx.mysql.x8.2xlarge.c25**:	16 Cores 128 GB (Dedicated)
-   * - **polarx.mysql.x4.4xlarge.c25**:	32 Cores 128 GB (Dedicated)
-   * - **polarx.mysql.x8.4xlarge.c25**:	32 Cores 256 GB (Dedicated)
-   * - **polarx.mysql.st.8xlarge.c25**:	60 Cores 470 GB (Dedicated)
-   * - **polarx.mysql.st.12xlarge.c25**: 90 Cores 720 GB (Dedicated)
-   * - **polarx.mysql.x8.45xlarge.c25**: 180 Cores 1440 GB (Dedicated)
-   * - **polarx.mysql.x8.60xlarge.c25**: 240 Cores 1920 GB (Dedicated)
+   * Cloud node specifications for Enterprise Edition:
+   * - **polarx.mysql.n2.medium.c25**: 2 vCPUs, 4 GB (general-purpose)
+   * - **polarx.mysql.n4.medium.c25**: 2 vCPUs, 8 GB (general-purpose)
+   * - **polarx.mysql.n2.large.c25**: 4 vCPUs, 8 GB (general-purpose)
+   * - **polarx.mysql.n4.large.c25**: 4 vCPUs, 16 GB (general-purpose)
+   * - **polarx.mysql.n4.xlarge.c25**: 8 vCPUs, 32 GB (general-purpose)
+   * - **polarx.mysql.n4.2xlarge.c25**: 16 vCPUs, 64 GB (general-purpose)
+   * - **polarx.mysql.x4.large.c25**: 4 vCPUs, 16 GB (dedicated)
+   * - **polarx.mysql.x8.large.c25**: 4 vCPUs, 32 GB (dedicated)
+   * - **polarx.mysql.x2.xlarge.c25**: 8 vCPUs, 16 GB (dedicated)
+   * - **polarx.mysql.x8.xlarge.c25**: 8 vCPUs, 64 GB (dedicated)
+   * - **polarx.mysql.x8.2xlarge.c25**: 16 vCPUs, 128 GB (dedicated)
+   * - **polarx.mysql.x4.4xlarge.c25**: 32 vCPUs, 128 GB (dedicated)
+   * - **polarx.mysql.x8.4xlarge.c25**: 32 vCPUs, 256 GB (dedicated)
+   * - **polarx.mysql.st.8xlarge.c25**: 60 vCPUs, 470 GB (dedicated)
+   * - **polarx.mysql.st.12xlarge.c25**: 90 vCPUs, 720 GB (dedicated)
+   * - **polarx.mysql.x8.45xlarge.c25**: 180 vCPUs, 1440 GB (dedicated)
+   * - **polarx.mysql.x8.60xlarge.c25**: 240 vCPUs, 1920 GB (dedicated)
    * 
    * @example
    * mysql.n4.medium.25
@@ -216,7 +210,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   dnClass?: string;
   /**
    * @remarks
-   * The disk space size of the storage node.
+   * The disk space of the storage nodes.
    * 
    * @example
    * 1500
@@ -224,7 +218,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   dnStorageSpace?: string;
   /**
    * @remarks
-   * The MySQL engine version. Valid values: 5.7 and 8.0.
+   * The MySQL DPI engine version. Valid values: 5.7 and 8.0.
    * 
    * This parameter is required.
    * 
@@ -234,12 +228,12 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * Additional parameters.
+   * The extra parameters.
    */
   extraParamsShrink?: string;
   /**
    * @remarks
-   * Specifies whether the instance to be created is a columnar read-only instance.
+   * Specifies whether the instance to be created is a column store read-only instance.
    * 
    * @example
    * true
@@ -247,10 +241,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   isColumnarReadDBInstance?: boolean;
   /**
    * @remarks
-   * Specifies whether the instance is a read-only instance.
-   * 
-   * - **true**: Yes
-   * - **false**: No
+   * Specifies whether the instance is a read-only instance. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -258,7 +251,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   isReadDBInstance?: boolean;
   /**
    * @remarks
-   * The network type. Only VPC is supported.
+   * The network type of the instance. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -266,7 +259,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The minor version number. This parameter is generally not required.
+   * The minor engine version. This parameter is generally not required.
    * 
    * @example
    * polardb-2.4.0_standard_xcluster8.4.20-20260331
@@ -274,10 +267,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   originMinorVersion?: string;
   /**
    * @remarks
-   * The billing method of the instance.
-   * 
-   * - **PREPAY**: Subscription
-   * - **POSTPAY**: Pay-as-you-go
+   * The billing method of the instance. Valid values:
+   * - **PREPAY**: subscription
+   * - **POSTPAY**: pay-as-you-go
    * 
    * This parameter is required.
    * 
@@ -287,7 +279,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing cycle. For subscription instances, valid values are Year and Month. For pay-as-you-go instances, the default value is Hour.
+   * The billing cycle. Valid values for subscription instances: Year and Month. Default value for pay-as-you-go instances: Hour.
    * 
    * @example
    * Month
@@ -295,7 +287,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The primary instance must be specified if the instance is a read-only instance.
+   * The name of the primary instance. This parameter is required if the instance is a read-only instance.
    * 
    * @example
    * pxc-*********
@@ -303,7 +295,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   primaryDBInstanceName?: string;
   /**
    * @remarks
-   * The primary availability zone.
+   * The primary zone.
    * 
    * @example
    * cn-shenzhen-e
@@ -311,7 +303,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   primaryZone?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region of the instance.
    * 
    * This parameter is required.
    * 
@@ -321,7 +313,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty. This feature is currently not supported.
+   * The resource group ID. This parameter is not supported and can be left empty.
    * 
    * @example
    * null
@@ -329,7 +321,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The secondary availability zone.
+   * The secondary zone.
    * 
    * @example
    * cn-shenzhen-a
@@ -337,8 +329,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   secondaryZone?: string;
   /**
    * @remarks
-   * Enterprise Edition: enterprise
-   * Standard Edition: standard
+   * The edition of the instance. Valid values:
+   * - enterprise: Enterprise Edition
+   * - standard: Standard Edition
    * 
    * @example
    * enterprise
@@ -346,9 +339,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   series?: string;
   /**
    * @remarks
-   * The storage type.
-   * * Local disk: custom_local_ssd
-   * * Cloud disk: cloud_auto
+   * The storage type. Valid values:
+   * * custom_local_ssd: local disk
+   * * cloud_auto: cloud disk
    * 
    * @example
    * cloud_auto
@@ -356,7 +349,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The tertiary availability zone.
+   * The third active zone in a Three-zone deployment.
    * 
    * @example
    * cn-shenzhen-e
@@ -364,10 +357,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   tertiaryZone?: string;
   /**
    * @remarks
-   * The topology type:
-   * 
-   * - **3azones**: Three availability zones
-   * - **1azone**: Single availability zone
+   * The topology type. Valid values:
+   * - **3azones**: Three-zone deployment (three active zones).
+   * - **1azone**: Single active zone.
    * 
    * This parameter is required.
    * 
@@ -377,9 +369,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   topologyType?: string;
   /**
    * @remarks
-   * The subscription duration. You can specify the number of months or years for prepaid instances.
+   * The subscription duration. This parameter is required when the billing method is set to subscription.
    * 
-   * > When Period is set to Year, valid values for this parameter are 1, 2, and 3.
+   * > If Period is set to Year, valid values are 1, 2, and 3.
    * 
    * @example
    * 1
@@ -403,7 +395,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The availability zone of the instance.
+   * The zone of the instance.
    * 
    * @example
    * cn-hangzhou-a

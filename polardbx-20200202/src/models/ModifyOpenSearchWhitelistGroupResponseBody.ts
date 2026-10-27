@@ -37,7 +37,7 @@ export class ModifyOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -103,7 +103,7 @@ export class ModifyOpenSearchWhitelistGroupResponseBodyData extends $dara.Model 
   groupId?: string;
   /**
    * @remarks
-   * The time when the task was last updated, in timestamp format.
+   * The time when the task was last updated, in the UNIX timestamp format.
    * 
    * @example
    * 2025-09-17T02:27:11Z
@@ -135,7 +135,7 @@ export class ModifyOpenSearchWhitelistGroupResponseBodyData extends $dara.Model 
 export class ModifyOpenSearchWhitelistGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: ModifyOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication action.
+   * The authorization action.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity used for authorization in the request.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The ID of the owner of the authorization principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authorization principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of access denial.
    * 
    * @example
    * ImplicitDeny
@@ -96,8 +96,8 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   /**
    * @remarks
    * The billing method. Valid values:
-   * - **POSTPAY**: pay-as-you-go.
-   * - **PREPAY**: subscription.
+   * - **POSTPAY**: pay-as-you-go
+   * - **PREPAY**: subscription
    * 
    * @example
    * PrePaid
@@ -105,7 +105,7 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   chargeType?: string;
   /**
    * @remarks
-   * The OpenSearch-compatible version.
+   * The OpenSearch compatible version.
    * 
    * @example
    * 2.0
@@ -122,8 +122,8 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   /**
    * @remarks
    * The deployment mode. Valid values:
-   * - multiple: multi-zone deployment.
-   * - single: single-zone deployment.
+   * - multiple: multi-zone deployment
+   * - single: single-zone deployment
    * 
    * @example
    * NORMAL
@@ -164,9 +164,9 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   /**
    * @remarks
    * The network type of the connection string. Valid values:
-   * * **Public**: public endpoint.
-   * * **Private**: private endpoint.
-   * * **Inner**: private endpoint (classic network).
+   * * **Public**: public endpoint
+   * * **Private**: private endpoint
+   * * **Inner**: private endpoint (classic network)
    * 
    * @example
    * Private
@@ -190,7 +190,7 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The time when the last task was updated (in timestamp format).
+   * The last task update time in UNIX timestamp format.
    * 
    * @example
    * 2025-09-02T16:01:51Z
@@ -198,7 +198,7 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the access endpoint resides.
+   * The ID of the virtual private cloud (VPC) where the access endpoint resides.
    * 
    * @example
    * vpc-2ze99u5upo8zxyf5dlfl5
@@ -270,7 +270,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   coordinatorNodeCount?: number;
   /**
    * @remarks
-   * The number of CPU cores of a single coordinator node.
+   * The number of CPU cores per coordinator node.
    * 
    * @example
    * 4
@@ -278,12 +278,12 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   coordinatorNodeCpu?: number;
   /**
    * @remarks
-   * Indicates whether coordinator nodes are enabled.
+   * Indicates whether the coordinator node is enabled.
    */
   coordinatorNodeEnabled?: boolean;
   /**
    * @remarks
-   * The memory size of a single coordinator node. Unit: GB.
+   * The memory size per coordinator node, in GB.
    * 
    * @example
    * 16
@@ -299,7 +299,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   dataNodeCount?: number;
   /**
    * @remarks
-   * The number of CPU cores of a single data node.
+   * The number of CPU cores per data node.
    * 
    * @example
    * 8
@@ -307,7 +307,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   dataNodeCpu?: number;
   /**
    * @remarks
-   * The memory size of a single data node. Unit: GB.
+   * The memory size per data node, in GB.
    * 
    * @example
    * 32
@@ -316,8 +316,8 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   /**
    * @remarks
    * The master node type. Valid values:
-   * - **0**: The master node is a single node.
-   * - **2**: The master node is in Cluster Edition.
+   * - **0**: single-node master
+   * - **2**: cluster-edition master
    * 
    * @example
    * 2
@@ -325,7 +325,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   masterNodeCount?: number;
   /**
    * @remarks
-   * The number of CPU cores of a single dedicated master node.
+   * The number of CPU cores per dedicated master node.
    * 
    * @example
    * 4
@@ -333,12 +333,12 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   masterNodeCpu?: number;
   /**
    * @remarks
-   * Indicates whether dedicated master nodes are enabled.
+   * Indicates whether the dedicated master node is enabled.
    */
   masterNodeEnabled?: boolean;
   /**
    * @remarks
-   * The memory size of a single dedicated master node. Unit: GB.
+   * The memory size per dedicated master node, in GB.
    * 
    * @example
    * 16
@@ -346,8 +346,8 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   masterNodeMemoryGB?: number;
   /**
    * @remarks
-   * The number of replica nodes in the primary zone.
-   * > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses a cluster architecture, these parameters indicate the number of replica nodes of a **single shard** in the primary and secondary zones.
+   * The number of secondary nodes in the primary zone.
+   * > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses a cluster architecture, these parameters indicate the number of secondary nodes per shard in the primary and secondary zones.
    * 
    * @example
    * 0
@@ -355,7 +355,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   replicaCount?: number;
   /**
    * @remarks
-   * The storage size of a single data node. Unit: GB.
+   * The storage space per data node, in GB.
    * 
    * @example
    * 500
@@ -459,7 +459,7 @@ export class DescribeOpenSearchInfoResponseBodyData extends $dara.Model {
 export class DescribeOpenSearchInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DescribeOpenSearchInfoResponseBodyAccessDeniedDetail;
   /**

@@ -26,7 +26,7 @@ export class DisableOpenSearchPublicEndpointRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

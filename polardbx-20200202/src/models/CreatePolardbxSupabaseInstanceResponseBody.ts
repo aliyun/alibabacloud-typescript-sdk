@@ -29,7 +29,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -155,7 +155,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
 export class CreatePolardbxSupabaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
   /**

@@ -11,13 +11,19 @@ export class DescribeParameterTemplatesRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The DPI engine version. Default value: 2.0.
+   * 
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
   /**
    * @remarks
    * The parameter level. Valid values:
-   * 
-   * - **compute**: compute layer.
-   * - **storage**: storage layer.
+   * - **compute**: the compute layer.
+   * - **storage**: the storage layer.
    * 
    * @example
    * compute

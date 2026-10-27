@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * As described above.
+   * Same as above.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends 
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * As described above.
+   * Same as above.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * As described above.
+   * Same as above.
    * 
    * @example
    * 222
@@ -95,7 +95,7 @@ export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends 
 export class AllocateMem0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for the access denial.
    */
   accessDeniedDetail?: AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail;
   /**

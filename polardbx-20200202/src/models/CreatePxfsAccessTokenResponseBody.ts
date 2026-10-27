@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
    * polardbx:QueryColumnarLog
@@ -13,7 +13,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authorization principal.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The expiration time of the token.
+   * The expiration time.
    * 
    * @example
    * 2026-12-31T23:59:59Z
@@ -111,7 +111,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * @example
    * agent-runtime
@@ -119,7 +119,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * The token label.
+   * The label of the token.
    * 
    * @example
    * production-agent
@@ -127,7 +127,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 12049
@@ -143,7 +143,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The token in plaintext.
+   * The plaintext of the token.
    * 
    * @example
    * pxfs_tenant-001.token-001.******

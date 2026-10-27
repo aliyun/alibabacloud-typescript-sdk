@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authorization principal.
+   * The display name of the security principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the security principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The type of the security principal.
    * 
    * @example
    * 222

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContext0SecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,9 @@ export class ModifyContext0SecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
    * The modification mode of the whitelist. Valid values:
-   * 
-   * - 0: overwrites the whitelist group.
-   * - 1: adds a whitelist group.
-   * - 2: deletes a whitelist group.
+   * - 0: Overwrites the whitelist group.
+   * - 1: Adds a whitelist group.
+   * - 2: Deletes a whitelist group.
    * 
    * @example
    * 1
@@ -45,7 +44,7 @@ export class ModifyContext0SecurityIpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist group. Separate multiple IP addresses with commas (,).
+   * The IP addresses in the whitelist. Separate multiple IP addresses with commas (,).
    * 
    * This parameter is required.
    * 

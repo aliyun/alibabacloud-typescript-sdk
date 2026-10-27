@@ -3,31 +3,54 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model {
+  /**
+   * @remarks
+   * The archiving status. Valid values: SUCCESS, PAUSE, and RUNNING.
+   * 
+   * @example
+   * SUCCESS
+   */
   archiveStatus?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the table was created.
    */
   createdDate?: number;
   /**
    * @remarks
    * The number of files.
+   * 
+   * @example
+   * 0
    */
   fileCount?: number;
+  /**
+   * @remarks
+   * The time of the last successful archiving.
+   */
   lastSuccessArchiveTime?: number;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
+   * 
+   * @example
+   * test
    */
   schemaName?: string;
   /**
    * @remarks
-   * The space size occupied by the table.
+   * The amount of storage space used.
+   * 
+   * @example
+   * 0
    */
   spaceSize?: number;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
+   * 
+   * @example
+   * test
    */
   tableName?: string;
   static names(): { [key: string]: string } {
@@ -66,22 +89,63 @@ export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model 
 export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page index.
+   * The page number.
+   * 
+   * @example
+   * 1
    */
   pageIndex?: number;
   /**
    * @remarks
    * The number of entries per page.
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The number of tables in the PAUSE state.
+   * 
+   * @example
+   * 0
+   */
   pausedCount?: number;
+  /**
+   * @remarks
+   * The number of tables being archived.
+   * 
+   * @example
+   * 0
+   */
   runningCount?: number;
+  /**
+   * @remarks
+   * The number of successfully archived tables.
+   * 
+   * @example
+   * 0
+   */
   successCount?: number;
+  /**
+   * @remarks
+   * The list of archived tables.
+   */
   tables?: DescribeArchiveTableListResponseBodyDataTables[];
+  /**
+   * @remarks
+   * The number of tables to be archived.
+   * 
+   * @example
+   * 0
+   */
   tobeArchivedConut?: number;
   /**
    * @remarks
    * The total number of entries.
+   * 
+   * @example
+   * 0
    */
   total?: number;
   static names(): { [key: string]: string } {
@@ -125,12 +189,15 @@ export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
 export class DescribeArchiveTableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data.
    */
   data?: DescribeArchiveTableListResponseBodyData;
   /**
    * @remarks
    * requestId
+   * 
+   * @example
+   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
    */
   requestId?: string;
   static names(): { [key: string]: string } {

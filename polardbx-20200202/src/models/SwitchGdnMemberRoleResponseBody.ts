@@ -40,7 +40,7 @@ export class SwitchGdnMemberRoleResponseBody extends $dara.Model {
   data?: SwitchGdnMemberRoleResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * The additional information returned by the API operation. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * success

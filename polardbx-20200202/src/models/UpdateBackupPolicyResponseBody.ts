@@ -3,25 +3,97 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateBackupPolicyResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1001000
+   */
   backupPeriod?: string;
+  /**
+   * @example
+   * 03:00Z
+   */
   backupPlanBegin?: string;
+  /**
+   * @example
+   * 30
+   */
   backupSetRetention?: number;
+  /**
+   * @example
+   * 0
+   */
   backupType?: string;
+  /**
+   * @example
+   * P
+   */
   backupWay?: string;
+  /**
+   * @example
+   * 30
+   */
   coldDataBackupInterval?: number;
+  /**
+   * @example
+   * 30
+   */
   coldDataBackupRetention?: number;
+  /**
+   * @example
+   * 30
+   */
   crossRegionDataBackupRetention?: number;
+  /**
+   * @example
+   * 3,7,1,5,6,2,4
+   */
   crossRegionFilterValue?: string;
+  /**
+   * @example
+   * 30
+   */
   crossRegionLogBackupRetention?: number;
+  /**
+   * @example
+   * pxc-hzjasdyuoo
+   */
   DBInstanceName?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   destCrossRegion?: string;
+  /**
+   * @example
+   * 1
+   */
   forceCleanOnHighSpaceUsage?: number;
   isCrossRegionDataBackupEnabled?: boolean;
   isCrossRegionLogBackupEnabled?: boolean;
+  /**
+   * @example
+   * 1
+   */
   isEnabled?: number;
+  /**
+   * @example
+   * 7
+   */
   localLogRetention?: number;
+  /**
+   * @example
+   * 60
+   */
   localLogRetentionNumber?: number;
+  /**
+   * @example
+   * 30
+   */
   logLocalRetentionSpace?: number;
+  /**
+   * @example
+   * 7
+   */
   removeLogRetention?: number;
   static names(): { [key: string]: string } {
     return {

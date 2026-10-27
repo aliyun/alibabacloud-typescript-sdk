@@ -21,7 +21,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dashboard password.
+   * The Dashboard password.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,10 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   dashboardPassword?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
-   * Supabase实例
+   * Supabase instance
    */
   dbInstanceDescription?: string;
   /**
@@ -57,9 +57,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   nodeSpec?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
+   * The billing method. Valid values: PREPAY and POSTPAY.
    * 
    * This parameter is required.
    * 
@@ -69,10 +67,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing cycle. Valid values:
-   * - Year
-   * - Month
-   * - Hour
+   * The billing cycle. Valid values: Year, Month, and Hour.
    * 
    * @example
    * Month

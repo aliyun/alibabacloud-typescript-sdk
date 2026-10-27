@@ -13,10 +13,9 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
   checkingCode?: string;
   /**
    * @remarks
-   * Indicates whether the parameter is dynamic. Valid values:
-   * 
-   * - **0**: No.
-   * - **1**: Yes.
+   * Specifies whether the parameter is dynamic. Valid values:
+   * - **0**: no.
+   * - **1**: yes.
    * 
    * @example
    * 0
@@ -48,10 +47,9 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
   parameterValue?: string;
   /**
    * @remarks
-   * Indicates whether the parameter can be modified. Valid values:
-   * 
-   * - **0**: Cannot be modified.
-   * - **1**: Can be modified.
+   * Specifies whether the parameter can be modified. Valid values:
+   * - **0**: The parameter cannot be modified.
+   * - **1**: The parameter can be modified.
    * 
    * @example
    * 0
@@ -59,7 +57,7 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
   revisable?: number;
   /**
    * @remarks
-   * Indicates whether the parameter can be modified by the user.
+   * Specifies whether the parameter can be modified by the user.
    * 
    * @example
    * 0
@@ -125,7 +123,7 @@ export class DescribeParameterTemplatesResponseBodyData extends $dara.Model {
   parameterCount?: number;
   /**
    * @remarks
-   * The parameter list.
+   * The list of parameters.
    */
   parameters?: DescribeParameterTemplatesResponseBodyDataParameters[];
   static names(): { [key: string]: string } {

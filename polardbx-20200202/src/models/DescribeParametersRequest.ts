@@ -17,8 +17,8 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The parameter level. Valid values:
    * 
-   * - compute: compute layer.
-   * - storage: storage layer.
+   * - compute: compute layer
+   * - storage: storage layer
    * 
    * @example
    * compute
@@ -26,7 +26,7 @@ export class DescribeParametersRequest extends $dara.Model {
   paramLevel?: string;
   /**
    * @remarks
-   * The region to which the instance belongs.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

@@ -37,7 +37,7 @@ export class ModifySupabaseSecurityIPListResponseBodyAccessDeniedDetail extends 
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class ModifySupabaseSecurityIPListResponseBodyAccessDeniedDetail extends 
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the no permission error.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class ModifySupabaseSecurityIPListResponseBodyAccessDeniedDetail extends 
 export class ModifySupabaseSecurityIPListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxsp-*********
@@ -103,7 +103,7 @@ export class ModifySupabaseSecurityIPListResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The whitelist group name.
+   * The name of the whitelist group.
    * 
    * @example
    * special
@@ -145,7 +145,7 @@ export class ModifySupabaseSecurityIPListResponseBodyData extends $dara.Model {
 export class ModifySupabaseSecurityIPListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: ModifySupabaseSecurityIPListResponseBodyAccessDeniedDetail;
   /**

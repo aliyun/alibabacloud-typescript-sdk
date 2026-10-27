@@ -13,8 +13,29 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The endpoint of the primary node of the target instance.
+   * 
+   * @example
+   * pxc-*********.polarx.rds.aliyuncs.com
+   */
   dstMainConnectString?: string;
+  /**
+   * @remarks
+   * The port number of the primary node of the target instance.
+   * 
+   * @example
+   * 3313
+   */
   dstMainPort?: string;
+  /**
+   * @remarks
+   * Specifies whether the endpoint and port of the source or target instance is simultaneously modified.
+   * 
+   * @example
+   * true
+   */
   isModifyEndpoint?: string;
   /**
    * @remarks
@@ -26,7 +47,21 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The endpoint of the primary node of the source instance.
+   * 
+   * @example
+   * rm-*********.mysql.rds.aliyuncs.com
+   */
   srcMainConnectString?: string;
+  /**
+   * @remarks
+   * The port number of the primary node of the source instance.
+   * 
+   * @example
+   * 3308
+   */
   srcMainPort?: string;
   /**
    * @remarks
@@ -35,13 +70,13 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Regular switchover: switch_over
+   * Normal switchover: switch_over
    * Forced switchover: fail_over
    */
   switchMode?: string;
   /**
    * @remarks
-   * The timeout period of the switchover task. Unit: seconds.
+   * The timeout period for the switchover task, in seconds.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent文件服务关联的PolarDB-X实例ID。
+   * The instance ID of the PolarDB-X instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Agent文件服务租户内的身份名称，不是阿里云账号UID。
+   * The identity name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * 客户端业务进程使用的POSIX GID。
+   * POSIX GID
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   posixGid?: number;
   /**
    * @remarks
-   * 客户端业务进程使用的POSIX UID。
+   * POSIX UID
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   posixUid?: number;
   /**
    * @remarks
-   * Agent文件服务实例所属地域的ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 租户身份角色，取值为ADMIN或MEMBER。
+   * The identity role.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Agent文件服务的租户ID。
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
