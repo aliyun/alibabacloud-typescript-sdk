@@ -85,6 +85,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
    * upsert
    */
   storageMode?: string;
+  storageModes?: string[];
   /**
    * @remarks
    * The time when the context store was last updated, in ISO 8601 UTC format.
@@ -107,6 +108,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
       sourceType: 'sourceType',
       status: 'status',
       storageMode: 'storageMode',
+      storageModes: 'storageModes',
       updateTime: 'updateTime',
     };
   }
@@ -123,6 +125,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
       sourceType: 'string',
       status: 'string',
       storageMode: 'string',
+      storageModes: { 'type': 'array', 'itemType': 'string' },
       updateTime: 'string',
     };
   }
@@ -130,6 +133,9 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   validate() {
     if(Array.isArray(this.serviceNames)) {
       $dara.Model.validateArray(this.serviceNames);
+    }
+    if(Array.isArray(this.storageModes)) {
+      $dara.Model.validateArray(this.storageModes);
     }
     super.validate();
   }

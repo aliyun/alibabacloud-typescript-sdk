@@ -82,6 +82,78 @@ export class CreateContextStoreRequestConfigExtractionPoliciesModel extends $dar
   }
 }
 
+export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy extends $dara.Model {
+  /**
+   * @example
+   * ["ADD","UPDATE","MERGE","DELETE"]
+   */
+  allowedActions?: string[];
+  /**
+   * @example
+   * true
+   */
+  dedupe?: boolean;
+  /**
+   * @example
+   * true
+   */
+  humanEditProtection?: boolean;
+  /**
+   * @example
+   * semantic
+   */
+  mergeKey?: string;
+  /**
+   * @example
+   * upsert
+   */
+  mode?: string;
+  /**
+   * @example
+   * 0.4
+   */
+  similarityThreshold?: number;
+  /**
+   * @example
+   * 0
+   */
+  ttlDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowedActions: 'allowedActions',
+      dedupe: 'dedupe',
+      humanEditProtection: 'humanEditProtection',
+      mergeKey: 'mergeKey',
+      mode: 'mode',
+      similarityThreshold: 'similarityThreshold',
+      ttlDays: 'ttlDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedActions: { 'type': 'array', 'itemType': 'string' },
+      dedupe: 'boolean',
+      humanEditProtection: 'boolean',
+      mergeKey: 'string',
+      mode: 'string',
+      similarityThreshold: 'number',
+      ttlDays: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedActions)) {
+      $dara.Model.validateArray(this.allowedActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Model {
   /**
    * @remarks
@@ -136,6 +208,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
    * fact
    */
   preset?: string;
+  storagePolicy?: CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy;
   /**
    * @remarks
    * The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. The maximum length is 64 characters. After default value processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
@@ -153,6 +226,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
       model: 'model',
       name: 'name',
       preset: 'preset',
+      storagePolicy: 'storagePolicy',
       strategyId: 'strategyId',
     };
   }
@@ -166,6 +240,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
       model: CreateContextStoreRequestConfigExtractionPoliciesModel,
       name: 'string',
       preset: 'string',
+      storagePolicy: CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy,
       strategyId: 'string',
     };
   }
@@ -179,6 +254,9 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
     }
     if(this.model && typeof (this.model as any).validate === 'function') {
       (this.model as any).validate();
+    }
+    if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
+      (this.storagePolicy as any).validate();
     }
     super.validate();
   }

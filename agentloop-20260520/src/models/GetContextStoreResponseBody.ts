@@ -82,6 +82,78 @@ export class GetContextStoreResponseBodyConfigExtractionPoliciesModel extends $d
   }
 }
 
+export class GetContextStoreResponseBodyConfigExtractionPoliciesStoragePolicy extends $dara.Model {
+  /**
+   * @example
+   * ["ADD","UPDATE","MERGE","DELETE"]
+   */
+  allowedActions?: string[];
+  /**
+   * @example
+   * true
+   */
+  dedupe?: boolean;
+  /**
+   * @example
+   * true
+   */
+  humanEditProtection?: boolean;
+  /**
+   * @example
+   * semantic
+   */
+  mergeKey?: string;
+  /**
+   * @example
+   * upsert
+   */
+  mode?: string;
+  /**
+   * @example
+   * 0.4
+   */
+  similarityThreshold?: number;
+  /**
+   * @example
+   * 0
+   */
+  ttlDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowedActions: 'allowedActions',
+      dedupe: 'dedupe',
+      humanEditProtection: 'humanEditProtection',
+      mergeKey: 'mergeKey',
+      mode: 'mode',
+      similarityThreshold: 'similarityThreshold',
+      ttlDays: 'ttlDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedActions: { 'type': 'array', 'itemType': 'string' },
+      dedupe: 'boolean',
+      humanEditProtection: 'boolean',
+      mergeKey: 'string',
+      mode: 'string',
+      similarityThreshold: 'number',
+      ttlDays: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedActions)) {
+      $dara.Model.validateArray(this.allowedActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.Model {
   /**
    * @remarks
@@ -136,6 +208,7 @@ export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.M
    * fact
    */
   preset?: string;
+  storagePolicy?: GetContextStoreResponseBodyConfigExtractionPoliciesStoragePolicy;
   /**
    * @remarks
    * The stable ID of the extraction policy. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. It can be up to 64 characters in length. The ID must be unique within the same context library. Modifying the name or instructions does not change this ID.
@@ -155,6 +228,7 @@ export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.M
       model: 'model',
       name: 'name',
       preset: 'preset',
+      storagePolicy: 'storagePolicy',
       strategyId: 'strategyId',
     };
   }
@@ -168,6 +242,7 @@ export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.M
       model: GetContextStoreResponseBodyConfigExtractionPoliciesModel,
       name: 'string',
       preset: 'string',
+      storagePolicy: GetContextStoreResponseBodyConfigExtractionPoliciesStoragePolicy,
       strategyId: 'string',
     };
   }
@@ -181,6 +256,9 @@ export class GetContextStoreResponseBodyConfigExtractionPolicies extends $dara.M
     }
     if(this.model && typeof (this.model as any).validate === 'function') {
       (this.model as any).validate();
+    }
+    if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
+      (this.storagePolicy as any).validate();
     }
     super.validate();
   }
@@ -1343,6 +1421,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
    * The running status of the data source, applicable to the memory type and experience Dataset follow mode. The experience library submits a checkpoint only after it is published and automatically applied successfully. Pausing and restarting retain the checkpoint.
    */
   sourceStatus?: GetContextStoreResponseBodyConfigSourceStatus;
+  storageModes?: string[];
   /**
    * @remarks
    * The storage policy for the memory type.
@@ -1371,6 +1450,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
       serviceNames: 'serviceNames',
       source: 'source',
       sourceStatus: 'sourceStatus',
+      storageModes: 'storageModes',
       storagePolicy: 'storagePolicy',
       strategyVersion: 'strategyVersion',
     };
@@ -1391,6 +1471,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
       serviceNames: { 'type': 'array', 'itemType': 'string' },
       source: GetContextStoreResponseBodyConfigSource,
       sourceStatus: GetContextStoreResponseBodyConfigSourceStatus,
+      storageModes: { 'type': 'array', 'itemType': 'string' },
       storagePolicy: GetContextStoreResponseBodyConfigStoragePolicy,
       strategyVersion: 'number',
     };
@@ -1429,6 +1510,9 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
     }
     if(this.sourceStatus && typeof (this.sourceStatus as any).validate === 'function') {
       (this.sourceStatus as any).validate();
+    }
+    if(Array.isArray(this.storageModes)) {
+      $dara.Model.validateArray(this.storageModes);
     }
     if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
       (this.storagePolicy as any).validate();
