@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodePoolComponentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The image ID of the node pool. Either this parameter or image_type is required if nodepool_id is not specified.
+   * The image ID of the node pool. This parameter is required if nodepool_id is not specified. You must specify either this parameter or image_type.
    * 
    * @example
    * aliyun_3_x64_20G_container_optimized_alibase_20250629.vhd
@@ -13,7 +13,7 @@ export class ListNodePoolComponentsShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image type of the node pool. Either this parameter or image_id is required if nodepool_id is not specified.
+   * The image type of the node pool. This parameter is required if nodepool_id is not specified. You must specify either this parameter or image_id.
    * 
    * @example
    * AliyunLinux3
@@ -29,7 +29,7 @@ export class ListNodePoolComponentsShrinkRequest extends $dara.Model {
   instanceTypesShrink?: string;
   /**
    * @remarks
-   * The maximum number of results to return. Default value: 200.
+   * The maximum number of results per page. Default value: 200.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListNodePoolComponentsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The node pool ID. If you specify a node pool ID, the system queries the list of components available for the node pool and ignores other parameters.
+   * The node pool ID. If you specify a node pool ID, the system queries the components available for the node pool and ignores other parameters.
    * 
    * @example
    * np1855b102ac434f5990d87b77a****

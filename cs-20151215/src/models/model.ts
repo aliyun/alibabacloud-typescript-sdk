@@ -53,6 +53,7 @@ export { CreateClusterNodePoolRequestManagement } from './CreateClusterNodePoolR
 export { CreateClusterNodePoolRequestNodeComponentsConfigEnvs } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeComponentsConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeComponents } from './CreateClusterNodePoolRequest';
+export { CreateClusterNodePoolRequestNodeConfigNodeOsConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodepoolInfo } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroupCpuOptions } from './CreateClusterNodePoolRequest';

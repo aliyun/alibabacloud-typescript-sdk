@@ -6,8 +6,8 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The governance action of the rule. Valid values:
-   * - `enforce`: blocks non-compliant deployments.
-   * - `inform`: generates alerts.
+   * - `enforce`: Blocks non-compliant deployments.
+   * - `inform`: Triggers alerts.
    * 
    * @example
    * enforce
@@ -15,7 +15,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The templatetype of the rule.
+   * The rule templatetype.
    * 
    * @example
    * k8s-general
@@ -32,8 +32,8 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the rule is deleted. Valid values:
-   * - 0: not deleted.
-   * - 1: deleted.
+   * - 0: Not deleted.
+   * - 1: Deleted.
    * 
    * @example
    * 0
@@ -49,9 +49,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the policy requires configuration. Valid values: 
-   * - 0: parameter settings required.
-   * - 1: no parameter settings required.
+   * Specifies whether policy configuration is required. Valid values: 
+   * - 0: Parameter settings are required.
+   * - 1: No parameter settings are required.
    * 
    * @example
    * 0
@@ -60,9 +60,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The governance severity of the rule. Valid values:
-   * * `high`: high risk.
-   * * `medium`: medium risk.
-   * * `low`: low risk.
+   * * `high`: High-risk.
+   * * `medium`: Medium-risk.
+   * * `low`: Low-risk.
    * 
    * @example
    * high
@@ -73,7 +73,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
    * The details of the rule template.
    * 
    * @example
-   * For more information, see the request example
+   * For more information, see the request examples
    */
   template?: string;
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class RunNodeOperationRequest extends $dara.Model {
   operationAction?: string;
   /**
    * @remarks
-   * The list of parameters accepted by the O&M action.
+   * The list of parameters for the O&M action.
    */
   operationArgs?: string[];
   static names(): { [key: string]: string } {

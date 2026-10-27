@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The tag resource.
+   * The tagged resource.
    */
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
@@ -111,7 +111,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The collection of tag resources.
+   * The collection of tagged resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

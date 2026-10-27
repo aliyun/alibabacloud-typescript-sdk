@@ -16,16 +16,16 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs. You can specify up to 50 resource IDs.
+   * The list of resource IDs. You can add up to 50 resource IDs.
    * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
    * 
-   * CLUSTER: cluster.
+   * - CLUSTER: cluster.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key-value pairs of the resource. You can specify up to 20 tag key-value pairs. Note:
+   * The tag key-value pairs of the resource. You can add up to 20 tag key-value pairs. Take note of the following items:
    * 
-   * - Once a value is specified, it cannot be an empty string. The value can be up to 128 characters in length.
+   * - If a value is specified, it cannot be an empty string and can be up to 128 characters in length.
    * - The value cannot start with `aliyun` or `acs:`.
    * - The value cannot contain `http://` or `https://`.
    * 

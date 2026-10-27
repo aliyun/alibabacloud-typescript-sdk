@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The orchestration template ID. A new ID is generated each time the template is modified.
+   * The ID of the orchestration template. A new template ID is generated each time the template is modified.
    * 
    * @example
    * 72d20cf8-a533-4ea9-a10d-e7630d3d****
@@ -15,9 +15,9 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
    * @remarks
    * The access permissions of the orchestration template. Valid values:
    * 
-   * - `private`: private.
-   * - `public`: public.
-   * - `shared`: shared.
+   * - `private`: Private.
+   * - `public`: Public.
+   * - `shared`: Shared.
    * 
    * @example
    * private
@@ -45,7 +45,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
    * 
    * - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
    * 
-   * - If this parameter is not set or is set to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * - If this parameter is not specified or is set to another value, the template is not displayed on the Orchestration Templates page in the console.
    * 
    * @example
    * kubernetes
@@ -85,7 +85,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The time when the orchestration template was last updated.
+   * The time when the orchestration template was updated.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00

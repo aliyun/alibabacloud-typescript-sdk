@@ -3,11 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return per request.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. Set the value to the next_token parameter value returned from the previous API call.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -15,7 +26,7 @@ export class DescribeClusterTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 20

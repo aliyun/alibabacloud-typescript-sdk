@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class AttachInstancesToNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to store container data and images on a data cloud disk. Valid values:
+   * Specifies whether to store container data and images on data cloud disks. Valid values:
    * 
-   * - `true`: Stores container data and images on a data cloud disk.
+   * - `true`: Stores container data and images on data cloud disks.
    * 
-   * - `false`: Does not store container data and images on a data cloud disk.
+   * - `false`: Does not store container data and images on data cloud disks.
    * 
    * Default value: `false`.
    * 
    * 
    * Data cloud disk mounting rules:
    * 
-   * - If the ECS instance has data cloud disks mounted and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to EXT4 to store the content of /var/lib/docker and /var/lib/kubelet.
-   * - If the ECS instance has no data cloud disks mounted, no new data cloud disk is mounted.
-   * >If you choose to store data on a data cloud disk and the ECS instance already has data cloud disks mounted, the existing data on the data cloud disk is lost. Back up your data in advance.
+   * - If the ECS instance has data cloud disks mounted and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to EXT4 to store the /var/lib/docker and /var/lib/kubelet directories.
+   * - If the ECS instance does not have data cloud disks mounted, no new data cloud disks are mounted.
+   * > If you choose to store data on data cloud disks and the ECS instance already has data cloud disks mounted, the existing data on the data cloud disks will be lost. Back up your data in advance.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class AttachInstancesToNodePoolRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * The SSH logon password of the instances to be added.
+   * The SSH logon password for the instances to be added.
    * 
    * @example
    * ******

@@ -13,9 +13,9 @@ export class GetUpgradeStatusResponseBodyUpgradeTask extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The upgrade task status. Valid values:
+   * The status of the upgrade task. Valid values:
    * - `running`: Running.
-   * - `Success`: Successful.
+   * - `Success`: Succeeded.
    * - `Failed`: Failed.
    * 
    * @example
@@ -56,7 +56,7 @@ export class GetUpgradeStatusResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The precheck report ID.
+   * The ID of the precheck report.
    * 
    * @example
    * be4c8eb72de94d459ea7ace7c811d119
@@ -66,10 +66,10 @@ export class GetUpgradeStatusResponseBody extends $dara.Model {
    * @remarks
    * The current upgrade status of the cluster. Valid values:
    * 
-   * - `success`: The upgrade is successful.
-   * - `fail`: The upgrade failed.
-   * - `pause`: The upgrade is paused.
-   * - `running`: The upgrade is in progress.
+   * - `success`: Upgrade succeeded.
+   * - `fail`: Upgrade failed.
+   * - `pause`: Upgrade paused.
+   * - `running`: Upgrade in progress.
    * 
    * @example
    * running
@@ -77,13 +77,13 @@ export class GetUpgradeStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The current upgrade phase of the cluster. Valid values:
+   * The current upgrade stage of the cluster. Valid values:
    * 
    * - `not_start`: Not started.
    * - `prechecking`: Prechecking.
    * - `upgrading`: Upgrading.
    * - `pause`: Paused.
-   * - `success`: The upgrade is successful.
+   * - `success`: Upgrade succeeded.
    * 
    * @example
    * prechecking
@@ -91,7 +91,7 @@ export class GetUpgradeStatusResponseBody extends $dara.Model {
   upgradeStep?: string;
   /**
    * @remarks
-   * The upgrade task details.
+   * The details of the upgrade task.
    */
   upgradeTask?: GetUpgradeStatusResponseBodyUpgradeTask;
   static names(): { [key: string]: string } {

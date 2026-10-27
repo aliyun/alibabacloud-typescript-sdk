@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterV2UserKubeconfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The kubeconfig content.
+   */
   config?: string;
   static names(): { [key: string]: string } {
     return {

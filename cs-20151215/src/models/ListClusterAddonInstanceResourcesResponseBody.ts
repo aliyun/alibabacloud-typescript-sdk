@@ -97,7 +97,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
   namespace?: string;
   /**
    * @remarks
-   * The Kubernetes API version to which the object belongs.
+   * The Kubernetes API version of the object.
    * 
    * @example
    * v1

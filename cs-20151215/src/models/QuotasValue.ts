@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuotasValue extends $dara.Model {
   /**
    * @remarks
-   * The quota value. If you need to exceed the quota, submit a request on the [Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+   * The quota value. If the quota is exceeded, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class QuotasValue extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * Indicates whether the quota is adjustable.
+   * Indicates whether the quota can be adjusted.
    * 
    * @example
    * true

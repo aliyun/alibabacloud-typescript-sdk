@@ -186,16 +186,25 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
   /**
    * @remarks
    * The description of the policy.
+   * 
+   * @example
+   * Restricts the creation of Application Load Balancer (ALB) instances.
    */
   policyDescription?: string;
   /**
    * @remarks
    * The policy name.
+   * 
+   * @example
+   * ACKRestrictALBCreation
    */
   policyName?: string;
   /**
    * @remarks
    * The severity level.
+   * 
+   * @example
+   * low
    */
   severity?: string;
   /**

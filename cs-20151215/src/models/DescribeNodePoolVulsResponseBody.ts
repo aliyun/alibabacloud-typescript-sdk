@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extends $dara.Model {
   /**
    * @remarks
-   * The package name.
+   * The name of the package.
    * 
    * @example
    * WebLogic
@@ -35,7 +35,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extend
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Model {
   /**
    * @remarks
-   * The vulnerability alias.
+   * The alias of the vulnerability.
    * 
    * @example
    * RHSA-2019:3197-Important: sudo security update
@@ -43,12 +43,12 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   aliasName?: string;
   /**
    * @remarks
-   * The list of CVEs associated with the vulnerability.
+   * The list of CVEs corresponding to the vulnerability.
    */
   cveList?: string[];
   /**
    * @remarks
-   * The vulnerability name.
+   * The name of the vulnerability.
    * 
    * @example
    * oval:com.redhat.rhsa:def:20193197
@@ -56,7 +56,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The vulnerability severity level.
+   * The vulnerability level.
    * 
    * @example
    * asap
@@ -123,7 +123,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node name, which is the identifier of the node within the cluster.
+   * The name of the node, which identifies the node in the cluster.
    * 
    * @example
    * cn-hangzhou.192.168.x.x
@@ -165,15 +165,14 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
 export class DescribeNodePoolVulsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of node pool vulnerabilities.
+   * The list of vulnerabilities in the node pool.
    */
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
    * @remarks
-   * Indicates whether the China Cloud Security CVE fix service has been purchased.
+   * Indicates whether the Security Center CVE fix service is purchased. Valid values:
    * 
    * - true: Purchased.
-   * 
    * - false: Not purchased.
    * 
    * @example

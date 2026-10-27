@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveNodePoolNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A9891419-D125-4D89-AFCA-68846675****
@@ -13,7 +13,7 @@ export class RemoveNodePoolNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * T-62a944794ee141074400****

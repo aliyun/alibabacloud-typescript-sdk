@@ -6,7 +6,6 @@ export class CreateKubernetesTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The action of the trigger. Valid values:
-   * 
    * - `redeploy`: Redeploys the resources defined in `project_id`.
    * 
    * This parameter is required.
@@ -27,11 +26,7 @@ export class CreateKubernetesTriggerRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The project name of the trigger.
-   * 
-   * It consists of the namespace and the name of the application, in the format of `${namespace}/${name}`.
-   * 
-   * Example: `default/test-app`.
+   * The project name of the trigger. It consists of the namespace and the name of the application, in the format of `${namespace}/${name}`. Example: `default/test-app`.
    * 
    * This parameter is required.
    * 
@@ -42,10 +37,8 @@ export class CreateKubernetesTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the trigger. Valid values:
-   * 
-   * - `deployment`: The trigger for stateless applications. 
-   * - `application`: The trigger for Hybrid Cloud Application Center applications.
-   * 
+   * - `deployment`: The trigger for stateless applications.
+   * - `application`: The trigger for applications in Hybrid Cloud Application Center.
    * Default value: `deployment`.
    * 
    * @example

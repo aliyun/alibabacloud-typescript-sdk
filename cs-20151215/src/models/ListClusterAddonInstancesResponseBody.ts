@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
-   * The component name.
+   * The add-on name.
    * 
    * @example
    * coredns
@@ -13,11 +13,11 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The component status. Valid values:
-   * - active: installed
-   * - updating: being updated
-   * - upgrading: being upgraded
-   * - deleting: being uninstalled
+   * The add-on status. Valid values:
+   * - active: Installed.
+   * - updating: Modifying.
+   * - upgrading: Upgrading.
+   * - deleting: Uninstalling.
    * 
    * @example
    * active
@@ -25,7 +25,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The component version.
+   * The add-on version.
    * 
    * @example
    * v1.9.3.10-7dfca203-aliyun
@@ -59,7 +59,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
 export class ListClusterAddonInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of installed component instances.
+   * The list of installed add-on instances.
    */
   addons?: ListClusterAddonInstancesResponseBodyAddons[];
   static names(): { [key: string]: string } {

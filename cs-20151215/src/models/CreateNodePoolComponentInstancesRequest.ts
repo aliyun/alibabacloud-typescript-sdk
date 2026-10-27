@@ -142,7 +142,7 @@ export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Mod
 export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches in seconds. Default value: 0.
+   * The upgrade interval between batches, in seconds. Default value: 0.
    * 
    * @example
    * 10
@@ -150,7 +150,7 @@ export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -166,7 +166,7 @@ export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.
   maxParallelism?: number;
   /**
    * @remarks
-   * The auto-pause policy during the node upgrade. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+   * The auto-pause policy during the node upgrade process. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
    * 
    * @example
    * NotPause
@@ -209,7 +209,7 @@ export class CreateNodePoolComponentInstancesRequest extends $dara.Model {
   components?: CreateNodePoolComponentInstancesRequestComponents[];
   /**
    * @remarks
-   * The list of nodes for the rolling update. Default value: all nodes.
+   * The list of nodes specified for the rolling update. Default value: all nodes.
    */
   nodeNames?: string[];
   /**

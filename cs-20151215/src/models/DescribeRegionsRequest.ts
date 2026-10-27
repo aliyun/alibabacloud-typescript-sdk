@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the returned results by language (Chinese or English).
+   * Filters the returned results by language, such as Chinese or English.
    * 
    * @example
    * zh-CN
@@ -21,7 +21,7 @@ export class DescribeRegionsRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The subtype of managed clusters.
+   * The subtype of the managed cluster.
    * 
    * @example
    * Default

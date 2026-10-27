@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContactGroupForAlertRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert metric contact group.
+   * The name of the contact group for the alert metric.
    * 
    * @example
    * sample
@@ -26,7 +26,7 @@ export class UpdateContactGroupForAlertRequest extends $dara.Model {
   crName?: string;
   /**
    * @remarks
-   * The namespace in which the resource resides.
+   * The namespace where the resource resides.
    * 
    * @example
    * default

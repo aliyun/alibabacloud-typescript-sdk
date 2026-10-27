@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the deployment template.
+   * The description of the orchestration template.
    * 
    * @example
    * web server cluster
@@ -13,7 +13,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the deployment template.
+   * The name of the orchestration template.
    * 
    * @example
    * webserver01
@@ -21,7 +21,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The tags of the deployment template.
+   * The tags of the orchestration template.
    * 
    * @example
    * web
@@ -29,7 +29,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The template content in YAML format.
+   * The content of the template in YAML format.
    * 
    * @example
    * apiVersion: apps/v1\\\\nkind: Deployment\\\\nmetadata:\\\\n  name: nginx-deployment-basic\\\\n  labels:\\\\n    app: nginx\\\\nspec:\\\\n  replicas: 2\\\\n  selector:\\\\n    matchLabels:\\\\n      app: nginx\\\\n  template:\\\\n    metadata:\\\\n      labels:\\\\n        app: nginx\\\\n    spec:\\\\n      containers:\\\\n      - name: nginx\\\\n        image: busybox:latest\\\\n        ports:\\\\n        - containerPort: 8080
@@ -39,11 +39,11 @@ export class UpdateTemplateRequest extends $dara.Model {
    * @remarks
    * The templatetype.
    * 
-   * - If you set this parameter to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
+   * - If you set the value to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
    * 
-   * - If you leave this parameter empty or set it to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * - If you do not specify this parameter or set the value to other values, the template is not displayed on the Orchestration Templates page in the console.
    * 
-   * Settings this parameter to `kubernetes` is recommended.
+   * Recommended Settings: `kubernetes`.
    * 
    * @example
    * kubernetes

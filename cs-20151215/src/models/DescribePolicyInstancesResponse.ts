@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The UID of the policy instance implementer.
+   * The UID of the policy instance enforcer.
    * 
    * @example
    * 16298168****
@@ -69,11 +69,11 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policySeverity?: string;
   /**
    * @remarks
-   * The scope of the policy instance.
+   * The enforcement scope of the policy instance.
    * 
-   * By default, an asterisk (*) indicates all namespaces in the cluster.
+   * A value of "*" indicates all namespaces in the cluster.
    * 
-   * Otherwise, the names of the namespaces to which the policy applies are returned. Multiple namespaces are separated by commas (,).
+   * Otherwise, the names of the target namespaces are returned, separated by commas (,).
    * 
    * @example
    * *
@@ -85,7 +85,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
    * 
    * - `deny`: Blocks non-compliant deployments.
    * 
-   * - `warn`: Generates an alert.
+   * - `warn`: Triggers an alert.
    * 
    * @example
    * deny
@@ -93,7 +93,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * The creation time. This parameter is deprecated. Do not use it.
+   * **[Deprecated]** The creation time. Do not use this parameter.
    * 
    * @example
    * 2024-10-29T18:09:12+08:00
@@ -103,7 +103,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The update time. This parameter is deprecated. Do not use it.
+   * **[Deprecated]** The update time. Do not use this parameter.
    * 
    * @example
    * 2024-10-29T18:09:12+08:00
@@ -113,7 +113,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * The resource ID. This parameter is deprecated. Do not use it.
+   * **[Deprecated]** The resource ID. Do not use this parameter.
    * 
    * @example
    * 123456***
@@ -123,7 +123,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The number of violations processed in the cluster. This parameter is deprecated. Do not use it.
+   * **[Deprecated]** The number of processed violations in the cluster. Do not use this parameter.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   totalViolations?: number;
   /**
    * @remarks
-   * The deletion status. This parameter is deprecated. Do not use it.
+   * **[Deprecated]** The deletion status. Do not use this parameter.
    * 
    * @example
    * 0

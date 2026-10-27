@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterAuditProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the API server audit feature is enabled for the cluster.
+   * Indicates whether the API server audit feature is enabled for the cluster. Valid values:
    * 
    * - `true`: Enabled.
    * 
-   * - `false`: Not enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true

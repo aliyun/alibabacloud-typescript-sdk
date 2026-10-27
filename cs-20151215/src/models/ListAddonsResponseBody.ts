@@ -10,16 +10,15 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   architecture?: string[];
   /**
    * @remarks
-   * The component categorization. Valid values:
+   * The category of the component. Valid values:
+   * - core: core component
+   * - network: network component
+   * - security: security component
+   * - storage: storage component
+   * - monitor: logging and monitoring component
+   * - application: application component
    * 
-   * - core: core component.
-   * - network: network type component.
-   * - security: security component.
-   * - storage: storage component.
-   * - monitor: logging and monitoring component.
-   * - application: application component.
-   * 
-   * An empty value indicates that the component belongs to another categorization.
+   * An empty value indicates that the component belongs to another category.
    * 
    * @example
    * monitor
@@ -36,9 +35,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the component is installed by default. Valid values:
-   * 
-   * - true: The component is installed by default when a cluster is created.
-   * 
+   * - true: The component is installed by default when the cluster is created.
    * - false: The component is not installed by default.
    * 
    * @example
@@ -48,9 +45,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the component is managed. Valid values:
-   * 
    * - true: The component is managed.
-   * 
    * - false: The component is not managed.
    * 
    * @example
@@ -59,7 +54,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * @example
    * arms-prometheus
@@ -72,7 +67,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   supportedActions?: string[];
   /**
    * @remarks
-   * The component version.
+   * The version of the component.
    * 
    * @example
    * 1.1.9
@@ -122,7 +117,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
 export class ListAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of available add-on components.
+   * The list of available components.
    */
   addons?: ListAddonsResponseBodyAddons[];
   static names(): { [key: string]: string } {

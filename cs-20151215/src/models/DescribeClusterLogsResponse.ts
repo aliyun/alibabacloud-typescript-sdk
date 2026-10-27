@@ -29,7 +29,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
   clusterLog?: string;
   /**
    * @remarks
-   * The time when the log was created.
+   * The time when the log was generated.
    * 
    * @example
    * 2025-04-10T17:54:26+08:00

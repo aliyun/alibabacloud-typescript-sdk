@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The namespace of the resource.
+   * The namespace where the resource resides.
    * 
    * @example
    * default
@@ -37,7 +37,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of resources whose deletion protection status is updated.
+   * The list of resources for which the deletion protection status is updated.
    */
   resources?: string[];
   static names(): { [key: string]: string } {

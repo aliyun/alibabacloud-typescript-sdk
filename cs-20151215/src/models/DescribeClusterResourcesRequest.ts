@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to also query resources created by cluster components.
-   * 
+   * Specifies whether to query the resources created by cluster add-ons. Valid values:
    * - true: Queries the resources.
-   * 
    * - false: Does not query the resources.
    * 
    * @example

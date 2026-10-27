@@ -44,7 +44,7 @@ export class DescribeAddonsResponseBodyComponentGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The names of the components in the group.
+   * The names of the components included in the group.
    */
   items?: DescribeAddonsResponseBodyComponentGroupsItems[];
   static names(): { [key: string]: string } {

@@ -21,9 +21,9 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   components?: string[];
   /**
    * @remarks
-   * The name of the SLS project used to store control plane component logs.
+   * The name of the SLS project where control plane component logs are stored.
    * 
-   * Default value: k8s-log-$Cluster ID.
+   * Default value: k8s-log-$ClusterId.
    * 
    * @example
    * k8s-log-c5b5e80b0b64a4bf6939d2d8fbbc5****
@@ -34,9 +34,9 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The log retention period in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
+   * The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
    * 
-   * Default value: 30 days.
+   * Default value: 30.
    * 
    * @example
    * 30

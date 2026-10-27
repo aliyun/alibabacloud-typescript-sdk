@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action of the trigger. Example: `redeploy`: Redeployment.
+   * The action of the trigger. For example, `redeploy`: Redeploys the resources.
    * 
    * @example
    * redeploy
@@ -38,9 +38,8 @@ export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the trigger. Valid values:
-   * 
-   * - `deployment`: The trigger for stateless applications. 
-   * - `application`: The trigger for Hybrid Cloud Application Center applications.
+   * - `deployment`: The trigger for stateless applications.
+   * - `application`: The trigger for applications in Hybrid Cloud Application Center.
    * 
    * @example
    * deployment

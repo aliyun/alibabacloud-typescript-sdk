@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster type. Valid values:
-   * - `Default`: managed cluster.
-   * - `Serverless`: serverless cluster.
-   * - `Edge`: edge cluster.
+   * The cluster profile. Valid values:
+   * - Default: managed cluster.
+   * - Serverless: Serverless cluster.
+   * - Edge: edge cluster.
    * 
    * @example
    * Default
@@ -16,11 +16,11 @@ export class DescribeAddonsRequest extends $dara.Model {
   clusterProfile?: string;
   /**
    * @remarks
-   * After you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification.
+   * The cluster specifications. You can specify this parameter when you set cluster_type to ManagedKubernetes and configure profile. Valid values:
    * 
-   * - `ack.pro.small`: Pro cluster.
+   * - ack.pro.small: ACK Pro.
    * 
-   * - `ack.standard`: Basic cluster (selected by default if this parameter is left empty).
+   * - ack.standard: ACK Basic. This is the default value if this parameter is left empty.
    * 
    * @example
    * ack.pro.small
@@ -28,13 +28,11 @@ export class DescribeAddonsRequest extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * Valid values:
+   * - Kubernetes: ACK dedicated cluster.
    * 
-   * - `Kubernetes`: ACK dedicated cluster.
+   * - ManagedKubernetes: ACK ACK clusters, including ACK ACK clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
    * 
-   * - `ManagedKubernetes`: ACK ACK cluster types, including ACK ACK clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
-   * 
-   * - `ExternalKubernetes`: registered cluster.
+   * - ExternalKubernetes: registered cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -50,7 +48,7 @@ export class DescribeAddonsRequest extends $dara.Model {
   clusterVersion?: string;
   /**
    * @remarks
-   * The ID of the region where the cluster resides.
+   * The ID of the region where the cluster is deployed.
    * 
    * This parameter is required.
    * 

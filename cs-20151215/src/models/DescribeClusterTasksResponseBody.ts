@@ -13,7 +13,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -103,7 +103,7 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The node fault error message.
+   * The node fault message.
    */
   error?: DescribeClusterTasksResponseBodyTasksError;
   /**
@@ -173,6 +173,10 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
 }
 
 export class DescribeClusterTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token.
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -189,7 +193,7 @@ export class DescribeClusterTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task array.
+   * The array of tasks.
    */
   tasks?: DescribeClusterTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {

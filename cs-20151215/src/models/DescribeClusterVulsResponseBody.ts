@@ -10,7 +10,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   cveList?: string[];
   /**
    * @remarks
-   * The vulnerability severity level.
+   * The severity level of the vulnerability.
    * 
    * @example
    * asap
@@ -18,7 +18,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of nodes that have this vulnerability.
+   * The number of nodes that have the vulnerability.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The node pool ID.
+   * The ID of the node pool.
    * 
    * @example
    * np0156da1082b54fa987e32618dd******
@@ -34,7 +34,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The node pool name.
+   * The name of the node pool.
    * 
    * @example
    * test
@@ -42,7 +42,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   nodepoolName?: string;
   /**
    * @remarks
-   * The vulnerability alias.
+   * The alias of the vulnerability.
    * 
    * @example
    * CVE-2022-xxxx:rsync security vulnerability
@@ -50,7 +50,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   vulAliasName?: string;
   /**
    * @remarks
-   * The vulnerability name.
+   * The name of the vulnerability.
    * 
    * @example
    * oval:com.redhat.rhsa:def:xxxxxxx
@@ -58,7 +58,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   vulName?: string;
   /**
    * @remarks
-   * The vulnerability type.
+   * The type of the vulnerability.
    * 
    * @example
    * cve

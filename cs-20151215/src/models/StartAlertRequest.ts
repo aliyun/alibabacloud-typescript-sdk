@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAlertRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert rule group name.
+   * The name of the alert rule group.
    * 
    * @example
    * sample
@@ -13,7 +13,7 @@ export class StartAlertRequest extends $dara.Model {
   alertRuleGroupName?: string;
   /**
    * @remarks
-   * The alert rule name.
+   * The name of the alert rule.
    * 
    * @example
    * sample

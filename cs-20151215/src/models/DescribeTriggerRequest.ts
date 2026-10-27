@@ -26,14 +26,10 @@ export class DescribeTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - `deployment`: a trigger for a stateless application. 
-   * 
-   * - `application`: a trigger for an application in Open Applications.
-   * 
+   * - `deployment`: Triggers for stateless applications.
+   * - `application`: Triggers for Application Center applications.
    * Default value: `deployment`.
-   * 
-   * If you do not specify a trigger type, the query results are not filtered by trigger type.
+   * If you do not specify the trigger type, the query results are not filtered by trigger type.
    * 
    * @example
    * deployment
@@ -42,10 +38,8 @@ export class DescribeTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger action. Valid values:
-   * 
-   * `redeploy`: redeploys the application.
-   * 
-   * If you do not specify a trigger action, the query results are not filtered by trigger action.
+   * `redeploy`: Redeploys the application.
+   * If you do not specify the trigger action, the query results are not filtered by trigger action.
    * 
    * @example
    * redeploy

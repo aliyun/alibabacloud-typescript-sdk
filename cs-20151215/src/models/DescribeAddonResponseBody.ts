@@ -13,11 +13,9 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
   minimumClusterVersion?: string;
   /**
    * @remarks
-   * Indicates whether the component can be upgraded to this version.
-   * 
-   * - true: The upgrade is supported.
-   * 
-   * - false: The upgrade is not supported.
+   * Indicates whether the component can be upgraded to this version. Valid values:
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -64,7 +62,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   architecture?: string[];
   /**
    * @remarks
-   * The component category.
+   * The category of the component.
    * 
    * @example
    * network
@@ -72,7 +70,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The schema of custom parameters for the component.
+   * The custom parameter schema of the component.
    * 
    * @example
    * {}
@@ -88,7 +86,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   installByDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the component is managed.
+   * Indicates whether the component is a managed component.
    * 
    * @example
    * false
@@ -104,7 +102,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The information about newer versions of the component.
+   * The information about the latest versions of the component.
    */
   newerVersions?: DescribeAddonResponseBodyNewerVersions[];
   /**

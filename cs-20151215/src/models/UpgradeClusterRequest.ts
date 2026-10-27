@@ -7,7 +7,7 @@ export class UpgradeClusterRequestRollingPolicy extends $dara.Model {
    * @remarks
    * The maximum number of worker nodes that can be upgraded in parallel per batch.
    * 
-   * During the worker node upgrade, nodes are upgraded in batches based on the specified maximum parallelism. The number of nodes upgraded in each batch increases as follows: 1, 2, 4, 8, and so on until the maximum parallelism is reached. After the maximum parallelism is reached, each subsequent batch upgrades the maximum number of nodes.
+   * During the worker node upgrade process, nodes are upgraded in sequence based on the specified maximum parallelism. The number of nodes upgraded in each batch increases in the sequence of 1, 2, 4, 8, and so on, until the maximum parallelism is reached. After the maximum parallelism is reached, each subsequent batch upgrades the maximum number of nodes in parallel.
    * 
    * @example
    * 3
@@ -39,7 +39,7 @@ export class UpgradeClusterRequestRollingPolicy extends $dara.Model {
 export class UpgradeClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** You do not need to specify this parameter.
+   * **[Deprecated]** Do not specify this parameter.
    * 
    * @example
    * null
@@ -49,10 +49,9 @@ export class UpgradeClusterRequest extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * Specifies whether to upgrade only the control plane.
-   * 
+   * Specifies whether to upgrade only the control plane. Valid values:
    * - true: Upgrades only the control plane.
-   * - false: Upgrades both the control plane and worker nodes.
+   * - false: Upgrades the control plane and worker nodes.
    * 
    * @example
    * true
@@ -68,14 +67,14 @@ export class UpgradeClusterRequest extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The rolling upgrade configuration.
+   * The rolling update configuration.
    * 
    * @deprecated
    */
   rollingPolicy?: UpgradeClusterRequestRollingPolicy;
   /**
    * @remarks
-   * **[Deprecated]** Use the `next_version` parameter instead.
+   * **[Deprecated]** Use the next_version parameter instead.
    * 
    * @example
    * null

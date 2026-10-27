@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the component supports the logging feature.
+   * Specifies whether the add-on supports the log feature. Valid values:
    * 
    * - true: Supported.
    * 
@@ -17,11 +17,11 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   capable?: boolean;
   /**
    * @remarks
-   * Indicates whether the logging feature is enabled for the component.
+   * Specifies whether the log feature is enabled. Valid values:
    * 
    * - true: Enabled.
    * 
-   * - false: Not enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The log project used by the logging feature of the component.
+   * The Log Service project used by the add-on log feature.
    * 
    * @example
    * k8s-log-c02b3e03be10643e8a644a843ffcb****
@@ -37,7 +37,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The Logstore used by the logging feature of the component.
+   * The Logstore used by the add-on log feature.
    * 
    * @example
    * my-logstore
@@ -73,7 +73,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
 export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom parameter settings of the component.
+   * The custom parameter settings of the add-on.
    * 
    * @example
    * {"sls_project_name":""}
@@ -81,12 +81,12 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The logging status of the component.
+   * The log feature status of the add-on.
    */
   logging?: GetClusterAddonInstanceResponseBodyLogging;
   /**
    * @remarks
-   * The component instance name.
+   * The name of the add-on instance.
    * 
    * @example
    * ack-node-problem-detector
@@ -94,11 +94,11 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The component status. Valid values:
-   * - active: The component is installed.
-   * - updating: The component is being modified.
-   * - upgrading: The component is being upgraded.
-   * - deleting: The component is being uninstalled.
+   * The state of the add-on. Valid values:
+   * - active: Installed.
+   * - updating: Updating.
+   * - upgrading: Upgrading.
+   * - deleting: Uninstalling.
    * 
    * @example
    * active
@@ -106,7 +106,7 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The component instance version.
+   * The version of the add-on instance.
    * 
    * @example
    * 1.2.16

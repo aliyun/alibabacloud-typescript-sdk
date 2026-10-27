@@ -21,7 +21,7 @@ export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of results.
+   * The total number of entries.
    * 
    * @example
    * 50
@@ -83,7 +83,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The orchestration template ID.
+   * The ID of the orchestration template.
    * 
    * @example
    * 874ec485-e7e6-4373-8a3b-47bde8******
@@ -91,7 +91,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The orchestration template name.
+   * The name of the orchestration template.
    * 
    * @example
    * webserver
@@ -99,7 +99,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The tag of the orchestration template. If not explicitly specified, the tag defaults to the template name.
+   * The tags of the orchestration template. If no tag is explicitly specified, the template name is used as the default tag.
    * 
    * @example
    * kubernetes
@@ -107,7 +107,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The template content in YAML format.
+   * The content of the orchestration template in YAML format.
    * 
    * @example
    * apiVersion: apps/v1\\nkind: Deployment\\nmetadata:\\n  name: nginx-deployment-basic\\n  labels:\\n    app: nginx\\nspec:\\n  replicas: 2\\n  selector:\\n    matchLabels:\\n      app: nginx\\n  template:\\n    metadata:\\n      labels:\\n        app: nginx\\n    spec:\\n      containers:\\n      - name: nginx\\n        image: busybox:latest\\n        ports:\\n        - containerPort: 80
@@ -115,11 +115,11 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The templatetype.
+   * The templatetype. Valid values:
    * 
-   * - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
+   * - `kubernetes`: The template is displayed on the Orchestration Templates page in the console.
    * 
-   * - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * - If this parameter is left empty or set to other values: The template is not displayed on the Orchestration Templates page in the console.
    * 
    * @example
    * kubernetes
@@ -127,7 +127,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The ID of the parent template associated with the template. This parameter is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
+   * The ID of the parent template associated with the orchestration template. This ID is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
    * 
    * @example
    * ad81d115-7c8b-47e7-a222-9c28d7******
@@ -135,7 +135,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   templateWithHistId?: string;
   /**
    * @remarks
-   * The time when the orchestration template was last updated.
+   * The time when the orchestration template was updated.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00

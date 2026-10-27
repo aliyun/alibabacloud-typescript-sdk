@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterV2UserKubeconfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to access the cluster over the internal network.
+   */
   privateIpAddress?: boolean;
   temporaryDurationMinutes?: number;
   static names(): { [key: string]: string } {

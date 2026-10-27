@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The deletion options for cluster-associated resources.
+   * The deletion options for the resources associated with the cluster.
    */
   deleteOptionsShrink?: string;
   /**
    * @remarks
-   * Specifies whether to retain SLB instances. Valid values:
-   * 
-   * - `true`: Retains the created SLB resources.
-   * - `false`: Does not retain the created SLB resources.
+   * Specifies whether to retain the Server Load Balancer (SLB) instances created by using Services.
+   * Valid values:
+   * - `true`: retains the created SLB resources.
+   * - `false`: does not retain the created SLB resources.
    * 
    * Default value: `false`.
-   * Use `SLB` in `delete_options` to manage this setting.
+   * **[Deprecated]** Use `SLB` in `delete_options` instead.
    * 
    * @example
    * false
@@ -26,10 +26,11 @@ export class DeleteClusterShrinkRequest extends $dara.Model {
   keepSlb?: boolean;
   /**
    * @remarks
-   * Specifies whether to retain all resources. If this parameter is set to `true`, `retain_resources` is ignored, and cloud resources created through the cluster that are queried by the `DescribeClusterResources` operation are retained. If this parameter is set to `false`, note that resources that are retained by default in `delete_options` are still retained. To delete these resources, set `delete_mode` to `delete` separately in `delete_options`.
+   * Specifies whether to retain all resources. If you set this parameter to `true`, the `retain_resources` parameter is ignored, and all cloud resources created by the cluster that are queried by calling the `DescribeClusterResources` operation are retained. If you set this parameter to `false`, note that the resources that are retained by default in `delete_options` are still retained. To delete these resources, set `delete_mode` to `delete` in `delete_options`.
    * 
-   * - `true`: Retains all resources, including all cloud resources created through the cluster.
-   * - `false`: Does not retain all resources (except resources defined as retained by default in `delete_options`. For example, `ALB` is still retained when this parameter is set to `false`).
+   * Valid values:
+   * - `true`: retains all resources, including all cloud resources created by the cluster.
+   * - `false`: does not retain all resources, except for the resources that are retained by default in `delete_options`. For example, ALB resources are still retained even if this parameter is set to `false`.
    * 
    * Default value: `false`.
    * 
@@ -39,7 +40,7 @@ export class DeleteClusterShrinkRequest extends $dara.Model {
   retainAllResources?: boolean;
   /**
    * @remarks
-   * The list of resources. To retain resources when deleting a cluster, specify the IDs of the corresponding resources.
+   * The list of resources. To retain resources when you delete the cluster, specify the IDs of the corresponding resources.
    */
   retainResourcesShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The trigger action.
+   * The action of the trigger.
    * 
    * @example
    * redeploy
@@ -29,7 +29,7 @@ export class CreateTriggerResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The trigger project name.
+   * The project name of the trigger.
    * 
    * @example
    * default/test-app
@@ -37,7 +37,7 @@ export class CreateTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The type of the trigger.
    * 
    * @example
    * deployment

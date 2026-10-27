@@ -6,11 +6,17 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of results to return for a single request.
+   * 
+   * @example
+   * 50
    */
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. The value is the next_token parameter returned by the previous API call.
+   * The pagination token. Set the value to the next_token value returned from the previous API call.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef
    */
   nextToken?: string;
   /**
@@ -23,11 +29,7 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 50.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50

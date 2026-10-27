@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Addon extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the component.
+   * The component configuration.
    * 
    * @example
    * {\\"IngressSlbNetworkType\\":\\"internet\\"}
@@ -13,8 +13,7 @@ export class Addon extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Specifies whether to disable default installation. When a cluster is created, required components and additional components such as log components are installed by default. You can disable this default behavior and install these components later by calling the component installation API or by using the console. Valid values:
-   * 
+   * Specifies whether to disable default installation. When a cluster is created, in addition to required components, additional components such as log components are installed by default. You can disable this default behavior and install these components later by calling the component installation API or through the console. Valid values:
    * - `true`: Disables default installation.
    * - `false`: Allows default installation.
    * 
@@ -24,7 +23,7 @@ export class Addon extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * @example
    * nginx-ingress-controller
@@ -32,7 +31,7 @@ export class Addon extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
    * v1.9.3-aliyun.1

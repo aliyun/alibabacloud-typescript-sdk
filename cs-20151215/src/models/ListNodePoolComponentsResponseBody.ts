@@ -55,12 +55,12 @@ export class ListNodePoolComponentsResponseBodyComponents extends $dara.Model {
 export class ListNodePoolComponentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of node components.
+   * The node components.
    */
   components?: ListNodePoolComponentsResponseBodyComponents[];
   /**
    * @remarks
-   * The maximum number of results to return. Default value: 200.
+   * The maximum number of results per page. Default value: 200.
    * 
    * @example
    * 10

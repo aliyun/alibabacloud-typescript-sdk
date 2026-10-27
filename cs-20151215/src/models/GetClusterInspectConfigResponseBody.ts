@@ -18,7 +18,7 @@ export class GetClusterInspectConfigResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The inspection cycle defined by using the RFC 5545 Recurrence Rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
+   * The inspection recurrence defined by using the RFC5545 recurrence rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
    * 
    * @example
    * FREQ=DAILY;BYHOUR=10;BYMINUTE=15

@@ -13,7 +13,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesIncidents extends $dara
   name?: string;
   /**
    * @remarks
-   * The diagnosis type.
+   * The diagnostic type.
    * 
    * @example
    * system
@@ -93,7 +93,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
   key?: string;
   /**
    * @remarks
-   * The value of the taint.
+   * The value of the label.
    * 
    * @example
    * inquiring
@@ -125,7 +125,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
 export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureIntervention extends $dara.Model {
   /**
    * @remarks
-   * The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels corresponding to this stage. If you do not add the following labels in time to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
+   * The label configuration for authorization confirmation. Adding the following labels to the node authorizes ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the inquiry and confirmation labels associated with this stage. If you do not add the following labels promptly, ACK does not execute the action for this stage or any subsequent actions, and the node may remain in a damaged state.
    */
   approvedLabel?: ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterventionApprovedLabel;
   /**
@@ -190,7 +190,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedure extends
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The manual intervention configuration for the procedure.
+   * The configuration for the manual intervention procedure.
    */
   intervention?: ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureIntervention;
   /**
@@ -296,7 +296,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   resourceIds?: string[];
   /**
    * @remarks
-   * The subtype of resource bound to the self-healing rule.
+   * The subtype of the resource bound to the self-healing rule.
    * 
    * @example
    * ess
@@ -312,7 +312,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of self-healing sub-rules.
+   * The list of self-healing subrules.
    */
   rules?: ListAutoRepairPoliciesResponseBodyItemsRules[];
   static names(): { [key: string]: string } {

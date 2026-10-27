@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunClusterInspectRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * The idempotency token.
    * 
    * @example
    * c82e6987e2961451182edacd74faf

@@ -55,7 +55,7 @@ export class DescribeClusterResourcesResponseBodyDependencies extends $dara.Mode
 export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.Model {
   /**
    * @remarks
-   * The object type of the Kubernetes object.
+   * The Kubernetes object type.
    * 
    * @example
    * Service
@@ -105,10 +105,9 @@ export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.
 export class DescribeClusterResourcesResponseBodyDeleteBehavior extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the resource is deleted by default when the cluster is deleted.
+   * Specifies whether the resource is deleted by default when the cluster is deleted. Valid values:
    * 
    * - true: The resource is deleted by default.
-   * 
    * - false: The resource is not deleted.
    * 
    * @example
@@ -117,11 +116,10 @@ export class DescribeClusterResourcesResponseBodyDeleteBehavior extends $dara.Mo
   deleteByDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the default behavior of `delete_by_default` can be changed.
+   * Specifies whether the default behavior returned in `delete_by_default` can be changed. Valid values:
    * 
-   * - true: The behavior can be changed.
-   * 
-   * - false: The behavior cannot be changed.
+   * - true: The default behavior can be changed.
+   * - false: The default behavior cannot be changed.
    * 
    * @example
    * false
@@ -177,7 +175,7 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The resource information. For source information about the resource, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
+   * The resource information. For more information about the source information of resources, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
    * 
    * @example
    * {\\"Id\\":\\"KubernetesWorkerRole\\",\\"Name\\":\\"KubernetesWorkerRole\\",\\"Type\\":\\"ALIYUN::RAM::Role\\",\\"Status\\":\\"CREATE_COMPLETE\\",\\"StatusReason\\":\\"state changed\\",\\"Updated\\":\\"2025-04-10T06:21:17\\",\\"PhysicalId\\":\\"KubernetesWorkerRole-7e611193-225f-40f6-bc3c-ea8633******\\"}
@@ -193,15 +191,15 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource status. Valid values:
+   * The resource state. Valid values:
    * 
-   * - `CREATE_COMPLETE`: The resource was created.
-   * - `CREATE_FAILED`: The resource failed to be created.
+   * - `CREATE_COMPLETE`: The resource is created.
+   * - `CREATE_FAILED`: The resource fails to be created.
    * - `CREATE_IN_PROGRESS`: The resource is being created.
-   * - `DELETE_FAILED`: The resource failed to be deleted.
+   * - `DELETE_FAILED`: The resource fails to be deleted.
    * - `DELETE_IN_PROGRESS`: The resource is being deleted.
-   * - `ROLLBACK_COMPLETE`: The rollback was successful.
-   * - `ROLLBACK_FAILED`: The rollback failed.
+   * - `ROLLBACK_COMPLETE`: The rollback is successful.
+   * - `ROLLBACK_FAILED`: The rollback fails.
    * - `ROLLBACK_IN_PROGRESS`: The rollback is in progress.
    * 
    * @example
@@ -210,10 +208,10 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Indicates whether the resource was created by ACK.
+   * Specifies whether the resource is created by ACK. Valid values:
    * 
-   * - 1: The resource was created by ACK.
-   * - 0: The resource is a pre-existing resource.
+   * - 1: The resource is created by ACK.
+   * - 0: The resource is an existing resource.
    * 
    * @example
    * 1
@@ -236,10 +234,10 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   deleteBehavior?: DescribeClusterResourcesResponseBodyDeleteBehavior;
   /**
    * @remarks
-   * The type of the resource creator. Valid values:
-   * - user: Created by the user.
-   * - system: Created by the ACK control system.
-   * - addon: Created by a cluster component.
+   * The type of the creator of the resource. Valid values:
+   * - user: The resource is created by the user.
+   * - system: The resource is created by the ACK control system.
+   * - addon: The resource is created by a cluster component.
    * 
    * @example
    * addon

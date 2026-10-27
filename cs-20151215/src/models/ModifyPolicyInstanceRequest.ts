@@ -7,8 +7,8 @@ export class ModifyPolicyInstanceRequest extends $dara.Model {
    * @remarks
    * The governance action of the rule. Valid values:
    * 
-   * - `deny`: blocks non-compliant deployments.
-   * - `warn`: generates alerts.
+   * - `deny`: Blocks non-compliant deployments.
+   * - `warn`: Generates an alert.
    * 
    * @example
    * deny
@@ -16,7 +16,7 @@ export class ModifyPolicyInstanceRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The instance ID of the policy rule instance.
+   * The instance ID of the policy rule.
    * 
    * @example
    * allowed-repos-cbhhb
@@ -24,12 +24,12 @@ export class ModifyPolicyInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The namespaces to which the policy applies. An empty value indicates all namespaces.
+   * The namespaces where the policy is enforced. If this parameter is left empty, the policy is enforced in all namespaces.
    */
   namespaces?: string[];
   /**
    * @remarks
-   * The configuration parameters of the current rule instance. For more information about parameter settings rules, see [Container Security Policy Rule Library](https://help.aliyun.com/document_detail/359819.html).
+   * The configuration parameters of the current rule instance. For more information about the rules for parameter settings, see [Container security policy rule library](https://help.aliyun.com/document_detail/359819.html).
    * 
    * @example
    * "restrictedNamespaces": [ "test" ]

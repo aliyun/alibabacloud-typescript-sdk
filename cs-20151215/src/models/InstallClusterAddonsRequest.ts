@@ -13,7 +13,7 @@ export class InstallClusterAddonsRequestBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The component name. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query information about available components, including component names and versions.
+   * The name of the component. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query the information about available components, including component names and versions.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class InstallClusterAddonsRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The component version. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query information about available components, including component names and versions.
+   * The version of the component. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query the information about available components, including component names and versions.
    * 
    * This parameter is required.
    * 

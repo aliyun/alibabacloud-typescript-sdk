@@ -7,8 +7,8 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to delete all custom tags. This parameter takes effect only when `tag_keys` is empty. Valid values:
    * 
-   * - `true`: Deletes all tags.
-   * - `false`: Does not delete all tags.
+   * - `true`: deletes all tags.
+   * - `false`: does not delete all tags.
    * 
    * @example
    * true
@@ -26,16 +26,16 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs. You can specify up to 50 resource IDs.
+   * The list of resource IDs. Up to 50 resource IDs can be specified.
    * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
    * 
-   * CLUSTER: cluster.
+   * - CLUSTER: cluster.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys for the resource. You can specify up to 20 tag keys.
+   * The list of tag keys for the resources. Up to 20 tag keys can be specified.
    * 
    * This parameter is required.
    */

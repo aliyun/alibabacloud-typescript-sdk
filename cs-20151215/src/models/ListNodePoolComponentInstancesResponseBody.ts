@@ -109,7 +109,7 @@ export class ListNodePoolComponentInstancesResponseBodyComponentInstances extend
   name?: string;
   /**
    * @remarks
-   * The state of the component.
+   * The state of the component. Valid values: installing, failed, active, upgrading, updating, and uninstalling.
    * 
    * @example
    * active

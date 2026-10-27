@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterNodepoolRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to force delete the node pool.
-   * 
-   * - true: Force deletes the node pool. If the node pool contains existing instances, the existing nodes are forcefully deleted.
-   * 
-   * - false: Does not force delete the node pool. If the node pool contains existing instances, the node pool cannot be deleted, and the API call returns an error.
+   * Specifies whether to force delete the node pool. Valid values:
+   * - true: Force deletes the node pool. If the node pool contains existing nodes, the nodes are forcibly deleted.
+   * - false: Does not force delete the node pool. If the node pool contains existing nodes, the deletion is blocked and an error is returned.
    * 
    * @example
    * false

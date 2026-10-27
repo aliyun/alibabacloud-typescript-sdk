@@ -13,7 +13,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The details of the event.
+   * The event details.
    * 
    * @example
    * Start to upgrade NodePool nodePool/npdd89dc2b76c04f14b06774883b******
@@ -21,7 +21,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status of the event.
+   * The event status.
    * 
    * @example
    * Started
@@ -55,7 +55,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
 export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c82e6987e2961451182edacd74faf****
@@ -63,12 +63,12 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The description of the event.
+   * The event description.
    */
   data?: DescribeClusterEventsResponseBodyEventsData;
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * e-9ad04f72-8ee7-46bf-a02c-e4a06b39****
@@ -76,7 +76,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The source of the event.
+   * The event source.
    * 
    * @example
    * task
@@ -84,7 +84,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The operation object associated with the event.
+   * The object associated with the event.
    * 
    * @example
    * npdd89dc2b76c04f14b06774883b******
@@ -102,22 +102,22 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * - cluster_create: Creates a cluster.
-   * - cluster_scaleout: Scales out a cluster.
-   * - cluster_attach: Adds existing nodes.
-   * - cluster_delete: Deletes a cluster.
-   * - cluster_upgrade: Upgrades a cluster.
-   * - cluster_migrate: Migrates a cluster.
-   * - cluster_node_delete: Removes a node.
-   * - cluster_node_drain: Drains a node.
-   * - cluster_modify: Modifies a cluster.
-   * - cluster_configuration_modify: Modifies the control configurations of a cluster.
-   * - cluster_addon_install: Installs a component.
-   * - cluster_addon_upgrade: Upgrades a component.
-   * - cluster_addon_uninstall: Uninstalls a component.
-   * - runtime_upgrade: Upgrades the runtime.
-   * - nodepool_upgrade: Upgrades a node pool.
-   * - nodepool_update: Updates a node pool.
+   * - cluster_create: cluster creation
+   * - cluster_scaleout: cluster scale-out
+   * - cluster_attach: addition of existing nodes
+   * - cluster_delete: cluster deletion
+   * - cluster_upgrade: cluster upgrade
+   * - cluster_migrate: cluster migration
+   * - cluster_node_delete: node removal
+   * - cluster_node_drain: node draining
+   * - cluster_modify: cluster modification
+   * - cluster_configuration_modify: cluster management configuration modification
+   * - cluster_addon_install: add-on installation
+   * - cluster_addon_upgrade: add-on upgrade
+   * - cluster_addon_uninstall: add-on uninstallation
+   * - runtime_upgrade: runtime upgrade
+   * - nodepool_upgrade: node pool upgrade
+   * - nodepool_update: node pool update
    * 
    * @example
    * nodepool_update
@@ -170,7 +170,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of results to display on each page.
    * 
    * @example
    * 50

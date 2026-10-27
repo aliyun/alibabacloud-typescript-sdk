@@ -13,16 +13,16 @@ export class CheckControlPlaneLogEnableResponseBody extends $dara.Model {
   aliuid?: string;
   /**
    * @remarks
-   * The list of components for which control plane logging is enabled.
+   * The list of components for which control plane logging is currently enabled.
    * 
    * This parameter is required.
    */
   components?: string[];
   /**
    * @remarks
-   * The name of the SLS project that stores the control plane component logs.
+   * The name of the SLS project where control plane component logs are stored.
    * 
-   * Default value: k8s-log-$Cluster ID.
+   * Default value: k8s-log-$ClusterId.
    * 
    * @example
    * k8s-log-c5b5e80b0b64a4bf6939d2d8fbbc5****
@@ -30,7 +30,7 @@ export class CheckControlPlaneLogEnableResponseBody extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The data retention period of logs in the SLS Logstore. Unit: days.
+   * The retention period of logs in the SLS Logstore. Unit: days.
    * 
    * @example
    * 30

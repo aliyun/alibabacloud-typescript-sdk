@@ -13,12 +13,19 @@ export class DescribeClustersRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Specifies the cluster name for fuzzy matching.
+   * The cluster name used for fuzzy matching.
    * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group used to filter clusters.
+   * 
+   * @example
+   * rg-a1b2c3d4e5f6g7h
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

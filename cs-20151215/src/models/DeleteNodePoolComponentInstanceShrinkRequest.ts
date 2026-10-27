@@ -13,7 +13,7 @@ export class DeleteNodePoolComponentInstanceShrinkRequest extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DeleteNodePoolComponentInstanceShrinkRequest extends $dara.Model {
   maxFailedNodes?: number;
   /**
    * @remarks
-   * The maximum number of parallel operations per batch. Default value: 1.
+   * The maximum number of parallel nodes per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DeleteNodePoolComponentInstanceShrinkRequest extends $dara.Model {
   nodeNamesShrink?: string;
   /**
    * @remarks
-   * The auto-pause policy during a node upgrade. Valid values:
+   * The auto-pause policy during the node upgrade process. Valid values:
    * - NotPause
    * - FirstBatch
    * - EveryBatch

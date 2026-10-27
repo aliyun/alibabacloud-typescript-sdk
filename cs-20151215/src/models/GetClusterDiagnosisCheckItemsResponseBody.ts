@@ -29,7 +29,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   group?: string;
   /**
    * @remarks
-   * The assessment result of the check item.
+   * The evaluation result of the check item.
    * 
    * @example
    * normal
@@ -45,7 +45,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The check item name.
+   * The name of the check item.
    * 
    * @example
    * HostDNS
@@ -61,7 +61,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   refer?: string;
   /**
    * @remarks
-   * The check item value.
+   * The value of the check item.
    * 
    * @example
    * True

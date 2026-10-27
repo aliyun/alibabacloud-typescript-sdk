@@ -13,7 +13,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of results.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
 export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the KubeConfig certificate. Format: UTC time in RFC 3339 format.
+   * The expiration time of the KubeConfig certificate. The time is displayed in UTC and follows the RFC 3339 standard.
    * 
    * @example
    * 2028-04-09T06:20:47Z
@@ -64,13 +64,11 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
    * The current status of the KubeConfig certificate. Valid values:
-   * 
    * - Expired: The certificate has expired.
    * - Unexpired: The certificate has not expired.
    * - Unissued: The certificate has not been issued.
    * - Unknown: The status is unknown.
-   * 
-   * - Removed: The certificate has been removed (an issuance record exists for the certificate).
+   * - Removed: The certificate has been removed (the certificate has an issuance record).
    * 
    * @example
    * Unissued
@@ -102,9 +100,9 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
    * - `updating`: The cluster is being upgraded.
    * - `updating_failed`: The cluster failed to be upgraded.
    * - `scaling`: The cluster is being scaled.
-   * - `stopped`: The cluster has stopped running.
+   * - `stopped`: The cluster is stopped.
    * - `deleting`: The cluster is being deleted.
-   * - `deleted`: The cluster has been deleted.
+   * - `deleted`: The cluster is deleted.
    * - `delete_failed`: The cluster failed to be deleted.
    * 
    * @example
@@ -143,7 +141,7 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
 export class ListUserKubeConfigStatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination parameters.
    */
   page?: ListUserKubeConfigStatesResponseBodyPage;
   /**

@@ -6,8 +6,8 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   /**
    * @remarks
    * The diagnosis result code. Valid values:
-   * - 0: Diagnosis completed.
-   * - 1: Diagnosis failed.
+   * - 0: The diagnosis is completed.
+   * - 1: The diagnosis failed.
    * 
    * @example
    * 0
@@ -39,7 +39,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   finished?: string;
   /**
    * @remarks
-   * The diagnosis status information.
+   * The diagnosis status message.
    * 
    * @example
    * success
@@ -56,9 +56,9 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   /**
    * @remarks
    * The diagnosis status. Valid values:
-   * - 0: Diagnosis created.
-   * - 1: Diagnosis running.
-   * - 2: Diagnosis completed.
+   * - 0: The diagnosis is created.
+   * - 1: The diagnosis is running.
+   * - 2: The diagnosis is completed.
    * 
    * @example
    * 2
