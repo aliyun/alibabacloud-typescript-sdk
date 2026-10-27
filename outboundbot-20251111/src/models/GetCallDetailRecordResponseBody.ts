@@ -180,6 +180,16 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
    */
   outputTokens?: number;
   /**
+   * @example
+   * INTERRUPTED
+   */
+  playbackStatus?: string;
+  /**
+   * @example
+   * 好的
+   */
+  playedAnswer?: string;
+  /**
    * @remarks
    * The played text.
    * 
@@ -249,6 +259,8 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
       legacy: 'Legacy',
       model: 'Model',
       outputTokens: 'OutputTokens',
+      playbackStatus: 'PlaybackStatus',
+      playedAnswer: 'PlayedAnswer',
       playedWords: 'PlayedWords',
       role: 'Role',
       sessionId: 'SessionId',
@@ -273,6 +285,8 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
       legacy: 'boolean',
       model: 'string',
       outputTokens: 'number',
+      playbackStatus: 'string',
+      playedAnswer: 'string',
       playedWords: 'string',
       role: 'string',
       sessionId: 'string',
