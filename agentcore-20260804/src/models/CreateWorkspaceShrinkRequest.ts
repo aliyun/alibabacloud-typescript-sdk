@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace creation request body.
+   * The request body for creating a workspace.
    */
   bodyShrink?: string;
   /**

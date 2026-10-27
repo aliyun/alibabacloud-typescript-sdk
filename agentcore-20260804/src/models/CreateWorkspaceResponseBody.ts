@@ -18,7 +18,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The user VPC ID.
+   * The ID of the user VPC.
    * 
    * @example
    * vpc-bp1234567890
@@ -55,7 +55,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
 export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public network egress of the user VPC.
+   * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
   publicEgressEnabled?: boolean;
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed. The original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. If disabled, the public ingress for all agent endpoints in the workspace is closed, and the original public ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
   publicIngressEnabled?: boolean;
   /**
    * @remarks
-   * The user VPC network configuration.
+   * The VPC network configuration of the user.
    */
   vpc?: CreateWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
@@ -149,7 +149,7 @@ export class CreateWorkspaceResponseBodyDataTags extends $dara.Model {
 export class CreateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AI Registry namespace ID. It is returned after related resources are bound and may be empty during initialization.
+   * The AI Registry namespace ID. This value is returned after related resources are bound and may be empty during initialization.
    * 
    * @example
    * namespace-0123456789abcdef
@@ -176,7 +176,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The CloudMonitor workspace ID. It is returned after related resources are bound and may be empty during initialization.
+   * The CloudMonitor workspace ID. This value is returned after related resources are bound and may be empty during initialization.
    * 
    * @example
    * cms-ws-0123456789abcdef
@@ -187,7 +187,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   cmsWorkspaceId?: string;
   /**
    * @remarks
-   * The time when the workspace was created, in ISO 8601 format.
+   * The time when the workspace was created. The time follows the ISO 8601 standard.
    * 
    * This parameter is required.
    * 
@@ -218,7 +218,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the workspace belongs. It may be empty if no resource group is specified.
+   * The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
    * 
    * @example
    * rg-acfm1234567890
@@ -237,7 +237,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The supplementary reason for the current status of the workspace. It is used to display the specific reason when initialization fails or when waiting for authorization. It may be empty under normal circumstances.
+   * The supplementary reason for the current status of the workspace. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal circumstances.
    * 
    * @example
    * Waiting for OSS RAM authorization
@@ -263,7 +263,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   tags?: CreateWorkspaceResponseBodyDataTags[];
   /**
    * @remarks
-   * The ID of the tenant.
+   * The ID of the tenant to which the workspace belongs.
    * 
    * @example
    * tenant-123456
@@ -271,7 +271,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * ws-123456

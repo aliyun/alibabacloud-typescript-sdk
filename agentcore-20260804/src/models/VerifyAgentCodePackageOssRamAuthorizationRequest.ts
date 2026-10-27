@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAgentCodePackageOssRamAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * 与 Workspace 同账号、同地域；不修改 Workspace 默认 OSS 绑定。
+   * The name of the source OSS bucket.
    * 
    * This parameter is required.
    * 

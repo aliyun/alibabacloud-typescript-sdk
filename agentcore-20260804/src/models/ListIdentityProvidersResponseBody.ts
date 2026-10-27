@@ -13,7 +13,7 @@ export class ListIdentityProvidersResponseBodyItemsConfiguration extends $dara.M
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be replaced. This is different from the local entity ID returned in SP queries.
+   * Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
    * 
    * @example
    * https://idp.example.com/entity
@@ -21,23 +21,7 @@ export class ListIdentityProvidersResponseBodyItemsConfiguration extends $dara.M
   entityId?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitProvisionStatus?: string;
-  /**
-   * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitUpdateStatus?: string;
-  /**
-   * @remarks
-   * Required for manual entry. Must be an absolute HTTPS URL without user credentials and fragments.
+   * Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -45,7 +29,7 @@ export class ListIdentityProvidersResponseBodyItemsConfiguration extends $dara.M
   loginUrl?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
+   * The actual switch value is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
    * 
    * @example
    * Enabled
@@ -55,8 +39,6 @@ export class ListIdentityProvidersResponseBodyItemsConfiguration extends $dara.M
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionStatus: 'jitProvisionStatus',
-      jitUpdateStatus: 'jitUpdateStatus',
       loginUrl: 'loginUrl',
       ssoStatus: 'ssoStatus',
     };
@@ -66,8 +48,6 @@ export class ListIdentityProvidersResponseBodyItemsConfiguration extends $dara.M
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionStatus: 'string',
-      jitUpdateStatus: 'string',
       loginUrl: 'string',
       ssoStatus: 'string',
     };
@@ -101,7 +81,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   appKey?: string;
   /**
    * @remarks
-   * The SAML binding URI in the historical metadata snapshot. To update CustomSSO, use saml.bindingType.
+   * The SAML binding URI in the historical metadata snapshot. Use saml.bindingType for CustomSSO updates.
    * 
    * @example
    * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
@@ -109,7 +89,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   binding?: string;
   /**
    * @remarks
-   * The certificate string in the historical metadata snapshot. To edit the configuration, use saml.x509Certificates and do not submit the old metadata.
+   * The certificate string in the historical metadata snapshot. Use saml.x509Certificates to edit the configuration. Do not submit the old metadata.
    * 
    * @example
    * MIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQELBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoXDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8oGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYNW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbYEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Okkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0EBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUWld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImcaWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTqP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjocJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdVjfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5
@@ -125,7 +105,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   corpId?: string;
   /**
    * @remarks
-   * Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be replaced. This is different from the local entity ID returned in SP queries.
+   * Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
    * 
    * @example
    * https://idp.example.com/entity
@@ -133,7 +113,7 @@ export class ListIdentityProvidersResponseBodyItemsMetadata extends $dara.Model 
   entityId?: string;
   /**
    * @remarks
-   * Required for manual entry. Must be an absolute HTTPS URL without user credentials and fragments.
+   * Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -183,7 +163,7 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. Must be non-empty and no more than 2,048 characters in length. Existing configurations cannot be replaced. This is different from the local entity ID returned in SP queries.
+   * Required for manual entry. Must be non-empty and up to 2048 characters. Existing configurations cannot be changed. This is different from the local entity ID returned by SP queries.
    * 
    * @example
    * https://idp.example.com/entity
@@ -191,23 +171,7 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * Can be set independently. If omitted during an update, the existing value is retained. If omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitProvisionEnabled?: boolean;
-  /**
-   * @remarks
-   * Can be set independently. If omitted during an update, the existing value is retained. If omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitUpdateEnabled?: boolean;
-  /**
-   * @remarks
-   * Required for manual entry. Must be an absolute HTTPS URL without user credentials and fragments.
+   * Required for manual entry. Must be an absolute HTTPS URL without user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -215,7 +179,7 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
   loginUrl?: string;
   /**
    * @remarks
-   * Required for manual entry. Must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. A maximum of 10 certificates are allowed.
+   * Required as a non-empty array for manual entry. Uses PEM X.509 certificate text. Validates the current validity period. A maximum of two certificates are allowed after deduplication.
    * 
    * @example
    * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -225,8 +189,6 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionEnabled: 'jitProvisionEnabled',
-      jitUpdateEnabled: 'jitUpdateEnabled',
       loginUrl: 'loginUrl',
       x509Certificates: 'x509Certificates',
     };
@@ -236,8 +198,6 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionEnabled: 'boolean',
-      jitUpdateEnabled: 'boolean',
       loginUrl: 'string',
       x509Certificates: { 'type': 'array', 'itemType': 'string' },
     };
@@ -258,7 +218,7 @@ export class ListIdentityProvidersResponseBodyItemsSaml extends $dara.Model {
 export class ListIdentityProvidersResponseBodyItemsSyncScope extends $dara.Model {
   /**
    * @remarks
-   * When the mode is SelectedDepartments, at least one non-empty department ID must be included, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this field.
+   * Must contain at least one non-empty department ID when set to SelectedDepartments. The IDs should be obtained from ListIdentityProviderDepartments. Pass an empty array or omit this parameter when set to AllAuthorized.
    * 
    * @example
    * ["10001"]
@@ -266,10 +226,7 @@ export class ListIdentityProvidersResponseBodyItemsSyncScope extends $dara.Model
   departmentIds?: string[];
   /**
    * @remarks
-   * Valid values:
-   * - AllAuthorized: The full authorization scope, which is limited by the application address book authorization.
-   * - SelectedDepartments: The selected departments and all their sub-departments.
-   * When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
+   * AllAuthorized: the full authorization scope, limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. A valid mode must be provided and verified by the backend when syncScope is explicitly submitted.
    * 
    * @example
    * SelectedDepartments
@@ -304,7 +261,7 @@ export class ListIdentityProvidersResponseBodyItemsSyncScope extends $dara.Model
 export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual received status and URL.
+   * The actual SAML configuration is retrieved on demand only through GetIdentityProvider. SCIM queries and provisioning return the actual receiving status and URL.
    */
   configuration?: ListIdentityProvidersResponseBodyItemsConfiguration;
   /**
@@ -317,7 +274,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The event subscription callback URL. You must configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool is not activated.
+   * The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. Returns an empty string if the user pool is not activated.
    * 
    * @example
    * http://auth.cn-hangzhou.agentteams.aliyuncs.com/roa/dingtalk/event/up-123456
@@ -325,7 +282,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   eventSubscriptionCallbackUrl?: string;
   /**
    * @remarks
-   * The type of the external identity provider. Valid values: DingTalk and Feishu.
+   * The type of the external identity provider. Valid values: DingTalk, Feishu.
    * 
    * @example
    * DingTalk
@@ -333,7 +290,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * The logon callback URL. You must configure this URL in the external identity provider application. An empty string is returned if the user pool is not activated.
+   * The logon callback URL. Configure this URL in the external identity provider application. Returns an empty string if the user pool is not activated.
    * 
    * @example
    * https://signin-cn-hangzhou.aliyunagentid.com/up-123456/dingtalk/callback
@@ -351,7 +308,7 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   metadata?: ListIdentityProvidersResponseBodyItemsMetadata;
   /**
    * @remarks
-   * Only SAML is currently supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+   * Only SAML is currently supported. May not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
    * 
    * @example
    * SAML
@@ -359,21 +316,12 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
+   * Input supports either XML or full manual entry. Queries return the standardized configuration and do not echo the original XML. Can be omitted if not configured.
    */
   saml?: ListIdentityProvidersResponseBodyItemsSaml;
   /**
    * @remarks
-   * The binding status. Valid values:
-   * - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
-   * - SYNCING: Organization members are being synchronized.
-   * - SYNCED: Organization member synchronization is complete.
-   * - READY: The binding is in effect.
-   * - SYNC_FAILED: Organization member synchronization failed.
-   * - UPDATING: The configuration is being updated.
-   * - UPDATE_FAILED: Configuration update failed.
-   * - DISCONNECTING: Unbinding is in progress.
-   * - DISCONNECT_FAILED: Unbinding failed.
+   * The binding status. Valid values: CONFIGURED (the configuration is accepted and waiting for user pool activation), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is completed), READY (the binding is effective), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), DISCONNECT_FAILED (disconnection failed).
    * 
    * @example
    * READY
@@ -381,17 +329,17 @@ export class ListIdentityProvidersResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether to enable organization member synchronization. After this feature is enabled, organization members are synchronized as workspace users by this external identity provider.
+   * Specifies whether to enable organization member synchronization. If enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * Follows the synchronization scope definition by department. If omitted during creation, the default value is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+   * Follows the department-based synchronization scope definition. If omitted during creation, the default is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating the saved scope does not automatically trigger full synchronization.
    */
   syncScope?: ListIdentityProvidersResponseBodyItemsSyncScope;
   /**
    * @remarks
-   * The time of the most recent modification in UTC format based on RFC 3339.
+   * The time of the last modification in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -488,7 +436,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   items?: ListIdentityProvidersResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page returned in the current query.
+   * The maximum number of records per page that takes effect in this query.
    * 
    * @example
    * 10
@@ -496,7 +444,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. Returns an error description if the request fails.
    * 
    * @example
    * success
@@ -504,7 +452,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor for the next page. This value is empty if there is no next page.
+   * The cursor for the next page. Empty if there is no next page.
    * 
    * @example
    * aWRlbnRpdHktcHJvdmlkZXItb2Zmc2V0OjEw

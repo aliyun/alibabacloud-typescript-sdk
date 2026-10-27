@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIdentityProviderShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request content for updating the external identity provider.
+   * The configuration fields to be modified. For DingTalk and Lark, you must submit at least one of loginEnabled, syncEnabled, metadata, and syncScope. For CustomSSO, use protocol, saml, and loginEnabled. You cannot submit vendor metadata, syncEnabled, or syncScope.
    */
   bodyShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. Queries return the short name.
+   * HTTP-Redirect or HTTP-POST. This parameter is required for manual entry. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -13,7 +13,7 @@ export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Mode
   bindingType?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the service provider (SP) returned in queries.
+   * This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
    * 
    * @example
    * https://idp.example.com/entity
@@ -21,23 +21,7 @@ export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Mode
   entityId?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitProvisionStatus?: string;
-  /**
-   * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitUpdateStatus?: string;
-  /**
-   * @remarks
-   * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -45,7 +29,7 @@ export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Mode
   loginUrl?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
+   * The actual switch value is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved by AC.
    * 
    * @example
    * Enabled
@@ -55,8 +39,6 @@ export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Mode
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionStatus: 'jitProvisionStatus',
-      jitUpdateStatus: 'jitUpdateStatus',
       loginUrl: 'loginUrl',
       ssoStatus: 'ssoStatus',
     };
@@ -66,8 +48,6 @@ export class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Mode
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionStatus: 'string',
-      jitUpdateStatus: 'string',
       loginUrl: 'string',
       ssoStatus: 'string',
     };
@@ -125,7 +105,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the service provider (SP) returned in queries.
+   * This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
    * 
    * @example
    * https://idp.example.com/entity
@@ -133,7 +113,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -175,7 +155,7 @@ export class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
 export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
   /**
    * @remarks
-   * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. Queries return the short name.
+   * HTTP-Redirect or HTTP-POST. This parameter is required for manual entry. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -183,7 +163,7 @@ export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the service provider (SP) returned in queries.
+   * This parameter is required for manual entry. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the local entity ID queried by the SP.
    * 
    * @example
    * https://idp.example.com/entity
@@ -191,23 +171,7 @@ export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * This parameter can be set independently. If it is omitted during an update, the existing value is retained. If it is omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitProvisionEnabled?: boolean;
-  /**
-   * @remarks
-   * This parameter can be set independently. If it is omitted during an update, the existing value is retained. If it is omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitUpdateEnabled?: boolean;
-  /**
-   * @remarks
-   * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * This parameter is required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -215,7 +179,7 @@ export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
   loginUrl?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be a non-empty array that uses PEM X.509 certificate text. The current validity period is verified, and a maximum of 10 certificates are allowed.
+   * A non-empty array is required for manual entry. Use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
    * 
    * @example
    * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -225,8 +189,6 @@ export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionEnabled: 'jitProvisionEnabled',
-      jitUpdateEnabled: 'jitUpdateEnabled',
       loginUrl: 'loginUrl',
       x509Certificates: 'x509Certificates',
     };
@@ -236,8 +198,6 @@ export class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionEnabled: 'boolean',
-      jitUpdateEnabled: 'boolean',
       loginUrl: 'string',
       x509Certificates: { 'type': 'array', 'itemType': 'string' },
     };
@@ -266,10 +226,10 @@ export class GetIdentityProviderResponseBodyDataSyncScope extends $dara.Model {
   departmentIds?: string[];
   /**
    * @remarks
-   * The scope mode. Valid values:
-   * - AllAuthorized: All authorized scopes, which are limited by the application address book authorization.
+   * Valid values:
+   * - AllAuthorized: The full authorization scope, which is limited by the application address book authorization.
    * - SelectedDepartments: The selected departments and all their sub-departments.
-   * When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
+   * When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
    * 
    * @example
    * SelectedDepartments
@@ -304,7 +264,7 @@ export class GetIdentityProviderResponseBodyDataSyncScope extends $dara.Model {
 export class GetIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The actual SAML configuration is read back on demand only by GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
+   * The actual SAML configuration is read back on demand only by GetIdentityProvider. SCIM queries and preparations return the actual received status and URLs.
    */
   configuration?: GetIdentityProviderResponseBodyDataConfiguration;
   /**
@@ -325,7 +285,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   eventSubscriptionCallbackUrl?: string;
   /**
    * @remarks
-   * The external identity provider type. Valid values: DingTalk and Feishu.
+   * The type of the external identity provider. Valid values: DingTalk and Feishu.
    * 
    * @example
    * DingTalk
@@ -351,7 +311,7 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   metadata?: GetIdentityProviderResponseBodyDataMetadata;
   /**
    * @remarks
-   * Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+   * Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. Placeholder initialization with OIDC is not supported.
    * 
    * @example
    * SAML
@@ -365,15 +325,15 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - CONFIGURED: The configuration is accepted and the system is waiting for the user pool to be activated.
+   * - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
    * - SYNCING: Organization members are being synchronized.
-   * - SYNCED: Organization members are synchronized.
+   * - SYNCED: The synchronization of organization members is complete.
    * - READY: The binding is in effect.
    * - SYNC_FAILED: The synchronization of organization members failed.
    * - UPDATING: The configuration is being updated.
    * - UPDATE_FAILED: The configuration update failed.
-   * - DISCONNECTING: The binding is being removed.
-   * - DISCONNECT_FAILED: The binding removal failed.
+   * - DISCONNECTING: The unbinding is in progress.
+   * - DISCONNECT_FAILED: The unbinding failed.
    * 
    * @example
    * READY
@@ -381,12 +341,12 @@ export class GetIdentityProviderResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether to enable the synchronization of organization members. After this feature is enabled, organization members are synchronized as workspace users by this external identity provider.
+   * Specifies whether to enable the synchronization of organization members. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * The synchronization scope definition by department is used. If it is omitted during creation, the default value is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If it is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically perform full synchronization.
+   * The synchronization scope definition by department is retained. If this parameter is omitted during creation, the default value AllAuthorized is used. The first vendor synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
    */
   syncScope?: GetIdentityProviderResponseBodyDataSyncScope;
   /**
@@ -488,7 +448,7 @@ export class GetIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. Returns an error description if the request fails.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success

@@ -5,26 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAgentCodePackageOssRamAuthorizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AUTHORIZED 仅表示对应策略已绑定。
+   * The policy binding status.
    * 
    * @example
    * AUTHORIZED
    */
   authorizationStatus?: string;
   /**
+   * @remarks
+   * The name of the authorized source OSS bucket.
+   * 
    * @example
    * my-agent-bucket
    */
   ossBucketName?: string;
   /**
    * @remarks
-   * 客户端不能指定或覆盖该角色。
+   * The name of the workspace role selected by the backend.
    * 
    * @example
    * AliyunAgentCoreWorkspace-ws-a1b2c3d4e5f6
    */
   roleName?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-a1b2c3d4e5f6
    */
@@ -58,26 +64,46 @@ export class VerifyAgentCodePackageOssRamAuthorizationResponseBodyData extends $
 
 export class VerifyAgentCodePackageOssRamAuthorizationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: VerifyAgentCodePackageOssRamAuthorizationResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

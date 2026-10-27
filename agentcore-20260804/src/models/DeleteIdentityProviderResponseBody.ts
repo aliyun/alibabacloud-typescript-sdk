@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+   * HTTP-Redirect or HTTP-POST. This parameter is required when manually filled in. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -13,7 +13,7 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
   bindingType?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. It is different from the Entity ID of the service provider queried by the system.
+   * This parameter is required when manually filled in. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the Entity ID of the SP queried on our side.
    * 
    * @example
    * https://idp.example.com/entity
@@ -21,23 +21,7 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
   entityId?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitProvisionStatus?: string;
-  /**
-   * @remarks
-   * The actual switch value, which is Enabled or Disabled.
-   * 
-   * @example
-   * Disabled
-   */
-  jitUpdateStatus?: string;
-  /**
-   * @remarks
-   * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -45,7 +29,7 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
   loginUrl?: string;
   /**
    * @remarks
-   * The actual switch value, which is Enabled or Disabled. It is not equivalent to the expected value of loginEnabled saved in AC.
+   * The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected value of loginEnabled saved in AC.
    * 
    * @example
    * Enabled
@@ -55,8 +39,6 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionStatus: 'jitProvisionStatus',
-      jitUpdateStatus: 'jitUpdateStatus',
       loginUrl: 'loginUrl',
       ssoStatus: 'ssoStatus',
     };
@@ -66,8 +48,6 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionStatus: 'string',
-      jitUpdateStatus: 'string',
       loginUrl: 'string',
       ssoStatus: 'string',
     };
@@ -85,7 +65,7 @@ export class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.M
 export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
   /**
    * @remarks
-   * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+   * HTTP-Redirect or HTTP-POST. This parameter is required when manually filled in. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -93,7 +73,7 @@ export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. It is different from the Entity ID of the service provider queried by the system.
+   * This parameter is required when manually filled in. It must be non-empty and cannot exceed 2,048 characters. Existing configurations do not support replacement. This is different from the Entity ID of the SP queried on our side.
    * 
    * @example
    * https://idp.example.com/entity
@@ -101,23 +81,7 @@ export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * This parameter can be set independently. If it is omitted during an update, the existing value is retained. If it is omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitProvisionEnabled?: boolean;
-  /**
-   * @remarks
-   * This parameter can be set independently. If it is omitted during an update, the existing value is retained. If it is omitted for the first time, the default value is false. A valid SAML configuration is required.
-   * 
-   * @example
-   * false
-   */
-  jitUpdateEnabled?: boolean;
-  /**
-   * @remarks
-   * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -125,7 +89,7 @@ export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
   loginUrl?: string;
   /**
    * @remarks
-   * This parameter is required when you manually enter the configuration. It must be a non-empty array and use PEM X.509 certificate text. The current validity period is verified. A maximum of 10 certificates are supported.
+   * This parameter is required when manually filled in. It must be a non-empty array and use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
    * 
    * @example
    * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -135,8 +99,6 @@ export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
     return {
       bindingType: 'bindingType',
       entityId: 'entityId',
-      jitProvisionEnabled: 'jitProvisionEnabled',
-      jitUpdateEnabled: 'jitUpdateEnabled',
       loginUrl: 'loginUrl',
       x509Certificates: 'x509Certificates',
     };
@@ -146,8 +108,6 @@ export class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
     return {
       bindingType: 'string',
       entityId: 'string',
-      jitProvisionEnabled: 'boolean',
-      jitUpdateEnabled: 'boolean',
       loginUrl: 'string',
       x509Certificates: { 'type': 'array', 'itemType': 'string' },
     };
@@ -181,7 +141,7 @@ export class DeleteIdentityProviderResponseBodyData extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * Only SAML is supported. This parameter may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+   * Currently, only SAML is supported. This parameter may not be returned if no valid configuration is saved. OIDC placeholders are not supported for initialization.
    * 
    * @example
    * SAML
@@ -189,12 +149,12 @@ export class DeleteIdentityProviderResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This parameter can be omitted if it is not configured.
+   * The input supports either XML or complete manual configuration. Queries return the standardized configuration and do not echo the original XML. This parameter can be omitted when not configured.
    */
   saml?: DeleteIdentityProviderResponseBodyDataSaml;
   /**
    * @remarks
-   * The status. Valid values: CONFIGURED (the configuration is accepted and the system is waiting to activate the user pool), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is complete), READY (the binding has taken effect), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
+   * The status. Valid values: CONFIGURED (the configuration is accepted and the system is waiting to activate the user pool), SYNCING (synchronizing organization members), SYNCED (organization member synchronization is complete), READY (the binding is effective), SYNC_FAILED (organization member synchronization failed), UPDATING (updating the configuration), UPDATE_FAILED (configuration update failed), DISCONNECTING (disconnecting), and DISCONNECT_FAILED (disconnection failed).
    * 
    * @example
    * READY
@@ -202,7 +162,7 @@ export class DeleteIdentityProviderResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * ws-123456
@@ -256,7 +216,7 @@ export class DeleteIdentityProviderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The binding information of the external identity provider after the disconnection operation is accepted.
+   * The external identity provider binding information after the disconnection operation is accepted.
    */
   data?: DeleteIdentityProviderResponseBodyData;
   /**
@@ -269,7 +229,7 @@ export class DeleteIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. If the request fails, an error description is returned.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success
@@ -277,7 +237,7 @@ export class DeleteIdentityProviderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * request-123456
