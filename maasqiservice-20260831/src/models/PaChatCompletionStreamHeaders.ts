@@ -6,6 +6,8 @@ export class PaChatCompletionStreamHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The Agent instance access key used for QICloud Customer API authentication.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class PaChatCompletionStreamHeaders extends $dara.Model {
   xQIAgentApiKey?: string;
   /**
    * @remarks
+   * The published Mobile Planner Agent instance ID. Must correspond to the X-QI-Agent-Api-Key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,9 @@ export class PaChatCompletionStreamHeaders extends $dara.Model {
    */
   xQIInstanceId?: string;
   /**
+   * @remarks
+   * The optional session identifier. Can be omitted for the first turn, in which case the server generates one. Pass it back in subsequent turns to continue the Mobile Planner Agent session.
+   * 
    * @example
    * session-xxx
    */

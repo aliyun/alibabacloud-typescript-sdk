@@ -5,6 +5,11 @@ export { AigcChatCompletionStreamRequestMessages } from './AigcChatCompletionStr
 export { AigcChatCompletionStreamRequestMetadataParameters } from './AigcChatCompletionStreamRequest';
 export { AigcChatCompletionStreamRequestMetadata } from './AigcChatCompletionStreamRequest';
 export { AigcChatCompletionStreamRequestStreamOptions } from './AigcChatCompletionStreamRequest';
+export { CuaChatCompletionStreamRequestMessagesContentImageUrl } from './CuaChatCompletionStreamRequest';
+export { CuaChatCompletionStreamRequestMessagesContent } from './CuaChatCompletionStreamRequest';
+export { CuaChatCompletionStreamRequestMessages } from './CuaChatCompletionStreamRequest';
+export { CuaChatCompletionStreamRequestMetadata } from './CuaChatCompletionStreamRequest';
+export { CuaChatCompletionStreamRequestStreamOptions } from './CuaChatCompletionStreamRequest';
 export { GuiChatCompletionStreamRequestChatTemplateKwargs } from './GuiChatCompletionStreamRequest';
 export { GuiChatCompletionStreamRequestMessagesContentImageUrl } from './GuiChatCompletionStreamRequest';
 export { GuiChatCompletionStreamRequestMessagesContent } from './GuiChatCompletionStreamRequest';
@@ -33,6 +38,10 @@ export { AigcChatCompletionStreamHeaders } from './AigcChatCompletionStreamHeade
 export { AigcChatCompletionStreamRequest } from './AigcChatCompletionStreamRequest';
 export { AigcChatCompletionStreamResponseBody } from './AigcChatCompletionStreamResponseBody';
 export { AigcChatCompletionStreamResponse } from './AigcChatCompletionStreamResponse';
+export { CuaChatCompletionStreamHeaders } from './CuaChatCompletionStreamHeaders';
+export { CuaChatCompletionStreamRequest } from './CuaChatCompletionStreamRequest';
+export { CuaChatCompletionStreamResponseBody } from './CuaChatCompletionStreamResponseBody';
+export { CuaChatCompletionStreamResponse } from './CuaChatCompletionStreamResponse';
 export { GuiChatCompletionStreamHeaders } from './GuiChatCompletionStreamHeaders';
 export { GuiChatCompletionStreamRequest } from './GuiChatCompletionStreamRequest';
 export { GuiChatCompletionStreamResponseBody } from './GuiChatCompletionStreamResponseBody';

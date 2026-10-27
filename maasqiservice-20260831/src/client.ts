@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("maasqiservice", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +30,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+   * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK Center.
+   * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+   * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+   * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /aigc/v1/chat/completions`.
+   * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+   * ### Session management
+   * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
    * 
    * @param request - AigcChatCompletionStreamRequest
    * @param headers - AigcChatCompletionStreamHeaders
@@ -110,7 +124,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+   * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK Center.
+   * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+   * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+   * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /aigc/v1/chat/completions`.
+   * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+   * ### Session management
+   * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
    * 
    * @param request - AigcChatCompletionStreamRequest
    * @param headers - AigcChatCompletionStreamHeaders
@@ -176,7 +204,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+   * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK Center.
+   * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+   * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+   * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /aigc/v1/chat/completions`.
+   * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+   * ### Session management
+   * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
    * 
    * @param request - AigcChatCompletionStreamRequest
    * @returns AigcChatCompletionStreamResponse
@@ -188,7 +230,187 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+   * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用
+   * 
+   * @param request - CuaChatCompletionStreamRequest
+   * @param headers - CuaChatCompletionStreamHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CuaChatCompletionStreamResponse
+   */
+  async *cuaChatCompletionStreamWithSSE(request: $_model.CuaChatCompletionStreamRequest, headers: $_model.CuaChatCompletionStreamHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CuaChatCompletionStreamResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.streamOptions)) {
+      body["streamOptions"] = request.streamOptions;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xQIAgentApiKey)) {
+      realHeaders["X-QI-Agent-Api-Key"] = String(headers.xQIAgentApiKey);
+    }
+
+    if (!$dara.isNull(headers.xQIInstanceId)) {
+      realHeaders["X-QI-Instance-Id"] = String(headers.xQIInstanceId);
+    }
+
+    if (!$dara.isNull(headers.xQISessionId)) {
+      realHeaders["X-QI-Session-Id"] = String(headers.xQISessionId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CuaChatCompletionStream",
+      version: "2026-08-31",
+      protocol: "HTTPS",
+      pathname: `/cua/v1/chat/completions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.CuaChatCompletionStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CuaChatCompletionStreamResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用
+   * 
+   * @param request - CuaChatCompletionStreamRequest
+   * @param headers - CuaChatCompletionStreamHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CuaChatCompletionStreamResponse
+   */
+  async cuaChatCompletionStreamWithOptions(request: $_model.CuaChatCompletionStreamRequest, headers: $_model.CuaChatCompletionStreamHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CuaChatCompletionStreamResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.streamOptions)) {
+      body["streamOptions"] = request.streamOptions;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xQIAgentApiKey)) {
+      realHeaders["X-QI-Agent-Api-Key"] = String(headers.xQIAgentApiKey);
+    }
+
+    if (!$dara.isNull(headers.xQIInstanceId)) {
+      realHeaders["X-QI-Instance-Id"] = String(headers.xQIInstanceId);
+    }
+
+    if (!$dara.isNull(headers.xQISessionId)) {
+      realHeaders["X-QI-Session-Id"] = String(headers.xQISessionId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CuaChatCompletionStream",
+      version: "2026-08-31",
+      protocol: "HTTPS",
+      pathname: `/cua/v1/chat/completions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CuaChatCompletionStreamResponse>(await this.callApi(params, req, runtime), new $_model.CuaChatCompletionStreamResponse({}));
+  }
+
+  /**
+   * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用
+   * 
+   * @param request - CuaChatCompletionStreamRequest
+   * @returns CuaChatCompletionStreamResponse
+   */
+  async cuaChatCompletionStream(request: $_model.CuaChatCompletionStreamRequest): Promise<$_model.CuaChatCompletionStreamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CuaChatCompletionStreamHeaders({ });
+    return await this.cuaChatCompletionStreamWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * - Install the SDK from the SDK Center.
+   * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+   * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+   * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+   * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+   * ### Call methods
+   * - Method and path: POST /gui/v1/chat/completions.
+   * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
    * 
    * @param request - GuiChatCompletionStreamRequest
    * @param headers - GuiChatCompletionStreamHeaders
@@ -380,7 +602,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+   * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * - Install the SDK from the SDK Center.
+   * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+   * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+   * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+   * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+   * ### Call methods
+   * - Method and path: POST /gui/v1/chat/completions.
+   * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
    * 
    * @param request - GuiChatCompletionStreamRequest
    * @param headers - GuiChatCompletionStreamHeaders
@@ -558,7 +794,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+   * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * - Install the SDK from the SDK Center.
+   * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+   * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+   * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+   * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+   * ### Call methods
+   * - Method and path: POST /gui/v1/chat/completions.
+   * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+   * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
    * 
    * @param request - GuiChatCompletionStreamRequest
    * @returns GuiChatCompletionStreamResponse
@@ -570,7 +820,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+   * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK center.
+   * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+   * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /pa/v1/chat/completions`.
+   * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+   * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
    * 
    * @param request - PaChatCompletionStreamRequest
    * @param headers - PaChatCompletionStreamHeaders
@@ -766,7 +1029,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+   * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK center.
+   * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+   * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /pa/v1/chat/completions`.
+   * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+   * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
    * 
    * @param request - PaChatCompletionStreamRequest
    * @param headers - PaChatCompletionStreamHeaders
@@ -948,7 +1224,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+   * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+   * 
+   * @remarks
+   * ### Before you begin
+   * - Install the SDK from the SDK center.
+   * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+   * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+   * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+   * ### How to call
+   * - Method and path: `POST /pa/v1/chat/completions`.
+   * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+   * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+   * ### Session management
+   * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
    * 
    * @param request - PaChatCompletionStreamRequest
    * @returns PaChatCompletionStreamResponse

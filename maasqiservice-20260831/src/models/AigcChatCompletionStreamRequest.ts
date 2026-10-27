@@ -6,6 +6,9 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AigcChatCompletionStreamRequestMessagesContentImageUrl extends $dara.Model {
   /**
+   * @remarks
+   * The publicly accessible HTTPS URL of the reference image, or a complete Base64 image Data URL (such as data:image/png;base64,...). Signed URLs must remain valid during request execution. Re-upload or update the link for expired or unauthorized images.
+   * 
    * @example
    * https://example.com/input.png
    */
@@ -33,6 +36,9 @@ export class AigcChatCompletionStreamRequestMessagesContentImageUrl extends $dar
 
 export class AigcChatCompletionStreamRequestMessagesContentVideoUrl extends $dara.Model {
   /**
+   * @remarks
+   * The video URL.
+   * 
    * @example
    * https://example.com/input.mp4
    */
@@ -59,17 +65,31 @@ export class AigcChatCompletionStreamRequestMessagesContentVideoUrl extends $dar
 }
 
 export class AigcChatCompletionStreamRequestMessagesContent extends $dara.Model {
+  /**
+   * @remarks
+   * The reference image when type is set to image_url. Supports HTTPS URLs or Base64 Data URLs.
+   */
   imageUrl?: AigcChatCompletionStreamRequestMessagesContentImageUrl;
   /**
+   * @remarks
+   * The generation or editing objective when type is set to text.
+   * 
    * @example
-   * 把参考图背景改成海边日落
+   * Change the background of the reference image to a seaside sunset
    */
   text?: string;
   /**
+   * @remarks
+   * The content part type: text, image_url, or video_url.
+   * 
    * @example
    * text
    */
   type?: string;
+  /**
+   * @remarks
+   * The video input when type is set to video_url. Only accepted by the Creative Agent Dedicated edition Planner. The Creative Agent Lite edition rejects this type.
+   */
   videoUrl?: AigcChatCompletionStreamRequestMessagesContentVideoUrl;
   static names(): { [key: string]: string } {
     return {
@@ -106,11 +126,17 @@ export class AigcChatCompletionStreamRequestMessagesContent extends $dara.Model 
 
 export class AigcChatCompletionStreamRequestMessages extends $dara.Model {
   /**
+   * @remarks
+   * The message content. Can be text. A multimodal array can contain text, image_url, or video_url. The Creative Agent Lite edition performs image-to-image when a reference image is provided and text-to-image when no reference image is provided. It does not accept video.
+   * 
    * @example
-   * 生成一张雨后未来城市夜景
+   * Generate a futuristic city nightscape after rain
    */
   content?: AigcChatCompletionStreamRequestMessagesContent[];
   /**
+   * @remarks
+   * The message role. Place the current generation objective in a user message. History can include user, assistant, and tool.
+   * 
    * @example
    * user
    */
@@ -143,31 +169,49 @@ export class AigcChatCompletionStreamRequestMessages extends $dara.Model {
 
 export class AigcChatCompletionStreamRequestMetadataParameters extends $dara.Model {
   /**
+   * @remarks
+   * The guidance scale. Must be a finite number between 0 and 20.
+   * 
    * @example
    * 0.0
    */
   guidanceScale?: number;
   /**
+   * @remarks
+   * The number of images to generate for this request. Must be an integer in the range of 1 to 6.
+   * 
    * @example
    * 1
    */
   n?: number;
   /**
+   * @remarks
+   * The negative prompt that describes content you do not want to appear in the result.
+   * 
    * @example
-   * 低质量、模糊、文字、水印
+   * low quality, blurry, text, watermark
    */
   negativePrompt?: string;
   /**
+   * @remarks
+   * The number of model inference iterations. Must be an integer in the range of 1 to 200.
+   * 
    * @example
    * 8
    */
   numInferenceSteps?: number;
   /**
+   * @remarks
+   * The random seed. Must be an integer in the range of 0 to 2147483647.
+   * 
    * @example
    * 42
    */
   seed?: number;
   /**
+   * @remarks
+   * The output pixel dimensions, such as `1024*1024` or `1280*720`. The format `1024x1024` is also accepted. When specified, this value overrides the default canvas dimensions for this request. Use width and height values supported by the model.
+   * 
    * @example
    * 1024*1024
    */
@@ -205,6 +249,9 @@ export class AigcChatCompletionStreamRequestMetadataParameters extends $dara.Mod
 
 export class AigcChatCompletionStreamRequestMetadata extends $dara.Model {
   /**
+   * @remarks
+   * The image parameters for this request. Only size, n, seed, negative_prompt, num_inference_steps, and guidance_scale are supported. Omitted fields use the default configurations. response_format is not supported.
+   * 
    * @example
    * {"size":"1024*1024","n":1,"num_inference_steps":8}
    */
@@ -235,6 +282,9 @@ export class AigcChatCompletionStreamRequestMetadata extends $dara.Model {
 
 export class AigcChatCompletionStreamRequestStreamOptions extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP JSON key is include_usage. When set to true, an independent usage chunk is returned before the end marker. The choices field in this chunk is an empty array. Token usage does not represent the number of images or the final bill.
+   * 
    * @example
    * true
    */
@@ -263,20 +313,34 @@ export class AigcChatCompletionStreamRequestStreamOptions extends $dara.Model {
 export class AigcChatCompletionStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The conversation message array. Creative Agent uses the last user message as the current objective and executes it in combination with the session history.
+   * 
    * This parameter is required.
    * 
    * @example
-   * [{"role":"user","content":"生成一张水墨山水画"}]
+   * [{"role":"user","content":"Generate an ink wash landscape painting"}]
    */
   messages?: AigcChatCompletionStreamRequestMessages[];
   /**
+   * @remarks
+   * The extended input for this image creation request. Use the parameters object to set generation parameters. Do not use this field to pass model addresses or keys.
+   * 
    * @example
    * {"parameters":{"size":"1024*1024","n":1}}
    */
   metadata?: AigcChatCompletionStreamRequestMetadata;
+  /**
+   * @remarks
+   * A compatibility placeholder field. Can be omitted or set to an empty string. You cannot use this field to switch the model used by the instance. The model field in the response is an empty string.
+   * 
+   * @example
+   * " "
+   */
   model?: string;
   /**
    * @remarks
+   * Specifies whether to use SSE streaming responses. This parameter must be set to true for this operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -284,6 +348,9 @@ export class AigcChatCompletionStreamRequest extends $dara.Model {
    */
   stream?: boolean;
   /**
+   * @remarks
+   * The HTTP JSON key is stream_options. Set include_usage to retrieve the token usage for this call.
+   * 
    * @example
    * {"include_usage":true}
    */
