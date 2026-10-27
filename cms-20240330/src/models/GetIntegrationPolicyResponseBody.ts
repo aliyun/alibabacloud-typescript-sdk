@@ -75,7 +75,7 @@ export class GetIntegrationPolicyResponseBodyPolicyBindResource extends $dara.Mo
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesAnnotations extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -91,7 +91,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesAnnotat
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag values.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -138,7 +138,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRu
   fieldValues?: string[];
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -215,7 +215,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesIpMatch
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -265,7 +265,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels 
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesTags extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -330,7 +330,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   fieldRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRules[];
   /**
    * @remarks
-   * The instance ID.
+   * The instance IDs.
    */
   instanceIds?: string[];
   /**
@@ -358,7 +358,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag values.
    */
   tags?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesTags[];
   static names(): { [key: string]: string } {
@@ -454,7 +454,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroup extends $dara.Mod
   entityRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules;
   /**
    * @remarks
-   * The query.
+   * The query condition.
    * 
    * @example
    * status: 200 AND totalTime > 0.5
@@ -605,17 +605,20 @@ export class GetIntegrationPolicyResponseBodyPolicyTags extends $dara.Model {
 export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The names of all components installed in the policy.
+   * The names of all components installed in this policy.
    */
   addonNames?: string[];
   /**
+   * @remarks
+   * The policy version.
+   * 
    * @example
    * v2
    */
   apiVersion?: string;
   /**
    * @remarks
-   * The information about the bound resource.
+   * The information about the bound resources.
    */
   bindResource?: GetIntegrationPolicyResponseBodyPolicyBindResource;
   /**
@@ -646,7 +649,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The policy name.
+   * The rule name.
    * 
    * @example
    * ControlPolicy4DetailVportInfo

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAddonSchemaResponseBodyFieldsConditions extends $dara.Model {
   /**
    * @remarks
-   * The control mode of the field.
+   * The field control mode.
    * 
    * @example
    * show
@@ -13,7 +13,7 @@ export class GetAddonSchemaResponseBodyFieldsConditions extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * store.storageTarget
@@ -21,7 +21,7 @@ export class GetAddonSchemaResponseBodyFieldsConditions extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The operator for the condition.
+   * The condition operator.
    * 
    * @example
    * ==
@@ -73,7 +73,7 @@ export class GetAddonSchemaResponseBodyFieldsPropsDataSource extends $dara.Model
   label?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The label value.
    * 
    * @example
    * tagValue
@@ -105,17 +105,17 @@ export class GetAddonSchemaResponseBodyFieldsPropsDataSource extends $dara.Model
 export class GetAddonSchemaResponseBodyFieldsProps extends $dara.Model {
   /**
    * @remarks
-   * The information about the data source.
+   * The data source information.
    */
   dataSource?: GetAddonSchemaResponseBodyFieldsPropsDataSource[];
   /**
    * @remarks
-   * A collection of related data.
+   * The related data collection.
    */
   related?: string[];
   /**
    * @remarks
-   * The mode.
+   * The selection mode.
    * 
    * @example
    * single
@@ -155,7 +155,7 @@ export class GetAddonSchemaResponseBodyFieldsProps extends $dara.Model {
 export class GetAddonSchemaResponseBodyFieldsValidation extends $dara.Model {
   /**
    * @remarks
-   * The maximum value. The value is inclusive.
+   * The maximum value of the score range (inclusive).
    * 
    * @example
    * 2000
@@ -163,7 +163,7 @@ export class GetAddonSchemaResponseBodyFieldsValidation extends $dara.Model {
   max?: number;
   /**
    * @remarks
-   * The maximum length that is supported by the text control.
+   * The maximum length supported by the text control.
    * 
    * @example
    * 100
@@ -171,7 +171,7 @@ export class GetAddonSchemaResponseBodyFieldsValidation extends $dara.Model {
   maxLength?: number;
   /**
    * @remarks
-   * The details.
+   * The detailed information.
    * 
    * @example
    * length limit
@@ -245,7 +245,7 @@ export class GetAddonSchemaResponseBodyFieldsValidation extends $dara.Model {
 export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   /**
    * @remarks
-   * A list of display conditions.
+   * The list of display conditions.
    */
   conditions?: GetAddonSchemaResponseBodyFieldsConditions[];
   /**
@@ -266,7 +266,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the field is hidden. Valid values: \\`true\\` (hidden) and \\`false\\` (displayed).
+   * Specifies whether the field is hidden. Valid values: true: Hidden. false: Displayed.
    * 
    * @example
    * false
@@ -274,7 +274,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The type of the element.
+   * The element type.
    * 
    * @example
    * input
@@ -282,7 +282,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   element?: string;
   /**
    * @remarks
-   * The path of the field.
+   * The field path.
    * 
    * @example
    * mysql.host
@@ -298,7 +298,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * host
@@ -306,7 +306,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The placeholder text.
+   * The input prompt.
    * 
    * @example
    * Please enter the metrics collection interval
@@ -314,12 +314,12 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   placeholder?: string;
   /**
    * @remarks
-   * Other properties of the component.
+   * The other properties of the component.
    */
   props?: GetAddonSchemaResponseBodyFieldsProps;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * string
@@ -327,7 +327,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The validation rule for the field.
+   * The field validation rules.
    */
   validation?: GetAddonSchemaResponseBodyFieldsValidation;
   static names(): { [key: string]: string } {
@@ -385,12 +385,12 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
 export class GetAddonSchemaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of data table fields.
+   * The list of data table fields.
    */
   fields?: GetAddonSchemaResponseBodyFields[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E5B1D3D4-BB28-5996-8AD2-***********
@@ -398,7 +398,7 @@ export class GetAddonSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the schema.
+   * The schema type.
    * 
    * @example
    * common

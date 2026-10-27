@@ -32,8 +32,6 @@ export default class Client extends OpenApi {
       'cn-shanghai': "metrics.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "metrics.cn-hongkong.aliyuncs.com",
       'cn-shenzhen': "metrics.cn-shenzhen.aliyuncs.com",
-      'cn-nanjing': "metrics.cn-nanjing.aliyuncs.com",
-      'cn-fuzhou': "metrics.cn-fuzhou.aliyuncs.com",
       'cn-chengdu': "metrics.cn-chengdu.aliyuncs.com",
       'cn-guangzhou': "metrics.cn-guangzhou.aliyuncs.com",
       'cn-huhehaote': "metrics.cn-huhehaote.aliyuncs.com",
@@ -71,6 +69,55 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 激活验证码
+   * 
+   * @param request - ActiveContactChannelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveContactChannelResponse
+   */
+  async activeContactChannelWithOptions(request: $_model.ActiveContactChannelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ActiveContactChannelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      query["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.site)) {
+      query["site"] = request.site;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActiveContactChannel",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contacts/action/activate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActiveContactChannelResponse>(await this.callApi(params, req, runtime), new $_model.ActiveContactChannelResponse({}));
+  }
+
+  /**
+   * 激活验证码
+   * 
+   * @param request - ActiveContactChannelRequest
+   * @returns ActiveContactChannelResponse
+   */
+  async activeContactChannel(request: $_model.ActiveContactChannelRequest): Promise<$_model.ActiveContactChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activeContactChannelWithOptions(request, headers, runtime);
   }
 
   /**
@@ -261,7 +308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an add-on component, which represents an integration operation.
+   * Installs an integration component to perform an integration.
    * 
    * @remarks
    * Creates a site monitoring task.
@@ -337,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs an add-on component, which represents an integration operation.
+   * Installs an integration component to perform an integration.
    * 
    * @remarks
    * Creates a site monitoring task.
@@ -460,6 +507,152 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAggTaskGroupWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建告警动作
+   * 
+   * @param request - CreateAlertActionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertActionResponse
+   */
+  async createAlertActionWithOptions(request: $_model.CreateAlertActionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertActionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertActionId)) {
+      body["alertActionId"] = request.alertActionId;
+    }
+
+    if (!$dara.isNull(request.alertActionName)) {
+      body["alertActionName"] = request.alertActionName;
+    }
+
+    if (!$dara.isNull(request.ebParam)) {
+      body["ebParam"] = request.ebParam;
+    }
+
+    if (!$dara.isNull(request.essParam)) {
+      body["essParam"] = request.essParam;
+    }
+
+    if (!$dara.isNull(request.fc3Param)) {
+      body["fc3Param"] = request.fc3Param;
+    }
+
+    if (!$dara.isNull(request.fcParam)) {
+      body["fcParam"] = request.fcParam;
+    }
+
+    if (!$dara.isNull(request.mnsParam)) {
+      body["mnsParam"] = request.mnsParam;
+    }
+
+    if (!$dara.isNull(request.pagerDutyParam)) {
+      body["pagerDutyParam"] = request.pagerDutyParam;
+    }
+
+    if (!$dara.isNull(request.slsParam)) {
+      body["slsParam"] = request.slsParam;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.webhookParam)) {
+      body["webhookParam"] = request.webhookParam;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertAction",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertAction`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertActionResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertActionResponse({}));
+  }
+
+  /**
+   * 创建告警动作
+   * 
+   * @param request - CreateAlertActionRequest
+   * @returns CreateAlertActionResponse
+   */
+  async createAlertAction(request: $_model.CreateAlertActionRequest): Promise<$_model.CreateAlertActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertActionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建通知模板
+   * 
+   * @param request - CreateAlertNotifyTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertNotifyTemplateResponse
+   */
+  async createAlertNotifyTemplateWithOptions(request: $_model.CreateAlertNotifyTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertNotifyTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertNotifyTemplateId)) {
+      body["alertNotifyTemplateId"] = request.alertNotifyTemplateId;
+    }
+
+    if (!$dara.isNull(request.alertNotifyTemplateName)) {
+      body["alertNotifyTemplateName"] = request.alertNotifyTemplateName;
+    }
+
+    if (!$dara.isNull(request.programLang)) {
+      body["programLang"] = request.programLang;
+    }
+
+    if (!$dara.isNull(request.templates)) {
+      body["templates"] = request.templates;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertNotifyTemplate",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertNotifyTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertNotifyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertNotifyTemplateResponse({}));
+  }
+
+  /**
+   * 创建通知模板
+   * 
+   * @param request - CreateAlertNotifyTemplateRequest
+   * @returns CreateAlertNotifyTemplateResponse
+   */
+  async createAlertNotifyTemplate(request: $_model.CreateAlertNotifyTemplateRequest): Promise<$_model.CreateAlertNotifyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertNotifyTemplateWithOptions(request, headers, runtime);
   }
 
   /**
@@ -708,6 +901,132 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 创建联系人
+   * 
+   * @param request - CreateContactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContactResponse
+   */
+  async createContactWithOptions(request: $_model.CreateContactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactId)) {
+      body["contactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.imUserIds)) {
+      body["imUserIds"] = request.imUserIds;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContact",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contact`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContactResponse>(await this.callApi(params, req, runtime), new $_model.CreateContactResponse({}));
+  }
+
+  /**
+   * 创建联系人
+   * 
+   * @param request - CreateContactRequest
+   * @returns CreateContactResponse
+   */
+  async createContact(request: $_model.CreateContactRequest): Promise<$_model.CreateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createContactWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建联系人组
+   * 
+   * @param request - CreateContactGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContactGroupResponse
+   */
+  async createContactGroupWithOptions(request: $_model.CreateContactGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContactGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactGroupId)) {
+      body["contactGroupId"] = request.contactGroupId;
+    }
+
+    if (!$dara.isNull(request.contacts)) {
+      body["contacts"] = request.contacts;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContactGroup",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contactGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContactGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateContactGroupResponse({}));
+  }
+
+  /**
+   * 创建联系人组
+   * 
+   * @param request - CreateContactGroupRequest
+   * @returns CreateContactGroupResponse
+   */
+  async createContactGroup(request: $_model.CreateContactGroupRequest): Promise<$_model.CreateContactGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createContactGroupWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1309,6 +1628,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建OncallSchedule
+   * 
+   * @param request - CreateOncallScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOncallScheduleResponse
+   */
+  async createOncallScheduleWithOptions(request: $_model.CreateOncallScheduleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOncallScheduleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.oncallScheduleId)) {
+      body["oncallScheduleId"] = request.oncallScheduleId;
+    }
+
+    if (!$dara.isNull(request.oncallScheduleName)) {
+      body["oncallScheduleName"] = request.oncallScheduleName;
+    }
+
+    if (!$dara.isNull(request.rotations)) {
+      body["rotations"] = request.rotations;
+    }
+
+    if (!$dara.isNull(request.shiftRobotId)) {
+      body["shiftRobotId"] = request.shiftRobotId;
+    }
+
+    if (!$dara.isNull(request.substitudes)) {
+      body["substitudes"] = request.substitudes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOncallSchedule",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallschedule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOncallScheduleResponse>(await this.callApi(params, req, runtime), new $_model.CreateOncallScheduleResponse({}));
+  }
+
+  /**
+   * 创建OncallSchedule
+   * 
+   * @param request - CreateOncallScheduleRequest
+   * @returns CreateOncallScheduleResponse
+   */
+  async createOncallSchedule(request: $_model.CreateOncallScheduleRequest): Promise<$_model.CreateOncallScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOncallScheduleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Create a pipeline.
    * 
    * @param request - CreatePipelineRequest
@@ -1845,7 +2231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建订阅
+   * Creates a subscription.
    * 
    * @param request - CreateSubscriptionRequest
    * @param headers - map
@@ -1879,7 +2265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建订阅
+   * Creates a subscription.
    * 
    * @param request - CreateSubscriptionRequest
    * @returns CreateSubscriptionResponse
@@ -2083,6 +2469,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除告警动作
+   * 
+   * @param tmpReq - DeleteAlertActionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertActionsResponse
+   */
+  async deleteAlertActionsWithOptions(tmpReq: $_model.DeleteAlertActionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertActionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAlertActionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.alertActionIds)) {
+      request.alertActionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertActionIds, "alertActionIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertActionIdsShrink)) {
+      query["alertActionIds"] = request.alertActionIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertActions",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertActions`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertActionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertActionsResponse({}));
+  }
+
+  /**
+   * 删除告警动作
+   * 
+   * @param request - DeleteAlertActionsRequest
+   * @returns DeleteAlertActionsResponse
+   */
+  async deleteAlertActions(request: $_model.DeleteAlertActionsRequest): Promise<$_model.DeleteAlertActionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertActionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除报警通知模板
+   * 
+   * @param tmpReq - DeleteAlertNotifyTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertNotifyTemplatesResponse
+   */
+  async deleteAlertNotifyTemplatesWithOptions(tmpReq: $_model.DeleteAlertNotifyTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertNotifyTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAlertNotifyTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.alertNotifyTemplateIds)) {
+      request.alertNotifyTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertNotifyTemplateIds, "alertNotifyTemplateIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertNotifyTemplateIdsShrink)) {
+      query["alertNotifyTemplateIds"] = request.alertNotifyTemplateIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertNotifyTemplates",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertNotifyTemplates`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertNotifyTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertNotifyTemplatesResponse({}));
+  }
+
+  /**
+   * 删除报警通知模板
+   * 
+   * @param request - DeleteAlertNotifyTemplatesRequest
+   * @returns DeleteAlertNotifyTemplatesResponse
+   */
+  async deleteAlertNotifyTemplates(request: $_model.DeleteAlertNotifyTemplatesRequest): Promise<$_model.DeleteAlertNotifyTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertNotifyTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes a chatbot.
    * 
    * @param tmpReq - DeleteAlertRobotsRequest
@@ -2260,6 +2748,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 删除联系人组
+   * 
+   * @param tmpReq - DeleteContactGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactGroupsResponse
+   */
+  async deleteContactGroupsWithOptions(tmpReq: $_model.DeleteContactGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactGroupsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteContactGroupsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contactGroupIds)) {
+      request.contactGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactGroupIds, "contactGroupIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactGroupIdsShrink)) {
+      query["contactGroupIds"] = request.contactGroupIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContactGroups",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contactGroups`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactGroupsResponse({}));
+  }
+
+  /**
+   * 删除联系人组
+   * 
+   * @param request - DeleteContactGroupsRequest
+   * @returns DeleteContactGroupsResponse
+   */
+  async deleteContactGroups(request: $_model.DeleteContactGroupsRequest): Promise<$_model.DeleteContactGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContactGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除联系人
+   * 
+   * @param tmpReq - DeleteContactsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactsResponse
+   */
+  async deleteContactsWithOptions(tmpReq: $_model.DeleteContactsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteContactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contactIds)) {
+      request.contactIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactIds, "contactIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactIdsShrink)) {
+      query["contactIds"] = request.contactIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContacts",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contacts`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactsResponse({}));
+  }
+
+  /**
+   * 删除联系人
+   * 
+   * @param request - DeleteContactsRequest
+   * @returns DeleteContactsResponse
+   */
+  async deleteContacts(request: $_model.DeleteContactsRequest): Promise<$_model.DeleteContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContactsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2874,6 +3464,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteNotifyPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除OncallSchedule
+   * 
+   * @param tmpReq - DeleteOncallSchedulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOncallSchedulesResponse
+   */
+  async deleteOncallSchedulesWithOptions(tmpReq: $_model.DeleteOncallSchedulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOncallSchedulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteOncallSchedulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.oncallScheduleIds)) {
+      request.oncallScheduleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.oncallScheduleIds, "oncallScheduleIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.oncallScheduleIdsShrink)) {
+      query["oncallScheduleIds"] = request.oncallScheduleIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOncallSchedules",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedule`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOncallSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOncallSchedulesResponse({}));
+  }
+
+  /**
+   * 删除OncallSchedule
+   * 
+   * @param request - DeleteOncallSchedulesRequest
+   * @returns DeleteOncallSchedulesResponse
+   */
+  async deleteOncallSchedules(request: $_model.DeleteOncallSchedulesRequest): Promise<$_model.DeleteOncallSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteOncallSchedulesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4053,10 +4694,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The details of an add-on schema.
+   * Queries the schema details of an add-on.
    * 
    * @remarks
-   * Retrieves the schema of an add-on.
+   * Retrieves the schema information of an add-on.
    * 
    * @param request - GetAddonSchemaRequest
    * @param headers - map
@@ -4101,10 +4742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The details of an add-on schema.
+   * Queries the schema details of an add-on.
    * 
    * @remarks
-   * Retrieves the schema of an add-on.
+   * Retrieves the schema information of an add-on.
    * 
    * @param request - GetAddonSchemaRequest
    * @returns GetAddonSchemaResponse
@@ -4152,6 +4793,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * 查询告警动作
+   * 
+   * @param request - GetAlertActionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlertActionResponse
+   */
+  async getAlertActionWithOptions(alertActionId: string, request: $_model.GetAlertActionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlertActionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlertAction",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertAction/${$dara.URL.percentEncode(alertActionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlertActionResponse>(await this.callApi(params, req, runtime), new $_model.GetAlertActionResponse({}));
+  }
+
+  /**
+   * 查询告警动作
+   * 
+   * @param request - GetAlertActionRequest
+   * @returns GetAlertActionResponse
+   */
+  async getAlertAction(alertActionId: string, request: $_model.GetAlertActionRequest): Promise<$_model.GetAlertActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlertActionWithOptions(alertActionId, request, headers, runtime);
   }
 
   /**
@@ -5063,6 +5743,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 OncallSchedule
+   * 
+   * @param request - GetOncallScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOncallScheduleResponse
+   */
+  async getOncallScheduleWithOptions(oncallScheduleId: string, request: $_model.GetOncallScheduleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetOncallScheduleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOncallSchedule",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedule/${$dara.URL.percentEncode(oncallScheduleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOncallScheduleResponse>(await this.callApi(params, req, runtime), new $_model.GetOncallScheduleResponse({}));
+  }
+
+  /**
+   * 查询 OncallSchedule
+   * 
+   * @param request - GetOncallScheduleRequest
+   * @returns GetOncallScheduleResponse
+   */
+  async getOncallSchedule(oncallScheduleId: string, request: $_model.GetOncallScheduleRequest): Promise<$_model.GetOncallScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
+  }
+
+  /**
    * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
@@ -5937,6 +6656,77 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAlertActionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询通知模板
+   * 
+   * @param tmpReq - ListAlertNotifyTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertNotifyTemplatesResponse
+   */
+  async listAlertNotifyTemplatesWithOptions(tmpReq: $_model.ListAlertNotifyTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertNotifyTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAlertNotifyTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.alertNotifyTemplateIds)) {
+      request.alertNotifyTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alertNotifyTemplateIds, "alertNotifyTemplateIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertNotifyTemplateIdsShrink)) {
+      query["alertNotifyTemplateIds"] = request.alertNotifyTemplateIdsShrink;
+    }
+
+    if (!$dara.isNull(request.alertNotifyTemplateName)) {
+      query["alertNotifyTemplateName"] = request.alertNotifyTemplateName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.programLang)) {
+      query["programLang"] = request.programLang;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertNotifyTemplates",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertNotifyTemplate`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertNotifyTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertNotifyTemplatesResponse({}));
+  }
+
+  /**
+   * 查询通知模板
+   * 
+   * @param request - ListAlertNotifyTemplatesRequest
+   * @returns ListAlertNotifyTemplatesResponse
+   */
+  async listAlertNotifyTemplates(request: $_model.ListAlertNotifyTemplatesRequest): Promise<$_model.ListAlertNotifyTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertNotifyTemplatesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7293,6 +8083,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询值班人
+   * 
+   * @param request - ListOncallContactsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOncallContactsResponse
+   */
+  async listOncallContactsWithOptions(oncallScheduleId: string, request: $_model.ListOncallContactsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOncallContactsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.timestamp)) {
+      query["timestamp"] = request.timestamp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOncallContacts",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedule/${$dara.URL.percentEncode(oncallScheduleId)}/contacts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOncallContactsResponse>(await this.callApi(params, req, runtime), new $_model.ListOncallContactsResponse({}));
+  }
+
+  /**
+   * 查询值班人
+   * 
+   * @param request - ListOncallContactsRequest
+   * @returns ListOncallContactsResponse
+   */
+  async listOncallContacts(oncallScheduleId: string, request: $_model.ListOncallContactsRequest): Promise<$_model.ListOncallContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOncallContactsWithOptions(oncallScheduleId, request, headers, runtime);
+  }
+
+  /**
+   * 查询当前账号下所有值班排班的配置信息
+   * 
+   * @param tmpReq - ListOncallSchedulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOncallSchedulesResponse
+   */
+  async listOncallSchedulesWithOptions(tmpReq: $_model.ListOncallSchedulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOncallSchedulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListOncallSchedulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.oncallScheduleIds)) {
+      request.oncallScheduleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.oncallScheduleIds, "oncallScheduleIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.oncallScheduleIdsShrink)) {
+      query["oncallScheduleIds"] = request.oncallScheduleIdsShrink;
+    }
+
+    if (!$dara.isNull(request.oncallScheduleName)) {
+      query["oncallScheduleName"] = request.oncallScheduleName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOncallSchedules",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOncallSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.ListOncallSchedulesResponse({}));
+  }
+
+  /**
+   * 查询当前账号下所有值班排班的配置信息
+   * 
+   * @param request - ListOncallSchedulesRequest
+   * @returns ListOncallSchedulesResponse
+   */
+  async listOncallSchedules(request: $_model.ListOncallSchedulesRequest): Promise<$_model.ListOncallSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOncallSchedulesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Lists pipelines.
    * 
    * @param request - ListPipelinesRequest
@@ -8404,6 +9306,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 预览通知模板渲染结果
+   * 
+   * @remarks
+   * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+   * 
+   * @param request - PreviewNotifyTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewNotifyTemplateResponse
+   */
+  async previewNotifyTemplateWithOptions(request: $_model.PreviewNotifyTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewNotifyTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.data)) {
+      body["data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.templates)) {
+      body["templates"] = request.templates;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewNotifyTemplate",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/v1/template/batchRender`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewNotifyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.PreviewNotifyTemplateResponse({}));
+  }
+
+  /**
+   * 预览通知模板渲染结果
+   * 
+   * @remarks
+   * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+   * 
+   * @param request - PreviewNotifyTemplateRequest
+   * @returns PreviewNotifyTemplateResponse
+   */
+  async previewNotifyTemplate(request: $_model.PreviewNotifyTemplateRequest): Promise<$_model.PreviewNotifyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewNotifyTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a workspace.
    * 
    * @param request - PutWorkspaceRequest
@@ -8537,6 +9494,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryAlertRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 重新发送激活链接
+   * 
+   * @param request - ResendVerifyActivateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResendVerifyActivateResponse
+   */
+  async resendVerifyActivateWithOptions(contactId: string, request: $_model.ResendVerifyActivateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResendVerifyActivateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelType)) {
+      body["channelType"] = request.channelType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResendVerifyActivate",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contact/${$dara.URL.percentEncode(contactId)}/action/reSendVerifyActivate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResendVerifyActivateResponse>(await this.callApi(params, req, runtime), new $_model.ResendVerifyActivateResponse({}));
+  }
+
+  /**
+   * 重新发送激活链接
+   * 
+   * @param request - ResendVerifyActivateRequest
+   * @returns ResendVerifyActivateResponse
+   */
+  async resendVerifyActivate(contactId: string, request: $_model.ResendVerifyActivateRequest): Promise<$_model.ResendVerifyActivateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resendVerifyActivateWithOptions(contactId, request, headers, runtime);
   }
 
   /**
@@ -9025,6 +10027,136 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改告警动作
+   * 
+   * @param request - UpdateAlertActionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertActionResponse
+   */
+  async updateAlertActionWithOptions(alertActionId: string, request: $_model.UpdateAlertActionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertActionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertActionName)) {
+      body["alertActionName"] = request.alertActionName;
+    }
+
+    if (!$dara.isNull(request.ebParam)) {
+      body["ebParam"] = request.ebParam;
+    }
+
+    if (!$dara.isNull(request.essParam)) {
+      body["essParam"] = request.essParam;
+    }
+
+    if (!$dara.isNull(request.fc3Param)) {
+      body["fc3Param"] = request.fc3Param;
+    }
+
+    if (!$dara.isNull(request.fcParam)) {
+      body["fcParam"] = request.fcParam;
+    }
+
+    if (!$dara.isNull(request.mnsParam)) {
+      body["mnsParam"] = request.mnsParam;
+    }
+
+    if (!$dara.isNull(request.pagerDutyParam)) {
+      body["pagerDutyParam"] = request.pagerDutyParam;
+    }
+
+    if (!$dara.isNull(request.slsParam)) {
+      body["slsParam"] = request.slsParam;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.webhookParam)) {
+      body["webhookParam"] = request.webhookParam;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertAction",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertAction/${$dara.URL.percentEncode(alertActionId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertActionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertActionResponse({}));
+  }
+
+  /**
+   * 修改告警动作
+   * 
+   * @param request - UpdateAlertActionRequest
+   * @returns UpdateAlertActionResponse
+   */
+  async updateAlertAction(alertActionId: string, request: $_model.UpdateAlertActionRequest): Promise<$_model.UpdateAlertActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertActionWithOptions(alertActionId, request, headers, runtime);
+  }
+
+  /**
+   * 修改已存在的告警通知模板内容。
+   * 
+   * @param request - UpdateAlertNotifyTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertNotifyTemplateResponse
+   */
+  async updateAlertNotifyTemplateWithOptions(alertNotifyTemplateId: string, request: $_model.UpdateAlertNotifyTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertNotifyTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertNotifyTemplateName)) {
+      body["alertNotifyTemplateName"] = request.alertNotifyTemplateName;
+    }
+
+    if (!$dara.isNull(request.templates)) {
+      body["templates"] = request.templates;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertNotifyTemplate",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/alertNotifyTemplate/${$dara.URL.percentEncode(alertNotifyTemplateId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertNotifyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertNotifyTemplateResponse({}));
+  }
+
+  /**
+   * 修改已存在的告警通知模板内容。
+   * 
+   * @param request - UpdateAlertNotifyTemplateRequest
+   * @returns UpdateAlertNotifyTemplateResponse
+   */
+  async updateAlertNotifyTemplate(alertNotifyTemplateId: string, request: $_model.UpdateAlertNotifyTemplateRequest): Promise<$_model.UpdateAlertNotifyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertNotifyTemplateWithOptions(alertNotifyTemplateId, request, headers, runtime);
+  }
+
+  /**
    * Updates an alert robot.
    * 
    * @param request - UpdateAlertRobotRequest
@@ -9209,6 +10341,116 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+  }
+
+  /**
+   * 修改已存在的联系人的详细信息
+   * 
+   * @param request - UpdateContactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactResponse
+   */
+  async updateContactWithOptions(contactId: string, request: $_model.UpdateContactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.imUserIds)) {
+      body["imUserIds"] = request.imUserIds;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContact",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contact/${$dara.URL.percentEncode(contactId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactResponse({}));
+  }
+
+  /**
+   * 修改已存在的联系人的详细信息
+   * 
+   * @param request - UpdateContactRequest
+   * @returns UpdateContactResponse
+   */
+  async updateContact(contactId: string, request: $_model.UpdateContactRequest): Promise<$_model.UpdateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateContactWithOptions(contactId, request, headers, runtime);
+  }
+
+  /**
+   * 修改已存在的联系人组信息。
+   * 
+   * @param request - UpdateContactGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactGroupResponse
+   */
+  async updateContactGroupWithOptions(contactGroupId: string, request: $_model.UpdateContactGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contacts)) {
+      body["contacts"] = request.contacts;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContactGroup",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contactGroup/${$dara.URL.percentEncode(contactGroupId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactGroupResponse({}));
+  }
+
+  /**
+   * 修改已存在的联系人组信息。
+   * 
+   * @param request - UpdateContactGroupRequest
+   * @returns UpdateContactGroupResponse
+   */
+  async updateContactGroup(contactGroupId: string, request: $_model.UpdateContactGroupRequest): Promise<$_model.UpdateContactGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateContactGroupWithOptions(contactGroupId, request, headers, runtime);
   }
 
   /**
@@ -9850,6 +11092,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新UpdateOncallSchedule
+   * 
+   * @param request - UpdateOncallScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOncallScheduleResponse
+   */
+  async updateOncallScheduleWithOptions(oncallScheduleId: string, request: $_model.UpdateOncallScheduleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOncallScheduleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.oncallScheduleName)) {
+      body["oncallScheduleName"] = request.oncallScheduleName;
+    }
+
+    if (!$dara.isNull(request.rotations)) {
+      body["rotations"] = request.rotations;
+    }
+
+    if (!$dara.isNull(request.shiftRobotId)) {
+      body["shiftRobotId"] = request.shiftRobotId;
+    }
+
+    if (!$dara.isNull(request.substitudes)) {
+      body["substitudes"] = request.substitudes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOncallSchedule",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedule/${$dara.URL.percentEncode(oncallScheduleId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOncallScheduleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOncallScheduleResponse({}));
+  }
+
+  /**
+   * 更新UpdateOncallSchedule
+   * 
+   * @param request - UpdateOncallScheduleRequest
+   * @returns UpdateOncallScheduleResponse
+   */
+  async updateOncallSchedule(oncallScheduleId: string, request: $_model.UpdateOncallScheduleRequest): Promise<$_model.UpdateOncallScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
+  }
+
+  /**
    * Update pipeline
    * 
    * @param request - UpdatePipelineRequest
@@ -10432,6 +11731,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upsertUmodelDataWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * 查看值班日历
+   * 
+   * @param request - ViewOncallScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ViewOncallScheduleResponse
+   */
+  async viewOncallScheduleWithOptions(oncallScheduleId: string, request: $_model.ViewOncallScheduleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ViewOncallScheduleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ViewOncallSchedule",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/oncallSchedule/${$dara.URL.percentEncode(oncallScheduleId)}/calendar`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ViewOncallScheduleResponse>(await this.callApi(params, req, runtime), new $_model.ViewOncallScheduleResponse({}));
+  }
+
+  /**
+   * 查看值班日历
+   * 
+   * @param request - ViewOncallScheduleRequest
+   * @returns ViewOncallScheduleResponse
+   */
+  async viewOncallSchedule(oncallScheduleId: string, request: $_model.ViewOncallScheduleRequest): Promise<$_model.ViewOncallScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.viewOncallScheduleWithOptions(oncallScheduleId, request, headers, runtime);
   }
 
 }

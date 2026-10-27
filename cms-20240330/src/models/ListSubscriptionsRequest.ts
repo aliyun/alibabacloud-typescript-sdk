@@ -56,6 +56,8 @@ export class ListSubscriptionsRequest extends $dara.Model {
   /**
    * @example
    * true
+   * 
+   * @deprecated
    */
   unbound?: boolean;
   /**

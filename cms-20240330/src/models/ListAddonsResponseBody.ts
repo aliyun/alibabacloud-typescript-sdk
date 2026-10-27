@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonsResponseBodyAddonsDashboards extends $dara.Model {
   /**
    * @remarks
-   * The dashboard description.
+   * The description of the dashboard.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListAddonsResponseBodyAddonsDashboards extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The dashboard name.
+   * The name of the dashboard.
    * 
    * @example
    * rum_view_link_rum_api
@@ -243,7 +243,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Specifies whether to install the component by default.
+   * Specifies whether to install by default.
    * 
    * @example
    * true
@@ -264,7 +264,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   metricCheckRule?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
+   * Specifies whether to initiate a pod restart guide immediately after the plug-in installation is completed during integration.
    * 
    * @example
    * true
@@ -272,7 +272,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   needRestartAfterIntegration?: boolean;
   /**
    * @remarks
-   * The supported protocol types in the configuration.
+   * The supported protocol types for configuration.
    */
   protocols?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols[];
   /**
@@ -343,7 +343,7 @@ export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the integration policy type is enabled.
+   * Specifies whether it is enabled.
    * 
    * @example
    * false
@@ -477,7 +477,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The latest release creation time.
+   * The time of the latest release. The time is in ISO 8601 format and includes the UTC identifier or time zone offset.
    * 
    * @example
    * 2025-09-03T03:15:56Z

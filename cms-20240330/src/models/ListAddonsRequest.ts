@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The locale. Valid values: zh and en. Default value: zh.
+   * The language environment. Valid values: zh and en. Default value: zh.
    * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
+   * @remarks
+   * The add-on catalog version. Valid values: v1 and v2. Default value: v2. If you specify v1, the add-ons in the v1 catalog are listed.
+   * 
    * @example
    * v2
    */
   apiVersion?: string;
   /**
    * @remarks
-   * The tag filter.
+   * The category filter.
    * 
    * @example
    * database
@@ -34,7 +37,7 @@ export class ListAddonsRequest extends $dara.Model {
   regexp?: boolean;
   /**
    * @remarks
-   * The search query. Supports searching by add-on name, description, or keyword.
+   * The search keyword. You can search by add-on name, description, or keyword.
    * 
    * @example
    * 105095

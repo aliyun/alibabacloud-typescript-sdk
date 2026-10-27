@@ -13,11 +13,17 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 export class ManageAlertRulesUnifiedActionInputDrillTimeRange extends $dara.Model {
   /**
+   * @remarks
+   * The drill end time in Unix milliseconds. The end time must be later than the start time.
+   * 
    * @example
    * 1783814400000
    */
   endTime?: number;
   /**
+   * @remarks
+   * The drill start time in Unix milliseconds.
+   * 
    * @example
    * 1783728000000
    */
@@ -82,15 +88,15 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   armsIntegrationConfig?: ArmsIntegrationConfig;
   /**
    * @remarks
-   * The business source (optional). Examples: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, sls. Provide as needed for CREATE/UPDATE/PATCH.
+   * The business source. Valid values include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   bizSource?: string;
   /**
    * @remarks
-   * The aggregated condition configuration.
+   * The condition aggregation configuration.
    * 
    * @example
    * {"type":"PROMETHEUS_SIMPLE_CONDITION","durationSecs":0,"severity":"CRITICAL"}
@@ -101,12 +107,12 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
    * The content template.
    * 
    * @example
-   * Instance {{instance}} CPU usage exceeds {{threshold}}%
+   * 实例 {{instance}} CPU 使用率超过 {{threshold}}%
    */
   contentTemplate?: string;
   /**
    * @remarks
-   * The aggregated data source configuration.
+   * The data source aggregation configuration.
    * 
    * @example
    * {"type":"PROMETHEUS","instanceId":"prom-cn-hangzhou-xxxxx"}
@@ -121,16 +127,25 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * The alert drill evaluation time in Unix milliseconds. This field is required by the backend when drillMode is ONE_SHOT. The time cannot be later than the current time or earlier than 90 days ago.
+   * 
    * @example
    * 1783728000000
    */
   drillEvalTime?: number;
   /**
+   * @remarks
+   * The alert drill mode. This field is required by the backend when the action is DRILL_ALERT. Valid values: ONE_SHOT specifies a single point in time to simulate a complete lifecycle consisting of three events: OCCURRED, PERSISTENT, and RECOVERED. TIME_TRAVEL specifies a time range to simulate the lifecycle in multiple rounds based on the rule scheduling interval.
+   * 
    * @example
    * ONE_SHOT
    */
   drillMode?: string;
   /**
+   * @remarks
+   * The alert drill time range in Unix milliseconds. This field is required by the backend when drillMode is TIME_TRAVEL. The endTime must be later than the startTime and cannot be later than the current time. The lifecycle is simulated in multiple rounds based on the rule scheduling interval. The maximum number of rounds is 500. If the limit is exceeded, the backend returns a 400 error.
+   * 
    * @example
    * {"startTime":1783728000000,"endTime":1783814400000}
    */
@@ -153,7 +168,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The aggregated notification configuration.
+   * The notification aggregation configuration.
    * 
    * @example
    * {"type":"DIRECT_NOTIFY","channels":[{"type":"GROUP","identifiers":["<contact-group-id>"]}]}
@@ -169,7 +184,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   observeResourceConfig?: ObserveResourceConfig;
   /**
    * @remarks
-   * **[Deprecated]** The monitored object instance ID. Use observeResourceConfig.resources instead. Retained only for backward compatibility with legacy SDKs.
+   * **[Deprecated]** The ID of the monitored object instance. For new integrations, use observeResourceConfig.resources instead. This field is retained only for compatibility with legacy SDKs.
    * 
    * @example
    * example-id-001
@@ -179,7 +194,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   observeResourceInstanceId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The monitored object resource type. Use observeResourceConfig.entityType instead. Retained only for backward compatibility with legacy SDKs.
+   * **[Deprecated]** The resource type of the monitored object. For new integrations, use observeResourceConfig.entityType instead. This field is retained only for compatibility with legacy SDKs.
    * 
    * @example
    * default
@@ -189,7 +204,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   observeResourceType?: string;
   /**
    * @remarks
-   * The aggregated query configuration.
+   * The query aggregation configuration.
    * 
    * @example
    * {"type":"PROMETHEUS_SINGLE_QUERY","expr":"up > 0"}
@@ -197,7 +212,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   queryConfig?: QueryConfigUnified;
   /**
    * @remarks
-   * The root cause analysis (RCA) configuration (optional). Provide as needed for CREATE/UPDATE/PATCH.
+   * The root cause analysis (RCA) configuration. Pass this field as needed for CREATE, UPDATE, and PATCH actions.
    * 
    * @example
    * {"enabled":false}
@@ -205,7 +220,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   rcaConfig?: AlertRuleRcaConfig;
   /**
    * @remarks
-   * The region ID. Aligned with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
+   * The region ID. This aligns with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
    * 
    * @example
    * example-id-001
@@ -213,7 +228,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The aggregated schedule configuration.
+   * The schedule aggregation configuration.
    * 
    * @example
    * {"type":"FIXED","intervalSecs":60}
@@ -221,7 +236,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   scheduleConfig?: ScheduleConfigUnified;
   /**
    * @remarks
-   * The UUID of the rule. Required for UPDATE/PATCH.
+   * The UUID of the rule. This field is required for UPDATE and PATCH actions.
    * 
    * @example
    * xxx-xxx-xxx
@@ -229,7 +244,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The list of rule UUIDs to delete (BATCH_DELETE).
+   * The list of UUIDs for the rules to be deleted. This is used for the BATCH_DELETE action.
    * 
    * @example
    * ["cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b"]
@@ -237,7 +252,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   uuidList?: string[];
   /**
    * @remarks
-   * The workspace. Required for CREATE/UPDATE and other actions.
+   * The workspace ID. This field is required for CREATE, UPDATE, PATCH, DELETE, ENABLE, DISABLE, BATCH_DELETE, BATCH_ENABLE, and BATCH_DISABLE actions. It identifies the CloudMonitor workspace to which the rule belongs.
    * 
    * @example
    * workspace-test

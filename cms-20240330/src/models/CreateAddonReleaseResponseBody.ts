@@ -6,7 +6,7 @@ import { EntityGroupBase } from "./EntityGroupBase";
 export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   /**
    * @remarks
-   * The time of the first transition.
+   * The first transition time in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -14,7 +14,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   firstTransitionTime?: string;
   /**
    * @remarks
-   * The time of the last transition.
+   * The last transition time in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -22,7 +22,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   lastTransitionTime?: string;
   /**
    * @remarks
-   * The detailed information.
+   * The details.
    * 
    * @example
    * The addon loaded successfully
@@ -30,7 +30,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The status of the phase.
+   * The stage status.
    * 
    * @example
    * {\\"phase\\": \\"Created\\", \\"executionDetails\\": [], \\"invocations\\": [], \\"latestExecError\\": {\\"message\\": \\"\\", \\"code\\": \\"\\", \\"requestId\\": \\"\\", \\"extraInfo\\": \\"\\", \\"title\\": \\"\\"}}
@@ -38,7 +38,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The type of the phase.
+   * The stage type.
    * 
    * @example
    * Loaded
@@ -76,7 +76,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
 export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on integrated for monitoring.
+   * The name of the addon for the integrated monitoring component.
    * 
    * @example
    * cs-gpu
@@ -92,12 +92,12 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   alertRuleCount?: number;
   /**
    * @remarks
-   * The installation phase information of the component.
+   * The component installation stage information.
    */
   conditions?: CreateAddonReleaseResponseBodyReleaseConditions[];
   /**
    * @remarks
-   * The configuration of the component.
+   * The component configuration.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -105,7 +105,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The integration time.
+   * The integration time in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-11-05T15:21:30+08:00
@@ -150,7 +150,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Indicates whether the component has a configuration.
+   * Indicates whether a configuration exists.
    * 
    * @example
    * true
@@ -174,7 +174,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether the component is a managed component.
+   * Indicates whether the component is managed.
    * 
    * @example
    * true
@@ -182,7 +182,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * The parent add-on release ID.
+   * The ID of the parent add-on release.
    * 
    * @example
    * policy-xxxxxxxxxxx
@@ -222,7 +222,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * The scenario of the component.
+   * The component scenario.
    * 
    * @example
    * 1
@@ -230,7 +230,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The status of the component.
+   * The component status.
    * 
    * @example
    * 200
@@ -238,7 +238,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-09-13T02:21:02Z
@@ -246,7 +246,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user who owns the component.
+   * The ID of the owner.
    * 
    * @example
    * 165421896xxxxxx
@@ -254,7 +254,7 @@ export class CreateAddonReleaseResponseBodyRelease extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
    * 1.0.0

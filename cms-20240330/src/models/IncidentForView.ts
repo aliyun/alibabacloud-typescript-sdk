@@ -8,6 +8,11 @@ import { EventResourceForIncidentView } from "./EventResourceForIncidentView";
 
 export class IncidentForView extends $dara.Model {
   /**
+   * @example
+   * -1 表示未屏蔽
+   */
+  blockingExpireTimestamp?: number;
+  /**
    * @remarks
    * The details of the incident.
    * 
@@ -130,6 +135,7 @@ export class IncidentForView extends $dara.Model {
    * "subscription-abc"
    */
   subscriptionUuid?: string;
+  tags?: { [key: string]: string };
   /**
    * @remarks
    * The timestamp when the incident was created.
@@ -164,6 +170,7 @@ export class IncidentForView extends $dara.Model {
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      blockingExpireTimestamp: 'blockingExpireTimestamp',
       content: 'content',
       escalations: 'escalations',
       groupUuid: 'groupUuid',
@@ -182,6 +189,7 @@ export class IncidentForView extends $dara.Model {
       state: 'state',
       subscriptionName: 'subscriptionName',
       subscriptionUuid: 'subscriptionUuid',
+      tags: 'tags',
       time: 'time',
       title: 'title',
       userId: 'userId',
@@ -191,6 +199,7 @@ export class IncidentForView extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      blockingExpireTimestamp: 'number',
       content: 'string',
       escalations: { 'type': 'array', 'itemType': IncidentEscalationPolicyForView },
       groupUuid: 'string',
@@ -209,6 +218,7 @@ export class IncidentForView extends $dara.Model {
       state: 'string',
       subscriptionName: 'string',
       subscriptionUuid: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       time: 'number',
       title: 'string',
       userId: 'string',
@@ -237,6 +247,9 @@ export class IncidentForView extends $dara.Model {
     }
     if(Array.isArray(this.relatedResources)) {
       $dara.Model.validateArray(this.relatedResources);
+    }
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
     }
     super.validate();
   }

@@ -75,7 +75,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAnnotations extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -91,7 +91,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAn
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -133,12 +133,12 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
   fieldKey?: string;
   /**
    * @remarks
-   * The field values. Separate multiple values with commas (,).
+   * The field content. Separate multiple values with commas (,).
    */
   fieldValues?: string[];
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -215,7 +215,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIp
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -223,7 +223,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
   op?: string;
   /**
    * @remarks
-   * The tag key.
+   * The label key.
    * 
    * @example
    * test
@@ -231,7 +231,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -265,7 +265,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTags extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * The operation to be performed.
    * 
    * @example
    * add
@@ -273,7 +273,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTa
   op?: string;
   /**
    * @remarks
-   * The tag key.
+   * The label key.
    * 
    * @example
    * key
@@ -281,7 +281,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTa
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -525,7 +525,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
 export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI) for the managed probe. Example: eni-xxxx.
+   * The elastic network interface (ENI) ID of the managed probe. Example: eni-xxxx.
    * 
    * @example
    * eni-12345678
@@ -583,7 +583,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
   ready?: number;
   /**
    * @remarks
-   * The number of rules.
+   * The total number of rules.
    * 
    * @example
    * 278
@@ -619,13 +619,16 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
    */
   addonNames?: string[];
   /**
+   * @remarks
+   * The policy version.
+   * 
    * @example
    * v2
    */
   apiVersion?: string;
   /**
    * @remarks
-   * The information about the bound resources.
+   * The information about the bound resource.
    */
   bindResource?: ListIntegrationPoliciesResponseBodyPoliciesBindResource;
   /**
@@ -643,7 +646,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   entityGroup?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroup;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * CS_Pro
@@ -672,7 +675,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The Access Center policy type.
+   * The access center policy type.
    * 
    * @example
    * ECS

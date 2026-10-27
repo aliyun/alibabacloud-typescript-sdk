@@ -20,16 +20,19 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The namespace where the probe is deployed.
+   * 
    * @example
    * arms-prom
    */
   clusterNamespace?: string;
   /**
    * @remarks
-   * Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a container cluster.
+   * Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a single container cluster.
    * 
    * @example
-   * ture
+   * true
    */
   disablePolicyShare?: boolean;
   /**
@@ -131,13 +134,16 @@ export class CreateIntegrationPolicyRequestTags extends $dara.Model {
 
 export class CreateIntegrationPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The policy creation version. Valid values: v1 and v2. If this parameter is not specified or is left empty, v2 is used. If v1 is specified, a v1-compatible environment is created for ECS and Cloud.
+   * 
    * @example
    * v2
    */
   apiVersion?: string;
   /**
    * @remarks
-   * The entity group used to create the policy. You can quickly create the policy by using the entity group. The clusterId and vpcId parameters are independent of each other.
+   * The entity group used to create the policy. You can use the entity group for quick creation. The clusterId and vpcId parameters are independent of each other.
    */
   entityGroup?: CreateIntegrationPolicyRequestEntityGroup;
   /**

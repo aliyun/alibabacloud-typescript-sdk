@@ -11,6 +11,8 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @example
    * arms
+   * 
+   * @deprecated
    */
   bizSource?: string;
   /**
@@ -63,6 +65,8 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @example
    * 1234567890123456
+   * 
+   * @deprecated
    */
   partitionKey?: string;
   /**

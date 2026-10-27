@@ -53,7 +53,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace to which the policy belongs.
+   * The workspace where the policy resides.
    * 
    * @example
    * prometheus
@@ -103,7 +103,7 @@ export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   created?: boolean;
   /**
    * @remarks
-   * The policy.
+   * The uploaded policy.
    */
   policy?: CreateIntegrationPolicyResponseBodyPolicy;
   /**
