@@ -13,7 +13,7 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The cloud desktop template ID.
+   * The ID of the cloud desktop template.
    * 
    * @example
    * b-je9hani001wfn****
@@ -21,10 +21,10 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The cloud desktop name. The naming rules are as follows:
+   * The name of the cloud desktop. The name must meet the following rules:
    * 
    * - The name can be up to 64 characters in length.
-   * - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - The name must start with a letter or a Chinese character, and cannot start with http:// or https://.
    * - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
@@ -33,23 +33,23 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The list of users to whom the cloud desktops are assigned.
+   * The list of users to whom the cloud desktop is assigned.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The custom hostname of the cloud desktop. Settings are supported only for cloud desktops with the Windows operating system type in AD office networks.
+   * The custom settings for the hostname of the cloud desktop. This parameter is supported only for cloud desktops whose operating system is Windows in an AD office network.
    * 
-   * The naming rules for the hostname are as follows:
+   * The hostname must meet the following rules:
    * 
    * - The hostname must be 2 to 15 characters in length.
-   * - The hostname can contain uppercase letters, lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen, cannot contain consecutive hyphens, and cannot consist of only digits.
+   * - The hostname can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or contain only digits.
    * 
-   * When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to name the cloud desktops in a unified manner. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
+   * When you create multiple cloud desktops, you can use the name_prefix[begin_number,bits]name_suffix format to name them in a unified manner. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
    * 
-   * - `name_prefix`: the prefix of the hostname.
-   * - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` specifies the start number. Valid values: 0 to 999999. Default value: 0. `bits` specifies the number of digits. Valid values: 1 to 6. Default value: 6.
-   * - `name_suffix`: the suffix of the hostname.
+   * - name_prefix: the prefix of the hostname.
+   * - [begin_number,bits]: the sequential number in the hostname. begin_number is the starting number. Valid values: 0 to 999999. Default value: 0. bits is the number of digits. Valid values: 1 to 6. Default value: 6.
+   * - name_suffix: the suffix of the hostname.
    * 
    * @example
    * testhost
@@ -57,7 +57,7 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether to enable cloud disk encryption. Valid values:
    * 
    * @example
    * false
@@ -65,7 +65,7 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used when cloud disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -110,9 +110,9 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
 export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   /**
    * @remarks
-   * The type of the data cloud disk. The system cloud disk and data cloud disk must be of the same type. Valid values:
-   * - cloud_auto: standard SSD.
-   * - cloud_essd: ESSD cloud disk.
+   * The category of the data cloud disk. The system cloud disk and the data cloud disk must be of the same category. Valid values:
+   * - cloud_auto: standard SSD
+   * - cloud_essd: ESSD cloud disk
    * 
    * @example
    * cloud_auto
@@ -120,7 +120,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The performance level of the ESSD cloud disk. This parameter is required if you select an ESSD cloud disk. Valid values:
+   * The performance level of the ESSD. This parameter is required if you select an ESSD. Valid values:
    * - PL0
    * - PL1
    * 
@@ -130,7 +130,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   dataDiskPerLevel?: string;
   /**
    * @remarks
-   * The capacity of the user disk. Valid values: 40 to 2040. The value must be a multiple of 10. Unit: GiB.
+   * The capacity of the user disk. Unit: GiB. Valid values: 40 to 2040, in increments of 10.
    * 
    * @example
    * 40
@@ -150,7 +150,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   defaultLanguage?: string;
   /**
    * @remarks
-   * The cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported cloud desktop type IDs.
+   * The specifications of the cloud desktop. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of supported cloud desktop specifications.
    * 
    * @example
    * eds.enterprise_office.8c16g
@@ -166,9 +166,9 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the system cloud disk. The system cloud disk and data cloud disk must be of the same type. Valid values:
-   * - cloud_auto: standard SSD.
-   * - cloud_essd: ESSD cloud disk.
+   * The category of the system cloud disk. The system cloud disk and the data cloud disk must be of the same category. Valid values:
+   * - cloud_auto: standard SSD
+   * - cloud_essd: ESSD cloud disk
    * 
    * @example
    * cloud_auto
@@ -176,7 +176,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level of the ESSD cloud disk. This parameter is required if you select an ESSD cloud disk. Valid values:
+   * The performance level of the ESSD. This parameter is required if you select an ESSD. Valid values:
    * - PL0
    * - PL1
    * 
@@ -186,7 +186,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
   systemDiskPerLevel?: string;
   /**
    * @remarks
-   * The capacity of the system cloud disk. Valid values: 40 to 2040. The value must be a multiple of 10. Unit: GiB.
+   * The capacity of the system cloud disk. Unit: GiB. Valid values: 40 to 2040, in increments of 10.
    * 
    * @example
    * 40
@@ -232,7 +232,7 @@ export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
 export class CreateDesktopsRequestDesktopNameModel extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically append a suffix to the cloud desktop name when creating multiple cloud desktops in a batch. Default value: true.
+   * Specifies whether to automatically add a suffix to the cloud desktop name when you create multiple cloud desktops in a batch. Default value: true.
    * 
    * @example
    * true
@@ -262,7 +262,7 @@ export class CreateDesktopsRequestDesktopNameModel extends $dara.Model {
 export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether end users can configure scheduled tasks.
+   * Specifies whether to allow end users to configure scheduled tasks.
    * 
    * @example
    * true
@@ -272,7 +272,7 @@ export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
    * @remarks
    * The cron expression of the scheduled task.
    * 
-   * >Notice: The time must be specified in UTC. For example, to specify 00:00 (UTC+8) every day, set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
+   * >Notice: You must specify the time in UTC. For example, to specify 00:00:00 every day in UTC+8 (Beijing time), pass 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
    * 
    * @example
    * 0 40 7 ? * 1,2,3,4,5,6,7
@@ -280,7 +280,7 @@ export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the scheduled task.
+   * Specifies whether to forcibly execute the task.
    * 
    * @example
    * true
@@ -288,7 +288,7 @@ export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
   enforce?: boolean;
   /**
    * @remarks
-   * The time interval. Unit: minutes.
+   * The time interval, in minutes.
    * 
    * @example
    * 10
@@ -296,7 +296,7 @@ export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only the disconnect scheduled task is supported.
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -354,7 +354,7 @@ export class CreateDesktopsRequestDesktopTimers extends $dara.Model {
 export class CreateDesktopsRequestMonthDesktopSetting extends $dara.Model {
   /**
    * @remarks
-   * > This field is not publicly available.
+   * > This field is currently not available for public use.
    * 
    * @example
    * null
@@ -362,7 +362,7 @@ export class CreateDesktopsRequestMonthDesktopSetting extends $dara.Model {
   buyerId?: number;
   /**
    * @remarks
-   * > This field is not publicly available.
+   * > This field is currently not available for public use.
    * 
    * @example
    * null
@@ -370,7 +370,7 @@ export class CreateDesktopsRequestMonthDesktopSetting extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The plan option when purchasing a monthly hours package. Valid values: 120, 250, and 360.
+   * The plan selected when purchasing a monthly hourly package. Valid values: 120, 250, and 360.
    * 
    * @example
    * 120
@@ -404,7 +404,7 @@ export class CreateDesktopsRequestMonthDesktopSetting extends $dara.Model {
 export class CreateDesktopsRequestPurchaseOptions extends $dara.Model {
   /**
    * @remarks
-   * The quota of the WUYING credit package.
+   * The quota of the Wuying credit package.
    * 
    * @example
    * 10000
@@ -412,7 +412,7 @@ export class CreateDesktopsRequestPurchaseOptions extends $dara.Model {
   creditPackageAmountSpec?: number;
   /**
    * @remarks
-   * The duration of the WUYING credit package.
+   * The duration of the Wuying credit package.
    * 
    * @example
    * 1
@@ -428,7 +428,7 @@ export class CreateDesktopsRequestPurchaseOptions extends $dara.Model {
   creditPackagePeriodUnit?: string;
   /**
    * @remarks
-   * The monthly credit package. This parameter is used to select a credit plan when purchasing Agent resources. Valid values: 200, 1600, and 4000.
+   * The monthly credit package used to select a credit plan when purchasing agent resources. Valid values: 200, 1600, and 4000.
    * 
    * @example
    * 200
@@ -504,7 +504,7 @@ export class CreateDesktopsRequestTag extends $dara.Model {
 export class CreateDesktopsRequestUserCommands extends $dara.Model {
   /**
    * @remarks
-   * The command content.
+   * The content of the command.
    * 
    * @example
    * bmV3LWl0ZW0gZDpcdGVzdF91c2VyX2NvbW1hbmRzLnR4dCAtdHlwZSBm****
@@ -512,7 +512,7 @@ export class CreateDesktopsRequestUserCommands extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The encoding method of the command content (CommandContent).
+   * The encoding method of the command content. Valid values:
    * 
    * @example
    * Base64
@@ -520,7 +520,7 @@ export class CreateDesktopsRequestUserCommands extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The language type of the command.
+   * The language type of the command. Valid values:
    * 
    * @example
    * RunPowerShellScript
@@ -570,7 +570,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   appRuleId?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment.
+   * Specifies whether to enable automatic payment. Valid values:
    * 
    * @example
    * false
@@ -578,7 +578,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter takes effect only when `ChargeType` is set to `PrePaid`.
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when ChargeType is set to PrePaid. Valid values:
    * 
    * @example
    * false
@@ -586,7 +586,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The cloud desktop template ID. If no template ID is specified, you can create a cloud desktop by specifying the required fields.
+   * The ID of the cloud desktop template. If you do not specify a template ID, you can complete the creation by specifying the required fields.
    * 
    * @example
    * b-je9hani001wfn****
@@ -602,7 +602,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   bundleModels?: CreateDesktopsRequestBundleModels[];
   /**
    * @remarks
-   * > This field is not publicly available.
+   * > This field is currently not available for public use.
    * 
    * @example
    * PBKB1QbqEl2tslEuU6gRrLxvCFBU2M%2FVD0Eru6Oo%2FI9LTU3XQhvq3PGMWarE%2BPJdkNvCqT3blqlRSthNy4A%2BJQ%3D%3D
@@ -610,7 +610,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   channelCookie?: string;
   /**
    * @remarks
-   * The billing method of the cloud desktop.
+   * The billing method of the cloud desktop. Valid values:
    * 
    * @example
    * PrePaid
@@ -618,7 +618,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The parameters for creating a cloud desktop without a template. This parameter is invalid when the BundleID parameter is specified.
+   * The parameters for creating a cloud desktop without a template. This parameter is invalid if the BundleId parameter is specified.
    */
   desktopAttachment?: CreateDesktopsRequestDesktopAttachment;
   /**
@@ -631,10 +631,10 @@ export class CreateDesktopsRequest extends $dara.Model {
   desktopMemberIp?: string;
   /**
    * @remarks
-   * The cloud desktop name. The naming rules are as follows:
+   * The name of the cloud desktop. The name must meet the following rules:
    * 
    * - The name can be up to 64 characters in length.
-   * - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - The name must start with a letter or a Chinese character, and cannot start with http:// or https://.
    * - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
@@ -643,12 +643,12 @@ export class CreateDesktopsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * Controls the format of the desktop name.
+   * The format of the cloud desktop name.
    */
   desktopNameModel?: CreateDesktopsRequestDesktopNameModel;
   /**
    * @remarks
-   * Specifies whether to automatically append a suffix to the cloud desktop name when you create multiple cloud desktops in a batch.
+   * Specifies whether to automatically add a suffix to the cloud desktop name when you create multiple cloud desktops in a batch. Valid values:
    * 
    * @example
    * false
@@ -656,7 +656,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   desktopNameSuffix?: boolean;
   /**
    * @remarks
-   * The details of the scheduled task for the cloud desktop. This parameter is being deprecated. Use the TimerGroupId parameter instead.
+   * The details of the scheduled tasks for the cloud desktop. This parameter is being deprecated. Use the TImerGroupId parameter instead.
    * 
    * **if can be null:**
    * true
@@ -672,7 +672,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The list of authorized user IDs to add to the cloud desktops. You can specify 1 to 100 user IDs.
+   * The list of IDs of authorized users to be added to the cloud desktop. You can specify 1 to 100 user IDs.
    * 
    * @example
    * 123456789
@@ -688,7 +688,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * The cloud desktop pool ID.
+   * The ID of the cloud desktop pool.
    * 
    * @example
    * dg-boyczi8enfyc5****
@@ -696,18 +696,26 @@ export class CreateDesktopsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The custom hostname of the cloud desktop. Settings are supported only for Windows cloud desktops with the Windows operating system type in AD office networks.
+   * The GPU driver version of the host.
    * 
-   * The naming rules for the hostname are as follows:
+   * @example
+   * Grid19
+   */
+  hostGpuDriverVersion?: string;
+  /**
+   * @remarks
+   * The custom settings for the hostname of the cloud desktop. This parameter is supported only for cloud desktops whose operating system is Windows in an AD office network.
+   * 
+   * The hostname must meet the following rules:
    * 
    * - The hostname must be 2 to 15 characters in length.
-   * - The hostname can contain uppercase letters, lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen, cannot contain consecutive hyphens, and cannot consist of only digits.
+   * - The hostname can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or contain only digits.
    * 
-   * When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to name the cloud desktops in a unified manner. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
+   * When you create multiple cloud desktops, you can use the name_prefix[begin_number,bits]name_suffix format to name them in a unified manner. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
    * 
-   * - `name_prefix`: the prefix of the hostname.
-   * - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` specifies the start number. Valid values: 0 to 999999. Default value: 0. `bits` specifies the number of digits. Valid values: 1 to 6. Default value: 6.
-   * - `name_suffix`: the suffix of the hostname.
+   * - name_prefix: the prefix of the hostname.
+   * - [begin_number,bits]: the sequential number in the hostname. begin_number is the starting number. Valid values: 0 to 999999. Default value: 0. bits is the number of digits. Valid values: 1 to 6. Default value: 6.
+   * - name_suffix: the suffix of the hostname.
    * 
    * @example
    * testhost
@@ -715,12 +723,12 @@ export class CreateDesktopsRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The parameters for purchasing a monthly hours package.
+   * The purchase parameters for the monthly hourly package.
    */
   monthDesktopSetting?: CreateDesktopsRequestMonthDesktopSetting;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-387822****
@@ -728,7 +736,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The organizational unit (OU) path. If specified, the cloud desktop is added to the corresponding OU in Active Directory (AD).
+   * The OU path. After this parameter is specified, the cloud desktop joins the corresponding organizational unit (OU) in Active Directory (AD).
    * 
    * @example
    * test.com/wuyingtest/computers
@@ -736,16 +744,16 @@ export class CreateDesktopsRequest extends $dara.Model {
   ouPath?: string;
   /**
    * @remarks
-   * The subscription duration of the resource. The unit is specified by `PeriodUnit`. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`.
+   * The subscription period of the resource. The unit is specified by PeriodUnit. This parameter takes effect and is required only when ChargeType is set to PrePaid.
    * 
-   * - If `PeriodUnit` is set to `Month`, valid values of this parameter:
+   * - If PeriodUnit is set to Month, valid values of this parameter are:
    * 
    *      - 1
    *     -  2
    *     - 3
    *     - 6
    * 
-   * - If `PeriodUnit` is set to `Year`, valid values of this parameter:
+   * - If PeriodUnit is set to Year, valid values of this parameter are:
    * 
    *     - 1
    *     - 2
@@ -759,7 +767,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription billing method duration.
+   * The time unit for the subscription billing method. Valid values:
    * 
    * @example
    * Month
@@ -767,7 +775,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * system-all-enabled-policy
@@ -775,7 +783,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotional event.
    * 
    * @example
    * 23141
@@ -783,7 +791,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The additional parameters for a specific purchase type.
+   * The additional parameters for specific purchase types.
    */
   purchaseOptions?: CreateDesktopsRequestPurchaseOptions;
   /**
@@ -796,7 +804,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   qosRuleId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -806,7 +814,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID for resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+   * The user ID for resource ownership in the reseller pattern. This parameter is not required in the non-reseller pattern.
    * 
    * @example
    * 1828644634819902
@@ -814,7 +822,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * The resource reserve pool ID (rp-xxx). This parameter is optional. If specified, the cloud desktop is created from the reserve pool, and compute resources are provided by the reserve pool without generating a compute fee order. If ZoneId is explicitly specified, it must match the zone of the reserve pool.
+   * The ID of compute resource pool (rp-xxx). This parameter is optional. If this parameter is specified, the cloud desktop is created from compute resource pool, computing resources are provided by compute resource pool, and no computing fee order is generated. If the ZoneId parameter is explicitly specified, it must be the same as the zone of compute resource pool.
    * 
    * @example
    * rp-xxx
@@ -822,7 +830,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   reservePoolId?: string;
   /**
    * @remarks
-   * The ID of the WUYING resource group.
+   * The ID of the Wuying resource group.
    * 
    * @example
    * rg-3mtuc28rx95lx****
@@ -830,7 +838,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * > This field is not publicly available.
+   * > This field is currently not available for public use.
    * 
    * @example
    * spn-26c1b7bcrjcI****
@@ -838,7 +846,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   savingPlanId?: string;
   /**
    * @remarks
-   * The ID of the WUYING automatic snapshot policy.
+   * The ID of the Wuying automatic snapshot policy.
    * 
    * @example
    * sp-28mp6my0l6zow****
@@ -846,12 +854,12 @@ export class CreateDesktopsRequest extends $dara.Model {
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * The purchase method of the cloud desktop. Valid values:
+   * The billing method of the cloud desktop. Valid values:
    * 
-   * - prePaid: Monthly subscription with unlimited duration.
-   * - postPaid: Pay-as-you-go.
-   * - monthPackage: Monthly hours package.
-   * - jvsAgentPackage: JVS Agent hours package.
+   * - prePaid: monthly subscription without a duration limit.
+   * - postPaid: pay-as-you-go.
+   * - monthPackage: monthly duration package.
+   * - jvsAgentPackage: JVS agent duration package.
    * 
    * @example
    * monthPackage
@@ -880,9 +888,9 @@ export class CreateDesktopsRequest extends $dara.Model {
   timerGroupId?: string;
   /**
    * @remarks
-   * The cloud desktop assignment mode.
+   * The assignment mode of the cloud desktop. Valid values:
    * 
-   * > If `EndUserId` is not specified, the created cloud desktops are not assigned to any user.
+   * > If EndUserId is not specified, the created cloud desktop is not assigned to any user.
    * 
    * @example
    * ALL
@@ -903,7 +911,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether to enable cloud disk encryption. Valid values:
    * 
    * @example
    * false
@@ -911,7 +919,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used when cloud disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -945,6 +953,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       endUserId: 'EndUserId',
       extendInfo: 'ExtendInfo',
       groupId: 'GroupId',
+      hostGpuDriverVersion: 'HostGpuDriverVersion',
       hostname: 'Hostname',
       monthDesktopSetting: 'MonthDesktopSetting',
       officeSiteId: 'OfficeSiteId',
@@ -994,6 +1003,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       endUserId: { 'type': 'array', 'itemType': 'string' },
       extendInfo: 'string',
       groupId: 'string',
+      hostGpuDriverVersion: 'string',
       hostname: 'string',
       monthDesktopSetting: CreateDesktopsRequestMonthDesktopSetting,
       officeSiteId: 'string',

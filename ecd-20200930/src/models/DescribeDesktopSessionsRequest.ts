@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to check the session status within the cloud computer.
+   * Specifies whether to check the session status in the cloud computer.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   checkOsSession?: boolean;
   /**
    * @remarks
-   * The cloud computer IDs. You can specify 1 to 100 IDs.
+   * The cloud computer ID. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
   /**
@@ -26,8 +26,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-02-13T02:51:43Z
@@ -43,7 +42,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The end user ID. This parameter is the same as EndUserId. You only need to specify one of them.
+   * The end user ID. This parameter is the same as the EndUserId parameter. You only need to specify one of them.
    * 
    * @example
    * alice
@@ -61,7 +60,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   fillHardwareInfo?: boolean;
   /**
    * @remarks
-   * The language type of the response.
+   * The language of the response.
    * 
    * @example
    * zh-CN
@@ -77,7 +76,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -85,7 +84,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of rows per page in a paged query.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -93,7 +92,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Wuying Cloud Computer.
    * 
    * This parameter is required.
    * 
@@ -119,8 +118,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -128,7 +126,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The purchase method of the cloud computer.
+   * The billing method of the cloud computer.
    * 
    * @example
    * monthPackage

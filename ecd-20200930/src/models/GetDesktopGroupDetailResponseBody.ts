@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud computers to purchase, which is one of the scaling policy parameters. Valid values: 0 to 200.
+   * One of the scaling policy parameters: the number of cloud computers to purchase. Valid values: 0 to 200.
    * 
    * @example
    * 5
@@ -21,9 +21,9 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   cron?: string;
   /**
    * @remarks
-   * The duration for which a session is retained after disconnection. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
+   * The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
    * 
-   * When a session is disconnected because the user actively disconnects or because of other unexpected factors, the retention period starts from the moment of disconnection. If the user does not reconnect to the session within the retention period, the session is logged off and all unsaved data is destroyed. If the user successfully reconnects within the retention period, the user can still access the original session and the data that existed before the disconnection.
+   * When a session is disconnected intentionally by the user or unexpectedly due to other factors, the retention period starts from the time of disconnection. If the user does not reconnect to the session within this retention period, the session is logged off and unsaved data is destroyed. If the user successfully reconnects within this retention period, the user can enter the original session and access the data before the disconnection.
    * 
    * @example
    * 180000
@@ -31,7 +31,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy for multi-session shared cloud computers with multiple instances.
+   * The load balancing policy for multi-session shared cloud desktops.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers, which is one of the scaling policy parameters. Valid values: 0 to 200.
+   * One of the scaling policy parameters: the maximum number of cloud computers. Valid values: 0 to 200.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   maxResAmount?: number;
   /**
    * @remarks
-   * The minimum number of cloud computers, which is one of the scaling policy parameters. Valid values: 0 to 200.
+   * One of the scaling policy parameters: the minimum number of cloud computers. Valid values: 0 to 200.
    * 
    * @example
    * 1
@@ -55,11 +55,11 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   minResAmount?: number;
   /**
    * @remarks
-   * The session occupancy threshold used as the trigger condition for auto scaling of multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
+   * The session usage threshold, which is used as the trigger for automatic scaling of multi-session shared cloud computers. The session usage is calculated by using the following formula:
    * 
-   * ```Session occupancy = Number of bound sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
+   * ```Session usage = Number of attached sessions / (Total number of cloud computers × Maximum number of sessions supported per cloud computer) × 100%```
    * 
-   * When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
+   * When the session usage reaches this threshold, new cloud computers are created. If the session usage does not reach this threshold, excess cloud computers are deleted.
    * 
    * @example
    * 0.85
@@ -67,7 +67,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   ratioThreshold?: number;
   /**
    * @remarks
-   * The type of the scheduled task.
+   * The scheduled task type.
    * 
    * @example
    * rise
@@ -119,7 +119,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsTimerInfos extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * Indicates whether the scheduled task is forcibly executed.
+   * Specifies whether to forcibly execute the scheduled task.
    * 
    * @example
    * false
@@ -135,7 +135,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsTimerInfos extends $dara.M
   status?: number;
   /**
    * @remarks
-   * The type of the scheduled task.
+   * The scheduled task type.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class GetDesktopGroupDetailResponseBodyDesktopsTimerInfos extends $dara.M
 export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic creation of cloud computers is allowed for subscription shared cloud computers.
+   * Specifies whether automatic creation is allowed for subscription shared cloud desktops.
    * 
    * @example
    * 1
@@ -179,7 +179,9 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * This parameter applies only to pay-as-you-go shared cloud computers. It specifies the number of cloud computers that are always reserved in the powered-on and idle state, ready for connections. Valid values:
+   * This parameter applies only to pay-as-you-go shared cloud desktops and indicates the number of cloud desktops that are always reserved in the started and idle state for connection. Valid values:
+   * - 0: no reservation
+   * - N: reserve N cloud desktops (1 ≤ N ≤ 100)
    * 
    * @example
    * 1
@@ -187,7 +189,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions allowed per cloud computer in multi-session shared cloud computers with multiple instances.
+   * The number of concurrent sessions allowed per cloud desktop in multi-session shared cloud desktops.
    * 
    * @example
    * 2
@@ -195,7 +197,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * The initial number of cloud computers purchased. This parameter applies only to subscription shared cloud computers. Valid values: 0 to 200.
+   * This parameter applies only to subscription shared cloud computers and indicates the initial number of cloud computers purchased. Valid values: 0 to 200.
    * 
    * @example
    * 5
@@ -211,7 +213,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The maximum duration that a session can remain in the connected state. The session is automatically disconnected when this duration is reached. Unit: milliseconds.
+   * The maximum duration for a session to remain connected. When the session connection duration reaches this value, the session is automatically disconnected. Unit: milliseconds.
    * 
    * @example
    * 3600000
@@ -219,7 +221,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   connectDuration?: number;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of vCPU cores.
    * 
    * @example
    * 4
@@ -227,7 +229,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The creation time. The time is in the ISO 8601 standard in UTC.
+   * The creation time. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -251,7 +253,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The user disk capacity. Unit: GiB.
+   * The user disk size. Unit: GiB.
    * 
    * @example
    * 80
@@ -259,7 +261,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   dataDiskSize?: string;
   /**
    * @remarks
-   * The ID of the shared cloud computer.
+   * The ID of the shared cloud desktop.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -267,7 +269,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the shared cloud computer to query.
+   * The name of the shared cloud desktop to query.
    * 
    * @example
    * CloudComputerPool01
@@ -307,7 +309,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The expiration time of the subscription shared cloud computers. The time follows the ISO 8601 standard in UTC.
+   * The expiration time of the subscription shared cloud computer. The time is in the ISO 8601 standard (UTC time).
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -336,7 +338,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The maximum idle duration after a user session is connected. If no keyboard or mouse operation is performed within this duration, the session is disconnected. Unit: milliseconds.
+   * The maximum idle time before a user session is disconnected. If no keyboard or mouse operations are performed within this maximum duration after a user session is connected, the session is disconnected. Unit: milliseconds.
    * 
    * @example
    * 900000
@@ -352,9 +354,9 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The duration for which a session is retained after disconnection. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is retained indefinitely.
+   * The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
    * 
-   * When a session is disconnected because the user actively disconnects or because of unexpected factors, the retention period starts from the moment of disconnection. If the user does not reconnect to the session within the retention period, the session is logged off and all unsaved data is destroyed. If the user successfully reconnects within the retention period, the user can still access the original session and the data that existed before the disconnection.
+   * When a session is disconnected intentionally by the user or unexpectedly due to other factors, the retention period starts from the time of disconnection. If the user does not reconnect to the session within this retention period, the session is logged off and unsaved data is destroyed. If the user successfully reconnects within this retention period, the user can enter the original session and access the data before the disconnection.
    * 
    * @example
    * 180000
@@ -362,7 +364,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy for multi-session shared cloud computers with multiple instances.
+   * The load balancing policy for multi-session shared cloud desktops.
    * 
    * @example
    * 0
@@ -370,7 +372,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * - For pay-as-you-go shared cloud computers, this parameter specifies the maximum number of cloud computers that can be created.
+   * - For pay-as-you-go shared cloud desktops, this parameter indicates the maximum number of cloud desktops that can be created.
+   * - For subscription shared cloud desktops, this parameter indicates the sum of the initially purchased cloud desktops (`BuyDesktopsCount`) and the number of cloud desktops allowed for automatic creation.
    * 
    * @example
    * 3
@@ -386,8 +389,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * - For pay-as-you-go shared cloud computers, this parameter indicates the minimum number of cloud computers to create.
-   * - For subscription shared cloud computers, this parameter is equivalent to BuyDesktopsCount, indicating the number of cloud computers initially purchased.
+   * - For pay-as-you-go shared cloud desktops, this parameter indicates the minimum number of cloud desktops to create.
+   * - For subscription shared cloud desktops, this parameter is equivalent to `BuyDesktopsCount` and indicates the number of initially purchased cloud desktops.
    * 
    * @example
    * 1
@@ -395,7 +398,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   minDesktopsCount?: number;
   /**
    * @remarks
-   * The ID of the NAS file system used for user data roaming.
+   * The ID of the NAS file system used for the user data roaming feature.
    * 
    * @example
    * 0783b4****
@@ -403,7 +406,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   nasFileSystemID?: string;
   /**
    * @remarks
-   * The name of the NAS file system used for user data roaming.
+   * The name of the NAS file system used for the user data roaming feature.
    * 
    * @example
    * abcd
@@ -419,10 +422,10 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network to which the shared cloud computer belongs.
+   * The name of the office network to which the shared cloud desktop belongs.
    * 
    * @example
-   * R&D Office Network
+   * R&D Department Office Network
    */
   officeSiteName?: string;
   /**
@@ -435,7 +438,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The operating system type of the cloud computers.
+   * The operating system type of the cloud computer.
    * 
    * @example
    * Windows
@@ -443,7 +446,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The cloud computer template ID.
+   * The ID of the cloud desktop template.
    * 
    * @example
    * b-1se9fb37r5tfq****
@@ -451,7 +454,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   ownBundleId?: string;
   /**
    * @remarks
-   * The cloud computer template name.
+   * The name of the cloud desktop template.
    * 
    * @example
    * BundleDemo
@@ -459,7 +462,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   ownBundleName?: string;
   /**
    * @remarks
-   * The type of the shared cloud computer.
+   * The shared cloud desktop type.
    * 
    * @example
    * 0
@@ -475,7 +478,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The ID of the policy associated with the shared cloud computer.
+   * The ID of the policy associated with the shared cloud desktop.
    * 
    * @example
    * pg-9cktlowtxfl6****
@@ -483,12 +486,12 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The list of policy IDs associated with the shared cloud computers.
+   * The list of policy IDs associated with the shared cloud computer.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
-   * The Policy Name associated with the shared cloud computer.
+   * The policy name associated with the shared cloud desktop.
    * 
    * @example
    * All enabled policy
@@ -496,12 +499,12 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   policyGroupName?: string;
   /**
    * @remarks
-   * The list of policy names associated with the shared cloud computers.
+   * The list of policy names associated with the shared cloud computer.
    */
   policyGroupNames?: string[];
   /**
    * @remarks
-   * Indicates whether user data roaming is enabled.
+   * Specifies whether to enable user data roaming.
    * 
    * @example
    * false
@@ -517,11 +520,11 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The session occupancy threshold, used as the auto scaling trigger condition for multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
+   * The session usage threshold, which is used as the trigger condition for auto scaling of multi-session shared cloud desktops. The session usage is calculated by using the following formula:
    * 
-   * ```Session occupancy = Number of bound sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
+   * ```Session usage = Number of attached sessions / (Total number of cloud desktop resources × Maximum number of sessions supported per cloud desktop) × 100%```
    * 
-   * When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
+   * When the session usage reaches this threshold, new cloud desktops are created. When the session usage does not reach this threshold, excess cloud desktops are deleted.
    * 
    * @example
    * 0.85
@@ -537,7 +540,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   resType?: number;
   /**
    * @remarks
-   * The reset type of the cloud computer.
+   * The cloud desktop reset type.
    * 
    * @example
    * 0
@@ -549,8 +552,13 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
    */
   scaleTimerInfos?: GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos[];
   /**
+   * @example
+   * 0
+   */
+  sessionType?: number;
+  /**
    * @remarks
-   * The status of the shared cloud computer.
+   * The status of the shared cloud desktop.
    * 
    * @example
    * 1
@@ -558,7 +566,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The idle shutdown duration. When the cloud computer has been idle for this duration, it is automatically shut down. If a user connects after shutdown, the cloud computer is automatically started. Unit: milliseconds.
+   * The idle shutdown time. When the idle time of the cloud desktop reaches this value, the cloud desktop is automatically shut down. If a user connects after the shutdown, the cloud desktop is automatically started. Unit: milliseconds.
    * 
    * @example
    * 180000
@@ -574,7 +582,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The system cloud disk capacity. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 80
@@ -595,7 +603,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   timingStrategyInfo?: string;
   /**
    * @remarks
-   * The version number of the shared cloud computer.
+   * The version number of the shared cloud desktop.
    * 
    * @example
    * 2
@@ -651,6 +659,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
       resType: 'ResType',
       resetType: 'ResetType',
       scaleTimerInfos: 'ScaleTimerInfos',
+      sessionType: 'SessionType',
       status: 'Status',
       stopDuration: 'StopDuration',
       systemDiskCategory: 'SystemDiskCategory',
@@ -711,6 +720,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
       resType: 'number',
       resetType: 'number',
       scaleTimerInfos: { 'type': 'array', 'itemType': GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos },
+      sessionType: 'number',
       status: 'number',
       stopDuration: 'number',
       systemDiskCategory: 'string',
@@ -748,7 +758,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
 export class GetDesktopGroupDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about shared cloud computers.
+   * The shared cloud desktop information.
    */
   desktops?: GetDesktopGroupDetailResponseBodyDesktops;
   /**

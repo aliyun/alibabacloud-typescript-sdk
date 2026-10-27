@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsoleMessagesResponseBodyMessageListContentConfigs extends $dara.Model {
   /**
    * @remarks
-   * The color of the body text, which retains the color value saved when the message was created or modified.
+   * The color of the body text. The color value saved when the message is created or modified is used.
    * 
    * @example
    * #666666
@@ -21,7 +21,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListContentConfigs extend
   contentText?: string;
   /**
    * @remarks
-   * The body language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message was created or modified, retaining the original case.
+   * The body language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message is created or modified, retaining the original case.
    * 
    * @example
    * CN
@@ -63,7 +63,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListHyperLinkConfigs exte
   title?: string;
   /**
    * @remarks
-   * The URL accessed after clicking the hyperlink button.
+   * The URL accessed after the hyperlink button is clicked.
    * 
    * @example
    * https://example.com/announcements/maintenance
@@ -111,7 +111,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListImageInfoList extends
   imageFilePath?: string;
   /**
    * @remarks
-   * The image type. Configuration types defined by the backend include Operational (operational message image), WallpaperBasic (basic wallpaper image), and WallpaperAppend (appended wallpaper image). The query returns the image type value saved when the message was created or modified, retaining the original case.
+   * The image type. Configuration types defined by the backend include Operational (operational message image), WallpaperBasic (basic wallpaper image), and WallpaperAppend (appended wallpaper image). The query returns the image type value saved when the message is created or modified, retaining the original case.
    * 
    * @example
    * WallpaperBasic
@@ -119,7 +119,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListImageInfoList extends
   imageType?: string;
   /**
    * @remarks
-   * The temporary download URL of the image file. The link has a limited validity period. If it expires, you can query again to obtain a new one.
+   * The temporary download URL of the image file. The link has a limited validity period. If the link expires, you can query again to obtain a new one.
    * 
    * @example
    * https://example.com/images/img0.jpg
@@ -215,7 +215,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListMetaData extends $dar
 export class DescribeConsoleMessagesResponseBodyMessageListTitleConfigs extends $dara.Model {
   /**
    * @remarks
-   * The color of the title text, which retains the color value saved when the message was created or modified.
+   * The color of the title text. The color value saved when the message is created or modified is used.
    * 
    * @example
    * #333333
@@ -223,7 +223,7 @@ export class DescribeConsoleMessagesResponseBodyMessageListTitleConfigs extends 
   color?: string;
   /**
    * @remarks
-   * The title language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message was created or modified, retaining the original case.
+   * The title language. Valid values: CN (Chinese), EN (English), and JP (Japanese). The query returns the language value saved when the message is created or modified, retaining the original case.
    * 
    * @example
    * CN
@@ -275,7 +275,7 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
   contentConfigs?: DescribeConsoleMessagesResponseBodyMessageListContentConfigs[];
   /**
    * @remarks
-   * The time when the operational message stops taking effect.
+   * The time when the operational message stops taking effect. The time is in ISO 8601 format. A time zone offset of +00:00 indicates UTC time.
    * 
    * @example
    * 2026-10-11T02:00:00.000+00:00
@@ -317,7 +317,7 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
   imageInfoList?: DescribeConsoleMessagesResponseBodyMessageListImageInfoList[];
   /**
    * @remarks
-   * The temporary download URL of the operational message image. The link has a limited validity period. If it expires, you can query again to obtain a new one.
+   * The temporary download URL of the operational message image. The link has a limited validity period. If the link expires, you can query again to obtain a new one.
    * 
    * @example
    * https://example.com/images/console-message.png
@@ -362,7 +362,7 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
   position?: string;
   /**
    * @remarks
-   * The time when the operational message starts taking effect.
+   * The time when the operational message starts taking effect. The time is in ISO 8601 format. A time zone offset of +00:00 indicates UTC time.
    * 
    * @example
    * 2026-10-10T02:00:00.000+00:00
@@ -370,7 +370,7 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
   startTime?: string;
   /**
    * @remarks
-   * The current status of the message. Valid values: Init (initializing), Pushing (pushing), Published (published), Expired (expired), Deleting (deleting), and Failed (failed). Published indicates that the message has been published or the server has finished pushing, but it does not indicate that all target terminals have successfully received the message.
+   * The current status of the message. Valid values: Init (initializing), Pushing (pushing), Published (published), Expired (expired), Deleting (deleting), and Failed (failed). Published indicates that the message has been published or the server-side push processing has finished, but it does not indicate that all target terminals have successfully received the message.
    * 
    * @example
    * Published
@@ -378,7 +378,7 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The JSON string of the list of targets to which the message applies. For Organization and AdOrg, it is an array of objects containing orgId (organization ID) and orgName (organization name). The organization name may be empty, and records in the old format may not contain orgName. For Tag, it is an array of objects containing tagKey (tag key), tagValue (tag value), and regionId (region ID). For other target types, it is an array of strings. The target for all users is represented by ALL_USERS.
+   * The JSON string of the list of targets to which the message applies. For Organization and AdOrg, it is an array of objects containing orgId (organization ID) and orgName (organization name). The organization name may be empty, and records in the old format may not contain orgName. For Tag, it is an array of objects containing tagKey (tag key), tagValue (tag value), and regionId (region ID). For other target types, it is an array of strings. The all-users target is represented by ALL_USERS.
    * 
    * @example
    * ["user01"]
@@ -475,12 +475,12 @@ export class DescribeConsoleMessagesResponseBodyMessageList extends $dara.Model 
 export class DescribeConsoleMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of console messages queried on the current page. If no messages match, an empty list is returned.
+   * The list of console messages queried for the current page. If no messages match, an empty list is returned.
    */
   messageList?: DescribeConsoleMessagesResponseBodyMessageList[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the current request, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 9F1D7E42-06A8-4B50-9A21-6E0C8D3F5B72

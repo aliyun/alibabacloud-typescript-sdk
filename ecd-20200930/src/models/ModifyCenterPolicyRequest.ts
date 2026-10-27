@@ -1163,6 +1163,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * client
    */
   fileTransferSpeedLocation?: string;
+  folderSync?: string;
   /**
    * @remarks
    * Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high cloud desktop performance and user experience are required, such as in professional design scenarios.
@@ -1986,6 +1987,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       fileTransferSizeLimit: 'FileTransferSizeLimit',
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
+      folderSync: 'FolderSync',
       gpuAcceleration: 'GpuAcceleration',
       hoverConfigMsg: 'HoverConfigMsg',
       html5FileTransfer: 'Html5FileTransfer',
@@ -2135,6 +2137,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       fileTransferSizeLimit: 'string',
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
+      folderSync: 'string',
       gpuAcceleration: 'string',
       hoverConfigMsg: 'string',
       html5FileTransfer: 'string',

@@ -13,7 +13,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The cloud computer ID.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -21,7 +21,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The name of the cloud desktop.
    * 
    * @example
    * testName
@@ -30,7 +30,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopScenario?: string;
   /**
    * @remarks
-   * The end of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+   * The end time of the snapshot creation. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -38,10 +38,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of entries per page for paging.    
-   * 
-   * - Maximum value: 100.    
-   * - Default value: 10.
+   * The number of entries to return per page in a paging query.
    * 
    * @example
    * 10
@@ -49,7 +46,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken parameter value returned by the previous API call.
    * 
    * @example
    * 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
@@ -65,7 +62,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -75,7 +72,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The snapshot ID.
+   * The ID of the snapshot.
    * 
    * @example
    * s-2ze81owrnv9pity4****
@@ -83,7 +80,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
+   * The display name of the snapshot. The name must be 2 to 127 characters in length. It must start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-). To prevent name conflicts with automatic snapshots, the name cannot start with `auto`.
    * 
    * @example
    * Test data disk
@@ -99,9 +96,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The type of the cloud disk from which the snapshot is created.
+   * The type of the disk for which you want to create a snapshot.
    * 
-   * > The value is case-insensitive.
+   * > The values are not case-sensitive.
    * 
    * @example
    * system
@@ -109,7 +106,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+   * The start time of the snapshot creation. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
    * 
    * @example
    * 2020-11-30T06:32:31Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOfficeSiteBridgeInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The virtual bridge ID.
+   * The ID of the virtual bridge.
    * 
    * @example
    * vb-fsifhaiushfishf***
@@ -13,7 +13,7 @@ export class ModifyOfficeSiteBridgeInfoRequest extends $dara.Model {
   bridgeId?: string;
   /**
    * @remarks
-   * The virtual bridge specifications.
+   * The specifications of the virtual bridge.
    * 
    * @example
    * vb.pro
@@ -45,7 +45,7 @@ export class ModifyOfficeSiteBridgeInfoRequest extends $dara.Model {
   license?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-387822****
@@ -53,7 +53,7 @@ export class ModifyOfficeSiteBridgeInfoRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

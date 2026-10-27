@@ -11,7 +11,7 @@ export class CreateDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The order ID.
-   * > This parameter is returned only when the ChargeType request parameter is set to PrePaid.
+   * > This parameter is returned when the ChargeType request parameter is set to PrePaid.
    * 
    * @example
    * 123456789

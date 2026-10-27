@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer ID.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-e94kzikmpljjx99pl
@@ -13,12 +13,12 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
   desktopId?: string;
   /**
    * @remarks
-   * The user IDs (usernames) authorized to use the cloud computer.
+   * The IDs of the users authorized to use the cloud desktop, which are the usernames.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The assignment result for a single cloud computer.
+   * The assignment result for a single cloud desktop.
    * 
    * @example
    * FINISHED
@@ -55,7 +55,7 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
 export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model {
   /**
    * @remarks
-   * The assignment result details.
+   * The collection of assignment results.
    */
   assignModels?: BatchModifyEntitlementResponseBodyEntitlementsAssignModels[];
   /**
@@ -105,7 +105,7 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
 export class BatchModifyEntitlementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The assignment results.
+   * The entitlements collection.
    */
   entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
   /**

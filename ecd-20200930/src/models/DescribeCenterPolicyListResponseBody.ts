@@ -893,6 +893,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    */
   fileTransferSpeedLocation?: string;
   /**
+   * @example
+   * off
+   */
+  folderSync?: string;
+  /**
    * @remarks
    * Indicates whether the image quality policy is enabled for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
    * 
@@ -1774,6 +1779,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSizeLimit: 'FileTransferSizeLimit',
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
+      folderSync: 'FolderSync',
       gpuAcceleration: 'GpuAcceleration',
       hoverConfigMsg: 'HoverConfigMsg',
       hoverHibernate: 'HoverHibernate',
@@ -1930,6 +1936,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSizeLimit: 'string',
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
+      folderSync: 'string',
       gpuAcceleration: 'string',
       hoverConfigMsg: 'string',
       hoverHibernate: 'string',

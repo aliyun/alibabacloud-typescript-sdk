@@ -13,7 +13,7 @@ export class ModifyAutoSnapshotPolicyRequest extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The type of cloud disk for which the automatic snapshot policy creates snapshots.
+   * The type of the cloud disk for which the automatic snapshot policy creates snapshots.
    * 
    * @example
    * ALL
@@ -31,15 +31,15 @@ export class ModifyAutoSnapshotPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), or hyphens (-). Default value: empty.
+   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-). Default value: empty.
    * 
    * @example
-   * 系统自动快照
+   * System automatic snapshot
    */
   policyName?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -61,7 +61,7 @@ export class DescribeDesktopSessionsResponseBodySessionsTerminalInfo extends $da
   productName?: string;
   /**
    * @remarks
-   * The terminal device serial number.
+   * The serial number of the terminal device.
    * 
    * @example
    * 96c530bc-6095-4014-8bbc-d461b8ac****
@@ -161,7 +161,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * The duration of remote assistance for the end user. Unit: seconds.
+   * The duration of remote assistance requested by the end user. Unit: seconds.
    * 
    * @example
    * 120
@@ -175,6 +175,14 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * alice
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The IP address of the last connected client.
+   * 
+   * @example
+   * 10.0.0.0:8080
+   */
+  lastClientIp?: string;
   /**
    * @remarks
    * The duration of the most recent connection to the cloud computer. Unit: seconds.
@@ -193,7 +201,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The office network name.
    * 
    * @example
    * TestOfficeSite
@@ -201,7 +209,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * Specifies whether to check the session status within the cloud computer.
+   * Specifies whether to check the session status in the cloud computer.
    * 
    * @example
    * true
@@ -230,8 +238,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   resourceGroups?: DescribeDesktopSessionsResponseBodySessionsResourceGroups[];
   /**
    * @remarks
-   * The end time of the session.
-   * The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The end time of the session. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -239,7 +246,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionEndTime?: string;
   /**
    * @remarks
-   * The session idle duration. Unit: seconds.
+   * The idle duration of the session. Unit: seconds.
    * 
    * @example
    * 120
@@ -247,8 +254,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionIdleTime?: number;
   /**
    * @remarks
-   * The start time of the session.
-   * The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the session. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -264,7 +270,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The purchase method of the cloud computer.
+   * The billing method of the cloud computer.
    * 
    * @example
    * monthPackage
@@ -294,6 +300,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       directoryType: 'DirectoryType',
       endUserApplyCoordinateTime: 'EndUserApplyCoordinateTime',
       endUserId: 'EndUserId',
+      lastClientIp: 'LastClientIp',
       latestConnectionTime: 'LatestConnectionTime',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
@@ -322,6 +329,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       directoryType: 'string',
       endUserApplyCoordinateTime: 'number',
       endUserId: 'string',
+      lastClientIp: 'string',
       latestConnectionTime: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
@@ -370,7 +378,7 @@ export class DescribeDesktopSessionsResponseBody extends $dara.Model {
   sessions?: DescribeDesktopSessionsResponseBodySessions[];
   /**
    * @remarks
-   * The total number of query results.
+   * The total number of entries returned.
    * 
    * @example
    * 1

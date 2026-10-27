@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList extends $dara.Model {
   /**
    * @remarks
-   * The application ID. This parameter is only applicable to cloud applications.
+   * The application ID. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * 18
@@ -45,7 +45,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppMod
 export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList extends $dara.Model {
   /**
    * @remarks
-   * The cloud applications.
+   * The list of cloud applications.
    */
   appModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList[];
   /**
@@ -58,7 +58,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   cpu?: number;
   /**
    * @remarks
-   * The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the cloud computer types supported by Alibaba Cloud Workspace.
+   * The target cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by WUYING Workspace.
    * 
    * @example
    * eds.enterprise_office.8c32g
@@ -90,7 +90,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   memory?: number;
   /**
    * @remarks
-   * The OS type.
+   * The operating system type.
    * 
    * @example
    * Linux
@@ -106,7 +106,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   payType?: string;
   /**
    * @remarks
-   * The service type.
+   * The product type.
    * 
    * @example
    * desktop
@@ -138,7 +138,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   resourceGroupName?: string;
   /**
    * @remarks
-   * The number of associated resource groups
+   * The number of associated resource groups.
    * 
    * @example
    * 10
@@ -162,7 +162,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   resourceName?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region where the resource resides.
    * 
    * @example
    * cn-shenzhen
@@ -178,7 +178,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   resourceType?: string;
   /**
    * @remarks
-   * The resource status.
+   * The status of the resource.
    * 
    * @example
    * Stopped
@@ -245,7 +245,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
 export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of resources.
+   * The total count.
    * 
    * @example
    * 2
@@ -253,7 +253,7 @@ export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   count?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -269,7 +269,7 @@ export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    */
   resourceModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelList[];
   static names(): { [key: string]: string } {

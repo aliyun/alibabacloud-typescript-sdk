@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQosRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of QoS rule IDs.
+   * The list of QoS rule IDs.
    * 
    * This parameter is required.
    */

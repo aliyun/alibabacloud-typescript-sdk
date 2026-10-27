@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDesktopGroupDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared cloud computer.
+   * The ID of the shared cloud desktop.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetDesktopGroupDetailRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASFileSystemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of NAS file system IDs.
+   * The IDs of the NAS file systems.
    * 
    * @example
    * 04f314****
@@ -21,7 +21,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   matchCompatibleProfile?: boolean;
   /**
    * @remarks
-   * The number of entries per page for a paged query.    
+   * The number of entries to return per page in a paging query.    
    * 
    * - Maximum value: 100.    
    * - Default value: 10.
@@ -32,7 +32,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the last API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -40,7 +40,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -48,7 +48,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

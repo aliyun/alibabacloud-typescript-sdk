@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the end user that connects to the cloud computer.
+   * The ID of the connected user.
    * 
    * @example
-   * end user id
+   * alice
    */
   endUserId?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions 
 export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends $dara.Model {
   /**
    * @remarks
-   * The current version of the image used by the cloud computer.
+   * The current image version of the cloud computer.
    * 
    * @example
    * 0.0.1-D-20220513.143129
@@ -54,7 +54,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The name of the cloud computer.
    * 
    * @example
-   * TestDesktop
+   * demo-computer
    */
   desktopName?: string;
   /**
@@ -62,7 +62,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * > This parameter is not publicly available.
    * 
    * @example
-   * To be hidden
+   * windows
    */
   fotaProject?: string;
   /**
@@ -70,28 +70,17 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The ID of the office network.
    * 
    * @example
-   * cn-hangzhou+dir-815419****
+   * cn-shanghai+dir-428216****
    */
   officeSiteId?: string;
   /**
    * @remarks
-   * The connected sessions.
+   * The list of connected sessions.
    */
   sessions?: DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions[];
   /**
    * @remarks
    * The status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   0: The cloud computer is being created.
-   * *   1: The cloud computer is being started.
-   * *   2: The cloud computer is running.
-   * *   3: The cloud computer is being stopped.
-   * *   5: The cloud computer is stopped.
-   * *   6: The cloud computer expires.
-   * *   7: The cloud computer is deleted.
-   * *   9: Failed to create the cloud computer.
    * 
    * @example
    * 2
@@ -136,7 +125,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
 export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code.
    * 
    * @example
    * 200
@@ -144,12 +133,12 @@ export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The cloud computers whose images can be and are pending to be updated to the version specified in `TaskUid`.
+   * The list of cloud computers that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
    */
   fotaPendingDesktops?: DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops[];
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * Succeeded
@@ -157,7 +146,7 @@ export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

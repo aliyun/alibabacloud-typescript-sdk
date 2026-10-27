@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.    
    * 
-   * *   Maximum value: 100.
-   * *   Default value: 10.
+   * - Maximum value: 100.    
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -16,7 +16,7 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token for the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l69tQX7yFxx6/4dbooBAOc
@@ -34,14 +34,7 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The service type.
-   * 
-   * Valid values:
-   * 
-   * *   app: cloud applications.
-   * *   resourceGroup: resource groups.
-   * *   desktop: cloud computers.
-   * *   desktopGroup: cloud computer shares.
+   * The product type.
    * 
    * @example
    * desktop

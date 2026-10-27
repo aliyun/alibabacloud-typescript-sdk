@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudDriveGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+   * The modification result. A value of success indicates that the operation is successful. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class CreateCloudDriveGroupResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message that is returned. This parameter is not returned if the value of Code is success.
+   * The error message. This parameter is not returned when Code is success.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class CreateCloudDriveGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FD14D2A1-CC39-5ED3-8EE7-11FDF4B9D6D2
@@ -37,7 +37,7 @@ export class CreateCloudDriveGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true: The call is successful. false: The call fails.
+   * Indicates whether the operation is successful. Valid values: true: Successful. false: Failed.
    * 
    * @example
    * True

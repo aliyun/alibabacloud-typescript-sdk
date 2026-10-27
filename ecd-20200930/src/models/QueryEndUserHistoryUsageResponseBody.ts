@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageList extends $dara.Model {
   /**
    * @remarks
-   * The desktop ID.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-abc123
@@ -13,7 +13,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageLi
   desktopId?: string;
   /**
    * @remarks
-   * The desktop name.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoDesktop
@@ -21,7 +21,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageLi
   desktopName?: string;
   /**
    * @remarks
-   * The usage duration of the user on the desktop, in seconds.
+   * The usage duration of the user on the cloud desktop, in seconds.
    * 
    * @example
    * 1800
@@ -55,7 +55,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageLi
 export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListUserGroupList extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-12345678
@@ -63,7 +63,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListUserGroupList 
   userGroupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * Default user group
@@ -95,7 +95,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoListUserGroupList 
 export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the user. This parameter has a value only for convenience account users.
+   * The description of the user. This parameter has a value only for convenience users.
    * 
    * @example
    * Test user
@@ -103,15 +103,15 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara
   description?: string;
   /**
    * @remarks
-   * The list of usage duration details for each desktop.
+   * The list of usage duration details for each cloud desktop.
    */
   desktopUsageList?: QueryEndUserHistoryUsageResponseBodyUserUsageInfoListDesktopUsageList[];
   /**
    * @remarks
-   * The display name of the user. For convenience account users, this is the actual nickname. For AD users, this is the display name.
+   * The display name of the user. For convenience users, this is the real nickname. For AD users, this is the display name.
    * 
    * @example
-   * John Smith
+   * Zhang San
    */
   displayName?: string;
   /**
@@ -124,7 +124,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara
   duration?: number;
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * user01
@@ -132,7 +132,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara
   endUserId?: string;
   /**
    * @remarks
-   * The username. For convenience account users, this is the nickname. For AD users, this is the UserPrincipalName.
+   * The username. For convenience users, this is the nickname. For AD users, this is the UserPrincipalName.
    * 
    * @example
    * zhangsan
@@ -140,12 +140,12 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara
   endUserName?: string;
   /**
    * @remarks
-   * The list of organization paths. For convenience account users, this contains multiple organization paths. For AD users, this is the organizational unit (OU) path.
+   * The list of organization paths. For convenience users, this includes multiple organization paths. For AD users, this is the OU path.
    */
   orgPathList?: string[];
   /**
    * @remarks
-   * The list of user groups. This parameter has a value only for convenience account users.
+   * The list of user groups. This parameter has a value only for convenience users.
    */
   userGroupList?: QueryEndUserHistoryUsageResponseBodyUserUsageInfoListUserGroupList[];
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class QueryEndUserHistoryUsageResponseBodyUserUsageInfoList extends $dara
 export class QueryEndUserHistoryUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 269BDB16-2CD8-4865-84BD-11C40BC21DB0
@@ -211,7 +211,7 @@ export class QueryEndUserHistoryUsageResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of user usage duration entries on the current page.
+   * The list of user usage durations on the current page.
    */
   userUsageInfoList?: QueryEndUserHistoryUsageResponseBodyUserUsageInfoList[];
   static names(): { [key: string]: string } {

@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID. You can obtain it from <props="china">[Expenses and Costs > My Orders](https://billing-cost.console.aliyun.com/order/list).
-   * <props="intl">[Expenses and Costs > Order Management](https://usercenter2-intl.aliyun.com/order/list).
+   * The order ID. You can obtain the order ID on the <props="china">[Expenses and Costs > My Orders](https://billing-cost.console.aliyun.com/order/list) page.<props="intl">[Expenses and Costs > Order Management](https://usercenter2-intl.aliyun.com/order/list) page.
    * 
    * @example
    * 219861020660568
@@ -14,7 +13,7 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F89BBB13-8B3B-5C8A-A700-EEFDC17B8227

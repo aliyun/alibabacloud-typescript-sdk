@@ -13,7 +13,8 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectDuration?: string;
   /**
    * @remarks
-   * The connection end time.
+   * The time when the connection is disconnected.
+   * The time is in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-02-27T20:03:13Z
@@ -21,7 +22,8 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectEndTime?: string;
   /**
    * @remarks
-   * The connection start time.
+   * The start time of the connection.
+   * The time is in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-19T10:12:38Z
@@ -29,7 +31,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectStartTime?: string;
   /**
    * @remarks
-   * The connection record ID.
+   * The ID of the connection record.
    * 
    * @example
    * 528
@@ -90,7 +92,7 @@ export class DescribeUserConnectionRecordsResponseBody extends $dara.Model {
   connectionRecords?: DescribeUserConnectionRecordsResponseBodyConnectionRecords[];
   /**
    * @remarks
-   * The pagination token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -98,7 +100,7 @@ export class DescribeUserConnectionRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A8E03

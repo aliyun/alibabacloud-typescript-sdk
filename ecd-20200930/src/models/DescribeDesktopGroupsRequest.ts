@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key. The value cannot be an empty string. It can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value. The value can be an empty string. It can be up to 128 characters in length, and cannot start with `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -71,7 +71,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The cloud computer specifications. You can call [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the supported specification IDs.
+   * The cloud computer specification. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported specification IDs.
    * 
    * @example
    * eds.enterprise_office.16c64g
@@ -79,7 +79,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The list of authorized user IDs for the shared cloud computer.
+   * The list of IDs of authorized users for the shared cloud computer.
    */
   endUserIds?: string[];
   /**
@@ -97,7 +97,9 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   imageId?: string[];
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for paging in a paged query.
+   * Maximum value: 100.
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -105,11 +107,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether the shared cloud computer is a multi-host type.
-   * 
-   * Valid values:
-   * - true: Multi-host shared cloud computer.
-   * - false: Single-host shared cloud computer.
+   * Specifies whether the shared cloud computer is a multi-resource shared cloud computer.
    * 
    * @example
    * true
@@ -117,7 +115,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   multiResource?: boolean;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The pagination token for the next query. An empty value indicates that no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -125,7 +123,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network to which the shared cloud computers belong.
+   * The ID of the office network to which the shared cloud computer belongs.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -135,13 +133,26 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * @remarks
    * The type of the shared cloud computer.
    * 
+   * > This parameter is not yet available.
+   * 
    * @example
    * 0
    */
   ownType?: number;
   /**
    * @remarks
-   * The subscription duration of the shared cloud computer. The unit is specified by `PeriodUnit`.
+   * The subscription duration of the shared cloud computer. The unit is specified by PeriodUnit.
+   * - If PeriodUnit is set to Month, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 6
+   * - If PeriodUnit is set to Year, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 4
+   *     - 5
    * 
    * @example
    * 1
@@ -149,7 +160,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the duration for the subscription billing method.
+   * The time unit of the subscription billing Billable methods.
    * 
    * @example
    * Month
@@ -173,7 +184,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The ID of the QoS rule.
+   * The ID of the bandwidth throttling rule.
    * 
    * @example
    * qos-5605u0gelk200****
@@ -181,7 +192,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   qosRuleId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Wuying Cloud Computer.
    * 
    * This parameter is required.
    * 

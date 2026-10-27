@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryEndUserHistoryUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end date of the query. Format: yyyy-MM-dd. The date cannot be later than yesterday or earlier than StartDate. Default value: yesterday.
+   * The end date of the query, in yyyy-MM-dd format. The date cannot be later than yesterday or earlier than StartDate. Default value: yesterday.
    * 
    * @example
    * 2024-01-15
@@ -13,7 +13,9 @@ export class QueryEndUserHistoryUsageRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Specifies whether to query Active Directory (AD) domain users. If this parameter is set to true, AD domain users are queried. If this parameter is set to false or not specified, convenience account users are queried.
+   * Specifies whether to query Active Directory (AD) domain users. Valid values:
+   * - true: Queries AD domain users.
+   * - false or unspecified: Queries convenience users.
    */
   isAdUser?: boolean;
   /**
@@ -34,7 +36,7 @@ export class QueryEndUserHistoryUsageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start date of the query. Format: yyyy-MM-dd. The date cannot be earlier than 32 days ago. Default value: yesterday.
+   * The start date of the query, in yyyy-MM-dd format. The date cannot be earlier than 32 days ago. Default value: yesterday.
    * 
    * @example
    * 2024-01-01
