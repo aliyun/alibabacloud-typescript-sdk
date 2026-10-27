@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCallCenterProvidersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the call center provider.
+   * 
    * @example
    * xxxxxxxxx
    */

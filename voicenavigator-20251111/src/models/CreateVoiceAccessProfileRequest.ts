@@ -4,31 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVoiceAccessProfileRequestProfile extends $dara.Model {
   /**
+   * @remarks
+   * Required when Doubao is used.
+   * 
    * @example
    * HwRnTXgwnQOlsj68URDS5_VMm4Wtapq9
    */
   accessKey?: string;
   /**
+   * @remarks
+   * Required when Model Studio or iFLYTEK is used.
+   * 
    * @example
    * sk-12341e259b1049e8872b47981e545f78
    */
   apiKey?: string;
   /**
+   * @remarks
+   * Required when iFLYTEK is used.
+   * 
    * @example
    * c0358c6e51c1013b446fdeb21a3a1234
    */
   apiSecret?: string;
   /**
+   * @remarks
+   * Required when iFLYTEK is used.
+   * 
    * @example
    * 5b123bfb
    */
   appId?: string;
   /**
+   * @remarks
+   * Required when Doubao is used.
+   * 
    * @example
    * 2541370123
    */
   appKey?: string;
+  /**
+   * @remarks
+   * Not used.
+   * 
+   * @example
+   * Not used
+   */
   asrAppKey?: string;
+  /**
+   * @remarks
+   * Not used.
+   * 
+   * @example
+   * Not used
+   */
   ttsApiKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,15 +94,25 @@ export class CreateVoiceAccessProfileRequestProfile extends $dara.Model {
 
 export class CreateVoiceAccessProfileRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The speech engine.
+   * 
    * @example
    * VOLC
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The parameter settings.
+   */
   profile?: CreateVoiceAccessProfileRequestProfile;
   static names(): { [key: string]: string } {
     return {

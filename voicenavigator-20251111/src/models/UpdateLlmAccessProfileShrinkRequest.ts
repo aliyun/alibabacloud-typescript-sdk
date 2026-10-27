@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLlmAccessProfileShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the third-party model configuration.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   accessProfileId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * d74d6290-7cbe-4436-b5d7-014ebb0f4060
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The parameter settings.
+   */
   profileShrink?: string;
   static names(): { [key: string]: string } {
     return {

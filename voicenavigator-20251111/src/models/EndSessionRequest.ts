@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EndSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the script.
+   * 
    * @example
    * 0a88e269-01f5-49ac-97af-5830f0ccb271
    */
   scriptId?: string;
   /**
    * @remarks
+   * The ID of the session.
+   * 
    * This parameter is required.
    * 
    * @example

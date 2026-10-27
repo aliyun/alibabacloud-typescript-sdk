@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVocabularyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Voice Navigator instance.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the vocabulary to delete.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */

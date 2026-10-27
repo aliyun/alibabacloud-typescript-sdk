@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRealtimeInstanceStatsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The configured concurrency.
+   * 
    * @example
    * 12
    */
   configuredConcurrency?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 88b64330a8d34e63b60c9d272f8b3950
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The time of the statistics.
+   * 
    * @example
    * 1776837256000
    */
   statsTime?: number;
   /**
+   * @remarks
+   * The used concurrency.
+   * 
    * @example
    * 10
    */
@@ -51,18 +63,31 @@ export class ListRealtimeInstanceStatsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListRealtimeInstanceStatsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of real-time statistics for instances.
+   */
   list?: ListRealtimeInstanceStatsResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
@@ -99,22 +124,39 @@ export class ListRealtimeInstanceStatsResponseBodyData extends $dara.Model {
 
 export class ListRealtimeInstanceStatsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The call records.
+   */
   data?: ListRealtimeInstanceStatsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of error parameters.
+   */
   params?: string[];
   /**
    * @remarks

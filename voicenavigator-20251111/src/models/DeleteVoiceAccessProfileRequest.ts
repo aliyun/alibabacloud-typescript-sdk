@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVoiceAccessProfileRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the access profile.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   accessProfileId?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */

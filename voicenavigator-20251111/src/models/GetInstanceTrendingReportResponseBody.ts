@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of answered sessions.
+   * 
    * @example
    * 7
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * The number of incoming sessions.
+   * 
    * @example
    * 10
    */
   callsOffered?: number;
   /**
+   * @remarks
+   * The number of rejected sessions.
+   * 
    * @example
    * 3
    */
   callsRejected?: number;
   /**
+   * @remarks
+   * The number of resolved sessions, based on the model evaluation results.
+   * 
    * @example
    * 4
    */
   callsResolved?: number;
   /**
+   * @remarks
+   * The latest configured concurrency.
+   * 
    * @example
    * 13
    */
   configuredConcurrency?: number;
   /**
+   * @remarks
+   * The distribution of labels.
+   * 
    * @example
    * {
    *   "label1":{ 
@@ -39,11 +57,17 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
    */
   labelBreakdown?: string;
   /**
+   * @remarks
+   * The maximum talk time, in milliseconds.
+   * 
    * @example
    * 20
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The distribution of rejection reasons.
+   * 
    * @example
    * {
    *   "ConcurrentLimitExceeded":3
@@ -51,6 +75,9 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
    */
   rejectionBreakdown?: string;
   /**
+   * @remarks
+   * The distribution of hang-up reasons after a session is connected.
+   * 
    * @example
    * {
    *   "SilenceTimeout":1,
@@ -62,11 +89,17 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
    */
   releaseReasonBreakdown?: string;
   /**
+   * @remarks
+   * The statistical time. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1774881208361
    */
   statsTime?: number;
   /**
+   * @remarks
+   * The distribution of dialog turns.
+   * 
    * @example
    * {
    *   "1":2,
@@ -75,26 +108,41 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
    */
   talkTurnsDistribution?: string;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalInputTokens?: number;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalOutputTokens?: number;
   /**
+   * @remarks
+   * The total talk time, in milliseconds.
+   * 
    * @example
    * 100
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalTokens?: number;
   /**
+   * @remarks
+   * The maximum concurrency used.
+   * 
    * @example
    * 10
    */
@@ -152,22 +200,39 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
 
 export class GetInstanceTrendingReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The scenario ID.
+   */
   data?: GetInstanceTrendingReportResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks

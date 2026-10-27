@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstructionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The instruction code.
+   * 
    * @example
    * Transfer00
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic error parameters.
+   */
   params?: string[];
   /**
    * @remarks

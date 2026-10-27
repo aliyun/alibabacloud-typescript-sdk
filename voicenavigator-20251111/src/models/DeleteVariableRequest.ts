@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVariableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The variable ID.
+   * 
    * @example
    * 0099b75d-60fd-4c63-8541-7fbba0ae6bb1
    */

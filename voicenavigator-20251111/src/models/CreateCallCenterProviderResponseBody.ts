@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCallCenterProviderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the human agent service provider.
+   * 
    * @example
    * xxxxxxxxx
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Success
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
    */

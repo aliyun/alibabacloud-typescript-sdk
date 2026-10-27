@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVariableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Indicates the user type, including VIP and regular users
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * User type
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 5daac920-d6c1-429f-a95f-2a798f5255b5
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The variable name.
+   * 
    * @example
    * userType
    */

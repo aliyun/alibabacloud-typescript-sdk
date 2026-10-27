@@ -4,33 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVocabularyResponseBodyDataVocabularies extends $dara.Model {
   /**
+   * @remarks
+   * The time the vocabulary was created.
+   * 
    * @example
    * 1754013825102
    */
   createdTime?: number;
+  /**
+   * @remarks
+   * The description of the vocabulary.
+   * 
+   * @example
+   * 包含金融场景专业术语
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the vocabulary.
+   * 
+   * @example
+   * 金融场景热词
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
    * @example
    * 1308144684576655
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The time the vocabulary was last updated.
+   * 
    * @example
    * 1754013825102
    */
   updatedTime?: number;
   /**
+   * @remarks
+   * The ID of the vocabulary.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   vocabularyId?: string;
   /**
+   * @remarks
+   * The number of words in the vocabulary.
+   * 
    * @example
    * 50
    */
@@ -72,20 +104,33 @@ export class ListVocabularyResponseBodyDataVocabularies extends $dara.Model {
 
 export class ListVocabularyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * A list of vocabularies.
+   */
   vocabularies?: ListVocabularyResponseBodyDataVocabularies[];
   static names(): { [key: string]: string } {
     return {
@@ -119,24 +164,44 @@ export class ListVocabularyResponseBodyData extends $dara.Model {
 
 export class ListVocabularyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated list of vocabularies.
+   */
   data?: ListVocabularyResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9DB8BA95-4513-54B9-9C67-A28909CFB4AD
    */

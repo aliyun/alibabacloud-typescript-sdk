@@ -4,47 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloneVoiceResponseBodyDataCloneVoices extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cloned voice.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   cloneVoiceId?: string;
   /**
+   * @remarks
+   * The creation timestamp of the cloned voice.
+   * 
    * @example
    * 1764900994000
    */
   createdTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The cloning model.
+   * 
    * @example
    * CosyVoice
    */
   model?: string;
+  /**
+   * @remarks
+   * The name of the cloned voice.
+   * 
+   * @example
+   * 测试克隆音
+   */
   name?: string;
   /**
+   * @remarks
+   * The TTS engine.
+   * 
    * @example
    * BAILIAN
    */
   nlsEngine?: string;
   /**
+   * @remarks
+   * The status of the cloned voice.
+   * 
    * @example
    * Published
    */
   status?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1308144684576655
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The last update timestamp of the cloned voice.
+   * 
    * @example
    * 1764900994000
    */
   updatedTime?: number;
   /**
+   * @remarks
+   * The base voice used for cloning.
+   * 
    * @example
    * cosyvoice-v3-plus-voicebot2-3666e4bbb2b94832ac4f4107b5804c34
    */
@@ -89,18 +123,31 @@ export class ListCloneVoiceResponseBodyDataCloneVoices extends $dara.Model {
 }
 
 export class ListCloneVoiceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of cloned voices for the current page.
+   */
   cloneVoices?: ListCloneVoiceResponseBodyDataCloneVoices[];
   /**
+   * @remarks
+   * The returned page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of cloned voices that match the query.
+   * 
    * @example
    * 100
    */
@@ -137,23 +184,39 @@ export class ListCloneVoiceResponseBodyData extends $dara.Model {
 
 export class ListCloneVoiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Internal error code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated list of cloned voices.
+   */
   data?: ListCloneVoiceResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7401D698-0AAC-5909-B68E-88C68805FFB8
    */

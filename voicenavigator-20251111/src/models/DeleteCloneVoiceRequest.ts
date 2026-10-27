@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCloneVoiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cloned voice ID.
+   * 
    * @example
    * e48e45dd-e47a-4744-a063-f08cbebb1c5b
    */
   cloneVoiceId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * e48e45dd-e47a-4744-a063-f08cbebb1c5a
    */

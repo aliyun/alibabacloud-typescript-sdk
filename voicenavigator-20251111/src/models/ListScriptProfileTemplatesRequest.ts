@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScriptProfileTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c28fc549-d88f-4f6e-85ad-a0806e5e39c0
    */

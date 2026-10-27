@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRealtimeScriptStatsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The configured concurrency.
+   * 
    * @example
    * 13
    */
   configuredConcurrency?: number;
   /**
+   * @remarks
+   * The time the statistics were collected, expressed as a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1774881658931
    */
   statsTime?: number;
   /**
+   * @remarks
+   * The current concurrency.
+   * 
    * @example
    * 10
    */
@@ -45,25 +54,42 @@ export class GetRealtimeScriptStatsResponseBodyData extends $dara.Model {
 
 export class GetRealtimeScriptStatsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The real-time script statistics.
+   */
   data?: GetRealtimeScriptStatsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of error parameters.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * d74d6290-7cbe-4436-b5d7-014ebb0f4060

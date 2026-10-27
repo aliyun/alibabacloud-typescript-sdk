@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRealtimeInstanceStatsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the instances. You can specify 1 to 100 instance IDs.
+   */
   instanceIdsShrink?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 2
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

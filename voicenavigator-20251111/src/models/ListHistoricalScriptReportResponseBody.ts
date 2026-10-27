@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The number of calls handled.
+   * 
    * @example
    * 7
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * The number of calls offered.
+   * 
    * @example
    * 10
    */
   callsOffered?: number;
   /**
+   * @remarks
+   * The number of calls rejected.
+   * 
    * @example
    * 3
    */
   callsRejected?: number;
   /**
+   * @remarks
+   * The number of calls that a large language model (LLM) determined to be resolved.
+   * 
    * @example
    * 4
    */
   callsResolved?: number;
   /**
+   * @remarks
+   * The most recent concurrency setting.
+   * 
    * @example
    * 3
    */
   configuredConcurrency?: number;
   /**
+   * @remarks
+   * A breakdown of call labels.
+   * 
    * @example
    * {
    *   "1":2,
@@ -37,11 +55,17 @@ export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model 
    */
   labelDistribution?: string;
   /**
+   * @remarks
+   * The maximum talk time, in milliseconds.
+   * 
    * @example
    * 30
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * A breakdown of call rejection reasons.
+   * 
    * @example
    * {
    *   "ConcurrentLimitExceeded":3
@@ -49,6 +73,9 @@ export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model 
    */
   rejectionBreakdown?: string;
   /**
+   * @remarks
+   * A breakdown of disconnection reasons for answered calls.
+   * 
    * @example
    * {
    *   "SilenceTimeout":1,
@@ -60,11 +87,17 @@ export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model 
    */
   releaseReasonBreakdown?: string;
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
    * 891264b9-5883-4068-94a6-241ceb8d51e4
    */
   scriptId?: string;
   /**
+   * @remarks
+   * A breakdown of conversation turns.
+   * 
    * @example
    * {
    *   "1":2,
@@ -73,26 +106,41 @@ export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model 
    */
   talkTurnsDistribution?: string;
   /**
+   * @remarks
+   * This parameter is reserved for future use.
+   * 
    * @example
    * 0
    */
   totalInputTokens?: number;
   /**
+   * @remarks
+   * This parameter is reserved for future use.
+   * 
    * @example
    * 0
    */
   totalOutputTokens?: number;
   /**
+   * @remarks
+   * The total talk time, in milliseconds.
+   * 
    * @example
    * 100
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * This parameter is reserved for future use.
+   * 
    * @example
    * 0
    */
   totalTokens?: number;
   /**
+   * @remarks
+   * The peak concurrency.
+   * 
    * @example
    * 2
    */
@@ -149,18 +197,31 @@ export class ListHistoricalScriptReportResponseBodyDataList extends $dara.Model 
 }
 
 export class ListHistoricalScriptReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of script reports.
+   */
   list?: ListHistoricalScriptReportResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
@@ -197,25 +258,42 @@ export class ListHistoricalScriptReportResponseBodyData extends $dara.Model {
 
 export class ListHistoricalScriptReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The cloned voice ID.
+   */
   data?: ListHistoricalScriptReportResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Success
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of invalid parameters.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 9ab43460-c0b9-40e2-8447-48d82c97fc67

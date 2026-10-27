@@ -4,76 +4,121 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCallDetailRecordsResponseBodyDataCallDetailRecords extends $dara.Model {
   /**
+   * @remarks
+   * The callee\\"s phone number.
+   * 
    * @example
    * 15100000001
    */
   callee?: string;
   /**
+   * @remarks
+   * The caller\\"s phone number.
+   * 
    * @example
    * 4001027277
    */
   caller?: string;
   /**
+   * @remarks
+   * The disposition code.
+   * 
    * @example
    * Answered
    */
   dispositionCode?: string;
   /**
+   * @remarks
+   * The disposition reason.
+   * 
    * @example
    * ConcurrentLimitExceeded
    */
   dispositionReason?: string;
   /**
+   * @remarks
+   * The total duration of the call, in seconds.
+   * 
    * @example
    * 265
    */
   duration?: number;
   /**
+   * @remarks
+   * The end time of the session, as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1767315903531
    */
   endTime?: number;
   /**
+   * @remarks
+   * Indicates whether the customer\\"s issue was resolved.
+   * 
    * @example
    * false
    */
   issueResolved?: boolean;
   /**
+   * @remarks
+   * The party who released the call.
+   * 
    * @example
    * Customer
    */
   releaseInitiator?: string;
   /**
+   * @remarks
+   * The evidence for the `IssueResolved` status.
+   * 
    * @example
    * unknown
    */
   resolutionEvidence?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 99eebcba-7f8a-4a54-b0da-603ada79d8e2
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The start time of the session, as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1767315903531
    */
   startTime?: number;
   /**
+   * @remarks
+   * The talk time, in seconds.
+   * 
    * @example
    * 245
    */
   talkTime?: number;
   /**
+   * @remarks
+   * The number of talk turns.
+   * 
    * @example
    * 1
    */
   talkTurns?: number;
   /**
+   * @remarks
+   * The transfer target.
+   * 
    * @example
    * default@testinstance1
    */
   transferTarget?: string;
   /**
+   * @remarks
+   * The transfer type.
+   * 
    * @example
    * Agent
    */
@@ -128,18 +173,31 @@ export class ListCallDetailRecordsResponseBodyDataCallDetailRecords extends $dar
 }
 
 export class ListCallDetailRecordsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of call detail records.
+   */
   callDetailRecords?: ListCallDetailRecordsResponseBodyDataCallDetailRecords[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
    * @example
    * 362
    */
@@ -176,25 +234,42 @@ export class ListCallDetailRecordsResponseBodyData extends $dara.Model {
 
 export class ListCallDetailRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * An object containing the returned call records.
+   */
   data?: ListCallDetailRecordsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of invalid parameters in the request.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * A8AED3C8-F57B-5D71-9A34-4A170287533F

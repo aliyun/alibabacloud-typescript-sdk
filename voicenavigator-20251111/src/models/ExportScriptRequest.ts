@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportScriptRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * c28fc549-d88f-4f6e-85ad-a0806e5e39c0
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the script.
+   * 
    * @example
    * 64241e64-190c-45d1-af66-06f51c07b090
    */

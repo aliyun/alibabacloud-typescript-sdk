@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloneVoiceModelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
    * @example
    * 10
    */

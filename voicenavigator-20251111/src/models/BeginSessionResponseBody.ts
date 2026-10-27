@@ -6,6 +6,13 @@ import * as $dara from '@darabonba/typescript';
  */
 export class BeginSessionResponseBodyDataControlParamsList extends $dara.Model {
   /**
+   * @remarks
+   * The control parameter type. Valid values:
+   * >- HangUp: Hang up.
+   * >- Transfer: Transfer.
+   * >- GatherDtmf: Gather DTMF.
+   * >- Voice: Voice.
+   * 
    * @example
    * Voice
    */
@@ -32,29 +39,55 @@ export class BeginSessionResponseBodyDataControlParamsList extends $dara.Model {
 }
 
 export class BeginSessionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The chatbot reply content.
+   * 
+   * @example
+   * Hello, welcome to STO Express. How can I help you?
+   */
   answer?: string;
+  /**
+   * @remarks
+   * The list of control parameters.
+   */
   controlParamsList?: BeginSessionResponseBodyDataControlParamsList[];
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 1752283603978
    */
   endTime?: number;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 07d72ea0-6e38-48d4-8371-14deaaba996f
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1774858849987
    */
   startTime?: number;
   /**
+   * @remarks
+   * Specifies whether the streaming response has ended.
+   * 
    * @example
    * true
    */
   streamEnd?: boolean;
   /**
+   * @remarks
+   * The turn ID of the conversation.
+   * 
    * @example
    * 1
    */
@@ -97,23 +130,43 @@ export class BeginSessionResponseBodyData extends $dara.Model {
 
 export class BeginSessionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code. A value of OK indicates that the request is successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: BeginSessionResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 indicates that the HTTP request is successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The HTTP response message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The POP request ID.
+   * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
    */

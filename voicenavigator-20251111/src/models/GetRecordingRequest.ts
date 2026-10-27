@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRecordingRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 868eef14-7515-4856-8a50-5c9a22abdbcc
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 89ab28c2-eb94-4010-a539-f0eee922e371
    */

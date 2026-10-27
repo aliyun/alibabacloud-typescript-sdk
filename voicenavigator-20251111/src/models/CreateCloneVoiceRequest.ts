@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCloneVoiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The path of the uploaded file.
+   * 
+   * @example
+   * voice_clone/VoiceCloneUnitTest.wav
+   */
   fileKey?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * da37319b-6c83-4268-9f19-814aed62e401
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The voice cloning model.
+   * 
    * @example
    * CosyVoice
    */

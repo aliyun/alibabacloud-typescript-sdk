@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * F132DDBA-66C4-5BD3-BF7E-9642FE877159
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F132DDBA-66C4-5BD3-BF7E-9642FE877158
    */

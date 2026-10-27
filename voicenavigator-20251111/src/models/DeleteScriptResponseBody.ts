@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * 64241e64-190c-45d1-af66-06f51c07b090
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D24E0148-6D40-550E-9471-B2C5A34C3D12
    */

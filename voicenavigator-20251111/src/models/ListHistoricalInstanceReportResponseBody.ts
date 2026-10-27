@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The number of answered calls.
+   * 
    * @example
    * 7
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * The number of offered calls.
+   * 
    * @example
    * 10
    */
   callsOffered?: number;
   /**
+   * @remarks
+   * The number of rejected calls.
+   * 
    * @example
    * 3
    */
   callsRejected?: number;
   /**
+   * @remarks
+   * The number of calls classified as resolved by the large language model (LLM).
+   * 
    * @example
    * 4
    */
   callsResolved?: number;
   /**
+   * @remarks
+   * The most recent concurrency configuration.
+   * 
    * @example
    * 2
    */
   configuredConcurrency?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 38d5fb05092b469e86b6061ad7945437
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The breakdown of labels.
+   * 
    * @example
    * {
    *   "label1":{ 
@@ -44,11 +65,17 @@ export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Mode
    */
   labelBreakdown?: string;
   /**
+   * @remarks
+   * The maximum talk time in milliseconds (ms).
+   * 
    * @example
    * 20
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The breakdown of rejection reasons.
+   * 
    * @example
    * {
    *   "ConcurrentLimitExceeded":3
@@ -56,6 +83,9 @@ export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Mode
    */
   rejectionBreakdown?: string;
   /**
+   * @remarks
+   * A breakdown of release reasons for answered calls.
+   * 
    * @example
    * {
    *   "SilenceTimeout":1,
@@ -67,6 +97,9 @@ export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Mode
    */
   releaseReasonBreakdown?: string;
   /**
+   * @remarks
+   * The distribution of conversation turns.
+   * 
    * @example
    * {
    *   "1":2,
@@ -75,26 +108,41 @@ export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Mode
    */
   talkTurnsDistribution?: string;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalInputTokens?: number;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalOutputTokens?: number;
   /**
+   * @remarks
+   * The total talk time in milliseconds (ms).
+   * 
    * @example
    * 100
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * 0
    */
   totalTokens?: number;
   /**
+   * @remarks
+   * The peak number of concurrent calls.
+   * 
    * @example
    * 11
    */
@@ -151,18 +199,31 @@ export class ListHistoricalInstanceReportResponseBodyDataList extends $dara.Mode
 }
 
 export class ListHistoricalInstanceReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of historical reports for the instances.
+   */
   list?: ListHistoricalInstanceReportResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
@@ -199,25 +260,42 @@ export class ListHistoricalInstanceReportResponseBodyData extends $dara.Model {
 
 export class ListHistoricalInstanceReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListHistoricalInstanceReportResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of error parameters.
+   */
   params?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 9DB8BA95-4513-54B9-9C67-A28909CFB4AD

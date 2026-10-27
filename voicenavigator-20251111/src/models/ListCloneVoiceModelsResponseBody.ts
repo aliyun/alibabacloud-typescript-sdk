@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the model.
+   * 
+   * @example
+   * 口音还原相似度高、韵律流畅
+   */
   description?: string;
   /**
+   * @remarks
+   * The display name of the model.
+   * 
    * @example
    * CosyVoice
    */
   displayName?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * CosyVoice
    */
@@ -40,18 +53,31 @@ export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.
 }
 
 export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of clone voice models.
+   */
   cloneVoiceModels?: ListCloneVoiceModelsResponseBodyDataCloneVoiceModels[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 66
    */
@@ -88,24 +114,44 @@ export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
 
 export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code of the request. A value of "OK" indicates success.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated data.
+   */
   data?: ListCloneVoiceModelsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The detailed message returned for the request. It provides more context about the status code.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The unique ID generated for the request.
+   * 
    * @example
    * 9DB8BA95-4513-54B9-9C67-A28909CFB4AD
    */

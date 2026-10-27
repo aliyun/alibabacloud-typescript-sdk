@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoiceEnginesResponseBodyDataVoiceEngines extends $dara.Model {
   /**
+   * @remarks
+   * The engine configuration.
+   * 
    * @example
    * [{\\"displayName\\":\\"AppKey\\",\\"maxLength\\":64,\\"name\\":\\"AppKey\\",\\"order\\":1,\\"required\\":true},{\\"displayName\\":\\"AccessKey\\",\\"maxLength\\":64,\\"name\\":\\"AccessKey\\",\\"order\\":2,\\"required\\":true}]
    */
   configSchema?: string;
   /**
+   * @remarks
+   * The voice engine.
+   * 
    * @example
    * VOLC
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * Doubao
+   */
   nlsEngineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,20 +54,33 @@ export class ListVoiceEnginesResponseBodyDataVoiceEngines extends $dara.Model {
 
 export class ListVoiceEnginesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of voice engine objects.
+   */
   voiceEngines?: ListVoiceEnginesResponseBodyDataVoiceEngines[];
   static names(): { [key: string]: string } {
     return {
@@ -88,24 +114,44 @@ export class ListVoiceEnginesResponseBodyData extends $dara.Model {
 
 export class ListVoiceEnginesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated results of voice engines.
+   */
   data?: ListVoiceEnginesResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7401D698-0AAC-5909-B68E-88C68805FFB8
    */

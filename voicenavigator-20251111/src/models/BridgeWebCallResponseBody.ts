@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class BridgeWebCallResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * 1515602866088888___5ec8446df1e2495a97969e887ab9e748
    */
   channelId?: string;
   /**
+   * @remarks
+   * The expiration time of the token.
+   * 
    * @example
    * 1774794266093
    */
   expirationTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The server URL.
+   */
   serverUrl?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * f814f3ae-b2a7-44fb-883c-771221274673
    */
@@ -65,23 +81,43 @@ export class BridgeWebCallResponseBodyData extends $dara.Model {
 
 export class BridgeWebCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The call record.
+   */
   data?: BridgeWebCallResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
    */

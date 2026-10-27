@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSubscriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 19ac2375-53e3-477f-abe9-6cd334227981
    */

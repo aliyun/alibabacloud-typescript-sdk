@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of `OK` indicates a successful request.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
    * 64241e64-190c-45d1-af66-06f51c07b090
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic parameters for the error message.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 83C6DA11-798F-5524-AB1D-555263E7A400
    */

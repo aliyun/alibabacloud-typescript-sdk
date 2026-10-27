@@ -4,28 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class PreviewVoiceShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * da37319b-6c83-4268-9f19-814aed62e401
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The TTS model.
+   * 
    * @example
    * Qwen
    */
   model?: string;
   /**
+   * @remarks
+   * The TTS invocation method.
+   * 
    * @example
    * MANAGED
    */
   nlsAccessType?: string;
   /**
+   * @remarks
+   * The TTS engine.
+   * 
    * @example
    * BAILIAN
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * The synthesis parameters.
+   */
   paramsShrink?: string;
+  /**
+   * @remarks
+   * The preview text.
+   * 
+   * @example
+   * Hello, nice to meet you
+   */
   text?: string;
   /**
+   * @remarks
+   * The voice.
+   * 
    * @example
    * Cherry
    */

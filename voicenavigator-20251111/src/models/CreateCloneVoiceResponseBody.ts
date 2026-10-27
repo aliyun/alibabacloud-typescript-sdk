@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCloneVoiceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cloned voice ID.
+   * 
    * @example
    * 8ee1160a-6999-478f-8df6-f33ef21f27d5
    */
   cloneVoiceId?: string;
   /**
+   * @remarks
+   * The speaker.
+   * 
    * @example
    * cosyvoice-v3-plus-voicebot2-3666e4bbb2b94832ac4f4107b5804c34
    */
@@ -38,24 +44,44 @@ export class CreateCloneVoiceResponseBodyData extends $dara.Model {
 
 export class CreateCloneVoiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The cloned voice object.
+   */
   data?: CreateCloneVoiceResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F132DDBA-66C4-5BD3-BF7E-9642FE877158
    */

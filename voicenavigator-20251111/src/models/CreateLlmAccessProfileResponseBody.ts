@@ -4,28 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLlmAccessProfileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the third-party model configuration.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75BAAB9B-40B2-5FF5-A59A-7BCF8154C6EE
    */

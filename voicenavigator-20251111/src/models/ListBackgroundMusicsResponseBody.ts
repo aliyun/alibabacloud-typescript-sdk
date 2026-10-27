@@ -11,6 +11,13 @@ export class ListBackgroundMusicsResponseBodyDataBackgroundMusics extends $dara.
    * 3258b551-4847-45fa-bbd8-838d90b90080
    */
   id?: string;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * Office ambiance
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,18 +43,31 @@ export class ListBackgroundMusicsResponseBodyDataBackgroundMusics extends $dara.
 }
 
 export class ListBackgroundMusicsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of background music tracks.
+   */
   backgroundMusics?: ListBackgroundMusicsResponseBodyDataBackgroundMusics[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
@@ -84,24 +104,44 @@ export class ListBackgroundMusicsResponseBodyData extends $dara.Model {
 
 export class ListBackgroundMusicsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated result of the background music list.
+   */
   data?: ListBackgroundMusicsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7401D698-0AAC-5909-B68E-88C68805FFB8
    */

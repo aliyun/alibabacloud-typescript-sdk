@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHistoricalInstanceReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time for the query. The server rounds this value up to the next hour.
+   * 
    * @example
    * 1775131200000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * A JSON array of instance IDs. The array can contain up to 100 IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The number of the page to return. The maximum value is 100.
+   * 
    * @example
    * 2
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. The maximum value is 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The start time for the query. The server rounds this value up to the next hour.
+   * 
    * @example
    * 1775044800000
    */

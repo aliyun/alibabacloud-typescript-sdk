@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstructionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instruction code.
+   * 
    * @example
    * Transfer00
    */
   code?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
    */

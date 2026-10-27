@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetVocabularyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * d74d6290-7cbe-4436-b5d7-014ebb0f4060
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The vocabulary ID.
+   * 
    * @example
    * d74d6290-7cbe-4436-b5d7-014ebb0f4061
    */

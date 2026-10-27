@@ -4,17 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScriptVersionRequestInteractionConfigEndConversationConfigTriggers extends $dara.Model {
   /**
+   * @remarks
+   * The closing statement played when the turn limit is reached and the hang-up action is executed.
+   * 
    * @example
-   * 感谢您的接听，祝您生活愉快，再见!
+   * Thank you for your time. Have a nice day. Goodbye!
    */
   closingStatement?: string;
+  /**
+   * @remarks
+   * The list of custom interception keywords.
+   */
   keyWords?: string[];
   /**
+   * @remarks
+   * Valid values:\\
+   * - TurnLimit: Maximum interaction turn check.\\
+   * - IntelligentVoiceAssistant: Voice assistant.\\
+   * - InteractiveVoiceResponse: Extension transfer.\\
+   * - KeyWords: Custom interception.
+   * 
    * @example
    * TurnLimit
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The maximum number of interaction turns before the hang-up action is executed. Valid values: 0 to 100. A value of 0 indicates that the turn-limit hang-up feature is disabled.
+   * 
    * @example
    * 20
    */
@@ -51,10 +68,17 @@ export class CreateScriptVersionRequestInteractionConfigEndConversationConfigTri
 
 export class CreateScriptVersionRequestInteractionConfigEndConversationConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of seconds to wait after the hang-up script finishes playing before executing the hang-up action. Valid values: 0 to 5.
+   * 
    * @example
    * 1
    */
   delay?: number;
+  /**
+   * @remarks
+   * The special case interception rules.
+   */
   triggers?: CreateScriptVersionRequestInteractionConfigEndConversationConfigTriggers[];
   static names(): { [key: string]: string } {
     return {
@@ -84,11 +108,20 @@ export class CreateScriptVersionRequestInteractionConfigEndConversationConfig ex
 
 export class CreateScriptVersionRequestInteractionConfigSilenceDetectionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of consecutive silence turns before the hang-up action is executed.\\
+   * This parameter takes effect when NluEngine is set to PROMPTS for the current scenario.
+   * 
    * @example
    * 3
    */
   maxRepeats?: number;
   /**
+   * @remarks
+   * The silence timeout period, in milliseconds.\\
+   * When the user remains silent for longer than the specified value, the silence timeout script is played.\\
+   * Valid values: 2000 to 10000.
+   * 
    * @example
    * 5000
    */
@@ -118,16 +151,30 @@ export class CreateScriptVersionRequestInteractionConfigSilenceDetectionConfig e
 
 export class CreateScriptVersionRequestInteractionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The background music ID.
+   * 
    * @example
    * office-ambience
    */
   backgroundMusicId?: string;
+  /**
+   * @remarks
+   * The hang-up configuration.
+   */
   endConversationConfig?: CreateScriptVersionRequestInteractionConfigEndConversationConfig;
   /**
+   * @remarks
+   * The delay before playing the greeting after the call is connected. Unit: milliseconds.
+   * 
    * @example
    * 2000
    */
   initialGreetingDelayMilliseconds?: number;
+  /**
+   * @remarks
+   * The silence detection configuration.
+   */
   silenceDetectionConfig?: CreateScriptVersionRequestInteractionConfigSilenceDetectionConfig;
   static names(): { [key: string]: string } {
     return {
@@ -163,8 +210,26 @@ export class CreateScriptVersionRequestInteractionConfig extends $dara.Model {
 }
 
 export class CreateScriptVersionRequestLabelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of candidate values for the label.
+   */
   candidateValues?: string[];
+  /**
+   * @remarks
+   * The label description.
+   * 
+   * @example
+   * Whether the user agrees to repay before the repayment deadline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The label name.
+   * 
+   * @example
+   * Agree to repay
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -195,8 +260,18 @@ export class CreateScriptVersionRequestLabelConfig extends $dara.Model {
 }
 
 export class CreateScriptVersionRequestScriptProfileAgentProfile extends $dara.Model {
+  /**
+   * @remarks
+   * The prompt in JSON format.
+   * 
+   * @example
+   * {\\"prompts\\":\\"I am a chatbot.\\"}
+   */
   promptsJson?: string;
   /**
+   * @remarks
+   * The scenario template ID.
+   * 
    * @example
    * CCC_PROMPTS_DEFAULT
    */
@@ -226,26 +301,46 @@ export class CreateScriptVersionRequestScriptProfileAgentProfile extends $dara.M
 
 export class CreateScriptVersionRequestScriptProfileFunctionMeta extends $dara.Model {
   /**
+   * @remarks
+   * The function service ID.\\
+   * This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+   * 
    * @example
    * 9b752bbb-805a-4d3e-9013-eab5555c3fef
    */
   functionId?: string;
   /**
+   * @remarks
+   * The function service name.\\
+   * This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+   * 
    * @example
    * my_funciton
    */
   functionName?: string;
   /**
+   * @remarks
+   * The HTTP trigger name.\\
+   * This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+   * 
    * @example
    * defaultTrigger
    */
   httpTriggerName?: string;
   /**
+   * @remarks
+   * The HTTP trigger URL.\\
+   * This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+   * 
    * @example
    * http://chat-xxxxx-v-yewiundukb.cn-hangzhou-xxx.run
    */
   httpTriggerUrl?: string;
   /**
+   * @remarks
+   * The region where the function service resides.\\
+   * This parameter is required when NluEngine is set to FUNCTION for the current scenario.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -281,6 +376,9 @@ export class CreateScriptVersionRequestScriptProfileFunctionMeta extends $dara.M
 
 export class CreateScriptVersionRequestScriptProfileNluAccessProfile extends $dara.Model {
   /**
+   * @remarks
+   * The third-party conversation model configuration ID.
+   * 
    * @example
    * c2c9baae-9351-4c49-a8cb-6f24a83a8718
    */
@@ -308,29 +406,59 @@ export class CreateScriptVersionRequestScriptProfileNluAccessProfile extends $da
 
 export class CreateScriptVersionRequestScriptProfile extends $dara.Model {
   /**
+   * @remarks
+   * The AgentKey of the chatbot.\\
+   * This parameter is required when NluEngine is set to BEEBOT for the current scenario.
+   * 
    * @example
    * 1309723684579735_p_beebot_public
    */
   agentKey?: string;
+  /**
+   * @remarks
+   * The conversation agent configuration.
+   */
   agentProfile?: CreateScriptVersionRequestScriptProfileAgentProfile;
   /**
+   * @remarks
+   * The chatbot ID.\\
+   * This parameter is required when NluEngine is set to BEEBOT for the current scenario.
+   * 
    * @example
    * chatbot-cn-MQuyjjb666
    */
   chatbotId?: string;
+  /**
+   * @remarks
+   * The Function Compute configuration.
+   */
   functionMeta?: CreateScriptVersionRequestScriptProfileFunctionMeta;
   /**
+   * @remarks
+   * The conversation model.\\
+   * This parameter is required when NluEngine is set to PROMPTS for the current scenario.
+   * 
    * @example
    * qwen-plus
    */
   model?: string;
+  /**
+   * @remarks
+   * The associated configuration.
+   */
   nluAccessProfile?: CreateScriptVersionRequestScriptProfileNluAccessProfile;
   /**
+   * @remarks
+   * The conversation model invocation method.
+   * 
    * @example
    * MANAGED
    */
   nluAccessType?: string;
   /**
+   * @remarks
+   * Specifies whether the model is an Omni model.
+   * 
    * @example
    * true
    */
@@ -381,6 +509,9 @@ export class CreateScriptVersionRequestScriptProfile extends $dara.Model {
 
 export class CreateScriptVersionRequestSynthesizerConfigNlsAccessProfile extends $dara.Model {
   /**
+   * @remarks
+   * The third-party voice configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
+   * 
    * @example
    * c2c9baae-9351-4c49-a8cb-6f24a83a8718
    */
@@ -407,7 +538,21 @@ export class CreateScriptVersionRequestSynthesizerConfigNlsAccessProfile extends
 }
 
 export class CreateScriptVersionRequestSynthesizerConfigPronRules extends $dara.Model {
+  /**
+   * @remarks
+   * The commonly mispronounced word.
+   * 
+   * @example
+   * 还钱
+   */
   pattern?: string;
+  /**
+   * @remarks
+   * The homophone replacement word.
+   * 
+   * @example
+   * 环钱
+   */
   replacement?: string;
   static names(): { [key: string]: string } {
     return {
@@ -434,38 +579,73 @@ export class CreateScriptVersionRequestSynthesizerConfigPronRules extends $dara.
 
 export class CreateScriptVersionRequestSynthesizerConfig extends $dara.Model {
   /**
+   * @remarks
+   * The TTS model.
+   * 
    * @example
    * CosyVoice
    */
   model?: string;
+  /**
+   * @remarks
+   * The associated configuration.
+   */
   nlsAccessProfile?: CreateScriptVersionRequestSynthesizerConfigNlsAccessProfile;
   /**
+   * @remarks
+   * The TTS invocation method.
+   * 
    * @example
    * MANAGED
    */
   nlsAccessType?: string;
   /**
+   * @remarks
+   * The TTS engine.
+   * 
    * @example
    * BAILIAN
    */
   nlsEngine?: string;
   /**
+   * @remarks
+   * The pitch rate.\\
+   * Valid values: -500 to 500.\\
+   * Default value: 0.
+   * 
    * @example
    * 0
    */
   pitchRate?: number;
+  /**
+   * @remarks
+   * The TTS pronunciation correction list.
+   */
   pronRules?: CreateScriptVersionRequestSynthesizerConfigPronRules[];
   /**
+   * @remarks
+   * The speech rate.\\
+   * Valid values: -500 to 500.\\
+   * Default value: 0.
+   * 
    * @example
    * 0
    */
   speechRate?: number;
   /**
+   * @remarks
+   * The voice speaker.
+   * 
    * @example
    * longanyang
    */
   voice?: string;
   /**
+   * @remarks
+   * The volume.\\
+   * Valid values: 0 to 100.\\
+   * Default value: 50.
+   * 
    * @example
    * 50
    */
@@ -541,6 +721,9 @@ export class CreateScriptVersionRequestTranscriberConfigCorrectionRules extends 
 
 export class CreateScriptVersionRequestTranscriberConfigNlsAccessProfile extends $dara.Model {
   /**
+   * @remarks
+   * The third-party voice configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
+   * 
    * @example
    * c2c9baae-9351-4c49-a8cb-6f24a83a8718
    */
@@ -569,37 +752,66 @@ export class CreateScriptVersionRequestTranscriberConfigNlsAccessProfile extends
 export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
   correctionRules?: CreateScriptVersionRequestTranscriberConfigCorrectionRules[];
   /**
+   * @remarks
+   * The custom language model ID for ASR.
+   * 
    * @example
    * cd97223f-42f2-4cd9-95af-e734e2fe1fe4
    */
   customizationId?: string;
   /**
+   * @remarks
+   * The silence detection threshold. When the silence interval between speech segments exceeds x milliseconds, sentence segmentation is triggered (Voice Activity Detection, or VAD).
+   * 
    * @example
    * 700
    */
   endSilenceTimeout?: number;
   /**
+   * @remarks
+   * The ASR model.
+   * 
    * @example
    * Paraformer
    */
   model?: string;
+  /**
+   * @remarks
+   * The associated configuration.
+   */
   nlsAccessProfile?: CreateScriptVersionRequestTranscriberConfigNlsAccessProfile;
   /**
+   * @remarks
+   * The ASR invocation method.
+   * 
    * @example
    * MANAGED
    */
   nlsAccessType?: string;
   /**
+   * @remarks
+   * The ASR engine.
+   * 
    * @example
    * BAILIAN
    */
   nlsEngine?: string;
   /**
+   * @remarks
+   * The noise threshold. Valid values: -100 to 100.
+   * 
+   * A value closer to -100 increases the probability that noise is classified as speech.
+   * 
+   * A value closer to +100 increases the probability that speech is classified as noise.
+   * 
    * @example
    * 0
    */
   speechNoiseThreshold?: number;
   /**
+   * @remarks
+   * The hot word list ID. You can obtain this ID from the hot word management page.
+   * 
    * @example
    * cd97223f-42f2-4cd9-95af-e734e2fe1fe3
    */
@@ -649,20 +861,50 @@ export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
 
 export class CreateScriptVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * abb4aa26-3a8e-43dd-82f8-0c3898c9c67f
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The interaction configuration.
+   */
   interactionConfig?: CreateScriptVersionRequestInteractionConfig;
+  /**
+   * @remarks
+   * The custom label configuration.
+   */
   labelConfig?: CreateScriptVersionRequestLabelConfig[];
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * 64241e64-190c-45d1-af66-06f51c07b090
    */
   scriptId?: string;
+  /**
+   * @remarks
+   * The conversation capability configuration.
+   */
   scriptProfile?: CreateScriptVersionRequestScriptProfile;
+  /**
+   * @example
+   * d7b8a210-1f2d-4c5b-8a63-01e4f3b7c9d2
+   */
   sourceVersionId?: string;
+  /**
+   * @remarks
+   * The TTS configuration.
+   */
   synthesizerConfig?: CreateScriptVersionRequestSynthesizerConfig;
+  /**
+   * @remarks
+   * The ASR configuration.
+   */
   transcriberConfig?: CreateScriptVersionRequestTranscriberConfig;
   static names(): { [key: string]: string } {
     return {

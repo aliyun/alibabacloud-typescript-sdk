@@ -4,18 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScriptRequest extends $dara.Model {
   /**
+   * @remarks
+   * The concurrency.
+   * 
    * @example
    * 10
    */
   concurrency?: number;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * First navigation instance
+   */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * Navigation test instance
+   */
   name?: string;
   /**
+   * @remarks
+   * The NLU engine. Valid values:
+   * - PROMPTS: Prompt mode.
+   * - FUNCTION: Function computing mode.
+   * - BEEBOT: Workflow mode.
+   * 
    * @example
    * BEEBOT
    */

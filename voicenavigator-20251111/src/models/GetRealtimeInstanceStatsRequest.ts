@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRealtimeInstanceStatsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 12f407b22cbe4890ac595f09985848d5
    */

@@ -4,53 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   /**
+   * @remarks
+   * The concurrency.
+   * 
    * @example
    * 10
    */
   concurrency?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1773228988000
    */
   createdTime?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Used for testing
+   */
   description?: string;
   /**
+   * @remarks
+   * The draft version ID.
+   * 
    * @example
    * efbafa38-336d-4eb0-865e-c16c97a91773
    */
   draftVersionId?: string;
+  /**
+   * @remarks
+   * The scenario name.
+   * 
+   * @example
+   * Navigation test scenario
+   */
   name?: string;
   /**
+   * @remarks
+   * The NLU invocation method.
+   * 
    * @example
    * MANAGED
    */
   nluAccessType?: string;
   /**
+   * @remarks
+   * The NLU engine.
+   * 
    * @example
    * BEEBOT
    */
   nluEngine?: string;
   /**
+   * @remarks
+   * The number.
+   * 
    * @example
    * 13816111993
    */
   number?: string;
   /**
+   * @remarks
+   * The published version ID.
+   * 
    * @example
    * efbafa38-336d-4eb0-865e-c16c97a91774
    */
   publishedVersionId?: string;
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * efbafa38-336d-4eb0-865e-c16c97a91772
    */
   scriptId?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * DRAFT
    */
   status?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1773228988000
    */
@@ -100,17 +144,30 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
 
 export class ListScriptsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of scenarios.
+   */
   scripts?: ListScriptsResponseBodyDataScripts[];
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 30
    */
@@ -147,24 +204,44 @@ export class ListScriptsResponseBodyData extends $dara.Model {
 
 export class ListScriptsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated result of the scenario list.
+   */
   data?: ListScriptsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA092E9B-3421-5862-BC75-E646B7587531
    */

@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNluModelsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * qwen-plus
    */
   id?: string;
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * 千问-Plus
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,24 +44,44 @@ export class ListNluModelsResponseBodyData extends $dara.Model {
 
 export class ListNluModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * A list of the NLU models.
+   */
   data?: ListNluModelsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * The dynamic parameters for the error.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7401D698-0AAC-5909-B68E-88C68805FFB8
    */

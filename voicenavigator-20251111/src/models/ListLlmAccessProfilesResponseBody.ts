@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLlmAccessProfilesResponseBodyDataLlmAccessProfilesProfile extends $dara.Model {
   /**
+   * @remarks
+   * The API key.
+   * 
    * @example
    * akm-93929110-d7c1-4014-8678-613aacd58fa2
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The service endpoint.
+   * 
    * @example
    * api.llm.enpoint.example.com
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The name of the configuration.
+   * 
+   * @example
+   * 千问Omni
+   */
   name?: string;
   /**
+   * @remarks
+   * The NLU access type.
+   * 
    * @example
    * MANAGED
    */
   nluAccessType?: string;
   /**
+   * @remarks
+   * The NLU engine.
+   * 
    * @example
    * BEEBOT
    */
@@ -55,22 +74,38 @@ export class ListLlmAccessProfilesResponseBodyDataLlmAccessProfilesProfile exten
 
 export class ListLlmAccessProfilesResponseBodyDataLlmAccessProfiles extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
   accessProfileId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1747620752000
    */
   createdTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 8fe2b8b1cdd446318610ccbc70bcfff0
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The parameter configuration.
+   */
   profile?: ListLlmAccessProfilesResponseBodyDataLlmAccessProfilesProfile;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1768788798
    */
@@ -108,18 +143,31 @@ export class ListLlmAccessProfilesResponseBodyDataLlmAccessProfiles extends $dar
 }
 
 export class ListLlmAccessProfilesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of third-party model configurations.
+   */
   llmAccessProfiles?: ListLlmAccessProfilesResponseBodyDataLlmAccessProfiles[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -156,24 +204,44 @@ export class ListLlmAccessProfilesResponseBodyData extends $dara.Model {
 
 export class ListLlmAccessProfilesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The paginated list of third-party model configurations.
+   */
   data?: ListLlmAccessProfilesResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance af81a389-91f0-4157-8d82-720edd02b66a
    *  does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of dynamic parameters associated with the error.
+   */
   params?: string[];
   /**
+   * @remarks
+   * A unique identifier for the request.
+   * 
    * @example
    * ED56B723-5802-5C32-865F-6E20B06D2455
    */

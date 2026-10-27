@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateVariableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * The current age of the user
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * Age
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 026ca0f4-483b-4252-ae1d-1f15f056f8b9
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The variable ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66b
    */
