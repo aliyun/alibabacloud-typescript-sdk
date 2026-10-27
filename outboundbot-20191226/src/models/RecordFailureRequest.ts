@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecordFailureRequest extends $dara.Model {
   /**
    * @remarks
-   * Call start time
+   * The start time of the call. The value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RecordFailureRequest extends $dara.Model {
   actualTime?: number;
   /**
    * @remarks
-   * Call ID
+   * The call ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RecordFailureRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Called number
+   * The called number.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RecordFailureRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Calling number
+   * The calling number.
    * 
    * This parameter is required.
    * 
@@ -45,13 +45,10 @@ export class RecordFailureRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * Failure reason.
-   * 
-   * - Nonexistent number (NotExists)
-   * 
-   * - Busy (Busy)
-   * 
-   * - No answer (NotAnswered)
+   * The cause of the failure. Valid values:
+   * - NotExists: nonexistent number.
+   * - Busy: busy.
+   * - NotAnswered: not answered.
    * 
    * This parameter is required.
    * 
@@ -61,13 +58,10 @@ export class RecordFailureRequest extends $dara.Model {
   dispositionCode?: string;
   /**
    * @remarks
-   * Error code when the outbound call fails.
-   * 
-   * - Nonexistent number (NotExists)
-   * 
-   * - Busy (Busy)
-   * 
-   * - No answer (NotAnswered)
+   * The error codes that occur when the outbound call fails. Valid values:
+   * - NotExists: nonexistent number.
+   * - Busy: busy.
+   * - NotAnswered: not answered.
    * 
    * @example
    * NotExists
@@ -75,7 +69,7 @@ export class RecordFailureRequest extends $dara.Model {
   exceptionCodes?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -85,7 +79,7 @@ export class RecordFailureRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * This parameter is required.
    * 

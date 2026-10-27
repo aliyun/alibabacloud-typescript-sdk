@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList extends $dara.Model {
   /**
    * @remarks
-   * The description of this published version.
+   * The publish description.
    * 
    * @example
-   * 第一次发布
+   * First release
    */
   description?: string;
   /**
@@ -21,7 +21,7 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList ex
   instanceId?: string;
   /**
    * @remarks
-   * The publish time.
+   * The publish time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578965079000
@@ -29,7 +29,7 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList ex
   publishTime?: number;
   /**
    * @remarks
-   * The script ID.
+   * The scenario ID.
    * 
    * @example
    * 29420f65-8f1f-4009-b2f8-f4f7b5d59090
@@ -75,7 +75,7 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList ex
 export class ListScriptPublishHistoriesResponseBodyScriptPublishHistories extends $dara.Model {
   /**
    * @remarks
-   * The data list.
+   * The data array.
    */
   list?: ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList[];
   /**
@@ -88,7 +88,7 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistories extend
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -96,7 +96,7 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistories extend
   pageSize?: number;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -151,7 +151,7 @@ export class ListScriptPublishHistoriesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The API message.
    * 
    * @example
    * Success
@@ -167,7 +167,7 @@ export class ListScriptPublishHistoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The script publishing histories.
+   * The publish history list.
    */
   scriptPublishHistories?: ListScriptPublishHistoriesResponseBodyScriptPublishHistories;
   /**

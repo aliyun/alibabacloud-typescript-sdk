@@ -16,7 +16,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
    * The industry.
    * 
    * @example
-   * 金融
+   * Finance
    */
   industry?: string;
   /**
@@ -40,7 +40,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
    * The scene.
    * 
    * @example
-   * 电销
+   * Telemarketing
    */
   scene?: string;
   /**
@@ -48,7 +48,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
    * The script description.
    * 
    * @example
-   * 销售话术
+   * Sales script
    */
   scriptDescription?: string;
   /**
@@ -64,7 +64,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
    * The script name.
    * 
    * @example
-   * 销售话术
+   * Sales script
    */
   scriptName?: string;
   /**

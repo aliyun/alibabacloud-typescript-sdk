@@ -13,7 +13,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   contactWhiteListId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640174411848
@@ -40,7 +40,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
    * The name.
    * 
    * @example
-   * John Smith
+   * Zhang San
    */
   name?: string;
   /**
@@ -61,7 +61,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   phoneNumber?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * xxxx
@@ -105,7 +105,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
 export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.Model {
   /**
    * @remarks
-   * The contact list.
+   * The contact whitelist.
    * 
    * @example
    * {}
@@ -176,7 +176,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The contact list.
+   * The contact whitelist.
    * 
    * @example
    * {}
@@ -192,7 +192,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The API response message.
+   * The API message.
    * 
    * @example
    * Success

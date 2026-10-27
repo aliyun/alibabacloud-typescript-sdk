@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListBeebotIntentUserSayRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword in the user utterance.
+   * The keyword in the utterance content.
    * 
    * @example
-   * 知道
+   * know
    */
   content?: string;
   /**
@@ -43,7 +43,7 @@ export class ListBeebotIntentUserSayRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to display on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

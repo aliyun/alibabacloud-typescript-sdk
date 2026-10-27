@@ -16,11 +16,10 @@ export class ListBeebotIntentRequest extends $dara.Model {
   /**
    * @remarks
    * The intent name.
-   * 
-   * > This is the intent code. It uniquely identifies the intent.
+   * > The intent code, which is a unique identifier.
    * 
    * @example
-   * 知道了
+   * Understood
    */
   intentName?: string;
   /**
@@ -35,7 +34,7 @@ export class ListBeebotIntentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

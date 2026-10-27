@@ -15,7 +15,7 @@ export class ListJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of job IDs. A maximum of 99 child items are allowed.
+   * The list of job IDs. Note: A maximum of 99 job IDs can be specified.
    * 
    * This parameter is required.
    * 

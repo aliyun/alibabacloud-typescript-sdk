@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchJobsResponseBodyBatchJobStrategyWorkingTime extends $dara.Model {
   /**
    * @remarks
-   * Start time.
+   * The start time. The format is HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -13,7 +13,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategyWorkingTime extends $dar
   beginTime?: string;
   /**
    * @remarks
-   * End time.
+   * The end time. The format is HH:mm:ss.
    * 
    * @example
    * 12:00:00
@@ -45,7 +45,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategyWorkingTime extends $dar
 export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   /**
    * @remarks
-   * Custom information for the policy.
+   * The custom information of the strategy.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   customized?: string;
   /**
    * @remarks
-   * End time of the scheduling policy.
+   * The end time of the scheduling strategy. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 2209702074000
@@ -61,7 +61,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Action to take for outbound calls that were not completed in the previous cycle.
+   * The follow-up strategy for outbound calls that are not completed in the previous cycle.
    * 
    * @example
    * CONTINUE
@@ -69,7 +69,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   followUpStrategy?: string;
   /**
    * @remarks
-   * Indicates whether the policy is a template.
+   * Indicates whether the strategy is a template.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   isTemplate?: boolean;
   /**
    * @remarks
-   * Maximum number of retries per day after a failed call.
+   * The maximum number of retries per day after a call fails.
    * 
    * @example
    * 3
@@ -85,7 +85,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   maxAttemptsPerDay?: number;
   /**
    * @remarks
-   * Minimum interval between retries.
+   * The minimum interval between retries.
    * 
    * @example
    * 10
@@ -93,7 +93,11 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
-   * How often the job repeats. Valid values: Once, Day, Week, and Month.
+   * The repetition mode. Valid values:
+   * - Once: The job is not repeated.
+   * - Day: The job is repeated every day.
+   * - Week: The job is repeated every week.
+   * - Month: The job is repeated every month.
    * 
    * @example
    * Once
@@ -101,12 +105,12 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   repeatBy?: string;
   /**
    * @remarks
-   * List of days on which the job repeats.
+   * The list of days on which the job is repeated.
    */
   repeatDays?: string[];
   /**
    * @remarks
-   * Recording policy for caller numbers.
+   * The recording strategy for the calling number.
    * 
    * @example
    * LocalFirst
@@ -114,7 +118,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   routingStrategy?: string;
   /**
    * @remarks
-   * Start time when the job group begins execution.
+   * The time when the job group starts to be executed. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578550074000
@@ -122,15 +126,15 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Description of the policy.
+   * The strategy description.
    * 
    * @example
-   * 作业执行策略
+   * Job execution strategy
    */
   strategyDescription?: string;
   /**
    * @remarks
-   * ID of the policy.
+   * The strategy ID.
    * 
    * @example
    * f718798d-96be-40e4-bef6-317b54855708
@@ -138,15 +142,15 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   strategyId?: string;
   /**
    * @remarks
-   * Name of the policy.
+   * The strategy name.
    * 
    * @example
-   * 策略
+   * Strategy
    */
   strategyName?: string;
   /**
    * @remarks
-   * Type of the policy.
+   * The strategy type.
    * 
    * @example
    * Repeatable
@@ -154,7 +158,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Time periods during which the job runs each day.
+   * The time periods during which the job is executed in a day.
    */
   workingTime?: CreateBatchJobsResponseBodyBatchJobStrategyWorkingTime[];
   static names(): { [key: string]: string } {
@@ -215,7 +219,7 @@ export class CreateBatchJobsResponseBodyBatchJobStrategy extends $dara.Model {
 export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
   /**
    * @remarks
-   * ID of the job group.
+   * The job group ID.
    * 
    * @example
    * 5a7e8b09-baf9-4cab-b540-c971f47a7146
@@ -223,12 +227,12 @@ export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
   batchJobId?: string;
   /**
    * @remarks
-   * List of caller numbers.
+   * The list of calling numbers.
    */
   callingNumbers?: string[];
   /**
    * @remarks
-   * Time when the job group was created.
+   * The time when the job group was created. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579068424000
@@ -236,7 +240,7 @@ export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * Key of the uploaded Excel file.
+   * The key of the uploaded Excel file.
    * 
    * @example
    * 52e80b02-0126-4556-a1e6-ef5b3747ed53/a9a3ddc7-d7d7-48cd-82b5-b31bb5510e71_2a66f8ad-dfbb-4980-9b84-439171295a11.xlsx
@@ -244,23 +248,23 @@ export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
   jobFilePath?: string;
   /**
    * @remarks
-   * Description of the job group.
+   * The description of the job group.
    * 
    * @example
-   * 第一个批量作业
+   * First batch job
    */
   jobGroupDescription?: string;
   /**
    * @remarks
-   * Name of the job group.
+   * The name of the job group.
    * 
    * @example
-   * 批量作业01
+   * Batch job 01
    */
   jobGroupName?: string;
   /**
    * @remarks
-   * ID of the scenario for the job group.
+   * The scenario ID of the job group.
    * 
    * @example
    * 6cea9bed-63e6-439e-ae4c-b3333efff53d
@@ -268,7 +272,7 @@ export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * Job execution policy.
+   * The job execution strategy.
    */
   strategy?: CreateBatchJobsResponseBodyBatchJobStrategy;
   static names(): { [key: string]: string } {
@@ -315,12 +319,12 @@ export class CreateBatchJobsResponseBodyBatchJob extends $dara.Model {
 export class CreateBatchJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the job group.
+   * The job group information.
    */
   batchJob?: CreateBatchJobsResponseBodyBatchJob;
   /**
    * @remarks
-   * API status code.
+   * The API status code.
    * 
    * @example
    * OK
@@ -328,7 +332,7 @@ export class CreateBatchJobsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -336,7 +340,7 @@ export class CreateBatchJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The message.
    * 
    * @example
    * Success
@@ -344,7 +348,7 @@ export class CreateBatchJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -352,7 +356,7 @@ export class CreateBatchJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

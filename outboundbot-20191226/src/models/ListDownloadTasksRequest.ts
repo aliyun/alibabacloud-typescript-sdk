@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownloadTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * ae4572af-376f-439f-8970-38764acbaa91
@@ -13,7 +13,7 @@ export class ListDownloadTasksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListDownloadTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Count
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

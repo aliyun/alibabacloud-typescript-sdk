@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadScriptRecordingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class UploadScriptRecordingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UploadScriptRecordingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Interface message
+   * The response message.
    * 
    * @example
    * Success
@@ -29,7 +29,7 @@ export class UploadScriptRecordingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -37,7 +37,7 @@ export class UploadScriptRecordingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Is successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class UploadScriptRecordingResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Unique recording ID
+   * The unique ID of the recording.
    * 
    * @example
    * 5feaab8a-97fd-4720-8108-79e017f2d3ac

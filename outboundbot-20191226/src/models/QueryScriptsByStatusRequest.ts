@@ -25,7 +25,7 @@ export class QueryScriptsByStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * This parameter is required.
    * 

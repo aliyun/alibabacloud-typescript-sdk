@@ -13,7 +13,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
   fcFunction?: string;
   /**
    * @remarks
-   * The function service trigger URL.
+   * The function service trigger.
    * 
    * @example
    * http://sanfang_test-xxxxxx.cn-shanghai-vpc.fcapp.run
@@ -21,7 +21,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
   fcHttpTriggerUrl?: string;
   /**
    * @remarks
-   * The function service region.
+   * The region of the function service.
    * 
    * @example
    * cn-shanghai
@@ -55,7 +55,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
 export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   /**
    * @remarks
-   * The access key of the robot business workspace.
+   * The access key of the robot workspace.
    * 
    * @example
    * 14791f5f226b4878b3d9b676a0291234
@@ -63,16 +63,23 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * Indicates whether the robot business workspace is a large model workspace.
+   * Indicates whether the robot workspace is a large model workspace.
    * 
    * @example
    * false
    */
   agentLlm?: boolean;
+  /**
+   * @remarks
+   * The chatbot ID.
+   * 
+   * @example
+   * d31794e2a51f47d2901b4094d88311d7
+   */
   chatBotId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578965079000
@@ -88,7 +95,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   debugStatus?: string;
   /**
    * @remarks
-   * Indicates whether the emotion recognition feature is enabled. This parameter is set to false for all large model scenarios.
+   * Indicates whether the emotion recognition configuration is enabled. This value is always false for large models.
    * 
    * @example
    * false
@@ -104,7 +111,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   industry?: string;
   /**
    * @remarks
-   * Indicates whether the debug version is in draft state.
+   * Indicates whether the debug version is in the draft state.
    * 
    * @example
    * true
@@ -128,7 +135,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   isPreset?: boolean;
   /**
    * @remarks
-   * Indicates whether the long pause detection feature is enabled. This parameter is set to false for all large model scenarios.
+   * Indicates whether the long pause configuration is enabled. This value is always false for large models.
    * 
    * @example
    * false
@@ -136,7 +143,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   longWaitEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the filler phrase feature is enabled.
+   * Indicates whether the filler word configuration is enabled.
    * 
    * @example
    * false
@@ -144,7 +151,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   miniPlaybackEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the graceful barge-in feature is enabled. This parameter is set to false for all large model scenarios.
+   * Indicates whether the graceful barge-in configuration is enabled. This value is always false for large models.
    * 
    * @example
    * false
@@ -152,7 +159,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   newBargeInEnable?: boolean;
   /**
    * @remarks
-   * The robot access type. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Managed.
+   * The robot access type. If the scenario is a small model scenario, this field is empty. If the scenario is a large model scenario, this field is Managed.
    * 
    * @example
    * Empty or Managed
@@ -160,7 +167,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   nluAccessType?: string;
   /**
    * @remarks
-   * The robot engine. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Prompts.
+   * The robot engine. If the scenario is a small model scenario, this field is empty. If the scenario is a large model scenario, this field is Prompts.
    * 
    * @example
    * Empty or Prompts
@@ -168,15 +175,15 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   nluEngine?: string;
   /**
    * @remarks
-   * The function computing service mode configuration.
+   * The Function Compute service mode configuration.
    */
   nluProfile?: ListScriptsResponseBodyScriptsListNluProfile;
   /**
    * @remarks
-   * The reason for review rejection.
+   * The reason for rejection.
    * 
    * @example
-   * Non-compliant script language
+   * Non-compliant script wording
    */
   rejectReason?: string;
   /**
@@ -184,7 +191,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The scenario.
    * 
    * @example
-   * Telemarketing
+   * Telesales
    */
   scene?: string;
   /**
@@ -192,7 +199,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The script description.
    * 
    * @example
-   * Telemarketing script
+   * Telesales script
    */
   scriptDescription?: string;
   /**
@@ -208,7 +215,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The script name.
    * 
    * @example
-   * Telemarketing script
+   * Telesales script
    */
   scriptName?: string;
   /**
@@ -221,7 +228,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578965079000
@@ -229,7 +236,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The robot business workspace ID.
+   * The robot workspace ID.
    * 
    * @example
    * 1160195
@@ -308,7 +315,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
 export class ListScriptsResponseBodyScripts extends $dara.Model {
   /**
    * @remarks
-   * The script array.
+   * The array of scripts.
    */
   list?: ListScriptsResponseBodyScriptsList[];
   /**
@@ -384,7 +391,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -400,7 +407,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The script list.
+   * The list of scripts.
    */
   scripts?: ListScriptsResponseBodyScripts;
   /**

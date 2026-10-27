@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListBeebotIntentUserSayResponseBodyUserSays extends $dara.Model {
   /**
    * @remarks
-   * The content of the utterance.
+   * The utterance content.
    * 
    * @example
-   * 你知道xxxx么？
+   * Do you know xxxx?
    */
   content?: string;
   /**
    * @remarks
-   * The time when the utterance was created.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 14:16:05.+0800
@@ -29,7 +29,7 @@ export class ListBeebotIntentUserSayResponseBodyUserSays extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The time when the utterance was last modified.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 14:16:05.+0800
@@ -83,7 +83,7 @@ export class ListBeebotIntentUserSayResponseBody extends $dara.Model {
   beebotRequestId?: string;
   /**
    * @remarks
-   * The status code of the API.
+   * The API status code.
    * 
    * @example
    * OK
@@ -99,7 +99,7 @@ export class ListBeebotIntentUserSayResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the API call.
+   * The API message.
    * 
    * @example
    * Success
@@ -115,7 +115,7 @@ export class ListBeebotIntentUserSayResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries displayed per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -131,7 +131,7 @@ export class ListBeebotIntentUserSayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

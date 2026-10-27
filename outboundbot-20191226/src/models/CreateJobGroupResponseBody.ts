@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobGroupResponseBodyJobGroupExportProgress extends $dara.Model {
   /**
    * @remarks
-   * The file URL. [Deprecated]
+   * **[Deprecated]** The file URL.
    * 
    * @example
    * https://***.oss-cn-shanghai.aliyuncs.com/sample
@@ -13,7 +13,7 @@ export class CreateJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
   fileHttpUrl?: string;
   /**
    * @remarks
-   * The progress. [Deprecated]
+   * **[Deprecated]** The progress.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
   progress?: string;
   /**
    * @remarks
-   * The task export status. [Deprecated]
+   * **[Deprecated]** The job export status.
    * 
    * @example
    * FINISHED
@@ -55,7 +55,7 @@ export class CreateJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
 export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether nonexistent numbers are excluded from redialing.
+   * Indicates whether nonexistent numbers are skipped.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   emptyNumberIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether numbers with overdue payments are excluded from redialing.
+   * Indicates whether numbers with overdue payments are skipped.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   inArrearsIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether out-of-service numbers are excluded from redialing.
+   * Indicates whether suspended numbers are skipped.
    * 
    * @example
    * true
@@ -105,7 +105,7 @@ export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
 export class CreateJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara.Model {
   /**
    * @remarks
-   * The window start time.
+   * The start time of the window. Format: HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -113,7 +113,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara
   beginTime?: string;
   /**
    * @remarks
-   * The window end time.
+   * The end time of the window. Format: HH:mm:ss.
    * 
    * @example
    * 12:00:00
@@ -153,7 +153,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   customized?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 2209702074000
@@ -161,7 +161,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The follow-up action after the execution cycle ends. This field is no longer in use.
+   * The follow-up processing method after the execution cycle ends. This field is no longer used.
    * 
    * @example
    * CONTINUE
@@ -169,7 +169,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   followUpStrategy?: string;
   /**
    * @remarks
-   * Indicates whether this is a template.
+   * Indicates whether the strategy is a template.
    * 
    * @example
    * false
@@ -177,7 +177,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   isTemplate?: boolean;
   /**
    * @remarks
-   * The maximum number of daily call attempts when calls in the task are not connected.
+   * The maximum number of call attempts per day when the call is not answered in the job.
    * 
    * @example
    * 3
@@ -185,7 +185,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   maxAttemptsPerDay?: number;
   /**
    * @remarks
-   * The interval between call attempts.
+   * The call interval.
    * 
    * @example
    * 3
@@ -193,7 +193,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
-   * The repeat execution mode. Valid values: once (no repeat), day (repeat daily), week (repeat weekly), and month (repeat monthly).
+   * The repetition method. Valid values: once (no repetition), day (daily repetition), week (weekly repetition), and month (monthly repetition).
    * 
    * @example
    * Once
@@ -201,17 +201,17 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   repeatBy?: string;
   /**
    * @remarks
-   * The repeat execution days.
-   * - If **RepeatBy** is set to **Week**, 0 indicates Sunday and 1-6 indicate Monday through Saturday.
-   * - If **RepeatBy** is set to **Month**, 1-31 indicate the 1st through 31st day. The task is not executed in months that do not have the specified day. For example, if the 30th is selected, the task is not executed in February.
+   * The execution days for repetition.
+   * - If the repetition cycle **RepeatBy** is **Week**, 0 represents Sunday, and 1 to 6 represent Monday to Saturday.
+   * - If the repetition cycle **RepeatBy** is **Month**, 1 to 31 represent the 1st to the 31st day. Months without the specified date are not executed. For example, if the 30th is selected, the job is not executed in February.
    */
   repeatDays?: string[];
   /**
    * @remarks
    * The number strategy. Valid values:
    * - None: no special rules.
-   * - LocalFirst: local city numbers preferred.
-   * - LocalProvinceFirst: local province numbers preferred.
+   * - LocalFirst: local numbers first.
+   * - LocalProvinceFirst: local province numbers first.
    * 
    * @example
    * LocalFirst
@@ -219,7 +219,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   routingStrategy?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578550074000
@@ -230,7 +230,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
    * The strategy description.
    * 
    * @example
-   * 催收策略
+   * Collection strategy
    */
   strategyDescription?: string;
   /**
@@ -246,7 +246,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
    * The strategy name.
    * 
    * @example
-   * 催收策略
+   * Collection strategy
    */
   strategyName?: string;
   /**
@@ -259,7 +259,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The strategy execution time window.
+   * The execution time window of the strategy.
    */
   workingTime?: CreateJobGroupResponseBodyJobGroupStrategyWorkingTime[];
   static names(): { [key: string]: string } {
@@ -320,12 +320,12 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
 export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   /**
    * @remarks
-   * The list of calling numbers.
+   * The list of caller numbers.
    */
   callingNumbers?: string[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578550074361
@@ -334,13 +334,12 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   /**
    * @remarks
    * The export progress.
-   * > This field is deprecated.
+   * >**[Deprecated]** This field is deprecated in the current parameter.
    */
   exportProgress?: CreateJobGroupResponseBodyJobGroupExportProgress;
   /**
    * @remarks
-   * The ID of the background asynchronous parsing operation for the uploaded task file.
-   * > No value is returned if this field is empty.
+   * The ID of the background asynchronous parsing operation corresponding to the uploaded job file. If no value exists, this parameter is not returned.
    * 
    * @example
    * 744ff448-2b4c-40d4-94ca-51f246905b0f
@@ -348,8 +347,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobDataParsingTaskId?: string;
   /**
    * @remarks
-   * The OSS path of the task file.
-   * > No value is returned if this field is empty.
+   * The OSS path of the job file. If no value exists, this parameter is not returned.
    * 
    * @example
    * UPLOADED/JOB/b3865dc3-40fa-4afd-9fe4-dc7cda305a24/229eac13-379d-4abe-96e0-8cf026b56c0b_template (1).xlsx
@@ -357,15 +355,15 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobFilePath?: string;
   /**
    * @remarks
-   * The task description.
+   * The description of the job.
    * 
    * @example
-   * 第一个的作业组
+   * First job group
    */
   jobGroupDescription?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * c62e6789-28a8-41db-941e-171a01d3b3b9
@@ -373,15 +371,18 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * The task name.
+   * The job name.
    * 
    * @example
-   * 第一个作业组
+   * First job group
    */
   jobGroupName?: string;
   /**
    * @remarks
-   * The guaranteed concurrency value. When the task starts, a minimum of N concurrent calls are guaranteed. The sum of guaranteed concurrency values for tasks with the same priority cannot exceed the instance concurrency. If the guaranteed concurrency value is set to 0, the system intelligently allocates idle concurrency.
+   * The guaranteed concurrency.
+   * - When the job starts, a minimum of N concurrent calls are guaranteed.
+   * - The sum of guaranteed concurrency for jobs of the same priority cannot exceed the instance concurrency.
+   * - If the guaranteed concurrency is set to 0, the system intelligently allocates idle concurrency.
    * 
    * @example
    * 1
@@ -389,7 +390,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   minConcurrency?: number;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1628425608429
@@ -397,9 +398,9 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The job group priority. Valid values:
-   * - **Urgent**: urgent task.
-   * - **Daily**: daily task.
+   * The priority of the job group. Valid values:
+   * - **Urgent**: urgent job.
+   * - **Daily**: daily job.
    * 
    * @example
    * Daily
@@ -407,7 +408,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The list of redial calling numbers.
+   * The list of caller numbers for redialing.
    */
   recallCallingNumbers?: string[];
   /**
@@ -433,15 +434,15 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * The dialog flow scenario name.
+   * The script scenario name.
    * 
    * @example
-   * 话术
+   * Script
    */
   scriptName?: string;
   /**
    * @remarks
-   * The dialog flow scenario version.
+   * The script scenario version.
    * 
    * @example
    * 1628425608429
@@ -449,7 +450,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   scriptVersion?: string;
   /**
    * @remarks
-   * The task status.
+   * The job status.
    * 
    * @example
    * Scheduling
@@ -457,7 +458,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task scheduling strategy.
+   * The job scheduling strategy.
    */
   strategy?: CreateJobGroupResponseBodyJobGroupStrategy;
   static names(): { [key: string]: string } {
@@ -551,12 +552,12 @@ export class CreateJobGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The task information.
+   * The job information.
    */
   jobGroup?: CreateJobGroupResponseBodyJobGroup;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * Success
@@ -572,7 +573,7 @@ export class CreateJobGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

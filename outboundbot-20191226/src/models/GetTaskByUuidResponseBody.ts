@@ -5,35 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskByUuidResponseBodyTaskConversations extends $dara.Model {
   /**
    * @remarks
-   * Action type
-   * 
-   * - Dialogue: Dialogue
-   * 
-   * - AbortDialogue: Abort a dialogue
-   * 
-   * - SilenceTimeout: Silence timeout
-   * 
-   * - CollectedNumber: Collected number
-   * 
-   * - EndDialogue: End a dialogue
-   * 
-   * - Broadcast: Greeting message
-   * 
-   * - HangUp: Hang up
-   * 
-   * - Authorize: Authorization
-   * 
-   * - TransferToAgent: Transfer to an agent
-   * 
-   * - TransferToIVR: Transfer to an IVR system
-   * 
-   * - RedirectToPage: Redirect to a page
-   * 
-   * - CollectNumber: Collect a number
-   * 
-   * - WaitOnAsyncTask: Wait for an asynchronous task
-   * 
-   * - Error: Error
+   * The instruction. Valid values:
+   * - BeginDialogue: starts the conversation.
+   * - Dialogue: indicates a conversation.
+   * - AbortDialogue: aborts the conversation.
+   * - SilenceTimeout: indicates a silence timeout.
+   * - CollectedNumber: indicates a collected number.
+   * - EndDialogue: ends the conversation.
+   * - Broadcast: indicates an opening remark.
+   * - HangUp: hangs up the call.
+   * - Authorize: grants authorization.
+   * - TransferToAgent: transfers the call to an agent.
+   * - TransferToIVR: transfers the call to an IVR.
+   * - RedirectToPage: redirects to a page.
+   * - CollectNumber: collects a number.
+   * - WaitOnAsyncTask: waits for an asynchronous task.
+   * - Error: indicates an error.
    * 
    * @example
    * Broadcast
@@ -41,15 +28,15 @@ export class GetTaskByUuidResponseBodyTaskConversations extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * Conversation text.
+   * The conversation text.
    * 
    * @example
-   * 你好，我是**客服
+   * Hello, I am **customer service
    */
   script?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * fd279983-93b9-b13b-9a34-64e5df473225
@@ -57,7 +44,7 @@ export class GetTaskByUuidResponseBodyTaskConversations extends $dara.Model {
   sequenceId?: string;
   /**
    * @remarks
-   * Who spoke in the conversation. Valid values: Robot or Contact.
+   * The speaker of the conversation. Valid values: Robot and Contact.
    * 
    * @example
    * Robot
@@ -65,7 +52,7 @@ export class GetTaskByUuidResponseBodyTaskConversations extends $dara.Model {
   speaker?: string;
   /**
    * @remarks
-   * Timestamp when the summary was created.
+   * The time when the summary was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579068424883
@@ -103,7 +90,7 @@ export class GetTaskByUuidResponseBodyTaskConversations extends $dara.Model {
 export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * Actual execution time
+   * The actual execution time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640090211434
@@ -111,7 +98,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   actualTime?: number;
   /**
    * @remarks
-   * Call ID
+   * The call ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -119,7 +106,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Callee number
+   * The called number.
    * 
    * @example
    * 13777777777
@@ -127,7 +114,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Caller number
+   * The calling number.
    * 
    * @example
    * 057190294
@@ -135,38 +122,25 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * List of conversations
+   * The list of conversation information.
    */
   conversations?: GetTaskByUuidResponseBodyTaskConversations[];
   /**
    * @remarks
-   * Reason the task ended
+   * The end reason. Valid values:
+   * - FINISHED: normal completion.
+   * - CHATBOT_HANGUP_AFTER_NOANSWER: the robot hangs up after unrecognized input.
+   * - CHATBOT_HANGUP_AFTER_SILENCE: the robot hangs up after a silence timeout.
+   * - CLIENT_HANGUP_AFTER_NOANSWER: the user hangs up after unrecognized input.
+   * - CLIENT_HANGUP: the user hangs up without a reason.
+   * - TRANSFER_BY_INTENT: the call is transferred to a human agent due to intent matching.
+   * - TRANSFER_AFTER_NOANSWER: the call is transferred to a human agent after unrecognized input.
+   * - INO_INTERACTION: no interaction from the user.
+   * - ERROR: the system is interrupted due to an exception.
+   * - SPECIAL_INTERCEPT_VOICE_ASSISTANT: intercepted due to special circumstances - voice assistant.
+   * - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER: intercepted due to special circumstances - extension number transfer.
    * 
-   * - FINISHED: Task completed normally
-   * 
-   * - CHATBOT_HANGUP_AFTER_NOANSWER: Bot hung up after no answer
-   * 
-   * - CHATBOT_HANGUP_AFTER_SILENCE: Bot hung up after silence timeout
-   * 
-   * - CLIENT_HANGUP_AFTER_NOANSWER: Client hung up after no answer
-   * 
-   * - CLIENT_HANGUP: Client hung up without reason
-   * 
-   * - TRANSFER_BY_INTENT: Transferred to agent after intent match
-   * 
-   * - TRANSFER_AFTER_NOANSWER: Transferred to agent after no answer
-   * 
-   * - INO_INTERACTION: No interaction from client
-   * 
-   * - ERROR: System error interrupted the task
-   * 
-   * - SPECIAL_INTERCEPT_VOICE_ASSISTANT: Intercepted due to voice assistant
-   * 
-   * - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER: Intercepted due to extension number transfer
-   * 
-   * >Notice: 
-   * 
-   * This parameter is a string that returns an enumeration value such as FINISHED.
+   * >Notice: The data type of this parameter is String. The returned value is an enumerated value such as FINISHED.</notice>
    * 
    * @example
    * FINISHED
@@ -174,7 +148,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   endReason?: string;
   /**
    * @remarks
-   * End time
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640090211434
@@ -182,7 +156,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 2
@@ -190,7 +164,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -198,7 +172,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job group ID
+   * The job group ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -206,7 +180,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * Job ID
+   * The job ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -214,7 +188,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Planned execution time (deprecated)
+   * **[Deprecated]** The planned execution time of the task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640090211434
@@ -269,7 +243,7 @@ export class GetTaskByUuidResponseBodyTask extends $dara.Model {
 export class GetTaskByUuidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -277,7 +251,7 @@ export class GetTaskByUuidResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -285,7 +259,7 @@ export class GetTaskByUuidResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The returned message.
    * 
    * @example
    * Success
@@ -293,7 +267,7 @@ export class GetTaskByUuidResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -301,7 +275,7 @@ export class GetTaskByUuidResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -309,7 +283,7 @@ export class GetTaskByUuidResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Task information
+   * The task information.
    * 
    * @example
    * {}

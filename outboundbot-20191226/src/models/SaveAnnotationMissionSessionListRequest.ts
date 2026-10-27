@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatCustomizationDataInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * b598a47a-7c03-45fb-af6b-343950dd9512
@@ -13,7 +13,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatCustomizationDataInfoId?: string;
   /**
    * @remarks
-   * The chat ID.
+   * chat ID
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -21,7 +21,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID of the annotation task.
+   * The annotation task ID.
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -40,12 +40,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
    * The content.
    * 
    * @example
-   * 现在呢主动邀请到您，机会非常难得，而且额度放着不用，也是不收费的，可以当作咱们的备用金，最快5分钟就能到账，建议您可以先把额度免费领取下来呢。
+   * You are now proactively invited to apply. This is a rare opportunity. The credit limit is free of charge if left unused and can be used as your reserve fund. The funds can be credited to your account in as fast as 5 minutes. We recommend that you claim the credit limit for free first
    */
   content?: string;
   /**
    * @remarks
-   * Create
+   * Specifies whether to create the item.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   create?: boolean;
   /**
    * @remarks
-   * The time when the item was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682316909210
@@ -64,12 +64,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
    * The description.
    * 
    * @example
-   * 默认数据描述
+   * Default data description
    */
   customizationDataDescription?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -80,12 +80,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
    * The name.
    * 
    * @example
-   * 默认数据
+   * Default data
    */
   customizationDataName?: string;
   /**
    * @remarks
-   * The weight of the language model data.
+   * The language model data weight.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   customizationDataWeight?: number;
   /**
    * @remarks
-   * Delete
+   * Specifies whether to delete the item.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   instanceId?: string;
   /**
    * @remarks
-   * The time when the item was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1673438100000
@@ -165,7 +165,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatIntentUserSayInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * chat ID
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -173,7 +173,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -181,7 +181,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatIntentUserSayInfoId?: string;
   /**
    * @remarks
-   * The ID of the annotation task.
+   * The annotation task ID.
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -197,7 +197,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The bot ID.
+   * The robot ID.
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -213,7 +213,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   content?: string;
   /**
    * @remarks
-   * Create
+   * Specifies whether to create the item.
    * 
    * @example
    * false
@@ -221,7 +221,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   create?: boolean;
   /**
    * @remarks
-   * The time when the item was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1683858248778
@@ -229,7 +229,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   createTime?: number;
   /**
    * @remarks
-   * Delete this item.
+   * Specifies whether to delete the item.
    * 
    * @example
    * false
@@ -261,7 +261,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   intentId?: number;
   /**
    * @remarks
-   * The time when the item was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1683858248778
@@ -315,7 +315,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatTagInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * chat ID
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -323,7 +323,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * id
@@ -331,7 +331,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatTagInfoId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -347,7 +347,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The tag ID.
+   * tag ID
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -355,7 +355,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionTagInfoId?: string;
   /**
    * @remarks
-   * The tag name.
+   * The name of the tag.
    * 
    * @example
    * -
@@ -363,7 +363,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionTagInfoName?: string;
   /**
    * @remarks
-   * Create
+   * Specifies whether to create the item.
    * 
    * @example
    * true
@@ -371,7 +371,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   create?: boolean;
   /**
    * @remarks
-   * End time of the annotation mission group.
+   * The end time of the annotation mission group.
    * 
    * @example
    * 1679710866060
@@ -379,7 +379,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   createTime?: number;
   /**
    * @remarks
-   * Delete
+   * Specifies whether to delete the item.
    * 
    * @example
    * false
@@ -395,7 +395,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   instanceId?: string;
   /**
    * @remarks
-   * Modified time
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679710866060
@@ -445,7 +445,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatVocabularyInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * chat ID
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -453,7 +453,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -461,7 +461,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatVocabularyInfoId?: string;
   /**
    * @remarks
-   * The ID of the annotation task.
+   * The annotation task ID.
    * 
    * @example
    * 977a45dc-b636-4407-9e98-9f572c709ada
@@ -477,7 +477,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * Create
+   * Specifies whether to create the item.
    * 
    * @example
    * false
@@ -485,7 +485,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   create?: boolean;
   /**
    * @remarks
-   * The time when the item was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1677552860720
@@ -493,7 +493,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   createTime?: number;
   /**
    * @remarks
-   * Delete
+   * Specifies whether to delete the item.
    * 
    * @example
    * true
@@ -509,7 +509,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   instanceId?: string;
   /**
    * @remarks
-   * The time when the item was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679283408230
@@ -517,7 +517,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   modifiedTime?: number;
   /**
    * @remarks
-   * The content of the hotword annotation.
+   * The hot word annotation content.
    * 
    * @example
    * []
@@ -528,12 +528,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
    * The description.
    * 
    * @example
-   * 售后咨询
+   * After-sales consultation
    */
   vocabularyDescription?: string;
   /**
    * @remarks
-   * The hotword ID.
+   * The hot word ID.
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -541,15 +541,15 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   vocabularyId?: string;
   /**
    * @remarks
-   * The name of the processing scenario.
+   * The processing scenario name.
    * 
    * @example
-   * 咨询
+   * Consultation
    */
   vocabularyName?: string;
   /**
    * @remarks
-   * The weight of the hotword. The value ranges from -6 to 5.
+   * The hot word weight. Valid values: -6 to 5.
    * 
    * @example
    * 0
@@ -605,7 +605,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatList extends $dara.Model {
   /**
    * @remarks
-   * The result of manual ASR annotation. This is used to calculate the character accuracy rate.
+   * The manual ASR annotation text result, which is used to calculate the character accuracy rate.
    * 
    * @example
    * []
@@ -613,12 +613,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationAsrResult?: string;
   /**
    * @remarks
-   * The language model annotation information for the annotation task chat.
+   * The language model annotation information table for the annotation task chat.
    */
   annotationMissionChatCustomizationDataInfoList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatCustomizationDataInfoList[];
   /**
    * @remarks
-   * The chat ID.
+   * chat ID
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -631,17 +631,17 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionChatIntentUserSayInfoList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatIntentUserSayInfoList[];
   /**
    * @remarks
-   * The list of mappings between annotation information chats and attached tags.
+   * The mapping list of bound tags for the annotation information chat.
    */
   annotationMissionChatTagInfoList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatTagInfoList[];
   /**
    * @remarks
-   * The hotword annotation information for the annotation task chat.
+   * The hot word annotation information table for the annotation task chat.
    */
   annotationMissionChatVocabularyInfoList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatVocabularyInfoList[];
   /**
    * @remarks
-   * The ID of the annotation task.
+   * The annotation task ID.
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -657,15 +657,11 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The annotation status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The annotation status. Valid values:
+   * - 0: Not completed (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -673,7 +669,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationStatus?: number;
   /**
    * @remarks
-   * The content of the robot\\"s response.
+   * The reply content of the robot.
    * 
    * @example
    * {\\"Answer\\": u\\"\\u53c2\\u8003\\u6587\\u6863\\uff1ahttps://help.aliyun.com/document_detail/181325.html\\", \\"QuestionId\\": 372858, \\"Uuid\\": \\"ac14000516762684770197536d0044\\"}
@@ -681,15 +677,11 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   answer?: string;
   /**
    * @remarks
-   * The Automatic Speech Recognition (ASR) annotation status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The ASR annotation status. Valid values:
+   * - 0: Not completed (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -697,7 +689,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   asrAnnotationStatus?: number;
   /**
    * @remarks
-   * The time when the chat was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679629770336
@@ -713,15 +705,11 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   instanceId?: string;
   /**
    * @remarks
-   * The semantic tagging status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The intent annotation status. Valid values:
+   * - 0: Not completed (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -729,7 +717,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   intentAnnotationStatus?: number;
   /**
    * @remarks
-   * The time when the chat was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1629360780000
@@ -737,7 +725,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   modifiedTime?: number;
   /**
    * @remarks
-   * The time when the chat was triggered.
+   * The trigger time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682493047418
@@ -745,7 +733,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   occurTime?: number;
   /**
    * @remarks
-   * The ASR result.
+   * The ASR recognition result.
    * 
    * @example
    * []
@@ -753,7 +741,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   originalAsrResult?: string;
   /**
    * @remarks
-   * The serial number of the current session interaction.
+   * The sequence number of the current session interaction round.
    * 
    * @example
    * 1475140522
@@ -761,7 +749,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   sequenceId?: string;
   /**
    * @remarks
-   * The annotation action. Valid values: 1: Correct. 20: Matching error (not optimized). 21: Matching error (optimized). 3: Not covered. 4: Invalid.
+   * The annotation action. Valid values:
+   * - 1: Correct.
+   * - 20: Match error, not optimized.
+   * - 21: Match error, optimized.
+   * - 3: Not covered.
+   * - 4: Invalid.
    * 
    * @example
    * 1
@@ -769,15 +762,11 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   subStatus?: number;
   /**
    * @remarks
-   * The tag annotation status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The tag annotation status. Valid values:
+   * - 0: Not completed (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -785,11 +774,9 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   tagAnnotationStatus?: number;
   /**
    * @remarks
-   * The transcription error flag.
-   * 
-   * - 0: No
-   * 
-   * - 1: Yes
+   * Indicates whether a translation error occurred. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 1
@@ -871,12 +858,12 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList extends $dara.Model {
   /**
    * @remarks
-   * The list of chats.
+   * The chat list.
    */
   annotationMissionChatList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionListAnnotationMissionChatList[];
   /**
    * @remarks
-   * The ID of the annotation task.
+   * The annotation task ID.
    * 
    * @example
    * c88cc004-de69-4eee-aa5f-2efed533a54e
@@ -892,15 +879,11 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The annotation status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The annotation status. Valid values:
+   * - 0: Not completed (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -908,7 +891,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   annotationStatus?: number;
   /**
    * @remarks
-   * The time when the session was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 2023-04-14T02:01:23Z
@@ -924,7 +907,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   instanceId?: string;
   /**
    * @remarks
-   * The task group ID.
+   * The job group ID.
    * 
    * @example
    * 29e669bd-a9d1-4529-98cd-c2b0549bcf53
@@ -932,7 +915,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   jobGroupId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 593aaf5e-1275-4add-9990-22696385dc6e
@@ -940,7 +923,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   jobId?: string;
   /**
    * @remarks
-   * The time when the session was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1683858248778
@@ -956,7 +939,7 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
   scriptId?: string;
   /**
    * @remarks
-   * For an outbound call, this is the task ID. For navigation, this is the conversation ID.
+   * The session ID. The value is taskId for outbound robots and conversationId for voice navigator robots.
    * 
    * @example
    * e6271044-b4b2-4ad8-ade4-c720be023538
@@ -1009,9 +992,9 @@ export class SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList
 export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * The ID of the agent.
    * 
-   * > Obtain this by calling the DescribeInstance operation.
+   * > You can obtain this value by calling the DescribeInstance API operation.
    * 
    * @example
    * 1198938
@@ -1019,9 +1002,8 @@ export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The key of the workspace. If you do not specify this parameter, the default workspace is accessed. Obtain the key on the Business Management page of your Alibaba Cloud account.
-   * 
-   * > Obtain this by calling the DescribeInstance operation.
+   * The key of the workspace. If you do not specify this parameter, the default workspace is accessed. You can obtain the key value on the Business Management page of the Alibaba Cloud account.
+   * > You can obtain this value by calling the DescribeInstance API operation.
    * 
    * @example
    * 9137ab9c27044921860030adf8590ec4_p_outbound_public
@@ -1029,7 +1011,9 @@ export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * The source of the annotation data. Valid values: 1: Outbound call. 2: Navigation.
+   * The data source of the annotation task. Valid values:
+   * - 1: outbound call
+   * - 2: voice navigation
    * 
    * @example
    * 1
@@ -1037,16 +1021,17 @@ export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   annotationMissionDataSourceType?: number;
   /**
    * @remarks
-   * The list of sessions.
+   * The session list.
    * 
-   * > This parameter has the same function as AnnotationMissionSessionListJsonString. Specify either of them.
+   * > This parameter serves the same purpose as the AnnotationMissionSessionListJsonString parameter. Specify only one of them.
    */
   annotationMissionSessionList?: SaveAnnotationMissionSessionListRequestAnnotationMissionSessionList[];
   /**
    * @remarks
-   * The list of sessions in JSON format.
+   * The JSON string of the session list.
    * 
-   * > This parameter has the same function as the AnnotationMissionSessionList parameter. You can specify either of them. The JSON field is a parameter of AnnotationMissionSessionList.
+   * > This parameter serves the same purpose as AnnotationMissionSessionList. Specify only one of them.
+   * The JSON fields correspond to the parameters of AnnotationMissionSessionList.
    * 
    * @example
    * [{"jobGroupId":"4093e364-57dc-4a89-83e0-a88454642596","modifiedTime":1744971010000,"instanceId":"00b37342-e759-4fe5-b296-aef775933af0","version":0,"annotationMissionId":"3d4bfd93-0d16-4873-9d77-e4fb1771e5cf","createTime":1744971010000,"annotationMissionSessionId":"42032063-8ef2-48e1-bc99-587b51581742","scriptId":"bc50d543-6d52-4df8-8fb0-50f31ee9c1ff","sessionId":"641a2c43-5e2a-4535-8a4d-c66d4b4258d6","jobId":"fa54c5bb-d8a7-40ae-a32e-9a4a0c734ce5","annotationStatus":2,"debugConversation":false}]
@@ -1054,13 +1039,10 @@ export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   annotationMissionSessionListJsonString?: string;
   /**
    * @remarks
-   * The environment.
-   * 
+   * The environment. Valid values:
    * - 0: NONE
-   * 
-   * - 1: Private cloud
-   * 
-   * - 2: Public cloud
+   * - 1: private cloud
+   * - 2: public cloud
    * 
    * @example
    * 0
@@ -1068,10 +1050,10 @@ export class SaveAnnotationMissionSessionListRequest extends $dara.Model {
   environment?: number;
   /**
    * @remarks
-   * The user\\"s nickname.
+   * The nickname of the user.
    * 
    * @example
-   * 用户
+   * User
    */
   userNick?: string;
   static names(): { [key: string]: string } {

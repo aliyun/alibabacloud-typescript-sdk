@@ -12,9 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "outboundbot.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("outboundbot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -233,7 +230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Changes the resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -268,7 +265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Changes the resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -279,7 +276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create an intelligent configuration.
+   * Creates an agent configuration.
    * 
    * @param request - CreateAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -362,7 +359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create an intelligent configuration.
+   * Creates an agent configuration.
    * 
    * @param request - CreateAgentProfileRequest
    * @returns CreateAgentProfileResponse
@@ -489,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deprecated. Do not use this operation to batch-create outbound calling jobs.
+   * *[Deprecated]** Creates outbound jobs in batches.
    * 
    * @param request - CreateBatchJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -552,7 +549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deprecated. Do not use this operation to batch-create outbound calling jobs.
+   * *[Deprecated]** Creates outbound jobs in batches.
    * 
    * @param request - CreateBatchJobsRequest
    * @returns CreateBatchJobsResponse
@@ -822,6 +819,76 @@ export default class Client extends OpenApi {
   async createBeebotIntentUserSay(request: $_model.CreateBeebotIntentUserSayRequest): Promise<$_model.CreateBeebotIntentUserSayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBeebotIntentUserSayWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom script template for a specified script.
+   * 
+   * @param request - CreateCustomScriptTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomScriptTemplateResponse
+   */
+  async createCustomScriptTemplateWithOptions(request: $_model.CreateCustomScriptTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomScriptTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.labelsJson)) {
+      body["LabelsJson"] = request.labelsJson;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.promptJson)) {
+      body["PromptJson"] = request.promptJson;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomScriptTemplate",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomScriptTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomScriptTemplateResponse({}));
+  }
+
+  /**
+   * Creates a custom script template for a specified script.
+   * 
+   * @param request - CreateCustomScriptTemplateRequest
+   * @returns CreateCustomScriptTemplateResponse
+   */
+  async createCustomScriptTemplate(request: $_model.CreateCustomScriptTemplateRequest): Promise<$_model.CreateCustomScriptTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomScriptTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1335,6 +1402,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a phone number and associates it with the current tenant.
+   * 
+   * @param request - CreateNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNumberResponse
+   */
+  async createNumberWithOptions(request: $_model.CreateNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNumberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.numbers)) {
+      query["Numbers"] = request.numbers;
+    }
+
+    if (!$dara.isNull(request.trunkId)) {
+      query["TrunkId"] = request.trunkId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNumber",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNumberResponse>(await this.callApi(params, req, runtime), new $_model.CreateNumberResponse({}));
+  }
+
+  /**
+   * Creates a phone number and associates it with the current tenant.
+   * 
+   * @param request - CreateNumberRequest
+   * @returns CreateNumberResponse
+   */
+  async createNumber(request: $_model.CreateNumberRequest): Promise<$_model.CreateNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNumberWithOptions(request, runtime);
+  }
+
+  /**
    * Create a scenario.
    * 
    * @param request - CreateScriptRequest
@@ -1644,7 +1757,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes Large Language Model (LLM) agents.
+   * Creates a cloned voice.
+   * 
+   * @param request - CreateVoiceCloneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVoiceCloneResponse
+   */
+  async createVoiceCloneWithOptions(request: $_model.CreateVoiceCloneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVoiceCloneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.voiceName)) {
+      query["VoiceName"] = request.voiceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVoiceClone",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVoiceCloneResponse>(await this.callApi(params, req, runtime), new $_model.CreateVoiceCloneResponse({}));
+  }
+
+  /**
+   * Creates a cloned voice.
+   * 
+   * @param request - CreateVoiceCloneRequest
+   * @returns CreateVoiceCloneResponse
+   */
+  async createVoiceClone(request: $_model.CreateVoiceCloneRequest): Promise<$_model.CreateVoiceCloneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVoiceCloneWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a foundation model robot.
    * 
    * @param tmpReq - DeleteAgentProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1685,7 +1852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes Large Language Model (LLM) agents.
+   * Deletes a foundation model robot.
    * 
    * @param request - DeleteAgentProfilesRequest
    * @returns DeleteAgentProfilesResponse
@@ -1696,7 +1863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all entries from the number district database. This operation is deprecated.
+   * Clears the number attribution database. This operation is deprecated.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAllNumberDistrictInfoResponse
@@ -1718,7 +1885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all entries from the number district database. This operation is deprecated.
+   * Clears the number attribution database. This operation is deprecated.
    * @returns DeleteAllNumberDistrictInfoResponse
    */
   async deleteAllNumberDistrictInfo(): Promise<$_model.DeleteAllNumberDistrictInfoResponse> {
@@ -1982,6 +2149,52 @@ export default class Client extends OpenApi {
   async deleteContactWhiteList(request: $_model.DeleteContactWhiteListRequest): Promise<$_model.DeleteContactWhiteListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteContactWhiteListWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified custom script template.
+   * 
+   * @param request - DeleteCustomScriptTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomScriptTemplateResponse
+   */
+  async deleteCustomScriptTemplateWithOptions(request: $_model.DeleteCustomScriptTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomScriptTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentProfileId)) {
+      body["AgentProfileId"] = request.agentProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomScriptTemplate",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomScriptTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomScriptTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a specified custom script template.
+   * 
+   * @param request - DeleteCustomScriptTemplateRequest
+   * @returns DeleteCustomScriptTemplateResponse
+   */
+  async deleteCustomScriptTemplate(request: $_model.DeleteCustomScriptTemplateRequest): Promise<$_model.DeleteCustomScriptTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomScriptTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2415,10 +2628,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the intent in the small model scenario.
+   * Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
+   * 
+   * @param request - DeleteVoiceCloneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVoiceCloneResponse
+   */
+  async deleteVoiceCloneWithOptions(request: $_model.DeleteVoiceCloneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVoiceCloneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVoiceClone",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVoiceCloneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVoiceCloneResponse({}));
+  }
+
+  /**
+   * Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
+   * 
+   * @param request - DeleteVoiceCloneRequest
+   * @returns DeleteVoiceCloneResponse
+   */
+  async deleteVoiceClone(request: $_model.DeleteVoiceCloneRequest): Promise<$_model.DeleteVoiceCloneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVoiceCloneWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the intent in a small model scenario.
    * 
    * @remarks
-   * **
+   * ***
    * 
    * @param request - DescribeBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2457,10 +2716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the intent in the small model scenario.
+   * Retrieves the intent in a small model scenario.
    * 
    * @remarks
-   * **
+   * ***
    * 
    * @param request - DescribeBeebotIntentRequest
    * @returns DescribeBeebotIntentResponse
@@ -2521,7 +2780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag statistics of hits for a job group.
+   * Queries the label hit statistics of a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2556,7 +2815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag statistics of hits for a job group.
+   * Queries the label hit statistics of a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @returns DescribeDsReportsResponse
@@ -2623,7 +2882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the execution status of tasks in a task group.
+   * Retrieves the execution status of jobs in a job group.
    * 
    * @param request - DescribeGroupExecutingInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2658,7 +2917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the execution status of tasks in a task group.
+   * Retrieves the execution status of jobs in a job group.
    * 
    * @param request - DescribeGroupExecutingInfoRequest
    * @returns DescribeGroupExecutingInfoResponse
@@ -2669,7 +2928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an outbound robot business instance.
+   * Queries the details of an outbound robot instance.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2700,7 +2959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an outbound robot business instance.
+   * Queries the details of an outbound robot instance.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -2811,7 +3070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the conversation data of a job.
+   * Retrieves the conversation data of a job.
    * 
    * @param request - DescribeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2850,7 +3109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the conversation data of a job.
+   * Retrieves the conversation data of a job.
    * 
    * @param request - DescribeJobRequest
    * @returns DescribeJobResponse
@@ -2907,7 +3166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves data for intelligent outbound call job groups.
+   * Queries outbound robot task data.
    * 
    * @param request - DescribeJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2946,7 +3205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves data for intelligent outbound call job groups.
+   * Queries outbound robot task data.
    * 
    * @param request - DescribeJobGroupRequest
    * @returns DescribeJobGroupResponse
@@ -3003,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns information about a script.
+   * Retrieves the details of a script.
    * 
    * @param request - DescribeScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3038,7 +3297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns information about a script.
+   * Retrieves the details of a script.
    * 
    * @param request - DescribeScriptRequest
    * @returns DescribeScriptResponse
@@ -3145,7 +3404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TTS preview.
+   * Previews text-to-speech (TTS) audio.
    * 
    * @param request - DescribeTTSDemoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3184,6 +3443,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pitchRate)) {
       query["PitchRate"] = request.pitchRate;
+    }
+
+    if (!$dara.isNull(request.sampleRate)) {
+      query["SampleRate"] = request.sampleRate;
     }
 
     if (!$dara.isNull(request.scriptId)) {
@@ -3228,7 +3491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TTS preview.
+   * Previews text-to-speech (TTS) audio.
    * 
    * @param request - DescribeTTSDemoRequest
    * @returns DescribeTTSDemoResponse
@@ -3409,7 +3672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads a call recording.
+   * Downloads call recordings.
    * 
    * @param request - DownloadRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3452,7 +3715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads a call recording.
+   * Downloads call recordings.
    * 
    * @param request - DownloadRecordingRequest
    * @returns DownloadRecordingResponse
@@ -3609,8 +3872,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload a hotword list file.
-   * 
    * @param request - GenerateUploadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateUploadUrlResponse
@@ -3644,8 +3905,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload a hotword list file.
-   * 
    * @param request - GenerateUploadUrlRequest
    * @returns GenerateUploadUrlResponse
    */
@@ -3701,7 +3960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of an agent.
+   * Retrieves the agent configuration.
    * 
    * @param request - GetAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3740,7 +3999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of an agent.
+   * Retrieves the agent configuration.
    * 
    * @param request - GetAgentProfileRequest
    * @returns GetAgentProfileResponse
@@ -3797,7 +4056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * null
+   * null.
    * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3828,7 +4087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * null
+   * null.
    * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @returns GetAnnotationMissionSummaryResponse
@@ -3839,6 +4098,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of annotation tags.
+   * 
    * @param request - GetAnnotationMissionTagInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAnnotationMissionTagInfoListResponse
@@ -3876,6 +4137,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of annotation tags.
+   * 
    * @param request - GetAnnotationMissionTagInfoListRequest
    * @returns GetAnnotationMissionTagInfoListResponse
    */
@@ -3973,7 +4236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the global outbound time periods for the outbound calling system.
+   * Retrieves the global outbound calling time periods in the outbound system.
    * 
    * @param request - GetBaseStrategyPeriodRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4008,7 +4271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the global outbound time periods for the outbound calling system.
+   * Retrieves the global outbound calling time periods in the outbound system.
    * 
    * @param request - GetBaseStrategyPeriodRequest
    * @returns GetBaseStrategyPeriodResponse
@@ -4108,7 +4371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the global outbound call policy whitelist.
+   * Queries the global outbound whitelist.
    * 
    * @param request - GetContactWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4155,7 +4418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the global outbound call policy whitelist.
+   * Queries the global outbound whitelist.
    * 
    * @param request - GetContactWhiteListRequest
    * @returns GetContactWhiteListResponse
@@ -4358,7 +4621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL for the number library template. This API is deprecated.
+   * Retrieves the download URL for a number library template. This operation is deprecated.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -4380,7 +4643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL for the number library template. This API is deprecated.
+   * Retrieves the download URL for a number library template. This operation is deprecated.
    * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
    */
   async getNumberDistrictInfoTemplateDownloadUrl(): Promise<$_model.GetNumberDistrictInfoTemplateDownloadUrlResponse> {
@@ -4389,7 +4652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the public key of the asymmetric encryption algorithm.
+   * Retrieves the public key of an asymmetric encryption algorithm.
    * 
    * @param request - GetPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4413,7 +4676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the public key of the asymmetric encryption algorithm.
+   * Retrieves the public key of an asymmetric encryption algorithm.
    * 
    * @param request - GetPublicKeyRequest
    * @returns GetPublicKeyResponse
@@ -4504,7 +4767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a task by its UUID.
+   * Retrieves a task by UUID.
    * 
    * @param request - GetTaskByUuidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4531,7 +4794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a task by its UUID.
+   * Retrieves a task by UUID.
    * 
    * @param request - GetTaskByUuidRequest
    * @returns GetTaskByUuidResponse
@@ -4723,7 +4986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the phone numbers bound to the tenant.
+   * Queries the numbers bound to a tenant.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAllTenantBindNumberBindingResponse
@@ -4745,7 +5008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the phone numbers bound to the tenant.
+   * Queries the numbers bound to a tenant.
    * @returns ListAllTenantBindNumberBindingResponse
    */
   async listAllTenantBindNumberBinding(): Promise<$_model.ListAllTenantBindNumberBindingResponse> {
@@ -4754,7 +5017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists annotation missions.
+   * Retrieves a list of annotation tasks.
    * 
    * @param request - ListAnnotationMissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4817,7 +5080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists annotation missions.
+   * Retrieves a list of annotation tasks.
    * 
    * @param request - ListAnnotationMissionRequest
    * @returns ListAnnotationMissionResponse
@@ -4828,7 +5091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListAnnotationMissionSession
+   * Lists annotation mission sessions.
    * 
    * @param request - ListAnnotationMissionSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4879,7 +5142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListAnnotationMissionSession
+   * Lists annotation mission sessions.
    * 
    * @param request - ListAnnotationMissionSessionRequest
    * @returns ListAnnotationMissionSessionResponse
@@ -4944,7 +5207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists intents for small-model scenarios.
+   * Queries the list of intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4991,7 +5254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists intents for small-model scenarios.
+   * Queries the list of intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentRequest
    * @returns ListBeebotIntentResponse
@@ -5002,7 +5265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the utterance templates for a specified intent in a scenario.
+   * Queries the utterance templates for Chatbot intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentLgfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5053,7 +5316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the utterance templates for a specified intent in a scenario.
+   * Queries the utterance templates for Chatbot intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentLgfRequest
    * @returns ListBeebotIntentLgfResponse
@@ -5126,7 +5389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+   * Queries a list of Chatbot instances in the public cloud edition.
    * 
    * @param request - ListChatbotInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5165,7 +5428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+   * Queries a list of Chatbot instances in the public cloud edition.
    * 
    * @param request - ListChatbotInstancesRequest
    * @returns ListChatbotInstancesResponse
@@ -5173,6 +5436,56 @@ export default class Client extends OpenApi {
   async listChatbotInstances(request: $_model.ListChatbotInstancesRequest): Promise<$_model.ListChatbotInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listChatbotInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the custom script templates of a specified instance.
+   * 
+   * @param request - ListCustomScriptTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomScriptTemplatesResponse
+   */
+  async listCustomScriptTemplatesWithOptions(request: $_model.ListCustomScriptTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomScriptTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomScriptTemplates",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomScriptTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomScriptTemplatesResponse({}));
+  }
+
+  /**
+   * Queries the custom script templates of a specified instance.
+   * 
+   * @param request - ListCustomScriptTemplatesRequest
+   * @returns ListCustomScriptTemplatesResponse
+   */
+  async listCustomScriptTemplates(request: $_model.ListCustomScriptTemplatesRequest): Promise<$_model.ListCustomScriptTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomScriptTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -5222,7 +5535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of download tasks in Download Hub.
+   * Queries the download center list.
    * 
    * @param request - ListDownloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5249,7 +5562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of download tasks in Download Hub.
+   * Queries the download center list.
    * 
    * @param request - ListDownloadTasksRequest
    * @returns ListDownloadTasksResponse
@@ -5352,7 +5665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Outbound Bot service instances.
+   * Queries a list of outbound robot instances.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5399,7 +5712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Outbound Bot service instances.
+   * Queries a list of outbound robot instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -5410,7 +5723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query intent for the Annotation Center list.
+   * Queries intents in the annotation center list.
    * 
    * @param request - ListIntentionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5473,7 +5786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query intent for the Annotation Center list.
+   * Queries intents in the annotation center list.
    * 
    * @param request - ListIntentionsRequest
    * @returns ListIntentionsResponse
@@ -5542,7 +5855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call task groups.
+   * Queries the list of outbound job groups.
    * 
    * @param request - ListJobGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5605,7 +5918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call task groups.
+   * Queries the list of outbound job groups.
    * 
    * @param request - ListJobGroupsRequest
    * @returns ListJobGroupsResponse
@@ -5616,7 +5929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+   * Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
    * 
    * @param request - ListJobGroupsAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5643,7 +5956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+   * Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
    * 
    * @param request - ListJobGroupsAsyncRequest
    * @returns ListJobGroupsAsyncResponse
@@ -5862,7 +6175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the publication history of the small model for outbound calls.
+   * Queries the publish history list for small model outbound calls.
    * 
    * @param request - ListScriptPublishHistoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5905,7 +6218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the publication history of the small model for outbound calls.
+   * Queries the publish history list for small model outbound calls.
    * 
    * @param request - ListScriptPublishHistoriesRequest
    * @returns ListScriptPublishHistoriesResponse
@@ -5986,7 +6299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the variables that are currently used in a scenario.
+   * Retrieves the variables currently used in the scenario.
    * 
    * @param request - ListScriptVariablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6025,7 +6338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the variables that are currently used in a scenario.
+   * Retrieves the variables currently used in the scenario.
    * 
    * @param request - ListScriptVariablesRequest
    * @returns ListScriptVariablesResponse
@@ -6154,7 +6467,42 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the tag relationships for resources.
+   * Queries the list of SIP trunks.
+   * 
+   * @param request - ListSipTrunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSipTrunksResponse
+   */
+  async listSipTrunksWithOptions(request: $_model.ListSipTrunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSipTrunksResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSipTrunks",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSipTrunksResponse>(await this.callApi(params, req, runtime), new $_model.ListSipTrunksResponse({}));
+  }
+
+  /**
+   * Queries the list of SIP trunks.
+   * 
+   * @param request - ListSipTrunksRequest
+   * @returns ListSipTrunksResponse
+   */
+  async listSipTrunks(request: $_model.ListSipTrunksRequest): Promise<$_model.ListSipTrunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSipTrunksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries resource tag relationships.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6201,7 +6549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the tag relationships for resources.
+   * Queries resource tag relationships.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -6258,7 +6606,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the agent configuration.
+   * Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+   * 
+   * @param request - ListVoiceCloneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoiceCloneResponse
+   */
+  async listVoiceCloneWithOptions(request: $_model.ListVoiceCloneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVoiceCloneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVoiceClone",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVoiceCloneResponse>(await this.callApi(params, req, runtime), new $_model.ListVoiceCloneResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+   * 
+   * @param request - ListVoiceCloneRequest
+   * @returns ListVoiceCloneResponse
+   */
+  async listVoiceClone(request: $_model.ListVoiceCloneRequest): Promise<$_model.ListVoiceCloneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVoiceCloneWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the agent configuration.
    * 
    * @param tmpReq - ModifyAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6343,7 +6745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the agent configuration.
+   * Modifies the agent configuration.
    * 
    * @param request - ModifyAgentProfileRequest
    * @returns ModifyAgentProfileResponse
@@ -6354,7 +6756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status and name of an annotation task.
+   * Modifies the status and name of an annotation task.
    * 
    * @param request - ModifyAnnotationMissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6397,7 +6799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status and name of an annotation task.
+   * Modifies the status and name of an annotation task.
    * 
    * @param request - ModifyAnnotationMissionRequest
    * @returns ModifyAnnotationMissionResponse
@@ -6666,7 +7068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a dialogue flow. This is a legacy API for the canvas.
+   * Modifies a dialog flow. This is a legacy canvas operation.
    * 
    * @param request - ModifyDialogueFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6713,7 +7115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a dialogue flow. This is a legacy API for the canvas.
+   * Modifies a dialog flow. This is a legacy canvas operation.
    * 
    * @param request - ModifyDialogueFlowRequest
    * @returns ModifyDialogueFlowResponse
@@ -6840,7 +7242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an Outbound Bot instance.
+   * Modifies an outbound robot instance.
    * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6887,7 +7289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an Outbound Bot instance.
+   * Modifies an outbound robot instance.
    * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse
@@ -6964,7 +7366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an intelligent outbound call task group.
+   * Modifies an outbound robot job group.
    * 
    * @param request - ModifyJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7051,7 +7453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an intelligent outbound call task group.
+   * Modifies an outbound robot job group.
    * 
    * @param request - ModifyJobGroupRequest
    * @returns ModifyJobGroupResponse
@@ -7120,7 +7522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify script information.
+   * Updates script information.
    * 
    * @param request - ModifyScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7243,7 +7645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify script information.
+   * Updates script information.
    * 
    * @param request - ModifyScriptRequest
    * @returns ModifyScriptResponse
@@ -7439,6 +7841,60 @@ export default class Client extends OpenApi {
   async modifyTagGroups(request: $_model.ModifyTagGroupsRequest): Promise<$_model.ModifyTagGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyTagGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name or status of a cloned voice.
+   * 
+   * @param request - ModifyVoiceCloneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyVoiceCloneResponse
+   */
+  async modifyVoiceCloneWithOptions(request: $_model.ModifyVoiceCloneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVoiceCloneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    if (!$dara.isNull(request.voiceName)) {
+      query["VoiceName"] = request.voiceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyVoiceClone",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyVoiceCloneResponse>(await this.callApi(params, req, runtime), new $_model.ModifyVoiceCloneResponse({}));
+  }
+
+  /**
+   * Modifies the name or status of a cloned voice.
+   * 
+   * @param request - ModifyVoiceCloneRequest
+   * @returns ModifyVoiceCloneResponse
+   */
+  async modifyVoiceClone(request: $_model.ModifyVoiceCloneRequest): Promise<$_model.ModifyVoiceCloneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyVoiceCloneWithOptions(request, runtime);
   }
 
   /**
@@ -7760,7 +8216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scenario information by status.
+   * Queries scenario information based on the scenario status.
    * 
    * @param request - QueryScriptsByStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7803,7 +8259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scenario information by status.
+   * Queries scenario information based on the scenario status.
    * 
    * @param request - QueryScriptsByStatusRequest
    * @returns QueryScriptsByStatusResponse
@@ -7814,7 +8270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+   * *[Deprecated]** Submits the cause of a call failure to the outbound call business system.
    * 
    * @param request - RecordFailureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7873,7 +8329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+   * *[Deprecated]** Submits the cause of a call failure to the outbound call business system.
    * 
    * @param request - RecordFailureRequest
    * @returns RecordFailureResponse
@@ -8046,7 +8502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can save a list of annotation chat instances.
+   * Saves the list of annotated chat instances.
    * 
    * @param request - SaveAnnotationMissionSessionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8101,7 +8557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can save a list of annotation chat instances.
+   * Saves the list of annotated chat instances.
    * 
    * @param request - SaveAnnotationMissionSessionListRequest
    * @returns SaveAnnotationMissionSessionListResponse
@@ -8112,7 +8568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves instance tags in a batch.
+   * Saves instance tag information in batches.
    * 
    * @param request - SaveAnnotationMissionTagInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8155,7 +8611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves instance tags in a batch.
+   * Saves instance tag information in batches.
    * 
    * @param request - SaveAnnotationMissionTagInfoListRequest
    * @returns SaveAnnotationMissionTagInfoListResponse
@@ -8428,7 +8884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for tasks.
+   * Queries tasks.
    * 
    * @param request - SearchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8455,7 +8911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for tasks.
+   * Queries tasks.
    * 
    * @param request - SearchTaskRequest
    * @returns SearchTaskResponse
@@ -8625,6 +9081,60 @@ export default class Client extends OpenApi {
   async submitRecording(request: $_model.SubmitRecordingRequest): Promise<$_model.SubmitRecordingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitRecordingWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+   * 
+   * @param request - SubmitScriptPreReviewResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitScriptPreReviewResultResponse
+   */
+  async submitScriptPreReviewResultWithOptions(request: $_model.SubmitScriptPreReviewResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitScriptPreReviewResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.rejectReason)) {
+      query["RejectReason"] = request.rejectReason;
+    }
+
+    if (!$dara.isNull(request.reviewResult)) {
+      query["ReviewResult"] = request.reviewResult;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitScriptPreReviewResult",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitScriptPreReviewResultResponse>(await this.callApi(params, req, runtime), new $_model.SubmitScriptPreReviewResultResponse({}));
+  }
+
+  /**
+   * Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+   * 
+   * @param request - SubmitScriptPreReviewResultRequest
+   * @returns SubmitScriptPreReviewResultResponse
+   */
+  async submitScriptPreReviewResult(request: $_model.SubmitScriptPreReviewResultRequest): Promise<$_model.SubmitScriptPreReviewResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitScriptPreReviewResultWithOptions(request, runtime);
   }
 
   /**
@@ -8904,7 +9414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prepares a task for execution.
+   * Prepares a node for execution.
    * 
    * @param request - TaskPreparingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8943,7 +9453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prepares a task for execution.
+   * Prepares a node for execution.
    * 
    * @param request - TaskPreparingRequest
    * @returns TaskPreparingResponse
@@ -9058,7 +9568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload recording files.
+   * Uploads a recording file.
    * 
    * @param request - UploadScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9105,7 +9615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload recording files.
+   * Uploads a recording file.
    * 
    * @param request - UploadScriptRecordingRequest
    * @returns UploadScriptRecordingResponse

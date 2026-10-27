@@ -23,7 +23,7 @@ export class GetContactBlockListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. This parameter is required.
+   * The page number.
    * 
    * @example
    * 1
@@ -31,12 +31,16 @@ export class GetContactBlockListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. This parameter is required.
+   * The number of entries per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search criteria for the outbound call blocklist.
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {

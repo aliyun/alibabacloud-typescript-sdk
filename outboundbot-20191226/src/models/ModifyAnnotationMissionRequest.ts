@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAnnotationMissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Annotation task ID.
+   * The annotation task ID.
    * 
    * @example
    * c88cc004-de69-4eee-aa5f-2efed533a54e
@@ -13,15 +13,15 @@ export class ModifyAnnotationMissionRequest extends $dara.Model {
   annotationMissionId?: string;
   /**
    * @remarks
-   * Annotation task name.
+   * The annotation task name.
    * 
    * @example
-   * 询问卖车-标注任务-20230506-112934
+   * AskAboutSellingCar-AnnotationTask-20230506-112934
    */
   annotationMissionName?: string;
   /**
    * @remarks
-   * Annotation task status.
+   * The annotation task status.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class ModifyAnnotationMissionRequest extends $dara.Model {
   annotationStatus?: number;
   /**
    * @remarks
-   * Delete the task.
+   * Specifies whether to delete the task.
    * 
    * @example
    * false

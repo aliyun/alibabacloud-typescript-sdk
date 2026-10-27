@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter condition. This parameter is deprecated.
+   * The filter conditions. This parameter is deprecated.
    */
   briefTypes?: string[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class DescribeJobGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job group ID.
+   * The job group ID.
    * 
    * This parameter is required.
    * 

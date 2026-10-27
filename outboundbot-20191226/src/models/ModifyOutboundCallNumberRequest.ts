@@ -45,7 +45,7 @@ export class ModifyOutboundCallNumberRequest extends $dara.Model {
   rateLimitCount?: number;
   /**
    * @remarks
-   * The rate limit period. Unit: seconds.
+   * The rate limit period, in seconds.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnnotationMissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Annotation mission ID
+   * The ID of the annotation task.
    * 
    * @example
    * 0943abcb-bd7d-4ace-8cf7-97d39d4dd0b9
@@ -13,28 +13,26 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   annotationMissionId?: string;
   /**
    * @remarks
-   * Annotation mission name
+   * The name of the annotation task.
    * 
    * @example
-   * 全景服务场景-标注任务-20230316-103253
+   * Panorama service scenario - Annotation task - 20230316-103253
    */
   annotationMissionName?: string;
   /**
    * @remarks
-   * Annotation status filter. Deprecated.
+   * The annotation status filter. This parameter is deprecated.
    */
   annotationStatusListFilter?: number[];
   /**
    * @remarks
-   * Annotation status filter
+   * The annotation status filter.
    * 
-   * > Format: [1]. You can specify multiple values. Valid values:
+   * > The format is [1]. You can select multiple filter conditions. The valid values are as follows:
    * 
-   * - 1: In progress
-   * 
-   * - 2: Completed
-   * 
-   * - 3: Closed
+   * - 1: In progress.
+   * - 2: Completed.
+   * - 3: Closed.
    * 
    * @example
    * [1]
@@ -42,7 +40,7 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   annotationStatusListStringFilter?: string;
   /**
    * @remarks
-   * End time of the annotation mission creation filter
+   * The end time for the annotation task creation filter.
    * 
    * @example
    * 1673280000000
@@ -50,7 +48,7 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   createTimeEndFilter?: number;
   /**
    * @remarks
-   * Start time of the annotation mission creation filter
+   * The start time for the annotation task creation filter.
    * 
    * @example
    * 1661961600000
@@ -58,7 +56,7 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   createTimeStartFilter?: number;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 191ef468-75a2-4004-9441-a5c31bf5cd9d
@@ -66,7 +64,7 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -74,7 +72,7 @@ export class ListAnnotationMissionRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 10

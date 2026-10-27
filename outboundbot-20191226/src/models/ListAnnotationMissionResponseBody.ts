@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends $dara.Model {
   /**
    * @remarks
-   * Annotation data source type. 1: Outbound call. 2: Navigation.
+   * The data source of the annotation task. Valid values: 1: Outbound call. 2: Navigation.
    * 
    * @example
    * 1
@@ -13,14 +13,14 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   annotationMissionDataSourceType?: number;
   /**
    * @remarks
-   * Annotation debug data source list
+   * The list of debug data sources for the annotation task.
    * 
-   * > The response includes an extra 0. Valid responses are [0,1], [0,2], or [0,1,2].
+   * > Note: An additional 0 is included in the response. The return values are [0,1], [0,2], or [0,1,2].
    */
   annotationMissionDebugDataSourceList?: number[];
   /**
    * @remarks
-   * Mission ID
+   * The task ID.
    * 
    * @example
    * ddce607f-f537-4ebd-9914-cf45671defb9
@@ -28,21 +28,18 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   annotationMissionId?: string;
   /**
    * @remarks
-   * Mission name
+   * The task name.
    * 
    * @example
-   * 体验场景--移车-标注任务-20230220-141347
+   * Experience scenario - Move vehicle - Annotation task - 20230220-141347
    */
   annotationMissionName?: string;
   /**
    * @remarks
-   * Annotation status
-   * 
-   * - 1: In progress
-   * 
-   * - 2: Completed
-   * 
-   * - 3: Closed
+   * The annotation status. Valid values:
+   * - 1: In progress.
+   * - 2: Completed.
+   * - 3: Closed.
    * 
    * @example
    * 1
@@ -50,7 +47,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   annotationStatus?: number;
   /**
    * @remarks
-   * End time of the conversation time query condition for the annotation mission
+   * The end time of the conversation time query condition for the annotation task.
    * 
    * @example
    * 1684511999000
@@ -58,7 +55,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   conversationTimeEndFilter?: number;
   /**
    * @remarks
-   * Start time of the conversation time query condition for the annotation mission
+   * The start time of the conversation time query condition for the annotation task.
    * 
    * @example
    * 1683216000000
@@ -66,7 +63,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   conversationTimeStartFilter?: number;
   /**
    * @remarks
-   * Creation time
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1676170339515
@@ -74,7 +71,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether to exclude call records already annotated in other missions
+   * Indicates whether to exclude call records that have been annotated in other tasks.
    * 
    * @example
    * false
@@ -82,7 +79,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   excludeOtherMissionSession?: boolean;
   /**
    * @remarks
-   * Completion time of the annotation mission
+   * The completion time of the annotation task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1683443903785
@@ -90,7 +87,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   finishTime?: number;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 32be9d94-1346-4c4a-a4d0-ccd379f87013
@@ -98,7 +95,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   instanceId?: string;
   /**
    * @remarks
-   * Maximum sampling count limit
+   * The maximum limit for the sampling count.
    * 
    * @example
    * 1
@@ -106,15 +103,15 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   samplingCount?: number;
   /**
    * @remarks
-   * Sampling description
+   * The sampling description.
    * 
    * @example
-   * 标注
+   * Annotation
    */
   samplingDescription?: string;
   /**
    * @remarks
-   * Sampling rate
+   * The sampling rate.
    * 
    * @example
    * 1
@@ -122,7 +119,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   samplingRate?: number;
   /**
    * @remarks
-   * Sampling type
+   * The sampling type.
    * 
    * @example
    * 1
@@ -130,34 +127,23 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   samplingType?: number;
   /**
    * @remarks
-   * List of session end reason types used when creating the mission
-   * 
-   * - 1: Normal completion
-   * 
-   * - 2: Bot hangup after rejection
-   * 
-   * - 3: Hangup due to silence timeout
-   * 
-   * - 4: User hangup after rejection
-   * 
-   * - 5: User hangup without reason
-   * 
-   * - 6: Transfer to agent after intent match
-   * 
-   * - 7: Transfer to agent after rejection
-   * 
-   * - 8: No interaction from user side
-   * 
-   * - 9: System exception interruption
-   * 
-   * - 10: Transfer to IVR after intent match
-   * 
-   * - 11: Transfer to IVR after rejection
+   * The list of call end reasons used to create the task. Valid values:
+   * - 1: Normal completion.
+   * - 2: Hang up by the robot after unrecognized input.
+   * - 3: Hang up due to silence timeout.
+   * - 4: Hang up by the user after unrecognized input.
+   * - 5: Hang up by the user without a reason.
+   * - 6: Transfer to a human agent due to intent match.
+   * - 7: Transfer to a human agent after unrecognized input.
+   * - 8: No interaction on the user side.
+   * - 9: Interruption due to a system exception.
+   * - 10: Transfer to IVR due to intent match.
+   * - 11: Transfer to IVR after unrecognized input.
    */
   sessionEndReasonFilterList?: number[];
   /**
    * @remarks
-   * Number of completed sessions in the annotation mission
+   * The number of completed sessions in the annotation task.
    * 
    * @example
    * 1
@@ -165,7 +151,7 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
   sessionFinishCount?: number;
   /**
    * @remarks
-   * Total number of sessions in the annotation mission
+   * The total number of sessions in the annotation task.
    * 
    * @example
    * 1
@@ -235,12 +221,12 @@ export class ListAnnotationMissionResponseBodyDataAnnotationMissionList extends 
 export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Annotation mission list
+   * The list of annotation tasks.
    */
   annotationMissionList?: ListAnnotationMissionResponseBodyDataAnnotationMissionList[];
   /**
    * @remarks
-   * Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * CDR \\"job-c7b8a817-b8e8-40f3-b7ad-f28dcea218ff\\" doesn\\"t exists.
@@ -248,7 +234,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -256,7 +242,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -264,7 +250,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the call succeeded. true: succeeded. false: failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true
@@ -272,7 +258,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 30
@@ -280,7 +266,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 4
@@ -325,7 +311,7 @@ export class ListAnnotationMissionResponseBodyData extends $dara.Model {
 export class ListAnnotationMissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * OK
@@ -333,12 +319,12 @@ export class ListAnnotationMissionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The data.
    */
   data?: ListAnnotationMissionResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -346,7 +332,7 @@ export class ListAnnotationMissionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * CDR \\"job-c7b8a817-b8e8-40f3-b7ad-f28dcea218ff\\" doesn\\"t exists.
@@ -354,7 +340,7 @@ export class ListAnnotationMissionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -362,7 +348,7 @@ export class ListAnnotationMissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. true: succeeded. false: failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true

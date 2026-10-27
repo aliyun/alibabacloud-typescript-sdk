@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentProfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class DeleteAgentProfilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class DeleteAgentProfilesResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DeleteAgentProfilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class DeleteAgentProfilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -45,7 +45,7 @@ export class DeleteAgentProfilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

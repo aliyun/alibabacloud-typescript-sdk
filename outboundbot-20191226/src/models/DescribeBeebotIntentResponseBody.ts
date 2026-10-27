@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   /**
    * @remarks
-   * Intent alias
+   * The intent alias.
    * 
    * @example
-   * 嗯明白了
+   * Okay, got it
    */
   aliasName?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 10:29:59.+0800
@@ -21,7 +21,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Creator user ID
+   * The ID of the creator.
    * 
    * @example
    * 1252504
@@ -29,7 +29,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   createUserId?: string;
   /**
    * @remarks
-   * Creator account name
+   * The username of the creator.
    * 
    * @example
    * xxx@voice-navigator-testonaliyun.com
@@ -37,7 +37,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * Intent ID
+   * The intent ID.
    * 
    * @example
    * 10717802
@@ -45,15 +45,15 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * Intent name
+   * The intent name.
    * 
    * @example
-   * 知道了
+   * Got it
    */
   intentName?: string;
   /**
    * @remarks
-   * Modification time
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 15:52:57.+0800
@@ -61,7 +61,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Modifier user ID
+   * The ID of the modifier.
    * 
    * @example
    * 1252504
@@ -69,7 +69,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
   modifyUserId?: string;
   /**
    * @remarks
-   * Modifier account name
+   * The username of the modifier.
    * 
    * @example
    * xxx@voice-navigator-testonaliyun.com
@@ -115,7 +115,7 @@ export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
 export class DescribeBeebotIntentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Internal request ID
+   * The internal request ID.
    * 
    * @example
    * 0B219FCB-EC71-1F08-BB1B-0E87C20158C8
@@ -123,7 +123,7 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   beebotRequestId?: string;
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -131,7 +131,7 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -139,12 +139,12 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Intent information
+   * The intent information.
    */
   intent?: DescribeBeebotIntentResponseBodyIntent;
   /**
    * @remarks
-   * Intent ID
+   * The intent ID.
    * 
    * @example
    * 10717802
@@ -152,7 +152,7 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * API message
+   * The API message.
    * 
    * @example
    * Success
@@ -160,7 +160,7 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -168,7 +168,7 @@ export class DescribeBeebotIntentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

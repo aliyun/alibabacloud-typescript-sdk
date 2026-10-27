@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress extends $dara.Model {
   /**
    * @remarks
-   * Number of canceled tasks
+   * The number of canceled jobs.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   cancelledNum?: number;
   /**
    * @remarks
-   * Number of executing jobs
+   * The number of executing jobs.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   executingNum?: number;
   /**
    * @remarks
-   * Number of failed tasks
+   * The number of failed jobs.
    * 
    * @example
    * 5
@@ -29,7 +29,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   failedNum?: number;
   /**
    * @remarks
-   * Number of paused tasks
+   * The number of paused jobs.
    * 
    * @example
    * 5
@@ -37,7 +37,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   pausedNum?: number;
   /**
    * @remarks
-   * Number of tasks being scheduled
+   * The number of jobs being scheduled.
    * 
    * @example
    * 5
@@ -45,7 +45,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   schedulingNum?: number;
   /**
    * @remarks
-   * Total number of completed tasks
+   * The total number of completed jobs.
    * 
    * @example
    * 5
@@ -53,7 +53,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   totalCompletedNum?: number;
   /**
    * @remarks
-   * Total number of jobs
+   * The total number of jobs.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
   totalJobs?: number;
   /**
    * @remarks
-   * Number of unanswered calls
+   * The total number of unanswered calls.
    * 
    * @example
    * 5
@@ -105,7 +105,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
 export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.Model {
   /**
    * @remarks
-   * Average talk time
+   * The average call duration.
    * 
    * @example
    * 258
@@ -113,7 +113,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   avgTalkTime?: number;
   /**
    * @remarks
-   * Number of failed calls
+   * The number of failed calls.
    * 
    * @example
    * 5
@@ -121,7 +121,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   callFailedNum?: number;
   /**
    * @remarks
-   * Number of outbound calls
+   * The number of outbound calls.
    * 
    * @example
    * 5
@@ -129,7 +129,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   callNum?: number;
   /**
    * @remarks
-   * Deprecated
+   * **[Deprecated]**
    * 
    * @example
    * xxx
@@ -137,7 +137,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   creatorName?: string;
   /**
    * @remarks
-   * Call duration distribution
+   * The distribution of call durations.
    * 
    * @example
    * {"max":"40","1":"1","total":"40","min":"40"}
@@ -145,7 +145,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   durationDistribution?: string;
   /**
    * @remarks
-   * End time
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640087774563
@@ -153,7 +153,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   endTime?: number;
   /**
    * @remarks
-   * Number of completed executions
+   * The number of completed jobs.
    * 
    * @example
    * 5
@@ -161,7 +161,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   finishedNum?: number;
   /**
    * @remarks
-   * Number of calls hung up by customers
+   * The number of customer-initiated hang-ups.
    * 
    * @example
    * 5
@@ -169,7 +169,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   hangUpByClientNum?: number;
   /**
    * @remarks
-   * Execution progress
+   * The execution progress.
    * 
    * @example
    * {}
@@ -177,7 +177,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   jobsProgress?: DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress;
   /**
    * @remarks
-   * Number of calls with no interaction
+   * The number of calls with no interaction.
    * 
    * @example
    * 1
@@ -185,7 +185,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   noInteractionNum?: number;
   /**
    * @remarks
-   * Start time
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640087774563
@@ -193,13 +193,12 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   startTime?: number;
   /**
    * @remarks
-   * Distribution of conversation rounds
+   * The distribution of talk turns.
    * 
-   * - total: total number of conversation rounds involved
+   * - total: The total number of talk turns involved.
+   * - Number: The corresponding turn count.
    * 
-   * - number: specific round number
-   * 
-   * > * Example: {"total":"5","5":"1"} means 5 conversation rounds were involved, and 1 call had 5 user turns.
+   * > - Example: {"total":"5","5":"1"} indicates that the total number of talk turns involved is 5, and there is 1 call with 5 user turns.
    * 
    * @example
    * {"total":"5","5":"4"}
@@ -207,7 +206,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   talkTurnsDistribution?: string;
   /**
    * @remarks
-   * Intent recognition
+   * The number of intent recognitions.
    * 
    * @example
    * 5
@@ -215,7 +214,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
   transferByIntentNum?: number;
   /**
    * @remarks
-   * No answer
+   * The number of unanswered calls.
    * 
    * @example
    * 5
@@ -274,7 +273,7 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
 export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -282,7 +281,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Execution information
+   * The execution information.
    * 
    * @example
    * {}
@@ -290,7 +289,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   executingInfo?: DescribeGroupExecutingInfoResponseBodyExecutingInfo;
   /**
    * @remarks
-   * Task group ID
+   * The job group ID.
    * 
    * @example
    * b24d321a-2a74-4dd1-a0ba-4ab09cef6652
@@ -298,7 +297,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -306,7 +305,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * c46001bc-3ead-4bfd-9a69-4b5b66a4a3f4
@@ -314,7 +313,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -322,7 +321,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -330,7 +329,7 @@ export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

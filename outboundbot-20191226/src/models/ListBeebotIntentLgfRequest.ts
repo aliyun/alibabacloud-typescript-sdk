@@ -25,10 +25,10 @@ export class ListBeebotIntentLgfRequest extends $dara.Model {
   intentId?: string;
   /**
    * @remarks
-   * The utterance template.
+   * The utterance template for the intent.
    * 
    * @example
-   * 我是一个问法模版
+   * I am an utterance template
    */
   lgfText?: string;
   /**
@@ -43,7 +43,7 @@ export class ListBeebotIntentLgfRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

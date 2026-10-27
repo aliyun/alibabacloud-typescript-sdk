@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptVariablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID (also referred to as the business ID).
+   * The instance ID (also known as the business ID).
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,12 @@ export class ListScriptVariablesRequest extends $dara.Model {
    * @remarks
    * Specifies whether the environment is a test environment.
    * 
+   * - true: Test environment.
+   * - false: Production environment after release.
+   * - Default value: false.
+   * 
    * @example
-   * true：测试环境
-   * false：发布后的正式环境
-   * 默认为false
+   * false
    */
   sandbox?: boolean;
   /**

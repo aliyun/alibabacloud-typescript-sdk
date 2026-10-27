@@ -21,7 +21,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * []
@@ -37,7 +37,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

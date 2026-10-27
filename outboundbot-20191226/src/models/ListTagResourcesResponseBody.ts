@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * b949ae1f-01dc-4191-ae5a-70fbe6772fd8
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Resource type
+   * The resource type.
    * 
    * @example
    * instance
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Tag key
+   * The tag key.
    * 
    * @example
    * key1
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * Tag value
+   * The tag value.
    * 
    * @example
    * value1
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API
+   * The status code of the operation.
    * 
    * @example
    * OK
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message of the API
+   * The message returned by the operation.
    * 
    * @example
    * Success
@@ -89,7 +89,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token to start the next query
+   * The token for the next query.
    * 
    * @example
    * b949ae1f-01dc-4191-ae5a-70fbe6772fd8
@@ -97,7 +97,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -105,7 +105,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -113,7 +113,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Resources
+   * The list of resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

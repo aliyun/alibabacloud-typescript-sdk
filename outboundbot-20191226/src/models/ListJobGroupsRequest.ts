@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to retrieve the query results asynchronously.
+   * Specifies whether to asynchronously obtain the query results.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListJobGroupsRequest extends $dara.Model {
   asyncQuery?: boolean;
   /**
    * @remarks
-   * The end of the time range for the query, based on the creation time of the job group. Specify the time as a UNIX timestamp in milliseconds.
+   * The end time to filter job groups by creation time. Use a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579965079000
@@ -31,23 +31,15 @@ export class ListJobGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Filters results by job status. To specify multiple statuses, separate them with commas. The statuses are combined with a logical OR. Valid values:
-   * 
-   * - **Draft**: The job group is a draft.
-   * 
-   * - **Scheduling**: The job group is being scheduled.
-   * 
-   * - **Executing**: The job group is executing.
-   * 
-   * - **Completed**: The job group has completed.
-   * 
-   * - **Paused**: The job group is paused.
-   * 
-   * - **Failed**: The job group has failed.
-   * 
-   * - **Cancelled**: The job group is canceled.
-   * 
-   * - **Initializing**: The job group is initializing.
+   * The filter condition. Filters by job status. You can specify multiple statuses separated by commas. The logical OR operator is used. Valid values:
+   * - **Draft**: Draft.
+   * - **Scheduling**: Scheduling.
+   * - **Executing**: Executing.
+   * - **Completed**: Completed.
+   * - **Paused**: Paused.
+   * - **Failed**: Failed.
+   * - **Cancelled**: Cancelled.
+   * - **Initializing**: Initializing.
    * 
    * @example
    * Draft
@@ -55,7 +47,7 @@ export class ListJobGroupsRequest extends $dara.Model {
   jobGroupStatusFilter?: string;
   /**
    * @remarks
-   * Specifies whether to return only job groups with minimum concurrency enabled.
+   * Specifies whether to query tasks with a valid minimum concurrency guarantee.
    * 
    * @example
    * false
@@ -73,7 +65,7 @@ export class ListJobGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -83,15 +75,15 @@ export class ListJobGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search text.
+   * The search keyword.
    * 
    * @example
-   * 面试
+   * Interview
    */
   searchText?: string;
   /**
    * @remarks
-   * The start of the time range for the query, based on the creation time of the job group. Specify the time as a UNIX timestamp in milliseconds.
+   * The start time to filter job groups by creation time. Use a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578965079000

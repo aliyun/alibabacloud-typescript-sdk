@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of calling numbers.
+   * The list of caller numbers.
    * 
-   * > This parameter is optional.
+   * > By default, this parameter is left empty.
    * 
    * @example
    * ["95187"]
@@ -18,12 +18,12 @@ export class ModifyInstanceRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * 这是新的实例
+   * This is a new instance
    */
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the Outbound Bot instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ModifyInstanceRequest extends $dara.Model {
    * The name of the instance.
    * 
    * @example
-   * 新实例
+   * New instance
    */
   instanceName?: string;
   /**

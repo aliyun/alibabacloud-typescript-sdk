@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTTSDemoRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey (AK) for this namespace.
-   * > When the engine is set to xunfei, you must enter the AK.
+   * The AccessKey ID of the namespace.
+   * > When the engine is xunfei, you must enter the AccessKey ID.
    * 
    * @example
    * 5d0f37**********ef56db601****
@@ -14,7 +14,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * Alibaba Cloud customized voice, which is the voice call ID.
+   * The Alibaba Cloud custom voice, which is the voice invocation ID.
    * 
    * @example
    * voice-e1be3a6
@@ -22,11 +22,11 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   aliCustomizedVoice?: string;
   /**
    * @remarks
-   * Voice service type.
+   * The speech service type. 
    * 
-   * - When using **ali** as the custom service, this field stores the appKey of the Intelligent Speech Interaction product project.
+   * - When **ali** is used as the custom service, this field stores the appKey of the interactive voice response product project.
    * 
-   * - When using **xunfei** as the custom service provider, this field stores the corresponding appKey.
+   * - When **xunfei** is used as the custom service provider, this field stores the corresponding appKey.
    * 
    * @example
    * xusi*******RnP7
@@ -34,21 +34,29 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Storage engine. Valid values: ali, volc, and xunfei.
+   * The storage engine. Valid values: **ali**, **volc**, and **xunfei**.
    * 
-   * - When using the default service or selecting Alibaba Cloud as the custom service, set this parameter to **ali**.
-   * 
-   * - When using the Doubao service, set this parameter to **volc**.
-   * - When using xunfei as the service provider, set this parameter to **xunfei**. This value can only be used in small model scenarios.
+   * - To use traditional voices, CosyVoice, or Alibaba Cloud as the custom service, enter **ali**.
+   * - To use the doubao service, enter **volc**.
+   * - To use xunfei as the service provider, enter **xunfei**. This option is only available for small model scenarios.
+   * - To use a self-managed service, enter **dock** and set NlsServiceType to Authorized.
+   * - To use CV-v3-flash and Qwen voices, enter **bailian**.
    * 
    * @example
    * ali
    */
   engine?: string;
+  /**
+   * @remarks
+   * The extended parameters. When Engine is set to **dock**, you must enter the configuration ID.
+   * 
+   * @example
+   * {"thirdVoiceConfigUuid":"3cd82813ece049c4aff3ea3d***********"}
+   */
   extParams?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -58,11 +66,11 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Service type.
-   * Managed: The default Intelligent Speech Interaction product service of the Outbound Bot product (public service).
-   * Authorized: The Intelligent Speech Interaction product service purchased by the public cloud customer (customer\\"s private service), authorized through Script Management > Edit > Call Service > Custom Service.
+   * The service type.
+   * Managed: the default service (public service) for the outbound robot product.
+   * Authorized: the interactive voice response service purchased by public cloud customers (custom service). You can configure it in system administration > Third-party Speech Configuration.
    * 
-   * > When using Alibaba Cloud Intelligent Speech Interaction, that is, when using Alibaba Cloud as the custom service provider, set this parameter to Authorized.
+   * > When you need to use Alibaba Cloud interactive voice response, that is, when you use Alibaba Cloud as the custom service provider, you must enter Authorized.
    * 
    * @example
    * Authorized
@@ -70,12 +78,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   nlsServiceType?: string;
   /**
    * @remarks
-   * Pitch.
-   * An integer between [-500, 500]. Default value: 0.
-   * 
-   * A value greater than 0 indicates a higher pitch.
-   * 
-   * A value less than 0 indicates a lower pitch.
+   * The intonation.
    * 
    * @example
    * 0
@@ -83,7 +86,15 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   pitchRate?: number;
   /**
    * @remarks
-   * Script ID.
+   * The sample rate.
+   * 
+   * @example
+   * 8000
+   */
+  sampleRate?: number;
+  /**
+   * @remarks
+   * The scenario ID.
    * 
    * @example
    * 5ab2d935-306c-478a-88bf-d08e4e25c1b7
@@ -91,9 +102,9 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The AccessKey Secret (SK) for this namespace.
+   * The AccessKey secret of the namespace.
    * 
-   * > When the engine is set to xunfei, you must enter the SK.
+   * > When the engine is xunfei, you must enter the AccessKey secret.
    * 
    * @example
    * OTdhNDE3Z********zQ****
@@ -101,12 +112,12 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * Speech rate.
-   * An integer between [-500, 500]. Default value: 0.
+   * The speech rate.
+   * Valid values: integers from -500 to 500. Default value: 0.
    * 
-   * A value greater than 0 indicates a faster speech rate.
+   * A value greater than 0 increases the pitch.
    * 
-   * A value less than 0 indicates a slower speech rate.
+   * A value less than 0 decreases the pitch.
    * 
    * @example
    * 0
@@ -114,19 +125,19 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   speechRate?: number;
   /**
    * @remarks
-   * Text content.
+   * The text content.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   text?: string;
   /**
    * @remarks
-   * Voice information, such as aixia, siyue, or xiaoyun. For the complete list of available voices, refer to the voice list below.
+   * The voice information, such as aixia, siyue, or xiaoyun. For the complete list of voices, refer to the voice list below.
    * 
-   * > Because the Voice value of a cloned voice is a unique, non-fixed value generated during voice cloning, the specific Voice value cannot be provided at this stage. You must obtain the specific VoiceID from the voice cloning page by calling the ListVoiceClone API.
+   * > Because the Voice value for cloned voices is not fixed and is generated during voice cloning, a specific Voice value cannot be provided at this stage. You must obtain the specific Voice ID from the ListVoiceClone request on the voice cloning page.
    * 
    * @example
    * aixia
@@ -134,12 +145,12 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   voice?: string;
   /**
    * @remarks
-   * Volume.
-   * An integer between [0, 100]. Default value: 50.
+   * The volume.
+   * Valid values: integers from 0 to 100. Default value: 50.
    * 
-   * A value greater than 50 indicates a higher volume.
+   * A value greater than 50 increases the volume.
    * 
-   * A value less than 50 indicates a lower volume.
+   * A value less than 50 decreases the volume.
    * 
    * @example
    * 50
@@ -155,6 +166,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
       instanceId: 'InstanceId',
       nlsServiceType: 'NlsServiceType',
       pitchRate: 'PitchRate',
+      sampleRate: 'SampleRate',
       scriptId: 'ScriptId',
       secretKey: 'SecretKey',
       speechRate: 'SpeechRate',
@@ -174,6 +186,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
       instanceId: 'string',
       nlsServiceType: 'string',
       pitchRate: 'number',
+      sampleRate: 'number',
       scriptId: 'string',
       secretKey: 'string',
       speechRate: 'number',

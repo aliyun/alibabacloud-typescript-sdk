@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of successful operations.
+   * The number of successfully executed operations.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
   execCount?: number;
   /**
    * @remarks
-   * The message returned for the API call.
+   * The API response message.
    * 
    * @example
    * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu，flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
@@ -21,7 +21,7 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
 export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API call.
+   * The API status code.
    * 
    * @example
    * OK
@@ -63,7 +63,7 @@ export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data.
    */
   data?: SaveAnnotationMissionTagInfoListResponseBodyData;
   /**
@@ -76,7 +76,7 @@ export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the API call.
+   * The API response message.
    * 
    * @example
    * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu,flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
@@ -92,7 +92,9 @@ export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

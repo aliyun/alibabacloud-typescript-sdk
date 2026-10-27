@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent configuration.
-   * 
-   * > The agent configuration ID for a created scenario is available in the ChatbotId parameter returned by the DescribeScript operation.
+   * The agent profile ID.
+   * > You can obtain the agent profile ID of a created scenario from the ChatbotId response parameter of DescribeScript.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class GetAgentProfileRequest extends $dara.Model {
   agentProfileId?: string;
   /**
    * @remarks
-   * The IP address of the application. This is a system field and is optional.
+   * The app IP address. This is a system field and is optional.
    * 
    * @example
    * 127.0.0.1

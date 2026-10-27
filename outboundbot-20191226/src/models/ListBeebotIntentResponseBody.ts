@@ -8,12 +8,12 @@ export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
    * The intent alias.
    * 
    * @example
-   * 嗯明白了
+   * Okay, understood
    */
   aliasName?: string;
   /**
    * @remarks
-   * The time when the intent was created.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 16:03:15.+0800
@@ -29,7 +29,7 @@ export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
   createUserId?: string;
   /**
    * @remarks
-   * The name of the account that created the intent.
+   * The name of the user who created the intent.
    * 
    * @example
    * xxx@voice-navigator-testonaliyun.com
@@ -46,16 +46,15 @@ export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
   /**
    * @remarks
    * The intent name.
-   * 
-   * > This is the intent code. It uniquely identifies the intent.
+   * > The intent code, which is a unique identifier.
    * 
    * @example
-   * 知道了
+   * Understood
    */
   intentName?: string;
   /**
    * @remarks
-   * The time when the intent was last modified.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 16:03:15.+0800
@@ -63,7 +62,7 @@ export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Modify User ID
+   * The ID of the user who modified the intent.
    * 
    * @example
    * 1252504
@@ -71,7 +70,7 @@ export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
   modifyUserId?: string;
   /**
    * @remarks
-   * Modify the account name.
+   * The name of the user who modified the intent.
    * 
    * @example
    * xxx@voice-navigator-testonaliyun.com
@@ -146,7 +145,7 @@ export class ListBeebotIntentResponseBody extends $dara.Model {
   intents?: ListBeebotIntentResponseBodyIntents[];
   /**
    * @remarks
-   * The message returned by the operation.
+   * The message returned by the API operation.
    * 
    * @example
    * Success
@@ -162,7 +161,7 @@ export class ListBeebotIntentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -178,7 +177,7 @@ export class ListBeebotIntentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

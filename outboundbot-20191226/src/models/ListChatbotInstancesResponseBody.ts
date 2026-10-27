@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   /**
    * @remarks
-   * Profile picture URL.
+   * The URL of the avatar.
    * 
    * @example
    * https://ccrm.wengine.cn/ccrm/system/common/fileDownload/noToken?fileId=975cdeaa064846e3b6004abd9ba1d7c8
@@ -13,7 +13,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-18T02:36:00Z
@@ -21,7 +21,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * e874fcf0-d2f4-4e62-9377-b6f35fe55210
@@ -29,15 +29,15 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Chatbot description.
+   * The description of the chatbot.
    * 
    * @example
-   * 这是直播的描述
+   * This is the description for the live stream
    */
   introduction?: string;
   /**
    * @remarks
-   * Language used by the chatbot, such as zh-cn or en-us.
+   * The language of the chatbot service, such as zh-cn and en-us.
    * 
    * @example
    * zh-cn
@@ -45,15 +45,15 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * Chatbot name.
+   * The name of the chatbot.
    * 
    * @example
-   * 智能回访2
+   * Smart Callback 2
    */
   name?: string;
   /**
    * @remarks
-   * Time zone of the chatbot. See Common Time Zone Codes.
+   * The time zone of the chatbot. For more information, see Public - Time Zone Codes.
    * 
    * @example
    * Asia/Shanghai
@@ -95,12 +95,12 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
 export class ListChatbotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Chatbot list details
+   * The list of chatbots.
    */
   bots?: ListChatbotInstancesResponseBodyBots[];
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -108,7 +108,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -116,7 +116,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -124,7 +124,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 5
@@ -132,7 +132,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -140,7 +140,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -148,7 +148,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -156,7 +156,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 100

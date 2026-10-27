@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAllTenantBindNumberBindingResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method of the number.
+   * 
+   * @example
+   * 1
+   */
   billingType?: string;
   /**
    * @remarks
-   * Binding ID.
+   * The binding ID.
    * 
    * @example
    * b5bfb844-ce85-4779-bc8f-161fba46aa07
@@ -14,12 +21,12 @@ export class ListAllTenantBindNumberBindingResponseBodyDataList extends $dara.Mo
   bindingId?: string;
   /**
    * @remarks
-   * List of instance names.
+   * The list of instance names.
    */
   instanceNameList?: string[];
   /**
    * @remarks
-   * Phone number.
+   * The number.
    * 
    * @example
    * 15005059355
@@ -27,7 +34,7 @@ export class ListAllTenantBindNumberBindingResponseBodyDataList extends $dara.Mo
   number?: string;
   /**
    * @remarks
-   * Policy.
+   * The policy.
    * 
    * @example
    * {\\"rateLimitPeriod\\":\\"1\\",\\"rateLimitCount\\":\\"1\\"}
@@ -35,10 +42,10 @@ export class ListAllTenantBindNumberBindingResponseBodyDataList extends $dara.Mo
   serializedParams?: string;
   /**
    * @remarks
-   * Trunk name.
+   * The trunk name.
    * 
    * @example
-   * 小码-公共
+   * Xiaoma-Public
    */
   trunkName?: string;
   static names(): { [key: string]: string } {
@@ -78,7 +85,7 @@ export class ListAllTenantBindNumberBindingResponseBodyDataList extends $dara.Mo
 export class ListAllTenantBindNumberBindingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Array.
+   * The list.
    */
   list?: ListAllTenantBindNumberBindingResponseBodyDataList[];
   static names(): { [key: string]: string } {
@@ -108,7 +115,7 @@ export class ListAllTenantBindNumberBindingResponseBodyData extends $dara.Model 
 export class ListAllTenantBindNumberBindingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -116,12 +123,12 @@ export class ListAllTenantBindNumberBindingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: ListAllTenantBindNumberBindingResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -129,7 +136,7 @@ export class ListAllTenantBindNumberBindingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API response message.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -137,7 +144,7 @@ export class ListAllTenantBindNumberBindingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A4BEAB4B-C810-5386-B72A-1A35FF1E6B15
@@ -145,7 +152,7 @@ export class ListAllTenantBindNumberBindingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

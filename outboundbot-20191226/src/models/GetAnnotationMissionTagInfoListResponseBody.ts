@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTagInfoList extends $dara.Model {
   /**
    * @remarks
-   * Tag description
+   * The tag description.
    * 
    * @example
-   * 用户投诉
+   * User complaint
    */
   annotationMissionTagInfoDescription?: string;
   /**
    * @remarks
-   * Tag ID
+   * The tag ID.
    * 
    * @example
    * e1ee87ea-ebad-4079-aebb-1c56a4ef0c06
@@ -21,15 +21,15 @@ export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTag
   annotationMissionTagInfoId?: string;
   /**
    * @remarks
-   * Tag name
+   * The tag name.
    * 
    * @example
-   * 用户投诉
+   * User complaint
    */
   annotationMissionTagInfoName?: string;
   /**
    * @remarks
-   * Indicates whether the tag is deleted. A value of true indicates that the tag is deleted.
+   * Indicates whether the tag is deleted.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTag
   delete?: boolean;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 3c3b8d1d-deff-48d9-9318-addc80ae5b1e
@@ -45,7 +45,7 @@ export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTag
   instanceId?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * @example
    * DING_ORG_dingbd9daecdb7aaed3bffe93478753d9884
@@ -85,12 +85,12 @@ export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTag
 export class GetAnnotationMissionTagInfoListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Tag list
+   * The list of tags.
    */
   annotationMissionTagInfoList?: GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTagInfoList[];
   /**
    * @remarks
-   * Response message
+   * The message returned by the API.
    * 
    * @example
    * CDR \\"job-efbaeefc-4d45-4e79-83f7-b33b0769c969\\" doesn\\"t exists.
@@ -98,7 +98,7 @@ export class GetAnnotationMissionTagInfoListResponseBodyData extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class GetAnnotationMissionTagInfoListResponseBodyData extends $dara.Model
 export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -143,12 +143,12 @@ export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The returned data.
    */
   data?: GetAnnotationMissionTagInfoListResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -156,7 +156,7 @@ export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The message returned by the API.
    * 
    * @example
    * CDR \\"job-efbaeefc-4d45-4e79-83f7-b33b0769c969\\" doesn\\"t exists.
@@ -164,7 +164,7 @@ export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -172,7 +172,7 @@ export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true

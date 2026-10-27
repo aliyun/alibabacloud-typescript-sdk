@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRealtimeConcurrencyReportRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 85bf7efa-a07c-498a-850e-99a5849b8589
@@ -13,7 +13,7 @@ export class GetRealtimeConcurrencyReportRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Task group ID
+   * The job group ID.
    * 
    * @example
    * c62e6789-28a8-41db-941e-171a01d3b3b9
@@ -21,7 +21,7 @@ export class GetRealtimeConcurrencyReportRequest extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetRealtimeConcurrencyReportRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10

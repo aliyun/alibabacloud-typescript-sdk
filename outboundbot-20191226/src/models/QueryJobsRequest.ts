@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition for the contact name.
+   * The contact name for filtering.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   contactName?: string;
   /**
    * @remarks
-   * The filter condition for the end time. Default value: 0, which indicates the current time.
+   * The end time for filtering. Default value: 0, which indicates the current time. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579077794665
@@ -59,7 +59,7 @@ export class QueryJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The filter condition for the contact phone number.
+   * The contact phone number for filtering.
    * 
    * @example
    * 135****8888
@@ -67,7 +67,7 @@ export class QueryJobsRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The scenario ID. This is a legacy parameter and has been deprecated.
+   * The scenario ID. **[Deprecated]** Legacy parameter.
    * 
    * @example
    * b0f35dd1-0337-402e-9c4f-3a6c2426950a
@@ -75,7 +75,7 @@ export class QueryJobsRequest extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * The filter condition for the start time. Default value: 0, which indicates the start of the current day.
+   * The start time for filtering. Default value: 0, which indicates 00:00 today. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579068424883
@@ -83,7 +83,10 @@ export class QueryJobsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Specifies whether to query by start time, end time, or job creation time. Valid values: start, end, job_create.
+   * The time basis for filtering. This parameter specifies the filtering criterion rather than a specific date or time. Valid values:
+   * - start: Filters by start time.
+   * - end: Filters by end time.
+   * - job_create: Filters by job creation time.
    * 
    * @example
    * start

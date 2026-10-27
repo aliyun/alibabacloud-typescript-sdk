@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.
   code?: string;
   /**
    * @remarks
-   * File URL
+   * The file URL.
    * 
    * @example
    * http://xxx.xx.com/xx
@@ -21,7 +21,7 @@ export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.
   fileHttpUrl?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -45,7 +45,7 @@ export class GetNumberDistrictInfoTemplateDownloadUrlResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

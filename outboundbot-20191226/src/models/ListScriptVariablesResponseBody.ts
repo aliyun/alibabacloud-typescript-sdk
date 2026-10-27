@@ -8,7 +8,7 @@ export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
    * The description.
    * 
    * @example
-   * 表示客户的真实姓名
+   * The real name of the customer
    */
   description?: string;
   /**
@@ -16,7 +16,7 @@ export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
    * The display name of the variable.
    * 
    * @example
-   * 姓名
+   * Name
    */
   displayName?: string;
   /**
@@ -71,7 +71,7 @@ export class ListScriptVariablesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The API message.
    * 
    * @example
    * Success
@@ -87,7 +87,7 @@ export class ListScriptVariablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

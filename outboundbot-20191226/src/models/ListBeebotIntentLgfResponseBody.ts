@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBeebotIntentLgfResponseBodyLgfs extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 10:54:18.+0800
@@ -21,7 +21,7 @@ export class ListBeebotIntentLgfResponseBodyLgfs extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * The ID of the utterance template.
+   * The utterance template ID.
    * 
    * @example
    * 5666117
@@ -29,7 +29,7 @@ export class ListBeebotIntentLgfResponseBodyLgfs extends $dara.Model {
   lgfId?: number;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
    * 
    * @example
    * 2025-04-21 10:54:18.+0800
@@ -40,7 +40,7 @@ export class ListBeebotIntentLgfResponseBodyLgfs extends $dara.Model {
    * The content of the utterance template.
    * 
    * @example
-   * 我是一个问法模版
+   * I am an utterance template
    */
   ruleText?: string;
   static names(): { [key: string]: string } {
@@ -104,7 +104,7 @@ export class ListBeebotIntentLgfResponseBody extends $dara.Model {
   lgfs?: ListBeebotIntentLgfResponseBodyLgfs[];
   /**
    * @remarks
-   * The message returned by the API.
+   * The API message.
    * 
    * @example
    * Success
@@ -120,7 +120,7 @@ export class ListBeebotIntentLgfResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -136,7 +136,7 @@ export class ListBeebotIntentLgfResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

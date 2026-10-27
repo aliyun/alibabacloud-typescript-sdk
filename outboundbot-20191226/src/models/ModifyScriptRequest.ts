@@ -21,7 +21,7 @@ export class ModifyScriptRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * Indicates whether the robot workspace is a Large Language Model (LLM) workspace.
+   * Specifies whether the robot workspace is a large model workspace.
    * 
    * @example
    * false
@@ -31,31 +31,22 @@ export class ModifyScriptRequest extends $dara.Model {
    * @remarks
    * The ASR configuration. Parameter definitions:
    * 
-   * - **appKey**: The Alibaba Cloud account appKey.
+   * - **appKey**: The appKey of the Alibaba Cloud account.
+   * - **maxEndSilence**: The duration of voice endpoint detection.
+   * - **silenceTimeout**: The silence timeout in seconds. The timeout occurs after the user is silent for N seconds.
    * 
-   * - **maxEndSilence**: The duration for voice endpoint detection.
+   * - **engine**: The service to call. Valid values: ali and xunfei.
+   * - **nlsServiceType**: The type of the service to call. Valid values: 
+   *    - Managed: The NLS service on the public cloud. 
+   *    - Authorized: The authorized NLS service.
+   *    - Provided: The NLS service provided by the customer through AccessKey ID and AccessKey secret.
+   *    - Apes: The private cloud service.
+   * - **engineXunfei**: The configuration required when the caller is xunfei.
+   * > When engine is set to ali and nlsServiceType is set to Authorized, a custom service is used, and the service provider is ali. When engine is set to ali and nlsServiceType is set to Managed, the default service is used. When engine is set to xunfei and nlsServiceType is set to Authorized, the service provider is xunfei, and you must enter the xunfei configuration: {"uuid":"ed2xxxxxxxxx","globalMaxEndSilence":700,"globalMaxEndSilenceEnable":true}.
    * 
-   * - **silenceTimeout**: The silence timeout. Unit: seconds. The system times out after the user is silent for N seconds.
+   * - **globalMaxEndSilence**: The silence detection duration in milliseconds.
    * 
-   * - **engine**: The service to invoke. Valid values: ali, xunfei.
-   * 
-   * - **nlsServiceType**: The type of the invoked service.
-   * 
-   *   - Managed: Public cloud NLS service.
-   * 
-   *   - Authorized: Authorized NLS service.
-   * 
-   *   - Provided: NLS service provided by the customer through AS/SK.
-   * 
-   *   - Apes: Private cloud service.
-   * 
-   * - **engineXunfei**: If the caller is xunfei, fill in the corresponding configuration.
-   * 
-   * > If engine is set to ali and nlsServiceType is set to Authorized, a custom service is used, and the service provider is ali. If engine is set to ali and nlsServiceType is set to Managed, the default service is used. If engine is set to xunfei and nlsServiceType is set to Authorized, the service provider is xunfei. You must fill in the xunfei configuration, such as {"uuid":"ed2xxxxxxxxx","globalMaxEndSilence":700,"globalMaxEndSilenceEnable":true}.
-   * 
-   * - **globalMaxEndSilence**: Silence detection. Unit: milliseconds.
-   * 
-   * - **globalMaxEndSilenceEnable**: The switch for silence detection. Default value: enabled.
+   * - **globalMaxEndSilenceEnable**: The silence detection switch. Enabled by default.
    * 
    * - **speechNoiseThreshold**: The noise filtering threshold.
    * 
@@ -76,52 +67,33 @@ export class ModifyScriptRequest extends $dara.Model {
   /**
    * @remarks
    * The call configuration.
-   * 
-   * - silenceConfig: Silence configuration.
-   * 
-   *   - silenceReplyTimeout: The timeout period for silence replies, in milliseconds.
-   * 
-   *   - silenceTimeoutMaxCount: Hang up after several rounds of silence timeout.
-   * 
-   *   - silenceTimeoutMaxCountEnable: Indicates whether to hang up on silence.
-   * 
-   * - hangupConfig: Hang-up configuration.
-   * 
-   *   - aiHangupEnable: AI hang-up. Valid values: true, false.
-   * 
-   *   - delayHangup: Delayed hang-up. Maximum value: 10.
-   * 
-   *   - hangupMaxRounds: Interaction rounds. Maximum value: 100.
-   * 
-   *   - hangupMaxRoundsBroadcast: The script for hang-up broadcast.
-   * 
-   *   - hangupMaxRoundsEnable: Determine the maximum number of interaction rounds. Valid values: true, false.
-   * 
-   * - securityInterceptConfig: Security block configuration.
-   * 
-   *   - broadcast: The script for block broadcast.
-   * 
-   * - specialInterceptConfig: Special case block.
-   * 
-   *   - specialInterceptEnable: The switch for special case block.
-   * 
-   *   - specialIntercepts: Special cases.
-   * 
-   *     - voiceAssistant: Voice assistant.
-   * 
-   *     - extensionNumberTransfer: Extension number transfer.
-   * 
-   * - transitionConfig: Transition phrase model configuration.
-   * 
-   *   - transitionSwitch: The switch for the transition phrase model.
+   * - silenceConfig: The silence configuration.
+   *     - silenceReplyTimeout: The silence reply timeout in milliseconds.
+   *     - silenceTimeoutMaxCount: The maximum number of silence timeout rounds before hanging up.
+   *     - silenceTimeoutMaxCountEnable: Specifies whether to hang up after silence timeouts.
+   * - hangupConfig: The hang-up configuration.
+   *     - aiHangupEnable: Specifies whether to enable AI hang-up. Valid values: true and false.
+   *     - delayHangup: The delayed hang-up time. Maximum value: 10.
+   *     - hangupMaxRounds: The maximum number of interaction rounds. Maximum value: 100.
+   *     - hangupMaxRoundsBroadcast: The broadcast script for hanging up.
+   *     - hangupMaxRoundsEnable: Specifies whether to enable the maximum interaction rounds check. Valid values: true and false.
+   * - securityInterceptConfig: The security interception configuration.
+   *     - broadcast: The interception broadcast script.
+   * - specialInterceptConfig: The special case interception configuration.
+   *     - specialInterceptEnable: Specifies whether to enable special case interception.
+   *     - specialIntercepts: The special cases.
+   *         - voiceAssistant: Voice assistant.
+   *         - extensionNumberTransfer: Extension number transfer.
+   * - transitionConfig: The backchannel model configuration.
+   *     - transitionSwitch: Specifies whether to enable the backchannel model.
    * 
    * @example
-   * {"silenceConfig":{"silenceReplyTimeout":499,"silenceTimeoutMaxCount":10,"silenceTimeoutMaxCountEnable":true},"hangupConfig":{"aiHangupEnable":false,"delayHangup":0,"hangupMaxRounds":20,"hangupMaxRoundsBroadcast":"感谢您的接听，祝您生活愉快，再见!","hangupMaxRoundsEnable":false},"securityInterceptConfig":{"broadcast":"您说的这个问题我不能回答您，您可以尝试询问其他问题。"},"specialInterceptConfig":{"specialInterceptEnable":false,"specialIntercepts":[{"code":"voiceAssistant"},{"code":"extensionNumberTransfer"}]},"transitionConfig":{"transitionSwitch":false}}
+   * {"silenceConfig":{"silenceReplyTimeout":499,"silenceTimeoutMaxCount":10,"silenceTimeoutMaxCountEnable":true},"hangupConfig":{"aiHangupEnable":false,"delayHangup":0,"hangupMaxRounds":20,"hangupMaxRoundsBroadcast":"Thank you for taking my call. Have a great day. Goodbye!","hangupMaxRoundsEnable":false},"securityInterceptConfig":{"broadcast":"I cannot answer this question. You can try asking other questions."},"specialInterceptConfig":{"specialInterceptEnable":false,"specialIntercepts":[{"code":"voiceAssistant"},{"code":"extensionNumberTransfer"}]},"transitionConfig":{"transitionSwitch":false}}
    */
   chatConfig?: string;
   /**
    * @remarks
-   * The ID of the chatbot.
+   * The robot ID.
    * 
    * @example
    * chatbot-cn-iFZfi7eq6e
@@ -129,7 +101,7 @@ export class ModifyScriptRequest extends $dara.Model {
   chatbotId?: string;
   /**
    * @remarks
-   * The switch for emotion detection configuration.
+   * Specifies whether to enable the emotion recognition configuration.
    * 
    * @example
    * true
@@ -142,12 +114,12 @@ export class ModifyScriptRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 电商
+   * E-commerce
    */
   industry?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -155,10 +127,24 @@ export class ModifyScriptRequest extends $dara.Model {
    * c6320d3c-fa45-4011-b3b1-acdfabe3a8c6
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The label definition.
+   * > Used in large model flow canvas scenarios.
+   * 
+   * @example
+   * {
+   * 	"labels": [{
+   * 		"description": "The customer\\"s final repayment intention after the conversation is completed",
+   * 		"name": "Whether promised to repay",
+   * 		"valueList": "[\\"Yes\\",\\"No\\"]"
+   * 	}]
+   * }
+   */
   labelConfig?: string;
   /**
    * @remarks
-   * The switch for intelligent sentence segmentation configuration (small model).
+   * Specifies whether to enable the intelligent sentence segmentation configuration for small models.
    * 
    * @example
    * true
@@ -166,15 +152,15 @@ export class ModifyScriptRequest extends $dara.Model {
   longWaitEnable?: boolean;
   /**
    * @remarks
-   * The configuration for transition phrases. Customization is not supported temporarily. Do not pass this parameter by default. This parameter is deprecated.
+   * The backchannel configuration. Customization is not supported at the moment. You do not need to pass this parameter by default. **[Deprecated]**
    * 
    * @example
-   * 无
+   * None
    */
   miniPlaybackConfigListJsonString?: string;
   /**
    * @remarks
-   * The switch for transition phrase configuration (small model).
+   * Specifies whether to enable the backchannel configuration for small models.
    * 
    * @example
    * true
@@ -182,7 +168,7 @@ export class ModifyScriptRequest extends $dara.Model {
   miniPlaybackEnable?: boolean;
   /**
    * @remarks
-   * The switch for graceful barge-in configuration (small model).
+   * Specifies whether to enable the graceful interruption configuration for small models.
    * 
    * @example
    * true
@@ -190,21 +176,19 @@ export class ModifyScriptRequest extends $dara.Model {
   newBargeInEnable?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
-   * 无
+   * None
    */
   nlsConfig?: string;
   /**
    * @remarks
-   * The NLU access method (applicable only to Large Language Model (LLM) scenarios).
+   * The NLU access method. This parameter is applicable only to large model scenarios.
    * 
-   * Enumeration:
-   * 
-   * - Managed: Access using an Alibaba Cloud public account.
-   * 
-   * - This parameter is empty for non-LLM scenarios.
+   * Valid values:
+   * - Managed: Uses the Alibaba Cloud public account for access.
+   * - Empty: For non-large model scenarios.
    * 
    * @example
    * Managed
@@ -212,17 +196,14 @@ export class ModifyScriptRequest extends $dara.Model {
   nluAccessType?: string;
   /**
    * @remarks
-   * The NLU engine (applicable only to Large Language Model (LLM) scenarios).
+   * The NLU engine. This parameter is applicable only to large model scenarios.
    * 
-   * > After a scenario is created, you cannot modify the scenario mode.
+   * > After a scenario is created, the scenario mode cannot be modified.
    * 
-   * Enumeration:
-   * 
-   * - Prompts: Text filling mode.
-   * 
-   * - SSE_FUNCTION: Function Compute mode.
-   * 
-   * - This parameter is empty for non-LLM scenarios.
+   * Valid values:
+   * - Prompts: The text input mode.
+   * - SSE_FUNCTION: The Function Compute mode.
+   * - Empty: For non-large model scenarios.
    * 
    * @example
    * Prompts
@@ -235,25 +216,25 @@ export class ModifyScriptRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 回访
+   * Follow-up visit
    */
   scene?: string;
   /**
    * @remarks
-   * For notification instances, pass in the script list. This parameter is deprecated.
+   * The script list for notification instances. **[Deprecated]**
    */
   scriptContent?: string[];
   /**
    * @remarks
-   * The description of the script.
+   * The script description.
    * 
    * @example
-   * 返工回访话术
+   * Rework callback script
    */
   scriptDescription?: string;
   /**
    * @remarks
-   * The ID of the script.
+   * The script ID.
    * 
    * This parameter is required.
    * 
@@ -263,48 +244,40 @@ export class ModifyScriptRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script.
+   * The script name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 续费提醒
+   * Renewal reminder
    */
   scriptName?: string;
   /**
    * @remarks
-   * For notification instances, pass in the script voice list. This parameter is deprecated.
+   * The script voice list for notification instances. **[Deprecated]**
    */
   scriptWaveform?: string[];
   /**
    * @remarks
    * The TTS configuration. Parameter definitions:
    * 
-   * - **voice**: The voice actor.
-   * 
+   * - **voice**: The speaker.
    * - **volume**: The volume. Valid values: 0 to 100. Default value: 50.
-   * 
    * - **speechRate**: The speech rate. Valid values: -500 to 500. Default value: 0.
-   * 
-   * - **pitchRate**: The pitch rate. Valid values: -500 to 500. Default value: 0.
+   * - **pitchRate**: The pitch. Valid values: -500 to 500. Default value: 0.
+   * - **openingPromptInterruptible**: The interruption configuration for the opening prompt.
+   * - **closingStatementInterruptible**: The interruption configuration for the closing statement.
    * 
    * - **globalInterruptible**: The voice interruption configuration.
-   * 
-   * - **engine**
-   * 
-   *   **nlsServiceType**: The type of the invoked service.
-   * 
-   *   - Managed: Public cloud NLS service.
-   * 
-   *   - Authorized: Authorized NLS service.
-   * 
-   *   - Provided: NLS service provided by the customer through AS/SK.
-   * 
-   *   - Apes: Private cloud service.
-   * 
+   * - **engine**: The service to call. Valid values: ali, volc, and xunfei. xunfei is not supported in large model scenarios.
+   * - **nlsServiceType**: The type of the service to call. Valid values: 
+   *    - Managed: The NLS service on the public cloud. 
+   *    - Authorized: The authorized NLS service.
+   *    - Provided: The NLS service provided by the customer through AccessKey ID and AccessKey secret.
+   *    - Apes: The private cloud service.
    * - **engineXunfei**: The configuration when the service provider is xunfei.
    * 
-   * > 1\\. If engine is set to ali and nlsServiceType is set to Authorized, a custom service is used. 2. If the service provider is ali, and engine is set to ali and nlsServiceType is set to Managed, the default service is used. 3. If engine is set to xunfei (applicable to small model scenarios) and nlsServiceType is set to Authorized, the service provider is xunfei. You must fill in the engineXunfei configuration, such as {"pitchRate":50,"speechRate":50,"voice":"aisjiuxu","volume":50}. 4. If engine is set to volc and nlsServiceType is set to Authorized, it indicates that Doubao is applicable.
+   * > 1. When engine is set to ali and nlsServiceType is set to Authorized, a custom service is used. 2. When the service provider is ali, engine is set to ali, and nlsServiceType is set to Managed, the default service is used. 3. When engine is set to xunfei (applicable to small model scenarios) and nlsServiceType is set to Authorized, the service provider is xunfei, and you must enter the engineXunfei configuration: {"pitchRate":50,"speechRate":50,"voice":"aisjiuxu","volume":50}. 4. When engine is set to volc and nlsServiceType is set to Authorized, the applicable service is doubao.
    * 
    * @example
    * {

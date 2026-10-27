@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAnnotationMissionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The operation is not allowed. User state (DIALING) does not meet expectations (READY).
@@ -13,7 +13,7 @@ export class ModifyAnnotationMissionResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ModifyAnnotationMissionResponseBodyData extends $dara.Model {
 export class ModifyAnnotationMissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -53,12 +53,12 @@ export class ModifyAnnotationMissionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    */
   data?: ModifyAnnotationMissionResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class ModifyAnnotationMissionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The operation is not allowed. User state (DIALING) does not meet expectations (READY).
@@ -74,7 +74,7 @@ export class ModifyAnnotationMissionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -82,7 +82,9 @@ export class ModifyAnnotationMissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. true: The call succeeded. false: The call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
+  /**
+   * @remarks
+   * The signed download URL for the early media recording file.
+   */
   earlyMediaSignatureUrl?: string;
   /**
    * @remarks
-   * The recording file name, which is typically a UUID.
+   * The name of the recording file, which is typically a UUID.
    * 
    * @example
    * 281eb174-3865-41c1-9274-7b6813edadab.wav
@@ -14,7 +18,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * A URL that points to the recording file. Use HTTP to download the file.
+   * The URL used to download the recording file over HTTP.
    * 
    * @example
    * http://tiangong-staging.oss-cn-shanghai.aliyuncs.com/record/281eb174-3865-41c1-9274-7b6813edadab.wav?Expires=1578624046&OSSAccessKeyId=LTAI****cqw&Signature=dL2dxWS6VcdZrvG9xOMOBMSP3Fg%3D
@@ -22,7 +26,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
   signatureUrl?: string;
   /**
    * @remarks
-   * The list of segmented recordings, including file names and file URLs.
+   * The list of segmented recordings, including the file names and file URLs.
    * 
    * @example
    * [{"fileName":"10a17c447415424c99491884abe27d8a-1.wav","filePath":"https://ssml-test.oss-cn-shanghai.aliyuncs.com/7253/voiceSlice/10a17c447415424c99491884abe27d8a/10a17c447415424c99491884abe27d8a-1.wav?Expires=1686645470&OSSAccessKeyId=LTA*********kr8M9&Signature=V23OhiV5yIOoouriu6SiWkO9h8E%3D"}]
@@ -58,7 +62,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
 export class DownloadRecordingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interface status code.
+   * The API status code.
    * 
    * @example
    * OK
@@ -66,7 +70,7 @@ export class DownloadRecordingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The download URL of the file.
+   * The download URL.
    */
   downloadParams?: DownloadRecordingResponseBodyDownloadParams;
   /**
@@ -79,7 +83,7 @@ export class DownloadRecordingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The interface prompt message.
+   * The response message.
    * 
    * @example
    * Success

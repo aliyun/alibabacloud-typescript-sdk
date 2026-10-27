@@ -15,7 +15,7 @@ export class TaskPreparingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the account that owns the instance.
+   * The ID of the account to which the instance belongs.
    * 
    * @example
    * 1971226538081821
@@ -23,7 +23,7 @@ export class TaskPreparingRequest extends $dara.Model {
   instanceOwnerId?: number;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 

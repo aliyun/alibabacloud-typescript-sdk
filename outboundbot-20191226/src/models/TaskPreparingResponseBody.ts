@@ -21,7 +21,7 @@ export class TaskPreparingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the operation.
    * 
    * @example
    * Succes
@@ -45,7 +45,7 @@ export class TaskPreparingResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * @example
    * e4e2a770-b97b-465a-80d8-06dca008c503

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTenantKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The status code of the operation.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class CreateTenantKeyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message returned by the operation.
    * 
    * @example
    * Success

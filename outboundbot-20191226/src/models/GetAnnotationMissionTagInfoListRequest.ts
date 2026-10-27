@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAnnotationMissionTagInfoListRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
-   * > If you do not specify this parameter, the system returns the default tags for the tenant.
+   * > If this parameter is not specified, the default tags of the tenant are returned.
    * 
    * @example
    * 4eee9bf8-1319-468f-ac82-83c50ae389f8
@@ -15,7 +15,7 @@ export class GetAnnotationMissionTagInfoListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class GetAnnotationMissionTagInfoListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * Number of records per page
+   * The number of entries per page.
    * 
    * @example
    * 10

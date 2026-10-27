@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactBlockListResponseBodyContactBlocklistListList extends $dara.Model {
   /**
    * @remarks
-   * The unique business key of the outbound call blocklist entry.
+   * The unique business key of the outbound call blocklist.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -13,7 +13,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   contactBlockListId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640077685465
@@ -61,7 +61,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   phoneNumber?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * xxxx
@@ -105,7 +105,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
 export class GetContactBlockListResponseBodyContactBlocklistList extends $dara.Model {
   /**
    * @remarks
-   * The array data.
+   * The data array.
    * 
    * @example
    * []

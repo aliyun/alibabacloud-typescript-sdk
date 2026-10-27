@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupExecutingInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeGroupExecutingInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Task group ID
+   * The job group ID.
    * 
    * This parameter is required.
    * 

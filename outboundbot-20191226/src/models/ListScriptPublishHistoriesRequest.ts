@@ -25,7 +25,7 @@ export class ListScriptPublishHistoriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListScriptPublishHistoriesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The script ID.
+   * The scenario ID.
    * 
    * This parameter is required.
    * 

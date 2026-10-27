@@ -37,6 +37,10 @@ export class GetContactWhiteListRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search condition for the outbound whitelist.
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {

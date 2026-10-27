@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the batch job.
+   * The description of the batch job.
    * 
    * @example
-   * 描述
+   * Description
    */
   batchJobDescription?: string;
   /**
    * @remarks
-   * Name of the batch job.
+   * The name of the batch job.
    * 
    * This parameter is required.
    * 
    * @example
-   * 第一个作业组
+   * First job group
    */
   batchJobName?: string;
   /**
    * @remarks
-   * List of caller numbers.
+   * The list of calling numbers.
    * 
    * @example
    * ["95187"]
@@ -31,7 +31,7 @@ export class CreateBatchJobsRequest extends $dara.Model {
   callingNumber?: string[];
   /**
    * @remarks
-   * ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -41,9 +41,9 @@ export class CreateBatchJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Path to the Excel file that contains the batch job data.
+   * The URL to download the Excel file for the batch job.
    * 
-   * > Get this value from the Folder parameter in the response of the GetJobDataUploadParams operation.
+   * >You can obtain this parameter from the Folder response parameter of the GetJobDataUploadParams operation.
    * 
    * @example
    * 52e80b02-0126-4556-a1e6-ef5b3747ed53/a9a3ddc7-d7d7-48cd-82b5-b31bb5510e71_2a66f8ad-dfbb-4980-9b84-439171295a11.xlsx
@@ -51,7 +51,7 @@ export class CreateBatchJobsRequest extends $dara.Model {
   jobFilePath?: string;
   /**
    * @remarks
-   * ID of the scenario.
+   * The scenario ID.
    * 
    * @example
    * c6a668d1-3145-4048-9101-cb3678bb8884
@@ -59,7 +59,7 @@ export class CreateBatchJobsRequest extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * ID of the script.
+   * The script ID.
    * 
    * @example
    * b9ff4e88-65f9-4eb3-987c-11ba51f3f24d
@@ -67,15 +67,17 @@ export class CreateBatchJobsRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * JSON string that defines the job execution policy. Required.
+   * The JSON string of the job execution strategy. This parameter is required.
    * 
    * @example
-   * {"maxAttemptsPerDay":2,"name":"策略名字","workingTime":[{"beginTime":"09:00:00","endTime":"12:00:00"},{"beginTime":"13:00:00","endTime":"18:30:00"}],"minAttemptInterval":60}
+   * {"maxAttemptsPerDay":2,"name":"Strategy name","workingTime":[{"beginTime":"09:00:00","endTime":"12:00:00"},{"beginTime":"13:00:00","endTime":"18:30:00"}],"minAttemptInterval":60}
    */
   strategyJson?: string;
   /**
    * @remarks
-   * Indicates whether the job is submitted. Set to false to submit the job. Set to true to save it as a draft.
+   * Specifies whether the job is submitted. Valid values:
+   * - true: The job is saved as a draft.
+   * - false: The job is submitted.
    * 
    * This parameter is required.
    * 

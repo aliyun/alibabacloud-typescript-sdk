@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent configuration ID
+   * The agent profile ID.
    * 
-   * > Get the agent configuration ID for created scenarios from the ChatbotId return parameter of DescribeScript.
+   * > You can obtain the agent profile ID of a created scenario from the ChatbotId response parameter of DescribeScript.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   agentProfileId?: string;
   /**
    * @remarks
-   * API plug-in configuration
+   * The API plugin configuration.
    * 
-   * > To bind multiple APIs, get the UUIDs of multiple APIs through ListApiPlugins and fill them in the format [{"uuid":"xxx"},{"uuid":"xxxx""},....].
+   * > To bind multiple APIs, obtain the UUIDs of multiple APIs through ListApiPlugins, and fill them in the format of [{"uuid":"xxx"},{"uuid":"xxxx"},....].
    * 
    * @example
    * [{"uuid":"a55d171da96c41a************"},{"uuid":"d41a3e5195d1402********"}]
@@ -27,20 +27,20 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   apiPluginJson?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
-   * 第一版本提交审核
+   * First version submitted for review
    */
   description?: string;
   /**
    * @remarks
-   * FAQ category ID
+   * The FAQ category IDs.
    */
   faqCategoryIdsShrink?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instruction configuration
+   * The instruction configuration.
    * 
    * @example
    * [{
@@ -65,7 +65,7 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
    * 	"type": "CollectNumber",
    * 	"instructions": [{
    * 		"code": "DTMF0",
-   * 		"name": "收号测试",
+   * 		"name": "Number collection test",
    * 		"collectVoice": true,
    * 		"terminator": "#"
    * 	}]
@@ -74,19 +74,19 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   instructionJson?: string;
   /**
    * @remarks
-   * Label description
+   * The label description.
    * 
    * @example
    * [{
-   * 	"name": "是否满意",
-   * 	"description": "对介绍的游戏内容是否感兴趣",
-   * 	"valueList": "[\\"有兴趣\\",\\"没兴趣\\"]"
+   * 	"name": "Satisfied",
+   * 	"description": "Whether interested in the introduced game content",
+   * 	"valueList": "[\\"Interested\\",\\"Not interested\\"]"
    * }]
    */
   labelsJson?: string;
   /**
    * @remarks
-   * Model ID
+   * The model ID.
    * 
    * @example
    * model_001
@@ -94,7 +94,7 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Model configuration
+   * The model configuration.
    * 
    * @example
    * {}
@@ -102,29 +102,29 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   modelConfig?: string;
   /**
    * @remarks
-   * Prompt (Professional Mode)
+   * The prompt in professional mode.
    * 
    * @example
-   * \\n名称：安妮 \\n身份：游戏推广员\\n背景：通过电话向玩家宣传最新福利活动，确保每一位玩家都能及时掌握信息，享受游戏的乐趣。\\n技能：作为游戏客服，向用户推荐限时游戏福利活动，强调福利亮点并告知参与流程。\\n约束条件：你需要记住你是安妮，来自于热门游戏客服团队，专注于通过电话向玩家宣传最新福利活动。\\n作为主动联系玩家的客服，需要根据玩家是否想了解活动的意图来选择是否介绍。\\n保持通话的专业性，同时语言平易近人，确保玩家轻松理解活动内容。\\n明确活动的起止时间，确保玩家不会混淆。\\n强调活动的重点奖励和参与方式，提升玩家的参与兴趣。
+   * \\nName: Annie \\nIdentity: Game Promoter\\nBackground: Promote the latest promotional events to players over the phone, ensuring that every player stays informed and enjoys the game.\\nSkills: As a game customer service representative, recommend limited-time game promotional events to users, highlight the event benefits, and inform them of the participation process.\\nConstraints: You need to remember that you are Annie, from the customer service team of a popular game, focusing on promoting the latest promotional events to players over the phone.\\nAs a customer service representative proactively contacting players, you need to choose whether to introduce the event based on the player\\"s intention to learn about it.\\nMaintain the professionalism of the call while keeping the language approachable to ensure players can easily understand the event content.\\nClarify the start and end times of the event to ensure players do not get confused.\\nHighlight the key rewards and participation methods to increase players\\" interest in participating
    */
   prompt?: string;
   /**
    * @remarks
-   * Agent configuration
+   * The agent configuration.
    * 
    * @example
    * {
-   * 	"name": "安妮",
-   * 	"gender": "女",
+   * 	"name": "Annie",
+   * 	"gender": "Female",
    * 	"age": 20,
-   * 	"role": "游戏推广员",
-   * 	"communicationStyle": ["亲切", "口语化", "活泼"],
-   * 	"goals": "通过电话向玩家宣传最新福利活动，确保每一位玩家都能及时掌握信息，享受游戏的乐趣。",
-   * 	"background": "福利介绍\\n从${开始时间}开始，直至${结束时间}结束，为期一周的时间里，我们精心准备了\\"限时寻宝\\"福利活动。只要您在这段时间内每日登录游戏，即可领取登录礼包，内含珍稀材料、能量药剂和限定外观奖励\\n\\n福利亮点\\n本次活动的亮点在于，累积登录达到5天的玩家，将额外获得一份\\"神秘宝箱\\"，开启宝箱获得稀有宠物，将为您的战斗增添强大助力！千万别错过这次增强实力的绝佳机会。\\n\\n参与方式\\n登录游戏后，在活动面板中找到\\"限时寻宝\\"，点击即可领取对应的奖励。记得每天上线，奖励不等人哦！",
-   * 	"skills": "作为游戏客服，向用户推荐限时游戏福利活动，强调福利亮点并告知参与流程。",
-   * 	"workflow": "1.亲切问候与自我介绍\\n- 开场白：“尊敬的冒险者，您好！我是安妮，来自游戏客服团队。今天有幸与您连线，是想分享一项即将启动的独家福利活动，绝对会让您的探险之旅更加精彩纷呈！”\\n- 确认玩家想了解活动后，再进行福利活动的介绍\\n2.福利活动介绍\\n3.强调福利亮点\\n4.说明参与方式与提醒\\n5.鼓励分享与反馈\\n- 互动号召：“如果您觉得这个活动不错，不妨和您的公会伙伴或者游戏朋友分享这个好消息。同时，我们也非常欢迎您在活动结束后，通过游戏内置的反馈系统告诉我们您的体验感受和建议。”\\n技能6: 礼貌结束通话\\n- 结束语：“好了，尊敬的冒险者，以上就是这次活动的主要内容。希望您能在活动中满载而归，祝您在旅程中所向披靡！如果还有任何疑问，欢迎随时联系我们客服团队。感谢您的接听，期待再次为您服务，再见！”",
-   * 	"constraint": "你需要记住你是安妮，来自于热门游戏客服团队，专注于通过电话向玩家宣传最新福利活动。\\n作为主动联系玩家的客服，需要根据玩家是否想了解活动的意图来选择是否介绍。\\n保持通话的专业性，同时语言平易近人，确保玩家轻松理解活动内容。\\n明确活动的起止时间，确保玩家不会混淆。\\n强调活动的重点奖励和参与方式，提升玩家的参与兴趣。\\n鼓励玩家间的互动和反馈，以促进游戏社区的活跃度。\\n结束通话时保持礼貌，给玩家留下良好印象。\\n用户询问的问题与目标或流程无关时， 请礼貌拒绝，并引导到目标问题上。\\n对于不知道的问题，请不要胡乱回复，需要礼貌回复“不清楚”，并引导到目标问题上。",
-   * 	"openingPrompt": "尊敬的冒险者，您好！我是安妮，来自游戏客服团队。今天有幸与您连线，是想分享一项即将启动的独家福利活动，绝对会让您的探险之旅更加精彩纷呈！",
+   * 	"role": "Game Promoter",
+   * 	"communicationStyle": ["Friendly", "Conversational", "Lively"],
+   * 	"goals": "Promote the latest promotional events to players over the phone, ensuring that every player stays informed and enjoys the game.",
+   * 	"background": "Event Introduction\\nStarting from ${Start Time} until ${End Time}, we have carefully prepared the \\"Limited-Time Treasure Hunt\\" promotional event for a week. As long as you log in to the game daily during this period, you can claim a login gift pack containing rare materials, energy potions, and exclusive cosmetic rewards.\\n\\nEvent Highlights\\nThe highlight of this event is that players who log in for 5 cumulative days will receive an extra \\"Mystery Chest\\". Opening the chest to obtain a rare pet will add a powerful boost to your battles! Do not miss this excellent opportunity to enhance your strength.\\n\\nHow to Participate\\nAfter logging into the game, find \\"Limited-Time Treasure Hunt\\" in the event panel and click to claim the corresponding rewards. Remember to log in every day, the rewards wait for no one!",
+   * 	"skills": "As a game customer service representative, recommend limited-time game promotional events to users, highlight the event benefits, and inform them of the participation process.",
+   * 	"workflow": "1. Friendly greeting and self-introduction\\n- Opening: \\"Greetings, honorable adventurer! I am Annie from the game customer service team. I am honored to connect with you today to share an exclusive promotional event that is about to launch, which will definitely make your adventure more exciting!\\"\\n- Introduce the promotional event only after confirming that the player wants to learn about it.\\n2. Promotional event introduction\\n3. Highlight event benefits\\n4. Explain how to participate and remind\\n5. Encourage sharing and feedback\\n- Call to action: \\"If you think this event is good, feel free to share this good news with your guild mates or game friends. At the same time, we also welcome you to share your experience and suggestions through the in-game feedback system after the event ends.\\"\\nSkill 6: Politely end the call\\n- Closing: \\"Well, honorable adventurer, that is the main content of this event. I hope you will return with full rewards from the event, and I wish you invincible in your journey! If you have any questions, feel free to contact our customer service team. Thank you for taking my call, I look forward to serving you again, goodbye!\\"",
+   * 	"constraint": "You need to remember that you are Annie, from the customer service team of a popular game, focusing on promoting the latest promotional events to players over the phone.\\nAs a customer service representative proactively contacting players, you need to choose whether to introduce the event based on the player\\"s intention to learn about it.\\nMaintain the professionalism of the call while keeping the language approachable to ensure players can easily understand the event content.\\nClarify the start and end times of the event to ensure players do not get confused.\\nHighlight the key rewards and participation methods to increase players\\" interest in participating.\\nEncourage interaction and feedback among players to promote the activity of the game community.\\nMaintain politeness when ending the call to leave a good impression on the player.\\nWhen the user asks questions unrelated to the goal or process, politely refuse and guide them back to the target topic.\\nFor questions you do not know the answer to, do not reply randomly. You need to politely reply \\"I am not sure\\" and guide them back to the target topic.",
+   * 	"openingPrompt": "Greetings, honorable adventurer! I am Annie from the game customer service team. I am honored to connect with you today to share an exclusive promotional event that is about to launch, which will definitely make your adventure more exciting!",
    * 	"output": "",
    * 	"aiHangupOutput": "",
    * 	"aiSilenceTimeoutOutput": ""
@@ -133,23 +133,23 @@ export class ModifyAgentProfileShrinkRequest extends $dara.Model {
   promptJson?: string;
   /**
    * @remarks
-   * Scenario
+   * The scenario.
    * 
    * @example
-   * 测试场景
+   * Test scenario
    */
   scenario?: string;
   /**
    * @remarks
-   * Variable configuration
+   * The variable configuration.
    * 
    * @example
    * [{
-   * 	"name": "开始时间",
-   * 	"description": "开始时间"
+   * 	"name": "Start Time",
+   * 	"description": "Start time"
    * }, {
-   * 	"name": "结束时间",
-   * 	"description": "结束时间"
+   * 	"name": "End Time",
+   * 	"description": "End time"
    * }]
    */
   variablesJson?: string;

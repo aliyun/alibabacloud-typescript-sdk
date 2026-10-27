@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentProfilesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of agent profile IDs
+   * The collection of agent configuration IDs.
    */
   agentProfileIdsShrink?: string;
   /**
    * @remarks
-   * app_ip (system field, optional)
+   * The app_ip (system field, optional).
    * 
    * @example
    * 127.0.0.1

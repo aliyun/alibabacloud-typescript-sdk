@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 85bf7efa-a07c-498a-850e-99a5849b8589
@@ -13,15 +13,15 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Instance name
+   * The instance name.
    * 
    * @example
-   * 智能外呼场景
+   * Intelligent outbound call scenario
    */
   instanceName?: string;
   /**
    * @remarks
-   * Job ID
+   * The job ID.
    * 
    * @example
    * c62e6789-28a8-41db-941e-171a01d3b3b9
@@ -29,15 +29,15 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
   jobGroupId?: string;
   /**
    * @remarks
-   * Job name.
+   * The job name.
    * 
    * @example
-   * 第一个作业组
+   * First job group
    */
   jobGroupName?: string;
   /**
    * @remarks
-   * Maximum configured concurrency limit
+   * The configured maximum concurrency limit.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
   maxConcurrencyLimit?: number;
   /**
    * @remarks
-   * Minimum concurrency limit for the job
+   * The minimum concurrency limit for the job.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
   minConcurrencyLimit?: number;
   /**
    * @remarks
-   * Occupied concurrency value
+   * The occupied concurrency.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
   occupiedConcurrencyCount?: number;
   /**
    * @remarks
-   * Report generation time
+   * The time when the report was generated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1743474900488
@@ -105,12 +105,12 @@ export class GetRealtimeConcurrencyReportResponseBodyReportsList extends $dara.M
 export class GetRealtimeConcurrencyReportResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * Report collection data
+   * The list of reports.
    */
   list?: GetRealtimeConcurrencyReportResponseBodyReportsList[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 2
@@ -118,7 +118,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReports extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -126,7 +126,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReports extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 16
@@ -165,7 +165,7 @@ export class GetRealtimeConcurrencyReportResponseBodyReports extends $dara.Model
 export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -173,7 +173,7 @@ export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Success
@@ -189,7 +189,7 @@ export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Report generation time
+   * The time when the report was generated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1743474900488
@@ -197,12 +197,12 @@ export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   reportDate?: number;
   /**
    * @remarks
-   * Report details.
+   * The report details.
    */
   reports?: GetRealtimeConcurrencyReportResponseBodyReports;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -210,7 +210,7 @@ export class GetRealtimeConcurrencyReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Is successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

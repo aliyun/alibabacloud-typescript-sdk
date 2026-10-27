@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentProfileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent configuration.
+   * The agent profile ID.
    * 
    * @example
    * d31794e2a51f47d2901b4094d88311d7
@@ -13,7 +13,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   agentProfileId?: string;
   /**
    * @remarks
-   * The ID of the agent configuration template.
+   * The agent profile template ID.
    * 
    * @example
    * default-survey
@@ -21,7 +21,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   agentProfileTemplateId?: string;
   /**
    * @remarks
-   * The agent type.
+   * agent type
    * 
    * @example
    * ""
@@ -37,7 +37,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   apiPluginJson?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741338619000
@@ -48,7 +48,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 这是一个大模型机器人
+   * This is a large language model chatbot
    */
   description?: string;
   /**
@@ -69,10 +69,10 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   instructionJson?: string;
   /**
    * @remarks
-   * The description of the labels.
+   * The label descriptions.
    * 
    * @example
-   * [{\\"name\\":\\"是否送达\\",\\"description\\":\\"购买的家电是否已经送达\\",\\"valueList\\":\\"[\\\\\\"是\\\\\\",\\\\\\"否\\\\\\"]\\"},{\\"name\\":\\"预约上门时间\\",\\"description\\":\\"收集客户期望的上门安装时间\\",\\"valueList\\":\\"[]\\"}]
+   * [{\\"name\\":\\"Delivered\\",\\"description\\":\\"Whether the purchased home appliance has been delivered\\",\\"valueList\\":\\"[\\\\\\"Yes\\\\\\",\\\\\\"No\\\\\\"]\\"},{\\"name\\":\\"On-site Appointment Time\\",\\"description\\":\\"Collect the customer\\"s expected on-site installation time\\",\\"valueList\\":\\"[]\\"}]
    */
   labelsJson?: string;
   /**
@@ -93,17 +93,12 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   modelConfig?: string;
   /**
    * @remarks
-   * The Natural Language Understanding (NLU) configuration. The parameters are described as follows:
-   * 
-   * - chatbotInstanceId: The instance ID of the ChatMe LLM agent.
-   * 
-   * - faqCategoryIds: The IDs of the attached FAQ categories.
-   * 
-   * - llmAgentId: The ID of the ChatMe LLM workspace.
-   * 
-   * - llmAgentKey: The key of the ChatMe LLM workspace.
-   * 
-   * - llmAgentInstanceId: The instance ID of the ChatMe LLM workspace.
+   * The NLU configuration. Parameter settings:
+   * - chatbotInstanceId: the instance ID of the Chatbot large language model.
+   * - faqCategoryIds: the IDs of the attached FAQ categories.
+   * - llmAgentId: the workspace ID of the Chatbot large language model.
+   * - llmAgentKey: the workspace key of the Chatbot large language model.
+   * - llmAgentInstanceId: the workspace instance ID of the Chatbot large language model.
    * 
    * @example
    * {"chatbotInstanceId":"chatbot-cn-j7eiVJZRmb","faqCategoryIds":[30000474726],"llmAgentId":"1246206","llmAgentInstanceId":"outbound_05efb75a-95df-438e-9b9b-8f2c857d5498","llmAgentKey":"d682716514814815ae77757c0bcbda01_p_outbound_public"}
@@ -111,7 +106,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   nluConfigJson?: string;
   /**
    * @remarks
-   * The prompt for the professional pattern.
+   * The prompt in professional mode.
    * 
    * @example
    * ""
@@ -122,7 +117,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
    * The agent configuration.
    * 
    * @example
-   * {"name":"小x","gender":"男","age":18,"role":"游戏推广员","communicationStyle":["亲切"],"goals":"你好","background":"不是很好","openingPrompt":"你好，我是xxx"}
+   * {"name":"Xiao X","gender":"Male","age":18,"role":"Game Promoter","communicationStyle":["Friendly"],"goals":"Hello","background":"Not very good","openingPrompt":"Hello, I am XXX"}
    */
   promptJson?: string;
   /**
@@ -130,7 +125,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
    * The scenario.
    * 
    * @example
-   * 测试场景
+   * Test scenario
    */
   scenario?: string;
   /**
@@ -151,7 +146,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
   system?: boolean;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1741338619000
@@ -162,7 +157,7 @@ export class GetAgentProfileResponseBodyData extends $dara.Model {
    * The variable configuration.
    * 
    * @example
-   * [{\\"name\\":\\"name\\",\\"description\\":\\"客户姓名\\"},{\\"name\\":\\"gender\\",\\"description\\":\\"客户性别\\"}]
+   * [{\\"name\\":\\"name\\",\\"description\\":\\"Customer name\\"},{\\"name\\":\\"gender\\",\\"description\\":\\"Customer gender\\"}]
    */
   variablesJson?: string;
   static names(): { [key: string]: string } {
@@ -262,7 +257,7 @@ export class GetAgentProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

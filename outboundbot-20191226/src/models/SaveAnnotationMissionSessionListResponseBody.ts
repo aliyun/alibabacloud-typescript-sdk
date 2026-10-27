@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAnnotationMissionSessionListResponseBodyDataSaveAnnotationMissionSessionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the script for the approval requests
+   * The script content of the approval application.
    * 
    * @example
    * []
@@ -35,15 +35,15 @@ export class SaveAnnotationMissionSessionListResponseBodyDataSaveAnnotationMissi
 export class SaveAnnotationMissionSessionListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The message returned for the operation.
+   * The message returned by the API operation.
    * 
    * @example
-   * 执行失败：查找元素或操作超时,outTaskId:trademark_regnew_public_cn-zz4310rp1lb,flowId:null,nodeUUID:541b6c71-8cce-4ab0-af84-713ca9741821
+   * Execution failed: element not found or operation timed out, outTaskId:trademark_regnew_public_cn-zz4310rp1lb, flowId:null, nodeUUID:541b6c71-8cce-4ab0-af84-713ca9741821
    */
   message?: string;
   /**
    * @remarks
-   * The list of messages.
+   * The message list.
    */
   messageList?: string[];
   /**
@@ -53,7 +53,7 @@ export class SaveAnnotationMissionSessionListResponseBodyData extends $dara.Mode
   saveAnnotationMissionSessionListRequest?: SaveAnnotationMissionSessionListResponseBodyDataSaveAnnotationMissionSessionListRequest;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class SaveAnnotationMissionSessionListResponseBodyData extends $dara.Mode
 export class SaveAnnotationMissionSessionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The status code of the API operation.
    * 
    * @example
    * OK
@@ -103,7 +103,7 @@ export class SaveAnnotationMissionSessionListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data.
    */
   data?: SaveAnnotationMissionSessionListResponseBodyData;
   /**
@@ -116,10 +116,10 @@ export class SaveAnnotationMissionSessionListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. If the request is successful, success is returned. If the request fails, an error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
-   * 执行失败：查找元素或操作超时,outTaskId:trademark_regnew_public_cn-zz4310rp1lb,flowId:null,nodeUUID:541b6c71-8cce-4ab0-af84-713ca9741821
+   * Execution failed: element not found or operation timed out, outTaskId:trademark_regnew_public_cn-zz4310rp1lb, flowId:null, nodeUUID:541b6c71-8cce-4ab0-af84-713ca9741821
    */
   message?: string;
   /**
@@ -132,7 +132,9 @@ export class SaveAnnotationMissionSessionListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true

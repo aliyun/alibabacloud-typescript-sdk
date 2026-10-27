@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScriptResponseBodyScriptNluProfile extends $dara.Model {
   /**
    * @remarks
-   * Function service name
+   * The function service name.
    * 
    * @example
    * sanfang_test
@@ -13,7 +13,7 @@ export class DescribeScriptResponseBodyScriptNluProfile extends $dara.Model {
   fcFunction?: string;
   /**
    * @remarks
-   * Function service trigger URL
+   * The HTTP trigger URL of the function.
    * 
    * @example
    * http://sanfang_test-xxxxxx.cn-shanghai-vpc.fcapp.run
@@ -21,12 +21,18 @@ export class DescribeScriptResponseBodyScriptNluProfile extends $dara.Model {
   fcHttpTriggerUrl?: string;
   /**
    * @remarks
-   * Function service region
+   * The region of the function.
    * 
    * @example
    * cn-shanghai
    */
   fcRegion?: string;
+  /**
+   * @remarks
+   * Indicates whether Chatbot prompts are supported. Valid values:
+   * - true: Supported.
+   * - false: Not supported.
+   */
   supportBeebotPrompts?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +64,7 @@ export class DescribeScriptResponseBodyScriptNluProfile extends $dara.Model {
 export class DescribeScriptResponseBodyScript extends $dara.Model {
   /**
    * @remarks
-   * Robot workspace access key
+   * The access key of the chatbot workspace.
    * 
    * @example
    * 1218333
@@ -66,7 +72,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * Robot workspace access key
+   * The access key of the chatbot workspace.
    * 
    * @example
    * 14791f5f226b4878b3d9b676a0291234
@@ -74,7 +80,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * Indicates whether the robot workspace uses a Large Language Model (LLM)
+   * Indicates whether the chatbot workspace is a large language model (LLM) workspace.
    * 
    * @example
    * true
@@ -82,7 +88,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   agentLlm?: boolean;
   /**
    * @remarks
-   * ASR configuration
+   * The automatic speech recognition (ASR) configuration.
    * 
    * @example
    * {
@@ -100,15 +106,15 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   asrConfig?: string;
   /**
    * @remarks
-   * Call configuration
+   * The call configuration.
    * 
    * @example
-   * {"silenceConfig":{"silenceReplyTimeout":499,"silenceTimeoutMaxCount":10,"silenceTimeoutMaxCountEnable":true},"hangupConfig":{"aiHangupEnable":false,"delayHangup":0,"hangupMaxRounds":20,"hangupMaxRoundsBroadcast":"感谢您的接听，祝您生活愉快，再见!","hangupMaxRoundsEnable":false},"securityInterceptConfig":{"broadcast":"您说的这个问题我不能回答您，您可以尝试询问其他问题。"},"specialInterceptConfig":{"specialInterceptEnable":false,"specialIntercepts":[{"code":"voiceAssistant"},{"code":"extensionNumberTransfer"}]},"transitionConfig":{"transitionSwitch":false}}
+   * {"silenceConfig":{"silenceReplyTimeout":499,"silenceTimeoutMaxCount":10,"silenceTimeoutMaxCountEnable":true},"hangupConfig":{"aiHangupEnable":false,"delayHangup":0,"hangupMaxRounds":20,"hangupMaxRoundsBroadcast":"Thank you for taking the call. Have a great day. Goodbye!","hangupMaxRoundsEnable":false},"securityInterceptConfig":{"broadcast":"I cannot answer this question. Please try asking something else."},"specialInterceptConfig":{"specialInterceptEnable":false,"specialIntercepts":[{"code":"voiceAssistant"},{"code":"extensionNumberTransfer"}]},"transitionConfig":{"transitionSwitch":false}}
    */
   chatConfig?: string;
   /**
    * @remarks
-   * Chatbot ID
+   * The chatbot ID.
    * 
    * @example
    * d31794e2a51f47d2901b4094d88311d7
@@ -116,7 +122,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   chatbotId?: string;
   /**
    * @remarks
-   * Status of the debug script
+   * The debug status of the script.
    * 
    * @example
    * DRAFTED
@@ -124,7 +130,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   debugStatus?: string;
   /**
    * @remarks
-   * Enables emotion detection
+   * Specifies whether the emotion recognition feature is enabled.
    * 
    * @example
    * true
@@ -132,15 +138,15 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   emotionEnable?: boolean;
   /**
    * @remarks
-   * Industry
+   * The industry.
    * 
    * @example
-   * 金融
+   * Finance
    */
   industry?: string;
   /**
    * @remarks
-   * Indicates whether the debug version is in draft status
+   * Indicates whether the debug version is in the draft state.
    * 
    * @example
    * true
@@ -148,16 +154,23 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   isDebugDrafted?: boolean;
   /**
    * @remarks
-   * Indicates whether the script is in draft status
+   * Indicates whether the script is in the draft state.
    * 
    * @example
    * true
    */
   isDrafted?: boolean;
+  /**
+   * @remarks
+   * The custom label configuration.
+   * 
+   * @example
+   * {\\"labels\\":[{\\"description\\":\\"\\",\\"name\\":\\"Availability\\",\\"valueList\\":\\"[\\\\\\"Available\\\\\\",\\\\\\"Unavailable\\\\\\"]\\"}]}
+   */
   labelConfig?: string;
   /**
    * @remarks
-   * Enables intelligent sentence break
+   * Specifies whether the intelligent sentence segmentation feature is enabled.
    * 
    * @example
    * true
@@ -165,7 +178,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   longWaitEnable?: boolean;
   /**
    * @remarks
-   * Enables tone continuity
+   * Specifies whether the mini playback feature is enabled.
    * 
    * @example
    * true
@@ -173,7 +186,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   miniPlaybackEnable?: boolean;
   /**
    * @remarks
-   * Enables graceful barge-in
+   * Specifies whether the graceful barge-in feature is enabled.
    * 
    * @example
    * true
@@ -181,11 +194,10 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   newBargeInEnable?: boolean;
   /**
    * @remarks
-   * NLU engine (applies only to LLM scenarios)
+   * The natural language understanding (NLU) engine. This parameter applies only to large language model (LLM) scenarios. Valid values:
    * 
-   * - Prompts — Text entry mode
-   * 
-   * - SSE_FUNCTION — Function Compute service mode
+   * - Prompts: text input mode. 
+   * - SSE_FUNCTION: Function Compute service mode.
    * 
    * @example
    * Prompts
@@ -193,28 +205,28 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   nluEngine?: string;
   /**
    * @remarks
-   * Function Compute service mode configuration
+   * The configuration of the Function Compute service mode.
    */
   nluProfile?: DescribeScriptResponseBodyScriptNluProfile;
   /**
    * @remarks
-   * Scenario
+   * The scenario.
    * 
    * @example
-   * 催收
+   * Collection
    */
   scene?: string;
   /**
    * @remarks
-   * Script description
+   * The description of the script.
    * 
    * @example
-   * 催收话术
+   * Collection script
    */
   scriptDescription?: string;
   /**
    * @remarks
-   * Script ID
+   * The script ID.
    * 
    * @example
    * 810b5872-57f0-4b27-80ab-7b3f4d8a6374
@@ -222,15 +234,15 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * Script name
+   * The name of the script.
    * 
    * @example
-   * 催收话术
+   * Collection script
    */
   scriptName?: string;
   /**
    * @remarks
-   * Script status
+   * The status of the script.
    * 
    * @example
    * DRAFTED
@@ -238,7 +250,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * TTS configuration for the script
+   * The text-to-speech (TTS) configuration of the script.
    * 
    * @example
    * {
@@ -246,6 +258,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
    * 	"engine": "ali",
    * 	"engineXunfei": "",
    * 	"globalInterruptible": true,
+   *         "closingStatementInterruptible": false, "openingPromptInterruptible": false,
    * 	"nlsServiceType": "Managed",
    * 	"pitchRate": "0",
    * 	"speechRate": "0",
@@ -256,7 +269,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   ttsConfig?: string;
   /**
    * @remarks
-   * Time when the script was last updated
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578881227000
@@ -335,7 +348,7 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
 export class DescribeScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -343,7 +356,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -351,7 +364,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API message.
    * 
    * @example
    * Success
@@ -359,7 +372,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Deprecated
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * none
@@ -367,7 +380,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   nlsConfig?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -375,7 +388,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Script details
+   * The script.
    * 
    * @example
    * {}
@@ -383,7 +396,7 @@ export class DescribeScriptResponseBody extends $dara.Model {
   script?: DescribeScriptResponseBodyScript;
   /**
    * @remarks
-   * Indicates whether the call succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

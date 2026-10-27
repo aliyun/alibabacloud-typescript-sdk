@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTTSDemoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * URL of the preview audio file.
+   * The URL of the preview file.
    * 
    * @example
    * http://XXX/XXX
@@ -13,7 +13,7 @@ export class DescribeTTSDemoResponseBody extends $dara.Model {
   auditionUrl?: string;
   /**
    * @remarks
-   * API status code.
+   * The API status code.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class DescribeTTSDemoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DescribeTTSDemoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API response message.
+   * The API message.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class DescribeTTSDemoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -45,7 +45,7 @@ export class DescribeTTSDemoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

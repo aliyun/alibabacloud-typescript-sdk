@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskByUuidRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTaskByUuidRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class GetTaskByUuidRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Include conversation details
+   * Specifies whether to include conversation information.
    * 
-   * > The default value is false.
+   * > Default value: false.
    * 
    * @example
    * false

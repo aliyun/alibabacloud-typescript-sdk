@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatbotInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Workspace access key for the chatbot.
+   * The access key of the chatbot workspace.
    * 
-   * > Get this key by calling ListChatbotAgents. If you omit this parameter, the API returns instances from all workspaces.
+   * > You can obtain the value by calling the ListChatbotAgents operation. If you leave this parameter empty, chatbots in all workspaces are queried.
    * 
    * @example
    * 9137ab9c27044921860030adf8590ec4_p_outbound_public
@@ -15,7 +15,7 @@ export class ListChatbotInstancesRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class ListChatbotInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
-   * > The value must be less than or equal to 50.
+   * > The value of this parameter must be less than or equal to 50.
    * 
    * This parameter is required.
    * 

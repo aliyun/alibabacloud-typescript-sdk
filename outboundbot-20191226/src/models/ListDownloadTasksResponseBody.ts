@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles extends $dara.Model {
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * @example
    * 01f8d11abdb9406996c0c46e7*******
@@ -13,7 +13,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   fileId?: string;
   /**
    * @remarks
-   * Completion progress [Deprecated]
+   * **[Deprecated]** The completion progress.
    * 
    * @example
    * 10
@@ -21,19 +21,13 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   progress?: number;
   /**
    * @remarks
-   * File status
-   * 
-   * - Pending: Pending
-   * 
-   * - InProgress: In progress
-   * 
-   * - Finished: Completed
-   * 
-   * - Failed: Failed
-   * 
-   * - Expired: Expired
-   * 
-   * - Cancelled: Canceled
+   * The file status. Valid values:
+   * - Pending: Pending.
+   * - InProgress: In progress.
+   * - Finished: Finished.
+   * - Failed: Failed.
+   * - Expired: Expired.
+   * - Cancelled: Cancelled.
    * 
    * @example
    * Empty
@@ -41,10 +35,10 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   status?: string;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
-   * GUI-TEST-新建风险
+   * GUI-TEST-Create risk
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -77,12 +71,12 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
 export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model {
   /**
    * @remarks
-   * Download task file list
+   * The list of files for the download task.
    */
   downloadTaskFiles?: ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles[];
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1646792941
@@ -90,19 +84,13 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
   expireTime?: number;
   /**
    * @remarks
-   * Export status.
-   * 
-   * - Pending: Pending
-   * 
-   * - InProgress: In progress
-   * 
-   * - Finished: Completed
-   * 
-   * - Failed: Failed
-   * 
-   * - Expired: Expired
-   * 
-   * - Cancelled: Canceled
+   * The export status. Valid values:
+   * - Pending: Pending.
+   * - InProgress: In progress.
+   * - Finished: Finished.
+   * - Failed: Failed.
+   * - Expired: Expired.
+   * - Cancelled: Cancelled.
    * 
    * @example
    * Empty
@@ -110,7 +98,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 6b0e547e-501c-480a-812f-d27e28e74f9a
@@ -118,10 +106,10 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
   taskId?: string;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
-   * GUI-TEST-新建风险
+   * GUI-TEST-Create risk
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -159,12 +147,12 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
 export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   /**
    * @remarks
-   * Download task array
+   * The array of download tasks.
    */
   list?: ListDownloadTasksResponseBodyDownloadTasksList[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -172,7 +160,7 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Count
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -180,7 +168,7 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -219,7 +207,7 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
 export class ListDownloadTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The status code.
    * 
    * @example
    * OK
@@ -227,12 +215,12 @@ export class ListDownloadTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Download task list
+   * The list of download tasks.
    */
   downloadTasks?: ListDownloadTasksResponseBodyDownloadTasks;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -240,7 +228,7 @@ export class ListDownloadTasksResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -248,7 +236,7 @@ export class ListDownloadTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 904CFA7B-8AD9-50FF-9B3E-404B20B9EE31
@@ -256,7 +244,7 @@ export class ListDownloadTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

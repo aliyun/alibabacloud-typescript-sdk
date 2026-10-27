@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaseStrategyPeriodResponseBodyWorkingTime extends $dara.Model {
   /**
    * @remarks
-   * Start time
+   * The start time. Format: HH:mm:ss.
    * 
    * @example
    * 00:00:00
@@ -13,7 +13,7 @@ export class GetBaseStrategyPeriodResponseBodyWorkingTime extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * Daily start time, in milliseconds
+   * The daily start time in milliseconds.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetBaseStrategyPeriodResponseBodyWorkingTime extends $dara.Model {
   beginTimeMillis?: number;
   /**
    * @remarks
-   * End time
+   * The end time. Format: HH:mm:ss.
    * 
    * @example
    * 00:00:00
@@ -29,7 +29,7 @@ export class GetBaseStrategyPeriodResponseBodyWorkingTime extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Daily end time, in milliseconds
+   * The daily end time in milliseconds.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class GetBaseStrategyPeriodResponseBodyWorkingTime extends $dara.Model {
 export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -73,7 +73,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Success
@@ -89,7 +89,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the period applies only to weekends
+   * Indicates whether the time periods apply only to weekends.
    * 
    * @example
    * false
@@ -97,7 +97,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   onlyWeekdays?: boolean;
   /**
    * @remarks
-   * Indicates whether the period applies only to weekdays
+   * Indicates whether the time periods apply only to workdays.
    * 
    * @example
    * false
@@ -105,7 +105,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   onlyWorkdays?: boolean;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -113,7 +113,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -121,7 +121,7 @@ export class GetBaseStrategyPeriodResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Time periods when the strategy runs
+   * The execution time periods of the policy.
    * 
    * @example
    * []

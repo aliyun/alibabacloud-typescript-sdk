@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatCustomizationDataInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -13,7 +13,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionChatCustomizationDataInfoId?: string;
   /**
    * @remarks
-   * The chat ID.
+   * ChatID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -37,15 +37,15 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The text of the voice annotation.
+   * The speech annotation text.
    * 
    * @example
-   * 抱歉哈，可能给您造成困扰了，这边先不打扰您，祝您生活愉快，再见
+   * I apologize for any inconvenience caused. I will not bother you anymore. Have a nice day and goodbye
    */
   content?: string;
   /**
    * @remarks
-   * Indicates whether the data is created.
+   * Indicates whether the item is created.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   create?: boolean;
   /**
    * @remarks
-   * The time when the information was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682216045619
@@ -64,7 +64,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
    * The description.
    * 
    * @example
-   * 默认数据
+   * Default data
    */
   customizationDataDescription?: string;
   /**
@@ -80,7 +80,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
    * The name.
    * 
    * @example
-   * 默认数据
+   * Default data
    */
   customizationDataName?: string;
   /**
@@ -93,7 +93,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   customizationDataWeight?: number;
   /**
    * @remarks
-   * Indicates whether the data is deleted.
+   * Indicates whether the item is deleted.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   instanceId?: string;
   /**
    * @remarks
-   * The time when the information was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679552585384
@@ -165,7 +165,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatIntentUserSayInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * ChatID
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -173,7 +173,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -197,7 +197,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The bot ID.
+   * The robot ID.
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -205,7 +205,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   botId?: string;
   /**
    * @remarks
-   * The modified query.
+   * The modified question.
    * 
    * @example
    * []
@@ -213,7 +213,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   content?: string;
   /**
    * @remarks
-   * Created.
+   * Indicates whether the item is created.
    * 
    * @example
    * false
@@ -221,7 +221,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   create?: boolean;
   /**
    * @remarks
-   * The time when the intent was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682216045619
@@ -229,7 +229,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   createTime?: number;
   /**
    * @remarks
-   * Deleted
+   * Indicates whether the item is deleted.
    * 
    * @example
    * true
@@ -261,7 +261,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   intentId?: number;
   /**
    * @remarks
-   * The time when the intent was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682216045619
@@ -315,7 +315,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatTagInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * ChatID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -323,7 +323,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID of the chat tag information for the comment.
+   * The ID of the annotation chat tag.
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -347,7 +347,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The tag ID.
+   * TagID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -355,15 +355,15 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionTagInfoId?: string;
   /**
    * @remarks
-   * The tag name.
+   * The name of the tag.
    * 
    * @example
-   * 标签
+   * Tag
    */
   annotationMissionTagInfoName?: string;
   /**
    * @remarks
-   * Create
+   * Indicates whether the item is created.
    * 
    * @example
    * true
@@ -371,7 +371,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   create?: boolean;
   /**
    * @remarks
-   * The time when the tag was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1686797050000
@@ -379,7 +379,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   createTime?: number;
   /**
    * @remarks
-   * Delete.
+   * Indicates whether the item is deleted.
    * 
    * @example
    * true
@@ -395,7 +395,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   instanceId?: string;
   /**
    * @remarks
-   * The time when the tag was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679019660000
@@ -445,7 +445,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatVocabularyInfoList extends $dara.Model {
   /**
    * @remarks
-   * The chat ID.
+   * ChatID
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -453,7 +453,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -477,7 +477,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * Created
+   * Indicates whether the item is created.
    * 
    * @example
    * true
@@ -485,7 +485,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   create?: boolean;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1675218421941
@@ -493,7 +493,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   createTime?: number;
   /**
    * @remarks
-   * Deleted
+   * Indicates whether the item is deleted.
    * 
    * @example
    * true
@@ -509,7 +509,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   instanceId?: string;
   /**
    * @remarks
-   * The time when the hotword was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1676272557653
@@ -517,7 +517,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   modifiedTime?: number;
   /**
    * @remarks
-   * The content of the hotword annotation.
+   * The hot word annotation content.
    * 
    * @example
    * []
@@ -528,12 +528,12 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
    * The description.
    * 
    * @example
-   * 描述
+   * Description
    */
   vocabularyDescription?: string;
   /**
    * @remarks
-   * The hotword ID.
+   * The hot word ID.
    * 
    * @example
    * 77343553-cbc2-4487-a35c-869f1e86c573
@@ -541,15 +541,15 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   vocabularyId?: string;
   /**
    * @remarks
-   * The name of the vocabulary.
+   * The vocabulary name.
    * 
    * @example
-   * 名称
+   * Name
    */
   vocabularyName?: string;
   /**
    * @remarks
-   * The weight of the hotword. The value ranges from -6 to 5.
+   * The hot word weight. Valid values: -6 to 5.
    * 
    * @example
    * 0
@@ -605,7 +605,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatList extends $dara.Model {
   /**
    * @remarks
-   * The result of manual ASR annotation, used to calculate character accuracy.
+   * The manual ASR annotation text result, which is used to calculate the character accuracy rate.
    * 
    * @example
    * []
@@ -613,12 +613,12 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationAsrResult?: string;
   /**
    * @remarks
-   * The table of language model annotation information for the annotation task chat.
+   * The language model annotation information list for the chat annotation task.
    */
   annotationMissionChatCustomizationDataInfoList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatCustomizationDataInfoList[];
   /**
    * @remarks
-   * The chat ID.
+   * chat id
    * 
    * @example
    * 40669e52-c1c8-487f-9593-29749086bdc9
@@ -626,22 +626,22 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionChatId?: string;
   /**
    * @remarks
-   * The list of chat intents.
+   * The chat intent list.
    */
   annotationMissionChatIntentUserSayInfoList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatIntentUserSayInfoList[];
   /**
    * @remarks
-   * The list of mappings between chat annotation information and attached tags.
+   * The list of tag mappings bound to the annotation chat.
    */
   annotationMissionChatTagInfoList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatTagInfoList[];
   /**
    * @remarks
-   * The table of hotword annotation information for the annotation task chat.
+   * The hot word annotation information list for the chat annotation task.
    */
   annotationMissionChatVocabularyInfoList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatListAnnotationMissionChatVocabularyInfoList[];
   /**
    * @remarks
-   * The task ID.
+   * The annotation mission ID.
    * 
    * @example
    * 03f56192-fa8a-40dc-9558-39b357f0618f
@@ -657,15 +657,11 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The annotation status of the chat.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The chat annotation status. Valid values:
+   * - 0: Pending (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -673,7 +669,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationStatus?: number;
   /**
    * @remarks
-   * The content of the bot\\"s reply.
+   * The reply content of the robot.
    * 
    * @example
    * {\\"Answer\\": u\\"\\u53c2\\u8003\\u6587\\u6863\\uff1ahttps://help.aliyun.com/document_detail/215402.html\\", \\"QuestionId\\": 371159, \\"Uuid\\": \\"ac14000116781568127896224d0044\\"}
@@ -681,15 +677,11 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   answer?: string;
   /**
    * @remarks
-   * The status of Automatic Speech Recognition (ASR) annotation.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The ASR annotation status. Valid values:
+   * - 0: Pending (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -697,7 +689,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   asrAnnotationStatus?: number;
   /**
    * @remarks
-   * The time when the chat was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682216045619
@@ -713,15 +705,11 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   instanceId?: string;
   /**
    * @remarks
-   * The status of semantic tagging.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The semantic annotation status. Valid values:
+   * - 0: Pending (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -729,7 +717,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   intentAnnotationStatus?: number;
   /**
    * @remarks
-   * The time when the chat was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571649300000
@@ -737,7 +725,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   modifiedTime?: number;
   /**
    * @remarks
-   * The time when the chat was triggered.
+   * The trigger time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1682390676403
@@ -745,7 +733,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   occurTime?: number;
   /**
    * @remarks
-   * The ASR result.
+   * The ASR recognition result.
    * 
    * @example
    * []
@@ -761,7 +749,12 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   sequenceId?: string;
   /**
    * @remarks
-   * The annotation action. 1: Correct. 20: Matching error, not optimized. 21: Matching error, optimized. 3: Uncovered. 4: Invalid.
+   * The annotation action. Valid values:
+   * - 1: Correct.
+   * - 20: Matching error, not optimized.
+   * - 21: Matching error, optimized.
+   * - 3: Not covered.
+   * - 4: Invalid.
    * 
    * @example
    * 1
@@ -769,15 +762,11 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   subStatus?: number;
   /**
    * @remarks
-   * The status of tag annotation.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The tag annotation status. Valid values:
+   * - 0: Pending (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -785,11 +774,9 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   tagAnnotationStatus?: number;
   /**
    * @remarks
-   * Indicates a transcription error.
-   * 
-   * - 0: No
-   * 
-   * - 1: Yes
+   * Indicates whether a transcription error occurred. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 1
@@ -871,12 +858,12 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
 export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionList extends $dara.Model {
   /**
    * @remarks
-   * The list of chats.
+   * The chat list.
    */
   annotationMissionChatList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionListAnnotationMissionChatList[];
   /**
    * @remarks
-   * The task ID.
+   * The annotation mission ID.
    * 
    * @example
    * 64ba5ac9-a4e1-4333-b03c-9d4a588c9f6c
@@ -892,15 +879,11 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationMissionSessionId?: string;
   /**
    * @remarks
-   * The annotation status.
-   * 
-   * - 0: UNDO
-   * 
-   * - 1: DOING
-   * 
-   * - 2: DONE
-   * 
-   * - 3: CLOSED
+   * The annotation status. Valid values:
+   * - 0: Pending (UNDO).
+   * - 1: In progress (DOING).
+   * - 2: Completed (DONE).
+   * - 3: Canceled (CLOSED).
    * 
    * @example
    * 1
@@ -908,7 +891,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   annotationStatus?: number;
   /**
    * @remarks
-   * The time when the session was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1691117009000
@@ -916,7 +899,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   createTime?: number;
   /**
    * @remarks
-   * Debug conversation
+   * The debug conversation.
    * 
    * @example
    * true
@@ -932,7 +915,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   instanceId?: string;
   /**
    * @remarks
-   * The task group ID.
+   * The job group ID.
    * 
    * @example
    * 2f642da1-b00b-4dd6-ac7d-dcbeefd13ff3
@@ -948,7 +931,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   jobId?: string;
   /**
    * @remarks
-   * The time when the session was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1677987898384
@@ -964,7 +947,7 @@ export class ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessio
   scriptId?: string;
   /**
    * @remarks
-   * The ID of the task in the outbound call system, or the ID of the conversation in the navigation system.
+   * The session ID. This is the task ID for outbound robots and the conversation ID for voice navigator robots.
    * 
    * @example
    * 40669e52-c1c8-487f-9593-29749086bdc9
@@ -1037,12 +1020,12 @@ export class ListAnnotationMissionSessionResponseBodyData extends $dara.Model {
   annotationMissionId?: string;
   /**
    * @remarks
-   * The list of sessions.
+   * The session list.
    */
   annotationMissionSessionList?: ListAnnotationMissionSessionResponseBodyDataAnnotationMissionSessionList[];
   /**
    * @remarks
-   * Additional information. If the call is successful, \\`success\\` is returned. If the call fails, a specific error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * bp.java.nopowerContact
@@ -1050,7 +1033,9 @@ export class ListAnnotationMissionSessionResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true
@@ -1058,7 +1043,7 @@ export class ListAnnotationMissionSessionResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 30
@@ -1099,7 +1084,7 @@ export class ListAnnotationMissionSessionResponseBodyData extends $dara.Model {
 export class ListAnnotationMissionSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API call.
+   * The API status code.
    * 
    * @example
    * OK
@@ -1120,7 +1105,7 @@ export class ListAnnotationMissionSessionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Additional information. If the call is successful, \\`success\\` is returned. If the call fails, a specific error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * bp.java.nopowerContact
@@ -1136,7 +1121,9 @@ export class ListAnnotationMissionSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true

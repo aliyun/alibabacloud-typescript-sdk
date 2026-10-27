@@ -32,12 +32,12 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
    * The industry.
    * 
    * @example
-   * 通用
+   * General
    */
   industry?: string;
   /**
    * @remarks
-   * Indicates whether the debug version is a draft.
+   * Indicates whether the debug version is in the draft state.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
   isDebugDrafted?: boolean;
   /**
    * @remarks
-   * Indicates whether the version is a draft.
+   * Indicates whether the version is in the draft state.
    * 
    * @example
    * false
@@ -56,7 +56,7 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
    * The scenario.
    * 
    * @example
-   * 电销
+   * Telemarketing
    */
   scene?: string;
   /**
@@ -64,7 +64,7 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
    * The script description.
    * 
    * @example
-   * 销售话术
+   * Sales script
    */
   scriptDescription?: string;
   /**
@@ -80,34 +80,23 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
    * The scenario name.
    * 
    * @example
-   * 销售话术
+   * Sales script
    */
   scriptName?: string;
   /**
    * @remarks
    * The status of the application version. Valid values:
-   * 
-   * - **DRAFTED**: The script is a draft.
-   * 
-   * - **INITIALIZE_IN_PROGRESS**: The script is being initialized.
-   * 
-   * - **PUBLISHED**: The script is published.
-   * 
-   * - **PUBLISH_IN_PROGRESS**: The script is being published.
-   * 
-   * - **ROLLBACK_IN_PROGRESS**: The script is being rolled back.
-   * 
-   * - **EXAMINE_IN_PROGRESS**: The script is pending approval.
-   * 
-   * - **PUBLISHED_AND_EXAMINE_IN_PROGRESS**: The script is published and pending approval.
-   * 
-   * - **PUBLISH_FAILED**: The script failed to be published.
-   * 
-   * - **ROLLBACK_FAILED**: The script failed to be rolled back.
-   * 
-   * - **IMPORT_IN_PROGRESS**: The script is being imported.
-   * 
-   * - **IMPORT_FAILED**: The script failed to be imported.
+   * - **DRAFTED**: Draft.
+   * - **INITIALIZE_IN_PROGRESS**: Initializing.
+   * - **PUBLISHED**: Published.
+   * - **PUBLISH_IN_PROGRESS**: Publishing.
+   * - **ROLLBACK_IN_PROGRESS**: Rolling back.
+   * - **EXAMINE_IN_PROGRESS**: Pending review.
+   * - **PUBLISHED_AND_EXAMINE_IN_PROGRESS**: Published and pending review.
+   * - **PUBLISH_FAILED**: Publish failed.
+   * - **ROLLBACK_FAILED**: Rollback failed.
+   * - **IMPORT_IN_PROGRESS**: Importing.
+   * - **IMPORT_FAILED**: Import failed.
    * 
    * @example
    * PUBLISHED
@@ -115,7 +104,7 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the script was last updated.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1579055782000
@@ -167,7 +156,7 @@ export class QueryScriptsByStatusResponseBodyScriptsList extends $dara.Model {
 export class QueryScriptsByStatusResponseBodyScripts extends $dara.Model {
   /**
    * @remarks
-   * The list of scenarios.
+   * The list of scenario details.
    */
   list?: QueryScriptsByStatusResponseBodyScriptsList[];
   /**
@@ -180,7 +169,7 @@ export class QueryScriptsByStatusResponseBodyScripts extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -188,7 +177,7 @@ export class QueryScriptsByStatusResponseBodyScripts extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 15
@@ -243,7 +232,7 @@ export class QueryScriptsByStatusResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Success
@@ -259,7 +248,7 @@ export class QueryScriptsByStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scenarios.
+   * The list of scenarios.
    */
   scripts?: QueryScriptsByStatusResponseBodyScripts;
   /**

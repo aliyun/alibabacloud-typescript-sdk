@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SearchTaskResponseBodyLabels extends $dara.Model {
   /**
    * @remarks
-   * Label name
+   * The label name.
    * 
    * @example
-   * 是否满意
+   * Satisfied
    */
   name?: string;
   /**
    * @remarks
-   * List of label values
+   * The list of label values.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -45,18 +45,18 @@ export class SearchTaskResponseBodyLabels extends $dara.Model {
 export class SearchTaskResponseBodySearchTaskInfoListLabels extends $dara.Model {
   /**
    * @remarks
-   * Label name
+   * The label name.
    * 
    * @example
-   * 是否满意
+   * Satisfied
    */
   k?: string;
   /**
    * @remarks
-   * Matched label value
+   * The matched label value.
    * 
    * @example
-   * 是
+   * Yes
    */
   v?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class SearchTaskResponseBodySearchTaskInfoListLabels extends $dara.Model 
 export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   /**
    * @remarks
-   * Actual execution time
+   * The actual execution time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1643436089677
@@ -93,7 +93,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   actualTime?: number;
   /**
    * @remarks
-   * Call duration, in milliseconds
+   * The call duration, in milliseconds.
    * 
    * @example
    * 46000
@@ -101,7 +101,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   callDuration?: number;
   /**
    * @remarks
-   * Call duration
+   * The call duration.
    * 
    * @example
    * 47″
@@ -109,7 +109,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   callDurationDisplay?: string;
   /**
    * @remarks
-   * Called number
+   * The called number.
    * 
    * @example
    * 15205879599
@@ -117,7 +117,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Calling number
+   * The calling number.
    * 
    * @example
    * 02152739269
@@ -125,7 +125,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * Exception details
+   * The exception information.
    * 
    * @example
    * [{"code":"OutboundCallError.SipCodeError", "params":[{"key":"SipCode","value":"500"}]}]
@@ -133,12 +133,12 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   dialException?: string;
   /**
    * @remarks
-   * Exception codes shown on the remarks page
+   * The field used for displaying remarks on the page.
    */
   dialExceptionCodes?: string[];
   /**
    * @remarks
-   * Exception details
+   * The exception information.
    * 
    * @example
    * ["OutboundCallError.SipTrunkError"]
@@ -146,7 +146,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   dialExceptionOld?: string;
   /**
    * @remarks
-   * Indicates whether the called party answered
+   * Indicates whether the call is answered.
    * 
    * @example
    * true
@@ -154,7 +154,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   hasAnswered?: boolean;
   /**
    * @remarks
-   * Indicates whether the call ended due to rejection
+   * Indicates whether the call is hung up due to unrecognized intent.
    * 
    * @example
    * true
@@ -162,7 +162,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   hasHangUpByRejection?: boolean;
   /**
    * @remarks
-   * Indicates whether the last audio playback completed before hangup
+   * Indicates whether the last sentence is fully played before hanging up.
    * 
    * @example
    * true
@@ -170,7 +170,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   hasLastPlaybackCompleted?: boolean;
   /**
    * @remarks
-   * Indicates whether the conversation ended
+   * Indicates whether the dialogue is completed.
    * 
    * @example
    * true
@@ -178,7 +178,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   hasReachedEndOfFlow?: boolean;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 73df6283-26b2-402d-bad0-ffa489923ea1
@@ -186,7 +186,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job group ID
+   * The job group ID.
    * 
    * @example
    * 37db3113-ad34-4ba3-b930-468f016bbf95
@@ -194,15 +194,15 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * Job group name
+   * The name of the job group.
    * 
    * @example
-   * 85成新（有笔记划线）2021_11_14_18_00_51
+   * 85% new (with notes and underlines) 2021_11_14_18_00_51
    */
   jobGroupName?: string;
   /**
    * @remarks
-   * Job ID
+   * The job ID.
    * 
    * @example
    * 6203248e-e652-4ef8-a1eb-586ed7b54dc2
@@ -210,19 +210,14 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Job status
+   * The job status. Valid values:
    * 
-   * - 0: Scheduling
-   * 
-   * - 1: Executing
-   * 
-   * - 2: Succeeded
-   * 
-   * - 3: Paused
-   * 
-   * - 4: Failed
-   * 
-   * - 5: Cancelled
+   * - 0: Scheduling.
+   * - 1: Executing.
+   * - 2: Succeeded (Reached).
+   * - 3: Paused.
+   * - 4: Failed (Not connected - Busy).
+   * - 5: Cancelled.
    * 
    * @example
    * 0
@@ -230,39 +225,29 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   jobStatus?: number;
   /**
    * @remarks
-   * Display text for job status
+   * The display content of the job status. Valid values:
    * 
-   * - 0: Scheduling
-   * 
-   * - 1: Executing
-   * 
-   * - 2: Succeeded
-   * 
-   * - 3: Paused
-   * 
-   * - 4: Failed
-   * 
-   * - 5: Cancelled
+   * - 0: Scheduling.
+   * - 1: Executing.
+   * - 2: Succeeded (Reached).
+   * - 3: Paused.
+   * - 4: Failed (Not connected - Busy).
+   * - 5: Cancelled.
    * 
    * @example
-   * 调度中
+   * Scheduling
    */
   jobStatusName?: string;
   /**
    * @remarks
-   * Job status
+   * The task status. Valid values:
    * 
-   * - Scheduling (0)
-   * 
-   * - Executing (1)
-   * 
-   * - Completed—Reached (2)
-   * 
-   * - Paused (3)
-   * 
-   * - Failed—Line busy (4)
-   * 
-   * - Cancelled (5)
+   * - Scheduling: Scheduling (0).
+   * - Executing: Executing (1).
+   * - Succeeded: Reached (2).
+   * - Paused: Paused (3).
+   * - Failed: Not connected - Busy (4).
+   * - Cancelled: Cancelled (5).
    * 
    * @example
    * Scheduling
@@ -270,12 +255,12 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   jobStatusString?: string;
   /**
    * @remarks
-   * Labels matched for this outbound call
+   * The label hit status of the current outbound call.
    */
   labels?: SearchTaskResponseBodySearchTaskInfoListLabels[];
   /**
    * @remarks
-   * Ringing duration, in seconds
+   * The ringing duration, in seconds.
    * 
    * @example
    * 10
@@ -283,15 +268,15 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   recordingDuration?: number;
   /**
    * @remarks
-   * Scenario name
+   * The scenario name.
    * 
    * @example
-   * 慢病线索
+   * Chronic disease leads
    */
   scriptName?: string;
   /**
    * @remarks
-   * Task creation time
+   * The task creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1646792941
@@ -299,29 +284,18 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   taskCreateTime?: number;
   /**
    * @remarks
-   * Reason why the task ended
-   * 
-   * - FINISHED(1,"Normal completion")
-   * 
-   * - CHATBOT_HANGUP_AFTER_NOANSWER(2, "Robot hangup after rejection")
-   * 
-   * - CHATBOT_HANGUP_AFTER_SILENCE(3, "Robot hangup after silence timeout")
-   * 
-   * - CLIENT_HANGUP_AFTER_NOANSWER(4, "Client hangup after rejection")
-   * 
-   * - CLIENT_HANGUP(5, "Client hangup without reason")
-   * 
-   * - TRANSFER_BY_INTENT(6, "Transfer to agent based on intent match")
-   * 
-   * - TRANSFER_AFTER_NOANSWER(7, "Transfer to agent after rejection")
-   * 
-   * - INO_INTERACTION(8, "No interaction from client side")
-   * 
-   * - ERROR(9, "System error interrupted")
-   * 
-   * - SPECIAL_INTERCEPT_VOICE_ASSISTANT(10, "Intercepted by voice assistant")
-   * 
-   * - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER(11, "Intercepted by extension transfer")
+   * The reason why the task ended. Valid values:
+   * - FINISHED (1): The task completed normally.
+   * - CHATBOT_HANGUP_AFTER_NOANSWER (2): The robot hung up after an unrecognized intent.
+   * - CHATBOT_HANGUP_AFTER_SILENCE (3): The robot hung up due to a silence timeout.
+   * - CLIENT_HANGUP_AFTER_NOANSWER (4): The user hung up after an unrecognized intent.
+   * - CLIENT_HANGUP (5): The user hung up without a specific reason.
+   * - TRANSFER_BY_INTENT (6): The call was transferred to an agent due to a matched intent.
+   * - TRANSFER_AFTER_NOANSWER (7): The call was transferred to an agent after an unrecognized intent.
+   * - INO_INTERACTION (8): No interaction occurred on the user side.
+   * - ERROR (9): The task was interrupted by a system exception.
+   * - SPECIAL_INTERCEPT_VOICE_ASSISTANT (10): The call was intercepted by the voice assistant.
+   * - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER (11): The call was intercepted during extension number transfer.
    * 
    * @example
    * OutOfService
@@ -329,7 +303,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   taskEndReason?: number;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 479aea04-3a92-4ac3-935d-c8798c667850
@@ -337,69 +311,40 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Valid values:
+   * The task status. Valid values:
+   * (Note: The **Succeeded** status is subdivided into specific causes. The general **Succeeded**: 1 (Connected) status is not displayed. Instead, specific subdivided causes are returned.)
    * 
-   * - **Executing**: 0 (Calling).
-   * 
+   * - **Executing**: 0 (Dialing).
    * - **Succeeded**: 1 (Connected).
-   * 
-   * - **NoAnswer**: 2 (No answer).
-   * 
-   * - **NotExist**: 3 (Nonexistent number).
-   * 
-   * - **Busy**: 4 (Line busy).
-   * 
-   * - **Cancelled**: 5 (Call canceled due to job stop).
-   * 
-   * - **Failed**: 6 (Call failed).
-   * 
-   * - **NotConnected**: 7 (Cannot connect).
-   * 
-   * - **PoweredOff**: 8 (Phone powered off).
-   * 
-   * - **OutOfService**: 9 (Called number out of service).
-   * 
-   * - **InArrears**: 10 (Called number overdue payment).
-   * 
-   * - **EmptyNumber**: 11 (Empty number, no outbound call).
-   * 
-   * - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
-   * 
-   * - **ContactBlockList**: 13 (Blacklisted).
-   * 
-   * - **CallerNotRegistered**: 14 (Caller number not registered).
-   * 
-   * - **Terminated**: 15 (Call terminated).
-   * 
-   * - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
-   * 
-   * - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
-   * 
-   * - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
-   * 
-   * - **CallingNumberNotExist**: 19 (Caller number does not exist).
-   * 
-   * - **SucceededFinish**: 20 (Connected and ended normally).
-   * 
-   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
-   * 
-   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
-   * 
-   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
-   * 
-   * - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
-   * 
-   * - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
-   * 
-   * - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
-   * 
-   * - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
-   * 
-   * - **SucceededError**: 28 (Connected but system error interrupted).
-   * 
-   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
-   * 
-   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
+   * - **NoAnswer**: 2 (Not connected - No answer).
+   * - **NotExist**: 3 (Not connected - Nonexistent number).
+   * - **Busy**: 4 (Not connected - Busy).
+   * - **Cancelled**: 5 (Not dialed - Task stopped).
+   * - **Failed**: 6 (Failed).
+   * - **NotConnected**: 7 (Not connected - Unreachable).
+   * - **PoweredOff**: 8 (Not connected - Powered off).
+   * - **OutOfService**: 9 (Not connected - Suspended).
+   * - **InArrears**: 10 (Not connected - Overdue payment).
+   * - **EmptyNumber**: 11 (Not dialed - Nonexistent number, not dialed).
+   * - **PerDayCallCountLimit**: 12 (Not dialed - Daily limit exceeded).
+   * - **ContactBlockList**: 13 (Not dialed - Blacklisted).
+   * - **CallerNotRegistered**: 14 (Not dialed - Caller number not registered).
+   * - **Terminated**: 15 (Not dialed - Terminated).
+   * - **VerificationCancelled**: 16 (Not dialed - Canceled due to pre-call verification failure).
+   * - **OutOfServiceNoCall**: 17 (Not dialed - Callee suspended, not dialed).
+   * - **InArrearsNoCall**: 18 (Not dialed - Callee has overdue payment, not dialed).
+   * - **CallingNumberNotExist**: 19 (Not dialed - Caller number does not exist).
+   * - **SucceededFinish**: 20 (Connected - Normal completion).
+   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected - Robot hung up after unrecognized intent).
+   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected - Hung up due to silence timeout).
+   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected - User hung up after unrecognized intent).
+   * - **SucceededClientHangUp**: 24 (Connected - User hung up without reason).
+   * - **SucceededTransferByIntent**: 25 (Connected - Transferred to agent due to matched intent).
+   * - **SucceededTransferAfterNoAnswer**: 26 (Connected - Transferred to agent after unrecognized intent).
+   * - **SucceededInoInterAction**: 27 (Connected - No interaction on user side).
+   * - **SucceededError**: 28 (Connected - Interrupted by system exception).
+   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected - Special interception - Voice assistant).
+   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected - Special interception - Extension number transfer).
    * 
    * @example
    * 0
@@ -407,143 +352,83 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   taskStatus?: number;
   /**
    * @remarks
-   * Display text for task status
+   * The display content of the call status. Valid values:
+   * (Note: The **Succeeded** status is subdivided into specific causes. The general **Succeeded**: 1 (Connected) status is not displayed. Instead, specific subdivided causes are returned.)
    * 
-   * - **Executing**: 0 (Calling).
-   * 
+   * - **Executing**: 0 (Dialing).
    * - **Succeeded**: 1 (Connected).
-   * 
-   * - **NoAnswer**: 2 (No answer).
-   * 
-   * - **NotExist**: 3 (Nonexistent number).
-   * 
-   * - **Busy**: 4 (Line busy).
-   * 
-   * - **Cancelled**: 5 (Call canceled due to job stop).
-   * 
-   * - **Failed**: 6 (Call failed).
-   * 
-   * - **NotConnected**: 7 (Cannot connect).
-   * 
-   * - **PoweredOff**: 8 (Phone powered off).
-   * 
-   * - **OutOfService**: 9 (Called number out of service).
-   * 
-   * - **InArrears**: 10 (Called number overdue payment).
-   * 
-   * - **EmptyNumber**: 11 (Empty number, no outbound call).
-   * 
-   * - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
-   * 
-   * - **ContactBlockList**: 13 (Blacklisted).
-   * 
-   * - **CallerNotRegistered**: 14 (Caller number not registered).
-   * 
-   * - **Terminated**: 15 (Call terminated).
-   * 
-   * - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
-   * 
-   * - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
-   * 
-   * - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
-   * 
-   * - **CallingNumberNotExist**: 19 (Caller number does not exist).
-   * 
-   * - **SucceededFinish**: 20 (Connected and ended normally).
-   * 
-   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
-   * 
-   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
-   * 
-   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
-   * 
-   * - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
-   * 
-   * - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
-   * 
-   * - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
-   * 
-   * - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
-   * 
-   * - **SucceededError**: 28 (Connected but system error interrupted).
-   * 
-   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
-   * 
-   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
+   * - **NoAnswer**: 2 (Not connected - No answer).
+   * - **NotExist**: 3 (Not connected - Nonexistent number).
+   * - **Busy**: 4 (Not connected - Busy).
+   * - **Cancelled**: 5 (Not dialed - Task stopped).
+   * - **Failed**: 6 (Failed).
+   * - **NotConnected**: 7 (Not connected - Unreachable).
+   * - **PoweredOff**: 8 (Not connected - Powered off).
+   * - **OutOfService**: 9 (Not connected - Suspended).
+   * - **InArrears**: 10 (Not connected - Overdue payment).
+   * - **EmptyNumber**: 11 (Not dialed - Nonexistent number, not dialed).
+   * - **PerDayCallCountLimit**: 12 (Not dialed - Daily limit exceeded).
+   * - **ContactBlockList**: 13 (Not dialed - Blacklisted).
+   * - **CallerNotRegistered**: 14 (Not dialed - Caller number not registered).
+   * - **Terminated**: 15 (Not dialed - Terminated).
+   * - **VerificationCancelled**: 16 (Not dialed - Canceled due to pre-call verification failure).
+   * - **OutOfServiceNoCall**: 17 (Not dialed - Callee suspended, not dialed).
+   * - **InArrearsNoCall**: 18 (Not dialed - Callee has overdue payment, not dialed).
+   * - **CallingNumberNotExist**: 19 (Not dialed - Caller number does not exist).
+   * - **SucceededFinish**: 20 (Connected - Normal completion).
+   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected - Robot hung up after unrecognized intent).
+   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected - Hung up due to silence timeout).
+   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected - User hung up after unrecognized intent).
+   * - **SucceededClientHangUp**: 24 (Connected - User hung up without reason).
+   * - **SucceededTransferByIntent**: 25 (Connected - Transferred to agent due to matched intent).
+   * - **SucceededTransferAfterNoAnswer**: 26 (Connected - Transferred to agent after unrecognized intent).
+   * - **SucceededInoInterAction**: 27 (Connected - No interaction on user side).
+   * - **SucceededError**: 28 (Connected - Interrupted by system exception).
+   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected - Special interception - Voice assistant).
+   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected - Special interception - Extension number transfer).
    * 
    * @example
-   * 正在拨打
+   * Dialing
    */
   taskStatusName?: string;
   /**
    * @remarks
-   * Task status
+   * The task status. Valid values:
+   * (Note: The **Succeeded** status is subdivided into specific causes. The general **Succeeded**: 1 (Connected) status is not displayed. Instead, specific subdivided causes are returned.)
    * 
-   * - **Executing**: 0 (Calling).
-   * 
+   * - **Executing**: 0 (Dialing).
    * - **Succeeded**: 1 (Connected).
-   * 
-   * - **NoAnswer**: 2 (No answer).
-   * 
-   * - **NotExist**: 3 (Nonexistent number).
-   * 
-   * - **Busy**: 4 (Line busy).
-   * 
-   * - **Cancelled**: 5 (Call canceled due to job stop).
-   * 
-   * - **Failed**: 6 (Call failed).
-   * 
-   * - **NotConnected**: 7 (Cannot connect).
-   * 
-   * - **PoweredOff**: 8 (Phone powered off).
-   * 
-   * - **OutOfService**: 9 (Called number out of service).
-   * 
-   * - **InArrears**: 10 (Called number overdue payment).
-   * 
-   * - **EmptyNumber**: 11 (Empty number, no outbound call).
-   * 
-   * - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
-   * 
-   * - **ContactBlockList**: 13 (Blacklisted).
-   * 
-   * - **CallerNotRegistered**: 14 (Caller number not registered).
-   * 
-   * - **Terminated**: 15 (Call terminated).
-   * 
-   * - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
-   * 
-   * - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
-   * 
-   * - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
-   * 
-   * - **CallingNumberNotExist**: 19 (Caller number does not exist).
-   * 
-   * - **SucceededFinish**: 20 (Connected and ended normally).
-   * 
-   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
-   * 
-   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
-   * 
-   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
-   * 
-   * - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
-   * 
-   * - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
-   * 
-   * - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
-   * 
-   * - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
-   * 
-   * - **SucceededError**: 28 (Connected but system error interrupted).
-   * 
-   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
-   * 
-   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
-   * 
-   * - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected but intercepted by custom rule).
-   * 
-   * - **HighRiskSipCode**: 32 (High-risk SIP code, no outbound call).
+   * - **NoAnswer**: 2 (Not connected - No answer).
+   * - **NotExist**: 3 (Not connected - Nonexistent number).
+   * - **Busy**: 4 (Not connected - Busy).
+   * - **Cancelled**: 5 (Not dialed - Task stopped).
+   * - **Failed**: 6 (Failed).
+   * - **NotConnected**: 7 (Not connected - Unreachable).
+   * - **PoweredOff**: 8 (Not connected - Powered off).
+   * - **OutOfService**: 9 (Not connected - Suspended).
+   * - **InArrears**: 10 (Not connected - Overdue payment).
+   * - **EmptyNumber**: 11 (Not dialed - Nonexistent number, not dialed).
+   * - **PerDayCallCountLimit**: 12 (Not dialed - Daily limit exceeded).
+   * - **ContactBlockList**: 13 (Not dialed - Blacklisted).
+   * - **CallerNotRegistered**: 14 (Not dialed - Caller number not registered).
+   * - **Terminated**: 15 (Not dialed - Terminated).
+   * - **VerificationCancelled**: 16 (Not dialed - Canceled due to pre-call verification failure).
+   * - **OutOfServiceNoCall**: 17 (Not dialed - Callee suspended, not dialed).
+   * - **InArrearsNoCall**: 18 (Not dialed - Callee has overdue payment, not dialed).
+   * - **CallingNumberNotExist**: 19 (Not dialed - Caller number does not exist).
+   * - **SucceededFinish**: 20 (Connected - Normal completion).
+   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected - Robot hung up after unrecognized intent).
+   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected - Hung up due to silence timeout).
+   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected - User hung up after unrecognized intent).
+   * - **SucceededClientHangUp**: 24 (Connected - User hung up without reason).
+   * - **SucceededTransferByIntent**: 25 (Connected - Transferred to agent due to matched intent).
+   * - **SucceededTransferAfterNoAnswer**: 26 (Connected - Transferred to agent after unrecognized intent).
+   * - **SucceededInoInterAction**: 27 (Connected - No interaction on user side).
+   * - **SucceededError**: 28 (Connected - Interrupted by system exception).
+   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected - Special interception - Voice assistant).
+   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected - Special interception - Extension number transfer).
+   * - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected - Special interception - Custom interception).
+   * - **HighRiskSipCode**: 32 (Not dialed - High risk, not dialed).
    * 
    * @example
    * Executing
@@ -551,7 +436,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   taskStatusString?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 12334134
@@ -559,7 +444,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * xxx
@@ -653,7 +538,7 @@ export class SearchTaskResponseBodySearchTaskInfoList extends $dara.Model {
 export class SearchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code
+   * The request status code.
    * 
    * @example
    * OK
@@ -661,7 +546,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -669,14 +554,14 @@ export class SearchTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Labels available for filtering.
+   * The label information that can be used as filter conditions.
    * 
-   * > Displays all labels with enumeration values in this job group.
+   * > Displays all label information with enumerated values in this job group.
    */
   labels?: SearchTaskResponseBodyLabels[];
   /**
    * @remarks
-   * Response message
+   * The message returned by the API operation.
    * 
    * @example
    * Success
@@ -684,7 +569,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 0
@@ -692,7 +577,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -700,7 +585,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -708,7 +593,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of tasks
+   * The list of tasks.
    * 
    * @example
    * []
@@ -716,7 +601,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   searchTaskInfoList?: SearchTaskResponseBodySearchTaskInfoList[];
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -724,7 +609,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -732,7 +617,7 @@ export class SearchTaskResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * Complete list of label keys
+   * The full set of label name keys.
    */
   variableNames?: string[];
   static names(): { [key: string]: string } {

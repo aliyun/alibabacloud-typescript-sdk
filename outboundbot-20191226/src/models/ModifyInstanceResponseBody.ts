@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578469042851
@@ -29,10 +29,10 @@ export class ModifyInstanceResponseBodyInstance extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
-   * 这是第一个实例
+   * This is the first instance
    */
   instanceDescription?: string;
   /**
@@ -48,7 +48,7 @@ export class ModifyInstanceResponseBodyInstance extends $dara.Model {
    * The name of the instance.
    * 
    * @example
-   * 第一个实例
+   * First instance
    */
   instanceName?: string;
   /**
@@ -129,7 +129,7 @@ export class ModifyInstanceResponseBody extends $dara.Model {
   instance?: ModifyInstanceResponseBodyInstance;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success

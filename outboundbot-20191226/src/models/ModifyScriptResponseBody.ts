@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScriptResponseBodyScript extends $dara.Model {
   /**
    * @remarks
-   * The debug status of the script.
+   * The script debug status.
    * 
    * @example
    * DRAFTED
@@ -16,7 +16,7 @@ export class ModifyScriptResponseBodyScript extends $dara.Model {
    * The industry.
    * 
    * @example
-   * 政务
+   * Government
    */
   industry?: string;
   /**
@@ -40,20 +40,20 @@ export class ModifyScriptResponseBodyScript extends $dara.Model {
    * The scenario.
    * 
    * @example
-   * 回访
+   * Follow-up visit
    */
   scene?: string;
   /**
    * @remarks
-   * The description of the script.
+   * The script description.
    * 
    * @example
-   * 返工回访话术
+   * Rework callback script
    */
   scriptDescription?: string;
   /**
    * @remarks
-   * The ID of the script.
+   * The script ID.
    * 
    * @example
    * c153d0d8-ba04-41c0-8632-453944c9dd0b
@@ -61,15 +61,15 @@ export class ModifyScriptResponseBodyScript extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script.
+   * The script name.
    * 
    * @example
-   * 回访话术
+   * Callback script
    */
   scriptName?: string;
   /**
    * @remarks
-   * The status of the script.
+   * The script status.
    * 
    * @example
    * PUBLISHED
@@ -125,7 +125,7 @@ export class ModifyScriptResponseBodyScript extends $dara.Model {
 export class ModifyScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the API.
+   * The API status.
    * 
    * @example
    * OK
@@ -162,7 +162,7 @@ export class ModifyScriptResponseBody extends $dara.Model {
   script?: ModifyScriptResponseBodyScript;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

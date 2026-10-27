@@ -25,7 +25,7 @@ export class DescribeJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Specifies whether to return task scenario information.
+   * Specifies whether to return the task scenario information.
    * 
    * @example
    * false

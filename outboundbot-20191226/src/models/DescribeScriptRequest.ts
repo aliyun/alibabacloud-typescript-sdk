@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Script ID
+   * The script ID.
    * 
    * This parameter is required.
    * 

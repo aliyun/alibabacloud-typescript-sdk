@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578469042851
@@ -13,7 +13,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 435986
@@ -29,15 +29,15 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The description of the business instance.
+   * The description of the instance.
    * 
    * @example
-   * 这个是第一个实例
+   * This is the first instance
    */
   instanceDescription?: string;
   /**
    * @remarks
-   * The business instance ID.
+   * The instance ID.
    * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
@@ -45,15 +45,15 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the business instance.
+   * The name of the instance.
    * 
    * @example
-   * 第一个实例
+   * First instance
    */
   instanceName?: string;
   /**
    * @remarks
-   * The maximum concurrency of the instance.
+   * The maximum number of concurrent conversations for the instance.
    * 
    * @example
    * 4
@@ -61,7 +61,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   maxConcurrentConversation?: number;
   /**
    * @remarks
-   * The name of the business instance owner.
+   * The name of the instance owner.
    * 
    * @example
    * xxxx
@@ -131,12 +131,12 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The business instance information.
+   * The instance information.
    */
   instance?: DescribeInstanceResponseBodyInstance;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -152,7 +152,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

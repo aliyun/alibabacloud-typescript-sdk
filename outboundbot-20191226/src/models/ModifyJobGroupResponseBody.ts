@@ -13,7 +13,7 @@ export class ModifyJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
   fileHttpUrl?: string;
   /**
    * @remarks
-   * The progress of the export.
+   * The progress.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ModifyJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
   progress?: string;
   /**
    * @remarks
-   * The export status.
+   * The status.
    * 
    * @example
    * FINISHED
@@ -55,7 +55,7 @@ export class ModifyJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
 export class ModifyJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to ignore an invalid number.
+   * Specifies whether to ignore nonexistent numbers for outbound calls.
    * 
    * @example
    * false
@@ -63,7 +63,7 @@ export class ModifyJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   emptyNumberIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether to ignore a number in arrears.
+   * Specifies whether to ignore numbers with overdue payments for outbound calls.
    * 
    * @example
    * false
@@ -71,7 +71,7 @@ export class ModifyJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   inArrearsIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether to ignore an out-of-service number.
+   * Specifies whether to ignore out-of-service numbers for outbound calls.
    * 
    * @example
    * false
@@ -105,7 +105,7 @@ export class ModifyJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
 export class ModifyJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara.Model {
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -113,7 +113,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara
   beginTime?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is HH:mm:ss.
    * 
    * @example
    * 12:00:00
@@ -145,7 +145,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara
 export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   /**
    * @remarks
-   * The customized strategy data. [Deprecated]
+   * The custom strategy data. This is a legacy parameter and is no longer used.
    * 
    * @example
    * {}
@@ -153,7 +153,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   customized?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 2209702074000
@@ -161,7 +161,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The action to take when the execution cycle ends. [Deprecated]
+   * The processing method after the execution cycle ends. This is a legacy parameter and is no longer used.
    * 
    * @example
    * CONTINUE
@@ -169,7 +169,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   followUpStrategy?: string;
   /**
    * @remarks
-   * Indicates whether the strategy is a template. [Deprecated]
+   * Indicates whether it is a template. This is a legacy parameter and is no longer used.
    * 
    * @example
    * false
@@ -177,7 +177,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   isTemplate?: boolean;
   /**
    * @remarks
-   * The maximum attempts per day.
+   * The maximum number of attempts.
    * 
    * @example
    * 3
@@ -185,7 +185,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   maxAttemptsPerDay?: number;
   /**
    * @remarks
-   * The minimum attempt interval.
+   * The retry interval after a failure.
    * 
    * @example
    * 10
@@ -193,7 +193,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
-   * The repeat mode. Valid values: `Once` (runs only once), `Day` (repeats daily), `Week` (repeats weekly), and `Month` (repeats monthly).
+   * The recurrence type. Valid values: Once (no recurrence), Day (daily), Week (weekly), and Month (monthly).
    * 
    * @example
    * Once
@@ -201,15 +201,15 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   repeatBy?: string;
   /**
    * @remarks
-   * The days of the week or month on which the job repeats.
+   * The execution days for recurrence.
    * 
-   * If `RepeatBy` is set to `Week`, valid values are `0` to `6`, where `0` represents Sunday, and `1` to `6` represent Monday to Saturday.
-   * If `RepeatBy` is set to `Month`, valid values are `1` to `31`. If a month is shorter than the specified day (for example, day 31 in February), the job does not run that month.
+   * If the recurrence type RepeatBy is Week, 0 indicates Sunday, and 1 to 6 indicate Monday to Saturday.
+   * If the recurrence type RepeatBy is Month, 1 to 31 indicate the 1st to the 31st day of the month. If a month does not have the specified day, the job is not executed in that month. For example, if the 30th is selected, the job is not executed in February.
    */
   repeatDays?: string[];
   /**
    * @remarks
-   * The routing strategy.
+   * The phone number routing strategy.
    * 
    * @example
    * LocalFirst
@@ -217,7 +217,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   routingStrategy?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578550074000
@@ -228,7 +228,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
    * The strategy description.
    * 
    * @example
-   * 催收作业执行策略
+   * Collection job execution strategy
    */
   strategyDescription?: string;
   /**
@@ -241,10 +241,10 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   strategyId?: string;
   /**
    * @remarks
-   * The strategy name.
+   * The policy name.
    * 
    * @example
-   * 催收策略
+   * Collection strategy
    */
   strategyName?: string;
   /**
@@ -257,7 +257,7 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time windows for making outbound calls.
+   * The time period during which outbound calls are allowed.
    */
   workingTime?: ModifyJobGroupResponseBodyJobGroupStrategyWorkingTime[];
   static names(): { [key: string]: string } {
@@ -318,14 +318,14 @@ export class ModifyJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
 export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   /**
    * @remarks
-   * The list of calling numbers.
+   * The list of caller numbers.
    */
   callingNumbers?: string[];
   /**
    * @remarks
    * The creation time.
    * 
-   * > Call the `DescribeJobGroup` operation to obtain this value.
+   * > You can obtain this value from the response of the DescribeJobGroup operation. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1578550074361
@@ -333,14 +333,15 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The export progress. [Deprecated]
+   * The export information. This is a legacy parameter and is no longer used.
    */
   exportProgress?: ModifyJobGroupResponseBodyJobGroupExportProgress;
   /**
    * @remarks
-   * Extra parameters for the flash SMS service. The value is a JSON string that contains the configuration for a third-party provider.
+   * The configuration parameters for flash message push in JSON format, including the configuration information of third-party flash messages.
    * 
-   * `templateId`: The flash SMS template ID. `configId`: The flash SMS configuration ID.
+   * templateId: the flash message template ID.
+   * configId: the flash message configuration ID.
    * 
    * @example
    * {"configId":"3157b3c8-3a3e-4ea9-894b-9c8a6", "templateId":"1234"}
@@ -348,7 +349,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   flashSmsExtras?: string;
   /**
    * @remarks
-   * The data parsing task ID. [Deprecated]
+   * **[Deprecated]** The ID of the parsing task corresponding to the outbound job file.
    * 
    * @example
    * e37d28cb-0413-4816-85ed-fd354d025ea3
@@ -356,23 +357,23 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   jobDataParsingTaskId?: string;
   /**
    * @remarks
-   * The job file path. [Deprecated]
+   * **[Deprecated]** The OSS storage path of the job file.
    * 
    * @example
-   * UPLOADED/JOB/d481cebe-0bb6-4d13-9649-42ce5074fb75/6c7d9132-98e1-4f08-8a76-8a266c7532fd_job_template - 副本.xlsx
+   * UPLOADED/JOB/d481cebe-0bb6-4d13-9649-42ce5074fb75/6c7d9132-98e1-4f08-8a76-8a266c7532fd_job_template - Copy.xlsx
    */
   jobFilePath?: string;
   /**
    * @remarks
-   * The job group description.
+   * The job description.
    * 
    * @example
-   * 催收的作业组
+   * Collection job group
    */
   jobGroupDescription?: string;
   /**
    * @remarks
-   * The job group ID.
+   * The job ID.
    * 
    * @example
    * c62e6789-28a8-41db-941e-171a01d3b3b9
@@ -380,15 +381,18 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * The job group name.
+   * The job name.
    * 
    * @example
-   * 第一个催收
+   * First collection
    */
   jobGroupName?: string;
   /**
    * @remarks
-   * The minimum number of concurrent calls to reserve for this job group. The sum of this value for all job groups with the same priority cannot exceed the total concurrency of the instance. If set to 0, the system dynamically allocates idle lines from a shared pool.
+   * The guaranteed concurrency.
+   * When a job starts, a minimum of N concurrent calls are guaranteed.
+   * The sum of guaranteed concurrency values for jobs of the same priority cannot exceed the instance concurrency.
+   * If the guaranteed concurrency is set to 0, the system intelligently allocates idle concurrency.
    * 
    * @example
    * 1
@@ -397,8 +401,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   /**
    * @remarks
    * The modification time.
-   * 
-   * > Call the `DescribeJobGroup` operation to obtain this value.
+   * > You can obtain this value from the response of the DescribeJobGroup operation. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1628425608429
@@ -408,7 +411,8 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
    * @remarks
    * The job group priority. Valid values:
    * 
-   * `Urgent`: For high-priority jobs. `Daily`: For standard-priority jobs.
+   * Urgent: urgent job.
+   * Daily: daily job.
    * 
    * @example
    * Daily
@@ -431,7 +435,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
    * @remarks
    * The scenario ID.
    * 
-   * > This parameter is deprecated. To obtain the `ScriptId`, call the `DescribeJobGroup` operation.
+   * > This parameter returns a legacy value. You can obtain the specific ScriptId from the response of the DescribeJobGroup operation.
    * 
    * @example
    * 6cea9bed-63e6-439e-ae4c-b3333efff53d
@@ -442,7 +446,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
    * The script name.
    * 
    * @example
-   * 话术
+   * Script
    */
   scriptName?: string;
   /**
@@ -455,7 +459,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   scriptVersion?: string;
   /**
    * @remarks
-   * The job group status.
+   * The status.
    * 
    * @example
    * Scheduling
@@ -463,7 +467,7 @@ export class ModifyJobGroupResponseBodyJobGroup extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The outbound strategy.
+   * The outbound call strategy.
    */
   strategy?: ModifyJobGroupResponseBodyJobGroupStrategy;
   static names(): { [key: string]: string } {
@@ -554,12 +558,12 @@ export class ModifyJobGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The job group details.
+   * The job information.
    */
   jobGroup?: ModifyJobGroupResponseBodyJobGroup;
   /**
    * @remarks
-   * The API response message.
+   * The API message.
    * 
    * @example
    * Success
@@ -575,7 +579,7 @@ export class ModifyJobGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

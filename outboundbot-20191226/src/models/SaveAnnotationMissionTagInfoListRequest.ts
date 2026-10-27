@@ -8,7 +8,7 @@ export class SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList
    * The tag description.
    * 
    * @example
-   * 标签描述
+   * Tag description
    */
   annotationMissionTagInfoDescription?: string;
   /**
@@ -24,14 +24,14 @@ export class SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList
    * The tag name.
    * 
    * @example
-   * 标签
+   * Tag
    */
   annotationMissionTagInfoName?: string;
   /**
    * @remarks
-   * Indicates whether to delete the tag.
+   * Specifies whether to delete the tag.
    * 
-   * > Set this parameter to true to delete the tag. Set it to false to add the tag.
+   * > Set this parameter to true to delete the tag, or false to add the tag.
    * 
    * @example
    * true
@@ -87,19 +87,19 @@ export class SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList
 export class SaveAnnotationMissionTagInfoListRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    * 
-   * > This parameter has the same function as AnnotationMissionTagInfoListJsonString. Specify either this parameter or AnnotationMissionTagInfoListJsonString.
+   * > This parameter is the same as the AnnotationMissionTagInfoListJsonString parameter. Specify either one.
    */
   annotationMissionTagInfoList?: SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList[];
   /**
    * @remarks
-   * The JSON-formatted data of the tags.
+   * The tag JSON data.
    * 
-   * > The parameters in the JSON string are the same as those in AnnotationMissionTagInfoList. Specify either this parameter or AnnotationMissionTagInfoList.
+   * > The parameters in the JSON are the same as those in the AnnotationMissionTagInfoList parameter. Specify either this parameter or AnnotationMissionTagInfoList.
    * 
    * @example
-   * [{"delete":false,				"InstanceId":"00b37342-e759-4fe5-b296-aef775933af0",					"AnnotationMissionTagInfoName":"测试数据1",					"AnnotationMissionTagInfoDescription":"测试"}]
+   * [{"delete":false,				"InstanceId":"00b37342-e759-4fe5-b296-aef775933af0",					"AnnotationMissionTagInfoName":"TestData1",					"AnnotationMissionTagInfoDescription":"Test"}]
    */
   annotationMissionTagInfoListJsonString?: string;
   /**
@@ -112,7 +112,7 @@ export class SaveAnnotationMissionTagInfoListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether to restore the default tag values.
+   * Specifies whether to restore the default tag values.
    * 
    * @example
    * false
