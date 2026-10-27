@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FunctionLockInfo extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the lock was applied.
+   * The lock time.
    * 
    * @example
    * 2025-04-05T10:00:00Z
@@ -13,7 +13,7 @@ export class FunctionLockInfo extends $dara.Model {
   lockedAt?: string;
   /**
    * @remarks
-   * The name of the entity that applied the lock.
+   * The name of the locking entity.
    * 
    * @example
    * AgentRun
@@ -21,7 +21,7 @@ export class FunctionLockInfo extends $dara.Model {
   lockedBy?: string;
   /**
    * @remarks
-   * The list of locked resource types. Valid values include `function`, `trigger`, `version`, and `alias`.
+   * The list of locked resource types.
    * 
    * @example
    * ["function", "trigger", "version", "alias"]

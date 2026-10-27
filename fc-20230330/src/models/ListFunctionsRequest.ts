@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListFunctionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The function description to filter by.
+   * The description used to filter functions.
    * 
    * @example
    * test_description
@@ -14,12 +14,11 @@ export class ListFunctionsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The version to which the function belongs. Valid values:
+   * The version of the function. Valid values:
+   * - v3: Lists only Function Compute 3.0 functions.
+   * - v2: Lists only Function Compute 2.0 functions.
    * 
-   * - v3: lists only FC 3.0 functions.
-   * - v2: lists only FC 2.0 functions.
-   * 
-   * If not specified, both FC 3.0 and FC 2.0 functions are listed.
+   * Default value: empty. An empty value indicates that both Function Compute 3.0 and Function Compute 2.0 functions are listed.
    * 
    * @example
    * v3
@@ -27,12 +26,12 @@ export class ListFunctionsRequest extends $dara.Model {
   fcVersion?: string;
   /**
    * @remarks
-   * The function name.
+   * The name of the function.
    */
   functionName?: string;
   /**
    * @remarks
-   * The function GPU type to filter by.
+   * The GPU type used to filter functions.
    * 
    * @example
    * fc.gpu.tesla.1
@@ -40,7 +39,7 @@ export class ListFunctionsRequest extends $dara.Model {
   gpuType?: string;
   /**
    * @remarks
-   * The number of functions to return. Minimum value: 1. Maximum value: 100.
+   * The number of functions to return. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -56,7 +55,7 @@ export class ListFunctionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The function name prefix.
+   * The prefix of the function name.
    * 
    * @example
    * my-func
@@ -64,12 +63,12 @@ export class ListFunctionsRequest extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The function runtime to filter by.
+   * The runtime used to filter functions.
    * 
    * @example
    * python3.10
@@ -77,7 +76,7 @@ export class ListFunctionsRequest extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The function tags to filter by.
+   * The tags used to filter functions.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {

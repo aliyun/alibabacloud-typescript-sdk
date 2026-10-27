@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CORSConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow sending credentials.
+   * 
    * @example
    * true
    */
   allowCredentials?: boolean;
   /**
+   * @remarks
+   * The list of allowed request headers.
+   * 
    * @example
    * ["Content-Type", "Authorization"]
    */
   allowHeaders?: string[];
   /**
+   * @remarks
+   * The list of allowed HTTP methods.
+   * 
    * @example
    * ["GET", "POST", "OPTIONS"]
    */
   allowMethods?: string[];
   /**
+   * @remarks
+   * The list of allowed origins.
+   * 
    * @example
    * ["https://example.com", "https://app.example.com"]
    */
   allowOrigins?: string[];
   /**
+   * @remarks
+   * The list of exposed response headers.
+   * 
    * @example
    * ["X-Custom-Header"]
    */
   exposeHeaders?: string[];
   /**
+   * @remarks
+   * The cache time for preflight requests, in seconds.
+   * 
    * @example
    * 3600
    */

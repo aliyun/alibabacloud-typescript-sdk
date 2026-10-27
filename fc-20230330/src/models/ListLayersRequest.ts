@@ -13,7 +13,7 @@ export class ListLayersRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The token that marks the start of the next page of results.
+   * The pagination start token.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,7 +21,7 @@ export class ListLayersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Specifies whether the layer is an official layer. Valid values: true and false.
+   * Specifies whether the layer is an official layer. Valid values: true, false.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListLayersRequest extends $dara.Model {
   official?: string;
   /**
    * @remarks
-   * The prefix of the layer name.
+   * The layer name prefix.
    * 
    * @example
    * my-layer
@@ -37,7 +37,7 @@ export class ListLayersRequest extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * Specifies whether the layer is public. Valid values: true and false.
+   * Specifies whether the layer is public. Valid values: true, false.
    * 
    * @example
    * true

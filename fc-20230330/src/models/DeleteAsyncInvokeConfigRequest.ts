@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The function version or alias.
+   * The version or alias of the function.
    * 
    * @example
    * LATEST

@@ -8,37 +8,37 @@ import { TimedPoolConfig } from "./TimedPoolConfig";
 export class ResidentResourcePool extends $dara.Model {
   /**
    * @remarks
-   * The real-time allocation status of the resource pool, including the specific allocation details for each function.
+   * 资源池实时分配情况，包含每个函数的具体分配情况
    */
   allocationStatus?: ResidentResourceAllocationStatus;
   associatedPoolId?: string;
   /**
    * @remarks
-   * The resource property field that represents the creation time.
+   * 代表创建时间的资源属性字段
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    */
   createdTime?: string;
   /**
    * @remarks
-   * The expiration time of the resource pool.
+   * 资源池过期时间
    */
   expireTime?: string;
   /**
    * @remarks
-   * The last modification time, including operations such as scaling, renewal, and renaming.
+   * 上次修改时间，包含扩容、续费、更名等操作
    */
   lastModifiedTime?: string;
   poolType?: string;
   residentResourcePoolId?: string;
   /**
    * @remarks
-   * The resource property field that represents the resource name.
+   * 代表资源名称的资源属性字段
    */
   residentResourcePoolName?: string;
   /**
    * @remarks
-   * The overall specifications of the resource pool.
+   * 资源池总体规格
    */
   resourcePoolCapacity?: ResidentResourceCapacity;
   resourcePoolConfig?: ResidentResourceCapacity;

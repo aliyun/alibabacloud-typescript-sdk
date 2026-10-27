@@ -9,6 +9,7 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 export class CreateSessionInput extends $dara.Model {
   allowInternetAccess?: boolean;
+  autoPauseFileSystemOnly?: boolean;
   /**
    * @remarks
    * Specifies whether to disable session ID reuse. Default value: False, which indicates that after a session expires, you can use the same SessionID to initiate requests. The system treats this as a new session and binds it to a new instance. If set to True, the SessionID cannot be reused after the session expires.
@@ -68,6 +69,7 @@ export class CreateSessionInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allowInternetAccess: 'allowInternetAccess',
+      autoPauseFileSystemOnly: 'autoPauseFileSystemOnly',
       disableSessionIdReuse: 'disableSessionIdReuse',
       enableAutoPause: 'enableAutoPause',
       enableAutoResume: 'enableAutoResume',
@@ -86,6 +88,7 @@ export class CreateSessionInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allowInternetAccess: 'boolean',
+      autoPauseFileSystemOnly: 'boolean',
       disableSessionIdReuse: 'boolean',
       enableAutoPause: 'boolean',
       enableAutoResume: 'boolean',

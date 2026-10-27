@@ -6,6 +6,9 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the query range, specified as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1790899200000
    */
   endTimeMs?: number;
   /**
@@ -21,6 +24,9 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of instances to return.
+   * 
+   * @example
+   * 100
    */
   limit?: string;
   /**
@@ -34,11 +40,17 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The token that specifies where to start the query. It is returned in a truncated response and can be used to retrieve the next page of results.
+   * 
+   * @example
+   * c-01234567-89abcdef-0123456789ab～
    */
   startKey?: string;
   /**
    * @remarks
    * The start time of the query range, specified as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1790812800000
    */
   startTimeMs?: number;
   /**

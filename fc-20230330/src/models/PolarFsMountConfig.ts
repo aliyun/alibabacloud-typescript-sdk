@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class PolarFsMountConfig extends $dara.Model {
   /**
+   * @remarks
+   * The additional mount parameter settings.
+   * 
    * @example
    * --skip-delete-rows-check=false  --skip-dir-nlink=0
    */
   extraOptions?: string;
   /**
    * @remarks
-   * The ID of the PolarFS file system instance to mount.
+   * The PolarFS instance ID.
    * 
    * @example
    * pfs-xxx
@@ -18,7 +21,7 @@ export class PolarFsMountConfig extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The local mount directory in the function\\"s runtime environment.
+   * The local mount directory.
    * 
    * @example
    * /mnt/polarfs
@@ -26,7 +29,7 @@ export class PolarFsMountConfig extends $dara.Model {
   mountDir?: string;
   /**
    * @remarks
-   * Specifies whether the file system is mounted as read-only. If `true`, write operations are prohibited.
+   * The read-only mount.
    * 
    * @example
    * false
@@ -34,7 +37,7 @@ export class PolarFsMountConfig extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * The directory within the PolarFS file system to mount.
+   * The PolarFS directory.
    * 
    * @example
    * /share

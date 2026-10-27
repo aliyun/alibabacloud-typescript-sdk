@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeFunctionRequest extends $dara.Model {
   /**
    * @remarks
-   * Function invocation parameter
+   * The parameters for function invoke.
    * 
    * @example
    * event
@@ -14,7 +14,7 @@ export class InvokeFunctionRequest extends $dara.Model {
   body?: Readable;
   /**
    * @remarks
-   * Function version or alias
+   * The version or alias of the function.
    * 
    * @example
    * LATEST

@@ -6,12 +6,12 @@ import { PutScalingConfigInput } from "./PutScalingConfigInput";
 export class PutScalingConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Elastic scaling configuration for the function
+   * The elastic configuration for the function.
    */
   body?: PutScalingConfigInput;
   /**
    * @remarks
-   * Function alias
+   * The function alias.
    * 
    * @example
    * LATEST

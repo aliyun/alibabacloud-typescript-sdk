@@ -1,12 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { RegistryConfig } from "./RegistryConfig";
+import { Step } from "./Step";
 
 
 export class MicroSandboxConfig extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Container Registry (ACR) Enterprise Edition image repository. This parameter is used together with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
+   * The ID of the ACR Enterprise Edition image repository instance. It is used in combination with MicroSandbox images. This parameter is optional. If it is not provided, the server resolves it on demand.
    */
   acrInstanceId?: string;
   /**
@@ -31,9 +32,14 @@ export class MicroSandboxConfig extends $dara.Model {
   registryConfig?: RegistryConfig;
   /**
    * @remarks
-   * The start command.
+   * The startup command.
    */
   startCommand?: string;
+  /**
+   * @remarks
+   * The build steps.
+   */
+  steps?: Step[];
   static names(): { [key: string]: string } {
     return {
       acrInstanceId: 'acrInstanceId',
@@ -42,6 +48,7 @@ export class MicroSandboxConfig extends $dara.Model {
       readyCommand: 'readyCommand',
       registryConfig: 'registryConfig',
       startCommand: 'startCommand',
+      steps: 'steps',
     };
   }
 
@@ -53,12 +60,16 @@ export class MicroSandboxConfig extends $dara.Model {
       readyCommand: 'string',
       registryConfig: RegistryConfig,
       startCommand: 'string',
+      steps: { 'type': 'array', 'itemType': Step },
     };
   }
 
   validate() {
     if(this.registryConfig && typeof (this.registryConfig as any).validate === 'function') {
       (this.registryConfig as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
     }
     super.validate();
   }

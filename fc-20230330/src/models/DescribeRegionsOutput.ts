@@ -10,7 +10,7 @@ export class DescribeRegionsOutputRegionsRegion extends $dara.Model {
    * The region name.
    * 
    * @example
-   * 华北1（青岛）
+   * China (Qingdao)
    */
   localName?: string;
   /**
@@ -47,7 +47,7 @@ export class DescribeRegionsOutputRegionsRegion extends $dara.Model {
 export class DescribeRegionsOutputRegions extends $dara.Model {
   /**
    * @remarks
-   * The collection of region information.
+   * The region information collection.
    */
   region?: DescribeRegionsOutputRegionsRegion[];
   static names(): { [key: string]: string } {

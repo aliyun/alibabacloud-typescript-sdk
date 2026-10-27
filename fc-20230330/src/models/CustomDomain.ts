@@ -11,7 +11,7 @@ import { WAFConfig } from "./Wafconfig";
 export class CustomDomain extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account (primary account).
+   * The ID of your Alibaba Cloud account.
    * 
    * @example
    * 186851234023****
@@ -32,17 +32,13 @@ export class CustomDomain extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The HTTPS certificate configuration.
+   * The HTTPS certificate information.
    */
   certConfig?: CertConfig;
-  /**
-   * @remarks
-   * The cross-origin resource sharing (CORS) configuration.
-   */
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * The time when the custom domain was created.
+   * The time when the custom domain name was created.
    * 
    * @example
    * 2023-03-30T08:02:19Z
@@ -59,7 +55,7 @@ export class CustomDomain extends $dara.Model {
   isE2B?: boolean;
   /**
    * @remarks
-   * The time when the custom domain was last modified.
+   * The time when the custom domain name was last updated.
    * 
    * @example
    * 2023-03-30T08:02:19Z
@@ -67,7 +63,7 @@ export class CustomDomain extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The protocols that are supported by the domain name. Valid values: HTTP (HTTP only), HTTPS (HTTPS only), and HTTP,HTTPS (both HTTP and HTTPS).
+   * The protocol types supported by the domain name. HTTP: supports only the HTTP protocol. HTTPS: supports only the HTTPS protocol. HTTP,HTTPS: supports both the HTTP and HTTPS protocols.
    * 
    * @example
    * HTTP
@@ -75,7 +71,7 @@ export class CustomDomain extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The route table that maps paths to functions.
+   * The route table that maps paths to functions when the custom domain name is accessed.
    */
   routeConfig?: RouteConfig;
   /**
@@ -93,7 +89,7 @@ export class CustomDomain extends $dara.Model {
   tlsConfig?: TLSConfig;
   /**
    * @remarks
-   * The Web Application Firewall (WAF) aconfiguration.
+   * The Web Application Firewall (WAF) configuration.
    */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {

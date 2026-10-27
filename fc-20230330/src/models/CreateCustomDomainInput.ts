@@ -11,18 +11,22 @@ import { WAFConfig } from "./Wafconfig";
 export class CreateCustomDomainInput extends $dara.Model {
   /**
    * @remarks
-   * Permission authentication configuration.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * HTTPS certificate information.
+   * The HTTPS certificate information.
    */
   certConfig?: CertConfig;
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * Domain name. Enter a custom domain name that has an ICP filing with Alibaba Cloud or has added Alibaba Cloud to the ICP filing information as a service provider.
+   * The domain name. Specify a custom domain name that has an ICP filing obtained through Alibaba Cloud or has been added to Alibaba Cloud for ICP filing.
    * 
    * This parameter is required.
    * 
@@ -33,7 +37,10 @@ export class CreateCustomDomainInput extends $dara.Model {
   isE2B?: boolean;
   /**
    * @remarks
-   * Protocol type supported by the domain. HTTP: supports HTTP only. HTTPS: supports HTTPS only. HTTP,HTTPS: supports both HTTP and HTTPS.
+   * The protocol types supported by the domain name. Valid values:
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
+   * - HTTP,HTTPS: Both the HTTP and HTTPS protocols are supported.
    * 
    * @example
    * HTTP
@@ -41,17 +48,17 @@ export class CreateCustomDomainInput extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Route table: maps PATHs to functions when accessing the custom domain.
+   * The route table that maps paths to functions when the custom domain name is accessed.
    */
   routeConfig?: RouteConfig;
   /**
    * @remarks
-   * TLS configuration information.
+   * The TLS configuration information.
    */
   tlsConfig?: TLSConfig;
   /**
    * @remarks
-   * Web Application Firewall configuration information.
+   * The WAF configuration information.
    */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {

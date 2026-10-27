@@ -146,6 +146,7 @@ export { SourceMNSParameters } from './SourceMnsparameters';
 export { SourceMQTTParameters } from './SourceMqttparameters';
 export { SourceRabbitMQParameters } from './SourceRabbitMqparameters';
 export { SourceRocketMQParameters } from './SourceRocketMqparameters';
+export { Step } from './Step';
 export { TLSConfig } from './Tlsconfig';
 export { Tag } from './Tag';
 export { TagResource } from './TagResource';

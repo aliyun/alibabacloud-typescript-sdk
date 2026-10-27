@@ -9,6 +9,7 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 export class Session extends $dara.Model {
   allowInternetAccess?: boolean;
+  autoPauseFileSystemOnly?: boolean;
   /**
    * @remarks
    * The instance ID of the function associated with the session.
@@ -118,6 +119,7 @@ export class Session extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allowInternetAccess: 'allowInternetAccess',
+      autoPauseFileSystemOnly: 'autoPauseFileSystemOnly',
       containerId: 'containerId',
       createdTime: 'createdTime',
       disableSessionIdReuse: 'disableSessionIdReuse',
@@ -143,6 +145,7 @@ export class Session extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allowInternetAccess: 'boolean',
+      autoPauseFileSystemOnly: 'boolean',
       containerId: 'string',
       createdTime: 'string',
       disableSessionIdReuse: 'boolean',

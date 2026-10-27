@@ -13,7 +13,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The token that is used to start paging.
+   * The pagination start token.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,7 +21,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The prefix of the domain name.
+   * The domain name prefix.
    * 
    * @example
    * foo

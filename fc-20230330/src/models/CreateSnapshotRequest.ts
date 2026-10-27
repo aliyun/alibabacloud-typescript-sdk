@@ -11,7 +11,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   body?: CreateSnapshotInput;
   /**
    * @remarks
-   * The function alias.
+   * The alias of the function.
    * 
    * @example
    * alias

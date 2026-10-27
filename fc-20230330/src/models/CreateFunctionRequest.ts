@@ -6,7 +6,7 @@ import { CreateFunctionInput } from "./CreateFunctionInput";
 export class CreateFunctionRequest extends $dara.Model {
   /**
    * @remarks
-   * The function configuration.
+   * The function configuration information.
    * 
    * This parameter is required.
    */
