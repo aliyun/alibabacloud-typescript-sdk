@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocParserJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID (DtsJobId) returned when the document parsing task was created.
+   * The task ID (DtsJobId) returned when the document parsing task is created.
    * 
    * @example
    * dts-20250729-l3m1213ye7l****

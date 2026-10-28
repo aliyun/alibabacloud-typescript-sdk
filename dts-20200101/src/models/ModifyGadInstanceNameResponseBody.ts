@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2021-06-28 17:34:53.0
@@ -21,8 +21,8 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which replaces **%s** in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -30,7 +30,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -38,7 +38,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -54,7 +54,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The active geo-redundancy instance group ID.
+   * The ID of the active-active instance group.
    * 
    * @example
    * rm-bp162d4tp0500****
@@ -62,7 +62,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * rm-2zehh163694qs5c3v
@@ -70,7 +70,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the instance. For more information, see Supported regions.
+   * The ID of the region where the instance resides. For more information, see the supported regions.
    * 
    * @example
    * cn-hangzhou
@@ -78,7 +78,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4D0ADAD5-DD97-41B6-B78F-D1961AB1****
@@ -86,7 +86,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -94,7 +94,7 @@ export class ModifyGadInstanceNameResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

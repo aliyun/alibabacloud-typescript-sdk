@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartSubscriptionInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
    * 
    * @example
    * 12323344****

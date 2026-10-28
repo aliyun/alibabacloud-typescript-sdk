@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or subscribe instance.
+   * The instance ID of the data migration, data synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -13,7 +13,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the data migration, synchronization, or change tracking task.
+   * The ID of the data migration, data synchronization, or change tracking task.
    * 
    * @example
    * l3m1213ye7l****
@@ -21,10 +21,10 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The database to which the account belongs. Valid values:
+   * The database to which the account and password to be modified belong. Valid values:
    * 
-   * - **src**: the source database.
-   * - **dest**: the destination database.
+   * - **src**: The source database.
+   * - **dest**: The destination database.
    * 
    * > This parameter is required.
    * 
@@ -34,8 +34,8 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The new password for the database account.
-   * > This parameter is required and must be different from the current password.
+   * The new password of the database account.
+   * > This parameter is required and cannot be the same as the current password.
    * 
    * @example
    * Test123456
@@ -51,7 +51,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -59,9 +59,9 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * Specifies the synchronization direction. Valid values:
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * > - Default value: **Forward**.
    * - This parameter is required only when the synchronization topology of the data synchronization instance is two-way synchronization.
@@ -72,7 +72,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The username of the database account to modify.
+   * The name of the database account.
    * 
    * @example
    * dtstest
@@ -81,8 +81,8 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
-   * - **true**
-   * - **false**.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false

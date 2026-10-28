@@ -70,7 +70,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   consumerChannels?: DescribeConsumerGroupResponseBodyConsumerChannels;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -78,7 +78,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -94,7 +94,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of consumer groups that can be displayed on one page.
+   * The maximum number of consumer groups that can be displayed on a single page.
    * 
    * @example
    * 30

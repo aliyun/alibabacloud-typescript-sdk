@@ -6,7 +6,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the dedicated cluster.
-   * > Either **InstanceId** or **DedicatedClusterId** must be specified.
+   * > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -23,7 +23,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the cluster.
-   * > Either the **InstanceId** or **DedicatedClusterId** parameter must be specified.
+   * > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
    * 
    * @example
    * rm-bp1162kryivb8****
@@ -31,7 +31,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The overcommit ratio. Unit: %.
+   * The oversubscription ratio. Unit: %.
    * 
    * @example
    * 150
@@ -40,7 +40,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides.
+   * The region where the DTS instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -48,7 +48,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

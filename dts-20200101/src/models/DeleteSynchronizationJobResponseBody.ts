@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSynchronizationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class DeleteSynchronizationJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class DeleteSynchronizationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C306C198-7807-409D-930A-D6CE6C32****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DTS migration, synchronization, or change tracking task.
+   * The ID of the DTS data migration, data synchronization, or change tracking task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The DU upper limit of the task.
+   * The DU limit for the task.
    * 
    * > The minimum value is **1**.
    * 

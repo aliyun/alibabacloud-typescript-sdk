@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * This parameter is discontinued.
+   * This parameter is deprecated.
    * 
    * @example
    * 400
@@ -39,11 +39,11 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
    * @remarks
    * The execution status of the task. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Initializing**: initializing.
-   * - **Switching**: switching.
-   * - **Failed**: failed.
-   * - **Finished**: succeeded.
+   * - **NotStarted**: The task is not started.
+   * - **Initializing**: The task is being initialized.
+   * - **Switching**: The task is being switched.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -51,7 +51,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

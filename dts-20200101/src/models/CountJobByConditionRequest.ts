@@ -13,7 +13,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   destDbType?: string;
   /**
    * @remarks
-   * The parent task ID of a distributed synchronization task.
+   * The ID of the parent task for a distributed synchronization task.
    * 
    * @example
    * pk13r731m****
@@ -33,7 +33,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The query value that corresponds to JobType.
+   * The query value, which corresponds to JobType.
    * 
    * @example
    * dtspk3f13r731m****
@@ -41,7 +41,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The region ID used as a filter condition. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID, which is one of the filter conditions. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -61,10 +61,10 @@ export class CountJobByConditionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This is a global parameter and does not need to be passed for this API operation.
+   * The resource group ID. This is a global parameter and is not required for this operation.
    * 
    * @example
-   * 资源组ID，全局参数，当前API无需传入。
+   * The resource group ID. This is a global parameter and is not required for this operation
    */
   resourceGroupId?: string;
   /**
@@ -77,54 +77,54 @@ export class CountJobByConditionRequest extends $dara.Model {
   srcDbType?: string;
   /**
    * @remarks
-   * The instance status of the DTS instance. Valid values:
+   * The DTS instance status. Valid values:
    * 
-   * Data migration node statuses:
+   * Status of a data migration task:
    * - **NotStarted**: not started.
-   * - **Prechecking**: running a dry run.
-   * - **PrecheckFailed**: dry run failed.
-   * - **PreCheckPass**: dry run passed.
+   * - **Prechecking**: performing a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
    * - **NotConfigured**: not configured.
-   * - **Migrating**: migrating.
-   * - **Suspending**: paused.
+   * - **Migrating**: migrating data.
+   * - **Suspending**: being paused.
    * - **MigrationFailed**: migration failed.
-   * - **Finished**: finished.
-   * - **Retrying**: retrying.
-   * - **Upgrade**: upgrading.
+   * - **Finished**: completed.
+   * - **Retrying**: being retried.
+   * - **Upgrade**: being upgraded.
    * - **Locked**: locked.
-   * - **Downgrade**: downgrading.
+   * - **Downgrade**: being downgraded.
    * 
-   * Data synchronization node statuses:
+   * Status of a data synchronization task:
    * - **NotStarted**: not started.
-   * - **Prechecking**: running a dry run.
-   * - **PrecheckFailed**: dry run failed.
-   * - **PreCheckPass**: dry run passed.
+   * - **Prechecking**: performing a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
    * - **NotConfigured**: not configured.
    * - **Initializing**: performing initial synchronization.
    * - **InitializeFailed**: initial synchronization failed.
-   * - **Synchronizing**: synchronizing.
+   * - **Synchronizing**: synchronizing data.
    * - **Failed**: synchronization failed.
-   * - **Suspending**: paused.
+   * - **Suspending**: being paused.
    * - **Modifying**: modifying sub-objects.
-   * - **Finished**: finished.
-   * - **Retrying**: retrying.
-   * - **Upgrade**: upgrading.
+   * - **Finished**: completed.
+   * - **Retrying**: being retried.
+   * - **Upgrade**: being upgraded.
    * - **Locked**: locked.
-   * - **Downgrade**: downgrading.
+   * - **Downgrade**: being downgraded.
    * 
-   * Subscribe node statuses:
+   * Status of a change tracking task:
    * - **NotConfigured**: not configured.
    * - **NotStarted**: not started.
-   * - **Prechecking**: running a dry run.
-   * - **PrecheckFailed**: dry run failed.
-   * - **PreCheckPass**: dry run passed.
-   * - **Starting**: starting.
-   * - **Normal**: Normal.
-   * - **Retrying**: retrying.
+   * - **Prechecking**: performing a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
+   * - **Starting**: being started.
+   * - **Normal**: normal.
+   * - **Retrying**: being retried.
    * - **Abnormal**: abnormal.
-   * - **Upgrade**: upgrading.
+   * - **Upgrade**: being upgraded.
    * - **Locked**: locked.
-   * - **Downgrade**: downgrading.
+   * - **Downgrade**: being downgraded.
    * 
    * @example
    * Finished
@@ -132,13 +132,13 @@ export class CountJobByConditionRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The query type. Valid values:  
+   * Specifies the query type. Valid values:  
    * - **name**: queries by job name.  
    * - **rds**: queries by destination instance ID.  
    * - **instance**: queries by DTS instance ID.
    * - **srcRds**: queries by source instance ID.
    * 
-   * > This parameter corresponds to the **JobType** parameter.
+   * > This parameter corresponds to the query value and **JobType**.
    * 
    * @example
    * name/instance

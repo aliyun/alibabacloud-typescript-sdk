@@ -6,9 +6,8 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The data validation method. Valid values:
-   * 
-   * - **1**: full data validation.
-   * - **2**: incremental data validation.
+   * - **1**: full verification.
+   * - **2**: incremental verification.
    * 
    * This parameter is required.
    * 
@@ -18,7 +17,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the data migration or synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -36,7 +35,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -44,7 +43,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekz4us4iruleja
@@ -61,8 +60,8 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the verification result. Valid values:
-   * - **-1** (default): all statuses.
-   * - **6**: tables with inconsistent data.
+   * - **-1**: all statuses. This is the default value.
+   * - **6**: tables that contain inconsistent data.
    * 
    * @example
    * -1

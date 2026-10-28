@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobDedicatedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend. The value is incremental.
+   * The backend error code, which is an incrementing number.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class ModifyDtsJobDedicatedClusterResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the %s variable in the ErrMessage parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the error message returned in the **ErrMessage** response parameter.
    * 
    * @example
    * Type
@@ -53,7 +53,7 @@ export class ModifyDtsJobDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -15,7 +15,7 @@ export class DescribeSubscriptionMetaShrinkRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The region in which the change tracking instance resides.
+   * The region where the change tracking instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -41,8 +41,8 @@ export class DescribeSubscriptionMetaShrinkRequest extends $dara.Model {
   sid?: string;
   /**
    * @remarks
-   * The IDs of all change tracking subtasks in the distributed change tracking task. Separate multiple IDs with commas (,).
-   * > You must specify at least one of this parameter and **Topics**. We recommend that you specify this parameter.
+   * The IDs of all change tracking subtasks under the distributed change tracking task. Separate multiple subtask IDs with commas (,).
+   * > You must specify at least one of this parameter and the **Topics** parameter. We recommend that you specify this parameter.
    * 
    * @example
    * ["zsls58agp6f****"]
@@ -50,8 +50,8 @@ export class DescribeSubscriptionMetaShrinkRequest extends $dara.Model {
   subMigrationJobIdsShrink?: string;
   /**
    * @remarks
-   * All topics of the distributed change tracking task. Separate multiple topics with commas (,).
-   * > You must specify at least one of this parameter and **SubMigrationJobIds**. We recommend that you specify **SubMigrationJobIds**.
+   * All change tracking topics under the distributed change tracking task. Separate multiple topics with commas (,).
+   * > You must specify at least one of this parameter and the **SubMigrationJobIds** parameter. We recommend that you specify the **SubMigrationJobIds** parameter.
    * 
    * @example
    * ["rm_bp15jj3qi1p8f****"]

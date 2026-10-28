@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobStepResponseBodyJobStepsErrorDetails extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ListJobStepResponseBodyJobStepsErrorDetails extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * URL of the help document.
+   * The URL of the help document.
    * 
    * @example
    * ****
@@ -45,7 +45,7 @@ export class ListJobStepResponseBodyJobStepsErrorDetails extends $dara.Model {
 export class ListJobStepResponseBodyJobStepsSubJobStepsErrorDetails extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class ListJobStepResponseBodyJobStepsSubJobStepsErrorDetails extends $dar
   errorCode?: string;
   /**
    * @remarks
-   * URL of the help document.
+   * The URL of the help document.
    * 
    * @example
    * ****
@@ -85,7 +85,7 @@ export class ListJobStepResponseBodyJobStepsSubJobStepsErrorDetails extends $dar
 export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   /**
    * @remarks
-   * The time when the sub-job was started, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the subtask was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2025-01-02T02:00:21Z
@@ -93,7 +93,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   bootTime?: string;
   /**
    * @remarks
-   * Sub-task step identity.
+   * The identifier of the subtask step.
    * 
    * @example
    * 03
@@ -101,7 +101,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the sub-job was created, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the subtask was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2024-09-20T02:13:12Z
@@ -109,7 +109,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * UncaughtException:java.lang.NullPointerException
@@ -117,12 +117,12 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * Error message.
+   * The fault information.
    */
   errorDetails?: ListJobStepResponseBodyJobStepsSubJobStepsErrorDetails[];
   /**
    * @remarks
-   * End time of the sub-task, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the subtask was finished. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2024-03-15T02:15:14Z
@@ -130,7 +130,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * Incremental data latency, in milliseconds.
+   * The incremental data latency, in milliseconds.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   incLatencyMilliseconds?: string;
   /**
    * @remarks
-   * Incremental data latency, in seconds.
+   * The incremental data latency, in seconds.
    * 
    * @example
    * 1
@@ -146,7 +146,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   incLatencySeconds?: number;
   /**
    * @remarks
-   * Job ID.
+   * The ID of the job step.
    * 
    * @example
    * mj3z9w9s10am68o_0004_0000
@@ -154,15 +154,15 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   jobStepId?: string;
   /**
    * @remarks
-   * Sub-job step information. Valid values are as follows:
+   * The subtask step information. Valid values:
    * 
-   * - Precheck: precheck phase
-   * - Incremental data service: incremental data collection phase
-   * - dts.step.struct.load: schema migration phase
-   * - dts.step.data.load: full migration phase
-   * - etl-check: extract, transform, and load (ETL) phase
-   * - Consistency validation: data verification phase
-   * - Synchronization: incremental synchronization phase
+   * - Precheck: The precheck phase.
+   * - Incremental data service: The incremental data collection phase.
+   * - dts.step.struct.load: The schema migration phase.
+   * - dts.step.data.load: The full data migration phase.
+   * - etl-check: The ETL phase.
+   * - Consistency check: The data validation phase.
+   * - Synchronization: The incremental synchronization phase.
    * 
    * @example
    * test
@@ -170,7 +170,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   jobStepName?: string;
   /**
    * @remarks
-   * The time when the sub-job was updated, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the subtask was modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2024-08-22T02:04:35Z
@@ -186,7 +186,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   needAcceleration?: boolean;
   /**
    * @remarks
-   * Progress of the sub-job step.
+   * The progress of the subtask step.
    * 
    * @example
    * 0
@@ -194,7 +194,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * Serial number of the sub-task step. Indicates the task execution order; the smaller the numeric value, the earlier the execution order.
+   * The sequence number of the subtask step. A smaller value indicates an earlier execution order.
    * 
    * @example
    * 123
@@ -202,14 +202,14 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
   serial?: number;
   /**
    * @remarks
-   * Status of the sub-task step. Valid values:
-   * - Failed: failed.
-   * - Pause: paused.
-   * - Schedule: scheduled.
-   * - Init: initialization.
-   * - Running: synchronizing.
-   * - Catched: waiting for synchronization.
-   * - Finished: ended.
+   * The status of the subtask step. Valid values:
+   * - Failed: Failed.
+   * - Pause: Paused.
+   * - Schedule: Scheduled.
+   * - Init: Initialized.
+   * - Running: Synchronizing.
+   * - Catched: Waiting for synchronization.
+   * - Finished: Finished.
    * 
    * @example
    * running
@@ -270,7 +270,7 @@ export class ListJobStepResponseBodyJobStepsSubJobSteps extends $dara.Model {
 export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   /**
    * @remarks
-   * The job start time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2024-04-11T09:33:23Z
@@ -278,7 +278,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   bootTime?: string;
   /**
    * @remarks
-   * Task step identity.
+   * The identifier of the task step.
    * 
    * @example
    * 01
@@ -286,7 +286,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The job creation time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-11-28T17:13:51Z
@@ -302,12 +302,12 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * The error message.
+   * The fault information.
    */
   errorDetails?: ListJobStepResponseBodyJobStepsErrorDetails[];
   /**
    * @remarks
-   * Task end time, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was finished. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2024-03-15T02:15:14Z
@@ -315,7 +315,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * Incremental data latency, in milliseconds.
+   * The incremental data latency, in milliseconds.
    * 
    * @example
    * 1
@@ -323,7 +323,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   incLatencyMilliseconds?: number;
   /**
    * @remarks
-   * Incremental data latency, in seconds.
+   * The incremental data latency, in seconds.
    * 
    * @example
    * -1
@@ -331,7 +331,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   incLatencySeconds?: number;
   /**
    * @remarks
-   * The task step ID.
+   * The ID of the task step.
    * 
    * @example
    * l02c1f7h179****
@@ -339,23 +339,23 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   jobStepId?: string;
   /**
    * @remarks
-   * Task step information. Valid values:
+   * The task step information. Valid values:
    * 
-   * - Precheck: precheck phase
-   * - Incremental data service: incremental data collection phase
-   * - dts.step.struct.load: schema migration phase
-   * - dts.step.data.load: full migration phase
-   * - etl-check: extract, transform, and load phase
-   * - Consistency validation: data verification phase
-   * - Synchronization: incremental synchronization phase
+   * - Precheck: The precheck phase.
+   * - Incremental data service: The incremental data collection phase.
+   * - dts.step.struct.load: The schema migration phase.
+   * - dts.step.data.load: The full data migration phase.
+   * - etl-check: The ETL phase.
+   * - Consistency check: The data validation phase.
+   * - Synchronization: The incremental synchronization phase.
    * 
    * @example
-   * 预检查
+   * Precheck
    */
   jobStepName?: string;
   /**
    * @remarks
-   * The time when the job was updated, in the format <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2025-01-03T02:26:14Z
@@ -363,7 +363,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Indicates whether the acceleration feature should be provided.
+   * Indicates whether the acceleration feature is required.
    * 
    * @example
    * true
@@ -379,7 +379,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * Task step serial number. Indicates the task execution order. A smaller value indicates an earlier execution order.
+   * The sequence number of the task step. A smaller value indicates an earlier execution order.
    * 
    * @example
    * 1
@@ -387,7 +387,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   serial?: number;
   /**
    * @remarks
-   * Task step status.
+   * The status of the task step.
    * 
    * @example
    * ○ Finished
@@ -395,7 +395,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The number of sub-jobs.
+   * The number of subtasks.
    * 
    * @example
    * 1
@@ -403,14 +403,14 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
   subJobCount?: number;
   /**
    * @remarks
-   * Step information of the sub-job.
+   * The step information of the subtask.
    */
   subJobSteps?: ListJobStepResponseBodyJobStepsSubJobSteps[];
   /**
    * @remarks
-   * Used to distinguish between the Redis full and incremental phases. Valid values:
-   * - full: Full phase
-   * - inc: Incremental phase
+   * The phase type used to distinguish between the full data and incremental data phases for Redis. Valid values:
+   * - full: The full data phase.
+   * - inc: The incremental data phase.
    * 
    * @example
    * full
@@ -480,7 +480,7 @@ export class ListJobStepResponseBodyJobSteps extends $dara.Model {
 export class ListJobStepResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -488,7 +488,7 @@ export class ListJobStepResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -509,7 +509,7 @@ export class ListJobStepResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

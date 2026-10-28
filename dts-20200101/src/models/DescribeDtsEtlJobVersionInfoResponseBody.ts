@@ -13,7 +13,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBodyDtsEtlJobVersionInfos exten
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 10000000
@@ -37,7 +37,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBodyDtsEtlJobVersionInfos exten
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ETL task ID.
+   * The ID of the ETL task.
    * 
    * @example
    * l5512es7w15****
@@ -61,7 +61,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBodyDtsEtlJobVersionInfos exten
   modifyTime?: string;
   /**
    * @remarks
-   * The safe checkpoint, which indicates the current position of the ETL task.
+   * The security checkpoint, which is the current checkpoint of the ETL task.
    * 
    * @example
    * 1637230117000
@@ -130,7 +130,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   dtsEtlJobVersionInfos?: DescribeDtsEtlJobVersionInfoResponseBodyDtsEtlJobVersionInfos[];
   /**
    * @remarks
-   * The dynamic error code associated with this request.
+   * The dynamic error code associated with the request.
    * 
    * @example
    * 403
@@ -138,7 +138,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message associated with this request.
+   * The dynamic error message associated with the request.
    * 
    * @example
    * present environment is not support,so skip
@@ -146,7 +146,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
+   * The error code returned when the specified ETL task ID is incorrect and the corresponding task cannot be found.
    * 
    * @example
    * InvalidJobId
@@ -154,7 +154,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
+   * The error message returned when the specified ETL task ID is incorrect and the corresponding task cannot be found. The task may have been deleted.
    * 
    * @example
    * The specified dts job id %s is not exists.
@@ -178,7 +178,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -194,7 +194,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of false indicates a failure.
+   * Indicates whether the request was successful. If the request fails, false is returned.
    * 
    * @example
    * true
@@ -202,7 +202,7 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 200

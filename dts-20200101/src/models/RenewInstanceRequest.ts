@@ -6,8 +6,8 @@ export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription duration of the renewed instance. Default value: 1.
-   * - If **Period** is set to **Year**, the valid values are **1 to 5**.
-   * - If **Period** is set to **Month**, the valid values are **1 to 60**.
+   * - If **Period** is set to **Year**, valid values are **1** to **5**.
+   * - If **Period** is set to **Month**, valid values are **1** to **60**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class RenewInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the data synchronization or change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+   * The ID of the synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class RenewInstanceRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The billing method for the renewal instance. Valid values:
-   * - **Year**: yearly subscription.
-   * - **Month**: monthly subscription (default).
+   * The billing method for the renewed instance. Valid values:
+   * - **Year**: Yearly.
+   * - **Month**: Monthly. This is the default value.
    * 
    * @example
    * Month
@@ -45,7 +45,7 @@ export class RenewInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class RenewInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

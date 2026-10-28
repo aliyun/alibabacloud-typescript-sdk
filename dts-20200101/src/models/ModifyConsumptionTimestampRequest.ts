@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyConsumptionTimestampRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
+   * The ID of the Alibaba Cloud account. This parameter is not required and will be deprecated.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class ModifyConsumptionTimestampRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The consumption checkpoint in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC time).
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class ModifyConsumptionTimestampRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -32,7 +32,7 @@ export class ModifyConsumptionTimestampRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

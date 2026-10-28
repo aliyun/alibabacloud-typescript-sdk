@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuspendDtsJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code. This parameter will be deprecated.
+   * The dynamic error code. This parameter will be deprecated soon.
    * 
    * @example
    * 403
@@ -13,8 +13,8 @@ export class SuspendDtsJobsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -22,7 +22,7 @@ export class SuspendDtsJobsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -30,7 +30,7 @@ export class SuspendDtsJobsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.

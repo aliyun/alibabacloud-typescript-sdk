@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -21,7 +21,7 @@ export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dedicated cluster ID if **MetricType** is set to **CLUSTER**. Otherwise, set this parameter to the **nodeid**.
+   * The ID of the dedicated cluster. Specify this parameter when **MetricType** is set to **CLUSTER**. Otherwise, specify the node ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task.
+   * The ID of the migration or synchronization task.
    * 
    * @example
    * k2gm967v16f****
@@ -47,7 +47,7 @@ export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Specifies whether to query a cluster or a node. Valid values:
+   * The type of the resource to query. Valid values:
    * - **CLUSTER** (default): cluster.
    * - **NODE**: node.
    * 
@@ -66,7 +66,7 @@ export class DescribeClusterUsedUtilizationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

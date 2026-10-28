@@ -13,7 +13,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the error message returned in the **ErrMessage** response parameter.
    * 
    * @example
    * Type
@@ -53,7 +53,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

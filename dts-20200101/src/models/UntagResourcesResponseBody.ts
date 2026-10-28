@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned if the request fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned if the request fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -29,7 +29,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

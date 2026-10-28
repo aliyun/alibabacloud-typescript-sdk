@@ -13,7 +13,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   consumerGroupID?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -29,7 +29,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6063641E-BAD1-4BA7-B70B-26FFFD18****

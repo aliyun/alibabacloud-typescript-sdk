@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the data migration, data synchronization, or subscribe instance.
+   * The ID of the data migration, data synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -21,7 +21,7 @@ export class StopDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class StopDtsJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm2jr35xnjh7i
@@ -39,11 +39,11 @@ export class StopDtsJobRequest extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward synchronization.
+   * - **Reverse**: Reverse synchronization.
    * 
    * > - Default value: **Forward**.
-   * - You can set this parameter to **Reverse** to stop the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+   * - You can specify **Reverse** to stop the reverse synchronization link only when the topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -51,7 +51,7 @@ export class StopDtsJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+   * Specifies whether the task is a seamless integration (Zero-ETL) task. Valid values:
    * 
    * - **false**: No.
    * - **true**: Yes.

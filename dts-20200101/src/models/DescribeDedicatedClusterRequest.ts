@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the dedicated cluster.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -24,7 +24,7 @@ export class DescribeDedicatedClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

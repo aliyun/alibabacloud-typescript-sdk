@@ -13,10 +13,10 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether latency alerting is enabled. Valid values:
+   * Indicates whether the latency status is monitored. Valid values:
    * 
-   * - **enable**: Enabled.
-   * - **disable**: Disabled.
+   * - **enable**: Yes.
+   * - **disable**: No.
    * 
    * @example
    * enable
@@ -24,7 +24,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold for triggering latency alerts. Unit: seconds. The value must be an integer. A value of 10 seconds is recommended.
+   * The threshold for triggering a latency alert. Unit: seconds. The value must be an integer. Recommended value: 10.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   delayOverSeconds?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -40,7 +40,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -48,7 +48,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The mobile phone number of the contact for error alerts.
+   * The mobile phone number of the contact for exception alerts.
    * 
    * @example
    * 13555*****
@@ -56,10 +56,10 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether error alerting is enabled. Valid values:
+   * Indicates whether the exception status is monitored. Valid values:
    * 
-   * - **enable**: Enabled.
-   * - **disable**: Disabled.
+   * - **enable**: Yes.
+   * - **disable**: No.
    * 
    * @example
    * enable
@@ -67,7 +67,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 210ec2e116055198849072222d****
@@ -91,7 +91,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   subscriptionInstanceName?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

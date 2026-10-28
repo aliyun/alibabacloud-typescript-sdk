@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The built-in account that DTS uses to connect to the unit node.
+   * The built-in account used by DTS to connect to the unit node.
    * 
    * @example
    * rdsdt_dtsacct
@@ -53,7 +53,7 @@ export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

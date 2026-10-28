@@ -13,7 +13,7 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic error code. This parameter will be deprecated.
+   * The dynamic error code. This parameter will be deprecated soon.
    * 
    * @example
    * 403
@@ -21,7 +21,7 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s variable in the **ErrMessage** response parameter.
+   * The dynamic error message, which is used to replace %s in the **ErrMessage** response parameter.
    * 
    * @example
    * present environment is not support, so skip
@@ -29,7 +29,7 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -37,7 +37,7 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.

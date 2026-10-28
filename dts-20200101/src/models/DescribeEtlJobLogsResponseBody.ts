@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   /**
    * @remarks
-   * The description of the ETL task running status.
+   * The description of the running status of the ETL task.
    * 
    * @example
    * Starting DTS-ETL...
@@ -13,7 +13,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The status, which indicates the name of the module that generated the log, such as the transformation module of the ETL task.
+   * The status, which indicates the name of the module that generates the log, such as the transformation module of the ETL task.
    * 
    * @example
    * DTS-ETL
@@ -45,7 +45,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 123123******12131
@@ -85,7 +85,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
 export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code associated with this request.
+   * The dynamic error code related to the request.
    * 
    * @example
    * 403
@@ -93,7 +93,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message associated with this request.
+   * The dynamic error message related to the request.
    * 
    * @example
    * present environment is not support,so skip.
@@ -101,7 +101,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
+   * The error code returned if the specified ETL task ID is invalid and the corresponding task cannot be found.
    * 
    * @example
    * InvalidJobId
@@ -109,7 +109,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
+   * The error message returned if the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
    * 
    * @example
    * The specified dts job id %s is not exists.
@@ -117,7 +117,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The array of ETL task running log objects.
+   * The array of running log objects for the ETL task.
    */
   etlRunningLogs?: DescribeEtlJobLogsResponseBodyEtlRunningLogs[];
   /**
@@ -138,7 +138,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of false indicates a failure.
+   * Indicates whether the request was successful. false is returned if the request fails.
    * 
    * @example
    * true

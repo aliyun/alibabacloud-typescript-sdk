@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureDtsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the migration or synchronization task.
+   * The instance ID of the migration or synchronization instance.
    * 
    * @example
    * dtsk2gm967v16f****
@@ -13,7 +13,7 @@ export class ConfigureDtsJobResponseBody extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the migration or synchronization task.
+   * The ID of the data migration or synchronization task.
    * 
    * @example
    * k2gm967v16f****
@@ -21,7 +21,7 @@ export class ConfigureDtsJobResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class ConfigureDtsJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.

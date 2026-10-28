@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuspendDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The migration, synchronization, or subscribe instance ID.
+   * The instance ID of the data migration, synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -15,7 +15,7 @@ export class SuspendDtsJobRequest extends $dara.Model {
    * @remarks
    * The ID of the data migration, synchronization, or change tracking task.
    * 
-   * > You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * > You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to retrieve the task ID.
    * 
    * @example
    * l3m1213ye7l****
@@ -23,7 +23,7 @@ export class SuspendDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class SuspendDtsJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -41,11 +41,11 @@ export class SuspendDtsJobRequest extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
-   * > - The default value is **Forward**.
-   * - You can set this parameter to **Reverse** to suspend the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - You can specify **Reverse** to suspend the reverse synchronization link only when the topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -55,8 +55,8 @@ export class SuspendDtsJobRequest extends $dara.Model {
    * @remarks
    * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
    * 
-   * - **false**: no.
-   * - **true**: yes.
+   * - **false**: No.
+   * - **true**: Yes.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WhiteIpListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist of the destination adapted for VPC NAT.
+   * The IP address whitelist adapted for the destination VPC NAT gateway.
    * 
    * @example
    * 127.0.0.1
@@ -21,7 +21,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
    * 
    * @example
    * Type
@@ -29,7 +29,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -37,7 +37,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -53,7 +53,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The IP whitelist. Multiple IP addresses are separated by commas (,).
+   * The IP address whitelist. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
@@ -69,7 +69,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IP whitelist of the source adapted for VPC NAT.
+   * The IP address whitelist adapted for the source VPC NAT gateway.
    * 
    * @example
    * 127.0.0.1

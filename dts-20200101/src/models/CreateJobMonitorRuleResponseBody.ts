@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobMonitorRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter will be deprecated.
+   * The error code. This parameter is scheduled for deprecation.
    * 
    * @example
    * 200
@@ -21,8 +21,8 @@ export class CreateJobMonitorRuleResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -30,7 +30,7 @@ export class CreateJobMonitorRuleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * 403
@@ -38,7 +38,7 @@ export class CreateJobMonitorRuleResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -62,9 +62,9 @@ export class CreateJobMonitorRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

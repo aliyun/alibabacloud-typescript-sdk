@@ -13,7 +13,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotency of the request. Generate a value on your client and ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -21,7 +21,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task.
+   * The ID of the migration or synchronization task.
    * 
    * @example
    * k2gm967v16f****
@@ -29,7 +29,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The end timestamp, in milliseconds.
+   * The end timestamp in milliseconds.
    * 
    * @example
    * 1642476194000
@@ -37,7 +37,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Default value: **ALIYUN**.
+   * The environment. Default value: **ALIYUN**.
    * 
    * @example
    * ALIYUN
@@ -45,12 +45,13 @@ export class DescribeMetricListRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * Specifies the metric name. Valid values:
    * - **InternetOut**: outbound Internet traffic, in bytes.
    * - **diskusage_utilization**: disk usage.
    * - **IntranetInRate**: inbound internal network traffic, in bytes.
    * - **InternetIn**: inbound Internet traffic, in bytes.
-   * - **cpu_total**: CPU utilization.
-   * - **memory_usedutilization**: memory utilization.
+   * - **cpu_total**: CPU usage.
+   * - **memory_usedutilization**: memory usage.
    * - **IntranetOutRate**: outbound internal network traffic, in bytes.
    * 
    * This parameter is required.
@@ -61,7 +62,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Specifies whether to query a cluster or a node. Valid values:
+   * Specifies the query target. Valid values:
    * - **CLUSTER**: cluster.
    * - **NODE**: node.
    * 
@@ -72,7 +73,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   ownerID?: string;
   /**
    * @remarks
-   * The observation value. If **MetricType** is set to **NODE**, the value is **nodeid**.
+   * The observation value. If **MetricType** is **NODE**, the value is the **nodeid**.
    * 
    * This parameter is required.
    * 
@@ -90,7 +91,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -98,7 +99,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The start timestamp, in milliseconds.
+   * The start timestamp in milliseconds.
    * 
    * @example
    * 1642476144000

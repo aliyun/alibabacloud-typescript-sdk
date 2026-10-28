@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreCheckStatusResponseBodyAnalysisJobProgressLogs extends $dara.Model {
   /**
    * @remarks
-   * The error information.
+   * The error message.
    * 
    * @example
-   * 请修改该对象
+   * Modify the object
    */
   errData?: string;
   /**
    * @remarks
-   * The error message returned by DTS when the specific item encounters an error.
+   * The DTS error message when the specific item fails.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
@@ -65,7 +65,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgressLogs extends $
 export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara.Model {
   /**
    * @remarks
-   * The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The start time of the specific item, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-16T08:01:31.000+00:00
@@ -81,7 +81,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   canSkip?: boolean;
   /**
    * @remarks
-   * The number of subtasks that are currently running.
+   * The number of currently running subtasks.
    * 
    * @example
    * 0
@@ -89,7 +89,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   current?: string;
   /**
    * @remarks
-   * The DDL operation that was executed.
+   * The executed DDL operation.
    * 
    * @example
    * CREATE TABLE ****
@@ -105,7 +105,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   delaySeconds?: number;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the destination instance.
+   * The name of the database to which the migrated object belongs in the destination instance.
    * 
    * @example
    * dest
@@ -113,7 +113,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   destSchema?: string;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   diffRow?: number;
   /**
    * @remarks
-   * The error details when the item encounters an error.
+   * The error details when the item fails.
    * 
    * @example
    * ANALYSIS_MYSQL
@@ -137,7 +137,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   errMsg?: string;
   /**
    * @remarks
-   * The time when the assessment task was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The end time of the evaluation task, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-16T08:01:31.000+00:00
@@ -145,7 +145,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the assessment item in the database.
+   * The ID of the evaluation item in the database.
    * 
    * @example
    * 123123
@@ -153,8 +153,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   id?: string;
   /**
    * @remarks
-   * Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
-   * 
+   * Indicates whether the specific item is directly ignored to proceed to the next specific item. Valid values:
    * - **N**: No.
    * - **Y**: Yes.
    * 
@@ -164,7 +163,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   ignoreFlag?: string;
   /**
    * @remarks
-   * The name of the assessment item.
+   * The name of the evaluation item.
    * 
    * @example
    * ANALYSIS_MYSQL_4_ITEM
@@ -172,7 +171,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   item?: string;
   /**
    * @remarks
-   * The ID of the assessment task.
+   * The ID of the evaluation task.
    * 
    * @example
    * 11234234xc
@@ -180,12 +179,12 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   jobId?: string;
   /**
    * @remarks
-   * The sub-assessment items.
+   * The sub-evaluation items.
    */
   logs?: DescribePreCheckStatusResponseBodyAnalysisJobProgressLogs[];
   /**
    * @remarks
-   * The name of the assessment item.
+   * The name of the evaluation item.
    * 
    * @example
    * ANALYSIS_MYSQL_4_DETAIL
@@ -193,7 +192,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   names?: string;
   /**
    * @remarks
-   * The number of the assessment item.
+   * The number of the evaluation item.
    * 
    * @example
    * 10
@@ -201,7 +200,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   orderNum?: number;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * demo
@@ -209,7 +208,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   parentObj?: string;
   /**
    * @remarks
-   * The repair method for the assessment item.
+   * The solution for the evaluation item.
    * 
    * @example
    * ANALYSIS_
@@ -217,9 +216,9 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   repairMethod?: string;
   /**
    * @remarks
-   * Indicates whether you have set to skip this assessment item after it failed. Valid values:
-   * * **true**: Yes.
-   * * **false**: No.
+   * Indicates whether the evaluation item is configured to be skipped after it fails. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -227,7 +226,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   skip?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the source instance.
+   * The name of the database to which the migrated object belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -235,9 +234,9 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   sourceSchema?: string;
   /**
    * @remarks
-   * The result of the assessment item. Valid values:
-   * - **Failed**: failed.
-   * - **Success**: completed.
+   * The result of the evaluation item. Valid values:
+   * - **Failed**: Failed.
+   * - **Success**: Successful.
    * 
    * @example
    * Success
@@ -245,7 +244,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   state?: string;
   /**
    * @remarks
-   * The progress of sub-items of the specific item.
+   * The progress of the sub-items of the specific item.
    * > If <b>[]</b> is returned, no sub-items exist.
    * 
    * @example
@@ -254,7 +253,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   sub?: string;
   /**
    * @remarks
-   * The name of the target object.
+   * The names of the destination objects.
    * 
    * @example
    * testTable
@@ -262,7 +261,7 @@ export class DescribePreCheckStatusResponseBodyAnalysisJobProgress extends $dara
   targetNames?: string;
   /**
    * @remarks
-   * The total number of specific items in the subtask.
+   * The total number of specific items for the subtask.
    * 
    * @example
    * 1
@@ -403,7 +402,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgressL
 export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress extends $dara.Model {
   /**
    * @remarks
-   * The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The start time of the specific item, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-30T03:36:11.000+00:00
@@ -421,7 +420,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   canSkip?: boolean;
   /**
    * @remarks
-   * The number of tasks that are currently running.
+   * The number of currently running tasks.
    * 
    * @example
    * 0
@@ -429,7 +428,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   current?: string;
   /**
    * @remarks
-   * The DDL operation that was executed.
+   * The executed DDL operation.
    * 
    * @example
    * CREATE TABLE ****
@@ -445,7 +444,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   delaySeconds?: number;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the destination instance.
+   * The name of the database to which the migrated object belongs in the destination instance.
    * 
    * @example
    * dest
@@ -453,7 +452,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   destSchema?: string;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * 1
@@ -461,7 +460,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   diffRow?: number;
   /**
    * @remarks
-   * The error details when the specific item encounters an error.
+   * The error details when the specific item fails.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_DETAIL
@@ -469,7 +468,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   errDetail?: string;
   /**
    * @remarks
-   * The error message when the specific item encounters an error.
+   * The error message when the specific item fails.
    * 
    * @example
    * ODPS project does not exist odps.`huijin
@@ -477,7 +476,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   errMsg?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+   * The task completion time. The time follows the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-03-31T03:36:11.000+00:00
@@ -485,7 +484,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the record in the metastore.
+   * The ID of the record in the metadatabase.
    * 
    * @example
    * 922305811766881****
@@ -493,8 +492,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   id?: string;
   /**
    * @remarks
-   * Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
-   * 
+   * Indicates whether the specific item is directly ignored to proceed to the next specific item. Valid values:
    * - **N**: No.
    * - **Y**: Yes.
    * 
@@ -512,7 +510,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   item?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * l3m1213ye7l****
@@ -520,7 +518,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   jobId?: string;
   /**
    * @remarks
-   * The execution logs of the error.
+   * The execution log information for errors.
    */
   logs?: DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgressLogs[];
   /**
@@ -541,7 +539,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   orderNum?: number;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * demo
@@ -549,7 +547,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   parentObj?: string;
   /**
    * @remarks
-   * The repair method when the precheck does not pass.
+   * The solution to a precheck failure.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_REPAIR
@@ -557,9 +555,9 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   repairMethod?: string;
   /**
    * @remarks
-   * Indicates whether you have set to skip this specific item after it failed. Valid values:
-   * * **true**: Yes.
-   * * **false**: No.
+   * Indicates whether the specific item is configured to be skipped after it fails. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -567,7 +565,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   skip?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the source instance.
+   * The name of the database to which the migrated object belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -576,8 +574,8 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Failed**: failed.
-   * - **Success**: completed.
+   * - **Failed**: The check failed.
+   * - **Success**: The check succeeded.
    * 
    * @example
    * Success
@@ -585,7 +583,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   state?: string;
   /**
    * @remarks
-   * The progress of sub-items of the specific item.
+   * The progress of the sub-items of the specific item.
    * > If <b>[]</b> is returned, no sub-items exist.
    * 
    * @example
@@ -594,7 +592,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
   sub?: string;
   /**
    * @remarks
-   * The name of the target object.
+   * The names of the destination objects.
    * 
    * @example
    * order
@@ -683,7 +681,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress 
 export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $dara.Model {
   /**
    * @remarks
-   * The task code. **01** indicates precheck.
+   * The task code. A value of **01** indicates a precheck.
    * 
    * @example
    * 01
@@ -708,12 +706,12 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
   /**
    * @remarks
    * The connection method of the destination instance. Valid values:
-   * - **ALIYUN**: **cloud instance**.
-   * - **OTHER**: **public IP address**.
-   * - **ECS**: **self-managed database on ECS**.
-   * - **EXPRESS**: **Express Connect/VPN Gateway/Smart Access Gateway**.
-   * - **CEN**: **Cloud Enterprise Network (CEN)**.
-   * - **DG**: **Database Gateway (DG)**.
+   * - **ALIYUN**: Alibaba Cloud instance.
+   * - **OTHER**: Public IP address.
+   * - **ECS**: Self-managed database hosted on ECS.
+   * - **EXPRESS**: Express Connect circuit, VPN gateway, or Smart Access Gateway.
+   * - **CEN**: Cloud Enterprise Network (CEN).
+   * - **DG**: Database Gateway.
    * 
    * @example
    * CEN
@@ -737,7 +735,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
   hostRegion?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * l3m1213ye7l****
@@ -745,7 +743,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
   jobId?: string;
   /**
    * @remarks
-   * The task name.
+   * The job name.
    * 
    * @example
    * dts.step.fullnetcheck
@@ -753,18 +751,18 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
   jobName?: string;
   /**
    * @remarks
-   * The list of specific items of the task and their execution progress.
+   * The list of specific items and the execution progress of each item for the task.
    */
   jobProgress?: DescribePreCheckStatusResponseBodyFullNetCheckJobStatusJobProgress[];
   /**
    * @remarks
    * The connection method of the source instance. Valid values:
-   * - **ALIYUN**: **cloud instance**.
-   * - **OTHER**: **public IP address**.
-   * - **ECS**: **self-managed database on ECS**.
-   * - **EXPRESS**: **Express Connect/VPN Gateway/Smart Access Gateway**.
-   * - **CEN**: **Cloud Enterprise Network (CEN)**.
-   * - **DG**: **Database Gateway (DG)**.
+   * - **ALIYUN**: Alibaba Cloud instance.
+   * - **OTHER**: Public IP address.
+   * - **ECS**: Self-managed database hosted on ECS.
+   * - **EXPRESS**: Express Connect circuit, VPN gateway, or Smart Access Gateway.
+   * - **CEN**: Cloud Enterprise Network (CEN).
+   * - **DG**: Database Gateway.
    * 
    * @example
    * CEN
@@ -789,8 +787,8 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Failed**: failed.
-   * - **Success**: completed.
+   * - **Failed**: The check failed.
+   * - **Success**: The check succeeded.
    * 
    * @example
    * Success
@@ -857,7 +855,7 @@ export class DescribePreCheckStatusResponseBodyFullNetCheckJobStatus extends $da
 export class DescribePreCheckStatusResponseBodyJobProgressLogs extends $dara.Model {
   /**
    * @remarks
-   * The error information.
+   * The error message.
    * 
    * @example
    * CREATE TABLE `dtstestdata`.`customer` (\\n`runoob_id`  int(10) unsigned   auto_increment  COMMENT \\"\\"   NOT NULL   , \\n`runoob_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`runoob_author1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`submission_date1216`  date     COMMENT \\"\\"   NULL   \\n, PRIMARY KEY (`runoob_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \\"\\" ;\\n
@@ -865,7 +863,7 @@ export class DescribePreCheckStatusResponseBodyJobProgressLogs extends $dara.Mod
   errData?: string;
   /**
    * @remarks
-   * The error message returned by DTS when the specific item encounters an error.
+   * The DTS error message when the specific item fails.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
@@ -917,7 +915,7 @@ export class DescribePreCheckStatusResponseBodyJobProgressLogs extends $dara.Mod
 export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   /**
    * @remarks
-   * The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The start time of the specific item, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-16T08:01:31.000+00:00
@@ -933,7 +931,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   canSkip?: boolean;
   /**
    * @remarks
-   * The number of subtasks that are currently running.
+   * The number of currently running subtasks.
    * 
    * @example
    * 0
@@ -941,7 +939,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   current?: string;
   /**
    * @remarks
-   * The DDL operation that was executed.
+   * The executed DDL operation.
    * 
    * @example
    * CREATE TABLE `dtstestdata`.`order` (\\n`orderid`  int(11)     COMMENT \\"\\"   NOT NULL   , \\n`username`  char(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NULL   , \\n`ordertime`  datetime     COMMENT \\"\\"   NULL   , \\n`commodity`  varchar(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NULL   , \\n`phonenumber`  int(11)     COMMENT \\"\\"   NULL   , \\n`address`  text  CHARSET `utf8mb4` COLLATE `utf8mb4_general_ci`    COMMENT \\"\\"   NULL   \\n, PRIMARY KEY (`orderid`)) engine=InnoDB DEFAULT CHARSET=`gbk` DEFAULT COLLATE `gbk_chinese_ci` ROW_FORMAT= Dynamic comment = \\"\\" ;\\n
@@ -949,7 +947,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   ddlSql?: string;
   /**
    * @remarks
-   * The synchronization latency of incremental data migration or incremental data synchronization.
+   * The incremental migration or synchronization latency.
    * 
    * @example
    * 0
@@ -957,7 +955,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the destination instance.
+   * The name of the database to which the migrated object belongs in the destination instance.
    * 
    * @example
    * dtstestdata_new
@@ -965,7 +963,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   destSchema?: string;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * 1
@@ -973,7 +971,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   diffRow?: number;
   /**
    * @remarks
-   * The error details when the specific item encounters an error.
+   * The error details when the specific item fails.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_DETAIL
@@ -981,7 +979,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   errDetail?: string;
   /**
    * @remarks
-   * The error message when the specific item encounters an error.
+   * The error message when the specific item fails.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ
@@ -989,7 +987,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * The time when the specific item was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>ZZ format in UTC.
+   * The completion time of the specific item, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>ZZ format (UTC).
    * 
    * @example
    * 2022-03-16T08:01:34.000+00:00
@@ -997,7 +995,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the record in the metastore.
+   * The ID recorded in the metadatabase.
    * 
    * @example
    * 5632
@@ -1005,8 +1003,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
-   * 
+   * Indicates whether the specific item is directly ignored to proceed to the next specific item. Valid values:
    * - **N**: No.
    * - **Y**: Yes.
    * 
@@ -1024,7 +1021,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   item?: string;
   /**
    * @remarks
-   * The subtask ID.
+   * The ID of the subtask.
    * 
    * @example
    * fj1c33ro168****
@@ -1053,7 +1050,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * demo
@@ -1061,7 +1058,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   parentObj?: string;
   /**
    * @remarks
-   * The repair method when the specific item does not pass.
+   * The solution if the specific item fails.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_REPAIR
@@ -1069,9 +1066,9 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   repairMethod?: string;
   /**
    * @remarks
-   * Indicates whether you have set to skip this specific item after it failed. Valid values:
-   * * **true**: Yes.
-   * * **false**: No.
+   * Indicates whether the specific item is configured to be skipped after it fails. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -1079,7 +1076,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   skip?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the source instance.
+   * The name of the database to which the migrated object belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -1088,13 +1085,12 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   /**
    * @remarks
    * The execution progress status of the specific item. Valid values:
-   * 
-   * - **NotStarted**: not started.
-   * - **Checking**: being checked.
-   * - **Migrating**: being migrated.
-   * - **Failed**: failed.
-   * - **Warning**: warning.
-   * - **Success**: completed.
+   * - **NotStarted**: Not started.
+   * - **Checking**: Checking.
+   * - **Migrating**: Migrating.
+   * - **Failed**: Failed.
+   * - **Warning**: Warning.
+   * - **Success**: Successful.
    * 
    * @example
    * Success
@@ -1102,7 +1098,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The progress of sub-items of the specific item.
+   * The progress of the sub-items of the specific item.
    * > If <b>[]</b> is returned, no sub-items exist.
    * 
    * @example
@@ -1111,7 +1107,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   sub?: string;
   /**
    * @remarks
-   * The name of the object to be migrated or synchronized.
+   * The names of the objects to be migrated or synchronized.
    * 
    * @example
    * order
@@ -1119,7 +1115,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
   targetNames?: string;
   /**
    * @remarks
-   * The total number of specific items in the subtask.
+   * The total number of specific items for the subtask.
    * 
    * @example
    * 1
@@ -1200,7 +1196,7 @@ export class DescribePreCheckStatusResponseBodyJobProgress extends $dara.Model {
 export class DescribePreCheckStatusResponseBodyNetworkDiagnosisResultDiagnosis extends $dara.Model {
   /**
    * @remarks
-   * The documentation URL for the China region.
+   * The documentation URL for the China site.
    * 
    * @example
    * https://***.ali***.com/document_detail/470447.html
@@ -1217,9 +1213,9 @@ export class DescribePreCheckStatusResponseBodyNetworkDiagnosisResultDiagnosis e
   /**
    * @remarks
    * The endpoint type. Valid values:
-   * - **source**: source endpoint.
-   * - **destination**: destination endpoint.
-   * - **unknown**: unknown.
+   * - **source**: The source endpoint.
+   * - **destination**: The destination endpoint.
+   * - **unknown**: Unknown.
    * 
    * @example
    * source
@@ -1235,7 +1231,7 @@ export class DescribePreCheckStatusResponseBodyNetworkDiagnosisResultDiagnosis e
   internationalDocUrl?: string;
   /**
    * @remarks
-   * The reserved field for the diagnosis result. This field is empty by default.
+   * The reserved field for the diagnosis result. Default value: empty.
    * 
    * @example
    * none
@@ -1373,7 +1369,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
 export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgress extends $dara.Model {
   /**
    * @remarks
-   * The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The start time of the specific item, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-30T03:36:11.000+00:00
@@ -1391,7 +1387,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   canSkip?: boolean;
   /**
    * @remarks
-   * The number of subtasks that are currently running.
+   * The number of currently running subtasks.
    * 
    * @example
    * 0
@@ -1399,7 +1395,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   current?: string;
   /**
    * @remarks
-   * The DDL operation that was executed.
+   * The executed DDL operation.
    * 
    * @example
    * None
@@ -1407,7 +1403,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   ddlSql?: string;
   /**
    * @remarks
-   * The synchronization latency of incremental data migration or incremental data synchronization.
+   * The incremental data migration or synchronization latency.
    * 
    * @example
    * 0
@@ -1415,7 +1411,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   delaySeconds?: number;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the destination instance.
+   * The name of the database to which the migrated object belongs in the destination instance.
    * 
    * @example
    * databasetest
@@ -1423,7 +1419,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   destSchema?: string;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * None
@@ -1431,7 +1427,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   diffRow?: number;
   /**
    * @remarks
-   * The error details when the specific item encounters an error.
+   * The error details when the specific item fails.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_DETAIL
@@ -1439,7 +1435,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   errDetail?: string;
   /**
    * @remarks
-   * The error message when the specific item encounters an error.
+   * The error message when the specific item fails.
    * 
    * @example
    * ODPS project does not exist odps.`huijin
@@ -1447,7 +1443,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   errMsg?: string;
   /**
    * @remarks
-   * The completion time. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * The completion time. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2022-03-31T03:36:11.000+00:00
@@ -1455,7 +1451,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the record in the metastore.
+   * The ID of the record in the metadatabase.
    * 
    * @example
    * 3890****
@@ -1463,8 +1459,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   id?: string;
   /**
    * @remarks
-   * Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
-   * 
+   * Indicates whether the specific item is directly ignored to proceed to the next specific item. Valid values:
    * - **N**: No.
    * - **Y**: Yes.
    * 
@@ -1482,7 +1477,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   item?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * l3m1213ye7l****
@@ -1490,7 +1485,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   jobId?: string;
   /**
    * @remarks
-   * The execution logs of the error.
+   * The execution log information for errors.
    */
   logs?: DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgressLogs[];
   /**
@@ -1511,7 +1506,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   orderNum?: number;
   /**
    * @remarks
-   * This parameter will be deprecated.
+   * This parameter will be deprecated soon.
    * 
    * @example
    * None
@@ -1519,7 +1514,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   parentObj?: string;
   /**
    * @remarks
-   * The repair method when the precheck does not pass.
+   * The solution to a precheck failure.
    * 
    * @example
    * CHECK__ERROR_SAME_OBJ_REPAIR
@@ -1527,7 +1522,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   repairMethod?: string;
   /**
    * @remarks
-   * Indicates whether the item has been skipped. Valid values:
+   * Indicates whether the task is skipped. Valid values:
    * - **true**: Yes.
    * - **false**: No.
    * 
@@ -1537,7 +1532,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   skip?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration object belongs in the source instance.
+   * The name of the database to which the migrated object belongs in the source instance.
    * 
    * @example
    * databasetest
@@ -1546,14 +1541,13 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   /**
    * @remarks
    * The execution status of the subtask. Valid values:
-   * 
-   * - **NotStarted**: not started.
-   * - **Suspending**: suspended.
-   * - **Checking**: being checked.
-   * - **Migrating**: being migrated.
-   * - **Failed**: failed.
-   * - **Catched**: incremental data migration or synchronization in progress.
-   * - **Finished**: completed.
+   * - **NotStarted**: Not started.
+   * - **Suspending**: Suspending.
+   * - **Checking**: Checking.
+   * - **Migrating**: Migrating.
+   * - **Failed**: Failed.
+   * - **Catched**: Incremental migration or synchronization in progress.
+   * - **Finished**: Finished.
    * 
    * @example
    * Finished
@@ -1561,7 +1555,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   state?: string;
   /**
    * @remarks
-   * The progress of sub-items of the specific item.
+   * The progress of the sub-items of the specific item.
    * > If <b>[]</b> is returned, no sub-items exist.
    * 
    * @example
@@ -1570,7 +1564,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
   sub?: string;
   /**
    * @remarks
-   * The name of the target object.
+   * The names of the destination objects.
    * 
    * @example
    * order
@@ -1659,12 +1653,12 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgres
 export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $dara.Model {
   /**
    * @remarks
-   * The task code that represents the queried subtask type. Valid values:
+   * The task code, which indicates the type of the queried subtask. Valid values:
    * 
-   * - **01**: precheck.
-   * - **02**: schema migration or initial schema synchronization.
-   * - **03**: full data migration or initial full data synchronization.
-   * - **04**: incremental data migration or incremental data synchronization.
+   * - **01**: Precheck.
+   * - **02**: Schema migration or initial schema synchronization.
+   * - **03**: Full data migration or initial full data synchronization.
+   * - **04**: Incremental data migration or incremental data synchronization.
    * 
    * @example
    * 02
@@ -1672,7 +1666,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $
   code?: string;
   /**
    * @remarks
-   * The number of tasks that are currently failing.
+   * The number of failed tasks.
    * 
    * @example
    * 0
@@ -1680,7 +1674,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $
   errorItem?: number;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * n0gm1682j6563np
@@ -1696,20 +1690,19 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $
   jobName?: string;
   /**
    * @remarks
-   * The list of specific items of the subtask and their execution progress.
+   * The list of specific items and the execution progress of each item for the subtask.
    */
   jobProgress?: DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgress[];
   /**
    * @remarks
    * The execution status of the subtask. Valid values:
-   * 
-   * - **NotStarted**: not started.
-   * - **Suspending**: suspended.
-   * - **Checking**: being checked.
-   * - **Migrating**: being migrated.
-   * - **Failed**: failed.
-   * - **Catched**: incremental data migration or synchronization in progress.
-   * - **Finished**: completed.
+   * - **NotStarted**: Not started.
+   * - **Suspending**: Suspending.
+   * - **Checking**: Checking.
+   * - **Migrating**: Migrating.
+   * - **Failed**: Failed.
+   * - **Catched**: Incremental migration or synchronization in progress.
+   * - **Finished**: Finished.
    * 
    * @example
    * Finished
@@ -1717,7 +1710,7 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $
   state?: string;
   /**
    * @remarks
-   * The total number of returned data entries.
+   * The total number of returned records.
    * 
    * @example
    * 11
@@ -1762,17 +1755,16 @@ export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $
 export class DescribePreCheckStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of assessment tasks.
+   * The list of evaluation tasks.
    */
   analysisJobProgress?: DescribePreCheckStatusResponseBodyAnalysisJobProgress[];
   /**
    * @remarks
-   * The task code that represents the queried subtask. Valid values:
-   * 
-   * - **01**: precheck.
-   * - **02**: schema migration or initial schema synchronization.
-   * - **03**: full data migration or initial full data synchronization.
-   * - **04**: incremental data migration or incremental data synchronization.
+   * The task code, which represents the queried subtask. Valid values:
+   * - **01**: Precheck.
+   * - **02**: Schema migration or initialization.
+   * - **03**: Full data migration or initialization.
+   * - **04**: Incremental migration or synchronization.
    * 
    * @example
    * 01
@@ -1780,7 +1772,7 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of items that failed the assessment.
+   * The number of items that failed the evaluation.
    * 
    * @example
    * 0
@@ -1796,7 +1788,7 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   errorItem?: number;
   /**
    * @remarks
-   * The full CIDR block check results.
+   * The check result for all CIDR blocks.
    */
   fullNetCheckJobStatus?: DescribePreCheckStatusResponseBodyFullNetCheckJobStatus[];
   /**
@@ -1809,7 +1801,7 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task.
+   * The ID of the migration or synchronization task.
    * 
    * @example
    * b4my3zg929a****
@@ -1820,12 +1812,12 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
    * The name of the queried subtask.
    * 
    * @example
-   * 预检查
+   * Precheck
    */
   jobName?: string;
   /**
    * @remarks
-   * The list of specific items of the subtask and their execution progress.
+   * The list of specific items and the execution progress of each item for the subtask.
    */
   jobProgress?: DescribePreCheckStatusResponseBodyJobProgress[];
   /**
@@ -1835,7 +1827,7 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   networkDiagnosisResult?: DescribePreCheckStatusResponseBodyNetworkDiagnosisResult;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. Valid values: an integer greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -1860,14 +1852,13 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The execution status of the subtask. Valid values:
-   * 
-   * - **NotStarted**: not started.
-   * - **Suspending**: suspended.
-   * - **Checking**: being checked.
-   * - **Migrating**: being migrated.
-   * - **Failed**: failed.
-   * - **Catched**: incremental data migration or synchronization in progress.
-   * - **Finished**: completed.
+   * - **NotStarted**: Not started.
+   * - **Suspending**: Suspending.
+   * - **Checking**: Checking.
+   * - **Migrating**: Migrating.
+   * - **Failed**: Failed.
+   * - **Catched**: Incremental migration or synchronization in progress.
+   * - **Finished**: Finished.
    * 
    * @example
    * Finished
@@ -1875,12 +1866,12 @@ export class DescribePreCheckStatusResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The details of distributed subtasks.
+   * The details of the distributed subtask.
    */
   subDistributedJobStatus?: DescribePreCheckStatusResponseBodySubDistributedJobStatus[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

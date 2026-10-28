@@ -6,6 +6,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
+   * 
    * - **POSTPAY**: pay-as-you-go.
    * - **PREPAY**: subscription.
    * 
@@ -25,8 +26,8 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
    * @remarks
    * The data validation method. Valid values:
    * 
-   * - **1**: full data validation.
-   * - **2**: incremental data validation.
+   * - **1**: Full data validation.
+   * - **2**: Incremental data validation.
    * 
    * @example
    * 1
@@ -50,7 +51,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   diffSum?: number;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking instance.
+   * The ID of the data migration, synchronization, or change tracking instance.
    * 
    * @example
    * dtsz8tc99sy2158b36
@@ -58,7 +59,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking task.
+   * The ID of the data migration, synchronization, or change tracking task.
    * 
    * @example
    * n08o6si4q338b1x
@@ -66,7 +67,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The number of rows that have been validated in the table.
+   * The number of verified data rows in the table.
    * 
    * @example
    * 15094
@@ -74,7 +75,8 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   finishCount?: number;
   /**
    * @remarks
-   * The DTS task ID. > In most cases, you do not need to specify this parameter.
+   * The ID of the DTS task.
+   * > In most cases, you do not need to specify this parameter.
    * 
    * @example
    * c3d12dii27t632g
@@ -90,7 +92,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The name of the data validation task.
+   * The name of the verification task.
    * 
    * @example
    * dtstest
@@ -98,7 +100,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * as0e1ks426bq3z0
@@ -122,7 +124,10 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The validation result. Valid values: - **0**: passed. - **1**: failed.
+   * The verification result. Valid values:
+   * 
+   * - **0**: Passed.
+   * - **1**: Failed.
    * 
    * @example
    * 0
@@ -130,7 +135,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The total number of rows to be validated.
+   * The total number of verified data rows.
    * 
    * @example
    * 159
@@ -190,7 +195,7 @@ export class DescribeCheckJobsResponseBodyCheckJobs extends $dara.Model {
 export class DescribeCheckJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the data validation tasks.
+   * The information about the verification tasks.
    */
   checkJobs?: DescribeCheckJobsResponseBodyCheckJobs[];
   /**
@@ -203,7 +208,7 @@ export class DescribeCheckJobsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter. > If **ErrMessage** returns **The value of input parameter %s is not valid** and **DynamicMessage** returns **[1,2,3]**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** parameter. > If **ErrMessage** returns **The value of input parameter %s is not valid** and **DynamicMessage** returns **[1,2,3]**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -211,7 +216,7 @@ export class DescribeCheckJobsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -219,7 +224,7 @@ export class DescribeCheckJobsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -243,7 +248,7 @@ export class DescribeCheckJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of records that can be displayed on the current page.
+   * The maximum number of entries that can be displayed on the current page.
    * 
    * @example
    * 20
@@ -267,7 +272,7 @@ export class DescribeCheckJobsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

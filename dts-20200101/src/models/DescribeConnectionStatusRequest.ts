@@ -6,10 +6,10 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required only when **SourceEndpointEngineName** is set to **Oracle**. Valid values:
-   * - **SID**: non-cluster architecture.
-   * - **RAC**: Real Application Cluster architecture.
+   * - **SID**: Non-cluster architecture.
+   * - **RAC**: Cluster architecture.
    * 
-   * > The type of this parameter is String, and this parameter is optional.
+   * > The value must be of the String type. This parameter is optional.
    * 
    * @example
    * SID
@@ -17,10 +17,10 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointArchitecture?: string;
   /**
    * @remarks
-   * The name of the database to be migrated to or the name of the authentication database.
+   * The name of the destination database or the authentication database.
    * > - This parameter is available and required only when **DestinationEndpointEngineName** is set to **PostgreSQL**, **DRDS**, or **MongoDB**, or when **DestinationEndpointInstanceType** is set to **PolarDB_o**.
-   * - When **DestinationEndpointEngineName** is set to **PostgreSQL** or **DRDS**, specify the name of the database to be migrated. When the value is **MongoDB**, specify the name of the authentication database for the database account.
-   * - When **DestinationEndpointInstanceType** is set to **PolarDB_o**, specify the name of the database to be migrated.
+   * - If **DestinationEndpointEngineName** is set to **PostgreSQL** or **DRDS**, specify the name of the database to be migrated. If it is set to **MongoDB**, specify the name of the authentication database for the database account.
+   * - If **DestinationEndpointInstanceType** is set to **PolarDB_o**, specify the name of the database to be migrated.
    * 
    * @example
    * dtstestdata
@@ -28,7 +28,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The database type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, and **Redis**.
+   * The database engine type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, and **Redis**.
    * > This parameter is available and required only when **DestinationEndpointInstanceType** is set to **RDS**, **DRDS**, **ECS**, **LocalInstance**, or **Express**.
    * 
    * @example
@@ -54,18 +54,18 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointInstanceID?: string;
   /**
    * @remarks
-   * The type of the destination instance. Valid values:
-   * > - **ECS**: self-managed database hosted on an ECS instance.
-   * - **LocalInstance**: self-managed database with a public IP address.
+   * The instance type of the destination database. Valid values:
+   * > - **ECS**: Self-managed database hosted on ECS.
+   * - **LocalInstance**: Self-managed database with a public IP address.
    * - **RDS**: ApsaraDB RDS instance.
    * - **DRDS**: PolarDB-X instance.
    * - **MongoDB**: ApsaraDB for MongoDB instance.
    * - **Redis**: ApsaraDB for Redis instance.
    * - **PetaData**: HybridDB for MySQL instance.
    * - **POLARDB**: PolarDB for MySQL cluster.
-   * - **PolarDB_o**: PolarDB for PostgreSQL (Oracle-Compatible) cluster.
-   * - **AnalyticDB**: AnalyticDB for MySQL V3.0 or V2.0.
-   * - **Greenplum**: AnalyticDB for PostgreSQL.
+   * - **PolarDB_o**: PolarDB for Oracle cluster.
+   * - **AnalyticDB**: AnalyticDB for MySQL cluster of version 3.0 or 2.0.
+   * - **Greenplum**: AnalyticDB for PostgreSQL instance.
    * 
    * This parameter is required.
    * 
@@ -77,11 +77,11 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
    * @remarks
    * This parameter is required only when **DestinationEndpointEngineName** is set to **Oracle**. Valid values:
    * 
-   * - **SID**: non-cluster architecture.
-   * - **RAC**: Real Application Cluster architecture.
+   * - **SID**: Non-cluster architecture.
+   * - **RAC**: Cluster architecture.
    * 
    * 
-   * > The type of this parameter is String, and this parameter is optional.
+   * > The value must be of the String type. This parameter is optional.
    * 
    * @example
    * SID
@@ -89,7 +89,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password of the destination database account.
+   * The password of the database account for the destination database.
    * 
    * @example
    * Test123456
@@ -97,7 +97,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointPassword?: string;
   /**
    * @remarks
-   * The service port of the source database.
+   * The service port of the destination database.
    * > This parameter is available and required only when **SourceEndpointInstanceType** is set to **ECS**, **LocalInstance**, or **Express**.
    * 
    * @example
@@ -106,7 +106,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointPort?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -122,7 +122,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   destinationEndpointUserName?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -130,7 +130,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -140,8 +140,8 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
    * @remarks
    * This parameter is required only when **SourceEndpointEngineName** is set to **Oracle**. Valid values:
    * 
-   * - **SID**: non-cluster architecture.
-   * - **RAC**: Real Application Cluster architecture.
+   * - **SID**: Non-cluster architecture.
+   * - **RAC**: Cluster architecture.
    * 
    * 
    * > This parameter is optional.
@@ -152,10 +152,10 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   sourceEndpointArchitecture?: string;
   /**
    * @remarks
-   * The name of the database to be migrated or the name of the authentication database.
+   * The name of the database to be migrated or the authentication database.
    * >- This parameter is available and required only when **SourceEndpointEngineName** is set to **PostgreSQL** or **MongoDB**, or when **SourceEndpointInstanceType** is set to **PolarDB_o**.
-   * - When **SourceEndpointEngineName** is set to **PostgreSQL** or **DRDS**, specify the name of the database to be migrated. When the value is **MongoDB**, specify the name of the authentication database for the database account.
-   * - When **SourceEndpointInstanceType** is set to **PolarDB_o**, specify the name of the database to be migrated.
+   * - If **SourceEndpointEngineName** is set to **PostgreSQL** or **DRDS**, specify the name of the database to be migrated. If it is set to **MongoDB**, specify the name of the authentication database for the database account.
+   * - If **SourceEndpointInstanceType** is set to **PolarDB_o**, specify the name of the database to be migrated.
    * 
    * @example
    * dtstestdata
@@ -192,13 +192,13 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
    * @remarks
    * The type of the source instance. Valid values:
    * - **RDS**: ApsaraDB RDS instance.
-   * - **LocalInstance**: self-managed database with a public IP address.
-   * - **ECS**: self-managed database hosted on an ECS instance.
-   * - **Express**: self-managed database connected over Express Connect.
-   * - **dg**: self-managed database connected over Database Gateway.
+   * - **LocalInstance**: Self-managed database.
+   * - **ECS**: Self-managed database hosted on Elastic Compute Service (ECS).
+   * - **Express**: Self-managed database connected over Express Connect.
+   * - **dg**: Self-managed database connected over Database Gateway.
    * - **MongoDB**: ApsaraDB for MongoDB instance.
    * - **POLARDB**: PolarDB for MySQL cluster.
-   * - **PolarDB_o**: PolarDB for PostgreSQL (Oracle-Compatible) cluster.
+   * - **PolarDB_o**: PolarDB for Oracle cluster.
    * 
    * This parameter is required.
    * 
@@ -208,7 +208,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   sourceEndpointInstanceType?: string;
   /**
    * @remarks
-   * The SID of the Oracle database.
+   * The system ID (SID) of the Oracle database.
    * > This parameter is available and required only when **SourceEndpointEngineName** is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
@@ -217,7 +217,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   sourceEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password of the source database account.
+   * The password of the database account for the source database.
    * 
    * @example
    * Test123456
@@ -234,7 +234,7 @@ export class DescribeConnectionStatusRequest extends $dara.Model {
   sourceEndpointPort?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou

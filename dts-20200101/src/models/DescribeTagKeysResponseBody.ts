@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tag type.
+   * The tag category.
    * 
    * @example
    * Custom
@@ -13,7 +13,7 @@ export class DescribeTagKeysResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1

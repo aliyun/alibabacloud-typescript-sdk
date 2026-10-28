@@ -13,7 +13,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The IP addresses of the DTS service.
+   * The IP address of the DTS service.
    * 
    * @example
    * 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
@@ -21,7 +21,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -45,7 +45,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

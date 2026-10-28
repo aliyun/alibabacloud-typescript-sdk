@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInitializationStatusResponseBodyDataInitializationDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the destination instance.
+   * The name of the database to which the object to be synchronized belongs in the destination instance.
    * 
    * @example
    * dtstestdata
@@ -13,7 +13,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   destinationOwnerDBName?: string;
   /**
    * @remarks
-   * The error message returned when full data initialization failed.
+   * The error message returned if the initial full data synchronization fails.
    * 
    * @example
    * java.lang.NumberFormatException: For input string: ""
@@ -22,7 +22,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   /**
    * @remarks
    * The number of rows that have been synchronized.
-   * > This parameter indicates the total number of rows that are actually synchronized. The value of the **TotalRowNum** parameter is obtained from the system table of the source database before synchronization starts. Due to time differences during synchronization, the two values may differ.
+   * > This parameter indicates the actual total number of synchronized rows. The value of the **TotalRowNum** parameter is obtained from the system tables of the source database before the synchronization starts. Due to the time difference during synchronization, the values of the two parameters may differ.
    * 
    * @example
    * 9993
@@ -30,7 +30,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   finishRowNum?: string;
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the source instance.
+   * The name of the database to which the object to be synchronized belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -38,11 +38,11 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   sourceOwnerDBName?: string;
   /**
    * @remarks
-   * The status of full data initialization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The status of initial full data synchronization. Valid values:
+   * - **NotStarted**: The initialization is not started.
+   * - **Migrating**: The initialization is in progress.
+   * - **Failed**: The initialization failed.
+   * - **Finished**: The initialization is complete.
    * 
    * @example
    * Finished
@@ -50,7 +50,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   status?: string;
   /**
    * @remarks
-   * The table name of the synchronization object.
+   * The name of the table to be synchronized.
    * 
    * @example
    * customer
@@ -59,7 +59,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   /**
    * @remarks
    * The total number of rows to be synchronized.
-   * > The value of this parameter is obtained from the system table of the source database before synchronization starts. The **FinishRowNum** parameter indicates the total number of rows that are actually synchronized. Due to time differences during synchronization, the two values may differ.
+   * > The value of this parameter is obtained from the system tables of the source database before the synchronization starts. The **FinishRowNum** parameter indicates the actual total number of synchronized rows. Due to the time difference during synchronization, the values of the two parameters may differ.
    * 
    * @example
    * 9981
@@ -67,7 +67,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
   totalRowNum?: string;
   /**
    * @remarks
-   * The time consumed by full data initialization.
+   * The duration of the full data initialization.
    * 
    * @example
    * 0.0
@@ -111,7 +111,7 @@ export class DescribeInitializationStatusResponseBodyDataInitializationDetails e
 export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the destination instance.
+   * The name of the database to which the object to be synchronized belongs in the destination instance.
    * 
    * @example
    * dtstestdata
@@ -119,15 +119,15 @@ export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails 
   destinationOwnerDBName?: string;
   /**
    * @remarks
-   * The error message returned when incremental data synchronization failed.
+   * The error message returned if the incremental data synchronization fails.
    * 
    * @example
-   * 任务失败太久无法恢复
+   * The task has failed for too long to be recovered
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the source instance.
+   * The name of the database to which the object to be synchronized belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -136,10 +136,10 @@ export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails 
   /**
    * @remarks
    * The status of incremental data synchronization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * - **NotStarted**: The synchronization is not started.
+   * - **Migrating**: The synchronization is in progress.
+   * - **Failed**: The synchronization failed.
+   * - **Finished**: The synchronization is complete.
    * 
    * @example
    * Migrating
@@ -147,7 +147,7 @@ export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails 
   status?: string;
   /**
    * @remarks
-   * The table name of the synchronization object.
+   * The name of the table to be synchronized.
    * 
    * @example
    * customer
@@ -185,7 +185,7 @@ export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails 
 export class DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the destination instance.
+   * The name of the database to which the object to be synchronized belongs in the destination instance.
    * 
    * @example
    * dtstestdata
@@ -193,7 +193,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   destinationOwnerDBName?: string;
   /**
    * @remarks
-   * The error message returned when constraint creation failed.
+   * The error message returned if the constraint creation fails.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist
@@ -201,7 +201,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   errorMessage?: string;
   /**
    * @remarks
-   * The syntax definition for creating the constraint.
+   * The schema syntax definition for creating the constraint.
    * 
    * @example
    * CREATE SEQUENCE "public"."collections_id_seq"   MINVALUE 1   MAXVALUE 9223372036854775807   START 249   INCREMENT BY 1 ;
@@ -209,7 +209,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectDefinition?: string;
   /**
    * @remarks
-   * The name of the synchronization object.
+   * The name of the object to be synchronized.
    * 
    * @example
    * customer
@@ -217,7 +217,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectName?: string;
   /**
    * @remarks
-   * The type of the synchronization object. The value is fixed as **Table**.
+   * The type of the object to be synchronized. The value is fixed as **Table**.
    * 
    * @example
    * Table
@@ -225,7 +225,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectType?: string;
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the source instance.
+   * The name of the database to which the object to be synchronized belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -233,11 +233,11 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   sourceOwnerDBName?: string;
   /**
    * @remarks
-   * The status of constraint creation. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The creation status of the constraint. Valid values:
+   * - **NotStarted**: The creation is not started.
+   * - **Migrating**: The creation is in progress.
+   * - **Failed**: The creation failed.
+   * - **Finished**: The creation is complete.
    * 
    * @example
    * Finished
@@ -279,13 +279,13 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
 export class DescribeInitializationStatusResponseBodyStructureInitializationDetails extends $dara.Model {
   /**
    * @remarks
-   * The constraints of the synchronization object, such as indexes and foreign keys.
-   * > This parameter is returned only when **ObjectType** is set to **Table** and the synchronization object has constraints.
+   * The constraints corresponding to the object to be synchronized, such as indexes and foreign keys.
+   * > This parameter is returned only when **ObjectType** is **Table** and the object to be synchronized has constraints.
    */
   constraints?: DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints[];
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the destination instance.
+   * The name of the database to which the object to be synchronized belongs in the destination instance.
    * 
    * @example
    * dtstestdata
@@ -293,7 +293,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   destinationOwnerDBName?: string;
   /**
    * @remarks
-   * The error message returned when schema initialization failed.
+   * The error message returned if the initial schema synchronization fails.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
@@ -301,7 +301,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   errorMessage?: string;
   /**
    * @remarks
-   * The syntax definition of the synchronization object.
+   * The schema syntax definition of the object to be synchronized.
    * 
    * @example
    * CREATE TABLE `dtstestdata`.`customer` (\\n`customer_id`  int(10) unsigned   auto_increment  COMMENT \\"\\"   NOT NULL   , \\n`customer_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`customer_company1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`submission_date1216`  date     COMMENT \\"\\"   NULL   \\n, PRIMARY KEY (`customer_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \\"\\" ;\\n
@@ -309,7 +309,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectDefinition?: string;
   /**
    * @remarks
-   * The name of the synchronization object.
+   * The name of the object to be synchronized.
    * 
    * @example
    * customer
@@ -317,8 +317,8 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectName?: string;
   /**
    * @remarks
-   * The type of the synchronization object. Valid values:
-   * **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
+   * The type of the object to be synchronized. Valid values:
+   * **Table** (table), **Constraint** (constraint), **Index** (index), **View** (view), **Materialize View** (materialized view), **Type** (custom type), **Synonym** (synonym), **Trigger** (trigger), **Function** (function), **Procedure** (stored procedure), **Package** (package), **Default** (default value), **Rule** (rule), **PlanGuide** (execution plan), and **Sequence** (sequence).
    * 
    * @example
    * Table
@@ -326,7 +326,7 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   objectType?: string;
   /**
    * @remarks
-   * The name of the database to which the objects to be synchronized belong in the source instance.
+   * The name of the database to which the object to be synchronized belongs in the source instance.
    * 
    * @example
    * dtstestdata
@@ -334,11 +334,11 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   sourceOwnerDBName?: string;
   /**
    * @remarks
-   * The status of schema initialization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The status of initial schema synchronization. Valid values:
+   * - **NotStarted**: The initialization is not started.
+   * - **Migrating**: The initialization is in progress.
+   * - **Failed**: The initialization failed.
+   * - **Finished**: The initialization is complete.
    * 
    * @example
    * Finished
@@ -385,18 +385,18 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
 export class DescribeInitializationStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of full data initialization.
+   * The details of initial full data synchronization.
    */
   dataInitializationDetails?: DescribeInitializationStatusResponseBodyDataInitializationDetails[];
   /**
    * @remarks
    * The details of incremental data synchronization.
-   * > This parameter set and the included response parameters will be discontinued.
+   * > This parameter collection and its contained response parameters will be deprecated soon.
    */
   dataSynchronizationDetails?: DescribeInitializationStatusResponseBodyDataSynchronizationDetails[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -404,7 +404,7 @@ export class DescribeInitializationStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -412,7 +412,7 @@ export class DescribeInitializationStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 150DECD9-13FF-4929-A5DE-855BE9CC****
@@ -420,7 +420,7 @@ export class DescribeInitializationStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of schema initialization.
+   * The details of initial schema synchronization.
    */
   structureInitializationDetails?: DescribeInitializationStatusResponseBodyStructureInitializationDetails[];
   /**

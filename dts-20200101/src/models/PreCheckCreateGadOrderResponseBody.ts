@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code. This parameter will be deprecated.
+   * The dynamic error code. This parameter is deprecated and will be phased out.
    * 
    * @example
    * 403
@@ -13,14 +13,14 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace %s in the error message returned by the ErrMessage parameter.
    * 
-   * > If ErrMessage returns The Value of Input Parameter %s is not valid and DynamicMessage returns JobId, the value of the JobId request parameter is invalid.
+   * > If the ErrMessage parameter returns The Value of Input Parameter %s is not valid and the DynamicMessage parameter returns JobId, the JobId request parameter is invalid.
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -28,7 +28,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -44,7 +44,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the active geo-redundancy instance group.
+   * The ID of the global active instance group.
    * 
    * @example
    * rm-bp162d4tp0500****
@@ -52,7 +52,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. For more information, see Supported regions.
+   * The ID of the region where the instance resides. For more information, see the list of supported regions.
    * 
    * @example
    * cn-hangzhou
@@ -60,7 +60,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C166D79D-436B-45F0-B5A5-25E1959F****
@@ -68,9 +68,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true
@@ -78,7 +76,7 @@ export class PreCheckCreateGadOrderResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The precheck task ID.
+   * The ID of the precheck task.
    * 
    * @example
    * z2v12jfo309****

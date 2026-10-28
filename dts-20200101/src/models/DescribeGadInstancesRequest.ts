@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGadInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of database engine types. Separate multiple types with commas (,).
+   * 
+   * @example
+   * MySQL,PostgreSQL,SQLServer
+   */
   dbEngineTypes?: string;
   /**
    * @remarks
@@ -32,7 +39,7 @@ export class DescribeGadInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. Specify this parameter to query instances in a specific region. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -46,6 +53,13 @@ export class DescribeGadInstancesRequest extends $dara.Model {
    * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the secondary database instance.
+   * 
+   * @example
+   * rm-a1b2c3d4e5f6g7h8i
+   */
   slaveDbInstanceId?: string;
   static names(): { [key: string]: string } {
     return {

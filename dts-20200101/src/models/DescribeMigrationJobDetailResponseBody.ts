@@ -278,7 +278,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   dataSynchronizationDetailList?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -286,7 +286,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -302,7 +302,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of migration instances that can be displayed on one page.
+   * The maximum number of migration instances that can be displayed on a single page.
    * 
    * @example
    * 30
@@ -310,7 +310,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0AE3CD0B-4148-426F-A90E-952467CC****
@@ -319,7 +319,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   structureInitializationDetailList?: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailList;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -327,7 +327,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMigrationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class DeleteMigrationJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class DeleteMigrationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F28A96B1-F897-4246-833B-310A3345****
@@ -29,7 +29,7 @@ export class DeleteMigrationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

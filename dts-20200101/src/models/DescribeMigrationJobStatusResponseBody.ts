@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when full data migration failed.
+   * The error message returned if the full data migration fails.
    * 
    * @example
    * java.lang.NumberFormatException: For input string: ""
@@ -13,7 +13,7 @@ export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus exte
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of full data migration, in percentage.
+   * The progress of the full data migration. Unit: %.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus exte
   percent?: string;
   /**
    * @remarks
-   * The number of records that have been migrated during initial full data synchronization.
+   * The number of records for which the initial full data synchronization is complete.
    * 
    * @example
    * 200001
@@ -29,12 +29,12 @@ export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus exte
   progress?: string;
   /**
    * @remarks
-   * The status of full data migration. Valid values:
+   * The status of the full data migration. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Migrating**: migrating.
-   * - **Failed**: migration failed.
-   * - **Finished**: migration completed.
+   * - **NotStarted**: The migration is not started.
+   * - **Migrating**: The migration is in progress.
+   * - **Failed**: The migration failed.
+   * - **Finished**: The migration is complete.
    * 
    * @example
    * Finished
@@ -70,7 +70,7 @@ export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus exte
 export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the latest incremental data that has been migrated. The value is a UNIX timestamp, in seconds.
+   * The timestamp of the latest incremental data record migrated. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1571040679
@@ -78,7 +78,7 @@ export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus ext
   checkpoint?: string;
   /**
    * @remarks
-   * The migration latency of incremental data migration, in seconds.
+   * The migration latency of the incremental data migration. Unit: seconds.
    * 
    * @example
    * 0
@@ -86,15 +86,15 @@ export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus ext
   delay?: string;
   /**
    * @remarks
-   * The error message returned when incremental data migration failed.
+   * The error message returned if the incremental data migration fails.
    * 
    * @example
-   * 任务失败太久 无法恢复
+   * The task has failed for too long and cannot be recovered
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of incremental data migration, in percentage.
+   * The progress of the incremental data migration. Unit: %.
    * 
    * @example
    * 95
@@ -102,13 +102,13 @@ export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus ext
   percent?: string;
   /**
    * @remarks
-   * The status of incremental data migration. Valid values:
+   * The status of the incremental data migration. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Migrating**: migrating.
-   * - **Failed**: migration failed.
-   * - **Finished**: migration completed.
-   * - **Catched**: no latency.
+   * - **NotStarted**: The migration is not started.
+   * - **Migrating**: The migration is in progress.
+   * - **Failed**: The migration failed.
+   * - **Finished**: The migration is complete.
+   * - **Catched**: No latency.
    * 
    * @example
    * Catched
@@ -146,7 +146,7 @@ export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus ext
 export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects to be migrated belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -178,7 +178,7 @@ export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $
   instanceId?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -202,7 +202,7 @@ export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $
   userName?: string;
   /**
    * @remarks
-   * The SID of the Oracle database.
+   * The system ID (SID) of the Oracle database.
    * > This parameter is returned only when the database type of the destination instance is **Oracle**.
    * 
    * @example
@@ -247,10 +247,10 @@ export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $
 export class DescribeMigrationJobStatusResponseBodyMigrationMode extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether full data migration is performed. Valid values:
+   * Specifies whether to migrate full data. Valid values:
    * 
-   * - **true**: yes.
-   * - **false**: no.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -258,10 +258,10 @@ export class DescribeMigrationJobStatusResponseBodyMigrationMode extends $dara.M
   dataInitialization?: boolean;
   /**
    * @remarks
-   * Indicates whether incremental data migration is performed. Valid values:
+   * Specifies whether to migrate incremental data. Valid values:
    * 
-   * - **true**: yes.
-   * - **false**: no.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * **false**。
@@ -269,10 +269,10 @@ export class DescribeMigrationJobStatusResponseBodyMigrationMode extends $dara.M
   dataSynchronization?: boolean;
   /**
    * @remarks
-   * Indicates whether schema migration is performed. Valid values:
+   * Specifies whether to perform schema migration. Valid values:
    * 
-   * - **true**: yes.
-   * - **false**: no.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * **false**。
@@ -365,7 +365,7 @@ export class DescribeMigrationJobStatusResponseBodyPrecheckStatus extends $dara.
   detail?: DescribeMigrationJobStatusResponseBodyPrecheckStatusDetail;
   /**
    * @remarks
-   * The overall progress of the precheck, in percentage.
+   * The overall progress of the precheck. Unit: %.
    * 
    * @example
    * 100
@@ -373,12 +373,12 @@ export class DescribeMigrationJobStatusResponseBodyPrecheckStatus extends $dara.
   percent?: string;
   /**
    * @remarks
-   * The precheck status. Valid values:
+   * The status of the precheck. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Checking**: running the precheck.
-   * - **Failed**: precheck failed.
-   * - **Finished**: precheck completed.
+   * - **NotStarted**: The precheck is not started.
+   * - **Checking**: The precheck is in progress.
+   * - **Failed**: The precheck failed.
+   * - **Finished**: The precheck is complete.
    * 
    * @example
    * Success
@@ -415,7 +415,7 @@ export class DescribeMigrationJobStatusResponseBodyPrecheckStatus extends $dara.
 export class DescribeMigrationJobStatusResponseBodySourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects to be migrated belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdatabase
@@ -449,12 +449,12 @@ export class DescribeMigrationJobStatusResponseBodySourceEndpoint extends $dara.
    * @remarks
    * The type of the source instance. Valid values:
    * 
-   * - **RDS**: ApsaraDB RDS instance.
-   * - **ECS**: self-managed database hosted on ECS.
-   * - **LocalInstance**: self-managed database with a public IP address.
-   * - **Express**: self-managed database connected over Express Connect, VPN Gateway, or Smart Access Gateway.
-   * - **MongoDB**: ApsaraDB for MongoDB instance.
-   * - **POLARDB**: PolarDB for MySQL cluster (this value is applicable only to the China site).
+   * - **RDS**: An ApsaraDB RDS instance.
+   * - **ECS**: A self-managed database hosted on an ECS instance.
+   * - **LocalInstance**: A self-managed database with a public IP address.
+   * - **Express**: A self-managed database connected over an Express Connect circuit, a VPN gateway, or a Smart Access Gateway (SAG).
+   * - **MongoDB**: An ApsaraDB for MongoDB instance.
+   * - **POLARDB**: A PolarDB for MySQL cluster. This value is available only on the Alibaba Cloud China site.
    * 
    * @example
    * RDS
@@ -523,7 +523,7 @@ export class DescribeMigrationJobStatusResponseBodySourceEndpoint extends $dara.
 export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when schema migration failed.
+   * The error message returned if the schema migration fails.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
@@ -531,7 +531,7 @@ export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of schema migration, in percentage.
+   * The progress of the schema migration. Unit: %.
    * 
    * @example
    * 100
@@ -539,7 +539,7 @@ export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus
   percent?: string;
   /**
    * @remarks
-   * The number of tables for which schema migration has been completed.
+   * The number of tables for which the schema migration is complete.
    * 
    * @example
    * 1
@@ -547,12 +547,12 @@ export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus
   progress?: string;
   /**
    * @remarks
-   * The status of schema migration. Valid values:
+   * The status of the schema migration. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Migrating**: migrating.
-   * - **Failed**: migration failed.
-   * - **Finished**: migration completed.
+   * - **NotStarted**: The migration is not started.
+   * - **Migrating**: The migration is in progress.
+   * - **Failed**: The migration failed.
+   * - **Finished**: The migration is complete.
    * 
    * @example
    * Finished
@@ -588,12 +588,12 @@ export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus
 export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution status of full data migration.
+   * The status of the full data migration.
    */
   dataInitializationStatus?: DescribeMigrationJobStatusResponseBodyDataInitializationStatus;
   /**
    * @remarks
-   * The execution status of incremental data migration.
+   * The status of the incremental data migration.
    */
   dataSynchronizationStatus?: DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus;
   /**
@@ -603,7 +603,7 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   destinationEndpoint?: DescribeMigrationJobStatusResponseBodyDestinationEndpoint;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -611,7 +611,7 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -619,7 +619,7 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
+   * The specifications of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration links](https://help.aliyun.com/document_detail/26606.html).
    * 
    * @example
    * 2xlarge
@@ -638,19 +638,19 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
    * The name of the data migration instance.
    * 
    * @example
-   * MySQL迁移
+   * MySQL migration
    */
   migrationJobName?: string;
   /**
    * @remarks
    * The status of the data migration task. Valid values:
-   * - **NotStarted**: not started.
-   * - **Prechecking**: running the precheck.
-   * - **PrecheckFailed**: precheck failed.
-   * - **Migrating**: migrating.
-   * - **Suspending**: paused.
-   * - **MigrationFailed**: migration failed.
-   * - **Finished**: migration completed.
+   * - **NotStarted**: The task is not started.
+   * - **Prechecking**: The precheck is in progress.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **Migrating**: The migration is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **MigrationFailed**: The migration failed.
+   * - **Finished**: The migration is complete.
    * 
    * @example
    * Migrating
@@ -671,7 +671,7 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   migrationObject?: string;
   /**
    * @remarks
-   * The billing method of the data migration task. The return value is fixed as **PostPaid** (pay-as-you-go).
+   * The billing method of the data migration task. The value is fixed to **PostPaid** (pay-as-you-go).
    * 
    * @example
    * PostPaid
@@ -684,7 +684,7 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   precheckStatus?: DescribeMigrationJobStatusResponseBodyPrecheckStatus;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A032E3B4-929B-48E9-97B9-37587CBF****
@@ -697,12 +697,12 @@ export class DescribeMigrationJobStatusResponseBody extends $dara.Model {
   sourceEndpoint?: DescribeMigrationJobStatusResponseBodySourceEndpoint;
   /**
    * @remarks
-   * The execution status of schema migration.
+   * The status of the schema migration.
    */
   structureInitializationStatus?: DescribeMigrationJobStatusResponseBodyStructureInitializationStatus;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

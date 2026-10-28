@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $dara.Model {
   /**
    * @remarks
-   * The object type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type** (user-defined type), **Synonym**, **Trigger**, **Function**, **Procedure** (stored procedure), **Package**, **Default**, **Rule**, **PlanGuide** (execute plan), and **Sequence**.
+   * The migrated object type. Valid values: **Table** (table), **Constraint** (constraint), **Index** (index), **View** (view), **Materialize View** (materialized view), **Type** (custom type), **Synonym** (synonym), **Trigger** (trigger), **Function** (function), **Procedure** (stored procedure), **Package** (package), **Default** (default value), **Rule** (rule), **PlanGuide** (execute plan), and **Sequence** (sequence).
    * 
    * @example
    * Table
@@ -27,7 +27,7 @@ export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $dara.Mo
   state?: number;
   /**
    * @remarks
-   * The total number of migration objects.
+   * The total number of migrated objects.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class SummaryJobDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the data migration or synchronization task.
+   * The ID of the migration or synchronization task.
    * 
    * @example
    * l3m1213ye7l****
@@ -85,8 +85,8 @@ export class SummaryJobDetailResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The array of migration object information.
-   * > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
+   * The returned information about the array of migrated objects.
+   * > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}\\].
    */
   progressSummaryDetails?: SummaryJobDetailResponseBodyProgressSummaryDetails[];
   /**

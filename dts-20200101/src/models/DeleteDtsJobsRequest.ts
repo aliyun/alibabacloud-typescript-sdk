@@ -6,8 +6,8 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the data migration, data synchronization, or change tracking tasks.
-   * > - You can specify up to 10 task IDs, separated by commas (,).
-   * - You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the DTS task IDs.
+   * > - You can specify up to 10 task IDs. Separate multiple task IDs with commas (,).
+   * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query DTS task IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   dtsJobIds?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +25,7 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A special parameter for specific business scenarios. You do not need to configure this parameter.
+   * A dedicated field for special business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * rg3m1213ye7l****
@@ -33,7 +33,7 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A special parameter for specific business scenarios. You do not need to configure this parameter.
+   * A dedicated field for special business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * true

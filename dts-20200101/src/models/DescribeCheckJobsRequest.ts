@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data validation task.
+   * The ID of the verification task.
    * 
    * @example
    * z9p104ib23***
@@ -15,9 +15,9 @@ export class DescribeCheckJobsRequest extends $dara.Model {
    * @remarks
    * The data validation method. Valid values:
    * 
-   * - **1**: full data validation.
-   * - **2**: incremental data validation.
-   * - **3**: all.
+   * - **1**: Full data validation.
+   * - **2**: Incremental data validation.
+   * - **3**: All.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the ID.
+   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
    * 
    * @example
    * dtsz9p104ib23e972e
@@ -33,7 +33,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the data migration or data synchronization task.
+   * The name of the data migration or synchronization task.
    * 
    * @example
    * zwy_test
@@ -49,7 +49,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -57,7 +57,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFullProcessListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the migration, synchronization, or change tracking task.
+   * The ID of the data migration, data synchronization, or change tracking task.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeFullProcessListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -31,9 +31,9 @@ export class DescribeFullProcessListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether the node is a zero-ETL seamless integration node. Valid values:
-   * - **true**: The node is a zero-ETL seamless integration node.
-   * - **false**: The node is not a zero-ETL seamless integration node.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true

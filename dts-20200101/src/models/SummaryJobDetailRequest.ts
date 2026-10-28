@@ -13,7 +13,7 @@ export class SummaryJobDetailRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the data migration or synchronization task.
+   * The ID of the migration or synchronization task.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class SummaryJobDetailRequest extends $dara.Model {
   jobCode?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +43,7 @@ export class SummaryJobDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2mjc4qlnog6q
@@ -53,7 +53,7 @@ export class SummaryJobDetailRequest extends $dara.Model {
    * @remarks
    * The type of schema definition. Valid values:
    * 
-   * - **before**: schema migration or initial schema synchronization.
+   * - **before**: schema migration or initial schema synchronization for databases and tables.
    * - **after**: DDL operations during incremental data migration or synchronization.
    * 
    * @example
@@ -62,12 +62,12 @@ export class SummaryJobDetailRequest extends $dara.Model {
   structType?: string;
   /**
    * @remarks
-   * The synchronization direction. Valid values:
+   * The direction of the synchronization link. Valid values:
    * - **Forward**: forward.
    * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - You can set this parameter to **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
+   * - You can set this parameter to **Reverse** to release the reverse synchronization link only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -75,9 +75,9 @@ export class SummaryJobDetailRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
-   * - **true**: The node is a seamless integration node.
-   * - **false**: The node is not a seamless integration node.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true

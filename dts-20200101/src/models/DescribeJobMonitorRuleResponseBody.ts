@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model {
   /**
    * @remarks
-   * The threshold that triggers a latency alert. Unit: seconds.
+   * The threshold that triggers a latency alert, in seconds.
    * 
    * @example
    * 60
@@ -22,9 +22,9 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   /**
    * @remarks
    * The task type of the DTS instance. Valid values:
-   * - **normal**: data migration or data synchronization task.
-   * - **full_check**: associated full data validation task.
-   * - **etl_check**: associated incremental data validation task.
+   * - **normal**: Data migration or data synchronization task.
+   * - **full_check**: Associated full data check task.
+   * - **etl_check**: Associated incremental data check task.
    * 
    * @example
    * normal
@@ -40,9 +40,9 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   noticeValue?: number;
   /**
    * @remarks
-   * The statistical period of the incremental data validation task. Unit: minutes.
+   * The statistical period of the incremental data check task, in minutes.
    * 
-   * > Valid values: 1, 5, 10, and 30 minutes.
+   * > Valid values are 1, 5, 10, and 30.
    * 
    * @example
    * 5
@@ -50,7 +50,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   period?: number;
   /**
    * @remarks
-   * The phone numbers of the contacts to be notified when an alert is triggered. Multiple phone numbers are separated by commas (,).
+   * The mobile phone numbers of the contacts to be notified after an alert is triggered. Separate multiple mobile phone numbers with commas (,).
    * 
    * @example
    * 1361234****,1371234****
@@ -60,8 +60,8 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
    * @remarks
    * Indicates whether the monitoring rule is enabled. Valid values:
    * 
-   * - **Y**: enabled.
-   * - **N**: disabled.
+   * - **Y**: The monitoring rule is enabled.
+   * - **N**: The monitoring rule is disabled.
    * 
    * @example
    * Y
@@ -69,7 +69,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The number of periods for the incremental data validation task.
+   * The number of periods for the incremental data check task.
    * 
    * @example
    * 2
@@ -78,10 +78,10 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   /**
    * @remarks
    * The type of the monitoring rule. Valid values:
-   * - **delay**: latency alert.
-   * - **error**: anomaly alert.
-   * - **full_timeout**: alert for the runtime of the full data module.
-   * - **warn**: notification alert (the task succeeded but the result did not meet expectations).
+   * - **delay**: Latency alerting.
+   * - **error**: Anomaly alert.
+   * - **full_timeout**: Full module execution duration alerting.
+   * - **warn**: Notification alerting (the node is executed successfully, but the result does not meet expectations).
    * 
    * @example
    * delay
@@ -127,7 +127,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
 export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter will be deprecated.
+   * The error code. This parameter will be deprecated soon.
    * 
    * @example
    * 200
@@ -143,8 +143,8 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** response parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -176,7 +176,7 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The monitoring rule information of the DTS task.
+   * The monitoring rules of the DTS task.
    */
   monitorRules?: DescribeJobMonitorRuleResponseBodyMonitorRules[];
   /**
@@ -189,9 +189,9 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusListSynchronizationDirectionInfoList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the latest synchronized data, in UNIX timestamp format.
+   * The timestamp when the latest data record is synchronized. The value is a UNIX timestamp.
    * 
-   * > You can use a search engine to find a UNIX timestamp converter.
+   * > You can use a search engine to find a UNIX timestamp conversion tool.
    * 
    * @example
    * 1610524452
@@ -15,18 +15,18 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
   checkpoint?: string;
   /**
    * @remarks
-   * The synchronization status of the synchronization instance in this direction. Valid values:
+   * The synchronization status of the synchronization instance in the specified direction. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Prechecking**: running a precheck.
-   * - **PrecheckFailed**: precheck failed.
-   * - **Initializing**: performing initial synchronization.
-   * - **InitializeFailed**: initial synchronization failed.
-   * - **Synchronizing**: synchronizing.
-   * - **Failed**: synchronization failed.
-   * - **Suspending**: paused.
-   * - **Modifying**: modifying synchronization objects.
-   * - **Finished**: completed.
+   * - **NotStarted**: Not started.
+   * - **Prechecking**: Prechecking.
+   * - **PrecheckFailed**: Precheck failed.
+   * - **Initializing**: Initial synchronization.
+   * - **InitializeFailed**: Initial synchronization failed.
+   * - **Synchronizing**: Synchronizing.
+   * - **Failed**: Failed.
+   * - **Suspending**: Suspending.
+   * - **Modifying**: Modifying synchronization objects.
+   * - **Finished**: Finished.
    * 
    * @example
    * InitializeFailed
@@ -35,8 +35,8 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * @example
    * Forward
@@ -110,7 +110,7 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
 export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -118,7 +118,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -134,7 +134,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of synchronization instances displayed on one page.
+   * The number of synchronization instances returned on each page.
    * 
    * @example
    * 2
@@ -142,7 +142,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1413460B-138A-48D1-836C-B24EDDC1****
@@ -150,7 +150,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -158,12 +158,12 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   success?: string;
   /**
    * @remarks
-   * The status list of synchronization jobs.
+   * The list of synchronization job statuses.
    */
   synchronizationJobListStatusList?: DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList[];
   /**
    * @remarks
-   * The total number of synchronization instances that were queried.
+   * The total number of queried synchronization instances.
    * 
    * @example
    * 2

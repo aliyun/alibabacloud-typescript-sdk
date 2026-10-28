@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CPU alert threshold, in percentage.
+   * The CPU alert threshold. Unit: percentage.
    * 
    * @example
    * 80
@@ -21,7 +21,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The disk alert threshold, in percentage.
+   * The disk alert threshold. Unit: percentage.
    * 
    * @example
    * 80
@@ -29,7 +29,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   diskAlarmThreshold?: string;
   /**
    * @remarks
-   * The DU alert threshold, in percentage.
+   * The DU alert threshold. Unit: percentage.
    * 
    * @example
    * 46
@@ -37,7 +37,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   duAlarmThreshold?: string;
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InternalError
@@ -45,7 +45,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -61,7 +61,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   httpStatusCode?: string;
   /**
    * @remarks
-   * The memory alert threshold, in percentage.
+   * The memory alert threshold. Unit: percentage.
    * 
    * @example
    * 80
@@ -71,8 +71,8 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
    * @remarks
    * The alert switch. Valid values:
    * 
-   * - **1**: enabled.
-   * - **0**: disabled.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   noticeSwitch?: string;
   /**
    * @remarks
-   * The phone numbers that receive alerts. If there are multiple phone numbers, they are separated by commas (,).
+   * The phone numbers that receive alert notifications. If multiple phone numbers are specified, separate them with commas (,).
    * 
    * @example
    * 186****7653

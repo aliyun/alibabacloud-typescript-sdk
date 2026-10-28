@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when initial full data synchronization failed.
+   * The error message returned when initial full data synchronization fails.
    * 
    * @example
    * java.lang.NumberFormatException: For input string: ""
@@ -21,7 +21,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatu
   percent?: string;
   /**
    * @remarks
-   * The number of records that have been synchronized during initial full data synchronization.
+   * The number of data records that have been synchronized during initial full data synchronization.
    * 
    * @example
    * 200001
@@ -30,10 +30,10 @@ export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatu
   /**
    * @remarks
    * The status of initial full data synchronization. Valid values:
-   * - **NotStarted**: not started.
-   * - **Migrating**: in progress.
-   * - **Failed**: failed.
-   * - **Finished**: completed.
+   * - **NotStarted**: not started
+   * - **Migrating**: initializing
+   * - **Failed**: initialization failed
+   * - **Finished**: initialization completed
    * 
    * @example
    * Finished
@@ -69,7 +69,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatu
 export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the latest synchronized data, in UNIX timestamp format.
+   * The timestamp when the latest data record is synchronized. The value is a UNIX timestamp.
    * 
    * @example
    * 1610709865
@@ -77,7 +77,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
   checkpoint?: string;
   /**
    * @remarks
-   * The synchronization latency of incremental data synchronization, in seconds.
+   * The incremental data synchronization latency, in seconds.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
   delay?: string;
   /**
    * @remarks
-   * The synchronization latency of incremental data synchronization, in milliseconds.
+   * The incremental data synchronization latency, in milliseconds.
    * 
    * @example
    * 856
@@ -93,10 +93,10 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
   delayMillis?: number;
   /**
    * @remarks
-   * The error message returned when incremental data synchronization failed.
+   * The error message returned when incremental data synchronization fails.
    * 
    * @example
-   * 任务失败太久无法恢复
+   * The task has failed for too long and cannot be recovered
    */
   errorMessage?: string;
   /**
@@ -111,10 +111,10 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
    * @remarks
    * The status of incremental data synchronization. Valid values:
    * 
-   * - **NotStarted**: not started.
-   * - **Migrating**: synchronizing.
-   * - **Failed**: failed.
-   * - **Finished**: completed.
+   * - **NotStarted**: not started
+   * - **Migrating**: synchronizing
+   * - **Failed**: synchronization failed
+   * - **Finished**: synchronization completed
    * 
    * @example
    * Finished
@@ -154,7 +154,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
 export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The database type of the destination instance.
+   * The database engine of the destination instance.
    * 
    * @example
    * MySQL
@@ -178,7 +178,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint ext
   instanceId?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -234,7 +234,7 @@ export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint ext
 export class DescribeSynchronizationJobStatusResponseBodyPerformance extends $dara.Model {
   /**
    * @remarks
-   * The data flow rate of synchronization per second, in MB/s.
+   * The amount of data synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -242,7 +242,7 @@ export class DescribeSynchronizationJobStatusResponseBodyPerformance extends $da
   FLOW?: string;
   /**
    * @remarks
-   * The number of SQL statements synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+   * The number of SQL statements synchronized per second, including BEGIN, COMMIT, DML (INSERT, DELETE, and UPDATE), and DDL statements.
    * 
    * @example
    * 100
@@ -275,8 +275,8 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail ex
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Success**: passed.
-   * - **Failed**: failed.
+   * - **Success**: The check item passed.
+   * - **Failed**: The check item failed.
    * 
    * @example
    * Success
@@ -284,8 +284,8 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail ex
   checkStatus?: string;
   /**
    * @remarks
-   * The error message returned when the precheck failed.
-   * > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+   * The error message returned when a precheck item fails.
+   * > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -293,7 +293,7 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail ex
   errorMessage?: string;
   /**
    * @remarks
-   * The precheck item.
+   * The name of the precheck item.
    * 
    * @example
    * CHECK_CONN_SRC
@@ -301,8 +301,8 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail ex
   itemName?: string;
   /**
    * @remarks
-   * The repair method when the precheck failed.
-   * > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+   * The solution for a failed precheck item.
+   * > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -338,7 +338,7 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail ex
 export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The details of each precheck item.
+   * The execution details of each precheck item.
    */
   detail?: DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail[];
   /**
@@ -352,8 +352,8 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatus extends 
   /**
    * @remarks
    * The precheck result. Valid values:
-   * - **Success**: passed.
-   * - **Failed**: failed.
+   * - **Success**: The check item passed.
+   * - **Failed**: The check item failed.
    * 
    * @example
    * Success
@@ -390,7 +390,7 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatus extends 
 export class DescribeSynchronizationJobStatusResponseBodySourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The database type of the source instance.
+   * The database engine of the source instance.
    * 
    * @example
    * MySQL
@@ -470,7 +470,7 @@ export class DescribeSynchronizationJobStatusResponseBodySourceEndpoint extends 
 export class DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when initial schema synchronization encountered an exception.
+   * The error message returned when an exception occurs during initial schema synchronization.
    * 
    * @example
    * DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
@@ -486,7 +486,7 @@ export class DescribeSynchronizationJobStatusResponseBodyStructureInitialization
   percent?: string;
   /**
    * @remarks
-   * The number of tables that have completed initial schema synchronization.
+   * The number of tables that have been synchronized during initial schema synchronization.
    * 
    * @example
    * 1
@@ -495,10 +495,10 @@ export class DescribeSynchronizationJobStatusResponseBodyStructureInitialization
   /**
    * @remarks
    * The status of initial schema synchronization. Valid values:
-   * - **NotStarted**: not started.
-   * - **Migrating**: in progress.
-   * - **Failed**: failed.
-   * - **Finished**: completed.
+   * - **NotStarted**: not started
+   * - **Migrating**: initializing
+   * - **Failed**: initialization failed
+   * - **Finished**: initialization completed
    * 
    * @example
    * Finished
@@ -594,7 +594,7 @@ export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsT
 export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects extends $dara.Model {
   /**
    * @remarks
-   * The name mapped to the database to be synchronized in the destination database.
+   * The mapped name of the database to be synchronized in the destination database.
    * 
    * @example
    * newdtstestdatabase
@@ -610,7 +610,7 @@ export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects 
   schemaName?: string;
   /**
    * @remarks
-   * The tables excluded from the database to be synchronized. These tables will not be synchronized.
+   * The tables excluded from the database to be synchronized. These tables are not synchronized.
    */
   tableExcludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes[];
   /**
@@ -654,9 +654,9 @@ export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects 
 export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the latest synchronized data, in UNIX timestamp format.
+   * The timestamp when the latest data record is synchronized. The value is a UNIX timestamp.
    * 
-   * > You can use a search engine to find a UNIX timestamp converter.
+   * > You can use a search engine to obtain a UNIX timestamp converter.
    * 
    * @example
    * 1610616144
@@ -664,10 +664,10 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   checkpoint?: string;
   /**
    * @remarks
-   * Indicates whether initial full data synchronization was performed. Valid values:
+   * Specifies whether to perform initial full data synchronization. Valid values:
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -706,7 +706,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   destinationEndpoint?: DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint;
   /**
    * @remarks
-   * The error code returned when the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -714,7 +714,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -722,7 +722,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The error message returned when data synchronization failed.
+   * The error message returned when data synchronization fails.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
@@ -730,8 +730,8 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The expiration time of the synchronization instance, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-   * > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+   * The expiration time of the data synchronization instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2021-03-07T16:00:00Z
@@ -739,10 +739,10 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The billing method of the synchronization instance. Valid values:
+   * The billing method of the data synchronization instance. Valid values:
    * 
-   * - **PrePaid**: subscription.
-   * - **PostPaid**: pay-as-you-go.
+   * - **PrePaid**: subscription
+   * - **PostPaid**: pay-as-you-go
    * 
    * @example
    * PrePaid
@@ -750,7 +750,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The overview of the synchronization link.
+   * The performance overview of the synchronization task.
    */
   performance?: DescribeSynchronizationJobStatusResponseBodyPerformance;
   /**
@@ -773,18 +773,18 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   sourceEndpoint?: DescribeSynchronizationJobStatusResponseBodySourceEndpoint;
   /**
    * @remarks
-   * The status of the synchronization instance. Valid values:
+   * The status of the data synchronization instance. Valid values:
    * 
    * - **notStarted**: not started.
-   * - **prechecking**: running a precheck.
+   * - **prechecking**: precheck in progress.
    * - **precheckFailed**: precheck failed.
-   * - **initializating**: performing initial synchronization.
-   * - **initializeFailed**: initial synchronization failed.
+   * - **initializating**: synchronization initialization in progress.
+   * - **initializeFailed**: synchronization initialization failed.
    * - **synchronizing**: synchronizing.
    * - **failed**: synchronization failed.
-   * - **suspending**: paused.
+   * - **suspending**: pausing.
    * - **modifying**: modifying synchronization objects.
-   * - **finished**: completed.
+   * - **finished**: finished.
    * 
    * @example
    * synchronizing
@@ -792,10 +792,10 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether initial schema synchronization was performed. Valid values:
+   * Specifies whether to perform initial schema synchronization. Valid values:
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -808,7 +808,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   structureInitializationStatus?: DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -817,8 +817,8 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward
+   * - **Reverse**: reverse
    * 
    * @example
    * Forward
@@ -826,7 +826,7 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The specification of the synchronization link.
+   * The specifications of the synchronization task.
    * 
    * @example
    * large
@@ -842,10 +842,10 @@ export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   synchronizationJobId?: string;
   /**
    * @remarks
-   * The name of the synchronization instance.
+   * The name of the data synchronization instance.
    * 
    * @example
-   * MySQL同步
+   * MySQL synchronization
    */
   synchronizationJobName?: string;
   /**

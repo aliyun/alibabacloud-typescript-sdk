@@ -13,7 +13,7 @@ export class DescribeConnectionStatusResponseBody extends $dara.Model {
   destinationConnectionStatus?: { [key: string]: any };
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class DescribeConnectionStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -29,7 +29,7 @@ export class DescribeConnectionStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0A47C784-70EF-4111-8677-369CAA00****

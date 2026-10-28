@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The DTS instance ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+   * The ID of the DTS instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ETL task ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the ETL task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
    * 
    * @example
    * l5512es7w15****
@@ -31,7 +31,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Settings this parameter for paging. Default value: 20.
+   * The paging Settings for the number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the DTS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query available regions.
+   * The region ID of the DTS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the list of Alibaba Cloud regions.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

@@ -15,8 +15,8 @@ export class DeleteConsumerChannelRequest extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
-   * > You must specify one of the **DtsInstanceId** and **DtsJobId** parameters.
+   * The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+   * > You must specify either the **DtsInstanceId** or **DtsJobId** parameter.
    * 
    * @example
    * dtsboss6pn1w73****
@@ -24,8 +24,8 @@ export class DeleteConsumerChannelRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
-   * > You must specify one of the **DtsInstanceId** and **DtsJobId** parameters.
+   * The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * > You must specify either the **DtsInstanceId** or **DtsJobId** parameter.
    * 
    * @example
    * boss6pn1w73****
@@ -33,7 +33,7 @@ export class DeleteConsumerChannelRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The region ID of the DTS change tracking instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the DTS change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DeleteConsumerChannelRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

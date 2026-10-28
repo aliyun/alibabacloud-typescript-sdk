@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartSynchronizationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated.
    * 
    * @example
    * 1689726061829****
@@ -22,7 +22,7 @@ export class StartSynchronizationJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -31,11 +31,11 @@ export class StartSynchronizationJobRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * > - Default value: **Forward**.
-   * > - You can set this parameter to **Reverse** to start the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+   * > - You can set this parameter to **Reverse** to start the reverse synchronization link only when the topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -43,7 +43,7 @@ export class StartSynchronizationJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
+   * Instance ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query instance ID.
    * 
    * This parameter is required.
    * 

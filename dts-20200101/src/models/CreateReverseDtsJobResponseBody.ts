@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReverseDtsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DTS instance that corresponds to the generated reverse task.
+   * The ID of the instance corresponding to the generated reverse task.
    * 
    * @example
    * dtsor1f9kr822l****
@@ -21,7 +21,7 @@ export class CreateReverseDtsJobResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned if the request fails.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class CreateReverseDtsJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned if the request fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.

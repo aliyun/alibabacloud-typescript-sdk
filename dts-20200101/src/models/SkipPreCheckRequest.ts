@@ -15,7 +15,7 @@ export class SkipPreCheckRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the precheck task. You can call **DescribePreCheckStatus** to query the ID.
+   * The ID of the precheck task. You can call the **DescribePreCheckStatus** operation to query the task ID.
    * 
    * @example
    * b4my3zg929a****
@@ -23,7 +23,7 @@ export class SkipPreCheckRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class SkipPreCheckRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -39,10 +39,10 @@ export class SkipPreCheckRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to suppress the precheck item. Valid values:
+   * Specifies whether to skip the precheck item. Valid values:
    * 
-   * - **true**: Suppress the precheck item.
-   * - **false**: Unsuppress the precheck item.
+   * - **true**: Skips the precheck item.
+   * - **false**: Does not skip the precheck item.
    * 
    * This parameter is required.
    * 
@@ -52,15 +52,15 @@ export class SkipPreCheckRequest extends $dara.Model {
   skip?: boolean;
   /**
    * @remarks
-   * The abbreviated names of the precheck items to suppress or unsuppress. Valid values:
+   * The abbreviations of the precheck items to skip or unskip. Valid values:
    * 
-   * - **["CHECK_SAME_OBJ"]**: check for objects with the same name.
-   * - **["CHECK_SAME_USER"]**: check for accounts with different names.
-   * - **["CHECK_SRC"]**: source database version check.
-   * - **["CHECK_TOPOLOGY"]**: topology version check. For the topology versions supported by DTS, see [Topology overview](https://help.aliyun.com/document_detail/124115.html).
-   * - **["CHECK_SERVER_ID"]**: source database server_id check.
-   * - **["CHECK_DEST_TABLE_EMPTY"]**: destination database object existence check.
-   * - **["CHECK_SUPER_AUTH_DEST"]**: destination database super account permission check.
+   * - **["CHECK_SAME_OBJ"]**: Checks for the existence of objects with the same name.
+   * - **["CHECK_SAME_USER"]**: Checks for the existence of accounts with different names.
+   * - **["CHECK_SRC"]**: Checks the version of the source database.
+   * - **["CHECK_TOPOLOGY"]**: Checks the topology version. For more information about the topology versions supported by DTS, see [Topology overview](https://help.aliyun.com/document_detail/124115.html).
+   * - **["CHECK_SERVER_ID"]**: Checks the server_id of the source database.
+   * - **["CHECK_DEST_TABLE_EMPTY"]**: Checks for the existence of objects in the destination database.
+   * - **["CHECK_SUPER_AUTH_DEST"]**: Checks the permissions of the super account in the destination database.
    * 
    * > Separate multiple item names with commas (,), for example, **["CHECK_SRC","CHECK_SAME_OBJ"]**.
    * 
@@ -70,15 +70,15 @@ export class SkipPreCheckRequest extends $dara.Model {
   skipPreCheckItems?: string;
   /**
    * @remarks
-   * The full names of the precheck items to suppress or unsuppress. This parameter corresponds to the **SkipPreCheckItems** parameter. Valid values:
+   * The names of the precheck items to skip or unskip. This parameter corresponds to the **SkipPreCheckItems** parameter. Valid values:
    * 
-   * - **["CHECK_SAME_OBJ_DETAIL"]**: check for objects with the same name.
-   * - **["CHECK_SAME_USER_DETAIL"]**: check for accounts with different names.
-   * - **["CHECK_SRC_DETAIL"]**: source database version check.
-   * - **["CHECK_TOPOLOGY_DETAIL"]**: topology version check. For the topology versions supported by DTS, see [Topology overview](https://help.aliyun.com/document_detail/124115.html).
-   * - **["CHECK_SERVER_ID_DETAIL"]**: source database server_id check.
-   * - **["CHECK_DEST_TABLE_EMPTY_DETAIL"]**: check whether the destination database tables are empty.
-   * - **["CHECK_SUPER_AUTH_DEST_DETAIL"]**: check the super account permissions of the destination database.
+   * - **["CHECK_SAME_OBJ_DETAIL"]**: Checks for the existence of objects with the same name.
+   * - **["CHECK_SAME_USER_DETAIL"]**: Checks for the existence of accounts with different names.
+   * - **["CHECK_SRC_DETAIL"]**: Checks the version of the source database.
+   * - **["CHECK_TOPOLOGY_DETAIL"]**: Checks the topology version. For more information about the topology versions supported by DTS, see [Topology overview](https://help.aliyun.com/document_detail/124115.html).
+   * - **["CHECK_SERVER_ID_DETAIL"]**: Checks the server_id of the source database.
+   * - **["CHECK_DEST_TABLE_EMPTY_DETAIL"]**: Checks whether the tables in the destination database are empty.
+   * - **["CHECK_SUPER_AUTH_DEST_DETAIL"]**: Checks the permissions of the super account in the destination database.
    * 
    * > Separate multiple item names with commas (,), for example, **["CHECK_SRC_DETAIL","CHECK_SAME_OBJ_DETAIL"]**.
    * 

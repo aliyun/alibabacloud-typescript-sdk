@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySubscriptionObjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
+   * The Alibaba Cloud account ID. You do not need to specify this parameter. This parameter will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -22,7 +22,7 @@ export class ModifySubscriptionObjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -40,7 +40,7 @@ export class ModifySubscriptionObjectRequest extends $dara.Model {
   subscriptionInstanceId?: string;
   /**
    * @remarks
-   * The subscription objects. The value is a JSON string that supports regular expressions. For more information, see [Subscription object configuration](https://help.aliyun.com/document_detail/141902.html).
+   * The subscription objects. The value is a JSON string and supports specific regular expressions. For more information, see [Subscription object configuration](https://help.aliyun.com/document_detail/141902.html).
    * 
    * This parameter is required.
    * 

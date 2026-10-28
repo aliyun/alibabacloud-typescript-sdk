@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeTwoWayRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance specification for two-way synchronization. Valid values: **large**, **medium**, **micro**, and **small**.
-   * > For more information about instance specifications, see [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
+   * The instance class for two-way synchronization. Valid values: **large**, **medium**, **micro**, and **small**.
+   * > For more information about instance classes, see [Specifications of data synchronization links](https://help.aliyun.com/document_detail/26605.html).
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class UpgradeTwoWayRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
+   * The ID of the instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class UpgradeTwoWayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -34,7 +34,7 @@ export class UpgradeTwoWayRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

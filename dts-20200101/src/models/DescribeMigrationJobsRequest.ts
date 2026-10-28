@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrationJobsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query tag keys.
+   * The tag key. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query the tag key.
    * 
-   * > - N specifies the serial number of the tag key. For example, Tag.1.Key specifies the key of the first tag, and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
-   * - This parameter cannot be set to an empty string.
+   * > - N specifies the sequence number of the tag key. For example, Tag.1.Key specifies the key of the first tag, and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
+   * - You cannot specify an empty string for this parameter.
    * 
    * This parameter is required.
    * 
@@ -18,9 +18,9 @@ export class DescribeMigrationJobsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query tag values.
-   * >- N specifies the serial number of the tag value. For example, Tag.1.Value specifies the value of the first tag, and Tag.2.Value specifies the value of the second tag. You can specify 1 to 20 tag values at a time.
-   * - An empty string is allowed.
+   * The tag value. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query the tag value.
+   * > - N specifies the sequence number of the tag value. For example, Tag.1.Value specifies the value of the first tag, and Tag.2.Value specifies the value of the second tag. You can specify 1 to 20 tag values at a time.
+   * - You can specify an empty string for this parameter.
    * 
    * @example
    * testvalue1
@@ -52,7 +52,7 @@ export class DescribeMigrationJobsRequestTag extends $dara.Model {
 export class DescribeMigrationJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -60,17 +60,16 @@ export class DescribeMigrationJobsRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the migration instance.
-   * > Fuzzy match is supported.
+   * The name of the data migration instance. Fuzzy match is supported.
    * 
    * @example
-   * MySQL迁移
+   * MySQL Migration
    */
   migrationJobName?: string;
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and must not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. Valid values: an integer greater than **0** and up to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -78,7 +77,7 @@ export class DescribeMigrationJobsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of data migration instances to display per page. Valid values: **10**, **20**, and **30**. Default value: **30**. Maximum value: **30**.
+   * The number of data migration instance records to return on each page. Valid values: **10**, **20**, and **30**. Default value: **30**. Maximum value: **30**.
    * 
    * @example
    * 30
@@ -86,7 +85,7 @@ export class DescribeMigrationJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the data migration instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the data migration instances. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -102,7 +101,7 @@ export class DescribeMigrationJobsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the data migration instance, used as filter conditions. When this parameter is not empty, only instance tasks that have the specified tags are returned.
+   * The tags of the data migration instances used as a filter. If this parameter is specified, only instances with the specified tags are returned.
    */
   tag?: DescribeMigrationJobsRequestTag[];
   static names(): { [key: string]: string } {

@@ -13,8 +13,8 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -22,7 +22,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InternalError
@@ -30,7 +30,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The request processing has failed due to some unknown error.

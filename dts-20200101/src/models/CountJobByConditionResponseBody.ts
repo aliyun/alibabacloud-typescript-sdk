@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CountJobByConditionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The internal error code. This parameter will be deprecated.
+   * The internal service error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,8 +13,8 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -22,7 +22,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InternalError
@@ -30,7 +30,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -54,7 +54,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -10,7 +10,7 @@ export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -18,7 +18,7 @@ export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -34,7 +34,7 @@ export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * AF2DE23-B692-5B85-90B7-44B6F4D8****
@@ -42,7 +42,7 @@ export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

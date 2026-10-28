@@ -13,7 +13,7 @@ export class InitDtsRdsInstanceRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The instance ID of the CEN instance. This parameter is required if the unit node is a self-managed MySQL database connected through CEN.
+   * The CEN instance ID. This parameter is required if the unit node is a self-managed MySQL database connected through CEN.
    * > You must specify either this parameter or the ApsaraDB RDS for MySQL-related parameters (**EndpointRegion** and **EndpointInstanceId**).
    * 
    * @example
@@ -33,9 +33,8 @@ export class InitDtsRdsInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type of the unit node. Valid values:
-   * 
-   * - **RDS**: ApsaraDB RDS for MySQL instance.
-   * - **CEN**: self-managed MySQL database connected through CEN.
+   * - **RDS**: ApsaraDB RDS for MySQL instance
+   * - **CEN**: self-managed MySQL database connected through CEN
    * 
    * @example
    * RDS
@@ -43,8 +42,7 @@ export class InitDtsRdsInstanceRequest extends $dara.Model {
   endpointInstanceType?: string;
   /**
    * @remarks
-   * The region in which the ApsaraDB RDS for MySQL instance resides. This parameter is required if the unit node is an ApsaraDB RDS for MySQL instance.
-   * 
+   * The region where the ApsaraDB RDS for MySQL instance resides. This parameter is required if the unit node is an ApsaraDB RDS for MySQL instance.
    * > - You must also specify the **EndpointInstanceId** parameter.
    * - You must specify either this parameter or **EndpointCenId**.
    * 
@@ -54,7 +52,7 @@ export class InitDtsRdsInstanceRequest extends $dara.Model {
   endpointRegion?: string;
   /**
    * @remarks
-   * The region in which the active geo-redundancy database cluster resides.
+   * The region where the global active-active database cluster resides.
    * 
    * @example
    * cn-hangzhou
@@ -62,10 +60,10 @@ export class InitDtsRdsInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. This is a global parameter and does not need to be specified for this operation.
+   * The ID of the resource group. This is a global parameter and is not required for this operation.
    * 
    * @example
-   * 资源组ID，全局参数，当前API无需传入。
+   * The ID of the resource group. This is a global parameter and is not required for this operation
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

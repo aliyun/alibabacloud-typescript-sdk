@@ -13,9 +13,9 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the %s variable in the ErrMessage parameter.
+   * The dynamic error message, which is used to replace the %s variable in the error message returned by the ErrMessage parameter.
    * 
-   * > For example, if ErrMessage returns The Value of Input Parameter %s is not valid and DynamicMessage returns JobId, the JobId request parameter is invalid.
+   * > If the ErrMessage parameter returns The Value of Input Parameter %s is not valid and the DynamicMessage parameter returns JobId, the specified JobId request parameter is invalid.
    * 
    * @example
    * JobId
@@ -23,7 +23,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -31,7 +31,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -71,7 +71,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   scheduleJobId?: string;
   /**
    * @remarks
-   * The abbreviated names of the precheck items to suppress or unsuppress.
+   * The abbreviations of the precheck items to skip or unskip.
    * 
    * @example
    * CHECK_SAME_OBJ
@@ -79,7 +79,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   skipItems?: string;
   /**
    * @remarks
-   * The full names of the precheck items to suppress or unsuppress.
+   * The names of the precheck items to skip or unskip.
    * 
    * @example
    * CHECK_SAME_OBJ_DETAIL

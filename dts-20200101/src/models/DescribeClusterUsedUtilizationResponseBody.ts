@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The internal error code. The value is incremented.
+   * The backend error code, which increments numerically.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   cpuTotal?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -37,7 +37,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   diskTotal?: number;
   /**
    * @remarks
-   * The disk usage of the cluster. Unit: GB.
+   * The used disk space of the cluster. Unit: GB.
    * 
    * @example
    * 96
@@ -61,7 +61,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   duUsed?: number;
   /**
    * @remarks
-   * The dynamic error message. This parameter is used to replace the %s placeholder in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace %s in the error message returned in the ErrMessage parameter.
    * 
    * @example
    * Type
@@ -93,7 +93,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total memory. The value 0 is returned.
+   * The total memory. This parameter temporarily returns 0.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   memoryTotal?: number;
   /**
    * @remarks
-   * The memory usage. The value 0 is returned.
+   * The amount of used memory. This parameter temporarily returns 0.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   memoryUsedPercentage?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****

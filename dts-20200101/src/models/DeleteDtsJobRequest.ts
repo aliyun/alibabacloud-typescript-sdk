@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or subscribe instance.
+   * The data migration, data synchronization, or subscribe instance ID.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -13,7 +13,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the data migration, synchronization, or change tracking task.
+   * The ID of the data migration, data synchronization, or change tracking task.
    * 
    * @example
    * l3m1213ye7l****
@@ -21,7 +21,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The node type of the DTS instance. Valid values:
+   * The task type of the DTS instance. Valid values:
    * 
    * - **MIGRATION**: data migration.
    * - **SYNC**: data synchronization.
@@ -33,7 +33,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The ID of the region where the data migration or synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the data migration or data synchronization instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-beijing
@@ -41,7 +41,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A special business-specific field. You do not need to pass this parameter.
+   * The field reserved for special business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * rg-aek26lwshij****
@@ -50,11 +50,11 @@ export class DeleteDtsJobRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
    * > - Default value: **Forward**.
-   * - You can set this parameter to **Reverse** to release the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+   * - You can set this parameter to **Reverse** to release the reverse synchronization link only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -62,7 +62,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * A special business-specific field. You do not need to pass this parameter.
+   * The field reserved for special business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * true

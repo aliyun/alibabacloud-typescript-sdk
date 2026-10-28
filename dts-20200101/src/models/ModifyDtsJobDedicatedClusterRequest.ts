@@ -13,7 +13,7 @@ export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The task ID. You can specify multiple task IDs in a JSON array. Separate the IDs with commas (,).
+   * The task IDs. The value can be a JSON array that contains multiple task IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["dtsxxxx01", "dtsxxx02"]
@@ -22,9 +22,9 @@ export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides.
+   * The region where the DTS instance resides.
    * 
-   * > For the regions supported by dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
+   * > For more information about the regions supported by dedicated clusters, see [DTS dedicated clusters](https://help.aliyun.com/document_detail/417481.html).
    * 
    * @example
    * cn-hangzhou
@@ -32,7 +32,7 @@ export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

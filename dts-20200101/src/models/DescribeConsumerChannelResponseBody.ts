@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * dtsor2y66j4219****
@@ -16,7 +16,7 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
    * The name of the consumer group.
    * 
    * @example
-   * 订阅组A
+   * Consumer group A
    */
   consumerGroupName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   consumerGroupUserName?: string;
   /**
    * @remarks
-   * The consumption checkpoint, which is the point in time when the client consumed the last message in the subscription channel. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The consumption checkpoint, which is the time when the client consumed the last message in the change tracking channel. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
    * 
    * @example
    * 2021-06-20T12:00:00Z
@@ -37,10 +37,10 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The message delay. This value is calculated as the timestamp of the latest data consumed by the downstream client minus the timestamp of the latest data in the change tracking task. The value is a UNIX timestamp. Unit: seconds.
-   * For example, if the latest data in the source database was generated at 10:00, the DTS change tracking task has read data up to 09:55, and the downstream client has consumed data up to 09:30, the message delay is the difference in UNIX timestamps between 09:55 and 09:30.
+   * The message delay, which is the difference between the timestamp of the latest data tracked in the change tracking task and the timestamp of the latest data consumed by the downstream client. The value is a UNIX timestamp in seconds.
+   * For example, if the latest data in the source database is generated at 10:00, the DTS change tracking task has tracked data up to 09:55, and the downstream client has consumed data up to 09:30, the message delay is the difference between the UNIX timestamps of 09:55 and 09:30.
    * 
-   * > If this parameter returns **-1**, no client is connected to the consumer group.
+   * > If this parameter returns **-1**, it indicates that no client is connected to the consumer group.
    * 
    * @example
    * 1500
@@ -48,8 +48,8 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   messageDelay?: number;
   /**
    * @remarks
-   * The total number of unconsumed messages, which is the sum of unconsumed subscription data and heartbeat messages.
-   * > If this parameter returns -1, no client is connected to the consumer group.
+   * The total number of unconsumed messages, which is the sum of the number of unconsumed tracked data records and the number of heartbeat messages.
+   * > If this parameter returns -1, it indicates that no client is connected to the consumer group.
    * 
    * @example
    * 186600
@@ -94,7 +94,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   consumerChannels?: DescribeConsumerChannelResponseBodyConsumerChannels[];
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -102,7 +102,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -126,7 +126,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of consumer groups that can be displayed on one page.
+   * The maximum number of consumer groups that can be displayed on a single page.
    * 
    * @example
    * 20

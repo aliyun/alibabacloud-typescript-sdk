@@ -13,19 +13,19 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the consumer group. The name can be up to 128 characters in length. We recommend that you use a descriptive name for easy identification.
+   * The name of the consumer group. The name can be up to 128 characters in length. Specify a descriptive name for easy identification.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试订阅组
+   * Test consumer group
    */
   consumerGroupName?: string;
   /**
    * @remarks
    * The password of the consumer group account.
    * 
-   * - The password must contain characters from at least two of the following categories: uppercase letters, lowercase letters, digits, and special characters.
+   * - The password must contain at least two of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
@@ -36,9 +36,10 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   consumerGroupPassword?: string;
   /**
    * @remarks
-   * The account of the consumer group.
+   * The username of the consumer group.
    * 
-   * The account can contain uppercase letters, lowercase letters, digits, and underscores (_). The account can be up to 16 characters in length.
+   * The username can contain uppercase letters, lowercase letters, digits, and underscores (_).
+   * The username can be up to 16 characters in length.
    * 
    * This parameter is required.
    * 
@@ -57,7 +58,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

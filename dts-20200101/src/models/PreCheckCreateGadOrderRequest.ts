@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class PreCheckCreateGadOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the active geo-redundancy instance group.
+   * The ID of the global active instance group.
    * 
    * @example
    * gad-bp1i99e8l7913****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the primary database.
+   * 
+   * @example
+   * demo1
+   */
   masterDatabaseName?: string;
   masterEngineArchType?: string;
   masterShardAccountName?: string;
@@ -18,7 +25,7 @@ export class PreCheckCreateGadOrderRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -26,16 +33,23 @@ export class PreCheckCreateGadOrderRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfntftbiobqyky
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the secondary database.
+   * 
+   * @example
+   * demo1
+   */
   slaveDatabaseName?: string;
   /**
    * @remarks
-   * The instance ID of the database instance that assumes the secondary role.
+   * The instance ID of the secondary database.
    * 
    * @example
    * rm-bp17562h64****
@@ -43,12 +57,19 @@ export class PreCheckCreateGadOrderRequest extends $dara.Model {
   slaveDbInstanceId?: string;
   /**
    * @remarks
-   * The region of the database instance that assumes the secondary role.
+   * The region of the secondary database instance.
    * 
    * @example
    * cn-hangzhou
    */
   slaveDbInstanceRegion?: string;
+  /**
+   * @remarks
+   * The architecture type of the secondary database engine.
+   * 
+   * @example
+   * 1
+   */
   slaveEngineArchType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -22,7 +22,7 @@ export class DescribeSubscriptionInstanceStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -30,7 +30,7 @@ export class DescribeSubscriptionInstanceStatusRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query the instance ID.
+   * Instance ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 

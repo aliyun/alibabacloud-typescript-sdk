@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -22,7 +22,7 @@ export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region ID of the data synchronization instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +30,7 @@ export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -39,10 +39,11 @@ export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
-   * > Default value: **Forward**. The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * > Default value: **Forward**.
+   * This parameter takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization and you set this parameter to **Reverse**.
    * 
    * @example
    * Forward
@@ -50,7 +51,7 @@ export class DescribeSynchronizationJobStatusRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
+   * Instance ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The sort column when the response contains multiple DTS dedicated cluster instances. Valid values:
+   * The sort field when the response contains multiple DTS dedicated cluster instances. Valid values:
    * 
-   * - **gmtCreated**: creation time.
-   * - **orderCount**: number of nodes.
+   * - **gmtCreated**: Creation time.
+   * - **orderCount**: Number of nodes.
    * 
    * @example
    * gmtCreated
@@ -18,8 +18,8 @@ export class ListDedicatedClusterRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * - **asc**: ascending order. This is the default value.
-   * - **desc**: descending order.
+   * - **asc**: Ascending order. This is the default value.
+   * - **desc**: Descending order.
    * 
    * @example
    * asc
@@ -28,7 +28,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of clusters to display per page.
+   * The number of clusters to return on each page.
    * 
    * @example
    * 10
@@ -46,7 +46,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
    * @remarks
    * The specific content of the query condition.
    * 
-   * > You must first specify the **Type** parameter to define the query key.
+   * > You must specify **Type** to define the query key.
    * 
    * @example
    * dtspk3f13r731m****
@@ -54,7 +54,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The region ID. This parameter is used as a query condition.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -72,14 +72,14 @@ export class ListDedicatedClusterRequest extends $dara.Model {
    * @remarks
    * The cluster status. Valid values:
    * 
-   * - **init**: initializing.
-   * - **schedule**: pending scheduling.
-   * - **running**: running.
-   * - **upgrade**: upgrading.
-   * - **downgrade**: downgrading.
-   * - **locked**: locked.
-   * - **releasing**: being released.
-   * - **released**: released.
+   * - **init**: Initializing.
+   * - **schedule**: Pending scheduling.
+   * - **running**: Running.
+   * - **upgrade**: Upgrading.
+   * - **downgrade**: Downgrading.
+   * - **locked**: Locked.
+   * - **releasing**: Releasing.
+   * - **released**: Released.
    * 
    * @example
    * init
@@ -89,11 +89,11 @@ export class ListDedicatedClusterRequest extends $dara.Model {
    * @remarks
    * The query key. Valid values:
    * 
-   * - **NAME**: cluster name.
-   * - **INSTANCE**: cluster instance ID.
-   * - **DEDICATEDCLUSTERID**: dedicated cluster ID.
+   * - **NAME**: The cluster name.
+   * - **INSTANCE**: The cluster instance ID.
+   * - **DEDICATEDCLUSTERID**: The dedicated cluster ID.
    * 
-   * > You must also specify the **Params** parameter to provide the specific content of the query condition.
+   * > You must specify **Params** to define the query condition.
    * 
    * @example
    * NAME

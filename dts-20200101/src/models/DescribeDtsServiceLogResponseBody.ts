@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDtsServiceLogResponseBodyServiceLogContexts extends $dara.Model {
   /**
    * @remarks
-   * The specific log information.
+   * The log content.
    * 
    * @example
    * Statistics: generator = 369173; collector = 470109; replicator = 2470; ping = 2/2/2; execute = 29/29/29; rt = 29/29/29; state = IDLE; queries = -1; exceptions = {connects = 0, replicates = 0}; infos = {}
@@ -13,7 +13,7 @@ export class DescribeDtsServiceLogResponseBodyServiceLogContexts extends $dara.M
   context?: string;
   /**
    * @remarks
-   * The status of the log entry.
+   * The state of the log.
    * 
    * @example
    * NORMAL
@@ -21,7 +21,7 @@ export class DescribeDtsServiceLogResponseBodyServiceLogContexts extends $dara.M
   state?: string;
   /**
    * @remarks
-   * The time when the log was collected, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The time when the log was collected. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2021-05-13T09:13:39.443+00:00
@@ -63,7 +63,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
    * 
    * @example
    * DtsJobId
@@ -71,7 +71,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -79,7 +79,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -103,7 +103,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries per page.
+   * The number of log entries returned on the current page.
    * 
    * @example
    * 20
@@ -119,7 +119,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task logs details of the node.
+   * The details of the task logs.
    */
   serviceLogContexts?: DescribeDtsServiceLogResponseBodyServiceLogContexts[];
   /**
@@ -132,7 +132,7 @@ export class DescribeDtsServiceLogResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of log entries that meet the specified conditions.
+   * The total number of log entries that meet the query conditions.
    * 
    * @example
    * 35

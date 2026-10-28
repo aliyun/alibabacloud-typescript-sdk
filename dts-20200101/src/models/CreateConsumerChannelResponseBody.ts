@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID. You can pass this ID to the downstream client to consume the change tracking data.
+   * The ID of the consumer group. You can specify this ID when a downstream client consumes change tracking data.
    * 
    * @example
    * dtsor2y66j4219****
@@ -13,7 +13,7 @@ export class CreateConsumerChannelResponseBody extends $dara.Model {
   consumerGroupID?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class CreateConsumerChannelResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -45,7 +45,7 @@ export class CreateConsumerChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

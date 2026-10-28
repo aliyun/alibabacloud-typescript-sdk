@@ -16,12 +16,12 @@ export class ModifyDtsJobNameRequest extends $dara.Model {
   /**
    * @remarks
    * The new name of the task.
-   * > Configure a descriptive name that has business meaning (uniqueness is not required) for easy identification.
+   * > Specify a meaningful name for your business to facilitate identification. The name does not need to be unique.
    * 
    * This parameter is required.
    * 
    * @example
-   * RDS间迁移
+   * Migration between RDS instances
    */
   dtsJobName?: string;
   /**
@@ -34,7 +34,7 @@ export class ModifyDtsJobNameRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekzfkjjb5gyy6i
@@ -42,9 +42,9 @@ export class ModifyDtsJobNameRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
-   * - **true**: The node is a seamless integration (zero-ETL) node.
-   * - **false**: The node is not a seamless integration (zero-ETL) node.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true

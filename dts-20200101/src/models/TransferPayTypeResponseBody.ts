@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransferPayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method after conversion. Valid values:
+   * The new billing method. Valid values:
    * - **PrePaid**: subscription.
    * - **PostPaid**: pay-as-you-go.
    * 
@@ -31,8 +31,8 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the error message returned in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -40,9 +40,9 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The time when the subscription instance expires, in UNIX timestamp format.
-   * > - If the instance is converted to pay-as-you-go, this value is empty.
-   * - You can use a search engine to find a UNIX timestamp conversion tool.
+   * The time when the subscription instance expires. The value is a UNIX timestamp.
+   * > - If the modified instance is a pay-as-you-go instance, this value is null.
+   * - You can obtain a UNIX timestamp conversion tool by using a search engine.
    * 
    * @example
    * 1614916318
@@ -50,7 +50,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -58,7 +58,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.

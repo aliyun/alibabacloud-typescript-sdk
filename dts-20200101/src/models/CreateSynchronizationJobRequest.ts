@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSynchronizationJobRequestDestinationEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 目标库的实例类型，取值：
-   * - **MySQL**：MySQL数据库（包括RDS MySQL和自建MySQL）。
-   * - **PolarDB**：PolarDB集群（仅支持MySQL或兼容Oracle语法的引擎）。
-   * - **Redis**：Redis数据库。
-   * - **MaxCompute**：MaxCompute实例。
+   * The instance type of the destination database. Valid values:
+   * - **MySQL**: MySQL databases, including ApsaraDB RDS for MySQL instances and self-managed MySQL databases.
+   * - **PolarDB**: PolarDB clusters (only MySQL or engines compatible with Oracle syntax are supported).
+   * - **Redis**: Redis databases.
+   * - **MaxCompute**: MaxCompute instances.
    * 
-   * >- 默认取值为**MySQL**。
-   * - 关于支持的源库和目标库对应情况，请参见支持的[数据库、同步初始化类型和同步拓扑](https://help.aliyun.com/document_detail/130744.html)。
+   * > - Default value: **MySQL**.
+   * - For more information about the supported source and destination databases, see [Supported databases, initial synchronization types, and synchronization topology](https://help.aliyun.com/document_detail/130744.html).
    * 
    * @example
    * MySQL
@@ -42,15 +42,15 @@ export class CreateSynchronizationJobRequestDestinationEndpoint extends $dara.Mo
 export class CreateSynchronizationJobRequestSourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 源库的实例类型，取值：
+   * The instance type of the source database. Valid values:
    * 
-   * - **MySQL**：MySQL数据库（包括RDS MySQL和自建MySQL）。
-   * - **PolarDB**：PolarDB集群（仅支持MySQL或兼容Oracle语法的引擎）。
-   * - **Redis**：Redis数据库。
-   * - **DRDS**：云原生分布式数据库PolarDB-X 1.0。
+   * - **MySQL**: MySQL databases, including ApsaraDB RDS for MySQL instances and self-managed MySQL databases.
+   * - **PolarDB**: PolarDB clusters (only MySQL or engines compatible with Oracle syntax are supported).
+   * - **Redis**: Redis databases.
+   * - **DRDS**: cloud-native distributed database PolarDB-X 1.0.
    * 
-   * > - 默认取值为**MySQL**。
-   * - 关于支持的源库和目标库对应情况，请参见支持的[数据库、同步初始化类型和同步拓扑](https://help.aliyun.com/document_detail/130744.html)。
+   * > - Default value: **MySQL**.
+   * - For more information about the supported source and destination databases, see [Supported databases, initial synchronization types, and synchronization topology](https://help.aliyun.com/document_detail/130744.html).
    * 
    * @example
    * MySQL
@@ -82,7 +82,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   sourceEndpoint?: CreateSynchronizationJobRequestSourceEndpoint;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -90,7 +90,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -98,7 +98,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The number of private custom ApsaraDB RDS instances attached to the source PolarDB-X instance. This parameter is required when **SourceEndpoint.InstanceType** is set to **DRDS**. Default value: **1**.
+   * The number of private custom ApsaraDB RDS instances attached to the source PolarDB-X instance. This parameter is required only when the **SourceEndpoint.InstanceType** parameter is set to **DRDS**. Default value: **1**.
    * 
    * @example
    * 1
@@ -106,8 +106,8 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   DBInstanceCount?: number;
   /**
    * @remarks
-   * The region ID of the destination database for data synchronization. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-   * > If the region specified by the **SourceRegion** parameter is Hong Kong (China) or a region outside China, set this parameter to the same region ID.
+   * The region ID of the destination database. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > If the region specified by the **SourceRegion** parameter is Hong Kong (China) or outside China, you must specify the same region ID for this parameter.
    * 
    * This parameter is required.
    * 
@@ -120,7 +120,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * - **PrePaid**: subscription.
+   * - **PrePaid**: upfront.
    * - **PostPaid**: pay-as-you-go. This is the default value.
    * 
    * This parameter is required.
@@ -131,12 +131,12 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing method of the subscription instance. Valid values:
+   * The billing method of the upfront instance. Valid values:
    * 
-   * - **Year**: annual subscription.
-   * - **Month**: monthly subscription.
+   * - **Year**: yearly.
+   * - **Month**: monthly.
    * 
-   * > This parameter is valid and required only when **PayType** is set to **PrePaid** (subscription).
+   * > This parameter is valid and required only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * Year
@@ -144,7 +144,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID of the data synchronization instance. Set this parameter to the same value as the **DestRegion** parameter.
+   * The region ID of the data synchronization instance. The value must be the same as the value of the **DestRegion** parameter.
    * 
    * @example
    * cn-hangzhou
@@ -152,7 +152,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -160,7 +160,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The region ID of the source database for data synchronization. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the source database. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -170,8 +170,8 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   sourceRegion?: string;
   /**
    * @remarks
-   * The specification of the data synchronization link. Valid values: **micro**, **small**, **medium**, **large**.
-   * > For more information about the description and performance test results of each specification, see [Specifications of data synchronization links](https://help.aliyun.com/document_detail/26605.html).
+   * The specifications of the data synchronization link. Valid values: **micro**, **small**, **medium**, and **large**.
+   * > For more information about the specifications and performance tests of data synchronization links, see [Specifications of data synchronization links](https://help.aliyun.com/document_detail/26605.html).
    * 
    * This parameter is required.
    * 
@@ -187,7 +187,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
    * - **bidirectional**: two-way synchronization.
    * 
    * > - Default value: **oneway**.
-   * - You can set this parameter to **bidirectional** only when both **SourceEndpoint.InstanceType** and **DestinationEndpoint.InstanceType** are set to **MySQL**, **PolarDB**, or **Redis**.
+   * - You can set this parameter to **bidirectional** only when the **SourceEndpoint.InstanceType** and **DestinationEndpoint.InstanceType** parameters are set to **MySQL**, **PolarDB**, or **Redis**.
    * 
    * @example
    * oneway
@@ -195,12 +195,12 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   topology?: string;
   /**
    * @remarks
-   * The subscription duration of the subscription instance.
+   * The subscription duration of the upfront instance.
    * 
-   * - If the billing method is set to **Year**, valid values are **1 to 5**.
-   * - If the billing method is set to **Month**, valid values are **1 to 60**.
+   * - When the billing method is set to **Year** (yearly), valid values are **1** to **5**.
+   * - When the billing method is set to **Month** (monthly), valid values are **1** to **60**.
    * 
-   * > This parameter is valid and required only when **PayType** is set to **PrePaid** (subscription).
+   * > This parameter is valid and required only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 1
@@ -208,7 +208,7 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
-   * The network type for Data Transmission Service. Set the value to **Intranet** (Express Connect).
+   * The network type of Data Transmission Service. The value is fixed to **Intranet** (Express Connect circuit).
    * 
    * @example
    * Intranet

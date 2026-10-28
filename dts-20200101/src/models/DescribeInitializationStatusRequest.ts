@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInitializationStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -14,7 +14,7 @@ export class DescribeInitializationStatusRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. Valid values: any integer greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class DescribeInitializationStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -46,7 +46,7 @@ export class DescribeInitializationStatusRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
+   * Instance ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 

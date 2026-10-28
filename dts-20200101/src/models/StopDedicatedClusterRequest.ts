@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
-   * > You must specify either **InstanceId** or **DedicatedClusterId**.
+   * The dedicated cluster ID.
+   * > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -14,7 +14,7 @@ export class StopDedicatedClusterRequest extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The dedicated cluster name.
    * 
    * @example
    * dtscluster_test_001
@@ -23,7 +23,7 @@ export class StopDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * > You must specify either **InstanceId** or **DedicatedClusterId**.
+   * > You must specify either the **InstanceId** or **DedicatedClusterId** parameter.
    * 
    * @example
    * rm-bp1162kryivb8****
@@ -32,7 +32,7 @@ export class StopDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -40,10 +40,10 @@ export class StopDedicatedClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This is a global parameter that does not need to be specified for this operation.
+   * The resource group ID. This is a global parameter and is not required for this API operation.
    * 
    * @example
-   * 资源组ID，全局参数，当前API无需传入。
+   * The resource group ID. This is a global parameter and is not required for this API operation
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

@@ -13,10 +13,10 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether latency monitoring is enabled. Valid values:
+   * Indicates whether the latency status is monitored. Valid values:
    * 
-   * - **enable**: enabled.
-   * - **disable**: disabled.
+   * - **enable**: Yes.
+   * - **disable**: No.
    * 
    * @example
    * enable
@@ -24,7 +24,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold that triggers a latency alert. Unit: seconds.
+   * The threshold for triggering a latency alert. Unit: seconds.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   delayOverSeconds?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -40,7 +40,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -48,7 +48,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The mobile phone number of the contact for error alerts.
+   * The mobile phone number of the contact for abnormal alerts.
    * 
    * @example
    * 1361234****,1371234****
@@ -56,10 +56,10 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether error status monitoring is enabled. Valid values:
+   * Indicates whether the abnormal status is monitored. Valid values:
    * 
-   * - **enable**: enabled.
-   * - **disable**: disabled.
+   * - **enable**: Yes.
+   * - **disable**: No.
    * 
    * @example
    * enable
@@ -67,7 +67,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 210ec20e16055205968635339d****
@@ -75,7 +75,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -85,8 +85,8 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * > Default value: **Forward**.
    * 

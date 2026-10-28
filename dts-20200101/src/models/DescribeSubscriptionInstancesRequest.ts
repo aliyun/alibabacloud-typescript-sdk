@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
-   * > - N specifies the sequence number of the tag key. For example, Tag.1.Key specifies the key of the first tag, and Tag.2.Key specifies the key of the second tag. You can query 1 to 20 tag keys at a time.
+   * The tag key.
+   * > - N specifies the sequence number of the tag key. For example, Tag.1.Key specifies the first tag key, and Tag.2.Key specifies the second tag key. You can specify 1 to 20 tag keys at a time.
    * - Empty strings are not allowed.
    * 
    * This parameter is required.
@@ -17,8 +17,8 @@ export class DescribeSubscriptionInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
-   * >- N specifies the sequence number of the tag value. For example, Tag.1.Value specifies the value of the first tag, and Tag.2.Value specifies the value of the second tag. You can query 1 to 20 tag values at a time.
+   * The tag value.
+   * >- N specifies the sequence number of the tag value. For example, Tag.1.Value specifies the first tag value, and Tag.2.Value specifies the second tag value. You can specify 1 to 20 tag values at a time.
    * - Empty strings are allowed.
    * 
    * @example
@@ -51,7 +51,7 @@ export class DescribeSubscriptionInstancesRequestTag extends $dara.Model {
 export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -59,7 +59,7 @@ export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can generate the value from your client. Make sure that the value is unique across different requests. **ClientToken** supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -68,7 +68,7 @@ export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be an integer greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and no more than the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -92,7 +92,7 @@ export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekz4us4iruleja
@@ -101,15 +101,15 @@ export class DescribeSubscriptionInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the change tracking instance.
-   * > If you specify this parameter, DTS returns the change tracking instances that contain the specified name in the response.
+   * > If you specify this parameter, DTS returns the change tracking instances whose names contain the specified value.
    * 
    * @example
-   * MySQL订阅
+   * MySQL change tracking
    */
   subscriptionInstanceName?: string;
   /**
    * @remarks
-   * The tags of the data migration instance. These tags are used as filter conditions. If this parameter is specified, only instances that have the specified tags are returned.
+   * The tags of the data migration instances. This parameter is used as a filter. If this parameter is specified, only instances that have the specified tags are returned.
    */
   tag?: DescribeSubscriptionInstancesRequestTag[];
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   cpuUtilization?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the dedicated cluster.
    * 
    * @example
    * dtsCluster****
@@ -21,7 +21,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the dedicated cluster.
    * 
    * @example
    * daily_test
@@ -29,7 +29,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   dedicatedClusterName?: string;
   /**
    * @remarks
-   * The disk utilization.
+   * The disk usage.
    * 
    * @example
    * 50
@@ -61,7 +61,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   duUtilization?: number;
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -69,7 +69,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -85,7 +85,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   gmtCreated?: number;
   /**
    * @remarks
-   * The end time.
+   * The completion time.
    * 
    * @example
    * 1645200000000
@@ -101,7 +101,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The memory utilization.
+   * The memory usage.
    * 
    * @example
    * 20
@@ -109,7 +109,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   memUtilization?: number;
   /**
    * @remarks
-   * The number of nodes in the cluster.
+   * The number of nodes in the dedicated cluster.
    * 
    * @example
    * 5
@@ -125,7 +125,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   oversoldDu?: number;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -133,7 +133,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -141,16 +141,15 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The cluster status. Valid values:
-   * 
-   * - **init**: initialization.
-   * - **schedule**: pending scheduling.
-   * - **running**: running.
-   * - **upgrade**: upgrading.
-   * - **downgrade**: downgrading.
-   * - **locked**: locked.
-   * - **releasing**: being released.
-   * - **released**: released.
+   * The status of the dedicated cluster. Valid values:
+   * - **init**: initializing
+   * - **schedule**: pending scheduling
+   * - **running**: running
+   * - **upgrade**: upgrading
+   * - **downgrade**: downgrading
+   * - **locked**: locked
+   * - **releasing**: releasing
+   * - **released**: released
    * 
    * @example
    * inti
@@ -174,7 +173,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   totalCpuCore?: number;
   /**
    * @remarks
-   * The total disk size, in GB.
+   * The total disk size in GB.
    * 
    * @example
    * 2048
@@ -182,7 +181,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   totalDiskGBSize?: number;
   /**
    * @remarks
-   * The total memory size, in GB.
+   * The total memory size in GB.
    * 
    * @example
    * 256
@@ -198,7 +197,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   usedCpuCore?: number;
   /**
    * @remarks
-   * The used disk size, in GB.
+   * The used disk size in GB.
    * 
    * @example
    * 1024
@@ -214,7 +213,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   usedDu?: number;
   /**
    * @remarks
-   * The used memory size, in GB.
+   * The used memory size in GB.
    * 
    * @example
    * 128

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreCheckCreateGadOrderResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the GAD instance group.
+   * The instance ID of the global active database (GAD) instance group.
    * 
    * @example
    * gad-bp162d4tp0500****
@@ -14,7 +14,7 @@ export class DescribePreCheckCreateGadOrderResultRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. You can set this parameter to specify the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -22,7 +22,7 @@ export class DescribePreCheckCreateGadOrderResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSubscriptionInstanceRequestSourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 数据订阅的实例类型，取值为：**MySQL**、**PolarDB**、**DRDS**、**Oracle**。
-   * > 默认取值为：**MySQL**。
+   * The instance type for change tracking. Valid values: **MySQL**, **PolarDB**, **DRDS**, and **Oracle**.
+   * > Default value: **MySQL**.
    * 
    * @example
    * MySQL
@@ -37,7 +37,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   sourceEndpoint?: CreateSubscriptionInstanceRequestSourceEndpoint;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it is about to be deprecated.
    * 
    * @example
    * 12323344****
@@ -45,7 +45,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a value from your client to make sure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -54,7 +54,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing method. Valid values:
    * 
    * - **Postpaid**: pay-as-you-go. This is the default value.
    * - **Prepaid**: subscription.
@@ -65,12 +65,12 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing method of the subscription instance. Valid values:
+   * The billing method for a subscription instance. Valid values:
    * 
-   * - **Year**: annual subscription.
-   * - **Month**: monthly subscription.
+   * - **Year**: yearly.
+   * - **Month**: monthly.
    * 
-   * > This parameter is valid and required only when PayType is set to **Prepaid** (subscription).
+   * > This parameter is valid and required only when the billing method is set to **Prepaid** (subscription).
    * 
    * @example
    * Month
@@ -78,7 +78,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID. Set this parameter to the region where the subscription object resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. It must be the same as the region where the source object resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -88,7 +88,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The region to which the change tracking instance belongs. You do not need to specify this parameter. This parameter will be discontinued.
+   * The region of the change tracking instance. You do not need to specify this parameter because it is about to be deprecated.
    * 
    * @example
    * cn-hangzhou
@@ -96,7 +96,7 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -104,12 +104,12 @@ export class CreateSubscriptionInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The purchase duration of the subscription instance.
+   * The purchase duration of a subscription instance.
    * 
-   * - If the billing method is set to **Year** (annual subscription), the valid values are **1 to 5**.
-   * - If the billing method is set to **Month** (monthly subscription), the valid values are **1 to 60**.
+   * - If the billing method is set to **Year**, valid values are **1** to **5**.
+   * - If the billing method is set to **Month**, valid values are **1** to **60**.
    * 
-   * > This parameter is valid and required only when PayType is set to **Prepaid** (subscription).
+   * > This parameter is valid and required only when the billing method is set to **Prepaid** (subscription).
    * 
    * @example
    * 12

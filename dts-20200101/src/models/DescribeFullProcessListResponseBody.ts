@@ -13,7 +13,11 @@ export class DescribeFullProcessListResponseBodyFullProcessList extends $dara.Mo
   detail?: string;
   /**
    * @remarks
-   * The exception status of the task. Valid values: - **notstarted**: not started. - **checking**: being checked. - **failed**: failed. - **finished**: completed.
+   * The exception status of the task. Valid values:
+   * - **notstarted**: The task is not started.
+   * - **checking**: The task is being checked.
+   * - **failed**: The task fails.
+   * - **finished**: The task is completed.
    * 
    * @example
    * notstarted
@@ -32,7 +36,7 @@ export class DescribeFullProcessListResponseBodyFullProcessList extends $dara.Mo
    * The process type. Valid values:
    * - **1**: trusted
    * - **2**: suspicious
-   * - **3**: malicious.
+   * - **3**: malicious
    * 
    * @example
    * 1
@@ -40,7 +44,7 @@ export class DescribeFullProcessListResponseBodyFullProcessList extends $dara.Mo
   processType?: string;
   /**
    * @remarks
-   * The SQL statement that is being executed.
+   * The running SQL statements.
    * 
    * @example
    * test
@@ -64,7 +68,7 @@ export class DescribeFullProcessListResponseBodyFullProcessList extends $dara.Mo
   taskID?: string;
   /**
    * @remarks
-   * The time when the log was collected, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The log collection time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 1729650129452
@@ -116,15 +120,15 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * This parameter does not return a value. The following parameters describe the rate limiting configurations:
+   * This parameter does not return a value. It specifies the following bandwidth throttling configurations:
    * 
-   * - **dts.datamove.blaster.qps.max**: the rate of queries per second to the source database.
-   * - **dts.datamove.source.rps.max**: the number of rows per second for full data synchronization or migration (RPS).
-   * - **dts.datamove.source.bps.max**: the amount of data per second for full data synchronization or migration, in bytes per second.
+   * - **dts.datamove.blaster.qps.max**: the maximum number of queries per second (QPS) for the source database.
+   * - **dts.datamove.source.rps.max**: the maximum number of rows per second (RPS) for full data synchronization or migration.
+   * - **dts.datamove.source.bps.max**: the maximum amount of data per second for full data synchronization or migration, in bytes per second.
    * 
-   * > - When **JobCode** is set to **03**, you must set **EnableLimit** to **true** for the three parameters to take effect.
-   * - When **JobCode** is set to **04** or **07**, you only need to configure **dts.datamove.source.rps.max** and **dts.datamove.source.bps.max**.
-   * - A value of **-1** indicates that rate limiting is disabled.
+   * > - If **JobCode** is set to **03**, you must set **EnableLimit** to **true** for the configurations of the three parameters to take effect.
+   * - If **JobCode** is set to **04** or **07**, you only need to configure **dts.datamove.source.rps.max** and **dts.datamove.source.bps.max**.
+   * - A value of **-1** indicates that no bandwidth throttling is applied.
    * 
    * @example
    * {
@@ -135,7 +139,7 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   configList?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the migration, synchronization, or change tracking task.
+   * The ID of the data migration, data synchronization, or change tracking task.
    * 
    * @example
    * i03e3zty16i****
@@ -143,8 +147,8 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -152,7 +156,7 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -160,7 +164,7 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -181,7 +185,7 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C166D79D-436B-45F0-B5A5-25E1959F****
@@ -189,11 +193,11 @@ export class DescribeFullProcessListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request is successful.
    * 
-   * - **false**: The request failed.
+   * - **false**: The request fails.
    * 
    * @example
    * true

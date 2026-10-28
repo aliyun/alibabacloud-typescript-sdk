@@ -21,7 +21,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesData
   percent?: string;
   /**
    * @remarks
-   * The number of records that have been synchronized during initial full data synchronization.
+   * The number of records for which initial full data synchronization is completed.
    * 
    * @example
    * 200001
@@ -30,10 +30,10 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesData
   /**
    * @remarks
    * The status of initial full data synchronization. Valid values:
-   * - **NotStarted**: not started.
-   * - **Migrating**: in progress.
-   * - **Failed**: failed.
-   * - **Finished**: completed.
+   * - **NotStarted**: The initial synchronization is not started.
+   * - **Migrating**: The initial synchronization is in progress.
+   * - **Failed**: The initial synchronization failed.
+   * - **Finished**: The initial synchronization is completed.
    * 
    * @example
    * Finished
@@ -69,8 +69,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesData
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The synchronization latency of incremental data synchronization.
-   * > This parameter has been discontinued.
+   * The incremental data synchronization latency.
+   * > **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * 0
@@ -79,16 +79,16 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesData
   /**
    * @remarks
    * The error message returned when incremental data synchronization fails.
-   * > This parameter has been discontinued.
+   * > **[Deprecated]** This parameter is deprecated.
    * 
    * @example
-   * 任务失败太久无法恢复
+   * The task has failed for too long to be recovered
    */
   errorMessage?: string;
   /**
    * @remarks
    * The progress of incremental data synchronization.
-   * > This parameter has been discontinued.
+   * > **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * 100
@@ -97,7 +97,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesData
   /**
    * @remarks
    * The status of incremental data synchronization.
-   * > This parameter has been discontinued.
+   * > **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * Finished
@@ -157,7 +157,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDest
   instanceId?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -213,7 +213,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDest
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance extends $dara.Model {
   /**
    * @remarks
-   * The volume of data synchronized per second, in MB/s.
+   * The traffic of data synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -254,8 +254,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Success**: passed.
-   * - **Failed**: failed.
+   * - **Success**: The check item passed.
+   * - **Failed**: The check item failed.
    * 
    * @example
    * Success
@@ -264,7 +264,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
   /**
    * @remarks
    * The error message returned when the precheck fails.
-   * > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+   * > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -280,8 +280,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
   itemName?: string;
   /**
    * @remarks
-   * The repair method when the precheck fails.
-   * > This parameter is returned only when the value of the **CheckStatus** parameter is **Failed**.
+   * The solution for a failed precheck item.
+   * > This parameter is returned only when the **CheckStatus** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -317,7 +317,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   detail?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatusDetail[];
   /**
@@ -331,8 +331,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
   /**
    * @remarks
    * The precheck result. Valid values:
-   * - **Success**: passed.
-   * - **Failed**: failed.
+   * - **Success**: The check item passed.
+   * - **Failed**: The check item failed.
    * 
    * @example
    * Success
@@ -465,7 +465,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesStru
   percent?: string;
   /**
    * @remarks
-   * The number of tables for which initial schema synchronization has been completed.
+   * The number of tables for which initial schema synchronization is completed.
    * 
    * @example
    * 1
@@ -474,10 +474,10 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesStru
   /**
    * @remarks
    * The status of initial schema synchronization. Valid values:
-   * - **NotStarted**: not started.
-   * - **Migrating**: in progress.
-   * - **Failed**: failed.
-   * - **Finished**: completed.
+   * - **NotStarted**: The initial synchronization is not started.
+   * - **Migrating **: The initial synchronization is in progress.
+   * - **Failed **: The initial synchronization failed.
+   * - **Finished**: The initial synchronization is completed.
    * 
    * @example
    * Finished
@@ -573,7 +573,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSync
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects extends $dara.Model {
   /**
    * @remarks
-   * The name of the database to which the objects are mapped in the destination database.
+   * The mapped name of the database to be synchronized in the destination database.
    * 
    * @example
    * newdtstestdatabase
@@ -589,7 +589,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSync
   schemaName?: string;
   /**
    * @remarks
-   * The tables that are excluded from the database to be synchronized. These tables are not synchronized.
+   * The tables excluded from the database to be synchronized. These tables are not synchronized.
    */
   tableExcludes?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes[];
   /**
@@ -673,7 +673,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the synchronization task was created, in the format of <i>yyyy-MM-dd HH:mm:ss</i>.0 (UTC+8).
+   * The time when the data synchronization task was created. The time is displayed in the <i>yyyy-MM-dd HH:mm:ss</i>.0 format in UTC+8.
    * 
    * @example
    * 2021-06-28 17:34:53.0
@@ -681,7 +681,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether initial full data synchronization is performed. Valid values:
+   * Specifies whether to perform initial full data synchronization. Valid values:
    * 
    * - **true**: Yes.
    * - **false**: No.
@@ -698,7 +698,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   /**
    * @remarks
    * The status of incremental data synchronization.
-   * > This parameter set and its contained parameters have been discontinued.
+   * > **[Deprecated]** This parameter collection and its sub-parameters are deprecated.
    */
   dataSynchronizationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus;
   /**
@@ -724,8 +724,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   errorMessage?: string;
   /**
    * @remarks
-   * The expiration time of the synchronization instance, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-   * > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+   * The expiration time of the data synchronization instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2021-07-07T16:00:00Z
@@ -733,7 +733,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   expireTime?: string;
   /**
    * @remarks
-   * The time when the synchronization instance was created, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the data synchronization instance was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2021-06-28T09:36:32Z
@@ -741,7 +741,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   instanceCreateTime?: string;
   /**
    * @remarks
-   * The time when the synchronization task was created, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the data synchronization task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2021-06-28T09:34:53Z
@@ -749,9 +749,9 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   jobCreateTime?: string;
   /**
    * @remarks
-   * The billing method of the synchronization instance. Valid values:
-   * - **PrePaid**: subscription.
-   * - **PostPaid**: pay-as-you-go.
+   * The billing method of the data synchronization instance. Valid values:
+   * - **PrePaid**: Subscription.
+   * - **PostPaid**: Pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -759,7 +759,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   payType?: string;
   /**
    * @remarks
-   * The overview information of the synchronization link.
+   * The overview of the synchronization link.
    */
   performance?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance;
   /**
@@ -774,17 +774,17 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   sourceEndpoint?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint;
   /**
    * @remarks
-   * The status of the synchronization instance. Valid values:
-   * - **NotStarted**: not started.
-   * - **Prechecking**: running the precheck.
-   * - **PrecheckFailed**: precheck failed.
-   * - **Initializating**: performing initial synchronization.
-   * - **InitializeFailed**: initial synchronization failed.
-   * - **Synchronizing**: synchronizing.
-   * - **Failed**: synchronization failed.
-   * - **Suspending**: paused.
-   * - **Modifying**: modifying synchronization objects.
-   * - **Finished**: completed.
+   * The status of the data synchronization instance. Valid values:
+   * - **NotStarted**: The instance is not started.
+   * - **Prechecking**: The precheck is in progress.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **Initializating **: The initial synchronization is in progress.
+   * - **InitializeFailed**: The initial synchronization failed.
+   * - **Synchronizing **: The synchronization is in progress.
+   * - **Failed**: The synchronization failed.
+   * - **Suspending**: The instance is suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Finished**: The synchronization is completed.
    * 
    * @example
    * synchronizing
@@ -792,7 +792,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   status?: string;
   /**
    * @remarks
-   * Indicates whether initial schema synchronization is performed. Valid values:
+   * Specifies whether to perform initial schema synchronization. Valid values:
    * 
    * - **true**: Yes.
    * - **false**: No.
@@ -809,8 +809,8 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * @example
    * Forward
@@ -818,7 +818,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The specification of the synchronization link.
+   * The specifications of the synchronization link.
    * 
    * @example
    * large
@@ -834,10 +834,10 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   synchronizationJobId?: string;
   /**
    * @remarks
-   * The name of the synchronization instance.
+   * The name of the data synchronization instance.
    * 
    * @example
-   * MySQL同步
+   * MySQL synchronization
    */
   synchronizationJobName?: string;
   /**
@@ -847,7 +847,7 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstances ext
   synchronizationObjects?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects[];
   /**
    * @remarks
-   * The tag collection.
+   * The tags.
    */
   tags?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags[];
   static names(): { [key: string]: string } {

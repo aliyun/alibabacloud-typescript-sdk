@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertInstanceResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * A legacy parameter. This parameter does not take effect. You do not need to pass this parameter.
+   * A legacy parameter. This parameter does not take effect and does not need to be specified.
    * 
    * @example
    * m4312mab158****
@@ -13,7 +13,7 @@ export class ConvertInstanceResourceGroupRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the new resource group. You can obtain the ID from the Resource Management console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the new resource group. You can obtain the ID from the Resource Management console. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-aek2r4fkrqw****
@@ -21,7 +21,7 @@ export class ConvertInstanceResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides.
+   * The region ID of the DTS instance.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class ConvertInstanceResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A parameter reserved for special business scenarios. You do not need to pass this parameter.
+   * A field reserved for specific business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * rg-3m1213ye7l****
@@ -47,7 +47,7 @@ export class ConvertInstanceResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * A parameter reserved for special business scenarios. You do not need to pass this parameter.
+   * A field reserved for specific business scenarios. You do not need to specify this parameter.
    * 
    * @example
    * true

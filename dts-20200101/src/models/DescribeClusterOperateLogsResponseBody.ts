@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Model {
   /**
    * @remarks
-   * The additional remarks.
+   * Additional remarks.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   content?: string;
   /**
    * @remarks
-   * The primary key of the log record table.
+   * The primary key of the log record.
    * 
    * @example
    * 237827
@@ -29,7 +29,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   logDatetime?: number;
   /**
    * @remarks
-   * The new parameter value when the operation type is update.
+   * The new parameter value if the operation type is modification.
    * 
    * @example
    * 105
@@ -37,7 +37,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   newValue?: string;
   /**
    * @remarks
-   * The old parameter value when the operation type is update.
+   * The original parameter value if the operation type is modification.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   operationUser?: string;
   /**
    * @remarks
-   * The call result. Indicates whether the call was successful. A value of **1** indicates success.
+   * The call result. A value of **1** indicates success.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
 export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backend error code, which is incrementally numeric.
+   * The backend error code.
    * 
    * @example
    * 500
@@ -118,7 +118,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   dataPoints?: DescribeClusterOperateLogsResponseBodyDataPoints[];
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage parameter.
    * 
    * @example
    * Type
@@ -158,7 +158,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries displayed on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -182,7 +182,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

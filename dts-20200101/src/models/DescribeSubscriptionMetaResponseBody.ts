@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $dara.Model {
   /**
    * @remarks
-   * The consumption checkpoint of the subtask, which is the timestamp of the first data record consumed by the client. The value is a UNIX timestamp. Unit: seconds.
-   * > You can use a search engine to find a UNIX timestamp converter.
+   * The consumption checkpoint of the subtask, which is the timestamp when the client consumes the first data record. The value is a UNIX timestamp in seconds.
+   * > You can use a search engine to obtain a UNIX timestamp converter.
    * 
    * @example
    * 1610524452
@@ -14,7 +14,7 @@ export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $d
   checkpoint?: number;
   /**
    * @remarks
-   * The objects of the subtask. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The change tracking objects of the subtask. For more information, see [Objects for data migration, synchronization, and change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"name\\":\\"dtstestdata\\",\\"all\\":false,\\"Table\\":{\\"order\\":{\\"name\\":\\"order\\",\\"all\\":true}}}}
@@ -38,7 +38,7 @@ export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $d
   sid?: string;
   /**
    * @remarks
-   * The topic of the subtask.
+   * The change tracking topic of the subtask.
    * 
    * @example
    * cn_hangzhou_rm_bp1n0x0x5tz******_dtstestdata_version2
@@ -76,7 +76,7 @@ export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $d
 export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -84,7 +84,7 @@ export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -108,12 +108,12 @@ export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data information about the change tracking subtasks.
+   * The data information of the change tracking subtasks.
    */
   subscriptionMetaList?: DescribeSubscriptionMetaResponseBodySubscriptionMetaList[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

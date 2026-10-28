@@ -501,7 +501,7 @@ export class DescribeMigrationJobsResponseBodyMigrationJobs extends $dara.Model 
 export class DescribeMigrationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the request fails.
    * 
    * @example
    * InternalError
@@ -509,7 +509,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the request fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -526,7 +526,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of records that can be displayed on the current page.
+   * The maximum number of entries that can be displayed on the current page.
    * 
    * @example
    * 30

@@ -13,7 +13,7 @@ export class SwitchPhysicalDtsJobToCloudRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the data migration or synchronization task. You can call the **DescribeDtsJobs** operation to query the ID.
+   * The ID of the data migration or synchronization instance. You can call the **describedtsjobs** operation to query the instance ID.
    * 
    * @example
    * l5512es7w15****
@@ -29,7 +29,7 @@ export class SwitchPhysicalDtsJobToCloudRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekz4us4iruleja
@@ -38,11 +38,11 @@ export class SwitchPhysicalDtsJobToCloudRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * > - Default value: **Forward**.
-   * - You can set this parameter to **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
+   * - You can specify **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward

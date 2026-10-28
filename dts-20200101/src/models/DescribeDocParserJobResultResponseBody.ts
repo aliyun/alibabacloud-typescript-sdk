@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocParserJobResultResponseBodyContentList extends $dara.Model {
   /**
    * @remarks
-   * The text content of the corresponding page, which is the complete Markdown text after parsing.
+   * The text content of the corresponding page, which is the complete parsed Markdown text.
    * 
    * @example
    * * Demo * ** Demo title **
@@ -46,12 +46,12 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
   /**
    * @remarks
    * The complete text parsing content.
-   * > If the task type is content, ContentList splits the original document by page. Each page has a separate Markdown text entry.
+   * > For a content task, ContentList splits the original document by page. Each page has a separate Markdown text block.
    */
   contentList?: DescribeDocParserJobResultResponseBodyContentList[];
   /**
    * @remarks
-   * The dynamic error code. This parameter will be deprecated.
+   * The dynamic error code. This parameter will be deprecated soon.
    * 
    * @example
    * 403
@@ -59,8 +59,8 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message. It is used to replace the **%s** placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -68,7 +68,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InternalError
@@ -76,7 +76,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -86,7 +86,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
    * @remarks
    * The OSS download URL of the file.
    * 
-   * > If the task type is zip, this field returns the download URL of the zip package. The URL is valid for 30 minutes.
+   * > For a ZIP task, this field returns the download URL of the ZIP package. The URL is valid for 30 minutes.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com/806a_209584525031252870_078f1180f27b4c069c0f271758aa****
@@ -118,7 +118,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartSubscriptionInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class StartSubscriptionInstanceResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -37,7 +37,7 @@ export class StartSubscriptionInstanceResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The task ID. This parameter is about to be deprecated.
+   * The ID of the task. This parameter will be deprecated soon.
    * 
    * @example
    * 11****

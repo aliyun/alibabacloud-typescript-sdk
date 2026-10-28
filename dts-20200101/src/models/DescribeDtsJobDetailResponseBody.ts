@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDtsJobDetailResponseBodyDataDeliveryChannelInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of partitions for the delivery topic.
+   * The number of partitions in the destination topic.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class DescribeDtsJobDetailResponseBodyDataDeliveryChannelInfo extends $da
   publicDproxyUrl?: string;
   /**
    * @remarks
-   * The region where the delivery channel resides.
+   * The region where the delivery channel is located.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeDtsJobDetailResponseBodyDataDeliveryChannelInfo extends $da
   region?: string;
   /**
    * @remarks
-   * The destination topic for delivery.
+   * The destination topic.
    * 
    * @example
    * cn_hangzhou_******_data_delivery_version2
@@ -75,15 +75,18 @@ export class DescribeDtsJobDetailResponseBodyDataDeliveryChannelInfo extends $da
 export class DescribeDtsJobDetailResponseBodyDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when incremental data migration or synchronization fails.
+   * The error message for incremental data migration or synchronization failures.
    * 
    * @example
-   * The task has failed for too long to recover
+   * The task failed too long ago to be recovered
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether to display the option to upgrade the instance type. Valid values:
+   * Indicates whether the instance specifications need to be upgraded. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -99,7 +102,7 @@ export class DescribeDtsJobDetailResponseBodyDataSynchronizationStatus extends $
   percent?: string;
   /**
    * @remarks
-   * The number of data rows and data volume migrated or synchronized to the destination table per second.
+   * The number of rows and the volume of data that are incrementally migrated or synchronized to the destination table per second.
    * 
    * @example
    * 0.00RPS/(0.000MB/s)
@@ -107,7 +110,14 @@ export class DescribeDtsJobDetailResponseBodyDataSynchronizationStatus extends $
   progress?: string;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization. Valid values:
+   * The incremental data migration or incremental data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **Checking**: The task is being checked.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Catched
@@ -143,10 +153,19 @@ export class DescribeDtsJobDetailResponseBodyDataSynchronizationStatus extends $
 }
 
 export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the destination instance belongs.
+   * 
+   * @example
+   * 1234567890123456
+   */
   aliyunUid?: string;
   /**
    * @remarks
    * Indicates whether the password can be modified. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -154,7 +173,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
   canModifyPassword?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -195,7 +214,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -211,20 +230,26 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
   port?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
+   * 
+   * @example
+   * dts-ram-role
+   */
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether an SSL connection is used. Valid values:
-   * 
-   * - **DISABLE**: SSL connection is not used.
-   * - **ENABLE_WITH_CERTIFICATE**: SSL connection is used, and a CA certificate is uploaded.
-   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL connection is used to connect to AWS MongoDB Atlas.
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
    * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
@@ -288,6 +313,8 @@ export class DescribeDtsJobDetailResponseBodyMigrationMode extends $dara.Model {
   /**
    * @remarks
    * Indicates whether data transformation is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -296,6 +323,8 @@ export class DescribeDtsJobDetailResponseBodyMigrationMode extends $dara.Model {
   /**
    * @remarks
    * Indicates whether full data migration or initial full data synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -304,6 +333,8 @@ export class DescribeDtsJobDetailResponseBodyMigrationMode extends $dara.Model {
   /**
    * @remarks
    * Indicates whether incremental data migration or synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -312,6 +343,8 @@ export class DescribeDtsJobDetailResponseBodyMigrationMode extends $dara.Model {
   /**
    * @remarks
    * Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -347,7 +380,7 @@ export class DescribeDtsJobDetailResponseBodyMigrationMode extends $dara.Model {
 export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the retry fails.
+   * The error message for retry failures.
    * 
    * @example
    * Unexpected error
@@ -363,7 +396,7 @@ export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The maximum retry time. Unit: seconds.
+   * The maximum retry time, in seconds.
    * 
    * @example
    * 7200
@@ -371,7 +404,7 @@ export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
   maxRetryTime?: number;
   /**
    * @remarks
-   * The instance progress.
+   * The progress of the instance.
    * 
    * @example
    * 03
@@ -389,9 +422,9 @@ export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
    * @remarks
    * The retry target. Valid values:
    * 
-   * - **srcDB**: source database.
-   * - **destDB**: destination database.
-   * - **inner_module**: DTS internal module.
+   * - **srcDB**: The source database.
+   * - **destDB**: The destination database.
+   * - **inner_module**: The internal module of DTS.
    * 
    * @example
    * srcDB
@@ -399,7 +432,7 @@ export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
   retryTarget?: string;
   /**
    * @remarks
-   * The elapsed retry time. Unit: seconds.
+   * The elapsed retry time, in seconds.
    * 
    * @example
    * 3600
@@ -408,6 +441,9 @@ export class DescribeDtsJobDetailResponseBodyRetryState extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the task is being retried. Valid values:
+   * 
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * false
@@ -460,6 +496,8 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the password can be modified. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -467,7 +505,7 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   canModifyPassword?: boolean;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdata
@@ -508,7 +546,7 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the source instance is set to **Oracle** and the Oracle database is a non-Real Application Cluster instance.
+   * > This parameter is returned only when the **EngineName** parameter of the source instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -524,7 +562,7 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   port?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -532,7 +570,7 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -540,11 +578,10 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether an SSL connection is used. Valid values:
-   * 
-   * - **DISABLE**: SSL connection is not used.
-   * - **ENABLE_WITH_CERTIFICATE**: SSL connection is used, and the CA certificate is uploaded.
-   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL connection is used to connect to AWS MongoDB Atlas.
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
    * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
@@ -607,7 +644,7 @@ export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $dara.Model 
 export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -615,7 +652,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus exte
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -623,7 +662,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus exte
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -631,7 +670,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus exte
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -640,10 +679,10 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus exte
   /**
    * @remarks
    * The status of the ETL task. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: Running.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * - **Catched**: No latency.
    * 
    * @example
@@ -682,7 +721,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus exte
 export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when full data migration or initial full data synchronization failed.
+   * The error message returned when full data migration or initial full data synchronization fails.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -690,7 +729,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitialization
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -698,7 +739,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitialization
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -706,7 +747,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitialization
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -714,7 +755,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitialization
   progress?: string;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization. Valid values:
+   * The full data migration or initial full data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -752,7 +797,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataInitialization
 export class DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -760,7 +805,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizatio
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -768,7 +815,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizatio
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization progress.
    * 
    * @example
    * 95
@@ -776,7 +823,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizatio
   percent?: string;
   /**
    * @remarks
-   * The number of data rows and data volume migrated or synchronized to the destination table per second.
+   * The number of rows and the volume of data that are incrementally migrated or synchronized to the destination table per second.
    * 
    * @example
    * 0.00RPS/(0.000MB/s)
@@ -784,7 +831,14 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizatio
   progress?: string;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization. Valid values:
+   * The incremental data migration or incremental data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **Checking**: The task is being checked.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Catched
@@ -830,7 +884,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDestinationEndpoin
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -871,7 +925,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDestinationEndpoin
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-Real Application Cluster (RAC) instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testid
@@ -887,7 +941,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDestinationEndpoin
   port?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -895,7 +949,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDestinationEndpoin
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -903,12 +957,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobDestinationEndpoin
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether an SSL connection is used. Valid values:
-   * 
-   * - **DISABLE**: An SSL connection is not used.
-   * - **ENABLE_WITH_CERTIFICATE**: An SSL connection is used, and a CA certificate is uploaded.
-   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: An SSL connection is used to connect to AWS MongoDB Atlas.
-   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: A SCRAM-SHA-256 connection is used to connect to Kafka.
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -969,6 +1022,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode exte
   /**
    * @remarks
    * Indicates whether data transformation is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -977,8 +1032,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode exte
   /**
    * @remarks
    * Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -987,6 +1042,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode exte
   /**
    * @remarks
    * Indicates whether incremental data migration or synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -995,6 +1052,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode exte
   /**
    * @remarks
    * Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -1030,7 +1089,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode exte
 export class DescribeDtsJobDetailResponseBodySubDistributedJobPerformance extends $dara.Model {
   /**
    * @remarks
-   * The volume of data migrated or synchronized per second, in MB/s.
+   * The volume of data that is migrated or synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -1038,7 +1097,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPerformance extend
   flow?: string;
   /**
    * @remarks
-   * The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+   * The number of SQL statements that are migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, and UPDATE), and DDL statements.
    * 
    * @example
    * 100
@@ -1087,8 +1146,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatusDeta
   /**
    * @remarks
    * The precheck result. Valid values:
-   * - **Success**: The check item is passed.
-   * - **Failed**: The check item is not passed.
+   * - **Success**: The item passed the check.
+   * - **Failed**: The item failed the check.
    * 
    * @example
    * Success
@@ -1098,7 +1157,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatusDeta
    * @remarks
    * The error message returned when the precheck fails.
    * 
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -1106,8 +1165,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatusDeta
   failedReason?: string;
   /**
    * @remarks
-   * The method to fix the precheck failure.
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * The troubleshooting method for a failed precheck.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -1145,12 +1204,12 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatusDeta
 export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   detail?: DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatusDetail[];
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -1158,7 +1217,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatus ext
   errorMessage?: string;
   /**
    * @remarks
-   * The overall precheck progress, in percentage.
+   * The overall progress of the precheck, in percentage.
    * 
    * @example
    * 100
@@ -1167,10 +1226,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatus ext
   /**
    * @remarks
    * The precheck status. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Prechecking**: Prechecking.
-   * - **PrecheckFailed**: Precheck failed.
-   * - **Finished**: Finished.
+   * 
+   * - **NotStarted**: not started.
+   * - **Prechecking**: prechecking.
+   * - **PrecheckFailed**: precheck failed.
+   * - **Finished**: finished.
    * 
    * @example
    * Finished
@@ -1225,7 +1285,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
   jobId?: string;
   /**
    * @remarks
-   * The maximum retry time. Unit: seconds.
+   * The maximum retry time, in seconds.
    * 
    * @example
    * 7200
@@ -1233,7 +1293,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
   maxRetryTime?: number;
   /**
    * @remarks
-   * The instance progress.
+   * The progress of the instance.
    * 
    * @example
    * 03
@@ -1251,9 +1311,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
    * @remarks
    * The retry target. Valid values:
    * 
-   * - **srcDB**: source database.
-   * - **destDB**: destination database.
-   * - **inner_module**: DTS internal module.
+   * - **srcDB**: The source database.
+   * - **destDB**: The destination database.
+   * - **inner_module**: The internal module of DTS.
    * 
    * @example
    * srcDB
@@ -1261,7 +1321,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
   retryTarget?: string;
   /**
    * @remarks
-   * The elapsed retry time. Unit: seconds.
+   * The elapsed retry time, in seconds.
    * 
    * @example
    * 3600
@@ -1270,6 +1330,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
   /**
    * @remarks
    * Indicates whether the task is being retried. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -1313,7 +1375,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobRetryState extends
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -1321,7 +1383,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlS
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -1329,7 +1393,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlS
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -1337,7 +1401,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlS
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -1346,10 +1410,10 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlS
   /**
    * @remarks
    * The status of the ETL task. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: Running.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * - **Catched**: No latency.
    * 
    * @example
@@ -1388,7 +1452,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlS
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when full data migration or initial full data synchronization failed.
+   * The error message returned when full data migration or initial full data synchronization fails.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -1396,7 +1460,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInit
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -1404,7 +1470,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInit
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -1412,7 +1478,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInit
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -1420,7 +1486,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInit
   progress?: string;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization. Valid values:
+   * The full data migration or initial full data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -1458,7 +1528,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInit
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -1466,7 +1536,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSync
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -1474,7 +1546,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSync
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization progress.
    * 
    * @example
    * 95
@@ -1482,7 +1554,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSync
   percent?: string;
   /**
    * @remarks
-   * The number of data rows and data volume migrated or synchronized to the destination table per second.
+   * The number of rows and the volume of data that are incrementally migrated or synchronized to the destination table per second.
    * 
    * @example
    * 0.00RPS/(0.000MB/s)
@@ -1490,7 +1562,14 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSync
   progress?: string;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization. Valid values:
+   * The incremental data migration or incremental data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **Checking**: The task is being checked.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Catched
@@ -1536,7 +1615,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -1552,7 +1631,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   engineName?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * The instance ID of the destination instance.
    * 
    * @example
    * rm-bp1f9guj5rhzq****
@@ -1560,7 +1639,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   instanceID?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -1577,7 +1656,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -1593,7 +1672,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   port?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -1609,7 +1688,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDestinat
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -1670,6 +1753,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigratio
   /**
    * @remarks
    * Indicates whether data transformation is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -1678,8 +1763,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigratio
   /**
    * @remarks
    * Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -1688,6 +1773,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigratio
   /**
    * @remarks
    * Indicates whether incremental data migration or synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -1696,6 +1783,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigratio
   /**
    * @remarks
    * Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -1731,7 +1820,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigratio
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPerformance extends $dara.Model {
   /**
    * @remarks
-   * The volume of data migrated or synchronized per second, in MB/s.
+   * The volume of data that is migrated or synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -1739,7 +1828,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPerforma
   flow?: string;
   /**
    * @remarks
-   * The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+   * The number of SQL statements that are migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, and UPDATE), and DDL statements.
    * 
    * @example
    * 100
@@ -1788,8 +1877,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Success**: The check is passed.
-   * - **Failed**: The check is not passed.
+   * - **Success**: The check passed.
+   * - **Failed**: The check failed.
    * 
    * @example
    * Success
@@ -1799,7 +1888,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
    * @remarks
    * The error message returned when the precheck fails.
    * 
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -1807,8 +1896,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
   failedReason?: string;
   /**
    * @remarks
-   * The repair method for the failed precheck item.
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * The troubleshooting method for a failed precheck.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -1846,12 +1935,12 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   detail?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheckStatusDetail[];
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -1859,7 +1948,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
   errorMessage?: string;
   /**
    * @remarks
-   * The overall precheck progress, in percentage.
+   * The overall progress of the precheck, in percentage.
    * 
    * @example
    * 100
@@ -1868,6 +1957,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheck
   /**
    * @remarks
    * The precheck status. Valid values:
+   * 
+   * - **NotStarted**: not started.
+   * - **Prechecking**: prechecking.
+   * - **PrecheckFailed**: precheck failed.
+   * - **Finished**: finished.
    * 
    * @example
    * Finished
@@ -1922,7 +2016,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetrySta
   jobId?: string;
   /**
    * @remarks
-   * The maximum retry time. Unit: seconds.
+   * The maximum retry time, in seconds.
    * 
    * @example
    * 7200
@@ -1930,7 +2024,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetrySta
   maxRetryTime?: number;
   /**
    * @remarks
-   * The instance progress.
+   * The progress of the instance.
    * 
    * @example
    * 03
@@ -1948,9 +2042,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetrySta
    * @remarks
    * The retry target. Valid values:
    * 
-   * - **srcDB**: source database.
-   * - **destDB**: destination database.
-   * - **inner_module**: DTS internal module.
+   * - **srcDB**: The source database.
+   * - **destDB**: The destination database.
+   * - **inner_module**: The internal module of DTS.
    * 
    * @example
    * srcDB
@@ -1958,7 +2052,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetrySta
   retryTarget?: string;
   /**
    * @remarks
-   * The elapsed retry time. Unit: seconds.
+   * The elapsed retry time, in seconds.
    * 
    * @example
    * 3600
@@ -1967,6 +2061,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetrySta
   /**
    * @remarks
    * Indicates whether the task is being retried. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -2018,7 +2114,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdata
@@ -2034,7 +2130,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   engineName?: string;
   /**
    * @remarks
-   * The instance ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * rm-bp2f3huj5rhzq****
@@ -2059,7 +2155,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -2075,7 +2171,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   port?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -2083,7 +2179,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -2091,7 +2187,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -2151,7 +2251,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEn
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -2159,7 +2259,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructur
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -2167,7 +2269,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructur
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of initial schema synchronization, in percentage.
+   * The initial schema synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -2175,7 +2277,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructur
   percent?: string;
   /**
    * @remarks
-   * The number of tables that have completed initial schema synchronization.
+   * The number of tables for which initial schema synchronization is completed.
    * 
    * @example
    * 1
@@ -2183,11 +2285,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructur
   progress?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The initial schema synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -2225,7 +2327,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructur
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscriptionDataType extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscription data includes DDL statements. Valid values:
+   * Indicates whether the tracked data includes DDL statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -2233,7 +2337,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscrip
   ddl?: boolean;
   /**
    * @remarks
-   * Indicates whether the subscription data includes DML statements. Valid values:
+   * Indicates whether the tracked data includes DML statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -2265,7 +2371,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscrip
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscriptionHost extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint of the change tracking task, in the format of `address:port`.
+   * The private endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-internal.aliyuncs.com:18002
@@ -2273,7 +2379,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscrip
   privateHost?: string;
   /**
    * @remarks
-   * The public network connection information of the subscribe node. The format is `Address:Port number`.
+   * The public network connection information of the subscribe node, in the format of `Address:Port number`.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -2281,7 +2387,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscrip
   publicHost?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
+   * The VPC endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -2355,7 +2461,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList 
   id?: number;
   /**
    * @remarks
-   * The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -2363,7 +2469,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList 
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or change tracking task.
+   * The instance ID of the data migration, data synchronization, or change tracking task.
    * 
    * @example
    * dtsnjuc14kp12u****
@@ -2381,6 +2487,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList 
    * @remarks
    * The visibility of the tag. Valid values:
    * 
+   * - **0**: public.
+   * - **1**: private.
+   * 
    * @example
    * 0
    */
@@ -2389,18 +2498,20 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList 
    * @remarks
    * The region where the task resides.
    * 
+   * > This typically refers to the destination region.
+   * 
    * @example
    * cn-hangzhou
    */
   srcRegion?: string;
   /**
    * @remarks
-   * The tag type. Valid values:
+   * The tag category. Valid values:
    * 
-   * - **System**: A tag created by the system.
-   * - **Custom**: A tag added by the user.
+   * - **System**: tags created by the system.
+   * - **Custom**: tags added by users.
    * 
-   * > If this parameter is empty, tags that can be publicly displayed are returned by default.
+   * > If the value is empty, publicly visible tags are returned by default.
    * 
    * @example
    * System
@@ -2470,7 +2581,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList 
 export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
+   * Indicates whether the change tracking task is of the new version. Valid value: new (new version).
+   * 
+   * > This parameter is returned only for change tracking instances of the new version.
    * 
    * @example
    * new
@@ -2478,7 +2591,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   appName?: string;
   /**
    * @remarks
-   * The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-15T08:25:34Z
@@ -2486,7 +2599,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   beginTimestamp?: string;
   /**
    * @remarks
-   * The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
+   * The start offset of incremental data migration or the synchronization offset. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1616405159
@@ -2494,7 +2607,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   checkpoint?: string;
   /**
    * @remarks
-   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-23T07:30:31Z
@@ -2502,7 +2615,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
+   * The information about the downstream consumer client. The value consists of an IP address and a random number generated by DTS.
    * 
    * @example
    * 114.***.***.**:dts********
@@ -2510,7 +2623,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   consumptionClient?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-01-12T08:34:11Z
@@ -2519,21 +2632,23 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   /**
    * @remarks
    * The status of the ETL task.
+   * 
+   * > This parameter is returned only after an ETL task is configured.
    */
   dataEtlStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataEtlStatus;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization.
+   * The full data migration or initial full data synchronization status.
    */
   dataInitializationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataInitializationStatus;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization status.
    */
   dataSynchronizationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobDataSynchronizationStatus;
   /**
    * @remarks
-   * If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
+   * The number of ApsaraDB RDS for MySQL instances attached to the source instance if the source instance is a PolarDB-X 1.0 instance.
    * 
    * @example
    * 2
@@ -2541,7 +2656,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   databaseCount?: number;
   /**
    * @remarks
-   * The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects for data migration, synchronization, or change tracking. For more information about the definition, see [Objects for data migration, synchronization, or change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"all\\":true,\\"name\\":\\"dtstestdata\\",\\"state\\":\\"normal\\"}}
@@ -2552,7 +2667,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   dbObjectSize?: number;
   /**
    * @remarks
-   * The latency of incremental data migration or synchronization, in milliseconds.
+   * The latency of incremental data migration or synchronization. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -2560,7 +2675,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   delay?: number;
   /**
    * @remarks
-   * The network type of the consumer client. Valid values:
+   * The network type of the downstream consumer client. Valid values:
+   * - **CLASSIC**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -2581,7 +2698,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The specification of the data transmission link.
+   * The link specification.
    * 
    * @example
    * xlarge
@@ -2590,10 +2707,10 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
-   * > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
+   * > This parameter is returned only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -2601,7 +2718,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   dtsJobDirection?: string;
   /**
    * @remarks
-   * The DTS task ID.
+   * The ID of the DTS task.
    * 
    * @example
    * m06j1g92124****
@@ -2609,7 +2726,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   dtsJobId?: string;
   /**
    * @remarks
-   * The DTS instance name.
+   * The name of the DTS instance.
    * 
    * @example
    * dtstest****
@@ -2617,7 +2734,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   dtsJobName?: string;
   /**
    * @remarks
-   * The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-26T14:03:21Z
@@ -2625,7 +2742,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   endTimestamp?: string;
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -2635,14 +2752,16 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
    * @remarks
    * The operator information of the ETL task.
    * 
+   * > This parameter is returned only when the task is an ETL task.
+   * 
    * @example
    * { "cells ": [{\\"shape\\":\\"edge\\",\\"attrs\\":{\\"line\\":{\\"stroke\\":\\"#b1b1b1\\",\\"strokeWidth\\":1,\\"targetMarker\\":{\\"name\\":\\"block\\",\\"args\\":{\\"size\\":\\"8\\"}},\\"strokeDasharray\\":\\"\\"}},\\"id\\":\\"cd1ec473-f9b9-4e9b-a742-ac23f442****\\",\\"source\\":{\\"cell\\":\\"8b261182-bfab-4803-ad8e-6bb08e3e****\\",\\"port\\":\\"out1\\"},\\"target\\":{\\"cell\\":\\"b36770df-f48c-4d6b-9644-54c5e924****\\",\\"port\\":\\"in1\\"},\\"zIndex\\":7 }] }
    */
   etlCalculator?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
-   * > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+   * The time when the instance expires. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2023-06-16T08:01:19Z
@@ -2650,7 +2769,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   expireTime?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task ended. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-06-16T10:34:17Z
@@ -2658,7 +2777,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   finishTime?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -2667,6 +2786,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   /**
    * @remarks
    * Indicates whether the task is a subtask. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -2676,6 +2797,10 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
    * @remarks
    * The task type of the DTS instance. Valid values:
    * 
+   * - **online**: Migration.
+   * - **SYNC**: Synchronization.
+   * - **SUBSCRIBE**: Change tracking.
+   * 
    * @example
    * SYNC
    */
@@ -2684,18 +2809,22 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
    * @remarks
    * The maximum number of DUs.
    * 
+   * > This parameter is supported only for serverless instances.
+   * 
    * @example
    * 16
    */
   maxDu?: number;
   /**
    * @remarks
-   * The migration type or synchronization initialization type.
+   * The migration type or initial synchronization type.
    */
   migrationMode?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigrationMode;
   /**
    * @remarks
    * The minimum number of DUs.
+   * 
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * 1
@@ -2703,15 +2832,21 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   minDu?: number;
   /**
    * @remarks
-   * The task source:
+   * The source of the task. Valid values:
+   * - **PTS task**
+   * - **DMS task**
+   * - **DTS task**
    * 
    * @example
-   * DTS node
+   * DTS task
    */
   originType?: string;
   /**
    * @remarks
-   * The payment type:
+   * The billing method. Valid values:
+   * 
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -2729,7 +2864,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   precheckStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPrecheckStatus;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter for DTS, in JSON format. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {\\"srcHostPorts\\":\\"\\",\\"whitelist.dms.online.ddl.enable\\":false,\\"filterDDL\\":false,\\"sqlparser.dms.original.ddl\\":true,\\"srcOracleType\\":\\"sid\\",\\"maxRetryTime\\":43200,\\"destSSL\\":\\"0\\",\\"destOracleType\\":\\"sid\\",\\"srcSSL\\":\\"0\\",\\"dbListCaseChangeMode\\":\\"default\\",\\"SourceEngineVersion\\":\\"8.0.18\\",\\"srcNetType\\":\\"VPC\\",\\"destNetType\\":\\"VPC\\",\\"srcVpcNetMappingInst\\":\\"172.16.1**.**:10803\\",\\"destVpcNetMappingInst\\":\\"172.16.1**.**:11077\\",\\"useJobTask\\":\\"1\\"}
@@ -2737,12 +2872,14 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   reserved?: string;
   /**
    * @remarks
-   * DTS is retrying the task due to a task exception.
+   * The retry state when DTS is retrying due to a task exception.
    */
   retryState?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobRetryState;
   /**
    * @remarks
-   * The details of the reverse synchronization task.
+   * The execution details of the reverse synchronization task.
+   * 
+   * > This parameter is returned only when the task is a data synchronization task and the synchronization topology is two-way synchronization.
    * 
    * @example
    * ****
@@ -2755,7 +2892,25 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   sourceEndpoint?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSourceEndpoint;
   /**
    * @remarks
-   * The status of the migration or synchronization task. Valid values:
+   * The status of the data migration or synchronization task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **NotConfigured**: The task is not configured.
+   * - **Prechecking**: The task is being prechecked.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **PreCheckPass**: The precheck passed.
+   * - **Initializing**: Initial synchronization is in progress.
+   * - **InitializeFailed**: Initial synchronization failed.
+   * - **synchronizing**: Synchronization is in progress.
+   * - **Migrating**: Migration is in progress.
+   * - **Failed**: Synchronization failed.
+   * - **MigrationFailed**: Migration failed.
+   * - **Suspending**: The task is being suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Retrying**: The task is being retried.
+   * - **Upgrade**: The task is being upgraded.
+   * - **Downgrade**: The task is being downgraded.
+   * - **Locked**: The task is locked.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -2763,13 +2918,13 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   status?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization.
+   * The initial schema synchronization status.
    */
   structureInitializationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobStructureInitializationStatus;
   /**
    * @remarks
-   * The subscription topic.
-   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
+   * The topic for change tracking.
+   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group is created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
    * 
    * @example
    * cn_hangzhou_rm_bp1162kryivb8****_dtstest_version2
@@ -2777,7 +2932,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   subscribeTopic?: string;
   /**
    * @remarks
-   * The type of the subscription data.
+   * The type of the tracked data.
    */
   subscriptionDataType?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobSubscriptionDataType;
   /**
@@ -2792,7 +2947,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
    * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * - This parameter takes effect only when you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -2800,7 +2955,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The tag collection.
+   * The list of tags.
    */
   tagList?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobTagList[];
   /**
@@ -2978,7 +3133,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdata
@@ -3019,7 +3174,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -3035,7 +3190,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
   port?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -3043,7 +3198,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -3051,12 +3206,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether an SSL connection is used. Valid values:
-   * 
-   * - **DISABLE**: An SSL connection is not used.
-   * - **ENABLE_WITH_CERTIFICATE**: An SSL connection is used, and the CA certificate is uploaded.
-   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: An SSL connection is used to connect to AWS MongoDB Atlas.
-   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: A SCRAM-SHA-256 connection is used to connect to Kafka.
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -3116,7 +3270,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint ext
 export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -3124,7 +3278,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializ
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -3132,7 +3288,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializ
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of initial schema synchronization, in percentage.
+   * The initial schema synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -3140,7 +3296,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializ
   percent?: string;
   /**
    * @remarks
-   * The number of tables that have completed initial schema synchronization.
+   * The number of tables for which initial schema synchronization is completed.
    * 
    * @example
    * 1
@@ -3148,11 +3304,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializ
   progress?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The initial schema synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -3190,7 +3346,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializ
 export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionDataType extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscription data includes DDL statements. Valid values:
+   * Indicates whether the tracked data includes DDL statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -3198,7 +3356,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionDataTy
   ddl?: boolean;
   /**
    * @remarks
-   * Indicates whether the subscription data includes DML statements. Valid values:
+   * Indicates whether the tracked data includes DML statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -3230,7 +3390,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionDataTy
 export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionHost extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint of the change tracking task, in the format of `address:port`.
+   * The private endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-internal.aliyuncs.com:18002
@@ -3238,7 +3398,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionHost e
   privateHost?: string;
   /**
    * @remarks
-   * The public network connection information of the subscribe node. The format is `Address:Port number`.
+   * The public network connection information of the subscribe node, in the format of `Address:Port number`.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -3246,7 +3406,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionHost e
   publicHost?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
+   * The VPC endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -3320,7 +3480,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobTagList extends $d
   id?: number;
   /**
    * @remarks
-   * The region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -3328,7 +3488,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobTagList extends $d
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or change tracking task.
+   * The instance ID of the data migration, synchronization, or subscribe.
    * 
    * @example
    * dtsnjuc14kp12u****
@@ -3346,6 +3506,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobTagList extends $d
    * @remarks
    * The visibility of the tag. Valid values:
    * 
+   * - **0**: public.
+   * - **1**: private.
+   * 
    * @example
    * 0
    */
@@ -3354,18 +3517,20 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobTagList extends $d
    * @remarks
    * The region where the task resides.
    * 
+   * > This typically refers to the destination region.
+   * 
    * @example
    * cn-hangzhou
    */
   srcRegion?: string;
   /**
    * @remarks
-   * The tag type. Valid values:
+   * The tag category. Valid values:
    * 
-   * - **System**: A tag created by the system.
-   * - **Custom**: A tag added by the user.
+   * - **System**: tags created by the system.
+   * - **Custom**: tags added by users.
    * 
-   * > If this value is empty, publicly visible tags are returned by default.
+   * > If the value is empty, publicly visible tags are returned by default.
    * 
    * @example
    * System
@@ -3435,7 +3600,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobTagList extends $d
 export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
+   * Indicates whether the change tracking task is of the new version. Valid value: new (new version).
+   * 
+   * > This parameter is returned only for change tracking instances of the new version.
    * 
    * @example
    * new
@@ -3443,7 +3610,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   appName?: string;
   /**
    * @remarks
-   * The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-15T08:25:34Z
@@ -3451,7 +3618,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   beginTimestamp?: string;
   /**
    * @remarks
-   * The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
+   * The start offset of incremental data migration or the synchronization offset. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1616405159
@@ -3459,7 +3626,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   checkpoint?: string;
   /**
    * @remarks
-   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-23T07:30:31Z
@@ -3467,7 +3634,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
+   * The information about the downstream consumer client. The value consists of an IP address and a random number generated by DTS.
    * 
    * @example
    * 114.***.***.**:dts********
@@ -3475,7 +3642,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   consumptionClient?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-01-12T08:34:11Z
@@ -3484,21 +3651,23 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   /**
    * @remarks
    * The status of the ETL task.
+   * 
+   * > This parameter is returned only after an ETL task is configured.
    */
   dataEtlStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobDataEtlStatus;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization.
+   * The full data migration or initial full data synchronization status.
    */
   dataInitializationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobDataInitializationStatus;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization status.
    */
   dataSynchronizationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobDataSynchronizationStatus;
   /**
    * @remarks
-   * If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
+   * The number of ApsaraDB RDS for MySQL instances attached to the source instance if the source instance is a PolarDB-X 1.0 instance.
    * 
    * @example
    * 2
@@ -3506,7 +3675,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   databaseCount?: number;
   /**
    * @remarks
-   * The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects for data migration, synchronization, or change tracking. For more information about the definition, see [Objects for data migration, synchronization, or change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"all\\":true,\\"name\\":\\"dtstestdata\\",\\"state\\":\\"normal\\"}}
@@ -3514,10 +3683,14 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   dbObject?: string;
   dbObjectOssUrl?: string;
   dbObjectOssUrlExpireTime?: string;
+  /**
+   * @example
+   * 190
+   */
   dbObjectSize?: number;
   /**
    * @remarks
-   * The latency of incremental data migration or synchronization, in milliseconds.
+   * The latency of incremental data migration or synchronization. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -3525,7 +3698,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   delay?: number;
   /**
    * @remarks
-   * The network type of the consumer client. Valid values:
+   * The network type of the downstream consumer client. Valid values:
+   * - **CLASSIC**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -3546,7 +3721,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The specification of the data transmission link.
+   * The link specification.
    * 
    * @example
    * xlarge
@@ -3555,10 +3730,10 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
-   * > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
+   * > This parameter is returned only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -3566,7 +3741,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   dtsJobDirection?: string;
   /**
    * @remarks
-   * The DTS task ID.
+   * The ID of the DTS task.
    * 
    * @example
    * m06j1g92124****
@@ -3574,7 +3749,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   dtsJobId?: string;
   /**
    * @remarks
-   * The DTS instance name.
+   * The name of the DTS instance.
    * 
    * @example
    * dtstest****
@@ -3582,7 +3757,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   dtsJobName?: string;
   /**
    * @remarks
-   * The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-26T14:03:21Z
@@ -3590,7 +3765,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   endTimestamp?: string;
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -3599,6 +3774,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   /**
    * @remarks
    * The operator information of the ETL task.
+   * > This parameter is returned only when the task is an ETL task.
    * 
    * @example
    * { "cells ": [{\\"shape\\":\\"edge\\",\\"attrs\\":{\\"line\\":{\\"stroke\\":\\"#b1b1b1\\",\\"strokeWidth\\":1,\\"targetMarker\\":{\\"name\\":\\"block\\",\\"args\\":{\\"size\\":\\"8\\"}},\\"strokeDasharray\\":\\"\\"}},\\"id\\":\\"cd1ec473-f9b9-4e9b-a742-ac23f442****\\",\\"source\\":{\\"cell\\":\\"8b261182-bfab-4803-ad8e-6bb08e3e****\\",\\"port\\":\\"out1\\"},\\"target\\":{\\"cell\\":\\"b36770df-f48c-4d6b-9644-54c5e924****\\",\\"port\\":\\"in1\\"},\\"zIndex\\":7 }] }
@@ -3606,8 +3782,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   etlCalculator?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
-   * > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+   * The time when the instance expires. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2023-06-16T08:01:19Z
@@ -3615,7 +3791,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   expireTime?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task ended. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-06-16T10:34:17Z
@@ -3623,7 +3799,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   finishTime?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -3632,6 +3808,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   /**
    * @remarks
    * Indicates whether the task is a subtask. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -3641,9 +3819,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
    * @remarks
    * The task type of the DTS instance. Valid values:
    * 
-   * - **online**: data migration.
-   * - **SYNC**: data synchronization.
-   * - **SUBSCRIBE**: change tracking.
+   * - **online**: Migration.
+   * - **SYNC**: Synchronization.
+   * - **SUBSCRIBE**: Change tracking.
    * 
    * @example
    * SYNC
@@ -3653,18 +3831,22 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
    * @remarks
    * The maximum number of DUs.
    * 
+   * > This parameter is supported only for serverless instances.
+   * 
    * @example
    * 16
    */
   maxDu?: number;
   /**
    * @remarks
-   * The migration type or synchronization initialization type.
+   * The migration type or initial synchronization type.
    */
   migrationMode?: DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode;
   /**
    * @remarks
    * The minimum number of DUs.
+   * 
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * 1
@@ -3672,15 +3854,21 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   minDu?: number;
   /**
    * @remarks
-   * The task source:
+   * The source of the task. Valid values:
+   * - **PTS task**
+   * - **DMS task**
+   * - **DTS task**
    * 
    * @example
-   * DTS node
+   * DTS task
    */
   originType?: string;
   /**
    * @remarks
-   * The payment type:
+   * The billing method. Valid values:
+   * 
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -3698,7 +3886,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   precheckStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobPrecheckStatus;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter for DTS, in JSON format. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {\\"srcHostPorts\\":\\"\\",\\"whitelist.dms.online.ddl.enable\\":false,\\"filterDDL\\":false,\\"sqlparser.dms.original.ddl\\":true,\\"srcOracleType\\":\\"sid\\",\\"maxRetryTime\\":43200,\\"destSSL\\":\\"0\\",\\"destOracleType\\":\\"sid\\",\\"srcSSL\\":\\"0\\",\\"dbListCaseChangeMode\\":\\"default\\",\\"SourceEngineVersion\\":\\"8.0.18\\",\\"srcNetType\\":\\"VPC\\",\\"destNetType\\":\\"VPC\\",\\"srcVpcNetMappingInst\\":\\"172.16.1**.**:10803\\",\\"destVpcNetMappingInst\\":\\"172.16.1**.**:11077\\",\\"useJobTask\\":\\"1\\"}
@@ -3706,12 +3894,14 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   reserved?: string;
   /**
    * @remarks
-   * DTS is retrying the task due to a task exception.
+   * The retry state when DTS is retrying due to a task exception.
    */
   retryState?: DescribeDtsJobDetailResponseBodySubDistributedJobRetryState;
   /**
    * @remarks
-   * The details of the reverse synchronization task.
+   * The execution details of the reverse synchronization task.
+   * 
+   * > This parameter is returned only when the task is a data synchronization task and the synchronization topology is two-way synchronization.
    */
   reverseJob?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob;
   /**
@@ -3721,7 +3911,25 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   sourceEndpoint?: DescribeDtsJobDetailResponseBodySubDistributedJobSourceEndpoint;
   /**
    * @remarks
-   * The status of the migration or synchronization task. Valid values:
+   * The status of the data migration or synchronization task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **NotConfigured**: The task is not configured.
+   * - **Prechecking**: The task is being prechecked.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **PreCheckPass**: The precheck passed.
+   * - **Initializing**: Initial synchronization is in progress.
+   * - **InitializeFailed**: Initial synchronization failed.
+   * - **synchronizing**: Synchronization is in progress.
+   * - **Migrating**: Migration is in progress.
+   * - **Failed**: Synchronization failed.
+   * - **MigrationFailed**: Migration failed.
+   * - **Suspending**: The task is being suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Retrying**: The task is being retried.
+   * - **Upgrade**: The task is being upgraded.
+   * - **Downgrade**: The task is being downgraded.
+   * - **Locked**: The task is locked.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -3729,7 +3937,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization.
+   * The initial schema synchronization status.
    */
   structureInitializationStatus?: DescribeDtsJobDetailResponseBodySubDistributedJobStructureInitializationStatus;
   /**
@@ -3739,8 +3947,8 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   subSyncJob?: any[];
   /**
    * @remarks
-   * The subscribed topics.
-   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
+   * The topic for change tracking.
+   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group is created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
    * 
    * @example
    * cn_hangzhou_rm_bp1162kryivb8****_dtstest_version2
@@ -3748,7 +3956,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   subscribeTopic?: string;
   /**
    * @remarks
-   * The type of the subscription data.
+   * The type of the tracked data.
    */
   subscriptionDataType?: DescribeDtsJobDetailResponseBodySubDistributedJobSubscriptionDataType;
   /**
@@ -3759,11 +3967,11 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: Forward.
-   * - **Reverse**: Reverse.
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * - This parameter takes effect only when you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -3771,7 +3979,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The tag collection.
+   * The list of tags.
    */
   tagList?: DescribeDtsJobDetailResponseBodySubDistributedJobTagList[];
   /**
@@ -3949,7 +4157,7 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $dara.Mod
 export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -3957,7 +4165,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $da
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -3965,7 +4175,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $da
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -3973,7 +4183,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $da
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -3981,11 +4191,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $da
   progress?: string;
   /**
    * @remarks
-   * The ETL task status. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: Running.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The status of the ETL task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * - **Catched**: No latency.
    * 
    * @example
@@ -4024,7 +4234,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus extends $da
 export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when full data migration or initial full data synchronization failed.
+   * The error message returned when full data migration or initial full data synchronization fails.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4032,7 +4242,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus 
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4040,7 +4252,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus 
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -4048,7 +4260,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus 
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -4056,7 +4268,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus 
   progress?: string;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization. Valid values:
+   * The full data migration or initial full data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -4094,7 +4310,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus 
 export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4102,7 +4318,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4110,7 +4328,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization progress.
    * 
    * @example
    * 95
@@ -4118,7 +4336,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus
   percent?: string;
   /**
    * @remarks
-   * The number of data rows and data volume migrated or synchronized to the destination table per second.
+   * The number of rows and the volume of data that are incrementally migrated or synchronized to the destination table per second.
    * 
    * @example
    * 0.00RPS/(0.000MB/s)
@@ -4126,7 +4344,14 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus
   progress?: string;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization. Valid values:
+   * The incremental data migration or incremental data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **Checking**: The task is being checked.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Catched
@@ -4164,7 +4389,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus
 export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID to which the destination instance belongs.
+   * The Alibaba Cloud account ID of the destination instance.
    * 
    * @example
    * 140692647406****
@@ -4172,7 +4397,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -4188,7 +4413,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   engineName?: string;
   /**
    * @remarks
-   * The instance ID of the destination instance.
+   * The destination instance ID.
    * 
    * @example
    * rm-bp1f9guj5rhzq****
@@ -4196,7 +4421,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   instanceID?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -4213,7 +4438,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -4229,7 +4454,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   port?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -4237,7 +4462,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -4245,7 +4470,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobDestinationEndpoint exten
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -4306,6 +4535,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode extends $da
   /**
    * @remarks
    * Indicates whether data transformation is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -4314,8 +4545,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode extends $da
   /**
    * @remarks
    * Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -4324,6 +4555,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode extends $da
   /**
    * @remarks
    * Indicates whether incremental data migration or synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -4332,6 +4565,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode extends $da
   /**
    * @remarks
    * Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -4367,7 +4602,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode extends $da
 export class DescribeDtsJobDetailResponseBodySubSyncJobPerformance extends $dara.Model {
   /**
    * @remarks
-   * The volume of data migrated or synchronized per second, in MB/s.
+   * The volume of data that is migrated or synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -4375,7 +4610,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPerformance extends $dara
   flow?: string;
   /**
    * @remarks
-   * The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+   * The number of SQL statements that are migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, and UPDATE), and DDL statements.
    * 
    * @example
    * 100
@@ -4424,8 +4659,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatusDetail exte
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Success**: The check is passed.
-   * - **Failed**: The check is not passed.
+   * - **Success**: The check passed.
+   * - **Failed**: The check failed.
    * 
    * @example
    * Success
@@ -4435,7 +4670,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatusDetail exte
    * @remarks
    * The error message returned when the precheck fails.
    * 
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -4443,8 +4678,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatusDetail exte
   failedReason?: string;
   /**
    * @remarks
-   * The repair method for a failed precheck item.
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * The troubleshooting method for a failed precheck.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -4482,12 +4717,12 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatusDetail exte
 export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   detail?: DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatusDetail[];
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4495,7 +4730,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatus extends $d
   errorMessage?: string;
   /**
    * @remarks
-   * The overall precheck progress, in percentage.
+   * The overall progress of the precheck, in percentage.
    * 
    * @example
    * 100
@@ -4504,6 +4739,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatus extends $d
   /**
    * @remarks
    * The precheck status. Valid values:
+   * 
+   * - **NotStarted**: not started.
+   * - **Prechecking**: prechecking.
+   * - **PrecheckFailed**: precheck failed.
+   * - **Finished**: finished.
    * 
    * @example
    * Finished
@@ -4558,7 +4798,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
   jobId?: string;
   /**
    * @remarks
-   * The maximum retry time. Unit: seconds.
+   * The maximum retry time, in seconds.
    * 
    * @example
    * 7200
@@ -4566,7 +4806,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
   maxRetryTime?: number;
   /**
    * @remarks
-   * The instance progress.
+   * The progress of the instance.
    * 
    * @example
    * 03
@@ -4584,9 +4824,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
    * @remarks
    * The retry target. Valid values:
    * 
-   * - **srcDB**: source database.
-   * - **destDB**: destination database.
-   * - **inner_module**: DTS internal module.
+   * - **srcDB**: The source database.
+   * - **destDB**: The destination database.
+   * - **inner_module**: The internal module of DTS.
    * 
    * @example
    * srcDB
@@ -4594,7 +4834,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
   retryTarget?: string;
   /**
    * @remarks
-   * The elapsed retry time. Unit: seconds.
+   * The elapsed retry time, in seconds.
    * 
    * @example
    * 3600
@@ -4603,6 +4843,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
   /**
    * @remarks
    * Indicates whether the task is being retried. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4646,7 +4888,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobRetryState extends $dara.
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4654,7 +4896,10 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus e
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether to display the option to upgrade the instance type. Valid values:
+   * Indicates whether the instance specifications need to be upgraded. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4662,7 +4907,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus e
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -4670,7 +4915,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus e
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -4679,6 +4924,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus e
   /**
    * @remarks
    * The status of the ETL task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Finished
@@ -4716,7 +4966,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus e
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when full data migration or initial full data synchronization failed.
+   * The error message returned when full data migration or initial full data synchronization fails.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4724,7 +4974,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializat
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4732,7 +4984,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializat
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of full data migration or initial full data synchronization, in percentage.
+   * The full data migration or initial full data synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -4740,7 +4992,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializat
   percent?: string;
   /**
    * @remarks
-   * The number of records that have completed full data migration or initial full data synchronization.
+   * The number of records for which full data migration or initial full data synchronization is completed.
    * 
    * @example
    * 16
@@ -4748,7 +5000,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializat
   progress?: string;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization. Valid values:
+   * The full data migration or initial full data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -4786,7 +5042,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializat
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -4794,7 +5050,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchroniza
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -4802,7 +5060,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchroniza
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization progress.
    * 
    * @example
    * 95
@@ -4810,7 +5068,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchroniza
   percent?: string;
   /**
    * @remarks
-   * The number of data rows and data volume migrated or synchronized to the destination table per second.
+   * The number of rows and the volume of data that are incrementally migrated or synchronized to the destination table per second.
    * 
    * @example
    * 0.00RPS/(0.000MB/s)
@@ -4818,7 +5076,14 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchroniza
   progress?: string;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization. Valid values:
+   * The incremental data migration or incremental data synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Suspending**: The task is being suspended.
+   * - **Checking**: The task is being checked.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
+   * - **Catched**: No latency.
    * 
    * @example
    * Finished
@@ -4864,7 +5129,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the destination instance.
+   * The name of the database to which the migration objects in the destination instance belong.
    * 
    * @example
    * dtstestdata
@@ -4880,7 +5145,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   engineName?: string;
   /**
    * @remarks
-   * The destination instance ID.
+   * The instance ID of the destination instance.
    * 
    * @example
    * rm-bp1f9guj5rhzq****
@@ -4888,7 +5153,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   instanceID?: string;
   /**
    * @remarks
-   * The type of the destination instance.
+   * The destination instance type.
    * 
    * @example
    * RDS
@@ -4905,7 +5170,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -4921,7 +5186,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   port?: string;
   /**
    * @remarks
-   * The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -4929,7 +5194,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -4937,7 +5202,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDestinationEndp
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -4998,6 +5267,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode e
   /**
    * @remarks
    * Indicates whether data transformation is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -5006,8 +5277,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode e
   /**
    * @remarks
    * Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -5016,6 +5287,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode e
   /**
    * @remarks
    * Indicates whether incremental data migration or synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -5024,6 +5297,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode e
   /**
    * @remarks
    * Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -5059,7 +5334,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode e
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPerformance extends $dara.Model {
   /**
    * @remarks
-   * The volume of data migrated or synchronized per second, in MB/s.
+   * The volume of data that is migrated or synchronized per second, in MB/s.
    * 
    * @example
    * 1
@@ -5067,7 +5342,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPerformance ext
   flow?: string;
   /**
    * @remarks
-   * The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
+   * The number of SQL statements that are migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, and UPDATE), and DDL statements.
    * 
    * @example
    * 100
@@ -5116,8 +5391,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatusD
   /**
    * @remarks
    * The check result. Valid values:
-   * - **Success**: The check is passed.
-   * - **Failed**: The check is not passed.
+   * - **Success**: The check passed.
+   * - **Failed**: The check failed.
    * 
    * @example
    * Success
@@ -5127,7 +5402,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatusD
    * @remarks
    * The error message returned when the precheck fails.
    * 
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
@@ -5135,8 +5410,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatusD
   failedReason?: string;
   /**
    * @remarks
-   * The method to fix the precheck failure.
-   * > This parameter is returned only when the value of **CheckResult** is **Failed**.
+   * The troubleshooting method for a failed precheck.
+   * > This parameter is returned only when the **CheckResult** parameter is set to **Failed**.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -5174,12 +5449,12 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatusD
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   detail?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatusDetail[];
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -5187,7 +5462,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatus 
   errorMessage?: string;
   /**
    * @remarks
-   * The overall precheck progress, in percentage.
+   * The overall progress of the precheck, in percentage.
    * 
    * @example
    * 100
@@ -5196,6 +5471,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatus 
   /**
    * @remarks
    * The precheck status. Valid values:
+   * 
+   * - **NotStarted**: not started.
+   * - **Prechecking**: prechecking.
+   * - **PrecheckFailed**: precheck failed.
+   * - **Finished**: finished.
    * 
    * @example
    * Finished
@@ -5250,7 +5530,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState exte
   jobId?: string;
   /**
    * @remarks
-   * The maximum retry time. Unit: seconds.
+   * The maximum retry time, in seconds.
    * 
    * @example
    * 7200
@@ -5258,7 +5538,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState exte
   maxRetryTime?: number;
   /**
    * @remarks
-   * The instance progress.
+   * The progress of the instance.
    * 
    * @example
    * 03
@@ -5276,9 +5556,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState exte
    * @remarks
    * The retry target. Valid values:
    * 
-   * - **srcDB**: source database.
-   * - **destDB**: destination database.
-   * - **inner_module**: DTS internal module.
+   * - **srcDB**: The source database.
+   * - **destDB**: The destination database.
+   * - **inner_module**: The internal module of DTS.
    * 
    * @example
    * srcDB
@@ -5286,7 +5566,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState exte
   retryTarget?: string;
   /**
    * @remarks
-   * The elapsed retry time. Unit: seconds.
+   * The elapsed retry time, in seconds.
    * 
    * @example
    * 3600
@@ -5295,6 +5575,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState exte
   /**
    * @remarks
    * Indicates whether the task is being retried. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -5346,7 +5628,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdata
@@ -5387,7 +5669,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -5403,7 +5685,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
   port?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -5411,7 +5693,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -5419,7 +5701,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -5479,7 +5765,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint 
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -5487,7 +5773,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitia
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -5495,7 +5783,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitia
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of initial schema synchronization, in percentage.
+   * The initial schema synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -5503,7 +5791,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitia
   percent?: string;
   /**
    * @remarks
-   * The number of tables that have completed initial schema synchronization.
+   * The number of tables for which initial schema synchronization is completed.
    * 
    * @example
    * 1
@@ -5511,11 +5799,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitia
   progress?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization. Valid values:
-   * - **NotStarted**: Not started.
-   * - **Migrating**: In progress.
-   * - **Failed**: Failed.
-   * - **Finished**: Completed.
+   * The initial schema synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -5553,7 +5841,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitia
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionDataType extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscription data includes DDL statements. Valid values:
+   * Indicates whether the tracked data includes DDL statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -5561,7 +5851,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionDat
   ddl?: boolean;
   /**
    * @remarks
-   * Indicates whether the subscription data includes DML statements. Valid values:
+   * Indicates whether the tracked data includes DML statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -5593,7 +5885,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionDat
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionHost extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint of the change tracking task, in the format of `address:port`.
+   * The private endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-internal.aliyuncs.com:18002
@@ -5601,7 +5893,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionHos
   privateHost?: string;
   /**
    * @remarks
-   * The public network connection information of the change tracking task, in the format of `address:port`.
+   * The public network connection information of the change tracking task, in the format of `Address:Port`.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -5609,7 +5901,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionHos
   publicHost?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
+   * The VPC endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -5683,7 +5975,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList extends
   id?: number;
   /**
    * @remarks
-   * The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -5691,7 +5983,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList extends
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or change tracking task.
+   * The instance ID for data migration, synchronization, and change tracking.
    * 
    * @example
    * dtsnjuc14kp12u****
@@ -5709,6 +6001,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList extends
    * @remarks
    * The visibility of the tag. Valid values:
    * 
+   * - **0**: public.
+   * - **1**: private.
+   * 
    * @example
    * 0
    */
@@ -5717,18 +6012,20 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList extends
    * @remarks
    * The region where the task resides.
    * 
+   * > This typically refers to the destination region.
+   * 
    * @example
    * cn-hangzhou
    */
   srcRegion?: string;
   /**
    * @remarks
-   * The tag type. Valid values:
+   * The tag category. Valid values:
    * 
-   * - **System**: A tag created by the system.
-   * - **Custom**: A tag added by the user.
+   * - **System**: tags created by the system.
+   * - **Custom**: tags added by users.
    * 
-   * > If this value is empty, publicly visible tags are returned by default.
+   * > If the value is empty, publicly visible tags are returned by default.
    * 
    * @example
    * System
@@ -5798,7 +6095,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList extends
 export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
+   * Indicates whether the change tracking task is of the new version. Valid value: new (new version).
+   * 
+   * > This parameter is returned only for change tracking instances of the new version.
    * 
    * @example
    * new
@@ -5806,7 +6105,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   appName?: string;
   /**
    * @remarks
-   * The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-15T08:25:34Z
@@ -5814,7 +6113,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   beginTimestamp?: string;
   /**
    * @remarks
-   * The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
+   * The start offset of incremental data migration or the synchronization offset. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1616405159
@@ -5822,7 +6121,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   checkpoint?: string;
   /**
    * @remarks
-   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-23T07:30:31Z
@@ -5830,7 +6129,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
+   * The information about the downstream consumer client. The value consists of an IP address and a random number generated by DTS.
    * 
    * @example
    * 114.***.***.**:dts********
@@ -5838,7 +6137,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   consumptionClient?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-01-12T08:34:11Z
@@ -5847,21 +6146,23 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   /**
    * @remarks
    * The status of the ETL task.
+   * 
+   * > This parameter is returned only after an ETL task is configured.
    */
   dataEtlStatus?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataEtlStatus;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization.
+   * The full data migration or initial full data synchronization status.
    */
   dataInitializationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataInitializationStatus;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization status.
    */
   dataSynchronizationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobDataSynchronizationStatus;
   /**
    * @remarks
-   * If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
+   * The number of ApsaraDB RDS for MySQL instances attached to the source instance if the source instance is a PolarDB-X 1.0 instance.
    * 
    * @example
    * 2
@@ -5869,7 +6170,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   databaseCount?: number;
   /**
    * @remarks
-   * The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects for data migration, synchronization, or change tracking. For more information about the definition, see [Objects for data migration, synchronization, or change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"all\\":true,\\"name\\":\\"dtstestdata\\",\\"state\\":\\"normal\\"}}
@@ -5880,7 +6181,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   dbObjectSize?: number;
   /**
    * @remarks
-   * The latency of incremental data migration or synchronization, in milliseconds.
+   * The latency of incremental data migration or synchronization. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -5888,7 +6189,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   delay?: number;
   /**
    * @remarks
-   * The network type of the consumer client. Valid values:
+   * The network type of the downstream consumer client. Valid values:
+   * - **CLASSIC**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -5909,7 +6212,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The specification of the data transmission link.
+   * The link specification.
    * 
    * @example
    * xlarge
@@ -5918,10 +6221,10 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
-   * > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
+   * > This parameter is returned only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -5929,7 +6232,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   dtsJobDirection?: string;
   /**
    * @remarks
-   * The DTS task ID.
+   * The ID of the DTS task.
    * 
    * @example
    * m06j1g92124****
@@ -5937,7 +6240,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   dtsJobId?: string;
   /**
    * @remarks
-   * The DTS instance name.
+   * The name of the DTS instance.
    * 
    * @example
    * dtstest****
@@ -5945,7 +6248,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   dtsJobName?: string;
   /**
    * @remarks
-   * The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-26T14:03:21Z
@@ -5953,7 +6256,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   endTimestamp?: string;
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -5962,6 +6265,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   /**
    * @remarks
    * The operator information of the ETL task.
+   * > This parameter is returned only when the task is an ETL task.
    * 
    * @example
    * { "cells ": [{\\"shape\\":\\"edge\\",\\"attrs\\":{\\"line\\":{\\"stroke\\":\\"#b1b1b1\\",\\"strokeWidth\\":1,\\"targetMarker\\":{\\"name\\":\\"block\\",\\"args\\":{\\"size\\":\\"8\\"}},\\"strokeDasharray\\":\\"\\"}},\\"id\\":\\"cd1ec473-f9b9-4e9b-a742-ac23f442****\\",\\"source\\":{\\"cell\\":\\"8b261182-bfab-4803-ad8e-6bb08e3e****\\",\\"port\\":\\"out1\\"},\\"target\\":{\\"cell\\":\\"b36770df-f48c-4d6b-9644-54c5e924****\\",\\"port\\":\\"in1\\"},\\"zIndex\\":7 }] }
@@ -5969,8 +6273,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   etlCalculator?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
-   * > This parameter is returned only when the value of **PayType** is **PrePaid**.
+   * The time when the instance expires. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2023-06-16T08:01:19Z
@@ -5978,7 +6282,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   expireTime?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task ended. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-06-16T10:34:17Z
@@ -5986,7 +6290,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   finishTime?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -5995,6 +6299,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   /**
    * @remarks
    * Indicates whether the task is a subtask. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -6004,9 +6310,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
    * @remarks
    * The task type of the DTS instance. Valid values:
    * 
-   * - **online**: migration.
-   * - **SYNC**: synchronization.
-   * - **SUBSCRIBE**: change tracking.
+   * - **online**: Migration.
+   * - **SYNC**: Synchronization.
+   * - **SUBSCRIBE**: Change tracking.
    * 
    * @example
    * SYNC
@@ -6019,15 +6325,21 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   migrationMode?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobMigrationMode;
   /**
    * @remarks
-   * The task source:
+   * The source of the task. Valid values:
+   * - **PTS task**
+   * - **DMS task**
+   * - **DTS task**
    * 
    * @example
-   * DTS node
+   * DTS task
    */
   originType?: string;
   /**
    * @remarks
-   * The payment type:
+   * The billing method. Valid values:
+   * 
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -6045,7 +6357,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   precheckStatus?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobPrecheckStatus;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter for DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {\\"srcHostPorts\\":\\"\\",\\"whitelist.dms.online.ddl.enable\\":false,\\"filterDDL\\":false,\\"sqlparser.dms.original.ddl\\":true,\\"srcOracleType\\":\\"sid\\",\\"maxRetryTime\\":43200,\\"destSSL\\":\\"0\\",\\"destOracleType\\":\\"sid\\",\\"srcSSL\\":\\"0\\",\\"dbListCaseChangeMode\\":\\"default\\",\\"SourceEngineVersion\\":\\"8.0.18\\",\\"srcNetType\\":\\"VPC\\",\\"destNetType\\":\\"VPC\\",\\"srcVpcNetMappingInst\\":\\"172.16.1**.**:10803\\",\\"destVpcNetMappingInst\\":\\"172.16.1**.**:11077\\",\\"useJobTask\\":\\"1\\"}
@@ -6053,12 +6365,14 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   reserved?: string;
   /**
    * @remarks
-   * DTS is retrying the task due to a task exception.
+   * The retry state when DTS is retrying due to a task exception.
    */
   retryState?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobRetryState;
   /**
    * @remarks
-   * The details of the reverse synchronization task.
+   * The execution details of the reverse synchronization task.
+   * 
+   * > This parameter is returned only when the task is a data synchronization task and the synchronization topology is two-way synchronization.
    * 
    * @example
    * ****
@@ -6071,7 +6385,25 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   sourceEndpoint?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSourceEndpoint;
   /**
    * @remarks
-   * The status of the migration or synchronization task. Valid values:
+   * The status of the data migration or synchronization task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **NotConfigured**: The task is not configured.
+   * - **Prechecking**: The task is being prechecked.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **PreCheckPass**: The precheck passed.
+   * - **Initializing**: Initial synchronization is in progress.
+   * - **InitializeFailed**: Initial synchronization failed.
+   * - **synchronizing**: Synchronization is in progress.
+   * - **Migrating**: Migration is in progress.
+   * - **Failed**: Synchronization failed.
+   * - **MigrationFailed**: Migration failed.
+   * - **Suspending**: The task is being suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Retrying**: The task is being retried.
+   * - **Upgrade**: The task is being upgraded.
+   * - **Downgrade**: The task is being downgraded.
+   * - **Locked**: The task is locked.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -6079,13 +6411,13 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   status?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization.
+   * The initial schema synchronization status.
    */
   structureInitializationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobStructureInitializationStatus;
   /**
    * @remarks
-   * The subscribed topic.
-   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
+   * The topic for change tracking.
+   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group is created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
    * 
    * @example
    * cn_hangzhou_rm_bp1162kryivb8****_dtstest_version2
@@ -6093,7 +6425,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   subscribeTopic?: string;
   /**
    * @remarks
-   * The type of the subscription data.
+   * The type of the tracked data.
    */
   subscriptionDataType?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobSubscriptionDataType;
   /**
@@ -6108,7 +6440,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
    * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * - This parameter takes effect only when you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -6116,7 +6448,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobReverseJob extends $dara.
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The tag collection.
+   * The list of tags.
    */
   tagList?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJobTagList[];
   /**
@@ -6290,7 +6622,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   aliyunUid?: string;
   /**
    * @remarks
-   * The name of the database to which the migration objects belong in the source instance.
+   * The name of the database to which the migration objects in the source instance belong.
    * 
    * @example
    * dtstestdata
@@ -6306,7 +6638,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   engineName?: string;
   /**
    * @remarks
-   * The instance ID of the source instance.
+   * The source instance ID.
    * 
    * @example
    * rm-bp2f3huj5rhzq****
@@ -6331,7 +6663,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   /**
    * @remarks
    * The SID of the Oracle database.
-   * > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
+   * > This parameter is returned only when the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
    * 
    * @example
    * testsid
@@ -6347,7 +6679,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   port?: string;
   /**
    * @remarks
-   * The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -6355,7 +6687,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   region?: string;
   /**
    * @remarks
-   * The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
+   * The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
    * 
    * @example
    * ram-for-dts
@@ -6363,7 +6695,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
   roleName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is used for the connection. Valid values:
+   * Specifies whether to use an SSL-encrypted connection. Valid values:
+   * - **DISABLE**: SSL encryption is disabled.
+   * - **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and a CA certificate is uploaded.
+   * - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for AWS MongoDB Atlas.
+   * - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
    * 
    * @example
    * DISABLE
@@ -6423,7 +6759,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint extends $d
 export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -6431,7 +6767,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationSt
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade prompt is displayed. Valid values:
+   * Specifies whether to display the upgrade prompt. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -6439,7 +6777,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationSt
   needUpgrade?: boolean;
   /**
    * @remarks
-   * The progress of initial schema synchronization, in percentage.
+   * The initial schema synchronization progress, in percentage.
    * 
    * @example
    * 100
@@ -6447,7 +6785,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationSt
   percent?: string;
   /**
    * @remarks
-   * The number of tables that have completed initial schema synchronization.
+   * The number of tables for which initial schema synchronization is completed.
    * 
    * @example
    * 1
@@ -6455,7 +6793,11 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationSt
   progress?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization. Valid values:
+   * The initial schema synchronization status. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **Migrating**: The task is in progress.
+   * - **Failed**: The task failed.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -6493,7 +6835,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationSt
 export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionDataType extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscription data includes DDL statements. Valid values:
+   * Indicates whether the tracked data includes DDL statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -6501,7 +6845,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionDataType exte
   ddl?: boolean;
   /**
    * @remarks
-   * Indicates whether the subscription data includes DML statements. Valid values:
+   * Indicates whether the tracked data includes DML statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -6533,7 +6879,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionDataType exte
 export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionHost extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint of the change tracking task, in the format of `address:port`.
+   * The private endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-internal.aliyuncs.com:18002
@@ -6541,7 +6887,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionHost extends 
   privateHost?: string;
   /**
    * @remarks
-   * The public network connection information of the change tracking task. The format is `address:port`.
+   * The public network connection information of the change tracking task, in the format of `Address:Port`.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -6549,7 +6895,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionHost extends 
   publicHost?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
+   * The VPC endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -6623,7 +6969,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobTagList extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -6631,7 +6977,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobTagList extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the data migration, synchronization, or change tracking task.
+   * The instance ID for data migration, synchronization, and change tracking.
    * 
    * @example
    * dtsnjuc14kp12u****
@@ -6649,6 +6995,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobTagList extends $dara.Mod
    * @remarks
    * The visibility of the tag. Valid values:
    * 
+   * - **0**: public.
+   * - **1**: private.
+   * 
    * @example
    * 0
    */
@@ -6657,18 +7006,20 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobTagList extends $dara.Mod
    * @remarks
    * The region where the task resides.
    * 
+   * > This typically refers to the destination region.
+   * 
    * @example
    * cn-hangzhou
    */
   srcRegion?: string;
   /**
    * @remarks
-   * The tag type. Valid values:
+   * The tag category. Valid values:
    * 
-   * - **System**: A tag created by the system.
-   * - **Custom**: A tag added by the user.
+   * - **System**: tags created by the system.
+   * - **Custom**: tags added by users.
    * 
-   * > If this value is empty, publicly visible tags are returned by default.
+   * > If the value is empty, publicly visible tags are returned by default.
    * 
    * @example
    * System
@@ -6738,7 +7089,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJobTagList extends $dara.Mod
 export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
+   * Indicates whether the change tracking task is of the new version. Valid value: new (new version).
+   * 
+   * > This parameter is returned only for change tracking instances of the new version.
    * 
    * @example
    * new
@@ -6746,7 +7099,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-15T08:25:34Z
@@ -6754,7 +7107,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   beginTimestamp?: string;
   /**
    * @remarks
-   * The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
+   * The start offset of incremental data migration or the synchronization offset. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1616405159
@@ -6762,7 +7115,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   checkpoint?: string;
   /**
    * @remarks
-   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-23T07:30:31Z
@@ -6770,7 +7123,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
+   * The information about the downstream consumer client. The value consists of an IP address and a random number generated by DTS.
    * 
    * @example
    * 114.***.***.**:dts********
@@ -6778,7 +7131,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   consumptionClient?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-01-12T08:34:11Z
@@ -6787,21 +7140,23 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
    * The status of the ETL task.
+   * 
+   * > This parameter is returned only after an ETL task is configured.
    */
   dataEtlStatus?: DescribeDtsJobDetailResponseBodySubSyncJobDataEtlStatus;
   /**
    * @remarks
-   * The status of full data migration or initial full data synchronization.
+   * The full data migration or initial full data synchronization status.
    */
   dataInitializationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobDataInitializationStatus;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization status.
    */
   dataSynchronizationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobDataSynchronizationStatus;
   /**
    * @remarks
-   * If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
+   * The number of ApsaraDB RDS for MySQL instances attached to the source instance if the source instance is a PolarDB-X 1.0 instance.
    * 
    * @example
    * 2
@@ -6809,7 +7164,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   databaseCount?: number;
   /**
    * @remarks
-   * The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects for data migration, synchronization, or change tracking. For more information about the definition, see [Objects for data migration, synchronization, or change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"all\\":true,\\"name\\":\\"dtstestdata\\",\\"state\\":\\"normal\\"}}
@@ -6820,7 +7175,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   dbObjectSize?: number;
   /**
    * @remarks
-   * The latency of incremental data migration or synchronization, in milliseconds.
+   * The latency of incremental data migration or synchronization. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -6828,7 +7183,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   delay?: number;
   /**
    * @remarks
-   * The network type of the consumer client. Valid values:
+   * The network type of the downstream consumer client. Valid values:
+   * - **CLASSIC**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -6849,7 +7206,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The specification of the data transmission link.
+   * The link specification.
    * 
    * @example
    * xlarge
@@ -6858,10 +7215,10 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
-   * > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
+   * > This parameter is returned only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -6869,7 +7226,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   dtsJobDirection?: string;
   /**
    * @remarks
-   * The DTS task ID.
+   * The ID of the DTS task.
    * 
    * @example
    * m06j1g92124****
@@ -6877,7 +7234,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The DTS instance name.
+   * The name of the DTS instance.
    * 
    * @example
    * dtstest****
@@ -6885,7 +7242,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   dtsJobName?: string;
   /**
    * @remarks
-   * The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-26T14:03:21Z
@@ -6893,7 +7250,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   endTimestamp?: string;
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by ****
@@ -6902,6 +7259,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
    * The operator information of the ETL task.
+   * > This parameter is returned only when the task is an ETL task.
    * 
    * @example
    * { "cells ": [{\\"shape\\":\\"edge\\",\\"attrs\\":{\\"line\\":{\\"stroke\\":\\"#b1b1b1\\",\\"strokeWidth\\":1,\\"targetMarker\\":{\\"name\\":\\"block\\",\\"args\\":{\\"size\\":\\"8\\"}},\\"strokeDasharray\\":\\"\\"}},\\"id\\":\\"cd1ec473-f9b9-4e9b-a742-ac23f442****\\",\\"source\\":{\\"cell\\":\\"8b261182-bfab-4803-ad8e-6bb08e3e****\\",\\"port\\":\\"out1\\"},\\"target\\":{\\"cell\\":\\"b36770df-f48c-4d6b-9644-54c5e924****\\",\\"port\\":\\"in1\\"},\\"zIndex\\":7 }] }
@@ -6909,8 +7267,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   etlCalculator?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
-   * > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
+   * The time when the instance expires. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2023-06-16T08:01:19Z
@@ -6918,7 +7276,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task ended. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-06-16T10:34:17Z
@@ -6926,7 +7284,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -6935,6 +7293,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the task is a subtask. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -6944,9 +7304,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
    * @remarks
    * The task type of the DTS instance. Valid values:
    * 
-   * - **online**: data migration.
-   * - **SYNC**: data synchronization.
-   * - **SUBSCRIBE**: change tracking.
+   * - **online**: Migration.
+   * - **SYNC**: Synchronization.
+   * - **SUBSCRIBE**: Change tracking.
    * 
    * @example
    * SYNC
@@ -6955,6 +7315,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   /**
    * @remarks
    * The maximum number of DUs.
+   * 
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * 16
@@ -6969,21 +7331,29 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
    * @remarks
    * The minimum number of DUs.
    * 
+   * > This parameter is supported only for serverless instances.
+   * 
    * @example
    * 1
    */
   minDu?: number;
   /**
    * @remarks
-   * The task source:
+   * The source of the task. Valid values:
+   * - **PTS task**
+   * - **DMS task**
+   * - **DTS task**
    * 
    * @example
-   * DTS node
+   * DTS task
    */
   originType?: string;
   /**
    * @remarks
-   * The payment type:
+   * The billing method. Valid values:
+   * 
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -7001,7 +7371,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   precheckStatus?: DescribeDtsJobDetailResponseBodySubSyncJobPrecheckStatus;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter for DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {\\"srcHostPorts\\":\\"\\",\\"whitelist.dms.online.ddl.enable\\":false,\\"filterDDL\\":false,\\"sqlparser.dms.original.ddl\\":true,\\"srcOracleType\\":\\"sid\\",\\"maxRetryTime\\":43200,\\"destSSL\\":\\"0\\",\\"destOracleType\\":\\"sid\\",\\"srcSSL\\":\\"0\\",\\"dbListCaseChangeMode\\":\\"default\\",\\"SourceEngineVersion\\":\\"8.0.18\\",\\"srcNetType\\":\\"VPC\\",\\"destNetType\\":\\"VPC\\",\\"srcVpcNetMappingInst\\":\\"172.16.1**.**:10803\\",\\"destVpcNetMappingInst\\":\\"172.16.1**.**:11077\\",\\"useJobTask\\":\\"1\\"}
@@ -7009,12 +7379,14 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   reserved?: string;
   /**
    * @remarks
-   * DTS is retrying the task due to a task exception.
+   * The retry state when DTS is retrying due to a task exception.
    */
   retryState?: DescribeDtsJobDetailResponseBodySubSyncJobRetryState;
   /**
    * @remarks
-   * The details of the reverse synchronization task.
+   * The execution details of the reverse synchronization task.
+   * 
+   * > This parameter is returned only when the task is a data synchronization task and the synchronization topology is two-way synchronization.
    */
   reverseJob?: DescribeDtsJobDetailResponseBodySubSyncJobReverseJob;
   /**
@@ -7024,7 +7396,25 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   sourceEndpoint?: DescribeDtsJobDetailResponseBodySubSyncJobSourceEndpoint;
   /**
    * @remarks
-   * The status of the migration or synchronization task. Valid values:
+   * The status of the data migration or synchronization task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **NotConfigured**: The task is not configured.
+   * - **Prechecking**: The task is being prechecked.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **PreCheckPass**: The precheck passed.
+   * - **Initializing**: Initial synchronization is in progress.
+   * - **InitializeFailed**: Initial synchronization failed.
+   * - **synchronizing**: Synchronization is in progress.
+   * - **Migrating**: Migration is in progress.
+   * - **Failed**: Synchronization failed.
+   * - **MigrationFailed**: Migration failed.
+   * - **Suspending**: The task is being suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Retrying**: The task is being retried.
+   * - **Upgrade**: The task is being upgraded.
+   * - **Downgrade**: The task is being downgraded.
+   * - **Locked**: The task is locked.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Finished
@@ -7032,7 +7422,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status of initial schema synchronization.
+   * The initial schema synchronization status.
    */
   structureInitializationStatus?: DescribeDtsJobDetailResponseBodySubSyncJobStructureInitializationStatus;
   /**
@@ -7042,8 +7432,8 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   subSyncJob?: any[];
   /**
    * @remarks
-   * The subscribed topic.
-   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
+   * The topic for change tracking.
+   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group is created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
    * 
    * @example
    * cn_hangzhou_rm_bp1162kryivb8****_dtstest_version2
@@ -7051,7 +7441,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   subscribeTopic?: string;
   /**
    * @remarks
-   * The type of the subscription data.
+   * The type of the tracked data.
    */
   subscriptionDataType?: DescribeDtsJobDetailResponseBodySubSyncJobSubscriptionDataType;
   /**
@@ -7066,7 +7456,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
    * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * - This parameter takes effect only when you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -7074,7 +7464,7 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The tag collection.
+   * The list of tags.
    */
   tagList?: DescribeDtsJobDetailResponseBodySubSyncJobTagList[];
   /**
@@ -7252,7 +7642,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $dara.Model {
 export class DescribeDtsJobDetailResponseBodySubscriptionDataType extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscription data includes DDL statements. Valid values:
+   * Indicates whether the tracked data includes DDL statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -7260,7 +7652,9 @@ export class DescribeDtsJobDetailResponseBodySubscriptionDataType extends $dara.
   ddl?: boolean;
   /**
    * @remarks
-   * Indicates whether the subscription data includes DML statements. Valid values:
+   * Indicates whether the tracked data includes DML statements. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -7292,7 +7686,7 @@ export class DescribeDtsJobDetailResponseBodySubscriptionDataType extends $dara.
 export class DescribeDtsJobDetailResponseBodySubscriptionHost extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint of the change tracking task, in the format of `address:port`.
+   * The private endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-internal.aliyuncs.com:18002
@@ -7300,7 +7694,7 @@ export class DescribeDtsJobDetailResponseBodySubscriptionHost extends $dara.Mode
   privateHost?: string;
   /**
    * @remarks
-   * The public network connection information of the subscribe node, in the format of `address:port`.
+   * The public network connection information of the subscribe node. The value is in the `Address:Port number` format.
    * 
    * @example
    * dts-cn-****.aliyuncs.com:18001
@@ -7308,7 +7702,7 @@ export class DescribeDtsJobDetailResponseBodySubscriptionHost extends $dara.Mode
   publicHost?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
+   * The VPC endpoint of the change tracking task. The value is in the `Endpoint:Port number` format.
    * 
    * @example
    * dts-cn-****-vpc.aliyuncs.com:18003
@@ -7342,17 +7736,32 @@ export class DescribeDtsJobDetailResponseBodySubscriptionHost extends $dara.Mode
 export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
+   * Specifies whether the change tracking instance is of the new version. A value of new indicates a new version.
+   * > This parameter is returned only for change tracking instances of the new version.
    * 
    * @example
    * new
    */
   appName?: string;
+  /**
+   * @remarks
+   * The status of the approval process.
+   * 
+   * @example
+   * 1
+   */
   approvalProcessStatus?: number;
+  /**
+   * @remarks
+   * The URL for the approval process details.
+   * 
+   * @example
+   * https://example.com/approval/detail?orderId=1000
+   */
   approvalProcessUrl?: string;
   /**
    * @remarks
-   * The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-15T08:25:34Z
@@ -7368,7 +7777,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   binlog?: string;
   /**
    * @remarks
-   * The current position.
+   * The current checkpoint.
    * 
    * @example
    * 156629109****
@@ -7376,7 +7785,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   binlogSite?: string;
   /**
    * @remarks
-   * The position range.
+   * The checkpoint range.
    * 
    * @example
    * ****
@@ -7384,7 +7793,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   binlogTime?: string;
   /**
    * @remarks
-   * The start time of the specific project, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start time of the project, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2022-03-30T03:36:11.000
@@ -7392,7 +7801,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   bootTime?: string;
   /**
    * @remarks
-   * The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
+   * The start offset of incremental data migration or the synchronization offset. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1616405159
@@ -7408,7 +7817,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-23T07:30:31Z
@@ -7416,7 +7825,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
+   * The information about the downstream consumer client. The value consists of an IP address and a random number generated by DTS.
    * 
    * @example
    * 114.***.***.**:dts********
@@ -7424,7 +7833,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   consumptionClient?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-16T08:01:19Z
@@ -7437,12 +7846,12 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dataDeliveryChannelInfo?: DescribeDtsJobDetailResponseBodyDataDeliveryChannelInfo;
   /**
    * @remarks
-   * The status of incremental data migration or synchronization.
+   * The incremental data migration or incremental data synchronization status.
    */
   dataSynchronizationStatus?: DescribeDtsJobDetailResponseBodyDataSynchronizationStatus;
   /**
    * @remarks
-   * If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
+   * The number of ApsaraDB RDS for MySQL instances attached to the source instance if the source instance is a PolarDB-X 1.0 instance.
    * 
    * @example
    * 2
@@ -7450,7 +7859,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   databaseCount?: number;
   /**
    * @remarks
-   * The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects for data migration, synchronization, or change tracking. For more information about the definition, see [Objects for data migration, synchronization, or change tracking](https://help.aliyun.com/document_detail/209545.html).
    * 
    * @example
    * {\\"dtstestdata\\":{\\"all\\":true,\\"name\\":\\"dtstestdata\\",\\"state\\":\\"normal\\"}}
@@ -7458,6 +7867,10 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dbObject?: string;
   dbObjectOssUrl?: string;
   dbObjectOssUrlExpireTime?: string;
+  /**
+   * @example
+   * 505
+   */
   dbObjectSize?: number;
   /**
    * @remarks
@@ -7469,7 +7882,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The latency of incremental data migration or synchronization, in milliseconds.
+   * The latency of incremental data migration or synchronization. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -7478,6 +7891,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the task is a subtask. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -7485,7 +7900,9 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   demoJob?: boolean;
   /**
    * @remarks
-   * The network type of the consumer client. Valid values:
+   * The network type of the downstream consumer client. Valid values:
+   * - **CLASSIC**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -7500,8 +7917,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * @remarks
    * The environment label of the DTS instance. Valid values:
    * 
-   * - **normal**: normal
-   * - **online**: online
+   * - **normal**: **normal**
+   * - **online**: **online**
    * 
    * @example
    * normal
@@ -7509,7 +7926,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dtsBisLabel?: string;
   /**
    * @remarks
-   * The instance ID of the migration, synchronization, or subscribe instance.
+   * The instance ID of the data migration, synchronization, or subscribe instance.
    * 
    * @example
    * dtsi03e3zty16i****
@@ -7517,8 +7934,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The specification of the DTS task link.
-   * > For more information about the specifications and performance test results of each link specification, see [Data migration link specifications](https://help.aliyun.com/document_detail/26606.html) and [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
+   * The specifications of the DTS instance.
+   * > For more information about the specifications and performance test results of data migration and synchronization instances, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html) and [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
    * 
    * @example
    * xlarge
@@ -7527,10 +7944,10 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: forward synchronization.
+   * - **Reverse**: reverse synchronization.
    * 
-   * > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
+   * > This parameter is returned only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -7546,7 +7963,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The name of the migration, synchronization, or change tracking task.
+   * The name of the data migration, synchronization, or change tracking task.
    * 
    * @example
    * api_test
@@ -7554,8 +7971,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dtsJobName?: string;
   /**
    * @remarks
-   * The dynamic error message that is used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > For example, if the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
+   * The dynamic error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+   * > If the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -7563,7 +7980,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end of the timestamp range for the data stored in the change tracking instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2022-03-26T14:03:21Z
@@ -7571,7 +7988,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   endTimestamp?: string;
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -7579,7 +7996,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -7587,7 +8004,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The error message returned when the task failed.
+   * The error message returned if the task failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
@@ -7596,6 +8013,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The operator information of the ETL task.
+   * > This parameter is returned only when the task is an ETL task.
    * 
    * @example
    * { 	"cells ": [{\\"shape\\":\\"edge\\",\\"attrs\\":{\\"line\\":{\\"stroke\\":\\"#b1b1b1\\",\\"strokeWidth\\":1,\\"targetMarker\\":{\\"name\\":\\"block\\",\\"args\\":{\\"size\\":\\"8\\"}},\\"strokeDasharray\\":\\"\\"}},\\"id\\":\\"cd1ec473-f9b9-4e9b-a742-ac23f442****\\",\\"source\\":{\\"cell\\":\\"8b261182-bfab-4803-ad8e-6bb08e3e****\\",\\"port\\":\\"out1\\"},\\"target\\":{\\"cell\\":\\"b36770df-f48c-4d6b-9644-54c5e924****\\",\\"port\\":\\"in1\\"},\\"zIndex\\":7 	}] }
@@ -7603,8 +8021,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   etlCalculator?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time follows the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
-   * > This parameter is returned only when the value of **PayType** is **PrePaid**.
+   * The time when the instance expires. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * > This parameter is returned only when the **PayType** parameter is set to **PrePaid**.
    * 
    * @example
    * 2023-06-16T08:01:19Z
@@ -7612,7 +8030,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the task ended. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2023-06-16T10:34:17Z
@@ -7620,7 +8038,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -7634,15 +8052,19 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 1761955200
+   */
   initCheckpoint?: string;
   insightModule?: boolean;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * Indicates the type of the task. Valid values:
    * - **sync**: synchronization task.
-   * - **subSync**: subtask generated by modifying synchronization objects.
+   * - **subSync**: subtask generated when synchronization objects are modified.
    * 
-   * > Generally used together with **TaskType**.
+   * > This parameter is typically used together with **TaskType**.
    * 
    * @example
    * sync
@@ -7660,18 +8082,22 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * @remarks
    * The maximum number of DUs.
    * 
+   * > This parameter is supported only for serverless instances.
+   * 
    * @example
    * 16
    */
   maxDu?: number;
   /**
    * @remarks
-   * The migration type or synchronization initialization type.
+   * The migration type or initial synchronization type.
    */
   migrationMode?: DescribeDtsJobDetailResponseBodyMigrationMode;
   /**
    * @remarks
    * The minimum number of DUs.
+   * 
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * 1
@@ -7680,6 +8106,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -7695,7 +8123,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as specifying whether to automatically start a precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {\\"srcHostPorts\\":\\"\\",\\"whitelist.dms.online.ddl.enable\\":false,\\"filterDDL\\":false,\\"sqlparser.dms.original.ddl\\":true,\\"srcOracleType\\":\\"sid\\",\\"maxRetryTime\\":43200,\\"destSSL\\":\\"0\\",\\"destOracleType\\":\\"sid\\",\\"srcSSL\\":\\"0\\",\\"dbListCaseChangeMode\\":\\"default\\",\\"SourceEngineVersion\\":\\"8.0.18\\",\\"srcNetType\\":\\"VPC\\",\\"destNetType\\":\\"VPC\\",\\"srcVpcNetMappingInst\\":\\"172.16.1**.**:10803\\",\\"destVpcNetMappingInst\\":\\"172.16.1**.**:11077\\",\\"useJobTask\\":\\"1\\"}
@@ -7711,7 +8139,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   resourceGroupDisplayName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -7719,7 +8147,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * DTS is retrying the task due to a task exception.
+   * The retry state when DTS is retrying due to a task exception.
    */
   retryState?: DescribeDtsJobDetailResponseBodyRetryState;
   /**
@@ -7729,26 +8157,25 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   sourceEndpoint?: DescribeDtsJobDetailResponseBodySourceEndpoint;
   /**
    * @remarks
-   * The status of the migration or synchronization task. Valid values:
-   * 
-   * - **NotStarted**: Not started.
-   * - **NotConfigured**: Not configured.
-   * - **Prechecking**: Running the precheck.
-   * - **PrecheckFailed**: Precheck failed.
-   * - **PreCheckPass**: Precheck passed.
-   * - **Initializing**: Running initial synchronization.
+   * The status of the data migration or synchronization task. Valid values:
+   * - **NotStarted**: The task is not started.
+   * - **NotConfigured**: The task is not configured.
+   * - **Prechecking**: The task is being prechecked.
+   * - **PrecheckFailed**: The precheck failed.
+   * - **PreCheckPass**: The precheck passed.
+   * - **Initializing**: Initial synchronization is in progress.
    * - **InitializeFailed**: Initial synchronization failed.
-   * - **synchronizing**: Synchronizing.
-   * - **Migrating**: Migrating.
+   * - **synchronizing**: Synchronization is in progress.
+   * - **Migrating**: Migration is in progress.
    * - **Failed**: Synchronization failed.
    * - **MigrationFailed**: Migration failed.
-   * - **Suspending**: Suspending.
-   * - **Modifying**: Modifying synchronization objects.
-   * - **Retrying**: Retrying.
-   * - **Upgrade**: Upgrading.
-   * - **Downgrade**: Downgrading.
-   * - **Locked**: Locked.
-   * - **Finished**: Completed.
+   * - **Suspending**: The task is being suspended.
+   * - **Modifying**: The synchronization objects are being modified.
+   * - **Retrying**: The task is being retried.
+   * - **Upgrade**: The task is being upgraded.
+   * - **Downgrade**: The task is being downgraded.
+   * - **Locked**: The task is locked.
+   * - **Finished**: The task is completed.
    * 
    * @example
    * Migrating
@@ -7756,8 +8183,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The information about the distributed subtask. This parameter is null if the parent task is not a distributed task.
-   * > Currently, this parameter is available only when the parent task is a data synchronization task. Other task types are not supported.
+   * The information about the distributed subtasks. If the main task is not a distributed task, this parameter is null.
+   * > This parameter is returned only when the main task is a synchronization task. Other task types are not supported.
    */
   subDistributedJob?: DescribeDtsJobDetailResponseBodySubDistributedJob[];
   /**
@@ -7767,8 +8194,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   subSyncJob?: DescribeDtsJobDetailResponseBodySubSyncJob[];
   /**
    * @remarks
-   * The subscribed topic.
-   * > This parameter is returned only when the subscription instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
+   * The topic for change tracking.
+   * > This parameter is returned only when the change tracking instance is of the new version and a consumer group is created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
    * 
    * @example
    * cn_hangzhou_rm_bp1162kryivb8****_dtstest_version2
@@ -7776,7 +8203,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   subscribeTopic?: string;
   /**
    * @remarks
-   * The type of the subscription data.
+   * The type of the tracked data.
    */
   subscriptionDataType?: DescribeDtsJobDetailResponseBodySubscriptionDataType;
   /**
@@ -7799,7 +8226,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * - **Reverse**: reverse.
    * 
    * > - Default value: **Forward**.
-   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
+   * - This parameter takes effect only when you set it to **Reverse** and the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -7807,7 +8234,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The business type of the task.
+   * Indicates the business type of the task.
+   * > This parameter is typically used together with **JobType**.
    * 
    * @example
    * Distributed_xxx

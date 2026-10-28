@@ -13,7 +13,7 @@ export class StopDtsJobsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the **%s** variable in the **ErrMessage** parameter. > For example, if **ErrMessage** returns **The value of input parameter %s is not valid** and **DynamicMessage** returns **[timeout]**, the request parameter **timeout** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the error message returned in the **ErrMessage** parameter. > If **ErrMessage** returns **the value of input parameter %s is not valid** and **DynamicMessage** returns **[timeout]**, it indicates that the **timeout** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -53,7 +53,7 @@ export class StopDtsJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

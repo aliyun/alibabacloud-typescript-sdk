@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDedicatedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call fails.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class StopDedicatedClusterResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.q
@@ -37,7 +37,7 @@ export class StopDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

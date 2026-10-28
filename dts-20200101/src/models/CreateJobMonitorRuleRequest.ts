@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobMonitorRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The threshold for triggering an alert.
+   * The threshold that triggers an alert.
    * 
-   * - If **Type** is set to **delay**, the unit is seconds and the value must be an integer. Set the threshold based on your business requirements. A value of 10 or greater is recommended to avoid alert fluctuations caused by network issues or database loads.
+   * - If **Type** is set to **delay**, the unit is seconds and the value must be an integer. You can set the threshold based on your business requirements. We recommend that you set the threshold to 10 seconds or more to prevent alerts triggered by latency fluctuations caused by network conditions or database loads.
    * 
    * - If **Type** is set to **full_timeout**, the unit is hours and the value must be an integer.
    * 
-   * > This parameter is required when **Type** is set to **delay** or **full_timeout** and **State** is set to **Y**.
+   * > You must specify this parameter when **Type** is set to **delay** or **full_timeout** and **State** is set to **Y**.
    * 
    * @example
    * 11
@@ -19,7 +19,7 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   delayRuleTime?: number;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to obtain the task ID.
+   * The ID of the data migration, data synchronization, or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   noticeValue?: number;
   /**
    * @remarks
-   * The statistical period of the incremental verification task. Unit: minutes.
+   * The statistical period of the incremental data verification task. Unit: minutes.
    * 
    * > Valid values: 1, 5, 10, and 30.
    * 
@@ -47,9 +47,9 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The mobile phone numbers of alert contacts, separated by commas (,).
-   * >-  This parameter is supported only on the China site (aliyun.com) and only for the Chinese mainland mobile phone numbers. A maximum of 10 mobile phone numbers can be specified.
-   * - The international site does not support SMS-based alerting. You can only [set alert rules for DTS tasks through the CloudMonitor monitoring platform](https://help.aliyun.com/document_detail/175876.html).
+   * The mobile phone numbers of the contacts to receive alert notifications. Separate multiple mobile phone numbers with commas (,).
+   * > - This parameter is supported only on the Alibaba Cloud China site. Only mobile phone numbers in the Chinese mainland are supported, and you can specify up to 10 mobile phone numbers.
+   * > - The Alibaba Cloud International site does not support mobile phone alerts. You can only [configure alert rules for DTS tasks by using CloudMonitor](https://help.aliyun.com/document_detail/175876.html).
    * 
    * @example
    * 1361234****,1371234****
@@ -57,7 +57,7 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +65,7 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -75,8 +75,8 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the alert rule. Valid values:
    * 
-   * - **Y**: Enable the alert rule.
-   * - **N**: Disable the alert rule.
+   * - **Y**: Enables the alert rule.
+   * - **N**: Disables the alert rule.
    * 
    * Default value: **Y**.
    * 
@@ -86,7 +86,7 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The number of statistical periods for the incremental verification task.
+   * The number of periods for the incremental data verification task.
    * 
    * @example
    * 2
@@ -94,12 +94,12 @@ export class CreateJobMonitorRuleRequest extends $dara.Model {
   times?: number;
   /**
    * @remarks
-   * The type of the alert metric. Valid values:
-   * - **delay**: the **Latency** metric.
-   * - **error**: the **Migration Status** metric.
-   * - **full_timeout**: the **Full Migration Duration** metric.
+   * The type of the monitoring metric. Valid values:
+   * - **delay**: **Latency**.
+   * - **error**: **Migration status**.
+   * - **full_timeout**: **Full run duration**.
    * 
-   * Default value: **error**. This parameter must be manually specified.
+   * Default value: **error**. You must manually specify this parameter.
    * 
    * @example
    * delay

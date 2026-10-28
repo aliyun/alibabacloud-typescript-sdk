@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromoteToMasterRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * gad-bp162d4tp0500****
@@ -13,7 +13,7 @@ export class PromoteToMasterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Primary instance ID.
+   * The instance ID of the primary instance.
    * 
    * @example
    * rm-bp1756****
@@ -21,7 +21,7 @@ export class PromoteToMasterRequest extends $dara.Model {
   masterDbInstanceId?: string;
   /**
    * @remarks
-   * Region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class PromoteToMasterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -37,7 +37,7 @@ export class PromoteToMasterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Secondary instance ID.
+   * The instance ID of the secondary instance.
    * 
    * @example
    * rm-bp1756****

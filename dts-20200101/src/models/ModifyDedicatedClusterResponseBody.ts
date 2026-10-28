@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -45,7 +45,7 @@ export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

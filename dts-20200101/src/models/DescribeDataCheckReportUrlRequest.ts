@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCheckReportUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The data verification method. Currently, only the value **1** is supported, which indicates full verification.
+   * The data validation method. Valid values: **1**: full validation. Currently, only **1** is supported.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDataCheckReportUrlRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the DTS task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to obtain the ID.
+   * The ID of the DTS task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to obtain the task ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeDataCheckReportUrlRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the table in the source database to be verified.
+   * The name of the table to be verified in the source database.
    * 
    * This parameter is required.
    * 

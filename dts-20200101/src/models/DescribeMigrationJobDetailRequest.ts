@@ -68,7 +68,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   migrationMode?: DescribeMigrationJobDetailRequestMigrationMode;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -76,7 +76,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure that the value is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can only contain ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -84,7 +84,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Instance ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query instance ID.
+   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be an integer greater than **0** and must not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -119,7 +119,7 @@ export class DescribeMigrationJobDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****

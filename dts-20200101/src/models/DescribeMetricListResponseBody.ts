@@ -13,7 +13,7 @@ export class DescribeMetricListResponseBodyDataPoints extends $dara.Model {
   statistics?: number;
   /**
    * @remarks
-   * The record timestamp, in milliseconds.
+   * The record timestamp in milliseconds.
    * 
    * @example
    * 1650872310000
@@ -45,7 +45,7 @@ export class DescribeMetricListResponseBodyDataPoints extends $dara.Model {
 export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backend error code, which is an incrementing number.
+   * The backend error code.
    * 
    * @example
    * 403
@@ -58,7 +58,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   dataPoints?: DescribeMetricListResponseBodyDataPoints[];
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** error message.
+   * The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** parameter.
    * 
    * @example
    * Type
@@ -82,7 +82,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code corresponding to the exception.
+   * The HTTP status code for the exception.
    * 
    * @example
    * 403
@@ -90,12 +90,13 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
+   * Specifies the metric name. Valid values:
    * - **InternetOut**: outbound Internet traffic, in bytes.
    * - **diskusage_utilization**: disk usage.
    * - **IntranetInRate**: inbound internal network traffic, in bytes.
    * - **InternetIn**: inbound Internet traffic, in bytes.
-   * - **cpu_total**: CPU utilization.
-   * - **memory_usedutilization**: memory utilization.
+   * - **cpu_total**: CPU usage.
+   * - **memory_usedutilization**: memory usage.
    * - **IntranetOutRate**: outbound internal network traffic, in bytes.
    * 
    * @example
@@ -104,7 +105,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Specifies whether to query a cluster or a node. Valid values:
+   * Specifies the query target. Valid values:
    * - **CLUSTER**: cluster.
    * - **NODE**: node.
    * 
@@ -116,8 +117,8 @@ export class DescribeMetricListResponseBody extends $dara.Model {
    * @remarks
    * The observation value.
    * 
-   * - If **MetricType** is set to **NODE**, the value is **nodeid**.
-   * - If **MetricType** is set to **CLUSTER**, the value is the ID of the dedicated cluster, which can be obtained by calling the ListDedicatedCluster operation.
+   * - If **MetricType** is **NODE**, the value is the **nodeid**.
+   * - If **MetricType** is **CLUSTER**, the value is the dedicated cluster ID, which can be obtained by calling the ListDedicatedCluster operation.
    * 
    * @example
    * ecs-jhjnjjn
@@ -133,7 +134,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****

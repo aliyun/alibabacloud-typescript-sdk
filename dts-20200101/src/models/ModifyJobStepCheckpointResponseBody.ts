@@ -13,9 +13,9 @@ export class ModifyJobStepCheckpointResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the %s placeholder in the ErrMessage parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the error message returned by the ErrMessage parameter.
    * 
-   * > For example, if ErrMessage returns "The Value of Input Parameter %s is not valid" and DynamicMessage returns "JobId", it indicates that the JobId request parameter you provided is invalid.
+   * > If ErrMessage returns The Value of Input Parameter %s is not valid and DynamicMessage returns JobId, it indicates that the value of the JobId request parameter is invalid.
    * 
    * @example
    * can not find env: zbyk-pre
@@ -23,7 +23,7 @@ export class ModifyJobStepCheckpointResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the API call fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -31,7 +31,7 @@ export class ModifyJobStepCheckpointResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the API call fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -47,7 +47,7 @@ export class ModifyJobStepCheckpointResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C306C198-7807-409D-930A-D6CE6C32****
@@ -55,8 +55,8 @@ export class ModifyJobStepCheckpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * - **true**: The request succeeded.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
    * - **false**: The request failed.
    * 
    * @example

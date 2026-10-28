@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDynamicConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter will be deprecated.
+   * The error code. This parameter is scheduled for deprecation.
    * 
    * @example
    * 200
@@ -13,9 +13,9 @@ export class ModifyDynamicConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
    * 
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * DtsJobId
@@ -23,7 +23,7 @@ export class ModifyDynamicConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if an error occurs.
    * 
    * @example
    * InternalError
@@ -31,7 +31,7 @@ export class ModifyDynamicConfigResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if an error occurs.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -47,7 +47,7 @@ export class ModifyDynamicConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8D81829D-1BBD-5CE8-BE75-1CAD5750****
@@ -55,7 +55,7 @@ export class ModifyDynamicConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetSynchronizationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated soon.
    * 
    * @example
    * 12323344****
@@ -14,7 +14,7 @@ export class ResetSynchronizationJobRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. You can specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -22,7 +22,7 @@ export class ResetSynchronizationJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -32,11 +32,11 @@ export class ResetSynchronizationJobRequest extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * - **Forward**: forward.
-   * - **Reverse**: reverse.
+   * - **Forward**: Forward.
+   * - **Reverse**: Reverse.
    * 
    * > - Default value: **Forward**.
-   * - You can set this parameter to **Reverse** to reset the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
+   * - You can set this parameter to **Reverse** to clear the reverse synchronization link only when the synchronization topology of the data synchronization instance is two-way.
    * 
    * @example
    * Forward
@@ -44,7 +44,7 @@ export class ResetSynchronizationJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
+   * Instance ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query instance ID.
    * 
    * This parameter is required.
    * 

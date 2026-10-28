@@ -7,7 +7,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
    * @remarks
    * The name of the document to be parsed.
    * 
-   * > The name must include the file name extension. Currently, only .pdf is supported.
+   * > The name must include the file name extension. Only .pdf is supported.
    * 
    * @example
    * 2.pdf
@@ -17,7 +17,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
    * @remarks
    * The OSS URL of the document to be parsed.
    * 
-   * > This parameter is automatically populated when you call this operation by using an SDK.
+   * > This parameter is automatically populated when you use an SDK to call this operation.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com/storage/pdf/40184458-fbb0-44cf-a391-350628ceccdd17375122****
@@ -42,10 +42,10 @@ export class CreateDocParserJobRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The output format of the parsing result after the task is complete. Valid values:
+   * The format of the output result after the parsing task is completed. Valid values:
    * 
-   * - **zip**: a ZIP compressed file.
-   * - **content**: plain text.
+   * - **zip**: ZIP archive.
+   * - **content**: Plain text.
    * 
    * @example
    * zip

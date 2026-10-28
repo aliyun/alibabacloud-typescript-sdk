@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4E9564C5-F99D-4176-A6BA-2D7F2DC8****
@@ -37,7 +37,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   subscriptionInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

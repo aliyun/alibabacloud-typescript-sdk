@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromoteToMasterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Dynamic error code. This parameter will be unpublished soon.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,8 +13,8 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the **%s** placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -22,7 +22,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error code returned when the invocation fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -30,7 +30,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message returned when the invocation fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -38,7 +38,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 210ec2e116055198849072222d****
@@ -54,7 +54,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -62,7 +62,7 @@ export class PromoteToMasterResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Job ID. This parameter will be unpublished soon.
+   * The task ID. This parameter will be deprecated.
    * 
    * @example
    * z2v12jfo309****

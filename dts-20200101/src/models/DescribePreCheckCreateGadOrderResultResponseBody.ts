@@ -68,8 +68,8 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace **%s** in the error message of the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -77,7 +77,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -85,7 +85,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -101,7 +101,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   httpStatusCode?: string;
   /**
    * @remarks
-   * The instance ID of the GAD instance group.
+   * The instance ID of the global active database (GAD) instance group.
    * 
    * @example
    * gad-bp1i99e8l7913****
@@ -110,7 +110,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   preCheckItems?: DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems;
   /**
    * @remarks
-   * The overall precheck result.
+   * The overall result of the precheck.
    * 
    * @example
    * True
@@ -118,7 +118,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   preCheckResult?: boolean;
   /**
    * @remarks
-   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. You can set this parameter to specify the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -126,7 +126,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 92E1E99D-5224-4AD3-8C94-23A3516B****
@@ -134,7 +134,7 @@ export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
