@@ -13,7 +13,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The ID of the crowd for crowd targeting. You can obtain this ID by calling the ListCrowds operation.
+   * The ID of the specified crowd for crowd targeting. You can call the ListCrowds operation to obtain the crowd ID.
    * 
    * @example
    * 1
@@ -21,15 +21,11 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   crowdId?: string;
   /**
    * @remarks
-   * The crowd targeting type for the experiment group. Valid values:
-   * 
-   * - `All`: All traffic
-   * 
-   * - `Filter`: Traffic that matches the filter condition
-   * 
-   * - `CrowdId`: Traffic from a specific crowd
-   * 
-   * - `Random`: A random percentage of traffic
+   * The type of traffic targeting for the experiment group. Valid values:
+   * - All: All traffic.
+   * - Filter: Traffic that uses filter conditions.
+   * - CrowdId: Traffic specified by a crowd ID.
+   * - Random: Random traffic based on a percentage.
    * 
    * @example
    * All
@@ -37,7 +33,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   crowdTargetType?: string;
   /**
    * @remarks
-   * The ID of the debug crowd. You can obtain this ID by calling the ListCrowds operation.
+   * The ID of the debug crowd. You can call the ListCrowds operation to obtain the crowd ID.
    * 
    * @example
    * 3
@@ -45,7 +41,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * The UIDs of the debug users. The value must be the UID of an Alibaba Cloud account or a RAM user. Separate multiple UIDs with a comma.
+   * The debug users. The users must be the UIDs of Alibaba Cloud accounts or RAM users. Separate multiple UIDs with commas.
    * 
    * @example
    * 1124512470******,1124512471******,1124512472******
@@ -61,7 +57,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time duration for traffic distribution.
+   * The time period for traffic distribution.
    * 
    * @example
    * 3
@@ -69,7 +65,9 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   distributionTimeDuration?: number;
   /**
    * @remarks
-   * The distribution type. Valid values: `UserId` (by user ID) and `TimeDuration` (by time duration).
+   * The traffic distribution method. Valid values:
+   * - UserId: User ID.
+   * - TimeDuration: Time period.
    * 
    * @example
    * UserId
@@ -77,7 +75,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   distributionType?: string;
   /**
    * @remarks
-   * The filter condition for crowd targeting.
+   * The filter conditions for crowd targeting.
    * 
    * @example
    * gender=male
@@ -85,7 +83,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain this ID by calling the ListInstances operation.
+   * The ID of the instance. You can call the ListInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -95,7 +93,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the layer. You can obtain this ID by calling the ListLayers operation.
+   * The ID of the layer. You can call the ListLayers operation to obtain the layer ID.
    * 
    * This parameter is required.
    * 
@@ -115,7 +113,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to create an A/A experiment group.
+   * Specifies whether an AA experiment group is required.
    * 
    * This parameter is required.
    * 
@@ -125,7 +123,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   needAA?: boolean;
   /**
    * @remarks
-   * The percentage of traffic to randomly allocate to this experiment group. This parameter is used only when `CrowdTargetType` is set to `Random`. Valid values: 0 to 100.
+   * The percentage of random traffic used to match the experiment group when the traffic targeting type is Random. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -133,7 +131,7 @@ export class CreateExperimentGroupRequest extends $dara.Model {
   randomFlow?: number;
   /**
    * @remarks
-   * A comma-separated list of reserved bucket numbers.
+   * The reserved bucket numbers.
    * 
    * @example
    * 1,2,3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. To get the ID, call [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The instance ID. For more information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 

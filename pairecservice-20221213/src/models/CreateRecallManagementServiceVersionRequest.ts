@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecallManagementServiceVersionRequestConfigsMergeConfig extends $dara.Model {
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * The extended configuration for the merge configuration to facilitate future feature expansion.
    * 
    * @example
    * {"":""}
@@ -21,12 +21,12 @@ export class CreateRecallManagementServiceVersionRequestConfigsMergeConfig exten
   filterExpression?: string;
   /**
    * @remarks
-   * The IDs of tables to use for filtering results.
+   * The IDs of the filter tables.
    */
   filterRecallManagementTableIds?: string[];
   /**
    * @remarks
-   * The item recall management table ID.
+   * The ID of the item table.
    * 
    * @example
    * 2
@@ -34,12 +34,12 @@ export class CreateRecallManagementServiceVersionRequestConfigsMergeConfig exten
   itemRecallManagementTableId?: string;
   /**
    * @remarks
-   * The fields to return from the item table.
+   * The output fields of the item table.
    */
   itemTableFields?: string[];
   /**
    * @remarks
-   * The merge type. Valid values: `Weight` and `Alternate`.
+   * The merge type. Valid values: `Weight`: weight. `Alternate`: alternate.
    * 
    * @example
    * Weight
@@ -47,7 +47,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsMergeConfig exten
   mergeType?: string;
   /**
    * @remarks
-   * The recall management service version configuration ID.
+   * The ID of the recall management service version configuration.
    * 
    * @example
    * 1
@@ -175,7 +175,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
 export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperatorsJoinConfig extends $dara.Model {
   /**
    * @remarks
-   * **The field to join on.**
+   * **The Join field.**
    * 
    * @example
    * item_id
@@ -183,7 +183,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
   field?: string;
   /**
    * @remarks
-   * **The fields to include from the joined table.**
+   * **The output fields.**
    * 
    * @example
    * item_id
@@ -191,7 +191,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
   outputFields?: string[];
   /**
    * @remarks
-   * **The ID of the table to join with.**
+   * **The ID of the Join table.**
    * 
    * @example
    * 4
@@ -244,7 +244,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
   fieldQuantityLimit?: number;
   /**
    * @remarks
-   * Specifies whether to sort randomly.
+   * Specifies whether to enable random sorting.
    * 
    * @example
    * false
@@ -252,7 +252,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
   isRandSort?: boolean;
   /**
    * @remarks
-   * The sort field.
+   * The sort fields.
    * 
    * @example
    * create_time
@@ -288,17 +288,17 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
 export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperators extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the feature operator.
+   * The configuration of the Feature operator.
    */
   featureConfig?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperatorsFeatureConfig;
   /**
    * @remarks
-   * The configuration for the filter operator.
+   * The configuration of the Filter operator.
    */
   filterConfig?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperatorsFilterConfig;
   /**
    * @remarks
-   * The configuration for the Join operator.
+   * The configuration of the Join operator.
    */
   joinConfig?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperatorsJoinConfig;
   /**
@@ -311,7 +311,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
   operatorType?: string;
   /**
    * @remarks
-   * The configuration for the Trigger operator.
+   * The configuration of the Trigger operator.
    */
   triggerConfig?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperatorsTriggerConfig;
   static names(): { [key: string]: string } {
@@ -358,7 +358,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOper
 export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs extends $dara.Model {
   /**
    * @remarks
-   * The recall description.
+   * The description of the recall.
    * 
    * @example
    * this is etrec recall
@@ -366,7 +366,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   description?: string;
   /**
    * @remarks
-   * **This parameter is reserved for future use.**
+   * **The extended configuration for future feature expansion.**
    * 
    * @example
    * ""
@@ -374,7 +374,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   extendedConfig?: string;
   /**
    * @remarks
-   * The conditions for an item, formatted as an array.
+   * The item conditions in array format.
    * 
    * @example
    * [{"option":"<","field":"category","type":"STRING","value":"10"}]
@@ -382,7 +382,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item condition expression.
+   * The item conditional expression.
    * 
    * @example
    * age>20
@@ -398,7 +398,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   itemVectorField?: string;
   /**
    * @remarks
-   * The item vector recall management table ID.
+   * The ID of the item vector recall table.
    * 
    * @example
    * 4
@@ -406,7 +406,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   itemVectorRecallManagementTableId?: string;
   /**
    * @remarks
-   * The recall name.
+   * The name of the recall.
    * 
    * @example
    * etrec
@@ -414,12 +414,12 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   name?: string;
   /**
    * @remarks
-   * A list of operators.
+   * The list of operators.
    */
   operators?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigsOperators[];
   /**
    * @remarks
-   * The priority. A lower value indicates a higher priority.
+   * The priority. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -427,7 +427,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   priority?: number;
   /**
    * @remarks
-   * The recall management table ID.
+   * The ID of the recall management table.
    * 
    * @example
    * 1
@@ -459,7 +459,7 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
   userVectorField?: string;
   /**
    * @remarks
-   * The user vector recall management table ID.
+   * The ID of the user vector recall table.
    * 
    * @example
    * 3
@@ -518,12 +518,12 @@ export class CreateRecallManagementServiceVersionRequestConfigsRecallConfigs ext
 export class CreateRecallManagementServiceVersionRequestConfigs extends $dara.Model {
   /**
    * @remarks
-   * **Specifies how to merge recall results.**
+   * **The merge configuration.**
    */
   mergeConfig?: CreateRecallManagementServiceVersionRequestConfigsMergeConfig;
   /**
    * @remarks
-   * A list of recall configurations.
+   * The list of recall configurations.
    */
   recallConfigs?: CreateRecallManagementServiceVersionRequestConfigsRecallConfigs[];
   static names(): { [key: string]: string } {
@@ -571,7 +571,7 @@ export class CreateRecallManagementServiceVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The source recall management service version ID.
+   * The ID of the source recall management service version.
    * 
    * @example
    * 4

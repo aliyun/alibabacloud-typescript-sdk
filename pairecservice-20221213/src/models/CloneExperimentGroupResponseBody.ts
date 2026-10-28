@@ -13,7 +13,7 @@ export class CloneExperimentGroupResponseBody extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The request ID, used for tracking and troubleshooting.
+   * Id of the request
    * 
    * @example
    * 12A65C6C-AFA1-59B2-9A66-A9E0BB73F0E5

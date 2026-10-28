@@ -13,7 +13,7 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScor
   logItemId?: string;
   /**
    * @remarks
-   * The request ID recorded in the log.
+   * The request ID.
    * 
    * @example
    * 323
@@ -37,7 +37,7 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScor
   scoreDiff?: string;
   /**
    * @remarks
-   * The score difference details.
+   * The score comparison details.
    * 
    * @example
    * {}
@@ -91,12 +91,12 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends $dar
   ossPath?: string;
   /**
    * @remarks
-   * A list of score difference reports.
+   * The score comparison report.
    */
   reportsOfScoreDiff?: ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F0AB6527-093F-5C44-B3BD-42C8C210C619

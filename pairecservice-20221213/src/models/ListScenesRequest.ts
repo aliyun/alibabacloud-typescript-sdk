@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScenesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can obtain this ID by calling the `ListInstances` operation.
+   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
    * 
    * @example
    * pairec-cn-abcdefg1234
@@ -13,7 +13,7 @@ export class ListScenesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the scene to use as a filter.
+   * The scene name filter.
    * 
    * @example
    * scene1

@@ -15,7 +15,7 @@ export class CreateCrowdRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance ID. To get this ID, call the ListInstances operation.
+   * The ID of the instance. You can call the ListInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateCrowdRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The crowd label.
+   * The label of the crowd.
    * 
    * @example
    * os=android
@@ -33,17 +33,19 @@ export class CreateCrowdRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The crowd name.
+   * The name of the crowd.
    * 
    * This parameter is required.
    * 
    * @example
-   * xx人群
+   * SampleCrowd
    */
   name?: string;
   /**
    * @remarks
-   * The source of the user data. Valid values: ● ManualInput: Users are provided in the Users parameter. ● UploadFile: Users are provided from an uploaded file.
+   * The source of the crowd. Valid values:
+   * - ManualInput: Manual input.
+   * - UploadFile: File upload.
    * 
    * @example
    * ManualInput
@@ -51,7 +53,7 @@ export class CreateCrowdRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The users to include in the crowd. Separate multiple users with commas (,).
+   * The users included in the crowd. Separate multiple users with commas.
    * 
    * @example
    * user1,user2,user3

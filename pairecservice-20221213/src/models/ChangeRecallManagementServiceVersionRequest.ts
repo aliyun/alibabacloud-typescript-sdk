@@ -13,7 +13,7 @@ export class ChangeRecallManagementServiceVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The recall management service version ID.
+   * The version ID of the recall management service.
    * 
    * @example
    * 1

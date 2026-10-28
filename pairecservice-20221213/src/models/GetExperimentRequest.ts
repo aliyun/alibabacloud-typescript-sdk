@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExperimentRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can obtain this ID by calling the ListInstances operation.
+   * Instance ID of the instance. You can call the ListInstances operation to obtain instance ID.
    * 
    * This parameter is required.
    * 

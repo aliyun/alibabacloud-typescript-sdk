@@ -48,7 +48,7 @@ export class ListInstanceResourceSchemasResponseBody extends $dara.Model {
   schemas?: ListInstanceResourceSchemasResponseBodySchemas[];
   /**
    * @remarks
-   * The total count of schemas.
+   * The total number of schemas.
    * 
    * @example
    * 10

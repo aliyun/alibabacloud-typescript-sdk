@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetABMetricGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A comma-separated list of A/B testing metric IDs.
+   * The IDs of the ABTest metrics, separated by commas.
    * 
    * @example
    * 1,2
@@ -13,7 +13,7 @@ export class GetABMetricGroupResponseBody extends $dara.Model {
   ABMetricIds?: string;
   /**
    * @remarks
-   * A comma-separated list of A/B testing metric names.
+   * The names of the ABTest metrics, separated by commas.
    * 
    * @example
    * pv,uv
@@ -21,15 +21,15 @@ export class GetABMetricGroupResponseBody extends $dara.Model {
   ABMetricNames?: string;
   /**
    * @remarks
-   * The metric group description.
+   * The description of the metric group.
    * 
    * @example
-   * 访问量相关指标
+   * Traffic-related metrics
    */
   description?: string;
   /**
    * @remarks
-   * The metric group name.
+   * The name of the metric group.
    * 
    * @example
    * visits
@@ -45,7 +45,7 @@ export class GetABMetricGroupResponseBody extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * Whether the metric group is a real-time metric group.
+   * Indicates whether the metric group is real-time.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class GetABMetricGroupResponseBody extends $dara.Model {
   realtime?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 01D22D08-BA20-5F35-8302-99115F288220
@@ -61,7 +61,7 @@ export class GetABMetricGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scene ID. You can get this ID by calling the [ListScenes](https://icms.alibaba-inc.com/content/learn/pai?l=1\\&m=16768\\&n=4298955) operation.
+   * The ID of the scene. You can obtain the ID by calling the [ListScenes](https://icms.alibaba-inc.com/content/learn/pai?l=1&m=16768&n=4298955) operation.
    * 
    * @example
    * 1

@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateABMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to aggregate by user dimension when calculating significance. Two aggregation methods are available: by user and by sample.
+   */
   aggregationByUser?: boolean;
   /**
    * @remarks
-   * The metric definition.
+   * The definition of the metric.
    * 
    * This parameter is required.
    * 
@@ -15,23 +19,26 @@ export class CreateABMetricRequest extends $dara.Model {
    */
   definition?: string;
   /**
+   * @remarks
+   * The denominator used for significance calculation.
+   * 
    * @example
    * pv
    */
   denominator?: string;
   /**
    * @remarks
-   * The metric description.
+   * The description of the metric.
    * 
    * This parameter is required.
    * 
    * @example
-   * pv指标
+   * PV metric
    */
   description?: string;
   /**
    * @remarks
-   * The instance ID. Call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain this ID.
+   * Instance ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain instance ID.
    * 
    * This parameter is required.
    * 
@@ -39,10 +46,14 @@ export class CreateABMetricRequest extends $dara.Model {
    * pairec-cn-test1
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether the current metric follows a binomial distribution when the metric type is a derived metric. If yes, the mean and variance of the metric are calculated based on the binomial distribution.
+   */
   isBinomialDistribution?: boolean;
   /**
    * @remarks
-   * The ID of the left metric used to calculate the derived metric.
+   * The ID of the left metric for a derived metric.
    * 
    * @example
    * 2
@@ -50,7 +61,7 @@ export class CreateABMetricRequest extends $dara.Model {
   leftMetricId?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * This parameter is required.
    * 
@@ -58,23 +69,26 @@ export class CreateABMetricRequest extends $dara.Model {
    * pv
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether to calculate significance.
+   */
   needSignificance?: boolean;
   /**
+   * @remarks
+   * The numerator used for significance calculation.
+   * 
    * @example
    * click
    */
   numerator?: string;
   /**
    * @remarks
-   * The operator used to calculate the derived metric. Valid values:
-   * 
-   * - `Plus`: Addition
-   * 
-   * - `Minus`: Subtraction
-   * 
-   * - `Multiplication`: Multiplication
-   * 
-   * - `Division`: Division
+   * The operator used to calculate a derived metric. Valid values:
+   * - Plus: addition.
+   * - Minus: subtraction.
+   * - Multiplication: multiplication.
+   * - Division: division.
    * 
    * @example
    * Division
@@ -83,10 +97,8 @@ export class CreateABMetricRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the metric is a real-time metric. Valid values:
-   * 
-   * - `true`: The metric is real-time.
-   * 
-   * - `false`: The metric is not real-time.
+   * - true: yes.
+   * - false: no.
    * 
    * This parameter is required.
    * 
@@ -96,7 +108,7 @@ export class CreateABMetricRequest extends $dara.Model {
   realtime?: boolean;
   /**
    * @remarks
-   * The data source ID to which the results are written back. Call the ListInstanceResources operation to obtain this ID.
+   * The ID of the data source to which the data table is written back. You can call the ListInstanceResources operation to obtain the ID.
    * 
    * @example
    * 3
@@ -104,7 +116,7 @@ export class CreateABMetricRequest extends $dara.Model {
   resultResourceId?: string;
   /**
    * @remarks
-   * The ID of the right metric used to calculate the derived metric.
+   * The ID of the right metric for a derived metric.
    * 
    * @example
    * 3
@@ -112,7 +124,7 @@ export class CreateABMetricRequest extends $dara.Model {
   rightMetricId?: string;
   /**
    * @remarks
-   * The scene ID. Call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain this ID.
+   * The ID of the scene. You can call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -122,7 +134,7 @@ export class CreateABMetricRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The statistics cycle.
+   * The statistical period.
    * 
    * @example
    * 1
@@ -130,7 +142,7 @@ export class CreateABMetricRequest extends $dara.Model {
   statisticsCycle?: number;
   /**
    * @remarks
-   * The data table ID. Call the ListTableMetas operation to obtain this ID.
+   * The ID of the data table. You can call the ListTableMetas operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -140,11 +152,9 @@ export class CreateABMetricRequest extends $dara.Model {
   tableMetaId?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
-   * 
-   * - `Single`: A single metric.
-   * 
-   * - `Derived`: A derived metric.
+   * The type of the metric. Valid values:
+   * - Single: single metric.
+   * - Derived: derived metric.
    * 
    * This parameter is required.
    * 

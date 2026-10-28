@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRecallManagementServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * pairec-cn-test123

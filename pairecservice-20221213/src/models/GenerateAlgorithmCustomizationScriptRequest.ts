@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateAlgorithmCustomizationScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * The deployment mode. Valid values:
-   * 
-   * - **EasyDeploy**: Performs a one-click deployment.
-   * 
-   * - **GenerateScript**: Generates a deployment script.
+   * Specifies whether to generate a deployment script or perform one-click deployment. Valid values:
+   * - EasyDeploy: one-click deployment
+   * - GenerateScript: script generation
    * 
    * @example
    * EasyDeploy
@@ -17,7 +15,7 @@ export class GenerateAlgorithmCustomizationScriptRequest extends $dara.Model {
   deployMode?: string;
   /**
    * @remarks
-   * The ID of the instance. To obtain this ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * @example
    * pairec-test-xxx
@@ -25,7 +23,7 @@ export class GenerateAlgorithmCustomizationScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The data types of fields in the JSON configuration.
+   * The types of fields in the JSON configuration.
    * 
    * @example
    * {"item_table":"array"}

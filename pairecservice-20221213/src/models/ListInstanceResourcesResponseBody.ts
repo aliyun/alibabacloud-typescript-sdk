@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The category of the resource. Valid values:
+   * The resource category. Valid values:
    * 
    * - DataManagement
    * 
@@ -19,7 +19,7 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The configuration of the resource.
+   * The configuration information of the resource.
    * 
    * @example
    * {}
@@ -43,9 +43,9 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
   gmtModifiedAt?: string;
   /**
    * @remarks
-   * The group of the resource.
+   * The resource group.
    * 
-   * If `Category` is `DataManagement`, valid values are:
+   * If the resource category is DataManagement, valid values are:
    * 
    * - storage
    * 
@@ -55,7 +55,7 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
    * 
    * - modeltrain
    * 
-   * If `Category` is `Engine`, valid values are:
+   * If the resource category is Engine, valid values are:
    * 
    * - feature
    * 
@@ -65,7 +65,7 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
    * 
    * - recengine
    * 
-   * If `Category` is `Monitor`, valid values are:
+   * If the resource category is Monitor, valid values are:
    * 
    * - logs
    * 
@@ -89,7 +89,7 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type. Valid values:
    * 
    * - Hologres
    * 
@@ -105,9 +105,9 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
    * 
    * - DataHub
    * 
-   * - ApsaraMQ for Kafka
+   * - Kafka
    * 
-   * - Realtime Compute for Apache Flink
+   * - Flinkvvp
    * 
    * - ACR
    * 
@@ -119,9 +119,9 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
    * 
    * - MaxCompute
    * 
-   * - Graph Compute Service
+   * - GraphCompute
    * 
-   * - ApsaraDB for Redis
+   * - Redis
    * 
    * @example
    * OSS
@@ -129,7 +129,7 @@ export class ListInstanceResourcesResponseBodyResources extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The resource URI.
+   * The URI of the resource.
    * 
    * @example
    * bucket-test-123
@@ -181,7 +181,7 @@ export class ListInstanceResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of resource objects.
+   * The list of resource objects.
    */
   resources?: ListInstanceResourcesResponseBodyResources[];
   /**

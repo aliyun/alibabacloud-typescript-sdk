@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alias of the experiment.
+   * The alias of the experiment ID.
    * 
    * @example
    * L1#EG1#E1
@@ -13,7 +13,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   aliasExperimentId?: string;
   /**
    * @remarks
-   * A comma-separated list of bucket numbers.
+   * The allocated bucket numbers.
    * 
    * @example
    * 1,2,3
@@ -21,7 +21,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * The experiment configuration, in JSON format.
+   * The configuration of the experiment.
    * 
    * @example
    * {"RankBy": "Score"}
@@ -29,7 +29,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The debug crowd ID.
+   * The ID of the debug crowd.
    * 
    * @example
    * 3
@@ -37,7 +37,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * The UIDs of debug users, which can be the UIDs of an Alibaba Cloud main account or a RAM user. Separate multiple UIDs with a comma (,).
+   * The debug users. The value must be the UIDs of Alibaba Cloud accounts or RAM users. Separate multiple UIDs with commas.
    * 
    * @example
    * 1124512470******,1124512471******,1124512472******
@@ -45,7 +45,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   debugUsers?: string;
   /**
    * @remarks
-   * The experiment description.
+   * The description of the experiment.
    * 
    * @example
    * This is a test.
@@ -53,7 +53,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The experiment group ID.
+   * The ID of the experiment group.
    * 
    * @example
    * 3
@@ -61,7 +61,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The traffic percentage.
+   * The traffic allocation percentage.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   flowPercent?: number;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format.
+   * The creation time.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -77,7 +77,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time, in ISO 8601 format.
+   * The update time.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -85,7 +85,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The laboratory ID.
+   * The ID of the laboratory.
    * 
    * @example
    * 3
@@ -93,7 +93,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   laboratoryId?: string;
   /**
    * @remarks
-   * The layer ID.
+   * The ID of the layer.
    * 
    * @example
    * 3
@@ -101,7 +101,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   layerId?: string;
   /**
    * @remarks
-   * The experiment name.
+   * The name of the experiment.
    * 
    * @example
    * experiment_test1
@@ -109,7 +109,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 74D958EF-3598-56FA-8296-FF1575CE43DF
@@ -117,7 +117,7 @@ export class GetExperimentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scene ID.
+   * The ID of the scene.
    * 
    * @example
    * 3
@@ -125,7 +125,9 @@ export class GetExperimentResponseBody extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The status of the experiment. Valid values:<br>● Offline<br>● Online<br><br>
+   * The status filter. Valid values:
+   * - Offline: offline
+   * - Online: online
    * 
    * @example
    * Offline
@@ -133,7 +135,9 @@ export class GetExperimentResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the experiment. Valid values:<br>● Baseline: a baseline experiment.<br>● Normal: a normal experiment.<br><br>
+   * The type of the experiment. Valid values:
+   * - Baseline: baseline experiment
+   * - Normal: normal experiment
    * 
    * @example
    * Baseline

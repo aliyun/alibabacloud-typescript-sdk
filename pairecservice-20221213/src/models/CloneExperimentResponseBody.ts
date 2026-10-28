@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloned experiment.
+   * The experiment ID.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class CloneExperimentResponseBody extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * F8F613A9-DF1C-551A-88E1-397A3981A785

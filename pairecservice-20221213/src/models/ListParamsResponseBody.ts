@@ -7,7 +7,7 @@ export class ListParamsResponseBodyParams extends $dara.Model {
    * @remarks
    * The environment to which the parameter belongs. Valid values:
    * - Daily: daily environment
-   * - Prepub: pre-release environment
+   * - Prepub: staging environment
    * - Product: production environment
    * 
    * @example
@@ -16,7 +16,7 @@ export class ListParamsResponseBodyParams extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The update time. The time is formatted in ISO 8601 and includes the time zone offset.
+   * The update time. The time follows the ISO 8601 standard and includes the time zone offset.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -24,7 +24,7 @@ export class ListParamsResponseBodyParams extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * home
@@ -40,7 +40,7 @@ export class ListParamsResponseBodyParams extends $dara.Model {
   paramId?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * house

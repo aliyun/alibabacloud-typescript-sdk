@@ -15,7 +15,10 @@ export class CloneLaboratoryRequest extends $dara.Model {
   cloneExperimentGroup?: boolean;
   /**
    * @remarks
-   * The destination environment. Valid values: Daily, Pre (pre-release), and Prod (production).
+   * The runtime environment. Valid values:
+   * - Daily: daily environment.
+   * - Pre: pre-release environment.
+   * - Prod: production environment.
    * 
    * This parameter is required.
    * 
@@ -25,7 +28,7 @@ export class CloneLaboratoryRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. To obtain this ID, call the `ListInstances` operation.
+   * Instance ID of the instance. You can call the ListInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 

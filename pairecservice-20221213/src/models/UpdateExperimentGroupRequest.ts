@@ -13,7 +13,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The ID of the crowd for crowd targeting. You can obtain this ID by calling the ListCrowds API.
+   * The ID of the specified crowd for crowd targeting. You can call the ListCrowds operation to obtain the ID.
    * 
    * @example
    * 3
@@ -21,15 +21,11 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   crowdId?: string;
   /**
    * @remarks
-   * The type of crowd targeting for the experiment group. Valid values:
-   * 
-   * - All: all traffic
-   * 
-   * - Filter: traffic that matches the filter condition
-   * 
-   * - CrowdId: traffic from the specified crowd ID
-   * 
-   * - Random: a random percentage of traffic
+   * The type of traffic targeting for the experiment group. Valid values:
+   * * All: All traffic.
+   * * Filter: Traffic that uses filter conditions.
+   * * CrowdId: Traffic specified by a crowd ID.
+   * * Random: Random traffic based on a percentage.
    * 
    * @example
    * All
@@ -37,7 +33,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   crowdTargetType?: string;
   /**
    * @remarks
-   * The ID of the debug crowd. You can obtain this ID by calling the ListCrowds API.
+   * The ID of the debug crowd. You can call the ListCrowds operation to obtain the ID.
    * 
    * @example
    * 3
@@ -45,7 +41,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * A comma-separated list of UIDs for debug users. The UIDs can belong to Alibaba Cloud main accounts or sub-accounts.
+   * The debug users. The value must be the UID of an Alibaba Cloud account or RAM user. Separate multiple UIDs with commas (,).
    * 
    * @example
    * user1,user2,user3
@@ -63,7 +59,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time duration for traffic distribution.
+   * The time period for traffic distribution.
    * 
    * @example
    * 3
@@ -71,7 +67,9 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   distributionTimeDuration?: number;
   /**
    * @remarks
-   * The distribution type. ● UserId: Distributes traffic by user ID. ● TimeDuration: Distributes traffic by time duration.
+   * The traffic distribution method. Valid values:
+   * ● UserId: User ID.
+   * ● TimeDuration: Time period.
    * 
    * @example
    * UserId
@@ -79,7 +77,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   distributionType?: string;
   /**
    * @remarks
-   * The filter condition for crowd targeting.
+   * The filter conditions specified for crowd targeting.
    * 
    * @example
    * gender=male
@@ -87,7 +85,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The ID of the instance. You can obtain this ID by calling the ListInstances API.
+   * Instance ID of the instance. You can call the ListInstances operation to obtain instance ID.
    * 
    * This parameter is required.
    * 
@@ -97,7 +95,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the layer. You can obtain this ID by calling the ListLayers API.
+   * The ID of the layer. You can call the ListLayers operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -125,7 +123,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   needAA?: boolean;
   /**
    * @remarks
-   * If CrowdTargetType is set to Random, this parameter specifies the percentage of traffic (from 0 to 100) to route to the experiment group.
+   * The percentage of random traffic used to match the experiment group when the traffic targeting type is set to Random. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -133,7 +131,7 @@ export class UpdateExperimentGroupRequest extends $dara.Model {
   randomFlow?: number;
   /**
    * @remarks
-   * The reserved buckets.
+   * The reserved bucket numbers.
    * 
    * @example
    * 1,2,3

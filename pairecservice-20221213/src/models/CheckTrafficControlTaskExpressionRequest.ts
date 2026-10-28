@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckTrafficControlTaskExpressionRequest extends $dara.Model {
   /**
    * @remarks
-   * The expression to validate.
+   * The expression.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckTrafficControlTaskExpressionRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CheckTrafficControlTaskExpressionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the table.
+   * The data table ID.
    * 
    * This parameter is required.
    * 

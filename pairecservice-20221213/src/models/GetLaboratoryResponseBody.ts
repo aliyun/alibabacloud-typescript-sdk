@@ -14,6 +14,9 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The bucketing method. Valid values:
+   * - Uid: UID bucketing (default).
+   * - UidHash: UID hashing.
+   * - Filter: Filter condition bucketing.
    * 
    * @example
    * Filter
@@ -21,7 +24,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   bucketType?: string;
   /**
    * @remarks
-   * The assigned buckets.
+   * The assigned bucket numbers.
    * 
    * @example
    * 1,2,3,10-20
@@ -29,7 +32,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * The crowd ID.
+   * The ID of the crowd.
    * 
    * @example
    * 3
@@ -37,7 +40,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   crowdId?: string;
   /**
    * @remarks
-   * The debug crowd ID.
+   * The ID of the debug crowd.
    * 
    * @example
    * 3
@@ -53,7 +56,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   debugUsers?: string;
   /**
    * @remarks
-   * The laboratory description.
+   * The description of the laboratory.
    * 
    * @example
    * This is a test.
@@ -61,7 +64,10 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment. Valid values:
+   * - Daily: Daily environment.
+   * - Pre: Staging environment.
+   * - Prod: Production environment.
    * 
    * @example
    * Daily
@@ -69,7 +75,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The filter.
+   * The filter condition.
    * 
    * @example
    * filter=xxx
@@ -77,7 +83,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The laboratory name.
+   * The name of the laboratory.
    * 
    * @example
    * laboratory1
@@ -85,7 +91,7 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 1C0898E5-9220-5443-B2D9-445FF0688215
@@ -101,7 +107,9 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The status of the laboratory. Valid values:
+   * The status. Valid values:
+   * - Offline: Not online.
+   * - Online: Online.
    * 
    * @example
    * Offline
@@ -109,7 +117,9 @@ export class GetLaboratoryResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The laboratory type. Valid values:
+   * The type of the laboratory. Valid values:
+   * - Base
+   * - NonBase
    * 
    * @example
    * Base

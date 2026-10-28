@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceResourceSchemasRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters schemas by a name prefix.
+   * The prefix used to filter schema names.
    * 
    * @example
    * default

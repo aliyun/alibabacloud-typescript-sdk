@@ -3,12 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListParamsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the parameter is encrypted.
+   * 
+   * @example
+   * false
+   */
   encrypted?: boolean;
   /**
    * @remarks
    * The environment to which the parameter belongs. Valid values:
    * - Daily: daily environment
-   * - Pre: pre-release environment
+   * - Pre: staging environment
    * - Prod: production environment
    * 
    * @example
@@ -17,7 +24,7 @@ export class ListParamsRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
+   * The instance ID. You can obtain this ID by calling the ListInstances operation.
    * 
    * This parameter is required.
    * 
@@ -27,7 +34,7 @@ export class ListParamsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * home
@@ -43,7 +50,7 @@ export class ListParamsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 50
@@ -51,7 +58,7 @@ export class ListParamsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scene ID. You can call the ListScenes operation to obtain the scene ID.
+   * The scene ID. You can obtain this ID by calling the ListScenes operation.
    * 
    * This parameter is required.
    * 

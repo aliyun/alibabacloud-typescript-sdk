@@ -13,7 +13,7 @@ export class CreateExperimentRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The ID of the debug crowd. Call the ListCrowds operation to obtain this ID.
+   * The debug crowd ID. You can call the ListCrowds operation to obtain the debug crowd ID.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class CreateExperimentRequest extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * The UIDs of Alibaba Cloud accounts or RAM users for debugging. Separate multiple UIDs with a comma.
+   * The debug users. The value must be the UID of an Alibaba Cloud account or RAM user. Separate multiple UIDs with commas.
    * 
    * @example
    * 1124512470******,1124512471******,1124512472******
@@ -29,7 +29,7 @@ export class CreateExperimentRequest extends $dara.Model {
   debugUsers?: string;
   /**
    * @remarks
-   * The experiment description.
+   * The description of the experiment.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateExperimentRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the experiment group. Call the ListExperimentGroups operation to obtain this ID.
+   * The experiment group ID. You can call the ListExperimentGroups operation to obtain the experiment group ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateExperimentRequest extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The traffic distribution percentage.
+   * The traffic allocation percentage.
    * 
    * @example
    * 100
@@ -57,7 +57,7 @@ export class CreateExperimentRequest extends $dara.Model {
   flowPercent?: number;
   /**
    * @remarks
-   * The instance ID. Call the ListInstances operation to obtain this ID.
+   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreateExperimentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The experiment name.
+   * The name of the experiment.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,9 @@ export class CreateExperimentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The experiment type. Valid values:<br>● `Baseline`: Indicates a baseline experiment.<br>● `Normal`: Indicates a normal experiment.<br><br>
+   * The type of the experiment. Valid values:
+   * - Baseline: baseline experiment.
+   * - Normal: normal experiment.
    * 
    * This parameter is required.
    * 

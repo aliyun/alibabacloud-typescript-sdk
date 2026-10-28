@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateAlgorithmCustomizationScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log ID.
+   * The ID of the generated log.
    * 
    * @example
    * 4

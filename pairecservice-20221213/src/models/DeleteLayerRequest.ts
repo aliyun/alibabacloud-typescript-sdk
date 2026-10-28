@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLayerRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID, which can be obtained by calling the ListInstances API.
+   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
    * 
    * @example
    * pairec-cn-abcdefg1234

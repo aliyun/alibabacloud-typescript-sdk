@@ -13,7 +13,7 @@ export class QueryRecallManagementTableRecordsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The primary keys of the records to retrieve.
+   * The primary keys for the query.
    * 
    * @example
    * ["1001","1002"]
@@ -21,7 +21,7 @@ export class QueryRecallManagementTableRecordsRequest extends $dara.Model {
   primaryKeys?: Buffer;
   /**
    * @remarks
-   * The recall management table version ID. If you omit this parameter, the API uses the currently published version.
+   * The version ID of the recall management table. Default value: the current published version.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class CreateExperimentGroupResponseBody extends $dara.Model {
   experimentGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * A04CB8C0-E74A-5E83-BC61-64D153574EC7

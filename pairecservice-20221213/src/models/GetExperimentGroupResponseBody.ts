@@ -21,15 +21,11 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   crowdId?: string;
   /**
    * @remarks
-   * The method for targeting traffic to the experiment group. Valid values:
-   * 
-   * - `All`: all traffic
-   * 
-   * - `Filter`: traffic that matches the filter
-   * 
-   * - `CrowdId`: traffic from the specified crowd
-   * 
-   * - `Random`: a random percentage of traffic
+   * The type of traffic targeting for the experiment group. Valid values:
+   * - All: All traffic.
+   * - Filter: Traffic that uses filter conditions.
+   * - CrowdId: Traffic targeted by a specified crowd ID.
+   * - Random: Random traffic based on a percentage.
    * 
    * @example
    * All
@@ -45,7 +41,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   debugCrowdId?: string;
   /**
    * @remarks
-   * The user IDs for debugging, separated by commas.
+   * The debug users. Separate multiple users with commas.
    * 
    * @example
    * 1124512470******,1124512471******,1124512472******
@@ -61,7 +57,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The distribution duration.
+   * The time period for traffic distribution.
    * 
    * @example
    * 5
@@ -69,9 +65,9 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   distributionTimeDuration?: number;
   /**
    * @remarks
-   * The traffic distribution method.
-   * ● `UserId`: Distributes traffic by user ID.
-   * ● `TimeDuration`: Distributes traffic by time period.
+   * The traffic distribution method. Valid values:
+   * - UserId: User ID.
+   * - TimeDuration: Time period.
    * 
    * @example
    * UserId
@@ -79,7 +75,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   distributionType?: string;
   /**
    * @remarks
-   * The filter.
+   * The filter conditions.
    * 
    * @example
    * gender=female
@@ -87,7 +83,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The bucket IDs that correspond to the `RandomFlow` percentage. This parameter is returned only when `CrowdTargetType` is set to `Random`.
+   * The specific bucket numbers returned based on the RandomFlow value when the traffic targeting type is Random.
    * 
    * @example
    * 1,2,3,4
@@ -119,7 +115,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether an A/B test is required.
+   * Indicates whether an AB experiment group is required.
    * 
    * @example
    * true
@@ -127,7 +123,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   needAA?: boolean;
   /**
    * @remarks
-   * The owner of the experiment group.
+   * The creator.
    * 
    * @example
    * 1124512470******
@@ -135,7 +131,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The percentage of traffic from 0 to 100 that is randomly allocated to this experiment group. This parameter is returned only when `CrowdTargetType` is set to `Random`.
+   * The percentage of random traffic used to match the experiment group when the traffic targeting type is Random. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -143,7 +139,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   randomFlow?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * BDB621CB-A81E-5D39-8793-39A365CBCC74
@@ -151,7 +147,7 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The reserved bucket IDs.
+   * The reserved bucket numbers.
    * 
    * @example
    * 1,2,3,4
@@ -168,9 +164,9 @@ export class GetExperimentGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the experiment group. Valid values:
-   * ● `Offline`: The experiment group is not launched.
-   * ● `Online`: The experiment group is launched.
-   * ● `Pushed`: The experiment group is fully launched.
+   * - Offline: Not online.
+   * - Online: Online.
+   * - Pushed: Fully rolled out.
    * 
    * @example
    * Offline

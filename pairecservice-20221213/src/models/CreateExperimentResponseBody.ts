@@ -13,7 +13,7 @@ export class CreateExperimentResponseBody extends $dara.Model {
   experimentId?: string;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * Id of the request
    * 
    * @example
    * 3AAA45F6-0798-5461-9360-81D133823CE7

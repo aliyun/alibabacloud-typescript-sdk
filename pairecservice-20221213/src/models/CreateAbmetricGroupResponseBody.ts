@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateABMetricGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the A/B metric group.
+   * The ID of the metric group.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateABMetricGroupResponseBody extends $dara.Model {
   ABMetricGroupId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E15A1443-7917-5BE0-AE70-25538ECF398D

@@ -13,7 +13,7 @@ export class CheckTrafficControlTaskExpressionResponseBody extends $dara.Model {
   isValie?: boolean;
   /**
    * @remarks
-   * If `IsValid` is `false`, this field provides the reason for the failure.
+   * This field is meaningful only when `IsValid` is `false`.
    * 
    * @example
    * ""

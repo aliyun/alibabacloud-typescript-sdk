@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID, which can be obtained by calling the ListInstances API.
+   * Instance ID of the instance. You can call the ListInstances operation to obtain instance ID.
    * 
    * @example
    * pairec-cn-abcdefg1234

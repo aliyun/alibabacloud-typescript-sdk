@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.Model {
   /**
    * @remarks
-   * The private endpoint.
+   * The private network endpoint.
    * 
    * @example
    * http://xxx
@@ -13,7 +13,7 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
   privateLinkAddress?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network connection endpoint.
    * 
    * @example
    * ""
@@ -23,15 +23,15 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
    * @remarks
    * The network connectivity status. Valid values:
    * 
-   * - Connecting: connecting.
+   * - Connecting: Connecting.
    * 
-   * - Connected: connected.
+   * - Connected: Connected.
    * 
-   * - ConnectionFailed: connection failed.
+   * - ConnectionFailed: Connection failed.
    * 
-   * - Updating: updating.
+   * - Updating: Updating.
    * 
-   * - UpdateFailed: update failed.
+   * - UpdateFailed: Update failed.
    * 
    * @example
    * Connecting
@@ -47,7 +47,7 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
   token?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-xxx

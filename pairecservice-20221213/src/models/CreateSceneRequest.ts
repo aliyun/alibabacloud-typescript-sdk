@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSceneRequestFlows extends $dara.Model {
   /**
    * @remarks
-   * The flow code.
+   * The traffic code.
    * 
    * @example
    * liuliang1
@@ -13,10 +13,10 @@ export class CreateSceneRequestFlows extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow name.
+   * The traffic name.
    * 
    * @example
-   * 流量1
+   * Traffic 1
    */
   flowName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CreateSceneRequestFlows extends $dara.Model {
 export class CreateSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * The scene description.
+   * The scenario description.
    * 
    * @example
    * This is a test.
@@ -53,7 +53,7 @@ export class CreateSceneRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The flows.
+   * The traffic list.
    */
   flows?: CreateSceneRequestFlows[];
   /**
@@ -66,7 +66,7 @@ export class CreateSceneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scene name.
+   * The scenario name.
    * 
    * @example
    * scene1

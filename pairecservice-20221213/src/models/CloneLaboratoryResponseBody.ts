@@ -13,7 +13,7 @@ export class CloneLaboratoryResponseBody extends $dara.Model {
   laboratoryId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 01D22D08-BA20-5F35-8302-99115F288220

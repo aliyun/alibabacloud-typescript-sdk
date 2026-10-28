@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrafficControlTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * pairec-1324***

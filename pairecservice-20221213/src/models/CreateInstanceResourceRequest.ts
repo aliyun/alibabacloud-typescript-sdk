@@ -6,11 +6,8 @@ export class CreateInstanceResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The resource category. Valid values:
-   * 
    * - DataManagement
-   * 
    * - Engine
-   * 
    * - Monitor
    * 
    * This parameter is required.
@@ -23,8 +20,7 @@ export class CreateInstanceResourceRequest extends $dara.Model {
    * @remarks
    * The resource group.
    * 
-   * If the resource category is DataManagement, valid values are:
-   * 
+   * If the resource category is DataManagement, valid values:
    * - storage
    * 
    * - modelpipeline
@@ -33,8 +29,7 @@ export class CreateInstanceResourceRequest extends $dara.Model {
    * 
    * - modeltrain
    * 
-   * If the resource category is Engine, valid values are:
-   * 
+   * If the resource category is Engine, valid values:
    * - feature
    * 
    * - predict
@@ -43,8 +38,7 @@ export class CreateInstanceResourceRequest extends $dara.Model {
    * 
    * - recengine
    * 
-   * If the resource category is Monitor, valid values are:
-   * 
+   * If the resource category is Monitor, valid values:
    * - logs
    * 
    * - logsback
@@ -77,9 +71,9 @@ export class CreateInstanceResourceRequest extends $dara.Model {
    * 
    * - DataHub
    * 
-   * - ApsaraMQ for Kafka
+   * - Kafka
    * 
-   * - Realtime Compute for Apache Flink
+   * - Flinkvvp
    * 
    * - ACR
    * 
@@ -91,9 +85,9 @@ export class CreateInstanceResourceRequest extends $dara.Model {
    * 
    * - MaxCompute
    * 
-   * - Graph Compute
+   * - GraphCompute
    * 
-   * - ApsaraDB for Redis
+   * - Redis
    * 
    * This parameter is required.
    * 

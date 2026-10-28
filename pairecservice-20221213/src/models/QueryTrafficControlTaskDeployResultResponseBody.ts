@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message returned for the Flink platform deployment operation.
+   * The message about the deployment operation on the Flink platform.
    * 
    * @example
    * deploy job draft success
@@ -14,9 +14,9 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   /**
    * @remarks
    * The status of deploying the draft. Valid values:
-   * - Failed: failed.
-   * - Running: running.
-   * - Success: succeeded.
+   * - `Failed`: Failed.
+   * - `Running`: Running.
+   * - `Success`: Successful.
    * 
    * @example
    * Success
@@ -24,7 +24,7 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   deployStatus?: string;
   /**
    * @remarks
-   * The message returned for pushing the draft to Flink.
+   * The message about pushing the draft to Flink.
    * 
    * @example
    * push draft success
@@ -33,9 +33,9 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   /**
    * @remarks
    * The status of pushing the draft to Flink. Valid values:
-   * - Failed: failed.
-   * - Running: running.
-   * - Success: succeeded.
+   * - `Failed`: Failed.
+   * - `Running`: Running.
+   * - `Success`: Successful.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   draftStatus?: string;
   /**
    * @remarks
-   * The message returned for the preparation phase.
+   * The message about the preparation phase.
    * 
    * @example
    * success
@@ -52,9 +52,9 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   /**
    * @remarks
    * The status of the preparation phase. Valid values:
-   * - Failed: failed.
-   * - Running: running.
-   * - Success: succeeded.
+   * - `Failed`: Failed.
+   * - `Running`: Running.
+   * - `Success`: Successful.
    * 
    * @example
    * Success
@@ -70,7 +70,7 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The message returned for starting the Flink task.
+   * The message about starting the Flink task.
    * 
    * @example
    * start job success
@@ -79,9 +79,9 @@ export class QueryTrafficControlTaskDeployResultResponseBody extends $dara.Model
   /**
    * @remarks
    * The status of starting the Flink task. Valid values:
-   * - Failed: failed.
-   * - Running: running.
-   * - Success: succeeded.
+   * - `Failed`: Failed.
+   * - `Running`: Running.
+   * - `Success`: Successful.
    * 
    * @example
    * Success

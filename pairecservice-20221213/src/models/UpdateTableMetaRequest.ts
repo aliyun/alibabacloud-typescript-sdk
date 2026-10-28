@@ -13,7 +13,7 @@ export class UpdateTableMetaRequestFields extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Indicates whether the field is a dimension field.
+   * Specifies whether the field is a dimension field.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateTableMetaRequestFields extends $dara.Model {
   isDimensionField?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is a partition field.
+   * Specifies whether the field is a partition field.
    * 
    * This parameter is required.
    * 
@@ -33,17 +33,17 @@ export class UpdateTableMetaRequestFields extends $dara.Model {
   isPartitionField?: string;
   /**
    * @remarks
-   * The business meaning of the field.
+   * The meaning of the field.
    * 
    * This parameter is required.
    * 
    * @example
-   * 名称字段
+   * Name field
    */
   meaning?: string;
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateTableMetaRequestFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The data type of the field.
+   * The type of the field.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class UpdateTableMetaRequestFields extends $dara.Model {
 export class UpdateTableMetaRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the data table.
+   * The description of the table.
    * 
    * @example
    * this is a test table
@@ -103,7 +103,7 @@ export class UpdateTableMetaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The fields of the data table.
+   * The list of table fields.
    * 
    * This parameter is required.
    */
@@ -120,13 +120,13 @@ export class UpdateTableMetaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The module to which the data table belongs.
+   * The module of the data table.
    * 
-   * - ABTest: a data table for A/B testing.
+   * - ABTest: experiment data table.
    * 
-   * - ExperimentTool: a data table for experiment tools.
+   * - ExperimentTool: experiment tool table.
    * 
-   * - DataDiagnosis: a data table for data diagnosis.
+   * - DataDiagnosis: data diagnosis.
    * 
    * This parameter is required.
    * 

@@ -14,6 +14,9 @@ export class GetInstanceResponseBodyConfigDataManagements extends $dara.Model {
   /**
    * @remarks
    * The metadata.
+   * 
+   * @example
+   * ""
    */
   meta?: { [key: string]: any };
   /**
@@ -114,6 +117,9 @@ export class GetInstanceResponseBodyConfigMonitors extends $dara.Model {
   /**
    * @remarks
    * The metadata.
+   * 
+   * @example
+   * ""
    */
   meta?: { [key: string]: any };
   /**
@@ -206,11 +212,17 @@ export class GetInstanceResponseBodyFeatureStoreInfo extends $dara.Model {
   /**
    * @remarks
    * The status of FeatureDB.
+   * 
+   * @example
+   * ""
    */
   featureDBStatus?: string;
   /**
    * @remarks
    * The ID of the Feature Store instance.
+   * 
+   * @example
+   * learn-pairec-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -272,6 +284,9 @@ export class GetInstanceResponseBodyRecommendCustomization extends $dara.Model {
   /**
    * @remarks
    * Specifies whether recommendation customization is enabled.
+   * 
+   * @example
+   * false
    */
   isEnable?: boolean;
   static names(): { [key: string]: string } {
@@ -319,7 +334,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   config?: GetInstanceResponseBodyConfig;
   /**
    * @remarks
-   * The time when the instance expires. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The time when the instance expires. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2022-12-14T00:00:00Z
@@ -332,7 +347,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   featureStoreInfo?: GetInstanceResponseBodyFeatureStoreInfo;
   /**
    * @remarks
-   * The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The time when the instance was created. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2022-10-13T04:55:12Z
@@ -340,7 +355,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the instance was updated. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The time when the instance was updated. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2022-11-05T09:02:30Z
@@ -356,7 +371,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of the operations tool.
+   * The configurations related to the operations tool.
    */
   operatingTool?: GetInstanceResponseBodyOperatingTool;
   /**
@@ -367,10 +382,10 @@ export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The region ID. Valid values:
-   * - cn-shenzhen: Shenzhen.
-   * - cn-hangzhou: Hangzhou.
-   * - cn-beijing: Beijing.
-   * - cn-shanghai: Shanghai.
+   * - cn-shenzhen: Shenzhen
+   * - cn-hangzhou: Hangzhou
+   * - cn-beijing: Beijing
+   * - cn-shanghai: Shanghai
    * 
    * @example
    * cn-shenzhen
@@ -387,9 +402,9 @@ export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - Initializing: Initializing.
-   * - Stopped: Stopped.
-   * - Running: Running.
+   * - Initializing: Initialization.
+   * - Stopped: The service is stopped.
+   * - Running: The instance is running.
    * 
    * @example
    * Initializing
@@ -397,7 +412,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance type. Valid values:
+   * The type of the instance. Valid values:
    * - basic: Basic Edition.
    * - highleve: Upgraded Edition.
    * - advance: Advanced Edition.

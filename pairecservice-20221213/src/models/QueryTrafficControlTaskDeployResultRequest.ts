@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTaskDeployResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment. Valid values:
-   * - Daily: daily environment.
-   * - Pre: staging environment.
-   * - Prod: production environment.
+   * The environment. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment).
    * 
    * @example
    * Daily

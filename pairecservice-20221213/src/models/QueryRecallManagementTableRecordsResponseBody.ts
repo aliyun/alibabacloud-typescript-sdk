@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRecallManagementTableRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of the retrieved records.
+   * The data list.
    */
   records?: { [key: string]: any }[];
   /**

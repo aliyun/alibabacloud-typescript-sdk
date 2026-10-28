@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class StartTrafficControlTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The target environment. Valid values:
+   * The environment. Valid values:
+   * - Daily: the daily environment.
+   * - Pre: the staging environment.
+   * - Prod: the production environment.
    * 
    * @example
    * Pre
