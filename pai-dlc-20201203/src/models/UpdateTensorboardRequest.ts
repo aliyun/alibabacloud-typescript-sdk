@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * Visibility of the task. Valid values:
-   * 
-   * - PUBLIC: Visible to all users in this workspace.
-   * 
-   * - PRIVATE: Visible only to you and administrators in this workspace.
+   * The visibility of the task. Valid values:
+   * - PUBLIC: The task is visible to all users in the workspace.
+   * - PRIVATE: The task is visible only to you and administrators in the workspace.
    * 
    * @example
    * PRIVATE
@@ -17,16 +15,23 @@ export class UpdateTensorboardRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * Maximum runtime. Unit: minutes.
+   * The maximum running duration in minutes.
    * 
    * @example
    * 300
    */
   maxRunningTimeMinutes?: number;
+  /**
+   * @remarks
+   * The scheduling priority of the TensorBoard task. Valid values: 1 to 9. A value of 1 indicates the lowest priority, and a value of 9 indicates the highest priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: string;
   /**
    * @remarks
-   * Workspace ID. For more information about how to get a workspace ID, see [ListWorkspaces]().
+   * The workspace ID. <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 380

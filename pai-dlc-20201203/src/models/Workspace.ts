@@ -7,30 +7,61 @@ import { Resources } from "./Resources";
 
 export class Workspace extends $dara.Model {
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * ken
    */
   creator?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifyTime?: string;
+  /**
+   * @remarks
+   * The member list.
+   */
   members?: Member[];
+  /**
+   * @remarks
+   * The resource quota list.
+   */
   quotas?: Quota[];
+  /**
+   * @remarks
+   * The total resources.
+   */
   totalResources?: Resources;
+  /**
+   * @remarks
+   * The administrator list.
+   */
   workspaceAdmins?: Member[];
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-20210126170216-mtl37ge7gkvdz
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * dlc-workspace
    */

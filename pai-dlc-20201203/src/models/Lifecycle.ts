@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LifecyclePostStartExec extends $dara.Model {
+  /**
+   * @remarks
+   * The command.
+   */
   command?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +33,10 @@ export class LifecyclePostStartExec extends $dara.Model {
 }
 
 export class LifecyclePostStart extends $dara.Model {
+  /**
+   * @remarks
+   * The exec action.
+   */
   exec?: LifecyclePostStartExec;
   static names(): { [key: string]: string } {
     return {
@@ -55,6 +63,10 @@ export class LifecyclePostStart extends $dara.Model {
 }
 
 export class LifecyclePreStopExec extends $dara.Model {
+  /**
+   * @remarks
+   * The command.
+   */
   command?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -81,6 +93,10 @@ export class LifecyclePreStopExec extends $dara.Model {
 }
 
 export class LifecyclePreStop extends $dara.Model {
+  /**
+   * @remarks
+   * The exec action.
+   */
   exec?: LifecyclePreStopExec;
   static names(): { [key: string]: string } {
     return {
@@ -107,7 +123,15 @@ export class LifecyclePreStop extends $dara.Model {
 }
 
 export class Lifecycle extends $dara.Model {
+  /**
+   * @remarks
+   * The post-start action.
+   */
   postStart?: LifecyclePostStart;
+  /**
+   * @remarks
+   * The pre-stop action.
+   */
   preStop?: LifecyclePreStop;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SecurityContextCapabilities extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Linux capabilities to add.
+   */
   add?: string[];
+  /**
+   * @remarks
+   * The list of Linux capabilities to remove.
+   */
   drop?: string[];
   static names(): { [key: string]: string } {
     return {

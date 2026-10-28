@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLProgressMicro extends $dara.Model {
   /**
    * @remarks
-   * 当前 micro-batch 序号
+   * The current micro-batch ordinal number.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class RLProgressMicro extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * micro-batch 总数
+   * The micro-batch total count.
    * 
    * @example
    * 3

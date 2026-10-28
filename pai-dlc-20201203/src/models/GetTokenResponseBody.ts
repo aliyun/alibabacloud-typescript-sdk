@@ -13,7 +13,7 @@ export class GetTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task sharing token, which can be used to view information about the shared task.
+   * The sharing token of the job, which can be used to view information about the shared job.
    * 
    * @example
    * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****

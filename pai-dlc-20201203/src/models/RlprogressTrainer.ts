@@ -7,7 +7,7 @@ import { RLProgressSync } from "./RlprogressSync";
 export class RLProgressTrainer extends $dara.Model {
   /**
    * @remarks
-   * micro-batch 进度
+   * The micro-batch progress.
    * 
    * **if can be null:**
    * true
@@ -15,7 +15,7 @@ export class RLProgressTrainer extends $dara.Model {
   micro?: RLProgressMicro;
   /**
    * @remarks
-   * 当前 mini batch 序号
+   * The current mini-batch ordinal number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class RLProgressTrainer extends $dara.Model {
   miniIdx?: number;
   /**
    * @remarks
-   * mini-batch 总数
+   * The total number of mini-batches.
    * 
    * @example
    * 4
@@ -31,7 +31,7 @@ export class RLProgressTrainer extends $dara.Model {
   numMinibatches?: number;
   /**
    * @remarks
-   * 参数同步状态
+   * The parameter synchronization status.
    * 
    * **if can be null:**
    * true

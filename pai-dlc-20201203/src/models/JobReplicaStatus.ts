@@ -7,22 +7,31 @@ import { ResourceConfig } from "./ResourceConfig";
 export class JobReplicaStatus extends $dara.Model {
   /**
    * @remarks
-   * The number of active pods for this replica type.
+   * The number of replicas of this role that are currently running.
+   * 
+   * @example
+   * 0
    */
   active?: number;
   /**
    * @remarks
-   * The type of spot instance in use, if any.
+   * The currently selected spot instance type (applies only to elastic spot tasks).
+   * 
+   * @example
+   * ecs.gn6e-c12g1.3xlarge
    */
   currentSpotInstanceType?: string;
   /**
    * @remarks
-   * The number of dequeued pods.
+   * The number of replicas of this role that have been dequeued.
+   * 
+   * @example
+   * 0
    */
   dequeued?: number;
   /**
    * @remarks
-   * The estimated auto scaling specification.
+   * The estimated auto-scaling configuration for this role.
    * 
    * **if can be null:**
    * true
@@ -30,12 +39,15 @@ export class JobReplicaStatus extends $dara.Model {
   estimatedAutoScalingSpec?: AutoScalingSpec;
   /**
    * @remarks
-   * The estimated number of pods for this replica type, used for auto scaling.
+   * The estimated number of pods for this role.
+   * 
+   * @example
+   * 2
    */
   estimatedPodCount?: number;
   /**
    * @remarks
-   * The estimated resource configuration.
+   * The estimated resource configuration for this role.
    * 
    * **if can be null:**
    * true
@@ -43,12 +55,18 @@ export class JobReplicaStatus extends $dara.Model {
   estimatedResourceConfig?: ResourceConfig;
   /**
    * @remarks
-   * The number of queued pods.
+   * The number of replicas of this role that are still in the queue.
+   * 
+   * @example
+   * 0
    */
   queuing?: number;
   /**
    * @remarks
-   * The type of the job replica.
+   * The role type to which the task replicas belong.
+   * 
+   * @example
+   * Worker
    */
   type?: string;
   static names(): { [key: string]: string } {

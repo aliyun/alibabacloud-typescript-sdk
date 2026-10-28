@@ -3,10 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuotaConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum allowed priority.
+   * 
+   * @example
+   * 9
+   */
   allowedMaxPriority?: number;
+  /**
+   * @remarks
+   * Specifies whether DLC is enabled.
+   */
   enableDLC?: boolean;
+  /**
+   * @remarks
+   * Specifies whether DSW is enabled.
+   */
   enableDSW?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use tide resources.
+   */
   enableTideResource?: boolean;
+  /**
+   * @remarks
+   * The resource level (L0, L1).
+   * 
+   * @example
+   * L0
+   */
   resourceLevel?: string;
   static names(): { [key: string]: string } {
     return {

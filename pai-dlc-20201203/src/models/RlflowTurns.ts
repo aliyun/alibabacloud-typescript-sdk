@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLFlowTurns extends $dara.Model {
   /**
    * @remarks
-   * 平均生成轮数
+   * The average number of generation rounds.
    * 
    * @example
    * 1.9
@@ -13,7 +13,7 @@ export class RLFlowTurns extends $dara.Model {
   avg?: number;
   /**
    * @remarks
-   * 参与统计的轨迹数
+   * The number of traces included in the statistics.
    * 
    * @example
    * 96
@@ -21,7 +21,7 @@ export class RLFlowTurns extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * 最大生成轮数
+   * The maximum number of generation rounds.
    * 
    * @example
    * 9.2
@@ -29,7 +29,7 @@ export class RLFlowTurns extends $dara.Model {
   max?: number;
   /**
    * @remarks
-   * 生成轮数 P50
+   * The P50 of generation rounds.
    * 
    * @example
    * 0.8
@@ -37,7 +37,7 @@ export class RLFlowTurns extends $dara.Model {
   p50?: number;
   /**
    * @remarks
-   * 生成轮数 P90
+   * The P90 of generation rounds.
    * 
    * @example
    * 5.9

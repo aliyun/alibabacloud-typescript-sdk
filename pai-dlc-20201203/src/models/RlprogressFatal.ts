@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLProgressFatal extends $dara.Model {
   /**
    * @remarks
-   * 锚点行 agent_collect_time（纳秒字符串，超 JS 安全整数）
+   * The agent_collect_time of the anchor line, represented as a nanosecond string that exceeds the JavaScript safe integer limit.
    * 
    * @example
    * 1787474487713456789
@@ -13,7 +13,7 @@ export class RLProgressFatal extends $dara.Model {
   collectNs?: string;
   /**
    * @remarks
-   * 错误文案（截断至 500 字符）
+   * The error message, truncated to 500 characters.
    * 
    * @example
    * CUDA out of memory. Tried to allocate 2.00 GiB
@@ -21,7 +21,7 @@ export class RLProgressFatal extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 原始日志行（截断至 2000 字符）；调用 GetRLLogContext 时作为 AnchorMessage 传入
+   * The raw log line, truncated to 2000 characters. It is passed as AnchorMessage when calling GetRLLogContext.
    * 
    * @example
    * [rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB
@@ -29,7 +29,7 @@ export class RLProgressFatal extends $dara.Model {
   rawMessage?: string;
   /**
    * @remarks
-   * 同秒内的纳秒偏移，用于同秒日志排序
+   * The nanosecond offset within the same second, used for sorting logs within the same second.
    * 
    * @example
    * 123456789
@@ -37,7 +37,7 @@ export class RLProgressFatal extends $dara.Model {
   subsecNs?: number;
   /**
    * @remarks
-   * 日志时间（unix 秒）
+   * The log time in UNIX seconds.
    * 
    * @example
    * 1787474487

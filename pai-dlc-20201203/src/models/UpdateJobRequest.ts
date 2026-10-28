@@ -6,28 +6,31 @@ import { JobSpec } from "./JobSpec";
 export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the node can only be expanded, not reduced. Valid values:
-   * - PUBLIC: Visible to everyone in the workspace.
+   * The visibility of the job can only be increased, not decreased. Valid values:
+   * - PUBLIC: The job is visible to all users in the workspace.
    * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The description of the job.
+   * 
    * @example
    * This is a training job
    */
   description?: string;
   /**
    * @remarks
-   * The node specifications.
+   * The job specifications.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
-   * The priority of the node. Valid values: 1 to 9.
-   * - 1: lowest priority.
-   * - 9: highest priority.
+   * The priority of the job. Valid values: 1 to 9.
+   * - 1: The lowest priority.
+   * - 9: The highest priority.
    * 
    * @example
    * 5

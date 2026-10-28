@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLProgressProcessed extends $dara.Model {
   /**
    * @remarks
-   * 已处理条数
+   * The processed count.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class RLProgressProcessed extends $dara.Model {
   done?: number;
   /**
    * @remarks
-   * 总条数
+   * The total count.
    * 
    * @example
    * 3

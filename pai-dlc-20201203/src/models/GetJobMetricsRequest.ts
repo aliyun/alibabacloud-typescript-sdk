@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time (UTC) of the time range for querying monitoring data. Default value: the current time.
+   * The end time of the time range for querying monitoring data, in UTC. Default value: the current time.
    * 
    * @example
    * 2020-11-09T16:00:00Z
@@ -14,22 +14,14 @@ export class GetJobMetricsRequest extends $dara.Model {
   /**
    * @remarks
    * The metric type of the monitoring data to query. Valid values:
-   * 
-   * - GpuCoreUsage: GPU utilization.
-   * 
-   * - GpuMemoryUsage: GPU memory usage.
-   * 
-   * - CpuCoreUsage: CPU utilization.
-   * 
-   * - MemoryUsage: memory usage.
-   * 
-   * - NetworkInputRate: network input rate.
-   * 
-   * - NetworkOutputRate: network output rate.
-   * 
-   * - DiskReadRate: disk read rate.
-   * 
-   * - DiskWriteRate: disk write rate.
+   * - GpuCoreUsage: the GPU usage
+   * - GpuMemoryUsage: the GPU memory usage
+   * - CpuCoreUsage: the CPU usage
+   * - MemoryUsage: the memory usage
+   * - NetworkInputRate: the network input rate
+   * - NetworkOutputRate: the network output rate
+   * - DiskReadRate: the disk read rate
+   * - DiskWriteRate: the disk write rate
    * 
    * This parameter is required.
    * 
@@ -39,7 +31,7 @@ export class GetJobMetricsRequest extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The start time (UTC) of the time range for querying monitoring data. Default value: one hour before the current time.
+   * The start time of the time range for querying monitoring data, in UTC. Default value: 1 hour ago.
    * 
    * @example
    * 2020-11-08T16:00:00Z

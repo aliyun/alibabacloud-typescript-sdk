@@ -6,7 +6,7 @@ import { TokenSettings } from "./TokenSettings";
 export class GetTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the sharing link in seconds. Default value: 604800. Minimum value: 0.
+   * The expiration time of the sharing link. Default value: 604800 seconds. Minimum value: 0.
    * 
    * @example
    * 60
@@ -14,7 +14,7 @@ export class GetTokenRequest extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the task to share.
+   * The ID of the job to be shared.
    * 
    * @example
    * dlc*******
@@ -22,12 +22,16 @@ export class GetTokenRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the task to share. Valid values: job and tensorboard.
+   * The type of the shared job. Valid values: job and tensorboard.
    * 
    * @example
    * job
    */
   targetType?: string;
+  /**
+   * @remarks
+   * The permission settings of the sharing token, which controls log download and cross-account access.
+   */
   tokenSettings?: TokenSettings;
   static names(): { [key: string]: string } {
     return {

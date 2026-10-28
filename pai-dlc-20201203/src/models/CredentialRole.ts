@@ -4,10 +4,36 @@ import { AssumeUserInfo } from "./AssumeUserInfo";
 
 
 export class CredentialRole extends $dara.Model {
+  /**
+   * @remarks
+   * The account on whose behalf the role is assumed.
+   */
   assumeRoleFor?: string;
+  /**
+   * @remarks
+   * The user identity information used for role assumption.
+   */
   assumeUserInfo?: AssumeUserInfo;
+  /**
+   * @remarks
+   * The access policy attached during role assumption.
+   */
   policy?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role.
+   * 
+   * @example
+   * acs:ram::1872xxxxxxxxx:role/account-pai-prod
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The role type. Valid values: service and user.
+   * 
+   * @example
+   * service
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {

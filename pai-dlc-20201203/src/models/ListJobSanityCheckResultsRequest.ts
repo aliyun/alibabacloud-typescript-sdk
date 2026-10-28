@@ -6,8 +6,8 @@ export class ListJobSanityCheckResultsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - desc: descending order
-   * - asc: ascending order
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc

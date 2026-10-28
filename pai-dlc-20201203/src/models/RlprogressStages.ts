@@ -6,7 +6,7 @@ import { RLProgressStage } from "./RlprogressStage";
 export class RLProgressStages extends $dara.Model {
   /**
    * @remarks
-   * 当前所处阶段的下标
+   * The index of the current stage.
    * 
    * @example
    * 6
@@ -14,7 +14,7 @@ export class RLProgressStages extends $dara.Model {
   currentIndex?: number;
   /**
    * @remarks
-   * disagg / colocate / 空串
+   * The disagg, colocate, or empty string.
    * 
    * @example
    * colocate
@@ -22,15 +22,15 @@ export class RLProgressStages extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * 阶段列表，按流水线顺序
+   * The list of stages in pipeline order.
    * 
    * @example
-   * [{"Key":"generation","Label":"生成","Marker":"start/end generation","Optional":false,"Status":"done","StartTime":1787474487,"EndTime":1787474487,"Duration":0.483}]
+   * [{"Key":"generation","Label":"Generation","Marker":"start/end generation","Optional":false,"Status":"done","StartTime":1787474487,"EndTime":1787474487,"Duration":0.483}]
    */
   stages?: RLProgressStage[];
   /**
    * @remarks
-   * 本 step 的阶段流水线是否已走完
+   * Indicates whether the stage pipeline for this step is completed.
    * 
    * @example
    * false

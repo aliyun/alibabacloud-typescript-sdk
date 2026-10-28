@@ -4,7 +4,18 @@ import { ModelTemplate } from "./ModelTemplate";
 
 
 export class ModelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the output model. The output model of a joint training job is registered in the Models section of AI Asset Management under this name.
+   * 
+   * @example
+   * model_a
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The model template configuration. This configuration is required if you want to deploy the output model to Elastic Algorithm Service (EAS) with one click.
+   */
   modelTemplate?: ModelTemplate;
   static names(): { [key: string]: string } {
     return {

@@ -7,6 +7,9 @@ export class CredentialConfig extends $dara.Model {
   /**
    * @remarks
    * The role identity key injected into environment variables.
+   * 
+   * @example
+   * 0
    */
   aliyunEnvRoleKey?: string;
   /**
@@ -16,7 +19,7 @@ export class CredentialConfig extends $dara.Model {
   credentialConfigItems?: CredentialConfigItem[];
   /**
    * @remarks
-   * Specifies whether to enable credential injection.
+   * Specifies whether credential injection is enabled.
    */
   enableCredentialInject?: boolean;
   static names(): { [key: string]: string } {

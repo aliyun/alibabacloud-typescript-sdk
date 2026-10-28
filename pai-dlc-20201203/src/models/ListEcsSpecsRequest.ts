@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEcsSpecsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters by accelerator type. Valid values:
+   * The accelerator type. Valid values:
    * - CPU
    * - GPU
    * 
@@ -15,7 +15,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   acceleratorType?: string;
   /**
    * @remarks
-   * The list of instance types to query. Separate multiple instance types with commas (,).
+   * The instance types to query. Separate multiple instance types with commas (,).
    * 
    * @example
    * ecs.g6.large,ecs.g6.xlarge
@@ -24,8 +24,8 @@ export class ListEcsSpecsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - desc: descending order.
-   * - asc: ascending order.
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -33,7 +33,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. The minimum value is 1.
+   * The page number. Minimum value: 1.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page in a paged query. This parameter is used for paging.
+   * The number of entries to return per page in a paging query.
    * 
    * @example
    * 10
@@ -59,7 +59,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Sorts by return field. Valid values:
+   * The field by which to sort the returned results. Valid values:
    * - CPU
    * - GPU
    * - Memory

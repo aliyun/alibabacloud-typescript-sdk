@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TokenSettings extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether cross-account access through sharing links is allowed.
+   */
   enableCrossAccountAccess?: boolean;
+  /**
+   * @remarks
+   * Specifies whether task logs can be downloaded through sharing links.
+   */
   enableLogDownloadJob?: boolean;
   static names(): { [key: string]: string } {
     return {

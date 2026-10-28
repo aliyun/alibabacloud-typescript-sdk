@@ -13,6 +13,13 @@ export class Tensorboard extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The CPU resources.
+   * 
+   * @example
+   * 1
+   */
   cpu?: number;
   /**
    * @remarks
@@ -22,6 +29,13 @@ export class Tensorboard extends $dara.Model {
    * datasource-test
    */
   dataSourceId?: string;
+  /**
+   * @remarks
+   * The dataset type.
+   * 
+   * @example
+   * OSS
+   */
   dataSourceType?: string;
   /**
    * @remarks
@@ -71,12 +85,33 @@ export class Tensorboard extends $dara.Model {
    * dlc-20210114104214-vf9lowjt3pso
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The maximum running duration in minutes.
+   * 
+   * @example
+   * 240
+   */
   maxRunningTimeMinutes?: number;
+  /**
+   * @remarks
+   * The memory size in GB.
+   * 
+   * @example
+   * 1000
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The extended fields of the dataset in JSON format. Currently, MountPath is supported, which specifies the mount path for a custom dataset.
+   * 
+   * @example
+   * {"mountpath":"/root/data/"}
+   */
   options?: string;
   /**
    * @remarks
-   * The priority of the TensorBoard job.
+   * The priority of the Tensorboard job.
    * 
    * @example
    * 1
@@ -84,7 +119,7 @@ export class Tensorboard extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The ID of the resource group used by TensorBoard.
+   * The ID of the resource group used by Tensorboard.
    * 
    * @example
    * quota12***
@@ -92,7 +127,7 @@ export class Tensorboard extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The name of the resource quota used by TensorBoard.
+   * The name of the resource quota used by Tensorboard.
    * 
    * @example
    * dlc-quota
@@ -138,15 +173,22 @@ export class Tensorboard extends $dara.Model {
    * /root/data
    */
   summaryPath?: string;
+  /**
+   * @remarks
+   * The absolute path of the summary.
+   * 
+   * @example
+   * /summary/
+   */
   summaryRelativePath?: string;
   /**
    * @remarks
-   * The datasets mounted to the TensorBoard job.
+   * The datasets mounted to the Tensorboard job.
    */
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * Tensorboard ID。
+   * The Tensorboard ID.
    * 
    * @example
    * tensorboard-xxx
@@ -154,17 +196,24 @@ export class Tensorboard extends $dara.Model {
   tensorboardId?: string;
   /**
    * @remarks
-   * The pay-as-you-go configuration of the TensorBoard job.
+   * The pay-as-you-go configuration for the Tensorboard job.
    */
   tensorboardSpec?: TensorboardSpec;
   /**
    * @remarks
-   * Tensorboard URL。
+   * The Tensorboard URL.
    * 
    * @example
    * http://xxxxxx
    */
   tensorboardUrl?: string;
+  /**
+   * @remarks
+   * The token value.
+   * 
+   * @example
+   * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****
+   */
   token?: string;
   /**
    * @remarks
@@ -182,6 +231,13 @@ export class Tensorboard extends $dara.Model {
    * tensorboard.pai
    */
   username?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

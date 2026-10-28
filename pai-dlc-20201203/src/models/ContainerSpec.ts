@@ -8,7 +8,7 @@ import { SecurityContext } from "./SecurityContext";
 export class ContainerSpec extends $dara.Model {
   /**
    * @remarks
-   * The command parameters.
+   * The command arguments.
    */
   args?: string[];
   /**
@@ -42,6 +42,10 @@ export class ContainerSpec extends $dara.Model {
    * The container resources.
    */
   resources?: ResourceRequirements;
+  /**
+   * @remarks
+   * The container security context configuration.
+   */
   securityContext?: SecurityContext;
   /**
    * @remarks

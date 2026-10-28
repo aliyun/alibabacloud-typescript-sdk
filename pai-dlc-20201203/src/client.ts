@@ -75,11 +75,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -119,6 +119,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.elasticSpec)) {
@@ -212,11 +216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -431,7 +435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+   * Creates a TensorBoard instance by using a node or a specified datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @param headers - map
@@ -540,7 +544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
+   * Creates a TensorBoard instance by using a node or a specified datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @returns CreateTensorboardResponse
@@ -671,7 +675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped Tensorboard.
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @param headers - map
@@ -704,7 +708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped Tensorboard.
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @returns DeleteTensorboardResponse
@@ -771,7 +775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a node.
+   * Retrieves the detailed configuration and runtime information of a job.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -804,7 +808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a node.
+   * Retrieves the detailed configuration and runtime information of a job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -869,8 +873,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
-   * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+   * Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+   * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @param headers - map
@@ -919,8 +923,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
-   * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+   * Retrieves the monitoring data of a node, including the CPU, GPU, and memory usage, as well as the network and disk read and write rates.
+   * ⚠️ Note: Except for pay-as-you-go nodes based on general computing resources, all other node types are integrated with CloudMonitor. To invoke related monitoring, use CloudMonitor API operations. Any feature overwrite in the original API operations will no longer be maintained. For more information, see [Training monitoring and alerting](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @returns GetJobMetricsResponse
@@ -932,7 +936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the computing power health check result for a specific run of a DLC job.
+   * Retrieves a specific computing power health check result for a DLC job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @param headers - map
@@ -973,7 +977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the computing power health check result for a specific run of a DLC job.
+   * Retrieves a specific computing power health check result for a DLC job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @returns GetJobSanityCheckResultResponse
@@ -1406,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard.
+   * Retrieves the details of a TensorBoard.
    * 
    * @param request - GetTensorboardRequest
    * @param headers - map
@@ -1447,7 +1451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard.
+   * Retrieves the details of a TensorBoard.
    * 
    * @param request - GetTensorboardRequest
    * @returns GetTensorboardResponse
@@ -1504,7 +1508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+   * Retrieves the sharing token for a DLC job to view information about the shared job.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -1549,7 +1553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
+   * Retrieves the sharing token for a DLC job to view information about the shared job.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -1610,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of currently supported machine resource configurations.
+   * Queries the list of supported machine resource configurations.
    * 
    * @param request - ListEcsSpecsRequest
    * @param headers - map
@@ -1667,7 +1671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of currently supported machine resource configurations.
+   * Queries the list of supported machine resource configurations.
    * 
    * @param request - ListEcsSpecsRequest
    * @returns ListEcsSpecsResponse
@@ -1679,7 +1683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all computing power health check results for a specific DLC job.
+   * Retrieves all computing power health check results for a DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @param headers - map
@@ -1712,7 +1716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all computing power health check results for a specific DLC job.
+   * Retrieves all computing power health check results for a DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @returns ListJobSanityCheckResultsResponse
@@ -1801,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+   * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
    * 
    * @param tmpReq - ListJobsRequest
    * @param headers - map
@@ -1984,7 +1988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
+   * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -2186,7 +2190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of created Tensorboard instances.
+   * Queries the list of created TensorBoard instances.
    * 
    * @param request - ListTensorboardsRequest
    * @param headers - map
@@ -2295,7 +2299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of created Tensorboard instances.
+   * Queries the list of created TensorBoard instances.
    * 
    * @param request - ListTensorboardsRequest
    * @returns ListTensorboardsResponse
@@ -2399,7 +2403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Tensorboard.
+   * Starts a TensorBoard.
    * 
    * @param request - StartTensorboardRequest
    * @param headers - map
@@ -2432,7 +2436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Tensorboard.
+   * Starts a TensorBoard.
    * 
    * @param request - StartTensorboardRequest
    * @returns StartTensorboardResponse
@@ -2699,7 +2703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a node, such as modifying the priority of a queued node.
+   * Updates the configuration of a job, such as modifying the priority of a queued job.
    * 
    * @param request - UpdateJobRequest
    * @param headers - map
@@ -2748,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a node, such as modifying the priority of a queued node.
+   * Updates the configuration of a job, such as modifying the priority of a queued job.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse
@@ -2829,7 +2833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Tensorboard.
+   * Updates a TensorBoard.
    * 
    * @param request - UpdateTensorboardRequest
    * @param headers - map
@@ -2874,7 +2878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Tensorboard.
+   * Updates a TensorBoard.
    * 
    * @param request - UpdateTensorboardRequest
    * @returns UpdateTensorboardResponse

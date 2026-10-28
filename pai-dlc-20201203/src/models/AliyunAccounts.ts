@@ -3,9 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AliyunAccounts extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account.
+   */
   aliyunUid?: string;
+  /**
+   * @remarks
+   * The employee ID of the internal user.
+   */
   employeeId?: string;
+  /**
+   * @remarks
+   * The creation time of the record.
+   * 
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The last modification time of the record.
+   * 
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtModifyTime?: string;
   static names(): { [key: string]: string } {
     return {

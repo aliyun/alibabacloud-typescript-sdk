@@ -17,7 +17,7 @@ import { SystemDisk } from "./SystemDisk";
 export class JobSpec extends $dara.Model {
   /**
    * @remarks
-   * The node scheduling configuration.
+   * The specified node scheduling configuration.
    */
   assignNodeSpec?: AssignNodeSpec;
   /**
@@ -30,25 +30,40 @@ export class JobSpec extends $dara.Model {
    * Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
    */
   considerInSuccessPolicy?: boolean;
+  /**
+   * @remarks
+   * The GPU driver version used by the job.
+   * 
+   * @example
+   * 535.54.03
+   */
   driver?: string;
   /**
    * @remarks
-   * The hardware specification of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed specification list.>Notice: Prices vary depending on the specification.
+   * The hardware specifications of the worker. For a detailed list of specifications, see [PAI-DLC billing overview](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
    * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
+  /**
+   * @remarks
+   * The list of candidate instance types for this role to participate in elastic spot bidding.
+   */
   elasticSpotSpecs?: ElasticSpotSpec[];
   /**
    * @remarks
-   * The extra pod configuration.
+   * The additional pod configuration.
    */
   extraPodSpec?: ExtraPodSpec;
+  /**
+   * @remarks
+   * The hypernode scheduling configuration for this role.
+   */
   hyperNodeSchedulingConfig?: HyperNodeSchedulingConfig;
   /**
    * @remarks
-   * The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to retrieve images provided by the PAI platform. You can also specify a third-party public image.
+   * The runtime image URL for this type of worker. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a public third-party image.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/cloud-dsw/tensorflow:1.12PAI-gpu-py36-cu101-ubuntu18.04
@@ -61,14 +76,14 @@ export class JobSpec extends $dara.Model {
   imageConfig?: ImageConfig;
   /**
    * @remarks
-   * **[Deprecated]** This field is deprecated due to a spelling error.
+   * **[Deprecated]** This field is misspelled and deprecated.
    * 
    * @deprecated
    */
   isCheif?: boolean;
   /**
    * @remarks
-   * Specifies whether the role is the Chief role. Only one Chief role is allowed.
+   * Specifies whether this role is the chief role. Only one chief role is allowed.
    */
   isChief?: boolean;
   /**
@@ -76,6 +91,13 @@ export class JobSpec extends $dara.Model {
    * The list of local mount configurations.
    */
   localMountSpecs?: LocalMountSpec[];
+  /**
+   * @remarks
+   * The usage type of idle resources.
+   * 
+   * @example
+   * AcceptQuotaOverSold
+   */
   oversoldType?: string;
   /**
    * @remarks
@@ -85,6 +107,13 @@ export class JobSpec extends $dara.Model {
    * 1
    */
   podCount?: number;
+  /**
+   * @remarks
+   * The ID of the resource quota used by the job.
+   * 
+   * @example
+   * quota12345
+   */
   quotaId?: string;
   /**
    * @remarks
@@ -114,10 +143,14 @@ export class JobSpec extends $dara.Model {
    * The dependencies required before this role starts.
    */
   startupDependencies?: StartupDependency[];
+  /**
+   * @remarks
+   * The system cloud disk configuration for the job replicas.
+   */
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * The type, which is closely related to the job type. Different job types support different worker types.
+   * The type is closely related to the job type. Different job types support different worker types.
    * 
    * - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
    * 
@@ -128,7 +161,7 @@ export class JobSpec extends $dara.Model {
    * - **ElasticBatch**: Supports Worker and Master.
    * - **RayJob**: Supports Head, Worker, and Worker[-xxx].
    * 
-   * Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If not specified, the system automatically designates the first Worker node as Master.
+   * The Master role in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch is optional. If not specified, the system automatically assigns the first worker node as the master.
    * 
    * @example
    * Worker

@@ -5,27 +5,46 @@ import { GPUDetail } from "./Gpudetail";
 
 export class QuotaDetail extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 5
    */
   GPU?: string;
+  /**
+   * @remarks
+   * The GPU details.
+   */
   GPUDetails?: GPUDetail[];
   /**
+   * @remarks
+   * The GPU type.
+   * 
    * @example
    * Tesla-V100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The full name of the GPU type.
+   * 
    * @example
    * nvidia.com/gpu
    */
   GPUTypeFullName?: string;
   /**
+   * @remarks
+   * The memory capacity.
+   * 
    * @example
    * 10Gi
    */

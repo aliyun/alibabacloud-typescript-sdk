@@ -6,7 +6,7 @@ import { RLProgressSlowDetail } from "./RlprogressSlowDetail";
 export class RLProgressSlow extends $dara.Model {
   /**
    * @remarks
-   * 慢推理明细，最多 20 条
+   * The slow inference details, up to 20 entries.
    * 
    * @example
    * [{"Elapsed":42.5,"Time":1787474487,"Message":"rollout generation slow","Rank":0,"Pod":"dlc193cpaitk8eny-master-0","WorkerPid":12345,"Ip":"192.168.0.12","Rid":"req-8f3a2c1d","TokenizerPid":"12360","Ipc":"ipc://worker-0","IsPause":"false","StatePresent":"true","OutQueue":"3"}]
@@ -14,7 +14,7 @@ export class RLProgressSlow extends $dara.Model {
   details?: RLProgressSlowDetail[];
   /**
    * @remarks
-   * 最慢一条的已耗时（秒）
+   * The elapsed time of the slowest entry in seconds.
    * 
    * @example
    * 42.5
@@ -22,7 +22,7 @@ export class RLProgressSlow extends $dara.Model {
   elapsed?: number;
   /**
    * @remarks
-   * 最慢一条的日志时间（unix 秒）
+   * The log timestamp of the slowest entry in UNIX seconds.
    * 
    * @example
    * 1787474487

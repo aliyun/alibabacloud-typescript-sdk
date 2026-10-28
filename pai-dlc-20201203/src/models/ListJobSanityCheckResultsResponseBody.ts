@@ -19,7 +19,7 @@ export class ListJobSanityCheckResultsResponseBody extends $dara.Model {
   sanityCheckResults?: SanityCheckResultItem[][];
   /**
    * @remarks
-   * The total number of check results that match the filter conditions.
+   * The total number of health check results that meet the filter conditions.
    * 
    * @example
    * 10

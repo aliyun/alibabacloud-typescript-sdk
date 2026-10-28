@@ -9,8 +9,8 @@ export class CreateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: Visible to all members in the workspace.
-   * - PRIVATE: Visible only to you and administrators in the workspace.
+   * - PUBLIC: The job is visible to all users in the workspace.
+   * - PRIVATE: The job is visible only to you and administrators in the workspace.
    * 
    * @example
    * PRIVATE
@@ -26,7 +26,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The dataset ID. <props="china">For information about how to obtain the dataset ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
+   * The dataset ID. <props="china">For more information about how to obtain the dataset ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
    * 
    * @example
    * d-xxxxxxxx
@@ -44,12 +44,12 @@ export class CreateTensorboardRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The datasource configurations.
+   * The datasource config.
    */
   dataSources?: DataSourceItem[];
   /**
    * @remarks
-   * The TensorBoard name.
+   * The name of the TensorBoard instance.
    * 
    * @example
    * tensorboard
@@ -57,7 +57,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The job ID. For information about how to obtain the job ID, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
+   * The job ID. For more information about how to obtain the job ID, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
    * 
    * @example
    * dlc-20210126170216-mtl37ge7gkvdz
@@ -81,7 +81,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The extended field of custom dataset in JSON format. Currently, MountPath is supported, which specifies the custom mount path of custom dataset.
+   * The extension field of custom dataset, in JSON format. Currently, only MountPath is supported, which specifies the custom mount path of custom dataset.
    * 
    * @example
    * {"mountpath":"/root/data/"}
@@ -89,7 +89,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The priority of the job. This is an optional parameter. Default value: 1. Valid values: 1 to 9.
+   * The priority of the job. This parameter is optional. Default value: 1. Valid values: 1 to 9.
    * - 1: the lowest priority.
    * - 9: the highest priority.
    * 
@@ -99,9 +99,9 @@ export class CreateTensorboardRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The resource quota ID. This parameter is required when you create a TensorBoard job by using resources from a resource quota. <props="china">For information about how to obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/2628071.html).
-   * <props="china">Published only on China site.
-   * Currently, only whitelisted users can create TensorBoard jobs by using resource quota resources. To use this feature, contact us.
+   * The resource quota ID. This parameter is required when you create a TensorBoard job by using resources from a resource quota. <props="china">For more information about how to obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/2628071.html).
+   * <props="china">Released only on the China site.
+   * Currently, only whitelisted users can create TensorBoard jobs by using resources from a resource quota. To use this feature, contact us.
    * 
    * @example
    * quota12345
@@ -133,7 +133,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   summaryPath?: string;
   /**
    * @remarks
-   * The summary relative directory.
+   * The relative path of the summary directory.
    * 
    * @example
    * /summary/
@@ -146,7 +146,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * The pay-as-you-go configuration for TensorBoard, which is used to create a TensorBoard job that uses pay-as-you-go resources.
+   * The pay-as-you-go configuration information of the TensorBoard instance, which is used to create a TensorBoard job that uses pay-as-you-go resources.
    */
   tensorboardSpec?: TensorboardSpec;
   /**
@@ -161,7 +161,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 123***

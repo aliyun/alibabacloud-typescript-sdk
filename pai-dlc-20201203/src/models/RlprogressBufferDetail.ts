@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLProgressBufferDetail extends $dara.Model {
   /**
    * @remarks
-   * 已被 trainer 消费的样本数
+   * The number of samples consumed by the trainer.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class RLProgressBufferDetail extends $dara.Model {
   consumed?: number;
   /**
    * @remarks
-   * 已完成样本数
+   * The number of finished samples.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class RLProgressBufferDetail extends $dara.Model {
   finished?: number;
   /**
    * @remarks
-   * 已就绪样本数
+   * The number of ready samples.
    * 
    * @example
    * 500
@@ -29,7 +29,7 @@ export class RLProgressBufferDetail extends $dara.Model {
   ready?: number;
   /**
    * @remarks
-   * buffer 标签，即 global batch 序号
+   * The buffer tag, which is the global batch ordinal number.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class RLProgressBufferDetail extends $dara.Model {
   tag?: number;
   /**
    * @remarks
-   * 目标样本数
+   * The target number of samples.
    * 
    * @example
    * 3

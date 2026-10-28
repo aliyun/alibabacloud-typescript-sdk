@@ -6,7 +6,7 @@ import { EcsSpec } from "./EcsSpec";
 export class ListEcsSpecsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of ECS specifications.
+   * The list of ECS instance types.
    */
   ecsSpecs?: EcsSpec[];
   /**
@@ -19,7 +19,7 @@ export class ListEcsSpecsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the filter conditions.
+   * The total number of entries that meet the filter conditions.
    * 
    * @example
    * 10

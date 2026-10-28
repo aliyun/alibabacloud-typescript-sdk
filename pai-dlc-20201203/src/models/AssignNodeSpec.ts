@@ -4,19 +4,36 @@ import { HyperNodeSpec } from "./HyperNodeSpec";
 
 
 export class AssignNodeSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The list of hyper nodes to avoid during scheduling.
+   */
   antiAffinityHyperNodes?: HyperNodeSpec[];
   /**
+   * @remarks
+   * AntiAffinityNodeNames
+   * 
    * @example
    * lingjxxxxxxxx
    */
   antiAffinityNodeNames?: string;
   /**
+   * @remarks
+   * EnableAssignNode
+   * 
    * @example
    * true
    */
   enableAssignNode?: boolean;
+  /**
+   * @remarks
+   * The list of hyper nodes to schedule to.
+   */
   hyperNodes?: HyperNodeSpec[];
   /**
+   * @remarks
+   * NodeNames
+   * 
    * @example
    * lingjxxxxxxxx
    */

@@ -7,18 +7,22 @@ import { ModelConfig } from "./ModelConfig";
 export class JobSettings extends $dara.Model {
   /**
    * @remarks
-   * The extra advanced parameter settings.
+   * The additional advanced parameter settings.
    */
   advancedSettings?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to mount all RDMA network interfaces.
+   * Specifies whether to allocate all RDMA NICs.
    */
   allocateAllRDMADevices?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to allow jobs to be scheduled to nodes that are marked as unschedulable or are in the workspace blacklist. If enabled, node status checks are skipped and the corresponding bypass configurations are applied.
+   */
   allowUnschedulableNodes?: boolean;
   /**
    * @remarks
-   * The user ID associated with the job.
+   * The ID of the user associated with the job.
    * 
    * @example
    * 16****
@@ -34,12 +38,12 @@ export class JobSettings extends $dara.Model {
   caller?: string;
   /**
    * @remarks
-   * The DataJuicer task configuration.
+   * The DataJuicer job configuration.
    */
   dataJuicerConfig?: DataJuicerConfig;
   /**
    * @remarks
-   * Specifies whether to skip inventory check. Valid values:
+   * Specifies whether to skip the ECS inventory check. Valid values:
    * - true
    * - false
    * 
@@ -55,15 +59,26 @@ export class JobSettings extends $dara.Model {
    * 535.54.03
    */
   driver?: string;
+  /**
+   * @remarks
+   * The maximum number of restarts for an elastic spot job.
+   * 
+   * @example
+   * 5
+   */
   elasticSpotJobMaxRestartTimes?: number;
   /**
    * @remarks
-   * The CPU affinity setting. This setting is effective only when using general computing subscription resources.
+   * The CPU affinity settings. These settings take effect only when general-purpose computing subscription resources are used.
    * 
    * @example
    * true
    */
   enableCPUAffinity?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the DSW development mode for the job. If enabled, a sidecar container is injected into the pod.
+   */
   enableDSWDev?: boolean;
   /**
    * @remarks
@@ -77,7 +92,7 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow OSS append write. Valid values:
+   * Specifies whether to allow OSS append writes. Valid values:
    * - true
    * - false
    * 
@@ -97,7 +112,7 @@ export class JobSettings extends $dara.Model {
   enableRDMA?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable computing power health check for the job. Valid values:
+   * Specifies whether to enable computing power health checks for the job. Valid values:
    * - true
    * - false
    * 
@@ -107,7 +122,7 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow the job to use tidal resources. Valid values:
+   * Specifies whether to allow the job to use tide resources. Valid values:
    * - true
    * - false
    * 
@@ -117,7 +132,7 @@ export class JobSettings extends $dara.Model {
   enableTideResource?: boolean;
   /**
    * @remarks
-   * The configuration parameters for fault tolerance monitoring after it is enabled, such as whether to enable log hang-based detection.
+   * The configuration parameters for fault tolerance monitoring when it is enabled, such as specifying whether to enable log hang-based detection.
    * 
    * @example
    * --enable-log-hang-detection true
@@ -125,7 +140,7 @@ export class JobSettings extends $dara.Model {
   errorMonitoringArgs?: string;
   /**
    * @remarks
-   * The retention duration after job completion, in minutes.
+   * The retention duration after the job ends, in minutes.
    * 
    * @example
    * 30
@@ -133,7 +148,7 @@ export class JobSettings extends $dara.Model {
   jobReservedMinutes?: number;
   /**
    * @remarks
-   * The retention policy after job completion.
+   * The retention policy after the job ends.
    * 
    * @example
    * Always
@@ -141,12 +156,12 @@ export class JobSettings extends $dara.Model {
   jobReservedPolicy?: string;
   /**
    * @remarks
-   * The output model configuration. This parameter is currently effective only in joint training scenarios.
+   * The output model configuration. This parameter takes effect only in joint training scenarios.
    */
   modelConfig?: ModelConfig;
   /**
    * @remarks
-   * The oversold resource usage mode for the job (reject/accept/only accept).
+   * The oversold resource usage mode for the job, which can be not accepted, accepted, or only accepted.
    * 
    * @example
    * AcceptQuotaOverSold
@@ -162,13 +177,16 @@ export class JobSettings extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The configuration parameters for computing power health check.
+   * The configuration parameters for computing power health checks.
    * 
    * @example
    * --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFail
    */
   sanityCheckArgs?: string;
   /**
+   * @remarks
+   * The shell used to execute job commands. Valid values: /bin/sh and /bin/bash.
+   * 
    * @example
    * /bin/bash
    */
@@ -178,6 +196,13 @@ export class JobSettings extends $dara.Model {
    * The custom tags.
    */
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The grace period to wait for the pod to exit when the job is terminated, in seconds.
+   * 
+   * @example
+   * 60
+   */
   terminationGracePeriodSeconds?: number;
   static names(): { [key: string]: string } {
     return {

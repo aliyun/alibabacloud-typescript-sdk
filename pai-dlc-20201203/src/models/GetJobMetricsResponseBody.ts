@@ -6,7 +6,7 @@ import { PodMetric } from "./PodMetric";
 export class GetJobMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The job ID.
    * 
    * @example
    * dlc-20210126170216-*******
@@ -14,12 +14,12 @@ export class GetJobMetricsResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The list of node monitoring data.
+   * The list of job monitoring data.
    */
   podMetrics?: PodMetric[];
   /**
    * @remarks
-   * The request ID of this call, used for diagnostics and troubleshooting.
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

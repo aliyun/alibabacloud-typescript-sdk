@@ -14,12 +14,12 @@ export class ListTensorboardsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list and details of Tensorboard instances.
+   * The list and details of TensorBoard instances.
    */
   tensorboards?: Tensorboard[];
   /**
    * @remarks
-   * The total number of data sources that match the specified conditions.
+   * The total number of data sources that meet the filter conditions.
    * 
    * @example
    * 100

@@ -6,7 +6,7 @@ import { RLProgressProcessed } from "./RlprogressProcessed";
 export class RLProgressRollout extends $dara.Model {
   /**
    * @remarks
-   * 窗口内完成总数
+   * The total number of completed items within the window.
    * 
    * @example
    * 500
@@ -14,7 +14,7 @@ export class RLProgressRollout extends $dara.Model {
   finished?: number;
   /**
    * @remarks
-   * rollout 已处理计数
+   * The rollout processed count.
    * 
    * **if can be null:**
    * true
@@ -22,7 +22,7 @@ export class RLProgressRollout extends $dara.Model {
   processed?: RLProgressProcessed;
   /**
    * @remarks
-   * 完成速率（条/分钟），由最近 120 条完成事件估算
+   * The completion rate (items per minute), estimated from the last 120 completion events.
    * 
    * @example
    * 31.2

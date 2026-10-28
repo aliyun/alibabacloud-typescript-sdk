@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTensorboardSharedUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Used for troubleshooting and support inquiries.
+   * The request ID. It is used for troubleshooting and technical support.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
