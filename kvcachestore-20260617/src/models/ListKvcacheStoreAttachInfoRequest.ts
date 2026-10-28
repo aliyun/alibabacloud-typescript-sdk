@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of KVCacheStore KvcsIds to query. You can specify up to 100 IDs.
+   * The list of KvcsIds of the KVCacheStores to query. You can specify up to 100 KvcsIds.
    * 
    * This parameter is required.
    */
   kvcsIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return per query. Valid values: 1 to 500.
+   * The maximum number of entries to return in a single call. Valid values: 1 to 500.
    * 
    * Default value: 10.
    * 
@@ -22,7 +22,7 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters become ineffective, and TotalCount in the response is invalid.
+   * The query token. Set the value to the NextToken value returned from the last call to this operation. You do not need to specify this parameter for the first call. If NextToken is specified, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
    * 
    * @example
    * your-client-token
@@ -30,7 +30,7 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number for a paged query. Used together with PageSize. If the specified page number exceeds the total number of pages, the last page of data is returned.
+   * The page number for a paging query. This parameter is used together with PageSize. If the specified page number exceeds the total number of pages, the last page is returned.
    * 
    * @example
    * 6
@@ -38,7 +38,7 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for a paging query.
    * 
    * @example
    * 20
@@ -54,6 +54,14 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the compute-side VSC. If you specify this parameter, the mount records are filtered by the specified VSC.
+   * 
+   * @example
+   * vsc-dhag651dsda
+   */
+  vscId?: string;
   static names(): { [key: string]: string } {
     return {
       kvcsIds: 'KvcsIds',
@@ -62,6 +70,7 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      vscId: 'VscId',
     };
   }
 
@@ -73,6 +82,7 @@ export class ListKVCacheStoreAttachInfoRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      vscId: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAvailableVscsResponseBodyVscs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the VSC device.
+   * The VSC device ID.
    * 
    * @example
    * vsc-xxxxx

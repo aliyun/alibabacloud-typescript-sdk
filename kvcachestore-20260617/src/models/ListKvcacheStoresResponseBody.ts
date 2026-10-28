@@ -45,7 +45,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStoresTags extends $dara.Model 
 export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity. Unit: GiB.
+   * The storage capacity, in GiB.
    * 
    * @example
    * 100
@@ -93,7 +93,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The file system-level mount point ID. Instances under the same file system share this mount point. For more information, call ListKVCacheInstanceAttachInfo.
+   * The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use the ListKVCacheInstanceAttachInfo operation.
    * 
    * @example
    * mp-xxxxx
@@ -215,12 +215,12 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
 export class ListKVCacheStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of KVCacheStore instances. Each element contains the following fields: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
+   * The list of KVCacheStore instances. Each element contains the following parameters: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
    */
   KVCacheStores?: ListKVCacheStoresResponseBodyKVCacheStores[];
   /**
    * @remarks
-   * The maximum number of entries returned per pagination request.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -252,7 +252,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of pages. This value is returned only for page number-based pagination.
+   * The total number of pages. This parameter is returned only for page number-based pagination.
    * 
    * @example
    * 1
@@ -260,7 +260,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   pageTotal?: number;
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the API call succeeds.
+   * The request ID. A request ID is returned regardless of whether the call is successful.
    * 
    * @example
    * 56AC37CD-388E-5D21-951B-C50D16D8E812
@@ -268,7 +268,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances. This value is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
+   * The total number of instances. This parameter is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
    * 
    * @example
    * 10

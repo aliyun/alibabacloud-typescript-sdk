@@ -60,7 +60,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the API call is successful.
+   * The request ID. The request ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 019F6DDC-3845-542D-8E2C-60C4CC733BBD

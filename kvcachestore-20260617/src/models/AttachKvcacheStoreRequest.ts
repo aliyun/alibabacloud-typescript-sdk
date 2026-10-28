@@ -25,9 +25,7 @@ export class AttachKVCacheStoreRequestArns extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The role type. Valid values:
-   * - service
-   * - user
+   * The role type. Valid values: service and user.
    * 
    * This parameter is required.
    * 
@@ -120,6 +118,14 @@ export class AttachKVCacheStoreRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The VSC instance type. Valid values: EFLO, ECS, and INNER_ECS. Default value: EFLO.
+   * 
+   * @example
+   * ECS
+   */
+  instanceType?: string;
+  /**
+   * @remarks
    * The region ID, such as cn-hangzhou.
    * 
    * This parameter is required.
@@ -139,6 +145,7 @@ export class AttachKVCacheStoreRequest extends $dara.Model {
     return {
       arns: 'Arns',
       clientToken: 'ClientToken',
+      instanceType: 'InstanceType',
       regionId: 'RegionId',
       resourceIds: 'ResourceIds',
     };
@@ -148,6 +155,7 @@ export class AttachKVCacheStoreRequest extends $dara.Model {
     return {
       arns: { 'type': 'array', 'itemType': AttachKVCacheStoreRequestArns },
       clientToken: 'string',
+      instanceType: 'string',
       regionId: 'string',
       resourceIds: { 'type': 'array', 'itemType': AttachKVCacheStoreRequestResourceIds },
     };

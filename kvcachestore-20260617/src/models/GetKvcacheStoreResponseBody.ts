@@ -45,7 +45,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
 export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity, in GiB.
+   * The storage capacity in GiB.
    * 
    * @example
    * 100
@@ -70,9 +70,9 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
    * @remarks
    * The extra status information. Valid values:
-   * - CapacityExpanding
-   * - CapacityExpandSuccess
-   * - CapacityExpandFail
+   * - CapacityExpanding: The capacity is being expanded.
+   * - CapacityExpandSuccess: The capacity expansion succeeded.
+   * - CapacityExpandFail: The capacity expansion failed.
    * 
    * @example
    * CapacityExpanding
@@ -80,7 +80,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   extraStatus?: string;
   /**
    * @remarks
-   * The cluster number.
+   * The cluster ID.
    * 
    * @example
    * default
@@ -113,8 +113,8 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
    * @remarks
    * The payment type. Valid values:
-   * - PREPAY
-   * - POSTPAY
+   * - PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -139,12 +139,12 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - Creating
-   * - Available
-   * - InUse
-   * - Stopping
-   * - Stopped
-   * - Deleting
+   * - Creating: The instance is being created.
+   * - Available: The instance is available.
+   * - InUse: The instance is in use.
+   * - Stopping: The instance is being stopped.
+   * - Stopped: The instance is stopped.
+   * - Deleting: The instance is being deleted.
    * 
    * @example
    * AVAILABLE

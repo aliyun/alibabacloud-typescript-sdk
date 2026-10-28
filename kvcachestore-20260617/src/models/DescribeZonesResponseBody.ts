@@ -45,7 +45,7 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. The request ID is returned regardless of whether the API call is successful.
+   * The request ID. This ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 6AA27F1A-A62C-59C3-BCC7-D1DFA4E7EEA0
@@ -53,7 +53,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of zones.
+   * The list of available zones.
    */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

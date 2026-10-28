@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
   /**
    * @remarks
-   * The UID of the target account for role assumption.
+   * The target UID for role assumption.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
   assumeRoleFor?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * The ARN of the RAM role.
    * 
    * This parameter is required.
    * 
@@ -25,8 +25,7 @@ export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The type of the role. Valid values:
-   * 
+   * The role type. Valid values:
    * - service
    * - user
    * 
@@ -64,12 +63,12 @@ export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
 export class ListKVCacheStoreAvailableVscsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-account authorization role chain, used for cross-account VSC queries in ecs or eflo scenarios.
+   * The cross-account authorization role chain, used for cross-account VSC queries in ECS or EFLO scenarios.
    */
   arns?: ListKVCacheStoreAvailableVscsRequestArns[];
   /**
    * @remarks
-   * The ID of the compute instance.
+   * The compute instance ID.
    * 
    * This parameter is required.
    * 
@@ -79,11 +78,9 @@ export class ListKVCacheStoreAvailableVscsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the compute instance. Valid values:
-   * 
-   * - ecs
-   * - eflo
-   * - innerECS
+   * The compute instance type. Valid values:
+   * - ECS
+   * - EFLO
    * 
    * This parameter is required.
    * 
@@ -93,7 +90,7 @@ export class ListKVCacheStoreAvailableVscsRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the KVCacheStore instance.
+   * The KVCacheStore instance ID.
    * 
    * This parameter is required.
    * 

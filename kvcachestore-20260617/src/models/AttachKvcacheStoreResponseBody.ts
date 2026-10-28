@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the operation fails. This value is null when the operation succeeds.
+   * The error code returned upon failure. This value is null upon success.
    * 
    * @example
    * InvalidStatus.OperationDenied
@@ -13,7 +13,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the operation fails. This value is null when the operation succeeds.
+   * The error message returned upon failure. This value is null upon success.
    * 
    * @example
    * The operation is not allowed for instance in ATTACHED status.
@@ -31,7 +31,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
    * @remarks
    * The operation result. Valid values:
    * - ATTACHING: The request has been accepted and the asynchronous mount is in progress.
-   * - ATTACHED: The resource is already mounted (idempotent).
+   * - ATTACHED: Idempotent. The mount is already complete.
    * - Success: The synchronous verification passed and the asynchronous operation is complete.
    * - Failed: The operation failed.
    * 
@@ -84,7 +84,7 @@ export class AttachKVCacheStoreResponseBody extends $dara.Model {
   attachResults?: AttachKVCacheStoreResponseBodyAttachResults[];
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the API call succeeds.
+   * The request ID. A request ID is returned regardless of whether the call is successful.
    * 
    * @example
    * F7BEF1E2-7E56-5BF1-8E36-77A51C5812F1

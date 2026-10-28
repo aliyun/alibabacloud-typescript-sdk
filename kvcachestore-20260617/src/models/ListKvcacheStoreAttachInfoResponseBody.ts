@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Model {
   /**
    * @remarks
-   * The time of the most recent attach operation, in ISO 8601 format. This value is null if the instance has not been attached.
+   * The time of the last attach operation in ISO 8601 format. If the instance is not attached, the value is null.
    * 
    * @example
    * 2026-06-20T08:30:00Z
@@ -13,12 +13,20 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   attachedAt?: string;
   /**
    * @remarks
-   * The file system capacity, in GiB.
+   * The capacity of the file system in GiB.
    * 
    * @example
    * 100
    */
   capacity?: number;
+  /**
+   * @remarks
+   * The ID of the compute resource, which is the ECS instance ID or the Lingjun compute node ID.
+   * 
+   * @example
+   * i-hdsagtg61h2hf21
+   */
+  instanceId?: string;
   /**
    * @remarks
    * KVCacheStore KvcsId
@@ -29,7 +37,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   kvcsId?: string;
   /**
    * @remarks
-   * The file system-level mount point ID.
+   * The ID of the file system-level mount point.
    * 
    * @example
    * mp-xxxxx
@@ -45,20 +53,15 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The attach status. Valid values:
-   * - Attaching: The instance is being mounted.
-   * - Attached: The instance is mounted.
-   * - Detaching: The instance is being unmounted.
-   * 
-   * After unmounting is complete, the record is deleted and not returned.
+   * The attach status. Valid values: Attaching, Attached, and Detaching. After the instance is detached, the record is deleted and not returned.
    * 
    * @example
-   * ATTACHED
+   * Attached
    */
   status?: string;
   /**
    * @remarks
-   * The instance type. Valid values: kvcs (KVCacheStore, CPFS).
+   * The instance type. Valid value: kvcs.
    * 
    * @example
    * preview
@@ -66,7 +69,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The VSC ID on the compute side.
+   * The ID of the compute-side VSC.
    * 
    * @example
    * vsc-001
@@ -84,6 +87,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
     return {
       attachedAt: 'AttachedAt',
       capacity: 'Capacity',
+      instanceId: 'InstanceId',
       kvcsId: 'KvcsId',
       mountPointId: 'MountPointId',
       regionId: 'RegionId',
@@ -98,6 +102,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
     return {
       attachedAt: 'string',
       capacity: 'number',
+      instanceId: 'string',
       kvcsId: 'string',
       mountPointId: 'string',
       regionId: 'string',
@@ -120,12 +125,12 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
 export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of mount information.
+   * The list of mount records.
    */
   attachInfos?: ListKVCacheStoreAttachInfoResponseBodyAttachInfos[];
   /**
    * @remarks
-   * The pagination token. Used to query the next batch of data.
+   * The query token, which is used to query the next batch of data.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3NUkN7qf+fcWj7joK8M6tU
@@ -149,7 +154,7 @@ export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * The request ID. This ID is returned regardless of whether the call is successful.
    * 
    * @example
    * B127704C-ECB1-5B0A-AA9C-8F394A6F179F
@@ -157,7 +162,7 @@ export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned for the paged query.
+   * The total number of entries returned for a paging query.
    * 
    * @example
    * 2

@@ -40,7 +40,7 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
   availableHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvailableHpnZones[];
   /**
    * @remarks
-   * The KVCacheStore instance ID.
+   * The ID of the KVCacheStore instance.
    * 
    * @example
    * kvcs-xxxxx
@@ -48,7 +48,7 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
   kvcsId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-a
@@ -85,12 +85,12 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
 export class ListKVCacheStoreAvailableHpnZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of available HpnZone information for instances.
+   * The list of available HpnZones for instances.
    */
   instanceHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones[];
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * The request ID. This ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 019FB5E9-F9E8-52F5-9C56-2CDF479CBEB2
