@@ -15,9 +15,11 @@ export class GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus exte
    * @remarks
    * The status of the quota template. Valid values:
    * 
-   * *   \\-1: The quota template is disabled.
-   * *   1: The quota template is enabled.
-   * *   0: No quota template is specified.
+   * - -1: Disabled.
+   * 
+   * - 1: Enabled.
+   * 
+   * - 0: Unset.
    * 
    * @example
    * 1

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetQuotaApplicationApprovalRequest extends $dara.Model {
   /**
    * @remarks
-   * The quota application ID.
+   * The ID of the quota application.
    * 
-   * For more information about how to obtain the ID of a quota application, see [ListQuotaApplications](https://help.aliyun.com/document_detail/440568.html).
+   * For information about how to obtain the ID of a quota application, see [ListQuotaApplications](https://help.aliyun.com/document_detail/440568.html).
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d42****

@@ -16,7 +16,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
    * The name of the quota alert.
    * 
    * @example
-   * tf-testacccn-hangzhouquotasquotaalarm81611
+   * q_security-groups alarm
    */
   alarmName?: string;
   /**
@@ -29,12 +29,12 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The alert notification methods.
+   * The notification channels for the alert.
    */
   notifyChannels?: string[];
   /**
    * @remarks
-   * The alert contact.
+   * The notification recipient of the quota alert.
    * 
    * @example
    * accountContact
@@ -66,7 +66,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   quotaDimension?: { [key: string]: any };
   /**
    * @remarks
-   * The used quota.
+   * The quota usage.
    * 
    * @example
    * 28
@@ -82,7 +82,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   quotaValue?: number;
   /**
    * @remarks
-   * The numeric value of the alert threshold.
+   * The numeric value of the quota alert threshold.
    * 
    * @example
    * 29
@@ -90,7 +90,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The percentage of the alert threshold.
+   * The percentage of the quota alert threshold.
    * 
    * @example
    * 50
@@ -98,10 +98,10 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The type of the quota alert. Valid values:
+   * The Alarm Metric of the quota alerting. Valid values:
    * 
-   * *   used: The alert is created for the used quota.
-   * *   usable: The alert is created for the available quota.
+   * - used: Alerting on the used quota usage.
+   * - usable: Alerting on the remaining active quota.
    * 
    * @example
    * used
@@ -109,7 +109,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $dara.Model {
   thresholdType?: string;
   /**
    * @remarks
-   * The webhook URL. Quota Center sends alert notifications to the specified URL by using HTTP POST requests.
+   * The public URL to which Quota Center sends alert messages by using HTTP POST requests.
    * 
    * @example
    * https://alert.aliyun.com/callback

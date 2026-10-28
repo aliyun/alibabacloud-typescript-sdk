@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductDimensionGroupsResponseBodyDimensionGroups extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension group.
+   * The keys of the dimension group.
    */
   dimensionKeys?: string[];
   /**
@@ -13,7 +13,7 @@ export class ListProductDimensionGroupsResponseBodyDimensionGroups extends $dara
    * The code of the dimension group.
    * 
    * @example
-   * oss_wf1ngqmd7q
+   * entconsole_zjzp4d****
    */
   groupCode?: string;
   /**
@@ -21,15 +21,15 @@ export class ListProductDimensionGroupsResponseBodyDimensionGroups extends $dara
    * The name of the dimension group.
    * 
    * @example
-   * OSS_Group
+   * Resource sharing
    */
   groupName?: string;
   /**
    * @remarks
-   * The service code.
+   * The code of the Alibaba Cloud service.
    * 
    * @example
-   * oss
+   * entconsole
    */
   productCode?: string;
   static names(): { [key: string]: string } {
@@ -70,23 +70,23 @@ export class ListProductDimensionGroupsResponseBody extends $dara.Model {
   dimensionGroups?: ListProductDimensionGroupsResponseBodyDimensionGroups[];
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of entries returned on each page.
    * 
    * @example
-   * 1
+   * 3
    */
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+   * The token that marks the position where the returned query results end. An empty value indicates that all data is returned.
    * 
    * @example
-   * 1
+   * 21
    */
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 057D210F-F2FC-5329-A536-26C16628BB09
@@ -94,10 +94,10 @@ export class ListProductDimensionGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that are returned for the query.
+   * The total number of entries that match the query.
    * 
    * @example
-   * 1
+   * 3
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

@@ -7,11 +7,15 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplatesP
    * @remarks
    * The unit of the calculation cycle. Valid values:
    * 
-   * *   second
-   * *   minute
-   * *   hour
-   * *   day
-   * *   week
+   * - second
+   * 
+   * - minute
+   * 
+   * - hour
+   * 
+   * - day
+   * 
+   * - week
    * 
    * @example
    * day
@@ -58,8 +62,9 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
    * @remarks
    * The type of the adjustable value. Valid values:
    * 
-   * *   continuous
-   * *   discontinuous
+   * - continuous
+   * 
+   * - discontinuous
    * 
    * @example
    * continuous
@@ -95,8 +100,9 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
    * @remarks
    * The language of the quota alert notification. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -122,8 +128,9 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
    * @remarks
    * Indicates whether Quota Center sends a notification about the application result. Valid values:
    * 
-   * *   0: no
-   * *   3: yes
+   * - 0: no
+   * 
+   * - 3: yes
    * 
    * @example
    * 0
@@ -154,9 +161,11 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
    * @remarks
    * The type of the quota. Valid values:
    * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: privilege
+   * - CommonQuota: general quota
+   * 
+   * - FlowControl: API rate limit
+   * 
+   * - WhiteListLabel: privilege
    * 
    * @example
    * CommonQuota

@@ -8,12 +8,12 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
    * The name of the quota alert.
    * 
    * @example
-   * security_groups
+   * q_security-groups alarm
    */
   alarmName?: string;
   /**
    * @remarks
-   * The time when the quota alert rule was created.
+   * The time when the quota alert was created.
    * 
    * @example
    * 2021-01-24T09:20:09Z
@@ -21,12 +21,12 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The notification methods of the quota alert.
+   * The notification channels for the quota alert.
    */
   notifyChannels?: string[];
   /**
    * @remarks
-   * The quota alert contact.
+   * The notification recipients of the quota alert.
    * 
    * @example
    * accountContact
@@ -34,7 +34,7 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
   notifyTarget?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
    * @example
    * ecs
@@ -50,7 +50,7 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
   quotaActionCode?: string;
   /**
    * @remarks
-   * The used quota.
+   * The quota usage.
    * 
    * @example
    * 31
@@ -58,7 +58,7 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
   quotaUsage?: number;
   /**
    * @remarks
-   * The threshold to trigger quota alerts.
+   * The value of the quota alert threshold.
    * 
    * @example
    * 29
@@ -115,12 +115,12 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $dara.Model {
 export class ListAlarmHistoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the quota alert records.
+   * The details of the quota alert history records.
    */
   alarmHistories?: ListAlarmHistoriesResponseBodyAlarmHistories[];
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of entries returned for the current query.
    * 
    * @example
    * 4
@@ -128,7 +128,7 @@ export class ListAlarmHistoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+   * The token that marks the position of the returned query data. An empty value indicates that all data has been queried.
    * 
    * @example
    * 1
@@ -136,7 +136,7 @@ export class ListAlarmHistoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CB38DDF9-B1E0-48C1-9966-19C443C2841E
@@ -144,7 +144,7 @@ export class ListAlarmHistoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that are returned for the query.
+   * The total number of entries returned for the current request.
    * 
    * @example
    * 4

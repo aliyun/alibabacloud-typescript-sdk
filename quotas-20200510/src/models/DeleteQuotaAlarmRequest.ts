@@ -7,7 +7,7 @@ export class DeleteQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The ID of the quota alert.
    * 
-   * >  You can call the [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html) operation to obtain the ID of a quota alert.
+   * > For more information about how to obtain the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html).
    * 
    * This parameter is required.
    * 

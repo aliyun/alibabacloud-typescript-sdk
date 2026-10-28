@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return for this query.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
@@ -15,7 +15,7 @@ export class ListProductsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
+   * The token that marks the position from which the query starts. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * 4

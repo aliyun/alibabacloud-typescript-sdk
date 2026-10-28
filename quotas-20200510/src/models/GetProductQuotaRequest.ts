@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetProductQuotaRequestDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * >  This parameter is required for cloud services that support dimensions. You must specify both `Dimensions.N.Key` and `Dimensions.N.Value`. The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service. The following cloud services support dimensions: ECS whose service code is ecs, Enterprise Distributed Application Service (EDAS) whose service code is edas, ECS Quotas by Instance Type whose service code is ecs-spec, and Auto Scaling whose service code is ess.
+   * > You must specify both Dimensions.N.Key and Dimensions.N.Value. The value range of N depends on the number of dimensions supported by the cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the maximum value of N.
    * 
    * @example
    * regionId
@@ -15,9 +15,9 @@ export class GetProductQuotaRequestDimensions extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * >  This parameter is required for cloud services that support dimensions. You must specify both `Dimensions.N.Key` and `Dimensions.N.Value`. The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service. The following cloud services support dimensions: ECS whose service code is ecs, EDAS whose service code is edas, ECS Quotas by Instance Type whose service code is ecs-spec, and Auto Scaling whose service code is ess.
+   * > You must specify both Dimensions.N.Key and Dimensions.N.Value. The value range of N depends on the number of dimensions supported by the cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the maximum value of N.
    * 
    * @example
    * cn-hangzhou
@@ -50,6 +50,8 @@ export class GetProductQuotaRequest extends $dara.Model {
   /**
    * @remarks
    * The quota dimensions.
+   * The properties of the quota item. The combination of dimensions and QuotaActionCode determines a unique quota item.
+   * > Dimensions are required for some cloud services. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions of a cloud service and check whether a dimension is required. The Requisite response parameter indicates whether the dimension is required.
    * 
    * @example
    * {\\"regionId\\":\\"cn-beijing\\"}
@@ -57,9 +59,9 @@ export class GetProductQuotaRequest extends $dara.Model {
   dimensions?: GetProductQuotaRequestDimensions[];
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviated name of the cloud service.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
+   * > For more information about how to obtain the abbreviated name of a cloud service, see the ProductCode parameter in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
@@ -71,7 +73,7 @@ export class GetProductQuotaRequest extends $dara.Model {
    * @remarks
    * The quota ID.
    * 
-   * >  To query a quota ID of an Alibaba Cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `QuotaActionCode` in the response.
+   * > For more information about how to obtain the quota ID of a specified cloud service, see the QuotaActionCode parameter in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQuotaApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the quota increase application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****

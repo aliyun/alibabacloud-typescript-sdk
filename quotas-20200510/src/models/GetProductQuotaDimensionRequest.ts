@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetProductQuotaDimensionRequestDependentDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the quota dimension on which the quota dimension that you want to query is dependent.
+   * The key of the quota dimension on which the target quota dimension depends.
    * 
-   * > The value range of N varies based on the number of quota dimensions that are supported by the specified Alibaba Cloud service.
+   * > - The value of N depends on the number of quota dimensions on which the target quota dimension depends.
+   * > - You must specify the key and value of a dependent quota dimension at the same time.
    * 
    * @example
    * regionId
@@ -15,9 +16,10 @@ export class GetProductQuotaDimensionRequestDependentDimensions extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The value of the quota dimension on which the quota dimension that you want to query is dependent.
+   * The value of the quota dimension on which the target quota dimension depends.
    * 
-   * > The value range of N varies based on the number of quota dimensions that are supported by the specified Alibaba Cloud service.
+   * > - The value of N depends on the number of quota dimensions on which the target quota dimension depends.
+   * > - You must specify the key and value of a dependent quota dimension at the same time.
    * 
    * @example
    * cn-hangzhou
@@ -49,27 +51,29 @@ export class GetProductQuotaDimensionRequestDependentDimensions extends $dara.Mo
 export class GetProductQuotaDimensionRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about quota dimensions.
+   * The quota dimensions on which the target quota dimension depends.
    */
   dependentDimensions?: GetProductQuotaDimensionRequestDependentDimensions[];
   /**
    * @remarks
-   * The key of the quota dimension.
+   * The key of the target quota dimension.
+   * 
+   * > If the target quota dimension has dependent quota dimensions, you must specify the keys and values of the dependent quota dimensions at the same time.
    * 
    * @example
-   * regionId
+   * zoneId
    */
   dimensionKey?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service.
    * 
-   * > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   * > For more information about how to obtain the abbreviation of a cloud service, see the ProductCode parameter in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * ecs-spec
+   * disk
    */
   productCode?: string;
   static names(): { [key: string]: string } {

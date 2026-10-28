@@ -7,7 +7,7 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The ID of the quota alert.
    * 
-   * >  You can call the [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html) operation to obtain the ID of a quota alert.
+   * > For more information about how to obtain the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The name of the quota alert.
    * 
-   * >  You can call the [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html) operation to obtain the name of a quota alert.
+   * > For more information about how to obtain the name of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/440561.html).
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,11 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The numeric value of the alert threshold. Valid values:
    * 
-   * *   If you set the `ThresholdType` parameter to `used`, you will receive an alert notification when the used quota is greater than or equal to the preset alert threshold. The alert threshold must be greater than the current used quota.
-   * *   If you set the `ThresholdType` parameter to `usable`, you will receive an alert notification when the available quota is less than or equal to the preset alert threshold. The alert threshold must be less than the current available quota.
+   * - If you set `ThresholdType` to `used`, an alert is triggered when the used quota is greater than or equal to this value. The alert threshold must be greater than the current used quota.
    * 
-   * > You must set one of the Threshold and ThresholdPercent parameters.
+   * - If you set `ThresholdType` to `usable`, an alert is triggered when the usable quota is less than or equal to this value. The alert threshold must be less than the current usable quota.
+   * 
+   * > You must set either Threshold or ThresholdPercent.
    * 
    * @example
    * 160
@@ -44,10 +45,11 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The percentage of the alert threshold. Valid values:
    * 
-   * *   If you set `ThresholdType` to `used`, you receive an alert notification when the used quota is greater than or equal to the preset percentage of the alert threshold. Value range: (50%, 100%].
-   * *   If you set `ThresholdType` to `usable`, you receive an alert notification when the available quota is less than or equal to the preset percentage of the alert threshold. Value range: (0%, 50%].
+   * - If you set `ThresholdType` to `used`, an alert is triggered when the percentage of the used quota is greater than or equal to this value. The value must be in the range of (50%, 100%].
    * 
-   * >  You must set one of Threshold and ThresholdPercent.
+   * - If you set `ThresholdType` to `usable`, an alert is triggered when the percentage of the usable quota is less than or equal to this value. The value must be in the range of (0%, 50%].
+   * 
+   * > You must set either Threshold or ThresholdPercent.
    * 
    * @example
    * 51
@@ -57,8 +59,9 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The type of the quota alert. Valid values:
    * 
-   * *   used (default): The alert is created for the used quota.
-   * *   usable: The alert is created for the available quota.
+   * - used (default): The alert is triggered based on the used quota.
+   * 
+   * - usable: The alert is triggered based on the usable quota.
    * 
    * @example
    * usable
@@ -66,7 +69,7 @@ export class UpdateQuotaAlarmRequest extends $dara.Model {
   thresholdType?: string;
   /**
    * @remarks
-   * The webhook URL. Quota Center sends alert notifications to the specified URL by using HTTP POST requests.
+   * The webhook URL. Quota Center sends alert notifications to this URL using an HTTP POST request.
    * 
    * @example
    * https://alert.aliyun.com/callback

@@ -5,21 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class GetProductQuotaResponseBodyQuotaPeriod extends $dara.Model {
   /**
    * @remarks
-   * The unit of the calculation cycle of the quota. Valid values:
+   * The unit of the quota period. Valid values:
    * 
-   * *   second
-   * *   minute
-   * *   hour
-   * *   day
-   * *   week
+   * - second: Seconds.
+   * 
+   * - minute: Minutes.
+   * 
+   * - hour: Hours.
+   * 
+   * - day: Days.
+   * 
+   * - week: Weeks.
    * 
    * @example
-   * Day
+   * day
    */
   periodUnit?: string;
   /**
    * @remarks
-   * The value of the calculation cycle of the quota.
+   * The value of the quota period.
    * 
    * @example
    * 1
@@ -51,7 +55,7 @@ export class GetProductQuotaResponseBodyQuotaPeriod extends $dara.Model {
 export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
   /**
    * @remarks
-   * The value of the quota.
+   * The quota value.
    * 
    * @example
    * 801
@@ -59,9 +63,9 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
   quota?: string;
   /**
    * @remarks
-   * The unit of the quota.
+   * The quota unit.
    * 
-   * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of ACK clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
+   * > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
    * 
    * @example
    * Count
@@ -69,10 +73,11 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
   quotaUnit?: string;
   /**
    * @remarks
-   * The category of the quota. Valid values:
+   * The quota item type. Valid values:
    * 
-   * *   BaseQuota: base quota.
-   * *   ReservedQuota: reserved quota.
+   * - BaseQuota: Base quota.
+   * 
+   * - ReservedQuota: Reserved quota.
    * 
    * @example
    * BaseQuota
@@ -80,7 +85,7 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The used quota.
+   * The quota usage.
    * 
    * @example
    * 26
@@ -116,14 +121,15 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
 export class GetProductQuotaResponseBodyQuotaUsageMetric extends $dara.Model {
   /**
    * @remarks
-   * The monitoring dimensions.
+   * The CloudMonitor monitoring dimensions.
    * 
-   * The value is a collection of `key:value` pairs. Example: `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
+   * Format: a collection of `key:value` pairs. Example:
+   * `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
    */
   metricDimensions?: { [key: string]: string };
   /**
    * @remarks
-   * The monitoring metric.
+   * The CloudMonitor metric name.
    * 
    * @example
    * Usage
@@ -131,7 +137,7 @@ export class GetProductQuotaResponseBodyQuotaUsageMetric extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The monitoring namespace.
+   * The CloudMonitor metric namespace.
    * 
    * @example
    * acs_quotas_flowcontrol
@@ -170,8 +176,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
    * @remarks
    * Indicates whether the quota is adjustable. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Adjustable.
+   * 
+   * - false: Not adjustable.
    * 
    * @example
    * true
@@ -179,15 +186,16 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   adjustable?: boolean;
   /**
    * @remarks
-   * The range of the quota value that can be requested for the quota item.
+   * The applicable range for quota adjustment.
    */
   applicableRange?: number[];
   /**
    * @remarks
-   * The type of the adjustable value. Valid values:
+   * The type of quota adjustment. Valid values:
    * 
-   * *   continuous
-   * *   discontinuous
+   * - continuous: Continuous.
+   * 
+   * - discontinuous: Discontinuous.
    * 
    * @example
    * continuous
@@ -195,7 +203,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   applicableType?: string;
   /**
    * @remarks
-   * The reason for submitting a quota increase request.
+   * The sample reasons for applying for a quota adjustment.
    * 
    * @example
    * The business xxx is expected to grow by 50%.
@@ -203,10 +211,11 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   applyReasonTips?: string;
   /**
    * @remarks
-   * Indicates whether the system shows the used value of the quota. Valid values:
+   * Indicates whether the used quota is displayed. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The used quota is displayed.
+   * 
+   * - false: The used quota is not displayed.
    * 
    * @example
    * true
@@ -214,7 +223,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   consumable?: boolean;
   /**
    * @remarks
-   * The quota dimensions. Format: `{"regionId":"Region"}`.
+   * The quota dimensions. Format: `{"regionId":"region"}`.
    * 
    * @example
    * {"regionId":"cn-hangzhou"}
@@ -222,7 +231,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   dimensions?: { [key: string]: any };
   /**
    * @remarks
-   * The start time of the validity period of the quota. Specify the value in UTC.
+   * The UTC time when the quota takes effect.
    * 
    * @example
    * 2022-09-28T06:06:00Z
@@ -230,7 +239,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The end time of the validity period of the quota. Specify the value in UTC.
+   * The UTC time when the quota expires.
    * 
    * @example
    * 2022-09-29T06:06:00Z
@@ -239,9 +248,8 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the quota is a global quota. Valid values:
-   * 
-   * *   true: The quota is shared in all regions.
-   * *   false: The quota is independently used in a region.
+   * - true: The quota item is shared across all regions.
+   * - false: The quota item is independent for each region.
    * 
    * @example
    * true
@@ -249,12 +257,12 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   globalQuota?: boolean;
   /**
    * @remarks
-   * The calculation cycle of the quota.
+   * The quota period.
    */
   period?: GetProductQuotaResponseBodyQuotaPeriod;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviated name of the cloud service.
    * 
    * @example
    * ecs
@@ -270,7 +278,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaActionCode?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the quota.
+   * The ARN of the quota.
    * 
    * @example
    * acs:quotas:cn-hangzhou:120886317861****:quota/ecs/q_security-groups/
@@ -278,11 +286,12 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaArn?: string;
   /**
    * @remarks
-   * The type of the quota. Valid values:
+   * The quota category. Valid values:
+   * - CommonQuota: General quota.
    * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: whitelist quota
+   * - FlowControl: API rate limit.
+   * 
+   * - WhiteListLabel: Privilege.
    * 
    * @example
    * CommonQuota
@@ -290,20 +299,20 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaCategory?: string;
   /**
    * @remarks
-   * The description of the quota.
+   * The quota description.
    * 
    * @example
-   * The maximum number of security groups that can be owned by the current account
+   * The maximum number of security groups that can be owned by the current account.
    */
   quotaDescription?: string;
   /**
    * @remarks
-   * The details of the quota.
+   * The quota details.
    */
   quotaItems?: GetProductQuotaResponseBodyQuotaQuotaItems[];
   /**
    * @remarks
-   * The name of the quota.
+   * The quota name.
    * 
    * @example
    * Maximum Number of Security Groups
@@ -311,10 +320,11 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaName?: string;
   /**
    * @remarks
-   * The type of the quota. Valid values:
+   * The quota type. Valid values:
    * 
-   * *   privilege
-   * *   normal
+   * - privilege: Privilege.
+   * 
+   * - normal: Normal.
    * 
    * @example
    * normal
@@ -322,9 +332,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaType?: string;
   /**
    * @remarks
-   * The unit of the quota.
+   * The quota unit.
    * 
-   * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
+   * > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
    * 
    * @example
    * Count
@@ -332,12 +342,12 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   quotaUnit?: string;
   /**
    * @remarks
-   * The range of the quota value.
+   * The supported range of quota values for the current quota item, which can be used as a reference when configuring a quota template.
    */
   supportedRange?: number[];
   /**
    * @remarks
-   * The value of the quota.
+   * The quota value.
    * 
    * @example
    * 801
@@ -345,7 +355,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The used quota.
+   * The quota usage.
    * 
    * @example
    * 26
@@ -353,12 +363,15 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   totalUsage?: number;
   /**
    * @remarks
-   * The reason why the quota is not adjustable. Valid values:
+   * The reason why the quota cannot be adjusted. Valid values:
    * 
-   * *   nonactivated: The service is not activated.
-   * *   applicationProcess: The application is being processed.
-   * *   limitReached: The quota limit is reached.
-   * *   supportTicketRequired: The quota can be increased only by submitting a ticket.
+   * - nonactivated: The service is not activated.
+   * 
+   * - applicationProcess: The quota application is being processed.
+   * 
+   * - limitReached: The quota limit is reached.
+   * 
+   * - supportTicketRequired: A ticket must be submitted for the application.
    * 
    * @example
    * limitReached
@@ -366,9 +379,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   unadjustableDetail?: string;
   /**
    * @remarks
-   * The monitoring information of the quota in CloudMonitor.
+   * The monitoring information of the quota usage in CloudMonitor.
    * 
-   * >  If this parameter is empty, no monitoring data of the quota exists in CloudMonitor.
+   * > An empty value indicates that no monitoring data is available for this quota in CloudMonitor.
    */
   usageMetric?: GetProductQuotaResponseBodyQuotaUsageMetric;
   static names(): { [key: string]: string } {
@@ -459,7 +472,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
 export class GetProductQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the quota.
+   * The quota details.
    */
   quota?: GetProductQuotaResponseBodyQuota;
   /**

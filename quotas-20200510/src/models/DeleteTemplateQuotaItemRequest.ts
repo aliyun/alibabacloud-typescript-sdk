@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTemplateQuotaItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the quota template.
-   * 
-   * You can call the [ListQuotaApplicationTemplates](https://help.aliyun.com/document_detail/450403.html) operation to obtain the ID of a quota template.
+   * The ID of the quota template. For more information about how to obtain the quota template ID, see [ListQuotaApplicationTemplates](https://help.aliyun.com/document_detail/450403.html).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The UTC time when the quota application ends.
+   * The end of the time range to query. The value is in UTC.
+   * 
+   * > The interval between `ApplyStartTime` and `ApplyEndTime` must be 7 days or less. If you do not set these two parameters, quota applications submitted within the last 7 days are queried.
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -13,7 +15,9 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   applyEndTime?: string;
   /**
    * @remarks
-   * The UTC time when the quota application starts.
+   * The beginning of the time range to query. The value is in UTC.
+   * 
+   * > The interval between `ApplyStartTime` and `ApplyEndTime` must be 7 days or less. If you do not set these two parameters, quota applications submitted within the last 7 days are queried.
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -21,7 +25,7 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   applyStartTime?: string;
   /**
    * @remarks
-   * The ID of the quota application batch.
+   * The ID of the batch quota application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -29,7 +33,7 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   batchQuotaApplicationId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of results to return for a single request.
    * 
    * Valid values: 1 to 100. Default value: 30.
    * 
@@ -39,9 +43,9 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query.
+   * The token that marks the start of the data to read.
    * 
-   * >  An empty value indicates that the query starts from the beginning.
+   * > If you do not set this parameter, the query starts from the beginning.
    * 
    * @example
    * 4
@@ -49,9 +53,9 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the Alibaba Cloud service.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
+   * > For more information about how to obtain the abbreviation of an Alibaba Cloud service, see the `ProductCode` parameter in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * @example
    * ecs-spec
@@ -69,9 +73,11 @@ export class ListQuotaApplicationsForTemplateRequest extends $dara.Model {
    * @remarks
    * The type of the quota. Valid values:
    * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: privilege
+   * - CommonQuota: general quota.
+   * 
+   * - FlowControl: API rate limit.
+   * 
+   * - WhiteListLabel: privilege.
    * 
    * @example
    * CommonQuota

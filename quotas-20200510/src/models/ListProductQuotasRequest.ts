@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductQuotasRequestDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > The value range of N depends on the number of dimensions supported by the corresponding cloud service.
    * 
    * @example
    * regionId
@@ -15,9 +15,9 @@ export class ListProductQuotasRequestDimensions extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > The value range of N depends on the number of dimensions supported by the corresponding cloud service.
    * 
    * @example
    * cn-hangzhou
@@ -57,22 +57,21 @@ export class ListProductQuotasRequest extends $dara.Model {
    * The code of the dimension group.
    * 
    * @example
-   * entconsole_w1j3msbo2g
+   * entconsole_w1j3ms****
    */
   groupCode?: string;
   /**
    * @remarks
-   * The keyword that you want to use to search for the quotas.
-   * 
-   * >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. The keyword is used to match the values of `QuotaName` and `QuotaActionCode`.
+   * The search keyword for the quota.
+   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). The search scope includes `QuotaName` and `QuotaActionCode`.
    * 
    * @example
-   * ecs-spec
+   * security
    */
   keyWord?: string;
   /**
    * @remarks
-   * The maximum number of records that can be returned for the query.
+   * The maximum number of entries to return in a single request.
    * 
    * Valid values: 1 to 100. Default value: 30.
    * 
@@ -82,46 +81,40 @@ export class ListProductQuotasRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token used to retrieve the next page of results.
    * 
-   * *   You do not need to specify this parameter for the first and last requests.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * - Leave this parameter empty for the first request or when no more results are available.
+   * - If more results are available, set this parameter to the NextToken value returned when you invoke the previous API call.
    * 
    * @example
-   * 1
+   * AAAAAd****
    */
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of the `ProductCode` parameter.
+   * > For more information about how to obtain the abbreviation of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * ecs-spec
+   * ecs
    */
   productCode?: string;
   /**
    * @remarks
-   * The quota ID.
+   * The ID of the quota.
    * 
    * @example
-   * ecs.g5.2xlarge
+   * q_security-groups
    */
   quotaActionCode?: string;
   /**
    * @remarks
-   * The type of the quota.
+   * The quota category.
    * 
    * Default value: CommonQuota.
-   * 
-   * Valid values:
-   * 
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: privilege
-   * *   CommonQuota: general quota
    * 
    * @example
    * FlowControl
@@ -129,15 +122,9 @@ export class ListProductQuotasRequest extends $dara.Model {
   quotaCategory?: string;
   /**
    * @remarks
-   * The field based on which you want to sort the returned records.
+   * The sorting method supported by the quota.
    * 
-   * >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
-   * 
-   * Valid values:
-   * 
-   * *   TOTAL: sorts the returned records based on the total quota.
-   * *   TIME: sorts the returned records based on the time when the quota was last modified.
-   * *   RESERVED: sorts the returned records based on the reserved quota.
+   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
    * 
    * @example
    * TIME
@@ -145,14 +132,9 @@ export class ListProductQuotasRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The order in which you want to sort the returned records.
+   * The sorting method supported by the quota.
    * 
-   * >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
-   * 
-   * Valid values:
-   * 
-   * *   Descending
-   * *   Ascending
+   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
    * 
    * @example
    * Ascending

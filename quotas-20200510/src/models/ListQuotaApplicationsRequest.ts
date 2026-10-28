@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsRequestDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
    * 
    * @example
    * regionId
@@ -15,9 +15,9 @@ export class ListQuotaApplicationsRequestDimensions extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
    * 
    * @example
    * cn-hangzhou
@@ -50,11 +50,13 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * The quota dimensions.
+   * The dimensions are properties of a quota item. A combination of dimensions (Dimensions) and a quota ID (QuotaActionCode) uniquely identifies a quota item.
+   * > Some cloud services require dimensions. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The `Requisite` response parameter indicates whether a dimension is required.
    */
   dimensions?: ListQuotaApplicationsRequestDimensions[];
   /**
    * @remarks
-   * The keyword that you want to use to search for the application.
+   * The keyword for searching quota increase applications.
    * 
    * @example
    * Cluster
@@ -62,7 +64,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of records to return in this query.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
@@ -72,7 +74,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
+   * The token that marks the position from which you want to start the query. Leave this parameter empty to query from the beginning.
    * 
    * @example
    * 1
@@ -80,7 +82,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
    * @example
    * csk
@@ -88,7 +90,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * The quota ID.
    * 
    * @example
    * q_i5uzm3
@@ -96,11 +98,10 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   quotaActionCode?: string;
   /**
    * @remarks
-   * The quota type. Valid values:
-   * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: whitelist quota
+   * The quota category. Valid values:
+   * - CommonQuota: general quota.
+   * - FlowControl: API rate limit.
+   * - WhiteListLabel: privilege.
    * 
    * @example
    * CommonQuota
@@ -108,12 +109,15 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   quotaCategory?: string;
   /**
    * @remarks
-   * The approval state of the quota increase application. Valid values:
+   * The approval status of the quota increase application. Valid values:
    * 
-   * *   Disagree: The application is rejected.
-   * *   Agree: The application is approved.
-   * *   Process: The application is in review.
-   * *   Cancel: The application is canceled.
+   * - Disagree: Rejected.
+   * 
+   * - Agree: Approved.
+   * 
+   * - Process: Under review.
+   * 
+   * - Cancel: Closed.
    * 
    * @example
    * Agree

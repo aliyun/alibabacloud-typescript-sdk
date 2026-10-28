@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaAlarmResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Alarm ID.
+   * The alert ID.
    * 
    * @example
    * 18b3be23-b7b0-4d45-91bc-d0c331aa****

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsResponseBodyProductInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud service supports general quotas. Valid values:
+   * Specifies whether general quotas are supported. Valid values:
    * 
-   * *   support: The Alibaba Cloud service supports general quotas.
-   * *   unsupport: The Alibaba Cloud service does not support general quotas.
+   * - support: Supported.
+   * 
+   * - unsupport: Not supported.
    * 
    * @example
    * support
@@ -16,12 +17,13 @@ export class ListProductsResponseBodyProductInfo extends $dara.Model {
   commonQuotaSupport?: string;
   /**
    * @remarks
-   * >  This parameter is discontinued and is not recommended.
+   * <notice>**[Deprecated]** We recommend that you do not use this parameter.</notice>
    * 
-   * Indicates whether the Alibaba Cloud service supports dynamic quota adjustment. Valid values:
+   * Specifies whether dynamic quota adjustment is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -29,10 +31,11 @@ export class ListProductsResponseBodyProductInfo extends $dara.Model {
   dynamic?: boolean;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud service supports API rate limits. Valid values:
+   * Specifies whether API rate limits are supported. Valid values:
    * 
-   * *   support: The Alibaba Cloud service supports API rate limits.
-   * *   unsupport: The Alibaba Cloud service does not support API rate limits.
+   * - support: Supported.
+   * 
+   * - unsupport: Not supported.
    * 
    * @example
    * unsupport
@@ -88,10 +91,11 @@ export class ListProductsResponseBodyProductInfo extends $dara.Model {
   secondCategoryNameEn?: string;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud service supports whitelist quotas. Valid values:
+   * Specifies whether privileges are supported. Valid values:
    * 
-   * *   support: The Alibaba Cloud service supports whitelist quotas.
-   * *   unsupport: The Alibaba Cloud service does not support whitelist quotas.
+   * - support: Supported.
+   * 
+   * - unsupport: Not supported.
    * 
    * @example
    * support
@@ -139,7 +143,7 @@ export class ListProductsResponseBodyProductInfo extends $dara.Model {
 export class ListProductsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of entries returned for this query.
    * 
    * @example
    * 4
@@ -147,7 +151,7 @@ export class ListProductsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+   * The token that marks the position of the returned query data. An empty value indicates that all data has been queried.
    * 
    * @example
    * 4
@@ -155,12 +159,12 @@ export class ListProductsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about the Alibaba Cloud services.
+   * The information about the Alibaba Cloud service.
    */
   productInfo?: ListProductsResponseBodyProductInfo[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1DA9C136-11BC-4C39-ADC6-B86276128072
@@ -168,7 +172,7 @@ export class ListProductsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that are returned for the query.
+   * The total number of entries returned for this request.
    * 
    * @example
    * 1

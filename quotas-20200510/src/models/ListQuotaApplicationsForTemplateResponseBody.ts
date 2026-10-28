@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos extends $dara.Model {
   /**
    * @remarks
-   * The number of approval tickets.
+   * The number of applications.
    * 
    * @example
    * 4
@@ -13,12 +13,15 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsA
   count?: number;
   /**
    * @remarks
-   * The approval state of the quota increase application. Valid values:
+   * The approval status of the quota increase application. Valid values:
    * 
-   * *   Disagree: The application is rejected.
-   * *   Agree: The application is approved.
-   * *   Process: The application is in review.
-   * *   Cancel: The application is canceled.
+   * - Disagree: denied.
+   * 
+   * - Agree: approved.
+   * 
+   * - Process: pending approval.
+   * 
+   * - Cancel: closed.
    * 
    * @example
    * Agree
@@ -50,12 +53,12 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsA
 export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud accounts that correspond to the resource directory members for which the quotas are applied.
+   * The list of Alibaba Cloud accounts of the members in a resource directory for which the quota applications are submitted.
    */
   aliyunUids?: string[];
   /**
    * @remarks
-   * The time when the quota increase application was submitted. The value is displayed in UTC.
+   * The UTC time when the quota increase application was submitted.
    * 
    * @example
    * 2022-09-23T02:38:18Z
@@ -68,7 +71,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   auditStatusVos?: ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos[];
   /**
    * @remarks
-   * The ID of the quota application batch.
+   * The ID of the batch quota application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -76,7 +79,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   batchQuotaApplicationId?: string;
   /**
    * @remarks
-   * The requested value of the quota.
+   * The requested quota value.
    * 
    * @example
    * 105
@@ -86,7 +89,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
    * @remarks
    * The quota dimensions.
    * 
-   * Format example: {"regionId":"cn-hangzhou"}.
+   * Format: {"regionId":"cn-hangzhou"}.
    * 
    * @example
    * {"regionId":"cn-hangzhou"}
@@ -94,7 +97,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   dimensions?: { [key: string]: any };
   /**
    * @remarks
-   * The start time of the validity period of the quota. The value is displayed in UTC.
+   * The UTC time when the quota takes effect.
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -102,7 +105,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   effectiveTime?: string;
   /**
    * @remarks
-   * The end time of the validity period of the quota. The value is displayed in UTC.
+   * The UTC time when the quota expires.
    * 
    * @example
    * 2024-05-14T02:08:56Z
@@ -110,7 +113,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   expireTime?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the Alibaba Cloud service.
    * 
    * @example
    * vpc
@@ -126,11 +129,13 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   quotaActionCode?: string;
   /**
    * @remarks
-   * The quota type. Valid values:
+   * The type of the quota. Valid values:
    * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: privilege
+   * - CommonQuota: general quota.
+   * 
+   * - FlowControl: API rate limit.
+   * 
+   * - WhiteListLabel: privilege.
    * 
    * @example
    * CommonQuota
@@ -199,7 +204,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
 export class ListQuotaApplicationsForTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that can be returned for the query.
+   * The maximum number of records returned for the query.
    * 
    * @example
    * 30
@@ -207,7 +212,7 @@ export class ListQuotaApplicationsForTemplateResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query.
+   * The token that marks the start of the data to read.
    * 
    * @example
    * 1
@@ -215,7 +220,7 @@ export class ListQuotaApplicationsForTemplateResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The queried quota application records.
+   * The list of historical quota applications.
    */
   quotaBatchApplications?: ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications[];
   /**
@@ -228,7 +233,7 @@ export class ListQuotaApplicationsForTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that are returned for the query.
+   * The total number of records returned for the request.
    * 
    * @example
    * 67

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlarmHistoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert.
+   * The alert ID.
    * 
    * @example
    * 18b3be23-b7b0-4d45-91bc-d0c331aa****
@@ -13,7 +13,7 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   alarmId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
    * 
    * @example
    * 20201024
@@ -21,7 +21,7 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The keyword that is used for the query.
+   * The search keyword.
    * 
    * @example
    * Quantity
@@ -29,7 +29,7 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of records that can be returned for the query.
+   * The maximum number of entries to return for the current query.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
@@ -39,7 +39,7 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
+   * The token that specifies the starting position of the query. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * 1
@@ -47,9 +47,9 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
-   * > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   * > For more information about the cloud services that support Quota Center, see [Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
    * 
    * @example
    * ecs
@@ -57,7 +57,7 @@ export class ListAlarmHistoriesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query.
    * 
    * @example
    * 20201020

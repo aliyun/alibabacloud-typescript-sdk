@@ -30,10 +30,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a quota alert.
+   * Creates an alert rule for a quota item.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to create a quota alert of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alerting feature has been upgraded and this API operation will be deprecated. Use the CloudMonitor API operations [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) and [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html) to create alert rules for the new version of quota alerting.
+   * For more information about how to use API operations to manage the new version of quota alerting, see [Manage new quota alerts by using API operations](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - CreateQuotaAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96,10 +97,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a quota alert.
+   * Creates an alert rule for a quota item.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to create a quota alert of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alerting feature has been upgraded and this API operation will be deprecated. Use the CloudMonitor API operations [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) and [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html) to create alert rules for the new version of quota alerting.
+   * For more information about how to use API operations to manage the new version of quota alerting, see [Manage new quota alerts by using API operations](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - CreateQuotaAlarmRequest
    * @returns CreateQuotaAlarmResponse
@@ -110,10 +112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an application to increase a quota.
+   * Creates a quota increase request.
    * 
    * @remarks
-   * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+   * > After you create a quota increase request, you can call the [ListQuotaApplications](https://help.aliyun.com/document_detail/440568.html) operation to view the approval result. If the value of `Status` is `Agree`, the request is approved.
    * 
    * @param request - CreateQuotaApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -184,10 +186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an application to increase a quota.
+   * Creates a quota increase request.
    * 
    * @remarks
-   * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+   * > After you create a quota increase request, you can call the [ListQuotaApplications](https://help.aliyun.com/document_detail/440568.html) operation to view the approval result. If the value of `Status` is `Agree`, the request is approved.
    * 
    * @param request - CreateQuotaApplicationRequest
    * @returns CreateQuotaApplicationResponse
@@ -198,11 +200,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members of the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members. Only the management account of a resource directory can create multiple quota applications at a time.
+   * Creates batch quota increase applications for members in a resource folder. When you add a quota item to a quota template, only new members in the resource folder autocommit quota increase applications, and existing members remain unchanged. To increase quotas for existing members by using a quota template, you can select the quota template to commit batch quota increase applications for multiple members in the resource folder. Only the administrator account of the resource folder can create batch quota applications.
    * 
    * @remarks
-   * ### [](#)QPS limit
-   * You can add a maximum of 10 quota items to a quota template at a time.
+   * ### Limits
+   * A single application can include a maximum of 10 quota items.
    * 
    * @param request - CreateQuotaApplicationsForTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -273,11 +275,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members of the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members. Only the management account of a resource directory can create multiple quota applications at a time.
+   * Creates batch quota increase applications for members in a resource folder. When you add a quota item to a quota template, only new members in the resource folder autocommit quota increase applications, and existing members remain unchanged. To increase quotas for existing members by using a quota template, you can select the quota template to commit batch quota increase applications for multiple members in the resource folder. Only the administrator account of the resource folder can create batch quota applications.
    * 
    * @remarks
-   * ### [](#)QPS limit
-   * You can add a maximum of 10 quota items to a quota template at a time.
+   * ### Limits
+   * A single application can include a maximum of 10 quota items.
    * 
    * @param request - CreateQuotaApplicationsForTemplateRequest
    * @returns CreateQuotaApplicationsForTemplateResponse
@@ -288,14 +290,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization. Only the management account of a resource directory can create quota templates.
+   * Creates a quota template. After the management account creates a quota template, the template automatically submits quota increase applications for new members added to the resource directory. Existing members remain unaffected. You can use a quota template to apply for increases to multiple quota items at a time, improving the efficiency and automation of quota management across the organization. Only the management account of a resource directory can create a quota template.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
-   * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the value of the `ServiceStatus` parameter in the response is `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to modify the value to `1`. A value of 0 indicates that the quota template is not configured. A value of -1 indicates that the quota template is disabled. A value of 1 indicates that the quota template is enabled.
-   * ### [](#)
-   * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If the value of the `Status` parameter in the response is `Agree`, the quota template is approved.
+   * ### Before you begin
+   * Make sure that the status of the quota template is enabled (that is, `ServiceStatus` is `1`).
+   * Call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of the quota template. If the `ServiceStatus` of the quota template is `0` (not configured) or `-1` (disabled), call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to change the status to `1` (enabled).
+   * ### Usage notes
+   * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If `Status` is displayed as `Agree`, the application is approved.
    * 
    * @param request - CreateTemplateQuotaItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -358,14 +360,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization. Only the management account of a resource directory can create quota templates.
+   * Creates a quota template. After the management account creates a quota template, the template automatically submits quota increase applications for new members added to the resource directory. Existing members remain unaffected. You can use a quota template to apply for increases to multiple quota items at a time, improving the efficiency and automation of quota management across the organization. Only the management account of a resource directory can create a quota template.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
-   * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the value of the `ServiceStatus` parameter in the response is `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to modify the value to `1`. A value of 0 indicates that the quota template is not configured. A value of -1 indicates that the quota template is disabled. A value of 1 indicates that the quota template is enabled.
-   * ### [](#)
-   * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If the value of the `Status` parameter in the response is `Agree`, the quota template is approved.
+   * ### Before you begin
+   * Make sure that the status of the quota template is enabled (that is, `ServiceStatus` is `1`).
+   * Call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of the quota template. If the `ServiceStatus` of the quota template is `0` (not configured) or `-1` (disabled), call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to change the status to `1` (enabled).
+   * ### Usage notes
+   * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If `Status` is displayed as `Agree`, the application is approved.
    * 
    * @param request - CreateTemplateQuotaItemRequest
    * @returns CreateTemplateQuotaItemResponse
@@ -376,11 +378,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota alert.
+   * Deletes a quota usage alert.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to delete a quota alert rule of the old version. If you want to delete a quota alert rule of the new version, call the CloudMonitor API operation [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) or [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the API operation is called to delete a quota alert rule whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+   * The quota alerting feature has been upgraded, and this API operation will be deprecated soon. This API operation can only delete legacy quota usage alerts. To delete new-version quota usage alerts, use the CloudMonitor API operations [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) and [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html).
+   * For more information about managing new-version quota alerts by using API operations, see [Manage new-version quota alerts by using API operations](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - DeleteQuotaAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -411,11 +413,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota alert.
+   * Deletes a quota usage alert.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to delete a quota alert rule of the old version. If you want to delete a quota alert rule of the new version, call the CloudMonitor API operation [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) or [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the API operation is called to delete a quota alert rule whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+   * The quota alerting feature has been upgraded, and this API operation will be deprecated soon. This API operation can only delete legacy quota usage alerts. To delete new-version quota usage alerts, use the CloudMonitor API operations [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) and [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html).
+   * For more information about managing new-version quota alerts by using API operations, see [Manage new-version quota alerts by using API operations](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - DeleteQuotaAlarmRequest
    * @returns DeleteQuotaAlarmResponse
@@ -426,7 +428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member. Only the management account of a resource directory can delete quota templates.
+   * Deletes a quota template. After the management account deletes a quota template, the template no longer automatically submits quota increase requests for new members added to the resource directory. Only the management account of the resource directory can delete quota templates.
    * 
    * @param request - DeleteTemplateQuotaItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -457,7 +459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member. Only the management account of a resource directory can delete quota templates.
+   * Deletes a quota template. After the management account deletes a quota template, the template no longer automatically submits quota increase requests for new members added to the resource directory. Only the management account of the resource directory can delete quota templates.
    * 
    * @param request - DeleteTemplateQuotaItemRequest
    * @returns DeleteTemplateQuotaItemResponse
@@ -468,10 +470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota of a cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+   * Queries the quota details of a specified cloud service.
    * 
    * @param request - GetProductQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -510,10 +509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota of a cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+   * Queries the quota details of a specified cloud service.
    * 
    * @param request - GetProductQuotaRequest
    * @returns GetProductQuotaResponse
@@ -524,12 +520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-   * *   The name of the quota dimension is `region`.
+   * Queries the details of the quota dimensions supported by the target cloud service.
    * 
    * @param request - GetProductQuotaDimensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -568,12 +559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-   * *   The name of the quota dimension is `region`.
+   * Queries the details of the quota dimensions supported by the target cloud service.
    * 
    * @param request - GetProductQuotaDimensionRequest
    * @returns GetProductQuotaDimensionResponse
@@ -584,11 +570,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+   * Queries the details of a specified quota alert.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the details about the quota alert rules of the old version. If you want to query the details about the quota alert rules of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the operation is called to query the details of a quota alert rule whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert rule are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert rule was created.
+   * The quota alert feature has been upgraded. This API operation will be deprecated soon. This API operation can only query the details of legacy quota usage alerts. To query the details of new-version quota usage alerts, use the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to use API operations to manage new-version quota alerts, see [Use API operations to manage new-version quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - GetQuotaAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -619,11 +604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+   * Queries the details of a specified quota alert.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the details about the quota alert rules of the old version. If you want to query the details about the quota alert rules of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the operation is called to query the details of a quota alert rule whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert rule are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert rule was created.
+   * The quota alert feature has been upgraded. This API operation will be deprecated soon. This API operation can only query the details of legacy quota usage alerts. To query the details of new-version quota usage alerts, use the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to use API operations to manage new-version quota alerts, see [Use API operations to manage new-version quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - GetQuotaAlarmRequest
    * @returns GetQuotaAlarmResponse
@@ -634,10 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a specified application that is submitted to increase a quota.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+   * Queries the details of a quota increase application.
    * 
    * @param request - GetQuotaApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -668,10 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a specified application that is submitted to increase a quota.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+   * Queries the details of a quota increase application.
    * 
    * @param request - GetQuotaApplicationRequest
    * @returns GetQuotaApplicationResponse
@@ -682,11 +660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+   * Queries the approval information of a quota application, including the average approval time, whether approval reminders are supported, and the approval reminder interval.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+   * ### Before you begin
+   * Make sure that you have created a quota increase application. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
    * 
    * @param request - GetQuotaApplicationApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -717,11 +695,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+   * Queries the approval information of a quota application, including the average approval time, whether approval reminders are supported, and the approval reminder interval.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+   * ### Before you begin
+   * Make sure that you have created a quota increase application. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
    * 
    * @param request - GetQuotaApplicationApprovalRequest
    * @returns GetQuotaApplicationApprovalResponse
@@ -732,10 +710,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a quota template.
+   * Queries the status of the quota template.
    * 
    * @remarks
-   * By default, the value of `ServiceStatus` is `0`, which indicates that no quota template is specified. If you want to use a quota template, make sure that the quota template is enabled. In this case, the value of `ServiceStatus` is `1`.
+   * The default status of a quota template is unset (that is, `ServiceStatus` is `0`). You can use the features of the quota template only when its status is enabled (that is, `ServiceStatus` is `1`).
    * 
    * @param request - GetQuotaTemplateServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -766,10 +744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a quota template.
+   * Queries the status of the quota template.
    * 
    * @remarks
-   * By default, the value of `ServiceStatus` is `0`, which indicates that no quota template is specified. If you want to use a quota template, make sure that the quota template is enabled. In this case, the value of `ServiceStatus` is `1`.
+   * The default status of a quota template is unset (that is, `ServiceStatus` is `0`). You can use the features of the quota template only when its status is enabled (that is, `ServiceStatus` is `1`).
    * 
    * @param request - GetQuotaTemplateServiceStatusRequest
    * @returns GetQuotaTemplateServiceStatusResponse
@@ -780,10 +758,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert records.
+   * 获取配额使用率概览
+   * 
+   * @param request - GetQuotaUtilizationOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQuotaUtilizationOverviewResponse
+   */
+  async getQuotaUtilizationOverviewWithOptions(request: $_model.GetQuotaUtilizationOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQuotaUtilizationOverviewResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQuotaUtilizationOverview",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQuotaUtilizationOverviewResponse>(await this.callApi(params, req, runtime), new $_model.GetQuotaUtilizationOverviewResponse({}));
+  }
+
+  /**
+   * 获取配额使用率概览
+   * 
+   * @param request - GetQuotaUtilizationOverviewRequest
+   * @returns GetQuotaUtilizationOverviewResponse
+   */
+  async getQuotaUtilizationOverview(request: $_model.GetQuotaUtilizationOverviewRequest): Promise<$_model.GetQuotaUtilizationOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQuotaUtilizationOverviewWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the history of quota alerts.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the historical records of quota alert rules of the old version. If you want to query the historical records of quota alert rules of the new version, call the CloudMonitor API operation [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) or [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alert feature has been upgraded and this API operation will be deprecated. This API operation can only query the history of legacy quota usage alerts. To query the history of new quota usage alerts, use the CloudMonitor API operations [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) and [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to use API operations to manage new quota alerts, see [Use API operations to manage new quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - ListAlarmHistoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -838,10 +858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert records.
+   * Queries the history of quota alerts.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the historical records of quota alert rules of the old version. If you want to query the historical records of quota alert rules of the new version, call the CloudMonitor API operation [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) or [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alert feature has been upgraded and this API operation will be deprecated. This API operation can only query the history of legacy quota usage alerts. To query the history of new quota usage alerts, use the CloudMonitor API operations [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) and [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to use API operations to manage new quota alerts, see [Use API operations to manage new quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - ListAlarmHistoriesRequest
    * @returns ListAlarmHistoriesResponse
@@ -852,13 +872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas on which a specified quota depends.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+   * Queries the list of quotas associated with a specific quota. Some quotas are interdependent and should be increased simultaneously.
    * 
    * @param request - ListDependentQuotasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -893,13 +907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas on which a specified quota depends.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+   * Queries the list of quotas associated with a specific quota. Some quotas are interdependent and should be increased simultaneously.
    * 
    * @param request - ListDependentQuotasRequest
    * @returns ListDependentQuotasResponse
@@ -910,10 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dimension groups of an Alibaba Cloud service.
-   * 
-   * @remarks
-   * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+   * This operation queries the dimension groups of a specified Alibaba Cloud service.
    * 
    * @param request - ListProductDimensionGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -952,10 +957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dimension groups of an Alibaba Cloud service.
-   * 
-   * @remarks
-   * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+   * This operation queries the dimension groups of a specified Alibaba Cloud service.
    * 
    * @param request - ListProductDimensionGroupsRequest
    * @returns ListProductDimensionGroupsResponse
@@ -966,10 +968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+   * Queries the quota dimensions supported by the specified cloud service.
    * 
    * @param request - ListProductQuotaDimensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1012,10 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+   * Queries the quota dimensions supported by the specified cloud service.
    * 
    * @param request - ListProductQuotaDimensionsRequest
    * @returns ListProductQuotaDimensionsResponse
@@ -1026,10 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas of a specific Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+   * Queries the quotas of a specified cloud service.
    * 
    * @param request - ListProductQuotasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1096,10 +1089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas of a specific Alibaba Cloud service.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+   * Queries the quotas of a specified cloud service.
    * 
    * @param request - ListProductQuotasRequest
    * @returns ListProductQuotasResponse
@@ -1110,10 +1100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud services that support Quota Center.
+   * Queries the list of Alibaba Cloud services supported by Quota Center.
    * 
    * @remarks
-   * The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   * The query results are the same as those in [Alibaba Cloud services supported by Quota Center](https://help.aliyun.com/document_detail/182368.html).
    * 
    * @param request - ListProductsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1148,10 +1138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud services that support Quota Center.
+   * Queries the list of Alibaba Cloud services supported by Quota Center.
    * 
    * @remarks
-   * The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   * The query results are the same as those in [Alibaba Cloud services supported by Quota Center](https://help.aliyun.com/document_detail/182368.html).
    * 
    * @param request - ListProductsRequest
    * @returns ListProductsResponse
@@ -1162,10 +1152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quota alerts.
+   * Queries quota usage alerts.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query quota alert rules of the old version. If you want to query quota alert rules of the new version, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alert feature has been upgraded. This API operation is scheduled for deprecation and queries only earlier-version quota usage alerts. To query new-version quota usage alerts, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to manage new-version quota alerts using API operations, see [Use API operations to manage new-version quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - ListQuotaAlarmsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1216,10 +1206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quota alerts.
+   * Queries quota usage alerts.
    * 
    * @remarks
-   * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query quota alert rules of the old version. If you want to query quota alert rules of the new version, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+   * The quota alert feature has been upgraded. This API operation is scheduled for deprecation and queries only earlier-version quota usage alerts. To query new-version quota usage alerts, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to manage new-version quota alerts using API operations, see [Use API operations to manage new-version quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - ListQuotaAlarmsRequest
    * @returns ListQuotaAlarmsResponse
@@ -1298,10 +1288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an application that is submitted to increase a quota.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+   * Queries the list of quota increase applications.
    * 
    * @param request - ListQuotaApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1360,10 +1347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an application that is submitted to increase a quota.
-   * 
-   * @remarks
-   * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+   * Queries the list of quota increase applications.
    * 
    * @param request - ListQuotaApplicationsRequest
    * @returns ListQuotaApplicationsResponse
@@ -1374,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota increase application for member accounts in a resource directory.
+   * Queries the details of quota increase applications for a member in a resource directory.
    * 
    * @param request - ListQuotaApplicationsDetailForTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a quota increase application for member accounts in a resource directory.
+   * Queries the details of quota increase applications for a member in a resource directory.
    * 
    * @param request - ListQuotaApplicationsDetailForTemplateRequest
    * @returns ListQuotaApplicationsDetailForTemplateResponse
@@ -1444,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the application records of a quota template that is used to apply for quotas for member accounts.
+   * Queries the history of batch requests for member quotas submitted using a quota template.
    * 
    * @param request - ListQuotaApplicationsForTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1503,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the application records of a quota template that is used to apply for quotas for member accounts.
+   * Queries the history of batch requests for member quotas submitted using a quota template.
    * 
    * @param request - ListQuotaApplicationsForTemplateRequest
    * @returns ListQuotaApplicationsForTemplateResponse
@@ -1511,6 +1495,76 @@ export default class Client extends OpenApi {
   async listQuotaApplicationsForTemplate(request: $_model.ListQuotaApplicationsForTemplateRequest): Promise<$_model.ListQuotaApplicationsForTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listQuotaApplicationsForTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举配额使用率报告
+   * 
+   * @param request - ListQuotaUtilizationReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQuotaUtilizationReportResponse
+   */
+  async listQuotaUtilizationReportWithOptions(request: $_model.ListQuotaUtilizationReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQuotaUtilizationReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adjustable)) {
+      body["Adjustable"] = request.adjustable;
+    }
+
+    if (!$dara.isNull(request.keyWords)) {
+      body["KeyWords"] = request.keyWords;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!$dara.isNull(request.quotaRegionId)) {
+      body["QuotaRegionId"] = request.quotaRegionId;
+    }
+
+    if (!$dara.isNull(request.utilizationStatuses)) {
+      body["UtilizationStatuses"] = request.utilizationStatuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQuotaUtilizationReport",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQuotaUtilizationReportResponse>(await this.callApi(params, req, runtime), new $_model.ListQuotaUtilizationReportResponse({}));
+  }
+
+  /**
+   * 列举配额使用率报告
+   * 
+   * @param request - ListQuotaUtilizationReportRequest
+   * @returns ListQuotaUtilizationReportResponse
+   */
+  async listQuotaUtilizationReport(request: $_model.ListQuotaUtilizationReportRequest): Promise<$_model.ListQuotaUtilizationReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQuotaUtilizationReportWithOptions(request, runtime);
   }
 
   /**
@@ -1568,7 +1622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the quota template.
+   * Only the administrator account of a resource directory can modify a quota template. Modifications to a quota template apply only to new members that are added to the resource directory and do not affect existing members.
    * 
    * @param request - ModifyTemplateQuotaItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1637,7 +1691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the quota template.
+   * Only the administrator account of a resource directory can modify a quota template. Modifications to a quota template apply only to new members that are added to the resource directory and do not affect existing members.
    * 
    * @param request - ModifyTemplateQuotaItemRequest
    * @returns ModifyTemplateQuotaItemResponse
@@ -1648,10 +1702,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+   * Sends a reminder for a quota application that is pending approval.
    * 
    * @remarks
-   * >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+   * > This operation applies only to quota applications that support reminders. In the GetQuotaApplicationApproval response, the `SupportReminder` parameter for these applications is `true`.
    * 
    * @param request - RemindQuotaApplicationApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1682,10 +1736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+   * Sends a reminder for a quota application that is pending approval.
    * 
    * @remarks
-   * >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+   * > This operation applies only to quota applications that support reminders. In the GetQuotaApplicationApproval response, the `SupportReminder` parameter for these applications is `true`.
    * 
    * @param request - RemindQuotaApplicationApprovalRequest
    * @returns RemindQuotaApplicationApprovalResponse
@@ -1696,11 +1750,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a quota alert rule.
+   * 发起配额使用率报告查询
+   * 
+   * @param request - StartQuotaUtilizationReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartQuotaUtilizationReportResponse
+   */
+  async startQuotaUtilizationReportWithOptions(request: $_model.StartQuotaUtilizationReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartQuotaUtilizationReportResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "StartQuotaUtilizationReport",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartQuotaUtilizationReportResponse>(await this.callApi(params, req, runtime), new $_model.StartQuotaUtilizationReportResponse({}));
+  }
+
+  /**
+   * 发起配额使用率报告查询
+   * 
+   * @param request - StartQuotaUtilizationReportRequest
+   * @returns StartQuotaUtilizationReportResponse
+   */
+  async startQuotaUtilizationReport(request: $_model.StartQuotaUtilizationReportRequest): Promise<$_model.StartQuotaUtilizationReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startQuotaUtilizationReportWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies quota alert information.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to modify the information about a specific quota alert rule of the new version, call the CloudMonitor API operation [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) or [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the API operation is called to modify the information about a quota alert rule whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+   * This API operation is deprecated because the quota alert feature has been upgraded. To modify information about new quota usage alerts, use the CloudMonitor API operations [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) and [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about using API operations to manage new quota alerts, see [Use API operations to manage new quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - UpdateQuotaAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1751,11 +1839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a quota alert rule.
+   * Modifies quota alert information.
    * 
    * @remarks
-   *   The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to modify the information about a specific quota alert rule of the new version, call the CloudMonitor API operation [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) or [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
-   * *   In this example, the API operation is called to modify the information about a quota alert rule whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+   * This API operation is deprecated because the quota alert feature has been upgraded. To modify information about new quota usage alerts, use the CloudMonitor API operations [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) and [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about using API operations to manage new quota alerts, see [Use API operations to manage new quota alerts](https://help.aliyun.com/document_detail/2863234.html).
    * 
    * @param request - UpdateQuotaAlarmRequest
    * @returns UpdateQuotaAlarmResponse

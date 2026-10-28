@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListDependentQuotasResponseBodyQuotasDimensions extends $dara.Model {
   /**
    * @remarks
-   * The dimensions of the quotas on which the specified quota depends.
+   * The quota dimension on which the dependent dimension of the target quota depends.
    */
   dependentDimension?: string[];
   /**
    * @remarks
-   * The key of the quota dimension.
+   * The key of the quota dimension on which the target quota depends.
    * 
    * @example
-   * regionId
+   * []
    */
   dimensionKey?: string;
   /**
    * @remarks
-   * The dimension values.
+   * The value of the quota dimension on which the dependent dimension of the target quota depends.
    */
   dimensionValues?: string[];
   static names(): { [key: string]: string } {
@@ -55,31 +55,31 @@ export class ListDependentQuotasResponseBodyQuotasDimensions extends $dara.Model
 export class ListDependentQuotasResponseBodyQuotas extends $dara.Model {
   /**
    * @remarks
-   * The dimensions of the quotas on which the specified quota depends.
+   * The quota dimensions on which the target quota depends.
    */
   dimensions?: ListDependentQuotasResponseBodyQuotasDimensions[];
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviated name of the cloud service.
    * 
    * @example
-   * ecs
+   * ram
    */
   productCode?: string;
   /**
    * @remarks
-   * The quota ID.
+   * The ID of the quota on which the target quota depends.
    * 
    * @example
-   * q_elastic-network-interfaces
+   * q_laxtn4
    */
   quotaActionCode?: string;
   /**
    * @remarks
-   * The relationship percentage between the specified quota and the quotas on which the specified quota depends.
+   * The ratio between the target quota and the dependent quota.
    * 
    * @example
-   * 50
+   * 100
    */
   scale?: number;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListDependentQuotasResponseBodyQuotas extends $dara.Model {
 export class ListDependentQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quotas on which the specified quota depends.
+   * The list of quotas on which the target quota depends.
    */
   quotas?: ListDependentQuotasResponseBodyQuotas[];
   /**

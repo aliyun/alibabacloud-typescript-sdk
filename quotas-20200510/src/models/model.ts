@@ -15,6 +15,10 @@ export { GetQuotaAlarmResponseBodyQuotaAlarm } from './GetQuotaAlarmResponseBody
 export { GetQuotaApplicationResponseBodyQuotaApplication } from './GetQuotaApplicationResponseBody';
 export { GetQuotaApplicationApprovalResponseBodyModule } from './GetQuotaApplicationApprovalResponseBody';
 export { GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus } from './GetQuotaTemplateServiceStatusResponseBody';
+export { GetQuotaUtilizationOverviewResponseBodyQuotaOverviewInUse } from './GetQuotaUtilizationOverviewResponseBody';
+export { GetQuotaUtilizationOverviewResponseBodyQuotaOverviewOver80Percent } from './GetQuotaUtilizationOverviewResponseBody';
+export { GetQuotaUtilizationOverviewResponseBodyQuotaOverviewOver95Percent } from './GetQuotaUtilizationOverviewResponseBody';
+export { GetQuotaUtilizationOverviewResponseBodyQuotaOverview } from './GetQuotaUtilizationOverviewResponseBody';
 export { ListAlarmHistoriesResponseBodyAlarmHistories } from './ListAlarmHistoriesResponseBody';
 export { ListDependentQuotasResponseBodyQuotasDimensions } from './ListDependentQuotasResponseBody';
 export { ListDependentQuotasResponseBodyQuotas } from './ListDependentQuotasResponseBody';
@@ -40,6 +44,10 @@ export { ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeri
 export { ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications } from './ListQuotaApplicationsDetailForTemplateResponseBody';
 export { ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos } from './ListQuotaApplicationsForTemplateResponseBody';
 export { ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications } from './ListQuotaApplicationsForTemplateResponseBody';
+export { ListQuotaUtilizationReportResponseBodyQuotasFlowControlAlgoPeriod } from './ListQuotaUtilizationReportResponseBody';
+export { ListQuotaUtilizationReportResponseBodyQuotasFlowControlAlgo } from './ListQuotaUtilizationReportResponseBody';
+export { ListQuotaUtilizationReportResponseBodyQuotasUsageMetric } from './ListQuotaUtilizationReportResponseBody';
+export { ListQuotaUtilizationReportResponseBodyQuotas } from './ListQuotaUtilizationReportResponseBody';
 export { ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus } from './ModifyQuotaTemplateServiceStatusResponseBody';
 export { ModifyTemplateQuotaItemRequestDimensions } from './ModifyTemplateQuotaItemRequest';
 export { CreateQuotaAlarmRequest } from './CreateQuotaAlarmRequest';
@@ -78,6 +86,9 @@ export { GetQuotaApplicationApprovalResponse } from './GetQuotaApplicationApprov
 export { GetQuotaTemplateServiceStatusRequest } from './GetQuotaTemplateServiceStatusRequest';
 export { GetQuotaTemplateServiceStatusResponseBody } from './GetQuotaTemplateServiceStatusResponseBody';
 export { GetQuotaTemplateServiceStatusResponse } from './GetQuotaTemplateServiceStatusResponse';
+export { GetQuotaUtilizationOverviewRequest } from './GetQuotaUtilizationOverviewRequest';
+export { GetQuotaUtilizationOverviewResponseBody } from './GetQuotaUtilizationOverviewResponseBody';
+export { GetQuotaUtilizationOverviewResponse } from './GetQuotaUtilizationOverviewResponse';
 export { ListAlarmHistoriesRequest } from './ListAlarmHistoriesRequest';
 export { ListAlarmHistoriesResponseBody } from './ListAlarmHistoriesResponseBody';
 export { ListAlarmHistoriesResponse } from './ListAlarmHistoriesResponse';
@@ -111,6 +122,9 @@ export { ListQuotaApplicationsDetailForTemplateResponse } from './ListQuotaAppli
 export { ListQuotaApplicationsForTemplateRequest } from './ListQuotaApplicationsForTemplateRequest';
 export { ListQuotaApplicationsForTemplateResponseBody } from './ListQuotaApplicationsForTemplateResponseBody';
 export { ListQuotaApplicationsForTemplateResponse } from './ListQuotaApplicationsForTemplateResponse';
+export { ListQuotaUtilizationReportRequest } from './ListQuotaUtilizationReportRequest';
+export { ListQuotaUtilizationReportResponseBody } from './ListQuotaUtilizationReportResponseBody';
+export { ListQuotaUtilizationReportResponse } from './ListQuotaUtilizationReportResponse';
 export { ModifyQuotaTemplateServiceStatusRequest } from './ModifyQuotaTemplateServiceStatusRequest';
 export { ModifyQuotaTemplateServiceStatusResponseBody } from './ModifyQuotaTemplateServiceStatusResponseBody';
 export { ModifyQuotaTemplateServiceStatusResponse } from './ModifyQuotaTemplateServiceStatusResponse';
@@ -120,6 +134,9 @@ export { ModifyTemplateQuotaItemResponse } from './ModifyTemplateQuotaItemRespon
 export { RemindQuotaApplicationApprovalRequest } from './RemindQuotaApplicationApprovalRequest';
 export { RemindQuotaApplicationApprovalResponseBody } from './RemindQuotaApplicationApprovalResponseBody';
 export { RemindQuotaApplicationApprovalResponse } from './RemindQuotaApplicationApprovalResponse';
+export { StartQuotaUtilizationReportRequest } from './StartQuotaUtilizationReportRequest';
+export { StartQuotaUtilizationReportResponseBody } from './StartQuotaUtilizationReportResponseBody';
+export { StartQuotaUtilizationReportResponse } from './StartQuotaUtilizationReportResponse';
 export { UpdateQuotaAlarmRequest } from './UpdateQuotaAlarmRequest';
 export { UpdateQuotaAlarmResponseBody } from './UpdateQuotaAlarmResponseBody';
 export { UpdateQuotaAlarmResponse } from './UpdateQuotaAlarmResponse';

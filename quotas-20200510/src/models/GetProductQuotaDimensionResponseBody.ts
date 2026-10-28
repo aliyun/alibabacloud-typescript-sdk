@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the quota dimension.
+   * The name of the quota dimension value.
    * 
    * @example
-   * cn-hangzhou
+   * cn-hangzhou-b
    */
   name?: string;
   /**
@@ -16,7 +16,7 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDet
    * The value of the quota dimension.
    * 
    * @example
-   * cn-hangzhou
+   * cn-hangzhou-b
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,20 +45,24 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDet
 export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $dara.Model {
   /**
    * @remarks
-   * The quota dimensions on which the quota dimension that you want to query is dependent.
+   * The quota dimensions of the cloud service on which the target quota depends.
    */
   dependentDimensions?: string[];
   /**
    * @remarks
    * The key of the quota dimension. Valid values:
+   * - regionId: region
    * 
-   * *   regionId: the region ID.
-   * *   zoneId: the zone ID.
-   * *   chargeType: the billing method.
-   * *   networkType: the network type.
+   * - zoneId: zone
+   * 
+   * - chargeType: billing method
+   * 
+   * - networkType: network type
+   * 
+   * - resourceType: resource type
    * 
    * @example
-   * regionId
+   * zoneId
    */
   dimensionKey?: string;
   /**
@@ -68,7 +72,7 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $dara.Mo
   dimensionValueDetail?: GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDetail[];
   /**
    * @remarks
-   * The values of the quota dimension.
+   * The list of quota dimension values.
    */
   dimensionValues?: string[];
   /**
@@ -76,7 +80,7 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $dara.Mo
    * The name of the quota dimension.
    * 
    * @example
-   * region
+   * Zone
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +129,7 @@ export class GetProductQuotaDimensionResponseBody extends $dara.Model {
   quotaDimension?: GetProductQuotaDimensionResponseBodyQuotaDimension;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1FA5F0E2-368E-4BA4-A8D0-6060FC6BB8F3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQuotaApplicationApprovalResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The average amount of time required to approve quota applications. Unit: hour.
+   * The average approval time for the quota application. Unit: hours.
    * 
    * @example
    * 24
@@ -13,7 +13,7 @@ export class GetQuotaApplicationApprovalResponseBodyModule extends $dara.Model {
   approvalHours?: number;
   /**
    * @remarks
-   * The interval between two consecutive approval reminders. Unit: hour.
+   * The approval reminder interval for the quota application. Unit: hours.
    * 
    * @example
    * 24
@@ -21,10 +21,9 @@ export class GetQuotaApplicationApprovalResponseBodyModule extends $dara.Model {
   reminderIntervalHours?: number;
   /**
    * @remarks
-   * Indicates whether approval reminders are supported for quota applications. Valid values:
-   * 
-   * *   false
-   * *   true
+   * Specifies whether approval reminders are supported for the quota application. Valid values:
+   * - false: Not supported.
+   * - true: Supported.
    * 
    * @example
    * false
@@ -32,7 +31,7 @@ export class GetQuotaApplicationApprovalResponseBodyModule extends $dara.Model {
   supportReminder?: boolean;
   /**
    * @remarks
-   * The reason why approval reminders are not supported for quota applications.
+   * The reason why approval reminders are not supported for the quota application.
    * 
    * @example
    * can only be remind once within the interval
@@ -68,10 +67,9 @@ export class GetQuotaApplicationApprovalResponseBodyModule extends $dara.Model {
 export class GetQuotaApplicationApprovalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether retries are allowed. Valid values:
-   * 
-   * *   false
-   * *   true
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * false
@@ -95,7 +93,7 @@ export class GetQuotaApplicationApprovalResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The parameters whose values are invalid.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
@@ -124,7 +122,7 @@ export class GetQuotaApplicationApprovalResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The information about quota application approval.
+   * The response object.
    */
   module?: GetQuotaApplicationApprovalResponseBodyModule;
   /**
@@ -137,10 +135,10 @@ export class GetQuotaApplicationApprovalResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Specifies whether the call was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * True

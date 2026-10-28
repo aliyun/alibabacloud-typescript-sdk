@@ -7,11 +7,11 @@ export class ListQuotaApplicationTemplatesRequestDimensions extends $dara.Model 
    * @remarks
    * The key of the dimension.
    * 
-   * > 
+   * >
    * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * - The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
    * 
-   * *   You must specify both Key and Value for each quota dimension.
+   * - You must specify both Key and Value for each quota dimension.
    * 
    * @example
    * regionId
@@ -21,11 +21,11 @@ export class ListQuotaApplicationTemplatesRequestDimensions extends $dara.Model 
    * @remarks
    * The value of the dimension.
    * 
-   * > 
+   * >
    * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+   * - The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
    * 
-   * *   You must specify both Key and Value for each quota dimension.
+   * - You must specify both Key and Value for each quota dimension.
    * 
    * @example
    * cn-hangzhou
@@ -90,7 +90,7 @@ export class ListQuotaApplicationTemplatesRequest extends $dara.Model {
    * @remarks
    * The abbreviation of the Alibaba Cloud service name.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
+   * > To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
    * 
    * @example
    * ecs
@@ -108,9 +108,11 @@ export class ListQuotaApplicationTemplatesRequest extends $dara.Model {
    * @remarks
    * The quota type. Valid values:
    * 
-   * *   CommonQuota: general quota.
-   * *   WhiteListLabel: whitelist quota.
-   * *   FlowControl: API rate limit.
+   * - CommonQuota: general quota.
+   * 
+   * - WhiteListLabel: whitelist quota.
+   * 
+   * - FlowControl: API rate limit.
    * 
    * @example
    * CommonQuota

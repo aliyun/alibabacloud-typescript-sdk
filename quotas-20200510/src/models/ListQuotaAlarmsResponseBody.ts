@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert.
+   * The alert ID.
    * 
    * @example
    * a2efa7fc-832f-47bb-8054-39e28012****
@@ -13,15 +13,15 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   alarmId?: string;
   /**
    * @remarks
-   * The name of the alert event.
+   * The alert name.
    * 
    * @example
-   * rules
+   * q_hvnoqv alarm
    */
   alarmName?: string;
   /**
    * @remarks
-   * The time when the quota alert was created.
+   * The time when the quota usage alert was created.
    * 
    * @example
    * 2020-11-27T07:23:34Z
@@ -29,10 +29,11 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the alert threshold was reached. Valid values:
+   * Indicates whether the quota usage exceeds the alert threshold. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false
+   * 
+   * - true
    * 
    * @example
    * false
@@ -40,14 +41,14 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   exceedThreshold?: boolean;
   /**
    * @remarks
-   * The alert notification methods.
+   * The notification channels of the quota alert.
    */
   notifyChannels?: string[];
   /**
    * @remarks
-   * The alert contact.
+   * The notification object of the alert.
    * 
-   * >  Valid value: accountContact. Only the account contact is supported.
+   * > The value can only be accountContact, which specifies the contacts of the account.
    * 
    * @example
    * accountContact
@@ -63,7 +64,7 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * The quota ID.
    * 
    * @example
    * q_hvnoqv
@@ -87,7 +88,7 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
   quotaUsage?: number;
   /**
    * @remarks
-   * The value of the quota.
+   * The quota value.
    * 
    * @example
    * 200
@@ -113,8 +114,9 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
    * @remarks
    * The type of the quota alert. Valid values:
    * 
-   * *   used: The alert is created for the used quota.
-   * *   usable: The alert is created for the available quota.
+   * - used: an alert for the used quota.
+   * 
+   * - usable: an alert for the available quota.
    * 
    * @example
    * used
@@ -186,7 +188,7 @@ export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $dara.Model {
 export class ListQuotaAlarmsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of records returned for the current query.
    * 
    * @example
    * 1
@@ -194,9 +196,9 @@ export class ListQuotaAlarmsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * > An empty value indicates that all data is returned.
+   * > If this parameter is empty, all results have been returned.
    * 
    * @example
    * 1
@@ -204,12 +206,12 @@ export class ListQuotaAlarmsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The details about the quota alert rules.
+   * The details of the quota usage alerts.
    */
   quotaAlarms?: ListQuotaAlarmsResponseBodyQuotaAlarms[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 87F3B755-3BD2-4C76-B36A-93247002918C
@@ -217,7 +219,7 @@ export class ListQuotaAlarmsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of quota alerts.
+   * The total number of quota usage alerts.
    * 
    * @example
    * 2

@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod extends $dara.Model {
   /**
    * @remarks
-   * The unit of the calculation cycle. Valid values:
-   * 
-   * *   second
-   * *   minute
-   * *   hour
-   * *   day
-   * *   week
+   * The unit of the quota calculation period. Valid values:
+   * - second: seconds.
+   * - minute: minutes.
+   * - hour: hours.
+   * - day: days.
+   * - week: weeks.
    * 
    * @example
    * second
@@ -19,7 +18,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod extends $d
   periodUnit?: string;
   /**
    * @remarks
-   * The value of the calculation cycle.
+   * The value of the quota calculation period.
    * 
    * @example
    * 1
@@ -51,7 +50,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod extends $d
 export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the quota increase application.
    * 
    * @example
    * b926571d-cc09-4711-b547-58a615f0****
@@ -59,7 +58,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * The time when the application was submitted.
+   * The time when the quota increase application was submitted. The value is in ISO 8601 format, in UTC, and ends with Z.
    * 
    * @example
    * 2021-01-15T09:13:53Z
@@ -67,7 +66,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   applyTime?: string;
   /**
    * @remarks
-   * The quota value that is approved.
+   * The approved quota value of the quota increase application.
    * 
    * @example
    * 101
@@ -75,7 +74,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   approveValue?: number;
   /**
    * @remarks
-   * The result of the application.
+   * The approval comment for the quota increase application.
    * 
    * @example
    * Agree
@@ -83,7 +82,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   auditReason?: string;
   /**
    * @remarks
-   * The remarks of the application.
+   * The remarks of the quota increase application.
    * 
    * @example
    * test
@@ -91,7 +90,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   comment?: string;
   /**
    * @remarks
-   * The quota value that is approved.
+   * The requested quota value of the quota increase application.
    * 
    * @example
    * 101
@@ -99,7 +98,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   desireValue?: number;
   /**
    * @remarks
-   * The dimension of the application.
+   * The quota dimensions of the quota increase application.
    * 
    * @example
    * {"regionId":"cn-hangzhou"}
@@ -107,7 +106,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   dimension?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the application took effect.
+   * The effective period of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
    * 
    * @example
    * 2021-01-15T11:46:25Z
@@ -115,7 +114,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   effectiveTime?: string;
   /**
    * @remarks
-   * The time when the application expired.
+   * The expiration time of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
    * 
    * @example
    * 2021-01-17T11:46:25Z
@@ -123,10 +122,10 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether Quota Center sends a notification about the application result. Valid values:
+   * Indicates whether a notification is sent for the quota increase application result. Valid values:
    * 
-   * *   0: A notification about the application result is not sent.
-   * *   3: A notification about the application result is sent.
+   * - 0: No.
+   * - 3: Yes.
    * 
    * @example
    * 3
@@ -134,12 +133,12 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   noticeType?: number;
   /**
    * @remarks
-   * The calculation cycle of the quota.
+   * The quota calculation period.
    */
   period?: ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
    * @example
    * csk
@@ -147,7 +146,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   productCode?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * The quota ID.
    * 
    * @example
    * q_i5uzm3
@@ -163,11 +162,10 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   quotaArn?: string;
   /**
    * @remarks
-   * The quota type. Valid values:
-   * 
-   * *   CommonQuota (default): general quota.
-   * *   WhiteListLabel: whitelist quota.
-   * *   FlowControl: API rate limit.
+   * The quota category. Valid values:
+   * - CommonQuota (default): general quota.
+   * - WhiteListLabel: privilege.
+   * - FlowControl: API rate limit.
    * 
    * @example
    * CommonQuota
@@ -178,7 +176,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
    * The description of the quota.
    * 
    * @example
-   * The maximum number of nodes in a cluster
+   * The maximum number of nodes in a cluster.
    */
   quotaDescription?: string;
   /**
@@ -191,7 +189,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   quotaName?: string;
   /**
    * @remarks
-   * The unit of the new quota value.
+   * The unit of the quota.
    * 
    * @example
    * Node
@@ -199,7 +197,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   quotaUnit?: string;
   /**
    * @remarks
-   * The reason for the application.
+   * The reason for the quota increase application.
    * 
    * @example
    * Business expansion
@@ -207,12 +205,15 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   reason?: string;
   /**
    * @remarks
-   * The status of the application. Valid values:
+   * The approval status of the quota increase application. Valid values:
    * 
-   * *   Disagree: The application is rejected.
-   * *   Agree: The application is approved.
-   * *   Process: The application is being reviewed.
-   * *   Cancel: The application is canceled.
+   * - Disagree: Rejected.
+   * 
+   * - Agree: Approved.
+   * 
+   * - Process: Under review.
+   * 
+   * - Cancel: Closed.
    * 
    * @example
    * Agree
@@ -286,7 +287,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
 export class ListQuotaApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of records returned in this query.
    * 
    * @example
    * 1
@@ -294,7 +295,7 @@ export class ListQuotaApplicationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+   * The token that marks the position of the returned data. An empty value indicates that all data has been returned.
    * 
    * @example
    * 1
@@ -307,7 +308,7 @@ export class ListQuotaApplicationsResponseBody extends $dara.Model {
   quotaApplications?: ListQuotaApplicationsResponseBodyQuotaApplications[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 730925FB-0BD0-40AC-AF3A-A6C6E9716879
@@ -315,7 +316,7 @@ export class ListQuotaApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of applications.
+   * The total number of quota increase applications.
    * 
    * @example
    * 1

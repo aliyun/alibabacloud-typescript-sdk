@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyTemplateQuotaItemResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the quota template.
+   * 
    * @example
    * 1****
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
    */

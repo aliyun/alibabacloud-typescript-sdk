@@ -13,7 +13,7 @@ export class CreateTemplateQuotaItemResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053

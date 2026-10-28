@@ -5,40 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductQuotaDimensionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that can be returned for the query.
+   * The maximum number of entries to return for this query.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
    * @example
-   * 30
+   * 5
    */
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
+   * The pagination token that specifies the starting position of the query. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
-   * 0
+   * 1
    */
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviated name of the cloud service.
    * 
-   * > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+   * > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * ecs
+   * disk
    */
   productCode?: string;
   /**
    * @remarks
-   * The type of the quota. Valid values:
+   * The quota category. Valid values:
    * 
-   * *   FlowControl: API rate limit.
-   * *   CommonQuota: general quota. This is the default value.
+   * - FlowControl: API rate limits.
+   * 
+   * - CommonQuota: general quotas. This is the default value.
+   * 
+   * > Privileges (WhiteListLabel) do not have quota dimensions.
    * 
    * @example
    * CommonQuota

@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaApplicationsForTemplateRequestDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * > 
-   * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-   * 
-   * *   This parameter is required if you set the `ProductCode` parameter to `ecs`, `ecs-spec`, `actiontrail`, or `ess`.
+   * > - The value range of N depends on the number of dimensions supported by the cloud service.
+   * > - When `ProductCode` is set to `ecs`, `ecs-spec`, `actiontrail`, or `ess`, you must specify both the key and the value of the quota dimension.
    * 
    * @example
    * regionId
@@ -19,13 +16,10 @@ export class CreateQuotaApplicationsForTemplateRequestDimensions extends $dara.M
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * > 
-   * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-   * 
-   * *   This parameter is required if you set the `ProductCode` parameter to `ecs`, `ecs-spec`, `actiontrail`, or `ess`.
+   * > - The value range of N depends on the number of dimensions supported by the cloud service.
+   * > - When `ProductCode` is set to `ecs`, `ecs-spec`, `actiontrail`, or `ess`, you must specify both the key and the value of the quota dimension.
    * 
    * @example
    * cn-hangzhou
@@ -57,22 +51,19 @@ export class CreateQuotaApplicationsForTemplateRequestDimensions extends $dara.M
 export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud accounts that correspond to the resource directory members for which the quotas are applied.
+   * The list of Alibaba Cloud accounts that belong to the resource directory members for which you want to apply for quotas.
    * 
-   * >  You can submit a quota increase application for a maximum of 50 members at a time. For more information about the members of a resource directory, see [ListAccounts](https://help.aliyun.com/document_detail/604207.html).
+   * > You can apply for quota increases for a maximum of 50 members at a time. For more information about the members of a resource directory, see [ListAccounts](https://help.aliyun.com/document_detail/604207.html).
    * 
    * This parameter is required.
    */
   aliyunUids?: string[];
   /**
    * @remarks
-   * The requested value of the quota.
+   * The requested quota value.
    * 
-   * > 
-   * 
-   * *   You can specify DesireValue based on the values of `TotalUsage` and `ApplicableRange` in the response to the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation.
-   * 
-   * *   Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, specify a reasonable quota value and a detailed reason.
+   * > - Set the requested quota value based on the `TotalUsage` (quota usage) and `ApplicableRange` (applicable range for quota application) of the target quota in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
+   * > - Quota applications are reviewed and approved by the technical support team of each cloud service. To increase the approval rate, specify a reasonable requested value and provide a detailed reason when you submit a quota application.
    * 
    * This parameter is required.
    * 
@@ -87,9 +78,9 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   dimensions?: CreateQuotaApplicationsForTemplateRequestDimensions[];
   /**
    * @remarks
-   * The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
-   * 
-   * >  If you do not specify a start time, the value is the time when the quota application is submitted.
+   * The UTC time when the quota takes effect. This parameter applies only to privileges (WhiteListLabel).
+   *  
+   * > If you do not specify an effective period for the current account, the commit time is used by default.
    * 
    * @example
    * 2021-01-19T09:25:56Z
@@ -97,10 +88,10 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The language of the notification about the application result. Valid values:
+   * The language of the notification for the quota application result. Valid values:
    * 
-   * *   zh (default): Chinese
-   * *   en: English
+   * - zh (default): Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -108,9 +99,9 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   envLanguage?: string;
   /**
    * @remarks
-   * The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
+   * The UTC time when the quota expires. This parameter applies only to privileges (WhiteListLabel). 
    * 
-   * >  If you do not specify an end time, the value is 99 years after the start time of the validity period.
+   * > If you do not specify an expiration time for the current account, the expiration time is set to 99 years after the effective period of the current quota.
    * 
    * @example
    * 2021-01-20T09:25:56Z
@@ -118,10 +109,10 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Specifies whether to send a notification about the application result. Valid values:
+   * Specifies whether to send notifications for quota application results. Valid values:
    * 
-   * *   0 (default): no
-   * *   3: yes
+   * - 0 (default): no.
+   * - 3: yes.
    * 
    * @example
    * 0
@@ -129,9 +120,9 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   noticeType?: number;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviated name of the cloud service.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
+   * > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
@@ -143,7 +134,7 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
    * @remarks
    * The quota ID.
    * 
-   * >  To query the quota ID of an Alibaba Cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) and check the value of `QuotaActionCode` in the response.
+   * > For more information about how to obtain the quota ID of a cloud service, see `QuotaActionCode` in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
    * 
    * This parameter is required.
    * 
@@ -154,10 +145,9 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The quota type. Valid values:
-   * 
-   * *   CommonQuota: general quota
-   * *   FlowControl: API rate limit
-   * *   WhiteListLabel: privilege
+   * - CommonQuota: general quota.
+   * - FlowControl: API rate limit.
+   * - WhiteListLabel: privilege.
    * 
    * This parameter is required.
    * 
@@ -169,7 +159,7 @@ export class CreateQuotaApplicationsForTemplateRequest extends $dara.Model {
    * @remarks
    * The reason for the quota application.
    * 
-   * >  Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit the application.
+   * > Quota applications are reviewed and approved by the technical support team of each cloud service. To increase the approval rate, specify a reasonable requested value and provide a detailed reason when you submit a quota application.
    * 
    * This parameter is required.
    * 

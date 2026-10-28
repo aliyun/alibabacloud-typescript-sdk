@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the quota dimension on which the quota dimension that you want to query is dependent.
+   * The key of the quota dimension on which the target quota dimension depends.
    * 
    * @example
    * regionId
@@ -13,7 +13,7 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValue
   key?: string;
   /**
    * @remarks
-   * The value of the quota dimension on which the quota dimension that you want to query is dependent.
+   * The value of the quota dimension on which the target quota dimension depends.
    * 
    * @example
    * cn-hangzhou
@@ -45,15 +45,15 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValue
 export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail extends $dara.Model {
   /**
    * @remarks
-   * The quota dimensions on which the quota dimension that you want to query is dependent.
+   * The quota dimensions on which the target quota dimension depends.
    */
   dependentDimensions?: ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions[];
   /**
    * @remarks
-   * The name of the quota dimension.
+   * The name of the quota dimension value.
    * 
    * @example
-   * cn-hangzhou
+   * cn-hangzhou-b
    */
   name?: string;
   /**
@@ -61,7 +61,7 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValue
    * The value of the quota dimension.
    * 
    * @example
-   * cn-hangzhou
+   * cn-hangzhou-b
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -95,17 +95,22 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValue
 export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $dara.Model {
   /**
    * @remarks
-   * The quota dimensions on which the quota dimension that you want to query is dependent.
+   * The quota dimensions on which the target quota dimension depends.
    */
   dependentDimensions?: string[];
   /**
    * @remarks
    * The key of the quota dimension. Valid values:
    * 
-   * *   regionId: the region ID.
-   * *   zoneId: the zone ID.
-   * *   chargeType: the billing method.
-   * *   networkType: the network type.
+   * - regionId: the region ID.
+   * 
+   * - zoneId: the zone ID.
+   * 
+   * - chargeType: the billing method.
+   * 
+   * - networkType: the network type.
+   * 
+   * - resourceType: the resource type.
    * 
    * @example
    * zoneId
@@ -113,12 +118,12 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $dara
   dimensionKey?: string;
   /**
    * @remarks
-   * The details about the dimension value.
+   * The details of the quota dimension value.
    */
   dimensionValueDetail?: ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail[];
   /**
    * @remarks
-   * The dimension values.
+   * The list of quota dimension values.
    */
   dimensionValues?: string[];
   /**
@@ -131,10 +136,11 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $dara
   name?: string;
   /**
    * @remarks
-   * Indicates whether the quota dimension is required when you query quota dimensions. Valid values:
+   * Specifies whether the quota dimension is required when you query quota dimensions. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The quota dimension is required.
+   * 
+   * - false: The quota dimension is optional.
    * 
    * @example
    * false
@@ -183,18 +189,18 @@ export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $dara
 export class ListProductQuotaDimensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records that are returned for the query.
+   * The maximum number of entries returned for this query.
    * 
    * @example
-   * 10
+   * 5
    */
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position at which the query ends. An empty value indicates that all data is returned.
+   * The pagination token that indicates the position of the returned data. If this parameter is not returned, it indicates that all data has been queried.
    * 
    * @example
-   * 10
+   * 84
    */
   nextToken?: string;
   /**
@@ -204,7 +210,7 @@ export class ListProductQuotaDimensionsResponseBody extends $dara.Model {
   quotaDimensions?: ListProductQuotaDimensionsResponseBodyQuotaDimensions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7ED584FB-ECBF-4A2A-969D-F54D25EFABF9
@@ -212,10 +218,10 @@ export class ListProductQuotaDimensionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that are returned for the query.
+   * The total number of entries returned for this request.
    * 
    * @example
-   * 10
+   * 5
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

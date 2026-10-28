@@ -15,8 +15,9 @@ export class ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus e
    * @remarks
    * The status of the quota template. Valid values:
    * 
-   * *   \\-1: The quota template is disabled.
-   * *   1: The quota template is enabled.
+   * - -1: The quota template is disabled.
+   * 
+   * - 1: The quota template is enabled.
    * 
    * @example
    * 1

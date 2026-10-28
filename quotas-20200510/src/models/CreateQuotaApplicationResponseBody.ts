@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the quota increase request.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -13,7 +13,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The time when the application was submitted.
+   * The time when the quota increase request was submitted. The time is in ISO 8601 format and in UTC. The value ends with Z.
    * 
    * @example
    * 2021-01-19T09:25:56Z
@@ -21,7 +21,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   applyTime?: string;
   /**
    * @remarks
-   * The quota value that is approved.
+   * The approved quota value.
    * 
    * @example
    * 804
@@ -29,7 +29,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   approveValue?: number;
   /**
    * @remarks
-   * The result of the application.
+   * The review comments on the quota increase request.
    * 
    * @example
    * Agree
@@ -37,15 +37,15 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   auditReason?: string;
   /**
    * @remarks
-   * The requested value of the quota.
+   * The requested quota value.
    * 
    * @example
-   * 12
+   * 804
    */
   desireValue?: number;
   /**
    * @remarks
-   * The quota dimension.
+   * The quota dimensions.
    * 
    * @example
    * {"regionId":"cn-hangzhou"}
@@ -53,7 +53,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   dimension?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the new quota value takes effect.
+   * The effective period of the quota. The time is in ISO 8601 format and in UTC. The value ends with Z.
    * 
    * @example
    * 2021-01-19T09:25:56Z
@@ -61,7 +61,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The time when the new quota expires.
+   * The time when the quota expires. The time is in ISO 8601 format and in UTC. The value ends with Z.
    * 
    * @example
    * 2021-01-20T09:25:56Z
@@ -69,10 +69,11 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the notification about the application result is sent. Valid values:
+   * Indicates whether a notification is sent about the request result. Valid values:
    * 
-   * *   0: The notification is not sent.
-   * *   3: The notification is sent.
+   * - 0: no notification is sent.
+   * 
+   * - 3: a notification is sent.
    * 
    * @example
    * 3
@@ -80,10 +81,10 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   noticeType?: number;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
    * @example
-   * ecs-spec
+   * ecs
    */
   productCode?: string;
   /**
@@ -91,7 +92,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
    * The quota ID.
    * 
    * @example
-   * ecs.c5.large
+   * q_security-groups
    */
   quotaActionCode?: string;
   /**
@@ -99,7 +100,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the quota.
    * 
    * @example
-   * acs:quotas:cn-hangzhou:*:quota/ecs/ecs.m2.medium/prepaid/classic/instancetype/cn-hangzhou-b
+   * acs:quotas::141339776561****:quota/ecs/q_security-groups
    */
   quotaArn?: string;
   /**
@@ -107,7 +108,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
    * The description of the quota.
    * 
    * @example
-   * ecs.c5.large
+   * The maximum number of security groups that can be owned by the current account.
    */
   quotaDescription?: string;
   /**
@@ -115,7 +116,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
    * The name of the quota.
    * 
    * @example
-   * ecs.c5.large
+   * Maximum Number of Security Groups
    */
   quotaName?: string;
   /**
@@ -128,7 +129,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   quotaUnit?: string;
   /**
    * @remarks
-   * The reason for the application.
+   * The reason for the quota increase request.
    * 
    * @example
    * Scale Out
@@ -136,7 +137,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
@@ -144,14 +145,7 @@ export class CreateQuotaApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The approval state of the quota increase application.
-   * 
-   * Valid values:
-   * 
-   * *   Cancel: The application is canceled.
-   * *   Agree: The application is approved.
-   * *   Process: The application is in review.
-   * *   Disagree: The application is rejected.
+   * The approval status of the quota increase request.
    * 
    * @example
    * Process

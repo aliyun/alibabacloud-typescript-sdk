@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RemindQuotaApplicationApprovalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether retries are allowed. Valid values:
+   * Indicates whether the request can be retried. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The request cannot be retried.
+   * 
+   * - true: The request can be retried.
    * 
    * @example
    * false
@@ -32,7 +33,7 @@ export class RemindQuotaApplicationApprovalResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The parameters whose values are invalid.
+   * The array of error parameters.
    */
   errorArgs?: any[];
   /**
@@ -61,7 +62,7 @@ export class RemindQuotaApplicationApprovalResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The quota application ID.
+   * The ID of the quota application.
    * 
    * @example
    * 219f1ff6-6205-495f-bda7-90d2fe945e****
@@ -79,8 +80,9 @@ export class RemindQuotaApplicationApprovalResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

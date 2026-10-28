@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaAlarmsRequestQuotaDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * > 
-   * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-   * 
-   * *   This parameter is required if you set the `ProductCode` parameter to `ecs`, `ecs-spec`, `actiontrail`, or `ess`.
+   * > - The number of key-value pairs that you can specify for the quota dimensions varies based on the Alibaba Cloud service.
+   * >
+   * > - If you set `ProductCode` to `ecs`, `ecs-spec`, `actiontrail`, or `ess`, you must specify both the key and value for the quota dimension.
    * 
    * @example
    * regionId
@@ -19,13 +17,11 @@ export class ListQuotaAlarmsRequestQuotaDimensions extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * > 
-   * 
-   * *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-   * 
-   * *   This parameter is required if you set the `ProductCode` parameter to `ecs`, `ecs-spec`, `actiontrail`, or `ess`.
+   * > - The number of key-value pairs that you can specify for the quota dimensions varies based on the Alibaba Cloud service.
+   * >
+   * > - If you set `ProductCode` to `ecs`, `ecs-spec`, `actiontrail`, or `ess`, you must specify both the key and value for the quota dimension.
    * 
    * @example
    * cn-hangzhou
@@ -57,15 +53,15 @@ export class ListQuotaAlarmsRequestQuotaDimensions extends $dara.Model {
 export class ListQuotaAlarmsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert.
+   * The name of the quota usage alert.
    * 
    * @example
-   * rules
+   * q_hvnoqv alarm
    */
   alarmName?: string;
   /**
    * @remarks
-   * The maximum number of records that you want to return for the query.
+   * The maximum number of records to return.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
@@ -75,9 +71,9 @@ export class ListQuotaAlarmsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query.
+   * The token that specifies the start point of the query.
    * 
-   * > An empty value indicates that the query starts from the beginning.
+   * > If you do not specify this parameter, the query starts from the beginning.
    * 
    * @example
    * 1
@@ -87,7 +83,7 @@ export class ListQuotaAlarmsRequest extends $dara.Model {
    * @remarks
    * The abbreviation of the Alibaba Cloud service name.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `ProductCode` in the response.
+   * > To obtain the abbreviation of an Alibaba Cloud service name, see the `ProductCode` parameter in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
    * 
    * @example
    * ecs
@@ -97,11 +93,9 @@ export class ListQuotaAlarmsRequest extends $dara.Model {
    * @remarks
    * The quota ID.
    * 
-   * > 
-   * 
-   * *   To obtain the quota ID of a cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `QuotaActionCode` in the response.
-   * 
-   * *   If you specify this parameter, you must specify `ProductCode`.
+   * > - To obtain the quota ID of an Alibaba Cloud service, see the `QuotaActionCode` parameter in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
+   * >
+   * > - If you specify this parameter, you must also specify `ProductCode`.
    * 
    * @example
    * q_hvnoqv

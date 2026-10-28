@@ -7,9 +7,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaAlarmRequestQuotaDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the quota dimension.
    * 
-   * >  You must configure `Dimensions.N.Key` and `Dimensions.N.Value` at the same time. The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the dimensions that are supported by an Alibaba Cloud service. The number of items in the returned array is N.
+   * > You must specify both Dimensions.N.Key and Dimensions.N.Value. The value range of N depends on the number of dimensions supported by the cloud service. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the supported quota dimensions. The length of the returned array is the maximum value of N.
    * 
    * @example
    * regionId
@@ -17,9 +17,9 @@ export class CreateQuotaAlarmRequestQuotaDimensions extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the quota dimension.
    * 
-   * >  You must configure `Dimensions.N.Key` and `Dimensions.N.Value` at the same time. The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the dimensions that are supported by an Alibaba Cloud service. The number of items in the returned array is N.
+   *  > You must specify both Dimensions.N.Key and Dimensions.N.Value. The value range of N depends on the number of dimensions supported by the cloud service. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the supported quota dimensions. The length of the returned array is the maximum value of N.
    * 
    * @example
    * cn-hangzhou
@@ -51,20 +51,27 @@ export class CreateQuotaAlarmRequestQuotaDimensions extends $dara.Model {
 export class CreateQuotaAlarmRequest extends $dara.Model {
   /**
    * @remarks
-   * Quota alarm name
+   * The name of the quota alert rule.
    * 
    * This parameter is required.
    * 
    * @example
-   * q_344t4 alarm
+   * q_hvnoqv alarm
    */
   alarmName?: string;
+  /**
+   * @remarks
+   * The original context information.
+   * 
+   * @example
+   * {}
+   */
   originalContext?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service.
    * 
-   * >  To query the abbreviation of an Alibaba Cloud service name, check the `ProductCode` parameter that is described in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
+   * > For more information about how to obtain the abbreviation of a cloud service, see ProductCode in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
    * 
    * This parameter is required.
    * 
@@ -76,7 +83,7 @@ export class CreateQuotaAlarmRequest extends $dara.Model {
    * @remarks
    * The quota ID.
    * 
-   * >  To obtain the quota ID of an Alibaba Cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `QuotaActionCode` in the response.
+   * > For more information about how to obtain the quota ID of a cloud service, see QuotaActionCode in [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html).
    * 
    * This parameter is required.
    * 
@@ -86,17 +93,20 @@ export class CreateQuotaAlarmRequest extends $dara.Model {
   quotaActionCode?: string;
   /**
    * @remarks
-   * The quota dimensions. A quota item is uniquely identified by the values of `Dimensions` and `QuotaActionCode`.
-   * 
-   * >  This parameter is required for specific Alibaba Cloud services. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the quota dimensions that are supported by an Alibaba Cloud service. The value of `Requisite` in the response indicates whether a dimension is required.
+   * The quota dimensions.
+   * The dimensions are properties of a quota item. A quota item is uniquely identified by Dimensions and QuotaActionCode.
+   * > Some dimensions are required for specific cloud services. You can call the [ListProductQuotaDimensions](https://help.aliyun.com/document_detail/440553.html) operation to query the supported quota dimensions of a cloud service. The Requisite response parameter indicates whether a dimension is required.
    */
   quotaDimensions?: CreateQuotaAlarmRequestQuotaDimensions[];
   /**
    * @remarks
-   * The numerical value of the quota alarm threshold. Value settings:
-   * - When `ThresholdType` is set to `used`, an alarm notification will be sent if the used amount of the quota is greater than or equal to the preset value. The quota alarm threshold must be greater than the used amount of the quota.
-   * - When `ThresholdType` is set to `usable`, an alarm notification will be sent if the remaining available amount of the quota is less than or equal to the preset value. The quota alarm threshold must be less than the remaining available amount of the quota.
-   * > One of this parameter and ThresholdPercent must be set.
+   * The numeric value of the quota alert threshold. Valid values:
+   * 
+   * - If ThresholdType is set to used, you receive an alert notification when the used quota is greater than or equal to the specified value. The quota alert threshold must be greater than the used quota.
+   * 
+   * - If ThresholdType is set to usable, you receive an alert notification when the available quota is less than or equal to the specified value. The quota alert threshold must be less than the available quota.
+   * 
+   * > You must specify either this parameter or ThresholdPercent.
    * 
    * @example
    * 150
@@ -104,10 +114,13 @@ export class CreateQuotaAlarmRequest extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The percentage of the quota alert threshold. Values:
-   * - When `ThresholdType` is set to `used`, you will receive an alert notification if the used amount of the quota is greater than or equal to the preset percentage. The value range is (50%, 100%].
-   * - When `ThresholdType` is set to `usable`, you will receive an alert notification if the remaining available amount of the quota is less than or equal to the preset percentage. The value range is (0%, 50%].
-   * > One of this parameter and Threshold must be set.
+   * The percentage of the quota alert threshold. Valid values:
+   * 
+   * - If ThresholdType is set to used, you receive an alert notification when the used quota is greater than or equal to the specified percentage. Valid values: (50%, 100%].
+   * 
+   * - If ThresholdType is set to usable, you receive an alert notification when the available quota is less than or equal to the specified percentage. Valid values: (0%, 50%].
+   * 
+   * > You must specify either this parameter or Threshold.
    * 
    * @example
    * 50
@@ -115,10 +128,10 @@ export class CreateQuotaAlarmRequest extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The type of the quota alert. Valid values:
+   * The quota alert type. Valid values:
    * 
-   * *   used (default): The alert is created for the used quota.
-   * *   usable: The alert is created for the available quota.
+   * - used: alerts on the used quota. This is the default value.
+   * - usable: alerts on the remaining available quota.
    * 
    * @example
    * used
@@ -126,7 +139,7 @@ export class CreateQuotaAlarmRequest extends $dara.Model {
   thresholdType?: string;
   /**
    * @remarks
-   * The quota center sends alert information to the specified public URL address via a POST request using the HTTP protocol.
+   * The public URL to which Quota Center sends alert notifications by using HTTP POST requests.
    * 
    * @example
    * https://alert.aliyun.com/callback

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaApplicationsForTemplateResponseBodyFailResults extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account of the members in a resource directory whose quota increase request is rejected.
+   * The Alibaba Cloud account that belongs to the resource directory member for which the quota application failed.
    * 
    * @example
    * 135048337611****
@@ -13,7 +13,7 @@ export class CreateQuotaApplicationsForTemplateResponseBodyFailResults extends $
   aliyunUid?: string;
   /**
    * @remarks
-   * The reason for the rejection.
+   * The reason for the failure.
    * 
    * @example
    * The quota adjustment application is being processed. Please try again later.
@@ -45,12 +45,12 @@ export class CreateQuotaApplicationsForTemplateResponseBodyFailResults extends $
 export class CreateQuotaApplicationsForTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud accounts for which the quotas are applied.
+   * The list of Alibaba Cloud accounts that belong to the resource directory members for which quotas are applied.
    */
   aliyunUids?: string[];
   /**
    * @remarks
-   * The ID of the quota application batch.
+   * The batch ID of the quota application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -58,7 +58,7 @@ export class CreateQuotaApplicationsForTemplateResponseBody extends $dara.Model 
   batchQuotaApplicationId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud accounts of the members in a resource directory whose quota increase request is rejected, and the reason for the rejection.
+   * The list of Alibaba Cloud accounts that belong to the resource directory members for which quota applications failed and the reasons for the failures.
    */
   failResults?: CreateQuotaApplicationsForTemplateResponseBodyFailResults[];
   /**
