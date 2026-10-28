@@ -45,7 +45,7 @@ export class RestartDBClusterResponseBodyData extends $dara.Model {
 export class RestartDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned information.
    */
   data?: RestartDBClusterResponseBodyData;
   /**

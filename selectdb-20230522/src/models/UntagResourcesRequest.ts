@@ -23,7 +23,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of instance IDs.
+   * The array of instance IDs.
    */
   resourceId?: string[];
   /**
@@ -38,7 +38,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys.
+   * The array of tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

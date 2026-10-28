@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query.
-   * >Warning: This is a reserved parameter and is not supported.</warning>
+   * The number of entries per page for paging.
+   * >Warning: Reserved parameter. Not supported.
    * 
    * @example
    * 20
@@ -15,7 +15,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
    * The token for the next query.
-   * >Warning: This is a reserved parameter and is not supported.</warning>
+   * >Warning: Reserved parameter. Not supported.</warning>
    * 
    * @example
    * 4ea98363565e4951e0b5e8707e68181f
@@ -49,7 +49,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The VPC ID of the instance.
+   * The VPC ID.
    * 
    * This parameter is required.
    * 

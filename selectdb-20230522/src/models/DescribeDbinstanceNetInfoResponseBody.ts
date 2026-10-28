@@ -77,7 +77,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos extends $da
   netType?: string;
   /**
    * @remarks
-   * The port list.
+   * The ports.
    */
   portList?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList[];
   /**
@@ -90,7 +90,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos extends $da
   userVisible?: boolean;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-****
@@ -165,9 +165,9 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList ext
    * @remarks
    * The port type. Valid values:
    * 
-   * - **HttpPort**: HTTP protocol port.
+   * - **HttpPort**: HTTP port.
    * 
-   * - **MySQLPort**: MySQL protocol port.
+   * - **MySQLPort**: MySQL port.
    * 
    * @example
    * 9030
@@ -225,7 +225,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * - **VPC**: virtual private cloud (VPC).
+   * - **VPC**: VPC.
    *                               
    * - **PUBLIC**: Internet.
    * 
@@ -235,16 +235,16 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
   netType?: string;
   /**
    * @remarks
-   * The port objects.
+   * The ports.
    */
   portList?: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList[];
   /**
    * @remarks
    * Indicates whether the network information is visible to users. Valid values:
    * 
-   * - **true**: Visible to users.
+   * - **true**: Visible.
    * 
-   * - **false**: Not visible to users.
+   * - **false**: Invisible.
    * 
    * @example
    * true
@@ -252,7 +252,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
   userVisible?: boolean;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-wz90scxq6ods388ft****
@@ -317,7 +317,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
 export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The network information list of the BE instances.
+   * The network information of the BE instances.
    */
   DBClustersNetInfos?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos[];
   /**

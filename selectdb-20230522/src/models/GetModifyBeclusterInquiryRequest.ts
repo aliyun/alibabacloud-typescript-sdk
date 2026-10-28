@@ -13,7 +13,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to query the price for converting the cluster billing type.
+   * Specifies whether to query the pricing for changing the billing method of the cluster.
    * 
    * @example
    * true
@@ -93,7 +93,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The coupon code.
+   * The coupon ID.
    * 
    * @example
    * 123412345

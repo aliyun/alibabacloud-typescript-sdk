@@ -15,7 +15,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the target resource group.
+   * The destination resource group.
    * 
    * This parameter is required.
    * 

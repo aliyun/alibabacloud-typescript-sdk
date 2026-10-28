@@ -33,7 +33,7 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
   groupTag?: string;
   /**
    * @remarks
-   * The IP address whitelist of the instance. Multiple IP addresses are separated by commas (,).
+   * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 127.0.XX.XX

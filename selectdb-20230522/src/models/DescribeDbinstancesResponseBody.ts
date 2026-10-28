@@ -6,6 +6,9 @@ export class DescribeDBInstancesResponseBodyItemsFEClusterList extends $dara.Mod
   /**
    * @remarks
    * The name of the FE cluster.
+   * 
+   * @example
+   * selectdb-cn-demo12345-fe
    */
   dbClusterId?: string;
   /**
@@ -35,6 +38,9 @@ export class DescribeDBInstancesResponseBodyItemsFEClusterList extends $dara.Mod
   /**
    * @remarks
    * The status of the FE cluster.
+   * 
+   * @example
+   * ACTIVATION
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -149,7 +155,7 @@ export class DescribeDBInstancesResponseBodyItemsTags extends $dara.Model {
 export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The instance edition. Default value: basic.
+   * The edition of the instance. Default value: basic.
    * 
    * @example
    * basic
@@ -158,7 +164,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
+   * 
    * - **Postpaid**: pay-as-you-go
+   * 
    * - **Prepaid**: subscription
    * 
    * @example
@@ -184,6 +192,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The deployment mode of the instance. Valid values:
+   * 
    * - multi_az: zone-redundant
    * - single_az: locally redundant
    * 
@@ -225,8 +234,8 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the cluster, in ISO 8601 format with time zone information.
-   * > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, an empty value is returned.
+   * The expiration time of the cluster. The time is displayed in ISO 8601 format and includes the time zone.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
    * 
    * @example
    * 2024-03-29T03:47:05Z
@@ -234,7 +243,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The list of FE clusters.
+   * The FE cluster list.
    */
   FEClusterList?: DescribeDBInstancesResponseBodyItemsFEClusterList[];
   /**
@@ -255,7 +264,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instance usage type.
+   * The usage type of the instance.
    * 
    * @example
    * Instance
@@ -264,8 +273,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the instance is deleted. Valid values:
-   * - **true**: The instance is deleted.
-   * - **fasle**: The instance is not deleted.
+   * 
+   * - **true**: deleted
+   * 
+   * - **fasle**: not deleted
    * 
    * @example
    * false
@@ -297,7 +308,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   maintainEndTimeStr?: string;
   /**
    * @remarks
-   * A reserved parameter that is not currently returned. The time format does not apply.
+   * Reserved parameter. Not returned. Therefore, the time format does not apply.
    * 
    * @example
    * Reserved parameter. Not returned
@@ -313,7 +324,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   maintainStartTimeStr?: string;
   /**
    * @remarks
-   * A reserved parameter that is not currently returned. The time format does not apply.
+   * Reserved parameter. Not returned. Therefore, the time format does not apply.
    * 
    * @example
    * Reserved parameter. Not returned
@@ -358,7 +369,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   resourceCpu?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * Reserved parameter. Not returned
@@ -374,7 +385,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   resourceMemory?: number;
   /**
    * @remarks
-   * The maximum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
+   * The maximum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
    * 
    * @example
    * 0
@@ -382,7 +393,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
+   * The minimum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
    * 
    * @example
    * 0
@@ -393,7 +404,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * The redundant field.
    * 
    * @example
-   * Null
+   * Empty
    */
   scaleReplica?: number;
   /**
@@ -408,15 +419,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * - **CREATING**: Creating.
-   * 
    * - **ACTIVATION**: Running.
-   * 
    * - **RESOURCE_CHANGING**: Changing specifications.
-   * 
-   * - **ORDER_PREPARING**: Confirming the order.
-   * 
-   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
-   * 
+   * - **ORDER_PREPARING**: Confirming order.
+   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
    * - **DELETING**: Deleting.
    * 
    * @example
@@ -425,7 +431,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage capacity.
+   * The storage space size.
    * 
    * @example
    * 100
@@ -444,6 +450,11 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * The instance tags.
    */
   tags?: DescribeDBInstancesResponseBodyItemsTags[];
+  /**
+   * @remarks
+   * Indicates whether TDE is enabled.
+   */
+  tdeEnabled?: boolean;
   /**
    * @remarks
    * The ID of the Prometheus monitoring cluster.
@@ -494,7 +505,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The connection endpoint.
    * 
    * @example
    * Not returned
@@ -538,6 +549,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       storageSize: 'StorageSize',
       storageType: 'StorageType',
       tags: 'Tags',
+      tdeEnabled: 'TdeEnabled',
       tenantClusterId: 'TenantClusterId',
       tenantToken: 'TenantToken',
       tenantUserId: 'TenantUserId',
@@ -586,6 +598,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       storageSize: 'number',
       storageType: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyItemsTags },
+      tdeEnabled: 'boolean',
       tenantClusterId: 'string',
       tenantToken: 'string',
       tenantUserId: 'string',
@@ -623,7 +636,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * - **30** (default)
+   * - **30**: Default value.
    * - **50**
    * - **100**
    * 

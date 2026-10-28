@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   /**
    * @remarks
-   * The comments on the parameter.
+   * The comment of the field.
    * 
    * @example
-   * 存储引擎并发扫描硬盘的线程数。采用线程池统一管理。
+   * The number of threads used by the storage engine to concurrently scan hard disks. A thread pool is used for unified management
    */
   comment?: string;
   /**
@@ -21,7 +21,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * Indicates whether the parameter immediately takes effect without requiring a restart.
+   * Specifies whether the parameter takes effect dynamically without a restart.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   isDynamic?: number;
   /**
    * @remarks
-   * Indicates whether the parameter is modifiable.
+   * Specifies whether users are allowed to modify the parameter.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   isUserModifiable?: number;
   /**
    * @remarks
-   * The name of the parameter.
+   * The name of the configuration item.
    * 
    * @example
    * doris_scanner_thread_pool_thread_num
@@ -45,7 +45,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The value range of the parameter.
+   * The value range.
    * 
    * @example
    * [0-20000]
@@ -53,7 +53,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   optional?: string;
   /**
    * @remarks
-   * The category of the parameter.
+   * The category of the configuration item.
    * 
    * @example
    * Query
@@ -61,7 +61,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   paramCategory?: string;
   /**
    * @remarks
-   * The current value of the parameter.
+   * The current value.
    * 
    * @example
    * 10
@@ -129,7 +129,7 @@ export class DescribeDBClusterConfigResponseBodyData extends $dara.Model {
   dbInstanceName?: string;
   /**
    * @remarks
-   * The details about each parameter returned.
+   * The user parameters.
    */
   params?: DescribeDBClusterConfigResponseBodyDataParams[];
   /**
@@ -175,7 +175,7 @@ export class DescribeDBClusterConfigResponseBodyData extends $dara.Model {
 export class DescribeDBClusterConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) authentication failed.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * failed
@@ -183,12 +183,12 @@ export class DescribeDBClusterConfigResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The information returned.
+   * The returned data.
    */
   data?: DescribeDBClusterConfigResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not returned.
+   * The dynamic code. This field is not used and can be ignored.
    * 
    * @example
    * 0
@@ -196,7 +196,7 @@ export class DescribeDBClusterConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not returned.
+   * The dynamic message. This field is not used and can be ignored.
    * 
    * @example
    * An error occurred while processing your request.

@@ -25,7 +25,7 @@ export class DeleteElasticRuleRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The cloud service type.
+   * The cloud product type.
    * 
    * @example
    * selectdb

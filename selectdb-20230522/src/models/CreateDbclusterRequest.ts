@@ -38,6 +38,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The node type of the cluster. This parameter takes effect only in Serverless mode.
+   * 
+   * @example
+   * base
    */
   clusterNodeType?: string;
   /**

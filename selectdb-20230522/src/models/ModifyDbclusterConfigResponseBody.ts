@@ -65,7 +65,7 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
 export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * failed
@@ -78,7 +78,7 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   data?: ModifyDBClusterConfigResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * 0
@@ -86,7 +86,7 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * An error occurred while processing your request.

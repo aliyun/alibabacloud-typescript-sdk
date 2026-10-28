@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the target endpoint, which is the prefix part of the **ConnectionString** parameter.
+   * The prefix of the target endpoint, which is the prefix of the **ConnectionString** parameter.
    * 
    * This parameter is required.
    * 

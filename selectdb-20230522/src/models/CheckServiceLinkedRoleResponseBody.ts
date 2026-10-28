@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service-linked role has been created.
+   * Indicates whether the service-linked role is created.
    * 
    * @example
    * False

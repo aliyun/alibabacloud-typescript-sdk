@@ -15,7 +15,7 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
   canPromFee?: string;
   /**
    * @remarks
-   * The promotion rule description.
+   * The description of the promotion rule.
    * 
    * @example
    * 789asdf
@@ -26,7 +26,7 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
    * The coupon description.
    * 
    * @example
-   * General coupon can deduct 100
+   * General coupon with a deduction of 100
    */
   promotionDesc?: string;
   /**
@@ -39,7 +39,7 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
   promotionName?: string;
   /**
    * @remarks
-   * The coupon code.
+   * The coupon ID.
    * 
    * @example
    * 732211480132
@@ -85,17 +85,17 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The coupon codes.
+   * The coupon ID.
    */
   optionalPromotions?: GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions[];
   /**
    * @remarks
-   * The unit price results of billing items.
+   * The unit price results of billable items.
    */
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The estimated refund amount when converting a subscription cluster to a pay-as-you-go cluster under a subscription instance.
+   * The estimated refund amount when a subscription cluster under a subscription instance is changed to a pay-as-you-go cluster.
    * 
    * @example
    * -100
@@ -103,7 +103,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   refundAmount?: string;
   /**
    * @remarks
-   * The trade amount.
+   * The amount.
    * 
    * @example
    * 1.76

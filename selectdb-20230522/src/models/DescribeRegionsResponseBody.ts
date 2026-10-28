@@ -8,7 +8,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
    * The zone description.
    * 
    * @example
-   * Beijing H Zone
+   * Beijing Zone H
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   subDomain?: string;
   /**
    * @remarks
-   * Indicates whether VPC is enabled.
+   * Indicates whether the VPC is enabled.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   vpcEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether VPC is available.
+   * Indicates whether the VPC is available.
    * 
    * @example
    * cn-beijing-h

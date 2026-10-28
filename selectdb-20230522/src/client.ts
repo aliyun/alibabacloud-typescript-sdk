@@ -95,7 +95,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves an instance to a different resource group.
+   * Transfers an instance to a resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -138,7 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves an instance to a different resource group.
+   * Transfers an instance to a resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -457,11 +457,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+   * Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
    * 
    * @remarks
-   * Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
-   * - The two clusters are in different zones.
+   * Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+   * - The clusters must be located in different zones.
    * - The billing methods of the clusters must be the same.
    * 
    * @param request - CreateDBClusterBindingRequest
@@ -505,11 +505,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
+   * Creates a binding relationship between two clusters for an instance deployed in zone-disaster recovery mode.
    * 
    * @remarks
-   * Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
-   * - The two clusters are in different zones.
+   * Only instances deployed in zone-disaster recovery mode support this operation. The following conditions must be met:
+   * - The clusters must be located in different zones.
    * - The billing methods of the clusters must be the same.
    * 
    * @param request - CreateDBClusterBindingRequest
@@ -812,9 +812,9 @@ export default class Client extends OpenApi {
    * Creates a virtual cluster.
    * 
    * @remarks
-   * Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+   * Only zone-disaster recovery instances support this operation. The following conditions must be met:
    * - The minor engine version of the instance is 4.0.7 or later.
-   * - The primary and secondary clusters are in different zones.
+   * - The primary and standby clusters are deployed in different zones.
    * 
    * @param request - CreateVirtualClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -864,9 +864,9 @@ export default class Client extends OpenApi {
    * Creates a virtual cluster.
    * 
    * @remarks
-   * Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
+   * Only zone-disaster recovery instances support this operation. The following conditions must be met:
    * - The minor engine version of the instance is 4.0.7 or later.
-   * - The primary and secondary clusters are in different zones.
+   * - The primary and standby clusters are deployed in different zones.
    * 
    * @param request - CreateVirtualClusterRequest
    * @returns CreateVirtualClusterResponse
@@ -994,7 +994,7 @@ export default class Client extends OpenApi {
    * Deletes a specified ApsaraDB for SelectDB instance.
    * 
    * @remarks
-   * Subscription instances cannot be deleted.
+   * You cannot delete subscription instances.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1038,7 +1038,7 @@ export default class Client extends OpenApi {
    * Deletes a specified ApsaraDB for SelectDB instance.
    * 
    * @remarks
-   * Subscription instances cannot be deleted.
+   * You cannot delete subscription instances.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -1049,7 +1049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a time-based elastic scaling rule.
+   * Deletes a time-based elastic rule.
    * 
    * @param request - DeleteElasticRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1100,7 +1100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a time-based elastic scaling rule.
+   * Deletes a time-based elastic rule.
    * 
    * @param request - DeleteElasticRuleRequest
    * @returns DeleteElasticRuleResponse
@@ -1115,7 +1115,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * > 
-   * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+   * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
    * 
    * @param request - DeleteVirtualClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1158,7 +1158,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * > 
-   * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
+   * > - Only the virtual cluster is deleted. The bound primary and secondary clusters are **not** deleted.
    * 
    * @param request - DeleteVirtualClusterRequest
    * @returns DeleteVirtualClusterResponse
@@ -1219,7 +1219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+   * Queries the cluster configuration.
    * 
    * @param request - DescribeDBClusterConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1262,7 +1262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
+   * Queries the cluster configuration.
    * 
    * @param request - DescribeDBClusterConfigRequest
    * @returns DescribeDBClusterConfigResponse
@@ -1491,7 +1491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of instances.
+   * Queries a list of instances.
    * 
    * @param tmpReq - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1560,7 +1560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of instances.
+   * Queries a list of instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -1727,7 +1727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about available regions and zones.
+   * Retrieves the available regions and zones.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1754,7 +1754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about available regions and zones.
+   * Retrieves the available regions and zones.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1765,7 +1765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+   * Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1804,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
+   * Queries the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @returns DescribeSecurityIPListResponse
@@ -1931,7 +1931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists vSwitches in a zone.
+   * Lists the vSwitches in a zone.
    * 
    * @param request - DescribeVSwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1986,7 +1986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists vSwitches in a zone.
+   * Lists the vSwitches in a zone.
    * 
    * @param request - DescribeVSwitchesRequest
    * @returns DescribeVSwitchesResponse
@@ -1997,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists available zones for sale.
+   * Lists the available zones.
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2036,7 +2036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists available zones for sale.
+   * Lists the available zones.
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -2147,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+   * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2174,7 +2174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
+   * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @returns GetModifyBEClusterInquiryResponse
@@ -2592,9 +2592,9 @@ export default class Client extends OpenApi {
    * Modifies a virtual cluster.
    * 
    * @remarks
-   * - You can modify the primary cluster separately.
-   * - You can modify the secondary cluster separately.
-   * - You can switch between the primary and secondary clusters.
+   * - Supports modifying the primary cluster separately.
+   * - Supports modifying the secondary cluster separately.
+   * - Supports switching between the primary and secondary clusters.
    * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
    * 
    * @param request - ModifyVirtualClusterRequest
@@ -2645,9 +2645,9 @@ export default class Client extends OpenApi {
    * Modifies a virtual cluster.
    * 
    * @remarks
-   * - You can modify the primary cluster separately.
-   * - You can modify the secondary cluster separately.
-   * - You can switch between the primary and secondary clusters.
+   * - Supports modifying the primary cluster separately.
+   * - Supports modifying the secondary cluster separately.
+   * - Supports switching between the primary and secondary clusters.
    * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
    * 
    * @param request - ModifyVirtualClusterRequest
@@ -2713,7 +2713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the account password of an ApsaraDB for SelectDB instance.
+   * Resets the password of an account for an ApsaraDB for SelectDB instance.
    * 
    * @param request - ResetAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2740,7 +2740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the account password of an ApsaraDB for SelectDB instance.
+   * Resets the password of an account for an ApsaraDB for SelectDB instance.
    * 
    * @param request - ResetAccountPasswordRequest
    * @returns ResetAccountPasswordResponse
@@ -2751,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+   * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - RestartDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2804,7 +2804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a cluster of a specified ApsaraDB for SelectDB instance.
+   * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - RestartDBClusterRequest
    * @returns RestartDBClusterResponse

@@ -53,7 +53,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The IDs of the instances. Separate multiple instance IDs with commas (,).
+   * The instance IDs. Separate multiple instance IDs with commas (,).
    * 
    * @example
    * selectdb-cn-7213cjv****
@@ -63,15 +63,10 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * - **CREATING**: Creating.
-   * 
    * - **ACTIVATION**: Running.
-   * 
    * - **RESOURCE_CHANGING**: Changing specifications.
-   * 
-   * - **ORDER_PREPARING**: Confirming the order.
-   * 
-   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
-   * 
+   * - **ORDER_PREPARING**: Confirming order.
+   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
    * - **DELETING**: Deleting.
    * 
    * @example
@@ -89,7 +84,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * - **30** (default)
+   * - **30**: Default value.
    * - **50**
    * - **100**
    * 
@@ -109,7 +104,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-4690g37929****

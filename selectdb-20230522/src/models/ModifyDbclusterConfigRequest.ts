@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration file to modify. Set this parameter to be.conf for compute clusters or fe.conf for FE clusters.
+   * The configuration file to modify. The value is fixed to be.conf for compute clusters and fe.conf for frontend clusters.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   parallelOperation?: boolean;
   /**
    * @remarks
-   * The JSON string of parameters and parameter values.
+   * The JSON string of parameters and their values.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The upgrade mode. If this parameter is not specified, the upgrade takes effect immediately. Set this parameter to 1 to perform the upgrade during the maintenance window.
+   * The upgrade mode. If you leave this parameter empty, the upgrade is performed immediately. If you set this parameter to 1, the upgrade is performed during the maintenance window.
    * 
    * @example
    * 1
