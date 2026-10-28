@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EniCacheConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the cache pool.
+   * 
+   * @example
+   * 0
+   */
   cachePoolSize?: number;
+  /**
+   * @remarks
+   * Specifies whether it is enabled.
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {

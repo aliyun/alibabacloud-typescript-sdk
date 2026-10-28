@@ -329,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use the CreateResourceGroup operation to create a resource group.
+   * Creates a ResourceGroup using CreateResourceGroup.
    * 
    * @param request - CreateResourceGroupRequest
    * @param headers - map
@@ -386,7 +386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use the CreateResourceGroup operation to create a resource group.
+   * Creates a ResourceGroup using CreateResourceGroup.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -711,7 +711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a machine group.
+   * Deletes a machine group from a resource group.
    * 
    * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
    * 
@@ -738,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a machine group.
+   * Deletes a machine group from a resource group.
    * 
    * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
    * @returns DeleteResourceGroupMachineGroupResponse
@@ -831,7 +831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves algorithm details.
+   * Retrieves the details of an algorithm.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -856,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves algorithm details.
+   * Retrieves the details of an algorithm.
    * @returns GetAlgorithmResponse
    */
   async getAlgorithm(AlgorithmId: string): Promise<$_model.GetAlgorithmResponse> {
@@ -866,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve details about an algorithm version.
+   * Retrieves the details of an algorithm version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -891,7 +891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve details about an algorithm version.
+   * Retrieves the details of an algorithm version.
    * @returns GetAlgorithmVersionResponse
    */
   async getAlgorithmVersion(AlgorithmId: string, AlgorithmVersion: string): Promise<$_model.GetAlgorithmVersionResponse> {
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific machine group.
+   * Retrieves the details of a machine group.
    * 
    * @deprecated OpenAPI GetMachineGroup is deprecated
    * 
@@ -928,7 +928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific machine group.
+   * Retrieves the details of a machine group.
    * 
    * @deprecated OpenAPI GetMachineGroup is deprecated
    * @returns GetMachineGroupResponse
@@ -941,7 +941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves metric information for resource group nodes.
+   * Retrieves the metrics of nodes in a resource group.
    * 
    * @deprecated OpenAPI GetNodeMetrics is deprecated
    * 
@@ -992,7 +992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves metric information for resource group nodes.
+   * Retrieves the metrics of nodes in a resource group.
    * 
    * @deprecated OpenAPI GetNodeMetrics is deprecated
    * 
@@ -1007,7 +1007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+   * Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
    * 
    * @param request - GetQuotaRequest
    * @param headers - map
@@ -1044,7 +1044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
+   * Retrieves the details of a resource quota to understand current resource usage and facilitate resource management and planning.
    * 
    * @param request - GetQuotaRequest
    * @returns GetQuotaResponse
@@ -1056,7 +1056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * `GetResourceGroup` retrieves details for a resource group.
+   * Retrieves the details of a resource group.
    * 
    * @param tmpReq - GetResourceGroupRequest
    * @param headers - map
@@ -1099,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * `GetResourceGroup` retrieves details for a resource group.
+   * Retrieves the details of a resource group.
    * 
    * @param request - GetResourceGroupRequest
    * @returns GetResourceGroupResponse
@@ -1111,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+   * Retrieves the details of a machine group.
    * 
    * @param tmpReq - GetResourceGroupMachineGroupRequest
    * @param headers - map
@@ -1150,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
+   * Retrieves the details of a machine group.
    * 
    * @param request - GetResourceGroupMachineGroupRequest
    * @returns GetResourceGroupMachineGroupResponse
@@ -1330,7 +1330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a share token for a training task.
+   * Retrieves the sharing token for a training job.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -1367,7 +1367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a share token for a training task.
+   * Retrieves the sharing token for a training job.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -1568,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of algorithm version details.
+   * Retrieves a list of algorithm version details.
    * 
    * @param request - ListAlgorithmVersionsRequest
    * @param headers - map
@@ -1605,7 +1605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of algorithm version details.
+   * Retrieves a list of algorithm version details.
    * 
    * @param request - ListAlgorithmVersionsRequest
    * @returns ListAlgorithmVersionsResponse
@@ -1617,7 +1617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists algorithm details.
+   * Retrieves a list of algorithm details.
    * 
    * @param request - ListAlgorithmsRequest
    * @param headers - map
@@ -1670,7 +1670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists algorithm details.
+   * Retrieves a list of algorithm details.
    * 
    * @param request - ListAlgorithmsRequest
    * @returns ListAlgorithmsResponse
@@ -1822,10 +1822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of resource nodes.
+   * Queries a list of resource nodes.
    * 
    * @remarks
-   * You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+   * You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
    * 
    * @param tmpReq - ListNodesRequest
    * @param headers - map
@@ -1988,10 +1988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of resource nodes.
+   * Queries a list of resource nodes.
    * 
    * @remarks
-   * You can call ListNodes to retrieve resource nodes that match specified filter conditions.
+   * You can call ListNodes to retrieve resource nodes that meet specified filter conditions.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -2003,10 +2003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users under the current resource quota and their resource usage.
+   * Retrieves the list of users in the current resource quota and the resources that they use.
    * 
    * @remarks
-   * Retrieves the resource usage of users for a specified QuotaId.
+   * Retrieves the resource usage of users for the specified QuotaId.
    * 
    * @param request - ListQuotaActiveUserUsagesRequest
    * @param headers - map
@@ -2071,10 +2071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users under the current resource quota and their resource usage.
+   * Retrieves the list of users in the current resource quota and the resources that they use.
    * 
    * @remarks
-   * Retrieves the resource usage of users for a specified QuotaId.
+   * Retrieves the resource usage of users for the specified QuotaId.
    * 
    * @param request - ListQuotaActiveUserUsagesRequest
    * @returns ListQuotaActiveUserUsagesResponse
@@ -2086,7 +2086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of node information on a resource quota.
+   * Retrieves a list of workloads for a quota.
    * 
    * @param request - ListQuotaWorkloadsRequest
    * @param headers - map
@@ -2211,7 +2211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of node information on a resource quota.
+   * Retrieves a list of workloads for a quota.
    * 
    * @param request - ListQuotaWorkloadsRequest
    * @returns ListQuotaWorkloadsResponse
@@ -2336,7 +2336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of machine groups in a specified resource group.
+   * Queries the machine groups in a specified resource group.
    * 
    * @param request - ListResourceGroupMachineGroupsRequest
    * @param headers - map
@@ -2421,7 +2421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of machine groups in a specified resource group.
+   * Queries the machine groups in a specified resource group.
    * 
    * @param request - ListResourceGroupMachineGroupsRequest
    * @returns ListResourceGroupMachineGroupsResponse
@@ -2433,10 +2433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+   * Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
    * 
    * @remarks
-   * Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+   * Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
    * 
    * @param request - ListResourceGroupsRequest
    * @param headers - map
@@ -2513,10 +2513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+   * Retrieves a list of resource groups for general compute resources or Lingjun AI compute resources.
    * 
    * @remarks
-   * Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
+   * Currently, AI compute resource groups, including general compute resources and Lingjun AI compute resources, are available only in specific regions. For the list of supported regions, see [AI compute resource management](https://help.aliyun.com/document_detail/143986.html).
    * 
    * @param request - ListResourceGroupsRequest
    * @returns ListResourceGroupsResponse
@@ -2727,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve monitoring metrics for training job instances.
+   * Retrieves the monitoring metrics of a training job instance.
    * 
    * @param request - ListTrainingJobInstanceMetricsRequest
    * @param headers - map
@@ -2776,7 +2776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve monitoring metrics for training job instances.
+   * Retrieves the monitoring metrics of a training job instance.
    * 
    * @param request - ListTrainingJobInstanceMetricsRequest
    * @returns ListTrainingJobInstanceMetricsResponse
@@ -2853,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve monitoring data for a training task.
+   * Retrieves the monitoring data of a training job.
    * 
    * @param request - ListTrainingJobMetricsRequest
    * @param headers - map
@@ -2906,7 +2906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve monitoring data for a training task.
+   * Retrieves the monitoring data of a training job.
    * 
    * @param request - ListTrainingJobMetricsRequest
    * @returns ListTrainingJobMetricsResponse
@@ -3056,10 +3056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operates on a specified node.
+   * Performs operations on a node using OperateNode.
    * 
    * @remarks
-   * You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+   * Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
    * 
    * @param request - OperateNodeRequest
    * @param headers - map
@@ -3100,10 +3100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operates on a specified node.
+   * Performs operations on a node using OperateNode.
    * 
    * @remarks
-   * You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
+   * Uses OperateNode to perform operations on a specified resource node, including disabling scheduling, enabling scheduling, and other operations.
    * 
    * @param request - OperateNodeRequest
    * @returns OperateNodeResponse
@@ -3443,8 +3443,20 @@ export default class Client extends OpenApi {
   async updateQuotaWithOptions(QuotaId: string, request: $_model.UpdateQuotaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateQuotaResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterSpec)) {
+      body["ClusterSpec"] = request.clusterSpec;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableGracefulUpgrade)) {
+      body["EnableGracefulUpgrade"] = request.enableGracefulUpgrade;
+    }
+
+    if (!$dara.isNull(request.gracefulUpgradeConfig)) {
+      body["GracefulUpgradeConfig"] = request.gracefulUpgradeConfig;
     }
 
     if (!$dara.isNull(request.labels)) {

@@ -6,7 +6,7 @@ import { UserVpc } from "./UserVpc";
 export class GetResourceGroupResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the instance. Valid values of N: 1 to 20.
    * 
    * @example
    * testKey
@@ -14,7 +14,7 @@ export class GetResourceGroupResponseBodyTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the instance. Valid values of N: 1 to 20.
    * 
    * @example
    * testValue
@@ -54,7 +54,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   clusterID?: string;
   /**
    * @remarks
-   * The provider of computing resources for the resource group.
+   * The type of compute resources for the resource group.
    * 
    * @example
    * ECS
@@ -62,7 +62,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   computingResourceProvider?: string;
   /**
    * @remarks
-   * The ID of the user who created the resource group.
+   * The user ID of the creator of the resource group.
    * 
    * @example
    * 1612285282502324
@@ -78,7 +78,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the resource group was created.
+   * The time when the resource group was created. The time follows the ISO 8601 standard in the UTC time zone.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -86,7 +86,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the resource group was last modified.
+   * The time when the resource group was updated. The time follows the ISO 8601 standard in the UTC time zone.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -102,7 +102,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
@@ -110,7 +110,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of computing resource for the resource group.
+   * The type of compute resources for the resource group.
    * 
    * @example
    * Ecs
@@ -134,7 +134,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   supportRDMA?: boolean;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: GetResourceGroupResponseBodyTags[];
   /**
@@ -142,10 +142,17 @@ export class GetResourceGroupResponseBody extends $dara.Model {
    * The details of the VPC connected to the resource group.
    */
   userVpc?: UserVpc;
+  /**
+   * @remarks
+   * The version.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 35201

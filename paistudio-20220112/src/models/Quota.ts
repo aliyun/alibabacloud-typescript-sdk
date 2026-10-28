@@ -28,7 +28,7 @@ export class Quota extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The resource quota description.
+   * The description of the resource quota.
    * 
    * @example
    * this is a test quota
@@ -37,6 +37,9 @@ export class Quota extends $dara.Model {
   /**
    * @remarks
    * The GPU type.
+   * 
+   * @example
+   * L20
    */
   GPUType?: string;
   /**
@@ -49,16 +52,20 @@ export class Quota extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the resource quota was last modified.
+   * The time when the resource quota was updated.
    * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The list of high-performance network zones.
+   */
   hyperZones?: string[];
   /**
    * @remarks
-   * The resource quota labels.
+   * The labels of the resource quota.
    */
   labels?: Label[];
   /**
@@ -76,7 +83,7 @@ export class Quota extends $dara.Model {
   min?: ResourceSpec;
   /**
    * @remarks
-   * The parent resource quota ID.
+   * The ID of the parent resource quota.
    * 
    * @example
    * ""
@@ -85,29 +92,33 @@ export class Quota extends $dara.Model {
   /**
    * @remarks
    * The queue policy for the quota. Valid values:
-   * - PaiStrategyIntelligent: intelligent policies.
-   * - PaiStrategyBalance: balanced policy.
-   * - PaiStrategyRoundRobin: resource-priority policy.
-   * - PaiStrategyStrictFIFO: FIFO policy.
+   * - PaiStrategyIntelligent: intelligent policies
+   * - PaiStrategyBalance: balanced policy
+   * - PaiStrategyRoundRobin: resource priority policy
+   * - PaiStrategyStrictFIFO: FIFO policy
    * 
    * @example
    * PaiStrategyIntelligent
    */
   queueStrategy?: string;
+  /**
+   * @remarks
+   * The specifications and status of the cluster composed of resources in the quota.
+   */
   quotaCluster?: QuotaCluster;
   /**
    * @remarks
-   * The resource quota configuration.
+   * The configuration of the resource quota.
    */
   quotaConfig?: QuotaConfig;
   /**
    * @remarks
-   * The resource quota details.
+   * The details of the resource quota.
    */
   quotaDetails?: QuotaDetails;
   /**
    * @remarks
-   * The resource quota ID.
+   * The ID of the resource quota.
    * 
    * @example
    * quota12345
@@ -115,7 +126,7 @@ export class Quota extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The resource quota name.
+   * The name of the resource quota.
    * 
    * @example
    * dlc-quota
@@ -131,7 +142,7 @@ export class Quota extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The error reason.
+   * The cause of the error.
    * 
    * @example
    * “”
@@ -155,7 +166,7 @@ export class Quota extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource quota status.
+   * The status of the resource quota.
    * 
    * @example
    * Ready
@@ -163,12 +174,15 @@ export class Quota extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of sub-quotas under the resource quota.
+   * The list of sub-quotas of the resource quota.
    */
   subQuotas?: QuotaIdName[];
   /**
    * @remarks
    * The version.
+   * 
+   * @example
+   * 1.0
    */
   version?: string;
   /**

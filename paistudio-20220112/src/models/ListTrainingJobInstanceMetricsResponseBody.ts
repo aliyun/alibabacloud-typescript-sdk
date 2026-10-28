@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics extends $dara.Model {
   /**
    * @remarks
-   * UTC time in ISO 8601 format.
+   * The UTC time in ISO 8601 format.
    * 
    * @example
    * 2020-11-08T16:00:00Z
@@ -13,7 +13,7 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics ex
   time?: string;
   /**
    * @remarks
-   * Metric value.
+   * The metric value.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics ex
 export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * trainkxen7qjyg6y-master-0
@@ -53,12 +53,12 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics extends $
   instanceId?: string;
   /**
    * @remarks
-   * List of instance monitoring metrics.
+   * The list of instance monitoring metrics.
    */
   metrics?: ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics[];
   /**
    * @remarks
-   * Node name.
+   * The node name.
    * 
    * @example
    * trains930928remn-master-0
@@ -95,12 +95,12 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics extends $
 export class ListTrainingJobInstanceMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of all monitoring metrics that match the filter condition.
+   * The list of all monitoring metrics that match the filter conditions.
    */
   instanceMetrics?: ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * F082BD0D-21E1-5F9B-81A0-AB07485B03CD

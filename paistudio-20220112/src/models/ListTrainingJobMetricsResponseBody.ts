@@ -23,7 +23,7 @@ export class ListTrainingJobMetricsResponseBodyMetrics extends $dara.Model {
   timestamp?: string;
   /**
    * @remarks
-   * The value of the metric.
+   * The metric value.
    * 
    * @example
    * 0.97
@@ -62,12 +62,19 @@ export class ListTrainingJobMetricsResponseBody extends $dara.Model {
   metrics?: ListTrainingJobMetricsResponseBodyMetrics[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 194
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

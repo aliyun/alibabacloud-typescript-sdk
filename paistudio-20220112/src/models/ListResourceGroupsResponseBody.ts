@@ -22,7 +22,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   resourceGroups?: ResourceGroup[];
   /**
    * @remarks
-   * The total number of matching resource groups.
+   * The total number of resource groups returned.
    * 
    * This parameter is required.
    * 

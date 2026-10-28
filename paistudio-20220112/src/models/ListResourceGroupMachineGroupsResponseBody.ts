@@ -6,7 +6,7 @@ import { MachineGroup } from "./MachineGroup";
 export class ListResourceGroupMachineGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of machine groups.
+   * The list of machine groups.
    */
   machineGroups?: MachineGroup[];
   /**

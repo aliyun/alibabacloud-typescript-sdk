@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeDiskParameters extends $dara.Model {
   /**
    * @remarks
-   * The target disk capacity after the change.
+   * The target disk capacity.
    */
   newDiskSize?: string;
   static names(): { [key: string]: string } {

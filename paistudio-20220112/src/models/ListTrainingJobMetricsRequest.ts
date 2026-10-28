@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrainingJobMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time in UTC, in ISO 8601 format. If you omit this parameter, the current time is used.
+   * The end time in UTC. The time must be in ISO 8601 format. If this parameter is left empty, the current time is used.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -23,7 +23,7 @@ export class ListTrainingJobMetricsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order of returned metrics. Valid values: ASC or DESC.
+   * The time order of the returned metrics. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -39,7 +39,7 @@ export class ListTrainingJobMetricsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page.
+   * The page size.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class ListTrainingJobMetricsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time in UTC, in ISO 8601 format. If you omit this parameter, the task start time is used.
+   * The start time in UTC. The time must be in ISO 8601 format. If this parameter is left empty, the start time of the job is used.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 

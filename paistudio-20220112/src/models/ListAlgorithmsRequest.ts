@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlgorithmsRequest extends $dara.Model {
   /**
    * @remarks
-   * Algorithm ID.
+   * The algorithm ID.
    * 
    * @example
    * algo-xsldfvu1334
@@ -13,7 +13,7 @@ export class ListAlgorithmsRequest extends $dara.Model {
   algorithmId?: string;
   /**
    * @remarks
-   * Algorithm name.
+   * The algorithm name.
    * 
    * @example
    * llm_training
@@ -21,7 +21,7 @@ export class ListAlgorithmsRequest extends $dara.Model {
   algorithmName?: string;
   /**
    * @remarks
-   * Algorithm provider.
+   * The algorithm provider.
    * 
    * @example
    * pai
@@ -29,7 +29,7 @@ export class ListAlgorithmsRequest extends $dara.Model {
   algorithmProvider?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListAlgorithmsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListAlgorithmsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 12345

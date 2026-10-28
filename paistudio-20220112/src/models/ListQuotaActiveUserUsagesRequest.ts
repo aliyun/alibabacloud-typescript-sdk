@@ -6,8 +6,8 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - desc: descending order.
-   * - asc: ascending order.
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -15,7 +15,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 999
@@ -39,7 +39,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
   selfOnly?: boolean;
   /**
    * @remarks
-   * The field by which to sort the returned results. Valid values:
+   * The name of the field by which to sort the response. Valid values:
    * - QuotaId
    * - SubmittedCPU
    * - SubmittedMemory
@@ -55,7 +55,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The user ID for which to query resource usage.
+   * The ID of the user whose resource usage you want to query.
    * 
    * @example
    * 200xxxxxx
@@ -63,12 +63,19 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The username for which to query resource usage.
+   * The username of the user whose resource usage you want to query.
    * 
    * @example
    * test
    */
   username?: string;
+  /**
+   * @remarks
+   * The number of workloads.
+   * 
+   * @example
+   * 1
+   */
   workloadCount?: number;
   /**
    * @remarks

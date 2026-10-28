@@ -66,6 +66,8 @@ export { ListTrainingJobsResponseBodyTrainingJobsStatusTransitions } from './Lis
 export { ListTrainingJobsResponseBodyTrainingJobsUserVpc } from './ListTrainingJobsResponseBody';
 export { ListTrainingJobsResponseBodyTrainingJobs } from './ListTrainingJobsResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
+export { UpdateQuotaRequestClusterSpec } from './UpdateQuotaRequest';
+export { UpdateQuotaRequestGracefulUpgradeConfig } from './UpdateQuotaRequest';
 export { UpdateTrainingJobLabelsRequestLabels } from './UpdateTrainingJobLabelsRequest';
 export { ACS } from './Acs';
 export { Action } from './Action';

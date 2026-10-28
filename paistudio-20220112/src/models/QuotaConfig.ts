@@ -13,7 +13,7 @@ import { UserVpc } from "./UserVpc";
 export class QuotaConfig extends $dara.Model {
   /**
    * @remarks
-   * The ACS-related configurations.
+   * The ACS-related configuration.
    */
   ACS?: ACS;
   /**
@@ -24,19 +24,27 @@ export class QuotaConfig extends $dara.Model {
    * ceeb3724255364***
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the control plane cluster.
+   */
   controlPlaneClusterId?: string;
   /**
    * @remarks
-   * The default GPU driver version for the resource quota.
+   * The default driver version of the resource quota.
    * 
    * @example
    * 470.199.02
    */
   defaultGPUDriver?: string;
+  /**
+   * @remarks
+   * Specifies whether GPU sharing is enabled.
+   */
   enableGPUShare?: boolean;
   /**
    * @remarks
-   * Specifies whether workloads in sub-quotas can be preempted.
+   * Specifies whether sub-quota resources can be preempted.
    * 
    * @example
    * false
@@ -44,32 +52,52 @@ export class QuotaConfig extends $dara.Model {
   enablePreemptSubquotaWorkloads?: boolean;
   /**
    * @remarks
-   * Specifies whether guaranteed resources within this quota can be preempted.
+   * Specifies whether guaranteed resource preemption for the current quota is enabled.
    */
   enableSelfQuotaPreemption?: boolean;
   /**
    * @remarks
-   * Specifies whether resources in sub-quotas can be preempted.
+   * Specifies whether sub-quota resources can be preempted.
    */
   enableSubQuotaPreemption?: boolean;
+  /**
+   * @remarks
+   * The elastic network interface controller (NIC) cache configuration.
+   */
   eniCacheConfig?: EniCacheConfig;
+  /**
+   * @remarks
+   * Specifies whether the resource is encrypted.
+   */
   isEncryptedResource?: boolean;
+  /**
+   * @remarks
+   * The off-peak resource usage configuration.
+   */
   oversoldUsageConfig?: OversoldUsageConfig;
   /**
    * @remarks
-   * The resource specification templates.
+   * The resource specification template.
    */
   resourceSpecs?: WorkspaceSpecs[];
+  /**
+   * @remarks
+   * The sandbox cache configuration.
+   */
   sandboxCacheConfig?: SandboxCacheConfig;
+  /**
+   * @remarks
+   * The self-quota preemption configuration.
+   */
   selfQuotaPreemptionConfig?: SelfQuotaPreemptionConfig;
   /**
    * @remarks
-   * The configuration for the sub-quota preemption task.
+   * The sub-quota task preemption configuration.
    */
   subQuotaPreemptionConfig?: SubQuotaPreemptionConfig;
   /**
    * @remarks
-   * The GPU driver versions supported by the resource quota.
+   * The driver versions supported by the resource quota.
    */
   supportGPUDrivers?: string[];
   /**
@@ -80,12 +108,20 @@ export class QuotaConfig extends $dara.Model {
    * false
    */
   supportRDMA?: boolean;
+  /**
+   * @remarks
+   * The scenarios of the resource quota.
+   */
   useCase?: string;
   /**
    * @remarks
    * The user VPC information.
    */
   userVpc?: UserVpc;
+  /**
+   * @remarks
+   * The workload types supported by the quota.
+   */
   workloadTypes?: string[];
   static names(): { [key: string]: string } {
     return {

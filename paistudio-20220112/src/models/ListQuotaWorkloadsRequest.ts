@@ -6,7 +6,7 @@ import { TimeRangeFilter } from "./TimeRangeFilter";
 export class ListQuotaWorkloadsRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the queuing information for instances before a specified workload ID in the queue.
+   * The ID of the workload before which to query the queue information of instances in the queue.
    * 
    * @example
    * dsw654433**
@@ -14,23 +14,30 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   beforeWorkloadId?: string;
   /**
    * @remarks
-   * The range search for workload dequeue time.
+   * The time range used for a range search on the time when the workloads were dequeued.
    */
   gmtDequeuedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * The range search for workload enqueue time.
+   * The time range used for a range search on the time when the workloads entered the queue.
    */
   gmtEnqueuedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * The range search for workload queue position change time.
+   * The time range used for a range search on the time when the queue positions of the workloads changed.
    */
   gmtPositionModifiedTimeRange?: TimeRangeFilter;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * train129f212o89d-master-0
+   */
   instanceId?: string;
   /**
    * @remarks
-   * Searches only for nodes on the specified node.
+   * The name of the node on which to search for workloads.
    * 
    * @example
    * lrn482781276**
@@ -46,7 +53,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number of the query.
+   * The page number.
    * 
    * @example
    * 1
@@ -54,17 +61,31 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The position in the queue.
+   * 
+   * @example
+   * 10
+   */
   position?: number;
+  /**
+   * @remarks
+   * The priority of the workload.
+   * 
+   * @example
+   * 2
+   */
   priority?: number;
   /**
    * @remarks
-   * Specifies whether to display only the workloads associated with the current resource quota.
+   * Specifies whether to display only the workloads corresponding to this resource quota.
    * 
    * @example
    * true
@@ -80,7 +101,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The status in the queue.
+   * The status of the workload in the queue.
    * 
    * @example
    * Enqueued
@@ -94,33 +115,48 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
    * quota123446**,quota644322**
    */
   subQuotaIds?: string;
+  /**
+   * @remarks
+   * Specifies whether the workload uses oversold resources.
+   */
   useOversoldResource?: boolean;
   /**
    * @remarks
-   * The list of user IDs.
+   * The IDs of the users.
    * 
    * @example
    * 290438938**,238290930**
    */
   userIds?: string;
+  /**
+   * @remarks
+   * Specifies whether to include historical data.
+   */
   withHistoricalData?: boolean;
   /**
    * @remarks
-   * The range search for workload creation time.
+   * The time range used for a range search on the workload creation time.
    */
   workloadCreatedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * Queries the queuing information for specified workload IDs.
+   * The IDs of the workloads to query for queue information.
    * 
    * @example
    * dlc123445**
    */
   workloadIds?: string;
+  /**
+   * @remarks
+   * The names of the workloads.
+   * 
+   * @example
+   * dlcxxxx
+   */
   workloadNames?: string;
   /**
    * @remarks
-   * Filters by workload status.
+   * The workload statuses used to filter the results.
    * 
    * @example
    * Pending
@@ -128,7 +164,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   workloadStatuses?: string;
   /**
    * @remarks
-   * Queries the queuing information for instances of a specified sub-product.
+   * The workload type used to query the queue information of instances for the specified sub-product.
    * 
    * @example
    * dlc
@@ -136,7 +172,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   workloadType?: string;
   /**
    * @remarks
-   * Queries the queuing information for workloads in a specified workspace.
+   * The IDs of the workspaces for which to query the workload queue information.
    * 
    * @example
    * 1866**

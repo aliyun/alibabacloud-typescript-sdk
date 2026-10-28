@@ -4,13 +4,26 @@ import { Metric } from "./Metric";
 
 
 export class ResourceGroupMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * A100
+   */
   gpuType?: string;
   /**
+   * @remarks
+   * The performance metrics.
+   * 
    * @example
    * 23000
    */
   metrics?: Metric[];
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg17tmvwiokhzaxg
    */

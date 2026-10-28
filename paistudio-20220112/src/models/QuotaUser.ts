@@ -4,7 +4,15 @@ import { ResourceAmount } from "./ResourceAmount";
 
 
 export class QuotaUserResources extends $dara.Model {
+  /**
+   * @remarks
+   * The submitted resources.
+   */
   submitted?: ResourceAmount;
+  /**
+   * @remarks
+   * The used resources.
+   */
   used?: ResourceAmount;
   static names(): { [key: string]: string } {
     return {
@@ -36,9 +44,34 @@ export class QuotaUserResources extends $dara.Model {
 }
 
 export class QuotaUser extends $dara.Model {
+  /**
+   * @remarks
+   * The resources.
+   */
   resources?: QuotaUserResources;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 123456789
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * test
+   */
   username?: string;
+  /**
+   * @remarks
+   * The workload count.
+   * 
+   * @example
+   * 0
+   */
   workloadCount?: number;
   static names(): { [key: string]: string } {
     return {

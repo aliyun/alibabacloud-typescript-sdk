@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlgorithmResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Algorithm description.
+   * The algorithm description.
    * 
    * @example
-   * Large language model training.
+   * Large language model training
    */
   algorithmDescription?: string;
   /**
    * @remarks
-   * Algorithm ID.
+   * The algorithm ID.
    * 
    * @example
    * algo-xsldfvu1334
@@ -21,7 +21,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   algorithmId?: string;
   /**
    * @remarks
-   * Algorithm name.
+   * The algorithm name.
    * 
    * @example
    * llm_training
@@ -29,7 +29,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   algorithmName?: string;
   /**
    * @remarks
-   * Algorithm provider.
+   * The algorithm provider.
    * 
    * @example
    * pai
@@ -37,7 +37,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   algorithmProvider?: string;
   /**
    * @remarks
-   * Display name of the algorithm.
+   * The display name of the algorithm.
    * 
    * @example
    * llm_training
@@ -45,7 +45,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Time when the algorithm was created.
+   * The time when the algorithm was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2024-07-10T11:49:47Z
@@ -53,7 +53,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Time when the algorithm was last updated.
+   * The time when the algorithm was last updated. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2024-07-10T11:49:47Z
@@ -61,7 +61,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -69,7 +69,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Tenant ID of the algorithm owner.
+   * The ID of the tenant to whom the algorithm belongs.
    * 
    * @example
    * 123456789
@@ -77,7 +77,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * User ID of the algorithm owner.
+   * The ID of the user to whom the algorithm belongs.
    * 
    * @example
    * 123456789
@@ -85,7 +85,7 @@ export class GetAlgorithmResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 12345

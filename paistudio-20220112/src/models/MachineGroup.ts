@@ -3,12 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MachineGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The number of allocatable CPU cores.
+   * 
+   * @example
+   * 16
+   */
   allocatableCpu?: number;
+  /**
+   * @remarks
+   * The allocatable memory size.
+   * 
+   * @example
+   * 55
+   */
   allocatableMemory?: number;
+  /**
+   * @remarks
+   * The number of CPU cores in the machine group.
+   * 
+   * @example
+   * 16
+   */
   cpu?: number;
   /**
    * @remarks
-   * Machine group creator ID
+   * The ID of the machine group creator.
    * 
    * @example
    * 1612285282502324
@@ -16,17 +37,31 @@ export class MachineGroup extends $dara.Model {
   creatorID?: string;
   /**
    * @remarks
-   * Default driver supported by the machine group
+   * The default driver supported by the machine group.
    * 
    * @example
    * 470.199.02
    */
   defaultDriver?: string;
+  /**
+   * @remarks
+   * The cloud disk size.
+   * 
+   * @example
+   * 1000
+   */
   diskCapacity?: number;
+  /**
+   * @remarks
+   * The cloud disk performance level.
+   * 
+   * @example
+   * PL0
+   */
   diskPL?: string;
   /**
    * @remarks
-   * Resource count
+   * The resource count.
    * 
    * @example
    * 1
@@ -34,7 +69,7 @@ export class MachineGroup extends $dara.Model {
   ecsCount?: number;
   /**
    * @remarks
-   * ECS specification
+   * The ECS instance type.
    * 
    * @example
    * ecs.c6.large
@@ -42,7 +77,7 @@ export class MachineGroup extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -50,7 +85,7 @@ export class MachineGroup extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * Expiration Time
+   * The expiration time.
    * 
    * @example
    * 2023-08-22T00:00:00Z
@@ -58,7 +93,7 @@ export class MachineGroup extends $dara.Model {
   gmtExpiredTime?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -66,27 +101,55 @@ export class MachineGroup extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Start At
+   * The start time.
    * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtStartedTime?: string;
+  /**
+   * @remarks
+   * The number of GPUs in the machine group.
+   * 
+   * @example
+   * 2
+   */
   gpu?: number;
+  /**
+   * @remarks
+   * The GPU memory size of the machine group.
+   * 
+   * @example
+   * 16
+   */
   gpuMemory?: number;
+  /**
+   * @remarks
+   * The GPU type of the machine group.
+   * 
+   * @example
+   * A100
+   */
   gpuType?: string;
   /**
    * @remarks
-   * Machine Group ID
+   * The machine group ID.
    * 
    * @example
    * mg1
    */
   machineGroupID?: string;
+  /**
+   * @remarks
+   * The memory size of the machine group.
+   * 
+   * @example
+   * 64
+   */
   memory?: number;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * “”
@@ -94,7 +157,7 @@ export class MachineGroup extends $dara.Model {
   orderInstanceId?: string;
   /**
    * @remarks
-   * Duration
+   * The duration.
    * 
    * @example
    * 2
@@ -102,7 +165,7 @@ export class MachineGroup extends $dara.Model {
   paymentDuration?: string;
   /**
    * @remarks
-   * Region ID
+   * region ID
    * 
    * @example
    * Monthly
@@ -110,7 +173,7 @@ export class MachineGroup extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * Payment type
+   * The billing method.
    * 
    * @example
    * PREPAY
@@ -118,7 +181,7 @@ export class MachineGroup extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Machine group error code
+   * The machine group error code.
    * 
    * @example
    * “”
@@ -126,7 +189,7 @@ export class MachineGroup extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * Machine group fault message
+   * The machine group error message.
    * 
    * @example
    * “”
@@ -134,16 +197,23 @@ export class MachineGroup extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rgf0zhfqn1d4ity2
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ECS
+   */
   resourceType?: string;
   /**
    * @remarks
-   * Machine group status
+   * The machine group status.
    * 
    * @example
    * Success
@@ -151,10 +221,24 @@ export class MachineGroup extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * List of NVIDIA GPU driver versions supported by the machine group
+   * The list of NVIDIA GPU driver versions supported by the machine group.
    */
   supportedDrivers?: string[];
+  /**
+   * @remarks
+   * The number of system-reserved CPU cores.
+   * 
+   * @example
+   * 0
+   */
   systemReservedCpu?: number;
+  /**
+   * @remarks
+   * The size of system-reserved memory.
+   * 
+   * @example
+   * 9
+   */
   systemReservedMemory?: number;
   static names(): { [key: string]: string } {
     return {

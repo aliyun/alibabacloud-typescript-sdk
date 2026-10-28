@@ -6,67 +6,100 @@ import { QueueMeta } from "./QueueMeta";
 export class WorkloadInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the workload is scheduled. Valid values are `true` and `false`.
+   * Specifies whether the task is scheduled.
    */
   isScheduled?: string;
   /**
    * @remarks
-   * The scheduling priority of the workload. A higher value indicates a higher priority.
+   * The task priority.
+   * 
+   * @example
+   * 0
    */
   priority?: number;
   /**
    * @remarks
-   * A list of metadata for the queues associated with the workload.
+   * The information about the queue where the task resides.
    */
   queueMetas?: QueueMeta[];
   /**
    * @remarks
-   * The ID of the tenant that contains the workload.
+   * The ID of the Alibaba Cloud account that created the task.
+   * 
+   * @example
+   * 123456789
    */
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user who created the workload.
+   * The ID of the RAM user that created the task.
+   * 
+   * @example
+   * 123456789
    */
   userId?: string;
   /**
    * @remarks
-   * The name of the user who created the workload.
+   * The username of the task creator.
+   * 
+   * @example
+   * test
    */
   userName?: string;
   /**
    * @remarks
-   * The creation time of the workload, in UTC format.
+   * The time when the task was created.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   workloadCreatedTime?: string;
   /**
    * @remarks
-   * The unique, system-generated ID for the workload.
+   * The task ID.
+   * 
+   * @example
+   * dlcxxxx
    */
   workloadId?: string;
   /**
    * @remarks
-   * The user-defined name of the workload.
+   * The task name.
+   * 
+   * @example
+   * test-job
    */
   workloadName?: string;
   /**
    * @remarks
-   * The current status of the workload. Possible values include `Pending`, `Running`, `Succeeded`, and `Failed`.
+   * The task status.
+   * 
+   * @example
+   * Running
    */
   workloadStatus?: string;
   /**
    * @remarks
-   * The type of the workload.
+   * The task type.
+   * 
+   * @example
+   * dlc
    */
   workloadType?: string;
   /**
    * @remarks
-   * The ID of the workspace that contains the workload.
+   * The ID of the workspace where the task resides.
+   * 
+   * @example
+   * 12345
    */
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the workspace that contains the workload.
+   * The name of the workspace where the task resides.
+   * 
+   * @example
+   * myshellprod
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

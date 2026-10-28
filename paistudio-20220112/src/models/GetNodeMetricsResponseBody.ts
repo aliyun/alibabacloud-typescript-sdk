@@ -14,12 +14,12 @@ export class GetNodeMetricsResponseBody extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The node metric information.
+   * The metric information of the nodes.
    */
   nodesMetrics?: NodeMetric[];
   /**
    * @remarks
-   * The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to retrieve information about the resource group.
+   * The ID of the resource group. Each resource group has a globally unique ID. You can use the resource group ID to retrieve the information about the resource group.
    * 
    * @example
    * rgf0zhfqn1d4ity2

@@ -8,26 +8,62 @@ import { ConditionExpression } from "./ConditionExpression";
 
 
 export class ComponentSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The code directory configuration.
+   */
   codeDir?: Location;
   /**
    * @remarks
+   * The command used for submit the job.
+   * 
    * This parameter is required.
    */
   command?: string;
+  /**
+   * @remarks
+   * The hype parameter used by the algorithm.
+   */
   hyperParameters?: HyperParameterDefinition[];
   /**
    * @remarks
+   * The docker image used by the job of this algorithm.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai-training/kmeans:v1.0.0
    */
   image?: string;
+  /**
+   * @remarks
+   * The input for the algorithm.
+   */
   inputChannels?: Channel[];
   /**
    * @remarks
+   * Job type of the training job while running the algorithm.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * TFJob
    */
   jobType?: string;
+  /**
+   * @remarks
+   * The output metrics of the algorithm.
+   */
   metricDefinitions?: MetricDefinition[];
+  /**
+   * @remarks
+   * The outputs of the algorithm.
+   */
   outputChannels?: Channel[];
+  /**
+   * @remarks
+   * Resource requirements.
+   */
   resourceRequirements?: ConditionExpression[];
   static names(): { [key: string]: string } {
     return {

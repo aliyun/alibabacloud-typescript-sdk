@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupMachineGroupResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag. Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class GetResourceGroupMachineGroupResponseBodyTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -43,11 +43,25 @@ export class GetResourceGroupMachineGroupResponseBodyTags extends $dara.Model {
 }
 
 export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of allocatable CPU cores on each machine in the machine group.
+   * 
+   * @example
+   * 2
+   */
   allocatableCpu?: string;
+  /**
+   * @remarks
+   * The allocatable memory size on each machine in the machine group.
+   * 
+   * @example
+   * 55
+   */
   allocatableMemory?: string;
   /**
    * @remarks
-   * The total number of CPU cores per machine in the machine group.
+   * The total number of CPU cores on each machine in the machine group.
    * 
    * @example
    * 2
@@ -55,7 +69,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The default GPU driver version per machine in the machine group.
+   * The default GPU driver version of each machine in the machine group.
    * 
    * @example
    * 535
@@ -71,7 +85,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   ecsCount?: number;
   /**
    * @remarks
-   * The ECS spec.
+   * The ECS instance type.
    * 
    * @example
    * ecs.c6.large
@@ -79,7 +93,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The creation time of the machine group.
+   * The time when the machine group was created.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -95,7 +109,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   gmtExpiredTime?: string;
   /**
    * @remarks
-   * The last modification time of the machine group.
+   * The time when the machine group was updated.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -103,7 +117,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The start time of the machine group.
+   * The time when the machine group was started.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -111,7 +125,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   gmtStartedTime?: string;
   /**
    * @remarks
-   * The number of GPUs per machine in the machine group.
+   * The number of GPU cores on each machine in the machine group.
    * 
    * @example
    * 8
@@ -119,7 +133,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   gpu?: string;
   /**
    * @remarks
-   * The GPU type per machine in the machine group.
+   * The GPU type of each machine in the machine group.
    * 
    * @example
    * A100
@@ -135,7 +149,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   machineGroupID?: string;
   /**
    * @remarks
-   * The amount of memory per machine in the machine group.
+   * The memory size of each machine in the machine group.
    * 
    * @example
    * 64
@@ -151,7 +165,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The payment duration. When PaymentDurationUnit is set to Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * The billing duration. If PaymentDurationUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -159,7 +173,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   paymentDuration?: string;
   /**
    * @remarks
-   * The unit of the billing cycle for the machine group.
+   * The billing duration unit of the machine group.
    * 
    * @example
    * Month
@@ -167,7 +181,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The payment type.
+   * The billing method.
    * 
    * @example
    * PREPAY
@@ -175,7 +189,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
@@ -183,7 +197,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group. This ID is globally unique and can be used to retrieve information about the resource group.
+   * The ID of the resource group. Each resource group has a globally unique ID. You can use the resource group ID to retrieve the information about the resource group.
    * 
    * @example
    * rgf0zhfqn1d4ity2
@@ -191,14 +205,13 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   resourceGroupID?: string;
   /**
    * @remarks
-   * The status of the machine group.
-   * Valid values:
-   * Creating: The machine group is being created.
-   * Ready: The machine group is running.
-   * Expiring: The machine group is about to expire.
-   * Expired: The machine group has expired.
-   * Stopping: The machine group is being stopped.
-   * Stopped: The machine group has been stopped.
+   * The instance status. Valid values:
+   * - Creating: The instance is being created.
+   * - Ready: The instance is running.
+   * - Expiring: The instance is about to expire.
+   * - Expired: The instance has expired.
+   * - Stopping: The instance is being stopped.
+   * - Stopped: The instance is stopped.
    * 
    * @example
    * Ready
@@ -206,14 +219,28 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The GPU driver versions supported by the machines in the machine group.
+   * The GPU driver versions supported by nodes in the machine group.
    */
   supportedDrivers?: string[];
+  /**
+   * @remarks
+   * The number of system-reserved CPU cores on each machine in the machine group.
+   * 
+   * @example
+   * 0
+   */
   systemReservedCpu?: string;
+  /**
+   * @remarks
+   * The size of system-reserved memory on each machine in the machine group.
+   * 
+   * @example
+   * 9
+   */
   systemReservedMemory?: string;
   /**
    * @remarks
-   * The list of tags attached to the machine group.
+   * The list of tags to query. The value is a JSON string that contains up to 20 tags.
    */
   tags?: GetResourceGroupMachineGroupResponseBodyTags[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupMachineGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of up to 20 tags.
+   * The list of tags to add. You can specify up to 20 tags.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OversoldUsageConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether it is disabled.
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The user who disabled it.
+   * 
+   * @example
+   * quotaxxx
+   */
   disabledBy?: string;
   static names(): { [key: string]: string } {
     return {

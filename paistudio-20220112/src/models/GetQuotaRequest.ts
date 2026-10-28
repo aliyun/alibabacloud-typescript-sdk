@@ -13,7 +13,7 @@ export class GetQuotaRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the node metadata bound to the quota.
+   * Specifies whether to return the metadata of nodes bound to the quota.
    */
   withNodeMeta?: boolean;
   static names(): { [key: string]: string } {

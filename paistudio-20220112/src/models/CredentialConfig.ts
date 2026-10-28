@@ -4,8 +4,23 @@ import { CredentialConfigItem } from "./CredentialConfigItem";
 
 
 export class CredentialConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud environment role identifier.
+   * 
+   * @example
+   * 0
+   */
   aliyunEnvRoleKey?: string;
+  /**
+   * @remarks
+   * The credential configuration items.
+   */
   credentialConfigItems?: CredentialConfigItem[];
+  /**
+   * @remarks
+   * Specifies whether credential injection is enabled.
+   */
   enableCredentialInject?: boolean;
   static names(): { [key: string]: string } {
     return {

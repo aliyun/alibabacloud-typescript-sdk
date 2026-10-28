@@ -6,7 +6,7 @@ import { NodeOperationParameters } from "./NodeOperationParameters";
 export class OperateNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation. Valid values:	
+   * The operation to perform. Valid values:	
    * - Cordon: disables scheduling
    * - Uncordon: enables scheduling
    * - Drain: evicts pods

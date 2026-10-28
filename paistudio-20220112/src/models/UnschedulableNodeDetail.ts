@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnschedulableNodeDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The list of nodes.
+   */
   nodes?: string[];
+  /**
+   * @remarks
+   * The failure cause.
+   * 
+   * @example
+   * NotEnoughGPU
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {

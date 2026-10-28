@@ -14,12 +14,12 @@ export class GetSpotPriceHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of historical spot instance price details
+   * The list of historical price details of spot instances.
    */
   spotPriceHistory?: SpotPriceItem[];
   /**
    * @remarks
-   * The total number of historical spot instance prices
+   * The total number of historical prices of spot instances.
    * 
    * @example
    * 194

@@ -4,7 +4,21 @@ import { StatisticsResources } from "./StatisticsResources";
 
 
 export class NodeStatisticsGPUDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The count.
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The idle count.
+   * 
+   * @example
+   * 16
+   */
   idleNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,7 +44,21 @@ export class NodeStatisticsGPUDetails extends $dara.Model {
 }
 
 export class NodeStatisticsHyperNodeDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The count.
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The idle count.
+   * 
+   * @example
+   * 18
+   */
   idleNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -56,11 +84,35 @@ export class NodeStatisticsHyperNodeDetails extends $dara.Model {
 }
 
 export class NodeStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The total resources.
+   */
   actualMinResources?: StatisticsResources;
+  /**
+   * @remarks
+   * The GPU idle statistics.
+   */
   GPUDetails?: NodeStatisticsGPUDetails[];
+  /**
+   * @remarks
+   * The hypernode idle statistics.
+   */
   hyperNodeDetails?: NodeStatisticsHyperNodeDetails[];
+  /**
+   * @remarks
+   * The idle resources.
+   */
   idleResources?: StatisticsResources;
+  /**
+   * @remarks
+   * The amount of scheduling resources.
+   */
   schedulableResources?: StatisticsResources;
+  /**
+   * @remarks
+   * The system reserved resources.
+   */
   systemReservedResources?: StatisticsResources;
   static names(): { [key: string]: string } {
     return {

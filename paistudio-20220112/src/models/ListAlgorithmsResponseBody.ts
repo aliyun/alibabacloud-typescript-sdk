@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   /**
    * @remarks
-   * Algorithm description.
+   * The algorithm description.
    * 
    * @example
-   * Large language model training.
+   * Large language model training
    */
   algorithmDescription?: string;
   /**
    * @remarks
-   * Algorithm ID.
+   * The algorithm ID.
    * 
    * @example
    * algo-sidjc8134hv
@@ -21,7 +21,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   algorithmId?: string;
   /**
    * @remarks
-   * Algorithm name.
+   * The algorithm name.
    * 
    * @example
    * llm_train
@@ -29,7 +29,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   algorithmName?: string;
   /**
    * @remarks
-   * Algorithm provider.
+   * The algorithm provider.
    * 
    * @example
    * pai
@@ -37,7 +37,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   algorithmProvider?: string;
   /**
    * @remarks
-   * Algorithm display name.
+   * The display name of the algorithm.
    * 
    * @example
    * LLM Train
@@ -45,7 +45,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Algorithm creation time.
+   * The time when the algorithm was created, in ISO 8601 format, in UTC.
    * 
    * @example
    * 2023-07-21T03:35:24Z
@@ -53,7 +53,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Algorithm update time.
+   * The time when the algorithm was last updated, in ISO 8601 format, in UTC.
    * 
    * @example
    * 2023-07-25T02:15:40Z
@@ -61,7 +61,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Algorithm owner ID.
+   * The ID of the user to whom the algorithm belongs.
    * 
    * @example
    * 123456789
@@ -69,7 +69,7 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 12345
@@ -115,12 +115,12 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
 export class ListAlgorithmsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Algorithm list.
+   * The algorithm list.
    */
   algorithms?: ListAlgorithmsResponseBodyAlgorithms[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -128,7 +128,7 @@ export class ListAlgorithmsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total algorithms.
+   * The total number of algorithms.
    * 
    * @example
    * 4

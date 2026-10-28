@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserQuotaPermission extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions.
+   */
   permissions?: string[];
+  /**
+   * @remarks
+   * Quota ID
+   * 
+   * @example
+   * quotamtl37ge7gkvdz
+   */
   quotaId?: string;
   static names(): { [key: string]: string } {
     return {

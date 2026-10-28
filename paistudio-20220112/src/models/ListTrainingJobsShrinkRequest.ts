@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrainingJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The algorithm name.
+   * The name of the algorithm.
    * 
    * @example
    * llm_train
@@ -21,7 +21,7 @@ export class ListTrainingJobsShrinkRequest extends $dara.Model {
   algorithmProvider?: string;
   /**
    * @remarks
-   * The end time of the job creation time range for the query. Default value: current time.
+   * The end time of the creation time range used to query jobs. Default value: the current time. The time is in ISO 8601 format and the UTC time zone.
    * 
    * @example
    * 2023-12-27T02:10:00Z
@@ -29,7 +29,7 @@ export class ListTrainingJobsShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether the algorithm is a temporary algorithm.
+   * Specifies whether the algorithm is temporary.
    * 
    * @example
    * false
@@ -50,13 +50,16 @@ export class ListTrainingJobsShrinkRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
+   * - ASC: Ascending order.
+   * - DESC: Descending order.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
    * @remarks
-   * The page number for paging.
+   * The page number for the paging query.
    * 
    * @example
    * 1
@@ -80,7 +83,7 @@ export class ListTrainingJobsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time of the job creation time range for the query. Default value: 7 days ago.
+   * The start time of the creation time range used to query jobs. Default value: 7 days ago. The time is in ISO 8601 format and the UTC time zone.
    * 
    * @example
    * 2024-06-22T01:00:00Z
@@ -96,7 +99,7 @@ export class ListTrainingJobsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The training job ID.
+   * The ID of the training job.
    * 
    * @example
    * trains930928remn

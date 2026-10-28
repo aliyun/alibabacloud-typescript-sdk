@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelfQuotaPreemptionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The priorities that can be preempted.
+   */
   preemptedPriorities?: number[];
+  /**
+   * @remarks
+   * The task types that can be preempted.
+   */
   preemptedProducts?: string[];
+  /**
+   * @remarks
+   * The priorities that can initiate preemption.
+   */
   preemptorPriorities?: number[];
   static names(): { [key: string]: string } {
     return {

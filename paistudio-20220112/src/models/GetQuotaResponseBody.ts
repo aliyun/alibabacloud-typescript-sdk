@@ -20,7 +20,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   allocateStrategy?: string;
   /**
    * @remarks
-   * The ID of the quota creator.
+   * The ID of the user who created the quota.
    * 
    * @example
    * 1884692****
@@ -44,7 +44,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   GPUType?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the quota was created, in ISO 8601 format and UTC time zone.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -52,7 +52,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the quota was last modified.
+   * The time when the quota was last modified, in ISO 8601 format and UTC time zone.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -70,7 +70,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   labels?: Label[];
   /**
    * @remarks
-   * The ID of the latest quota operation.
+   * The ID of the latest operation on the quota.
    * 
    * @example
    * operation****
@@ -99,12 +99,12 @@ export class GetQuotaResponseBody extends $dara.Model {
   queueStrategy?: string;
   /**
    * @remarks
-   * The cluster specifications and status composed of resources in the quota.
+   * The specifications and status of the cluster composed of resources in the quota.
    */
   quotaCluster?: QuotaCluster;
   /**
    * @remarks
-   * The quota configuration:
+   * The configuration of the quota:
    * 
    * - VPC information
    * 
@@ -120,7 +120,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   quotaDetails?: QuotaDetails;
   /**
    * @remarks
-   * The resource quota ID.
+   * The ID of the resource quota.
    * 
    * @example
    * quotajradxh4****
@@ -144,7 +144,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The error reason.
+   * The cause of the error.
    * 
    * @example
    * “”
@@ -160,7 +160,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group information associated with the resource quota.
+   * The resource group information corresponding to the resource quota.
    */
   resourceGroupIds?: string[];
   /**
@@ -181,12 +181,12 @@ export class GetQuotaResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of sub-quotas under the quota.
+   * The list of sub-quotas of the quota.
    */
   subQuotas?: QuotaIdName[];
   /**
    * @remarks
-   * The version information. Takes effect when the resource type is ECS.
+   * The version information. This parameter takes effect when the resource type is ECS.
    * 
    * @example
    * 1.0

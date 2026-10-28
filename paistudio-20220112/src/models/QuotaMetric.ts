@@ -4,8 +4,18 @@ import { Metric } from "./Metric";
 
 
 export class QuotaMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * GU108
+   */
   GPUType?: string;
   /**
+   * @remarks
+   * The performance metrics.
+   * 
    * @example
    * 23000
    */

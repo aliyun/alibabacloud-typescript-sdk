@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMachineGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the machine group.
+   * 
+   * @example
+   * mg1
+   */
   machineGroupID?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F2D0392B-D749-5C48-A98A-3FAE5C9444A6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

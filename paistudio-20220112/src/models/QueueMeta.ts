@@ -6,57 +6,81 @@ import { ResourceAmount } from "./ResourceAmount";
 export class QueueMeta extends $dara.Model {
   /**
    * @remarks
-   * The time the entry was removed from the queue.
+   * The time when the task was dequeued.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtDequeuedTime?: string;
   /**
    * @remarks
-   * The time the entry was added to the queue.
+   * The time when the task was enqueued.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtEnqueuedTime?: string;
   /**
    * @remarks
-   * The last time the position of the entry was modified.
+   * The time when the position of the task in the queue was changed.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtPositionModifiedTime?: string;
   /**
    * @remarks
-   * The name of the queue entry.
+   * The name of the task in the queue.
+   * 
+   * @example
+   * dlcxxxx
    */
   name?: string;
   /**
    * @remarks
-   * The position of the entry in the queue.
+   * The position of the task in the queue. This parameter takes effect only when the task is queued.
+   * 
+   * @example
+   * 10
    */
   position?: string;
   /**
    * @remarks
-   * The queuing strategy for the entry.
+   * The dequeue strategy.
+   * 
+   * @example
+   * PaiStrategyIntelligent
    */
   queueStrategy?: string;
   /**
    * @remarks
-   * The ID of the associated quota.
+   * The resource quota queue to which the task belongs.
+   * 
+   * @example
+   * quotad2kd8ljpsno
    */
   quotaId?: string;
   /**
    * @remarks
-   * The resources that the queue entry requires.
+   * The resources occupied by the task in the queue.
    */
   resource?: ResourceAmount;
   /**
    * @remarks
-   * The resources scheduled for the entry.
+   * The scheduled resources occupied by the task in the queue.
    */
   scheduledResource?: string;
   /**
    * @remarks
-   * The current status of the entry.
+   * The status of the task in the queue, such as enqueued or dequeued.
+   * 
+   * @example
+   * Enqueued
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the entry can use oversold resources.
+   * Specifies whether the task uses idle resources.
    */
   useOversoldResource?: boolean;
   static names(): { [key: string]: string } {

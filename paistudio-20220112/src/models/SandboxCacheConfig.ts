@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SandboxCacheConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the sandbox cache is enabled.
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {

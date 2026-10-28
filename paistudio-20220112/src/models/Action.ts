@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Action extends $dara.Model {
+  /**
+   * @remarks
+   * The operation type.
+   * 
+   * @example
+   * Defrag
+   */
   actionType?: string;
   static names(): { [key: string]: string } {
     return {

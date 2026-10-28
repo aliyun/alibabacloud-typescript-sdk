@@ -7,7 +7,7 @@ import { UserInfo } from "./UserInfo";
 export class Node extends $dara.Model {
   /**
    * @remarks
-   * The accelerator type of the resource node specifications (CPU/GPU).
+   * The accelerator type of the node specifications (CPU/GPU).
    * 
    * @example
    * CPU
@@ -15,7 +15,7 @@ export class Node extends $dara.Model {
   acceleratorType?: string;
   /**
    * @remarks
-   * The number of CPU cores that can be allocated to users.
+   * The number of allocatable CPU cores.
    * 
    * @example
    * 4
@@ -23,12 +23,19 @@ export class Node extends $dara.Model {
   allocatableCPU?: string;
   /**
    * @remarks
-   * The memory size that can be allocated to users.
+   * The allocatable memory size.
    * 
    * @example
    * 5
    */
   allocatableMemory?: string;
+  /**
+   * @remarks
+   * The number of workloads that use the ancestor quota.
+   * 
+   * @example
+   * 0
+   */
   ancestorQuotaWorkloadNum?: number;
   /**
    * @remarks
@@ -53,14 +60,35 @@ export class Node extends $dara.Model {
   CPU?: string;
   /**
    * @remarks
-   * The creator of the resource node.
+   * The ID of the creator of the resource node.
    * 
    * @example
    * 281044699048527748
    */
   creatorId?: string;
+  /**
+   * @remarks
+   * The number of workloads that use the descendant quota.
+   * 
+   * @example
+   * 0
+   */
   descendantQuotaWorkloadNum?: number;
+  /**
+   * @remarks
+   * The data cloud disk capacity.
+   * 
+   * @example
+   * 0
+   */
   diskCapacity?: number;
+  /**
+   * @remarks
+   * The data cloud disk performance level.
+   * 
+   * @example
+   * PL2
+   */
   diskPL?: string;
   /**
    * @remarks
@@ -99,6 +127,9 @@ export class Node extends $dara.Model {
   /**
    * @remarks
    * The creation time of the resource node.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtCreatedTime?: string;
   /**
@@ -127,7 +158,7 @@ export class Node extends $dara.Model {
   hyperZone?: string;
   /**
    * @remarks
-   * Indicates whether the resource node is bound to a quota.
+   * Indicates whether a quota is bound.
    * 
    * @example
    * false
@@ -135,7 +166,7 @@ export class Node extends $dara.Model {
   isBound?: boolean;
   /**
    * @remarks
-   * The maximum number of CPU cores.
+   * The limit on the number of CPU cores.
    * 
    * @example
    * 4
@@ -143,7 +174,7 @@ export class Node extends $dara.Model {
   limitCPU?: string;
   /**
    * @remarks
-   * The maximum number of GPUs.
+   * The limit on the number of GPU cores.
    * 
    * @example
    * 0
@@ -151,7 +182,7 @@ export class Node extends $dara.Model {
   limitGPU?: string;
   /**
    * @remarks
-   * The maximum memory size.
+   * The limit on the memory size.
    * 
    * @example
    * 8
@@ -207,7 +238,7 @@ export class Node extends $dara.Model {
   nodeStatus?: string;
   /**
    * @remarks
-   * The node specifications type of the resource node.
+   * The type of node specifications of the resource node.
    * 
    * @example
    * ecs.c8i.xlarge
@@ -255,7 +286,7 @@ export class Node extends $dara.Model {
   requestCPU?: string;
   /**
    * @remarks
-   * The number of requested GPUs.
+   * The number of requested GPU cores.
    * 
    * @example
    * 0
@@ -285,6 +316,13 @@ export class Node extends $dara.Model {
    * test
    */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The number of workloads that use this quota.
+   * 
+   * @example
+   * 1
+   */
   selfQuotaWorkloadNum?: number;
   /**
    * @remarks
@@ -301,7 +339,7 @@ export class Node extends $dara.Model {
   systemReservedCPU?: string;
   /**
    * @remarks
-   * The system-reserved memory size.
+   * The size of the system reserved memory.
    * 
    * @example
    * 3

@@ -9,12 +9,12 @@ export class ResourceGroup extends $dara.Model {
    * The user ID of the creator.
    * 
    * @example
-   * 1612285282502324
+   * 161228528250****
    */
   creatorID?: string;
   /**
    * @remarks
-   * The time the PAI resource group was created.
+   * The time when the PAI resource group was created.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -22,7 +22,7 @@ export class ResourceGroup extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time the PAI resource group was last modified.
+   * The time when the PAI resource group was updated.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -49,20 +49,41 @@ export class ResourceGroup extends $dara.Model {
    * The ID of the PAI resource group.
    * 
    * @example
-   * rg17tmvwiokhzaxg
+   * rg17tmvwiokh****
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The type of compute resources in the resource group.
+   * 
+   * @example
+   * Ecs
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The status of the resource group.
+   * 
+   * @example
+   * Ready
+   */
   status?: string;
   /**
    * @remarks
    * The VPC configuration.
    */
   userVpc?: UserVpc;
+  /**
+   * @remarks
+   * The version of the resource group.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 23000

@@ -4,10 +4,39 @@ import { DataSource } from "./DataSource";
 
 
 export class QuotaCluster extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster type.
+   * 
+   * @example
+   * RayCluster
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * The datasource config.
+   */
   dataSources?: DataSource[];
+  /**
+   * @remarks
+   * The service access endpoints.
+   */
   endpoints?: { [key: string]: string };
+  /**
+   * @remarks
+   * The container image address.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai-training/kmeans:v1.0.0
+   */
   image?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

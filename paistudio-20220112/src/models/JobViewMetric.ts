@@ -3,27 +3,146 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JobViewMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU utilization.
+   * 
+   * @example
+   * 59
+   */
   CPUUsageRate?: string;
+  /**
+   * @remarks
+   * The disk read rate.
+   * 
+   * @example
+   * 22
+   */
   diskReadRate?: string;
+  /**
+   * @remarks
+   * The disk write rate.
+   * 
+   * @example
+   * 22
+   */
   diskWriteRate?: string;
+  /**
+   * @remarks
+   * The GPU utilization.
+   * 
+   * @example
+   * 10
+   */
   GPUUsageRate?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * dsw-12580
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The job type, such as DLC or DSW.
+   * 
+   * @example
+   * TFJob
+   */
   jobType?: string;
+  /**
+   * @remarks
+   * The memory utilization.
+   * 
+   * @example
+   * 20
+   */
   memoryUsageRate?: string;
+  /**
+   * @remarks
+   * The network inbound rate.
+   * 
+   * @example
+   * 1
+   */
   networkInputRate?: string;
+  /**
+   * @remarks
+   * The network outbound rate.
+   * 
+   * @example
+   * 1
+   */
   networkOutputRate?: string;
+  /**
+   * @remarks
+   * The node list.
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * The number of requested CPU cores.
+   * 
+   * @example
+   * 100
+   */
   requestCPU?: number;
+  /**
+   * @remarks
+   * The number of requested GPU cores.
+   * 
+   * @example
+   * 10
+   */
   requestGPU?: number;
+  /**
+   * @remarks
+   * The requested memory in KB.
+   * 
+   * @example
+   * 102400000
+   */
   requestMemory?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg17tmvwiokhzaxg
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The total number of CPU cores.
+   * 
+   * @example
+   * 1000
+   */
   totalCPU?: number;
+  /**
+   * @remarks
+   * The total number of GPU cards.
+   * 
+   * @example
+   * 1
+   */
   totalGPU?: number;
+  /**
+   * @remarks
+   * The total memory in KB.
+   * 
+   * @example
+   * 10240
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 123456789
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

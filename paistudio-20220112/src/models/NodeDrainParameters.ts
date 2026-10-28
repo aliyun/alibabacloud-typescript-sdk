@@ -3,15 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NodeDrainParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to forcibly drain the node.
+   */
   force?: boolean;
   /**
    * @remarks
-   * Delete pods of the specified job types
+   * The pods of the specified job types to drain.
    */
   podFromSubProducts?: string[];
   /**
    * @remarks
-   * Delete specified pods
+   * The specified pods to drain.
    */
   podNames?: string[];
   static names(): { [key: string]: string } {

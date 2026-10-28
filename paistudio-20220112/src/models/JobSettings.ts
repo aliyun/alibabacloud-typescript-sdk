@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class JobSettings extends $dara.Model {
   /**
    * @remarks
-   * Additional advanced parameter settings.
+   * The additional advanced parameter settings.
    */
   advancedSettings?: { [key: string]: any };
   /**
    * @remarks
-   * User ID associated with the job.
+   * The ID of the user associated with the job.
    * 
    * @example
    * 166924
@@ -18,7 +18,7 @@ export class JobSettings extends $dara.Model {
   businessUserId?: string;
   /**
    * @remarks
-   * Caller.
+   * The caller.
    * 
    * @example
    * SilkFlow
@@ -26,7 +26,7 @@ export class JobSettings extends $dara.Model {
   caller?: string;
   /**
    * @remarks
-   * NVIDIA driver configuration.
+   * The NVIDIA driver configuration.
    * 
    * @example
    * 535.54.03
@@ -34,7 +34,7 @@ export class JobSettings extends $dara.Model {
   driver?: string;
   /**
    * @remarks
-   * Enable job fault tolerance monitoring.
+   * Specifies whether to enable fault tolerance monitoring for the job.
    * 
    * @example
    * false
@@ -42,7 +42,7 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Enable OSS append writes.
+   * Specifies whether to enable OSS append writing.
    * 
    * @example
    * true
@@ -50,7 +50,7 @@ export class JobSettings extends $dara.Model {
   enableOssAppend?: boolean;
   /**
    * @remarks
-   * Enable the job to use RDMA.
+   * Specifies whether to allow the job to use RDMA.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class JobSettings extends $dara.Model {
   enableRDMA?: boolean;
   /**
    * @remarks
-   * Enable computing power health check for the job.
+   * Specifies whether to enable computing power health checks for the job.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Enable the job to use tide resources.
+   * Specifies whether to allow the job to use tide resources.
    * 
    * @example
    * true
@@ -74,7 +74,7 @@ export class JobSettings extends $dara.Model {
   enableTideResource?: boolean;
   /**
    * @remarks
-   * Specify configuration parameters for fault tolerance monitoring, such as whether to enable log hang-based detection.
+   * The user-specified configuration parameters for fault tolerance monitoring, such as whether to enable log hang-based detection.
    * 
    * @example
    * --enable-log-hang-detection true
@@ -82,7 +82,7 @@ export class JobSettings extends $dara.Model {
   errorMonitoringArgs?: string;
   /**
    * @remarks
-   * Duration in minutes to retain the job after completion.
+   * The retention duration after the job ends, in minutes.
    * 
    * @example
    * 30
@@ -90,7 +90,7 @@ export class JobSettings extends $dara.Model {
   jobReservedMinutes?: number;
   /**
    * @remarks
-   * Policy for retaining the job after completion.
+   * The retention policy after the job ends.
    * 
    * @example
    * Always
@@ -98,7 +98,7 @@ export class JobSettings extends $dara.Model {
   jobReservedPolicy?: string;
   /**
    * @remarks
-   * Job\\"s oversold resource usage method (not accepted, accepted, or only accepted).
+   * The oversold resource usage type for the job, which can be not accepted, accepted, or only accepted.
    * 
    * @example
    * AcceptQuotaOverSold
@@ -106,7 +106,7 @@ export class JobSettings extends $dara.Model {
   oversoldType?: string;
   /**
    * @remarks
-   * Workflow ID.
+   * The pipeline ID.
    * 
    * @example
    * pid-123456
@@ -114,7 +114,7 @@ export class JobSettings extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Configuration parameters for computing power health check.
+   * The configuration parameters for computing power health checks.
    * 
    * @example
    * --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFai
@@ -122,7 +122,7 @@ export class JobSettings extends $dara.Model {
   sanityCheckArgs?: string;
   /**
    * @remarks
-   * Custom tags.
+   * The custom labels.
    */
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResourceLimitDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The GC level.
+   */
   GCLevel?: string;
+  /**
+   * @remarks
+   * The resource limit details.
+   */
   resourceLimit?: { [key: string]: any };
+  /**
+   * @remarks
+   * Specifies whether to ignore the resource check.
+   */
   shouldIgnoreResourceCheck?: boolean;
   static names(): { [key: string]: string } {
     return {

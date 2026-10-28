@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * F2D0392B-D749-5C48-A98A-3FAE5C9444A6
@@ -13,7 +13,7 @@ export class GetTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Share token for the training task. Use this token as the Token parameter in the GetJob API to view details of the shared task.
+   * The job sharing token. You can use this token as the Token parameter of the GetJob API to view information about the shared job.
    * 
    * @example
    * ql4OU830nJaF17LP6KTry4a9DvnjIXHP

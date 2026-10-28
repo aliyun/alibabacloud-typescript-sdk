@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesRequestHealthCount extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator. Valid values: ge, gte, eq, lte, lt.
+   * The comparison operator. Valid values: ge, gte, eq, lte, and lt.
+   * 
+   * @example
+   * le
    */
   operation?: string;
+  /**
+   * @remarks
+   * The threshold for the number of healthy nodes.
+   * 
+   * @example
+   * 3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +45,19 @@ export class ListNodesRequestHealthCount extends $dara.Model {
 export class ListNodesRequestHealthRate extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator. Valid values: ge, gte, eq, lte, lt.
+   * The comparison operator. Valid values: ge, gte, eq, lte, and lt.
+   * 
+   * @example
+   * ge
    */
   operation?: string;
+  /**
+   * @remarks
+   * The health rate threshold. Unit: percentage.
+   * 
+   * @example
+   * 50
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -70,18 +90,36 @@ export class ListNodesRequest extends $dara.Model {
    * - CPU
    * - GPU
    * 
-   * Default value: empty, which indicates all types.
+   * If this parameter is left empty, all types are queried.
    * 
    * @example
    * CPU
    */
   acceleratorType?: string;
+  /**
+   * @remarks
+   * The zone where the nodes reside.
+   * 
+   * @example
+   * C0
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The clique ID.
+   */
   cliqueID?: string;
+  /**
+   * @remarks
+   * The performance level (PL) of the cloud disk.
+   * 
+   * @example
+   * PL2
+   */
   diskPL?: string;
   /**
    * @remarks
-   * Used together with ResourceGroupIds to display nodes in the resource groups that are bound to the specified quotas.
+   * Used together with ResourceGroupIds to display nodes in the resource group that are bound to specific quotas.
    * 
    * @example
    * quotamtl37ge7gkvdz
@@ -89,7 +127,7 @@ export class ListNodesRequest extends $dara.Model {
   filterByQuotaId?: string;
   /**
    * @remarks
-   * Used together with QuotaId to display nodes in the quota that belong to the specified resource groups.
+   * Used together with QuotaId to display nodes in the quota that belong to specific resource groups.
    * 
    * @example
    * rg69rj0leslwdnbe
@@ -97,7 +135,7 @@ export class ListNodesRequest extends $dara.Model {
   filterByResourceGroupIds?: string;
   /**
    * @remarks
-   * The GPU type. Fuzzy match is supported.
+   * The GPU card type. Fuzzy match is supported.
    * 
    * @example
    * T4
@@ -110,20 +148,41 @@ export class ListNodesRequest extends $dara.Model {
   healthCount?: ListNodesRequestHealthCount;
   /**
    * @remarks
-   * The health rate of nodes (the proportion of healthy nodes).
+   * The health rate of the nodes, which is the proportion of healthy nodes.
    */
   healthRate?: ListNodesRequestHealthRate;
+  /**
+   * @remarks
+   * The name of the hypernode.
+   */
   hyperNode?: string;
+  /**
+   * @remarks
+   * The hyperzone where the nodes reside.
+   * 
+   * @example
+   * A0
+   */
   hyperZone?: string;
   /**
    * @remarks
    * The layout mode.
+   * 
+   * @example
+   * Tree
    */
   layoutMode?: string;
+  /**
+   * @remarks
+   * The IDs of the machine groups to which the nodes belong.
+   * 
+   * @example
+   * mg124
+   */
   machineGroupIds?: string;
   /**
    * @remarks
-   * The node names to display, separated by commas.
+   * The names of the nodes to display. Separate multiple names with commas.
    * 
    * @example
    * lingjxxxx
@@ -131,7 +190,7 @@ export class ListNodesRequest extends $dara.Model {
   nodeNames?: string;
   /**
    * @remarks
-   * The node statuses, separated by commas. If this parameter is not specified, nodes in all statuses are returned.
+   * The status of the node. Separate multiple statuses with commas. If you do not specify this parameter, the system returns a list of nodes in all statuses.
    * 
    * @example
    * Ready
@@ -139,7 +198,7 @@ export class ListNodesRequest extends $dara.Model {
   nodeStatuses?: string;
   /**
    * @remarks
-   * The resource node specifications, separated by commas. If this parameter is not configured, nodes of all node specifications are returned.
+   * The list of resource node specifications. Separate multiple specifications with commas. If you do not specify this parameter, the system returns a list of machines of all resource node specifications.
    * 
    * @example
    * ecs.c6.xlarge
@@ -148,8 +207,8 @@ export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - desc: Descending order.
-   * - asc: Ascending order.
+   * - desc: descending order.
+   * - asc: ascending order.
    * 
    * @example
    * desc
@@ -165,7 +224,7 @@ export class ListNodesRequest extends $dara.Model {
   orderInstanceIds?: string;
   /**
    * @remarks
-   * The order statuses of the nodes.
+   * The order status of the node.
    * 
    * @example
    * Ready
@@ -173,7 +232,7 @@ export class ListNodesRequest extends $dara.Model {
   orderStatuses?: string;
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The page number. Pages start from page 1.
    * 
    * @example
    * 2
@@ -181,31 +240,51 @@ export class ListNodesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paged query. This parameter is used for paging.
+   * The number of entries to return on each page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The billing method of the node order.
+   * 
+   * @example
+   * PREPAY
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The number of pods on the node.
+   * 
+   * @example
+   * 1
+   */
   podNum?: number;
   /**
    * @remarks
-   * The resource quota ID to which the node belongs.
+   * The ID of the resource quota to which the node belongs.
    * 
    * @example
    * quotamtl37ge7gkvdz
    */
   quotaId?: string;
+  /**
+   * @remarks
+   * The reason codes for the current status of the nodes.
+   * 
+   * @example
+   * CordonByUser
+   */
   reasonCodes?: string;
   /**
    * @remarks
-   * The IDs of resource groups, separated by commas. Either this parameter or QuotaId is required.
-   * 
+   * The list of resource group IDs. Separate multiple IDs with commas. You must specify either this parameter or QuotaId.
    * Constraints:
-   * 1. The UserId of the specified ResourceGroupId must match the UserId of the request.
-   * 2. The specified resource groups must be of the same type.
-   * 3. The specified resource groups must be associated with the same VPC at this stage.
+   * 1. The user ID of the specified resource group must match the user ID of the request.
+   * 2. The resource groups in the list must be of the same type.
+   * 3. The VPCs associated with the resource groups in the list must be the same.
    * 
    * @example
    * rg69rj0leslwdnbe
@@ -214,11 +293,14 @@ export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * rg-dlc
    */
   resourceGroupName?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The field based on which the results are sorted.
    * 
    * @example
    * GmtCreateTime
@@ -232,7 +314,21 @@ export class ListNodesRequest extends $dara.Model {
    * false
    */
   verbose?: boolean;
+  /**
+   * @remarks
+   * The number of workloads on the node.
+   * 
+   * @example
+   * 1
+   */
   workloadNum?: number;
+  /**
+   * @remarks
+   * The ID of the workspace to which the nodes belong.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

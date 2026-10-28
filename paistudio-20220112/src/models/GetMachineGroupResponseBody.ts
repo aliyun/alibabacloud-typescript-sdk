@@ -5,47 +5,74 @@ import * as $dara from '@darabonba/typescript';
 export class GetMachineGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances in the machine group.
+   * The quantity.
+   * 
+   * @example
+   * 10
    */
   count?: number;
   /**
    * @remarks
-   * The default driver.
+   * The default driver version.
+   * 
+   * @example
+   * 535
    */
   defaultDriver?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is returned only when `PayType` is `PrePay`.
+   * The purchase duration.
+   * 
+   * @example
+   * 2
    */
   duration?: string;
   /**
    * @remarks
-   * The ECS instance type of the machine group.
+   * The ECS instance type.
+   * 
+   * @example
+   * ecs.c6.large
    */
   ecsType?: string;
   /**
    * @remarks
-   * The time when the machine group was created.
+   * The creation time.
+   * 
+   * @example
+   * 2026-08-10T03:17:31Z
    */
   gmtCreated?: string;
   /**
    * @remarks
-   * The expiration time. This parameter is returned only when `PayType` is `PrePay`.
+   * The expiration time.
+   * 
+   * @example
+   * 2023-08-22T00:00:00Z
    */
   gmtExpired?: string;
   /**
    * @remarks
-   * The time when the machine group was last modified.
+   * The modification time.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtModified?: string;
   /**
    * @remarks
-   * The time when the machine group started.
+   * The start time.
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
    */
   gmtStarted?: string;
   /**
    * @remarks
-   * The ID of the machine group.
+   * The machine group ID.
+   * 
+   * @example
+   * mg1
    */
   machineGroupID?: string;
   /**
@@ -55,7 +82,10 @@ export class GetMachineGroupResponseBody extends $dara.Model {
   orderID?: string;
   /**
    * @remarks
-   * The instance ID of the order.
+   * The order instance ID.
+   * 
+   * @example
+   * 236553689400333
    */
   orderInstanceId?: string;
   /**
@@ -65,32 +95,47 @@ export class GetMachineGroupResponseBody extends $dara.Model {
   PAIResourceID?: string;
   /**
    * @remarks
-   * The payment type. Valid values: `PostPay` (pay-as-you-go) and `PrePay` (subscription).
+   * The billing type.
+   * 
+   * @example
+   * PrePay
    */
   payType?: string;
   /**
    * @remarks
-   * The billing cycle. This parameter is returned only when `PayType` is `PrePay`.
+   * The pricing cycle.
+   * 
+   * @example
+   * Monthly
    */
   pricingCycle?: string;
   /**
    * @remarks
    * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionID?: string;
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * F2D0392B-D749-5C48-A98A-3FAE5C9444A6
    */
   requestId?: string;
   /**
    * @remarks
-   * The status of the machine group.
+   * The status.
+   * 
+   * @example
+   * Success
    */
   status?: string;
   /**
    * @remarks
-   * The drivers that the machine group supports.
+   * The supported driver versions.
    */
   supportedDrivers?: string[];
   static names(): { [key: string]: string } {

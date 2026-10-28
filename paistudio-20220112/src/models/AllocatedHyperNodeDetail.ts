@@ -5,22 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class AllocatedHyperNodeDetail extends $dara.Model {
   /**
    * @remarks
-   * The number of allocated nodes in the hyper node.
+   * The number of allocated nodes.
+   * 
+   * @example
+   * 0
    */
   allocatedNodeNum?: number;
   /**
    * @remarks
-   * The number of idle nodes in the hyper node.
+   * The number of idle nodes.
+   * 
+   * @example
+   * 0
    */
   emptyNodeNum?: number;
   /**
    * @remarks
-   * The name of the hyper node.
+   * The name of the hypernode.
+   * 
+   * @example
+   * mg123456
    */
   hyperNodeName?: string;
   /**
    * @remarks
-   * The total number of nodes in the hyper node.
+   * The total number of nodes.
+   * 
+   * @example
+   * 0
    */
   totalNodeNum?: number;
   static names(): { [key: string]: string } {

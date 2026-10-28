@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time in ISO 8601 format.
    * 
    * @example
    * 2024-07-10T10:17:06
@@ -26,7 +26,7 @@ export class GetNodeMetricsRequest extends $dara.Model {
   GPUType?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in ISO 8601 format. The time zone is UTC.
    * 
    * @example
    * 2024-07-08T02:23:30.292Z
@@ -36,11 +36,11 @@ export class GetNodeMetricsRequest extends $dara.Model {
    * @remarks
    * The time step. Default value: 5m. Valid values for the time unit:
    * 
-   * - h: hours.
+   * - h: Hours.
    * 
-   * - m: minutes.
+   * - m: Minutes.
    * 
-   * - s: seconds.
+   * - s: Seconds.
    * 
    * If no unit is specified, the default unit is s (seconds).
    * 
@@ -50,10 +50,10 @@ export class GetNodeMetricsRequest extends $dara.Model {
   timeStep?: string;
   /**
    * @remarks
-   * Specifies whether to display non-essential information. Non-essential information currently includes Labels. Valid values:
+   * Specifies whether to display non-essential information. Non-essential information currently includes labels. Valid values:
    * 
-   * false: does not display non-essential information (default).
-   * true: displays non-essential information.
+   * - false: Does not display non-essential information. This is the default value.
+   * - true: Displays non-essential information.
    * 
    * @example
    * true

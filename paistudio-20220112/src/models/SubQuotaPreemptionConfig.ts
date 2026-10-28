@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubQuotaPreemptionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The maximum priority of preempted nodes.
+   * 
    * @example
    * 9
    */
   preemptedPriorityUpperBound?: number;
+  /**
+   * @remarks
+   * The preemptable node types.
+   */
   preemptedProducts?: string[];
   static names(): { [key: string]: string } {
     return {

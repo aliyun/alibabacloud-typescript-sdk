@@ -7,12 +7,12 @@ import { UserVpc } from "./UserVpc";
 export class CacheService extends $dara.Model {
   /**
    * @remarks
-   * The list of data source cache information connected to the cache service. Each element corresponds to a data source and its access port.
+   * The list of connected data source cache information for the cache service, where each element corresponds to a data source and its access port.
    */
   cacheInfos?: CacheInfo[];
   /**
    * @remarks
-   * The cache service ID. This is the unique identifier of the cache service.
+   * The ID of the cache service, which is the unique identifier of the cache service.
    * 
    * @example
    * cachea1b2c3d4e5f
@@ -20,7 +20,7 @@ export class CacheService extends $dara.Model {
   cacheServiceId?: string;
   /**
    * @remarks
-   * The ID of the cluster where the cache service resides.
+   * The ID of the cluster where the cache service is located.
    * 
    * @example
    * c1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6
@@ -36,7 +36,7 @@ export class CacheService extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The time when the cache service was created, in UTC in ISO 8601 format.
+   * The time when the cache service was created, in UTC and ISO 8601 format.
    * 
    * @example
    * 2026-08-10T03:17:31Z
@@ -44,16 +44,12 @@ export class CacheService extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * Indicates whether the service discovery of the cache service uses shard mode.
+   * Indicates whether the service discovery of the cache service uses the shard mode.
    */
   isSharded?: boolean;
   /**
    * @remarks
-   * The type of RDMA network interface controller used by the cache service. This parameter is returned only when SupportRDMA is set to true. Valid values:
-   * - eic: EIC network interface controller.
-   * - mlx: Mellanox network interface controller.
-   * 
-   * This parameter is empty when RDMA is not enabled.
+   * The type of RDMA network interface controller (NIC) used by the cache service. This parameter is returned only when SupportRDMA is true. Valid values: eic: EIC NIC. mlx: Mellanox NIC. If RDMA is not enabled, this parameter is empty.
    * 
    * @example
    * eic
@@ -77,7 +73,10 @@ export class CacheService extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the cache service supports access through RDMA networks.
+   * Indicates whether the cache service supports access over an RDMA network.
+   * 
+   * @example
+   * true
    */
   supportRDMA?: string;
   /**
@@ -87,7 +86,7 @@ export class CacheService extends $dara.Model {
   supportedClientQuotaIds?: string[];
   /**
    * @remarks
-   * The tenant ID to which the cache service belongs, which is the Alibaba Cloud account ID.
+   * The ID of the tenant to which the cache service belongs, which is the Alibaba Cloud account ID.
    * 
    * @example
    * 1234567890123456
@@ -103,7 +102,7 @@ export class CacheService extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The VPC network information of the cache service, including the VPC, vSwitch, and security group configurations.
+   * The user VPC network information of the cache service, including configurations such as the VPC, vSwitch, and security group.
    */
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {

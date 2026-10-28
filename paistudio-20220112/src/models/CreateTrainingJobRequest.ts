@@ -26,7 +26,7 @@ export class CreateTrainingJobRequestComputeResourceInstanceSpec extends $dara.M
   GPU?: string;
   /**
    * @remarks
-   * The GPU type for the instance.
+   * The GPU type of the instance.
    * 
    * @example
    * V100
@@ -34,7 +34,7 @@ export class CreateTrainingJobRequestComputeResourceInstanceSpec extends $dara.M
   GPUType?: string;
   /**
    * @remarks
-   * The memory size of the instance. Unit: GiB.
+   * The memory size of the instance, in GiB.
    * 
    * @example
    * 32
@@ -42,7 +42,7 @@ export class CreateTrainingJobRequestComputeResourceInstanceSpec extends $dara.M
   memory?: string;
   /**
    * @remarks
-   * The shared memory size of the instance. Unit: GB.
+   * The shared memory size of the instance, in GB.
    * 
    * @example
    * 32
@@ -80,7 +80,7 @@ export class CreateTrainingJobRequestComputeResourceInstanceSpec extends $dara.M
 export class CreateTrainingJobRequestComputeResourceSpotSpec extends $dara.Model {
   /**
    * @remarks
-   * The maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+   * Sets the maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
    * 
    * @example
    * 9
@@ -88,9 +88,9 @@ export class CreateTrainingJobRequestComputeResourceSpotSpec extends $dara.Model
   spotDiscountLimit?: number;
   /**
    * @remarks
-   * The bidding strategy for the spot instance. Valid values:
-   * - SpotWithPriceLimit: a spot instance with a maximum price limit.
-   * - SpotAsPriceGo: the system automatically bids at the current market price.
+   * The preemption policy for the instance. Valid values:
+   * - SpotWithPriceLimit: Sets a maximum price for the spot instance.
+   * - SpotAsPriceGo: The system automatically bids and follows the actual market price.
    * 
    * @example
    * SpotWithPriceLimit
@@ -138,7 +138,7 @@ export class CreateTrainingJobRequestComputeResource extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The number of instances used from the resource quota.
+   * The number of instances used in the resource quota.
    * 
    * @example
    * 1
@@ -146,12 +146,12 @@ export class CreateTrainingJobRequestComputeResource extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The instance specification for the resource quota.
+   * The instance configuration for the resource quota.
    */
   instanceSpec?: CreateTrainingJobRequestComputeResourceInstanceSpec;
   /**
    * @remarks
-   * The resource quota ID.
+   * The ID of the resource quota.
    * 
    * @example
    * quotam670lixikcs
@@ -212,7 +212,7 @@ export class CreateTrainingJobRequestComputeResource extends $dara.Model {
 export class CreateTrainingJobRequestExperimentConfig extends $dara.Model {
   /**
    * @remarks
-   * The experiment ID associated with the training job.
+   * The ID of the experiment associated with the training job.
    * 
    * @example
    * exp-ds9aefia90v
@@ -242,7 +242,7 @@ export class CreateTrainingJobRequestExperimentConfig extends $dara.Model {
 export class CreateTrainingJobRequestHyperParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * learning_rate
@@ -250,7 +250,7 @@ export class CreateTrainingJobRequestHyperParameters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * 0.0001
@@ -282,7 +282,7 @@ export class CreateTrainingJobRequestHyperParameters extends $dara.Model {
 export class CreateTrainingJobRequestInputChannels extends $dara.Model {
   /**
    * @remarks
-   * The dataset ID.
+   * The ID of the dataset.
    * 
    * @example
    * d-475megosidivjfgfq6
@@ -290,7 +290,7 @@ export class CreateTrainingJobRequestInputChannels extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The input data URI.
+   * The URI of the input data.
    * 
    * @example
    * oss://pai-quickstart-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/modelscope/models/qwen2-0.5b/main/
@@ -298,7 +298,7 @@ export class CreateTrainingJobRequestInputChannels extends $dara.Model {
   inputUri?: string;
   /**
    * @remarks
-   * The input data name.
+   * The name of the input data.
    * 
    * @example
    * model
@@ -306,13 +306,27 @@ export class CreateTrainingJobRequestInputChannels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The input data parameter settings.
+   * The parameter settings for the input data.
    * 
    * @example
    * {"appendable": true}
    */
   options?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role.
+   * 
+   * @example
+   * acs:ram::1157703270994901:role/aliyunserviceroleforpaiworkspace
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The name of the data version.
+   * 
+   * @example
+   * v1
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -388,7 +402,7 @@ export class CreateTrainingJobRequestLabels extends $dara.Model {
 export class CreateTrainingJobRequestOutputChannels extends $dara.Model {
   /**
    * @remarks
-   * The dataset ID.
+   * The ID of the dataset.
    * 
    * @example
    * d-475megosidivjfgfq6
@@ -396,7 +410,7 @@ export class CreateTrainingJobRequestOutputChannels extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The output data name.
+   * The name of the output data.
    * 
    * @example
    * model
@@ -404,13 +418,27 @@ export class CreateTrainingJobRequestOutputChannels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output data URI.
+   * The output data configuration.
    * 
    * @example
    * oss://pai-quickstart-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/modelscope/models/qwen2-0.5b/main/
    */
   outputUri?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role.
+   * 
+   * @example
+   * acs:ram::1157703270994901:role/aliyunserviceroleforpaiworkspace
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The name of the data version.
+   * 
+   * @example
+   * v1
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -444,7 +472,7 @@ export class CreateTrainingJobRequestOutputChannels extends $dara.Model {
 export class CreateTrainingJobRequestScheduler extends $dara.Model {
   /**
    * @remarks
-   * The maximum training runtime in minutes. A value of 0 indicates no limit on the maximum runtime.
+   * The maximum training duration, in minutes. A value of 0 indicates that the maximum duration is not limited.
    * 
    * @example
    * 0
@@ -452,7 +480,7 @@ export class CreateTrainingJobRequestScheduler extends $dara.Model {
   maxRunningTimeInMinutes?: number;
   /**
    * @remarks
-   * The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
+   * The maximum training duration, in seconds. A value of 0 indicates that the maximum duration is not limited.
    * 
    * @example
    * 0
@@ -484,7 +512,7 @@ export class CreateTrainingJobRequestScheduler extends $dara.Model {
 export class CreateTrainingJobRequestUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default route interface. eth0 indicates that the default route uses the PAI VPC. eth1 indicates that the default route uses the user VPC. Default value: eth0.
+   * The default route interface. A value of eth0 indicates that the default route uses the PAI VPC. A value of eth1 indicates that the default route uses the user VPC. Default value: eth0.
    * 
    * @example
    * eth0
@@ -497,7 +525,7 @@ export class CreateTrainingJobRequestUserVpc extends $dara.Model {
   extendedCIDRs?: string[];
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-qdfasd13sdasf
@@ -505,7 +533,7 @@ export class CreateTrainingJobRequestUserVpc extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vs-icrc813vdsfol
@@ -513,7 +541,7 @@ export class CreateTrainingJobRequestUserVpc extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-dxiflssjx978sl
@@ -554,7 +582,7 @@ export class CreateTrainingJobRequestUserVpc extends $dara.Model {
 export class CreateTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The algorithm name.
+   * The name of the algorithm.
    * 
    * @example
    * ev_classification
@@ -562,7 +590,7 @@ export class CreateTrainingJobRequest extends $dara.Model {
   algorithmName?: string;
   /**
    * @remarks
-   * The algorithm provider.
+   * The provider of the algorithm.
    * 
    * @example
    * pai
@@ -575,16 +603,20 @@ export class CreateTrainingJobRequest extends $dara.Model {
   algorithmSpec?: AlgorithmSpec;
   /**
    * @remarks
-   * The algorithm version.
+   * The version of the algorithm.
    * 
    * @example
    * v1.0.0
    */
   algorithmVersion?: string;
+  /**
+   * @remarks
+   * The specified node configuration.
+   */
   assignNodeSpec?: AssignNodeSpec;
   /**
    * @remarks
-   * The code directory for the training job.
+   * The code configuration for the training job.
    */
   codeDir?: Location;
   /**
@@ -592,6 +624,10 @@ export class CreateTrainingJobRequest extends $dara.Model {
    * The compute resource configuration.
    */
   computeResource?: CreateTrainingJobRequestComputeResource;
+  /**
+   * @remarks
+   * The credential configuration.
+   */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
@@ -600,7 +636,7 @@ export class CreateTrainingJobRequest extends $dara.Model {
   environments?: { [key: string]: string };
   /**
    * @remarks
-   * The experiment configuration associated with the training job.
+   * The associated experiment configuration for the training job.
    */
   experimentConfig?: CreateTrainingJobRequestExperimentConfig;
   /**
@@ -610,17 +646,17 @@ export class CreateTrainingJobRequest extends $dara.Model {
   hyperParameters?: CreateTrainingJobRequestHyperParameters[];
   /**
    * @remarks
-   * The training input data configuration.
+   * The input data configuration for training.
    */
   inputChannels?: CreateTrainingJobRequestInputChannels[];
   /**
    * @remarks
-   * The training job labels.
+   * The labels of the training job.
    */
   labels?: CreateTrainingJobRequestLabels[];
   /**
    * @remarks
-   * The training output data configuration.
+   * The output data configuration for training.
    */
   outputChannels?: CreateTrainingJobRequestOutputChannels[];
   /**
@@ -638,7 +674,7 @@ export class CreateTrainingJobRequest extends $dara.Model {
   pythonRequirements?: string[];
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * The ARN of the specified role. Format: acs:ram::$accountID:role/$roleName.
    * 
    * @example
    * acs:ram::1157703270994901:role/aliyunserviceroleforpaiworkspace
@@ -646,7 +682,7 @@ export class CreateTrainingJobRequest extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The training job scheduling configuration.
+   * The scheduling configuration for the training job.
    */
   scheduler?: CreateTrainingJobRequestScheduler;
   /**
@@ -679,7 +715,7 @@ export class CreateTrainingJobRequest extends $dara.Model {
   userVpc?: CreateTrainingJobRequestUserVpc;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 

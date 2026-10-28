@@ -7,16 +7,22 @@ export class SpotStockItem extends $dara.Model {
   /**
    * @remarks
    * The instance type.
+   * 
+   * @example
+   * ml.gp7vf.16.40xlarge
    */
   instanceType?: string;
   /**
    * @remarks
-   * Internal information about the stock of the spot instance type.
+   * The inventory details.
    */
   internalInfo?: SpotStockInternalInfo[];
   /**
    * @remarks
-   * The stock status of the instance type. Valid values are `Available` and `SoldOut`.
+   * The inventory status.
+   * 
+   * @example
+   * High
    */
   stockStatus?: string;
   static names(): { [key: string]: string } {

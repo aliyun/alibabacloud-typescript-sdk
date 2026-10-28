@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupMachineGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag. Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class GetResourceGroupMachineGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class GetResourceGroupMachineGroupRequestTag extends $dara.Model {
 export class GetResourceGroupMachineGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of up to 20 tags.
+   * The list of tags to add. You can specify up to 20 tags.
    */
   tag?: GetResourceGroupMachineGroupRequestTag[];
   static names(): { [key: string]: string } {

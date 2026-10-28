@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The provider of the compute resources.
+   * The compute resource type of the resource group.
    * 
    * @example
    * Ecs
    */
   computingResourceProvider?: string;
+  /**
+   * @remarks
+   * Specifies whether the resource group contains resources.
+   */
   hasResource?: boolean;
   /**
    * @remarks
@@ -23,10 +27,8 @@ export class ListResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - `desc`: descending.
-   * 
-   * - `asc`: ascending.
+   * - desc: descending order.
+   * - asc: ascending order.
    * 
    * @example
    * desc
@@ -42,20 +44,26 @@ export class ListResourceGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of resource group IDs.
+   * 
+   * @example
+   * rg123,rg456
+   */
   resourceGroupIDs?: string;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The list of resource types. Valid values:
    * 
-   * - `ECS`: ECS.
-   * 
-   * - `Lingjun`: Lingjun intelligent computing resources.
+   * - ECS: general compute resources.
+   * - Lingjun: Lingjun AI compute resources.
    * 
    * @example
    * Lingjun
@@ -71,7 +79,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   showAll?: boolean;
   /**
    * @remarks
-   * The field to sort by. Valid values include: `DisplayName`, `GmtCreated`, `GmtModified`, `RegionID`, `Duration`, `PricingCycle`, and `PayType`.
+   * The name of the field used for sorting. Valid values: DisplayName, GmtCreated, GmtModified, RegionID, Duration, PricingCycle, and PayType.
    * 
    * @example
    * DisplayName
@@ -87,7 +95,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version to filter by.
+   * The version to search for.
    * 
    * @example
    * 1.0

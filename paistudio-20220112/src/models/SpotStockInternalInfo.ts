@@ -5,22 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class SpotStockInternalInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of available Spot Instances.
+   * The available quantity.
+   * 
+   * @example
+   * 100
    */
   availableQuantity?: number;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
+   * 
+   * @example
+   * cluster1
    */
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the high-performance network (HPN) zone.
+   * The high-performance network zone.
+   * 
+   * @example
+   * A1
    */
   hpnZone?: string;
   /**
    * @remarks
-   * The total number of Spot Instances.
+   * The total quantity.
+   * 
+   * @example
+   * 1000
    */
   totalQuantity?: number;
   static names(): { [key: string]: string } {

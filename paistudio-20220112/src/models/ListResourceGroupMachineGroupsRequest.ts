@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user who created the machine group.
+   * The user ID of the machine group creator.
    * 
    * @example
    * 1612285282502326
    */
   creatorID?: string;
+  /**
+   * @remarks
+   * The cloud disk performance level for filtering.
+   * 
+   * @example
+   * PL2
+   */
   diskPL?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The machine group IDs. Separate multiple IDs with a comma (,).
+   * The IDs of the machine groups. Separate multiple IDs with commas.
    * 
    * @example
    * mg105ecqwfe49hwb
@@ -38,11 +45,9 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order.
-   * 
-   * - `Asc`: Sorts the results in ascending order.
-   * 
-   * - `Desc`: Sorts the results in descending order.
+   * The sort order. Valid values:
+   * - Asc: Ascending order.
+   * - Desc: Descending order.
    * 
    * @example
    * DESC
@@ -50,7 +55,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The ID of the purchase order.
+   * The purchased instance ID.
    * 
    * @example
    * 236553689400333
@@ -74,7 +79,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The payment duration. If `PaymentDurationUnit` is set to `Month`, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * The billing duration. If PaymentDurationUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -90,7 +95,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The payment type.
+   * The billing method.
    * 
    * @example
    * PREPAY
@@ -98,7 +103,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The sort field.
    * 
    * @example
    * GmtCreatedTime
@@ -106,7 +111,13 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The instance status. `Creating`: The instance is being created. `Ready`: The instance is running. `Expiring`: The instance is expiring. `Expired`: The instance has expired. `Stopping`: The instance is being stopped. `Stopped`: The instance is stopped.
+   * The instance status. Valid values:
+   * - Creating: The instance is being created.
+   * - Ready: The instance is running.
+   * - Expiring: The instance is about to expire.
+   * - Expired: The instance has expired.
+   * - Stopping: The instance is being stopped.
+   * - Stopped: The instance is stopped.
    * 
    * @example
    * Ready

@@ -13,7 +13,7 @@ export class ListAlgorithmVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size for paging.
+   * The page size for pagination.
    * 
    * @example
    * 10

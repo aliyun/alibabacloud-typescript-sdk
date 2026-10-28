@@ -13,7 +13,10 @@ export class WorkspaceIdName extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace to which the task belongs.
+   * 
+   * @example
+   * myshellprod
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

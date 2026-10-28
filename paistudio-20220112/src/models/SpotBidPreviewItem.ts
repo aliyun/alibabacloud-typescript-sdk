@@ -5,57 +5,81 @@ import * as $dara from '@darabonba/typescript';
 export class SpotBidPreviewItem extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the spot bid is active. If set to `false`, the bid is paused.
+   * Specifies whether it is active.
    */
   active?: boolean;
   /**
    * @remarks
-   * Determines whether instances can be deployed across different High-Performance Network (HPN) zones. Defaults to `false`.
+   * Specifies whether cross-super-node zones are allowed.
    */
   allowCrossHpnZone?: boolean;
   /**
    * @remarks
-   * The ID of the cluster where resources are provisioned.
+   * The cluster ID.
+   * 
+   * @example
+   * cluster1
    */
   clusterId?: string;
   /**
    * @remarks
-   * The GC level for the spot instance.
+   * The GC level.
+   * 
+   * @example
+   * A1
    */
   gcLevel?: string;
   /**
    * @remarks
-   * The type of compute instance.
+   * The instance type.
+   * 
+   * @example
+   * ml.gp7vf.16.40xlarge
    */
   instanceType?: string;
   /**
    * @remarks
-   * The name of the associated job.
+   * The job name.
+   * 
+   * @example
+   * dlc1abcdefg12345
    */
   jobName?: string;
   /**
    * @remarks
-   * The maximum discount percentage from the on-demand price.
+   * The maximum discount price.
+   * 
+   * @example
+   * 0.4
    */
   maxDiscount?: number;
   /**
    * @remarks
-   * A message that provides additional details about the current phase.
+   * The message.
+   * 
+   * @example
+   * bid succeeded
    */
   message?: string;
   /**
    * @remarks
-   * The name of the spot bid preview.
+   * The pre-bid name.
+   * 
+   * @example
+   * preview-xxxx
    */
   name?: string;
   /**
    * @remarks
-   * The current phase of the spot bid preview. Valid values are `Pending`, `Active`, and `Failed`.
+   * The phase.
    */
   phase?: string;
   /**
    * @remarks
-   * The number of instance replicas.
+   * The number of replicas.
+   * 
+   * @example
+   * 4
    */
   replicas?: number;
   static names(): { [key: string]: string } {

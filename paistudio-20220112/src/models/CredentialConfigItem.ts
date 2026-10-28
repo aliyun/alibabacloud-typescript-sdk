@@ -4,8 +4,26 @@ import { CredentialRole } from "./CredentialRole";
 
 
 export class CredentialConfigItem extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration key.
+   * 
+   * @example
+   * 0
+   */
   key?: string;
+  /**
+   * @remarks
+   * The role configuration.
+   */
   roles?: CredentialRole[];
+  /**
+   * @remarks
+   * The credential configuration type.
+   * 
+   * @example
+   * Role
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

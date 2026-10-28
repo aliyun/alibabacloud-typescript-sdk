@@ -4,10 +4,33 @@ import { ResourceAmount } from "./ResourceAmount";
 
 
 export class ResourceDiagnosisDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The exceeded resources.
+   */
   exceedResources?: string[];
+  /**
+   * @remarks
+   * The resource quota.
+   */
   limit?: ResourceAmount;
+  /**
+   * @remarks
+   * The diagnosis status.
+   * 
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @remarks
+   * The resource usage.
+   */
   used?: ResourceAmount;
+  /**
+   * @remarks
+   * The related workload IDs.
+   */
   workloadIds?: string[];
   static names(): { [key: string]: string } {
     return {

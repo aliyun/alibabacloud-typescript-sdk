@@ -3,31 +3,175 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuotaNodeViewMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU utilization.
+   * 
+   * @example
+   * 59
+   */
   CPUUsageRate?: string;
+  /**
+   * @remarks
+   * The node import time.
+   * 
+   * @example
+   * 2022-08-25T15:20:56Z
+   */
   createdTime?: string;
+  /**
+   * @remarks
+   * The disk read rate.
+   * 
+   * @example
+   * 22
+   */
   diskReadRate?: string;
+  /**
+   * @remarks
+   * The disk write rate.
+   * 
+   * @example
+   * 22
+   */
   diskWriteRate?: string;
+  /**
+   * @remarks
+   * The GPU model.
+   * 
+   * @example
+   * V100
+   */
   GPUType?: string;
+  /**
+   * @remarks
+   * The memory utilization.
+   * 
+   * @example
+   * 20
+   */
   memoryUsageRate?: string;
+  /**
+   * @remarks
+   * The network inbound rate.
+   * 
+   * @example
+   * 1
+   */
   networkInputRate?: string;
+  /**
+   * @remarks
+   * The network outbound rate.
+   * 
+   * @example
+   * 1
+   */
   networkOutputRate?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * -i121212node
    */
   nodeID?: string;
+  /**
+   * @remarks
+   * The node status.
+   * 
+   * @example
+   * Ready
+   */
   nodeStatus?: string;
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * ecs.g6.large
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The resource quota ID.
+   * 
+   * @example
+   * quotamtl37ge7gkvdz
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The used CPU.
+   * 
+   * @example
+   * 100
+   */
   requestCPU?: number;
+  /**
+   * @remarks
+   * The used GPU.
+   * 
+   * @example
+   * 10
+   */
   requestGPU?: number;
+  /**
+   * @remarks
+   * The used memory.
+   * 
+   * @example
+   * 102400000
+   */
   requestMemory?: number;
+  /**
+   * @remarks
+   * The node tasks.
+   */
   taskIdMap?: { [key: string]: any };
+  /**
+   * @remarks
+   * The total CPU.
+   * 
+   * @example
+   * 1000
+   */
   totalCPU?: number;
+  /**
+   * @remarks
+   * The total GPU.
+   * 
+   * @example
+   * 1
+   */
   totalGPU?: number;
+  /**
+   * @remarks
+   * The total memory.
+   * 
+   * @example
+   * 10240
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The total number of node tasks.
+   * 
+   * @example
+   * 1
+   */
   totalTasks?: number;
+  /**
+   * @remarks
+   * The user list.
+   */
   userIDs?: string[];
+  /**
+   * @remarks
+   * The total number of users.
+   * 
+   * @example
+   * 1
+   */
   userNumber?: string;
   static names(): { [key: string]: string } {
     return {

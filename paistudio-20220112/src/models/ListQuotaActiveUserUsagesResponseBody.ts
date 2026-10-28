@@ -11,7 +11,7 @@ export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
   quotaUserUsage?: QuotaUser[];
   /**
    * @remarks
-   * The user usage information.
+   * The list of user resource usage details.
    */
   quotaUserUsages?: QuotaUser[];
   /**

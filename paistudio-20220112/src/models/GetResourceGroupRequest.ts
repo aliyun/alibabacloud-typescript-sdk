@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the instance. Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class GetResourceGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the instance. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class GetResourceGroupRequestTag extends $dara.Model {
 export class GetResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Defaults to `true`.
+   * Specifies whether to enable AI workspace data. This parameter is optional. Default value: true.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class GetResourceGroupRequest extends $dara.Model {
   isAIWorkspaceDataEnabled?: boolean;
   /**
    * @remarks
-   * A list of up to 20 tags to add to the instance.
+   * The list of tags to be added. A maximum of 20 tags can be added.
    */
   tag?: GetResourceGroupRequestTag[];
   static names(): { [key: string]: string } {

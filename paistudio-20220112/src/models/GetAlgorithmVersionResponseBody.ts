@@ -6,7 +6,7 @@ import { AlgorithmSpec } from "./AlgorithmSpec";
 export class GetAlgorithmVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the algorithm.
+   * The algorithm ID.
    * 
    * @example
    * algo-xsldfvu1334
@@ -14,7 +14,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   algorithmId?: string;
   /**
    * @remarks
-   * The name of the algorithm.
+   * The algorithm name.
    * 
    * @example
    * llm_training
@@ -22,7 +22,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   algorithmName?: string;
   /**
    * @remarks
-   * The provider of the algorithm.
+   * The algorithm provider.
    * 
    * @example
    * pai
@@ -30,12 +30,12 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   algorithmProvider?: string;
   /**
    * @remarks
-   * Details about the algorithm.
+   * The algorithm details.
    */
   algorithmSpec?: AlgorithmSpec;
   /**
    * @remarks
-   * The version of the algorithm.
+   * The algorithm version.
    * 
    * @example
    * v0.0.1
@@ -43,7 +43,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   algorithmVersion?: string;
   /**
    * @remarks
-   * The time when the algorithm was created.
+   * The time when the algorithm was created. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2024-07-10T11:49:47Z
@@ -51,7 +51,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the algorithm was last updated.
+   * The time when the algorithm was last updated. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2024-07-10T11:49:47Z
@@ -59,7 +59,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The ID of the tenant who owns the algorithm.
+   * The ID of the tenant to whom the algorithm belongs.
    * 
    * @example
    * 123456789
@@ -67,7 +67,7 @@ export class GetAlgorithmVersionResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user who owns the algorithm.
+   * The ID of the user to whom the algorithm belongs.
    * 
    * @example
    * 123456789

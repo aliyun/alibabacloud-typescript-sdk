@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResourceAmount extends $dara.Model {
   /**
    * @remarks
-   * Total CPU
+   * The total CPU amount.
    * 
    * @example
    * 100
@@ -13,25 +13,31 @@ export class ResourceAmount extends $dara.Model {
   CPU?: string;
   /**
    * @remarks
-   * Total GPU cards
+   * The total number of GPU cards.
    * 
    * @example
    * 16
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU memory.
+   * 
    * @example
    * 80G
    */
   GPUMemory?: string;
   /**
+   * @remarks
+   * The GPU memory, in bytes.
+   * 
    * @example
    * 85899345920
    */
   GPUMemoryBytes?: number;
   /**
    * @remarks
-   * GPU card type
+   * The GPU card type.
    * 
    * @example
    * GPU
@@ -39,7 +45,7 @@ export class ResourceAmount extends $dara.Model {
   GPUType?: string;
   /**
    * @remarks
-   * Total memory
+   * The total memory amount.
    * 
    * @example
    * 100Gi

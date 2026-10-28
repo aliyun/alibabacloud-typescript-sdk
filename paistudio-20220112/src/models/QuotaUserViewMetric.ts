@@ -3,27 +3,166 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuotaUserViewMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU nodes.
+   * 
+   * @example
+   * 2
+   */
   CPUNodeNumber?: number;
+  /**
+   * @remarks
+   * The CPU utilization.
+   * 
+   * @example
+   * 59
+   */
   CPUUsageRate?: string;
+  /**
+   * @remarks
+   * The CPU jobs.
+   */
   cpuJobNames?: string[];
+  /**
+   * @remarks
+   * The CPU node list.
+   */
   cpuNodeNames?: string[];
+  /**
+   * @remarks
+   * The disk read rate.
+   * 
+   * @example
+   * 22
+   */
   diskReadRate?: string;
+  /**
+   * @remarks
+   * The disk write rate.
+   * 
+   * @example
+   * 22
+   */
   diskWriteRate?: string;
+  /**
+   * @remarks
+   * The number of GPU nodes.
+   * 
+   * @example
+   * 1
+   */
   GPUNodeNumber?: number;
+  /**
+   * @remarks
+   * The GPU utilization.
+   * 
+   * @example
+   * 10
+   */
   GPUUsageRate?: string;
+  /**
+   * @remarks
+   * The GPU jobs.
+   */
   gpuJobNames?: string[];
+  /**
+   * @remarks
+   * The GPU node list.
+   */
   gpuNodeNames?: string[];
+  /**
+   * @remarks
+   * The job type.
+   * 
+   * @example
+   * PyTorch
+   */
   jobType?: string;
+  /**
+   * @remarks
+   * The memory utilization.
+   * 
+   * @example
+   * 20
+   */
   memoryUsageRate?: string;
+  /**
+   * @remarks
+   * The network input rate.
+   * 
+   * @example
+   * 1
+   */
   networkInputRate?: string;
+  /**
+   * @remarks
+   * The network output rate.
+   * 
+   * @example
+   * 1
+   */
   networkOutputRate?: string;
+  /**
+   * @remarks
+   * The node list.
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * The number of requested CPU cores.
+   * 
+   * @example
+   * 100
+   */
   requestCPU?: number;
+  /**
+   * @remarks
+   * The number of requested GPU cores.
+   * 
+   * @example
+   * 10
+   */
   requestGPU?: number;
+  /**
+   * @remarks
+   * The requested memory in KB.
+   * 
+   * @example
+   * 102400000
+   */
   requestMemory?: number;
+  /**
+   * @remarks
+   * The total number of CPU cores.
+   * 
+   * @example
+   * 1000
+   */
   totalCPU?: number;
+  /**
+   * @remarks
+   * The total number of GPUs.
+   * 
+   * @example
+   * 1
+   */
   totalGPU?: number;
+  /**
+   * @remarks
+   * The total memory in KB.
+   * 
+   * @example
+   * 10240
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 123456789
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
