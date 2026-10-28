@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud browser group ID. This parameter is required. Specify the ID of a browser group that is created under the current account.
+   * The ID of the cloud browser group. This parameter is required. Specify the ID of a browser group that is created within the current account.
    * 
    * @example
    * big-0c7loey7fzjq****

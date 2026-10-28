@@ -13,7 +13,20 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The model code used for filtering. Fuzzy match is supported.
+   * The display language of the model. Valid values:
+   * - zh-CN: Simplified Chinese.
+   * - en-US: English.
+   * - ja-JP: Japanese.
+   * - zh-TW: Traditional Chinese.
+   * Default value: zh-CN. Currently, zh-TW returns Simplified Chinese, and ja-JP returns English. If the model is not included in Alibaba Cloud Model Studio or the English text is missing, the original source text is retained without automatic translation.
+   * 
+   * @example
+   * en-US
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The model code for filtering. Fuzzy match is supported.
    * 
    * @example
    * qwen3.6-plus
@@ -21,12 +34,12 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   llmCode?: string;
   /**
    * @remarks
-   * The model template IDs used for filtering.
+   * The model template IDs for filtering.
    */
   llmTemplateIds?: string[];
   /**
    * @remarks
-   * The ID of the associated model group.
+   * The associated model group ID.
    * 
    * @example
    * mt-xxxx
@@ -34,7 +47,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Both 0 and 1 return the same result.
+   * The page number. Pages start from 1. A value of 0 returns the same result as 1.
    * 
    * @example
    * 1
@@ -50,7 +63,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the model provider template.
+   * The model provider template ID.
    * 
    * @example
    * mpt-xxxx
@@ -59,10 +72,8 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to query smart models. Valid values:
-   * 
-   * - true: Only LLMs under system preset smart models are returned. In this case, BizType is required.
-   * - false: Smart model filtering is not applied.
-   * 
+   * - true: Only LLMs under system-preset smart models are returned. In this case, BizType is required.
+   * - false: Smart models are not specifically filtered.
    * Default value: false.
    * 
    * @example
@@ -72,6 +83,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      language: 'Language',
       llmCode: 'LlmCode',
       llmTemplateIds: 'LlmTemplateIds',
       modelTemplateId: 'ModelTemplateId',
@@ -85,6 +97,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'number',
+      language: 'string',
       llmCode: 'string',
       llmTemplateIds: { 'type': 'array', 'itemType': 'string' },
       modelTemplateId: 'string',

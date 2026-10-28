@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateLlmTemplatesResponseBodyDataSkippedItems extends $dara.Model {
   /**
    * @remarks
-   * The model code that was skipped.
+   * The code of the skipped model.
    * 
    * @example
    * qwen3.5-plus
@@ -13,7 +13,7 @@ export class BatchCreateLlmTemplatesResponseBodyDataSkippedItems extends $dara.M
   llmCode?: string;
   /**
    * @remarks
-   * The reason why the item was skipped.
+   * The reason why the model configuration item was skipped.
    * 
    * @example
    * LLM template already exists with same providerTemplateId and llmCode.
@@ -45,7 +45,7 @@ export class BatchCreateLlmTemplatesResponseBodyDataSkippedItems extends $dara.M
 export class BatchCreateLlmTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of successfully created model template IDs.
+   * The list of IDs of the successfully created model templates.
    */
   llmTemplateIds?: string[];
   /**
@@ -55,7 +55,7 @@ export class BatchCreateLlmTemplatesResponseBodyData extends $dara.Model {
   skippedItems?: BatchCreateLlmTemplatesResponseBodyDataSkippedItems[];
   /**
    * @remarks
-   * The number of successfully created items.
+   * The number of successfully created model templates.
    * 
    * @example
    * 5
@@ -63,7 +63,7 @@ export class BatchCreateLlmTemplatesResponseBodyData extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The total number of requests.
+   * The total number of requested model templates.
    * 
    * @example
    * 6

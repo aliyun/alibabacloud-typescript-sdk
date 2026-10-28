@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeModelConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent platform.
+   * The agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The Agent provider.
+   * The agent provider.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,11 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
   includeRiskInfo?: boolean;
   /**
    * @remarks
-   * The Agent runtime ID. The ID mappings are as follows:
+   * The ID of the agent runtime. The ID mappings are as follows:
    * 
    * JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
    * 
-   * OpenClaw: Cloud computer ID, in the format of ecd-xxxx.
+   * OpenClaw: Cloud desktop ID, in the format of ecd-xxxx.
    * 
    * Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
    * 
@@ -47,7 +47,7 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
-   * The Agent runtime type.
+   * The type of the agent runtime.
    * 
    * This parameter is required.
    * 
@@ -55,6 +55,18 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
    * CloudDesktop
    */
   runtimeType?: string;
+  /**
+   * @remarks
+   * The smart model filter. Valid values:
+   * - true: Queries the system wuying-preset provider models based on the business type of the runtime.
+   * - false: Excludes wuying-preset from the effective configuration.
+   * - Empty: Returns both smart and non-smart models in the effective configuration.
+   * The business type is read by the server from runtime.biz_type, and the BizType input parameter is not required. Risk information is still independently controlled by IncludeRiskInfo.
+   * 
+   * @example
+   * true
+   */
+  smartModel?: boolean;
   static names(): { [key: string]: string } {
     return {
       agentPlatform: 'AgentPlatform',
@@ -62,6 +74,7 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
       includeRiskInfo: 'IncludeRiskInfo',
       runtimeId: 'RuntimeId',
       runtimeType: 'RuntimeType',
+      smartModel: 'SmartModel',
     };
   }
 
@@ -72,6 +85,7 @@ export class GetRuntimeModelConfigRequest extends $dara.Model {
       includeRiskInfo: 'boolean',
       runtimeId: 'string',
       runtimeType: 'string',
+      smartModel: 'boolean',
     };
   }
 

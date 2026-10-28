@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigResourceGroupModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The model group ID.
+   * The ID of the model group.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ConfigResourceGroupModelTemplateRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * This parameter is required.
    * 

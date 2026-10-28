@@ -45,10 +45,10 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelAuthori
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowserConfigBookmarks extends $dara.Model {
   /**
    * @remarks
-   * The folder in which the bookmark resides.
+   * The folder where the bookmark is located.
    * 
    * @example
-   * Work Portal
+   * Work portal
    */
   bookmarkFolder?: string;
   /**
@@ -64,7 +64,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowser
    * The bookmark name.
    * 
    * @example
-   * Alibaba Cloud Official Website
+   * Alibaba Cloud website
    */
   bookmarkName?: string;
   /**
@@ -105,12 +105,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowser
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowserConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of browser bookmarks. A maximum of 20 entries are returned. To query the complete bookmark list, call `ListBrowserBookmarks`.
+   * The list of browser bookmarks. A maximum of 20 bookmarks are returned. To query the complete list of bookmarks, call the `ListBrowserBookmarks` operation.
    */
   bookmarks?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowserConfigBookmarks[];
   /**
    * @remarks
-   * The browser startup parameters. For example, `--incognito` specifies the incognito window mode.
+   * The browser startup parameters. For example, `--incognito` specifies an incognito window.
    * 
    * @example
    * --incognito
@@ -118,7 +118,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowser
   browserParam?: string;
   /**
    * @remarks
-   * The cookie synchronization configuration. The string `true` indicates that synchronization is enabled. The string `false` indicates that synchronization is disabled.
+   * The cookie synchronization configuration. A value of `true` indicates that synchronization is enabled, and a value of `false` indicates that synchronization is disabled.
    * 
    * @example
    * true
@@ -165,7 +165,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowser
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuration extends $dara.Model {
   /**
    * @remarks
-   * The current payment stage of the plan. This field does not apply to MAU scenarios.
+   * The current payment stage of the package. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -173,7 +173,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuratio
   currentPayStage?: string;
   /**
    * @remarks
-   * The end time of the plan period. This field does not apply to MAU scenarios and is not returned.
+   * The end time of the package cycle. This parameter is not applicable to the MAU scenario and is not returned.
    * 
    * @example
    * -
@@ -181,7 +181,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuratio
   periodEndTime?: string;
   /**
    * @remarks
-   * The start time of the plan period. This field does not apply to MAU scenarios and is not returned.
+   * The start time of the package cycle. This parameter is not applicable to the MAU scenario and is not returned.
    * 
    * @example
    * -
@@ -189,7 +189,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuratio
   periodStartTime?: string;
   /**
    * @remarks
-   * The total duration of the plan, in seconds. This field does not apply to MAU scenarios.
+   * The total duration of the package, in seconds. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -197,7 +197,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuratio
   totalDuration?: number;
   /**
    * @remarks
-   * The used duration of the plan, in seconds. This field does not apply to MAU scenarios.
+   * The used duration of the package, in seconds. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -277,10 +277,10 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetwork
    * @remarks
    * The website access restriction mode.
    * 
-   * - `ALLOW_ALL`: All domain names are allowed.
-   * - `ALLOW_LIST`: Only websites in the allowlist are allowed.
+   * - `ALLOW_ALL`: allows all domain names.
+   * - `ALLOW_LIST`: allows only websites in the list.
    * 
-   * The returned value reflects the current configuration of the browser group.
+   * The returned value reflects the current configuration of the browser instance group.
    * 
    * @example
    * ALLOW_ALL
@@ -288,7 +288,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetwork
   accessRestriction?: string;
   /**
    * @remarks
-   * The office network ID to which the browser group belongs.
+   * The ID of the office network to which the browser instance group belongs.
    * 
    * @example
    * cn-hangzhou+dir-843734****
@@ -296,12 +296,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetwork
   officeSiteId?: string;
   /**
    * @remarks
-   * The website access restriction list. A maximum of 20 entries are returned. To query the complete list, call `ListBrowserRestrictedURLs`.
+   * The list of website access restrictions. A maximum of 20 restrictions are returned. To query the complete list, call the `ListBrowserRestrictedURLs` operation.
    */
   restrictedURLs?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetworkRestrictedURLs[];
   /**
    * @remarks
-   * The list of vSwitch IDs used by the browser group. This is available for scenarios with custom network configurations.
+   * The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where custom networks are configured.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -340,7 +340,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetwork
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodeInstanceType extends $dara.Model {
   /**
    * @remarks
-   * The CPU configuration of the node. This field does not apply to MAU scenarios.
+   * The CPU configuration of the node. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -348,7 +348,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodeIns
   cpu?: string;
   /**
    * @remarks
-   * The memory configuration of the node. This field does not apply to MAU scenarios.
+   * The memory configuration of the node. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -380,7 +380,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodeIns
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodePool extends $dara.Model {
   /**
    * @remarks
-   * The total number of nodes. This field does not apply to MAU scenarios.
+   * The total number of nodes. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -388,7 +388,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodePoo
   nodeAmount?: string;
   /**
    * @remarks
-   * The number of used nodes. This field does not apply to MAU scenarios.
+   * The number of used nodes. This parameter is not applicable to the MAU scenario.
    * 
    * @example
    * -
@@ -420,7 +420,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodePoo
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The client source CIDR block that is allowed to access the browser group.
+   * The source CIDR block of the client that is allowed to access.
    * 
    * @example
    * 192.168.1.0/24
@@ -438,8 +438,8 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyA
    * @remarks
    * The action of the client access rule.
    * 
-   * - `allow`: Access is allowed.
-   * - `deny`: Access is denied.
+   * - `allow`: allows access.
+   * - `deny`: denies access.
    * 
    * @example
    * allow
@@ -473,7 +473,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyA
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyClientTypes extends $dara.Model {
   /**
    * @remarks
-   * The client type.
+   * The client type. Valid values:
    * 
    * - `windows`: Windows client.
    * - `macos`: macOS client.
@@ -482,7 +482,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
    * - `android`: Android client.
    * - `ios`: iOS client.
    * 
-   * This field reflects the existing access configuration and does not indicate that all client types are available for the current product.
+   * This field reflects the existing access configurations and does not indicate that all clients are currently available for the product.
    * 
    * @example
    * windows
@@ -490,10 +490,10 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clientType?: string;
   /**
    * @remarks
-   * The access policy switch for the client type.
+   * The access policy switch for the client type. Valid values:
    * 
-   * - `on`: Access from this client type is allowed.
-   * - `off`: Access from this client type is denied.
+   * - `on`: Allows access from this type of client.
+   * - `off`: Denies access from this type of client.
    * 
    * @example
    * on
@@ -525,12 +525,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyClipboardPolicy extends $dara.Model {
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * The clipboard transfer direction. The value is case-insensitive. Valid values:
    * 
-   * - `off`: Bidirectional transfer is denied.
-   * - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-   * - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `off`: Disabled in both directions.
+   * - `read`: Allows copy and paste from the local PC to the cloud browser.
+   * - `write`: Allows copy and paste from the cloud browser to the local PC.
+   * - `readwrite`: Enabled in both directions.
    * 
    * @example
    * readwrite
@@ -538,7 +538,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clipboard?: string;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * The clipboard size limit for inbound transfer from the local PC to the cloud browser.
    * 
    * @example
    * 1024
@@ -546,10 +546,10 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clipboardReadLimit?: number;
   /**
    * @remarks
-   * The clipboard control granularity.
+   * The clipboard control granularity. Valid values:
    * 
    * - `global`: Unified control.
-   * - `grained`: Separate control by text, rich text, and file.
+   * - `grained`: Separate control for text, rich text, and files.
    * 
    * @example
    * grained
@@ -557,9 +557,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clipboardScope?: string;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -568,7 +568,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clipboardSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * The clipboard size limit for outbound transfer from the cloud browser to the local PC.
    * 
    * @example
    * 1024
@@ -576,12 +576,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   clipboardWriteLimit?: number;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * The clipboard transfer direction. The value is case-insensitive. Valid values:
    * 
-   * - `off`: Bidirectional transfer is denied.
-   * - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-   * - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `off`: Disabled in both directions.
+   * - `read`: Allows copy and paste from the local PC to the cloud browser.
+   * - `write`: Allows copy and paste from the cloud browser to the local PC.
+   * - `readwrite`: Enabled in both directions.
    * 
    * @example
    * off
@@ -589,12 +589,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   fileClipboard?: string;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * The clipboard transfer direction. The value is case-insensitive. Valid values:
    * 
-   * - `off`: Bidirectional transfer is denied.
-   * - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-   * - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `off`: Disabled in both directions.
+   * - `read`: Allows copy and paste from the local PC to the cloud browser.
+   * - `write`: Allows copy and paste from the cloud browser to the local PC.
+   * - `readwrite`: Enabled in both directions.
    * 
    * @example
    * off
@@ -602,7 +602,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboard?: string;
   /**
    * @remarks
-   * The rich text clipboard size limit.
+   * The clipboard size limit for rich text.
    * 
    * @example
    * 1024
@@ -610,7 +610,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * The clipboard size limit for inbound transfer from the local PC to the cloud browser.
    * 
    * @example
    * 1
@@ -618,9 +618,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -629,9 +629,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -640,7 +640,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * The clipboard size limit for outbound transfer from the cloud browser to the local PC.
    * 
    * @example
    * 1
@@ -648,9 +648,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -659,12 +659,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   richTextClipboardWriteSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * The clipboard transfer direction. The value is case-insensitive. Valid values:
    * 
-   * - `off`: Bidirectional transfer is denied.
-   * - `read`: Copy and paste from the local PC to the cloud browser is allowed.
-   * - `write`: Copy and paste from the cloud browser to the local PC is allowed.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `off`: Disabled in both directions.
+   * - `read`: Allows copy and paste from the local PC to the cloud browser.
+   * - `write`: Allows copy and paste from the cloud browser to the local PC.
+   * - `readwrite`: Enabled in both directions.
    * 
    * @example
    * readwrite
@@ -672,7 +672,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   textClipboard?: string;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * The clipboard size limit for inbound transfer from the local PC to the cloud browser.
    * 
    * @example
    * 1
@@ -680,9 +680,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -691,7 +691,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * The clipboard size limit for outbound transfer from the cloud browser to the local PC.
    * 
    * @example
    * 1
@@ -699,9 +699,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The unit of the clipboard size.
+   * The clipboard size unit. Valid values:
    * 
-   * - `B`: bytes.
+   * - `B`: Bytes.
    * - `KB`: 1024 bytes.
    * 
    * @example
@@ -766,7 +766,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyC
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyVideoPolicy extends $dara.Model {
   /**
    * @remarks
-   * The frame rate of browser sessions.
+   * The frame rate for browser sessions.
    * 
    * @example
    * 30
@@ -796,10 +796,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyV
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyWatermarkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The watermark switch. The value is case-insensitive.
-   * 
-   * - `ON`: Watermark enabled.
-   * - `OFF`: Watermark disabled.
+   * Specifies whether to enable watermarks. The value is case-insensitive. Valid values:
+   * - ON: Enabled.
+   * - OFF: Disabled.
    * 
    * When disabled, the watermark content type list is not used.
    * 
@@ -809,13 +808,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyW
   watermarkSwitch?: string;
   /**
    * @remarks
-   * The list of watermark content types.
+   * The list of watermark content types. Valid values:
+   * - EndUserId: User ID.
+   * - InstanceGroupId: Delivery group ID.
+   * - ClientTime: Current client time.
    * 
-   * - `EndUserId`: User ID.
-   * - `InstanceGroupId`: Delivery group ID.
-   * - `ClientTime`: Current time on the client.
-   * 
-   * Use watermark types supported by the browser and client.
+   * Use watermark types that are supported by the browser and client.
    */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
@@ -847,10 +845,10 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyW
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy extends $dara.Model {
   /**
    * @remarks
-   * The screenshot protection switch.
+   * The screen capture prevention switch.
    * 
-   * - `on`: Screenshot protection is enabled.
-   * - `off`: Screenshot protection is disabled.
+   * - `on`: enables screen capture prevention.
+   * - `off`: disables screen capture prevention.
    * 
    * @example
    * on
@@ -858,7 +856,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   appContentProtection?: string;
   /**
    * @remarks
-   * The client access IP address whitelist rules.
+   * The IP address whitelist rules for client access.
    */
   authorizeAccessPolicyRules?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyAuthorizeAccessPolicyRules[];
   /**
@@ -868,17 +866,17 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   clientTypes?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyClientTypes[];
   /**
    * @remarks
-   * The clipboard transfer direction, content type, and size limit settings. read indicates transfer from the local PC to the cloud browser. write indicates transfer from the cloud browser to the local PC.
+   * Sets the clipboard transfer direction, content type, and size limits. `read` indicates transfer from the local PC to the cloud browser, and `write` indicates transfer from the cloud browser to the local PC.
    */
   clipboardPolicy?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicyClipboardPolicy;
   /**
    * @remarks
-   * The data retention policy for sessions after disconnection.
+   * The data retention policy after disconnection. Valid values:
    * 
-   * - `customTime`: The session is retained for the duration specified by `DisconnectKeepSessionTime`.
-   * - `persistent`: The session is not subject to automatic release based on disconnection duration.
+   * - `customTime`: Retains the session for the duration specified by `DisconnectKeepSessionTime`.
+   * - `persistent`: No automatic release based on disconnection duration.
    * 
-   * **Note:** The `persistent` option is still subject to authorization and other release policies.
+   * **Note:** `persistent` is still subject to authorization and other release policies.
    * 
    * @example
    * customTime
@@ -886,7 +884,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration after disconnection. Unit: seconds. This value is for viewing the configuration only and does not indicate that this parameter can be set through the create operation.
+   * The returned retention duration for disconnected sessions, in seconds. This parameter is for viewing configurations only and does not indicate that the create operation supports setting this parameter.
    * 
    * @example
    * 1800
@@ -894,7 +892,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * The floating ball file manager switch.
+   * The floating ball file manager switch. Valid values:
    * 
    * - `on`: Enabled.
    * - `off`: Disabled.
@@ -905,14 +903,14 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   fileManager?: string;
   /**
    * @remarks
-   * The file transfer policy for the web client.
+   * The file transfer policy for the web client. Valid values:
    * 
-   * - `off`: Transfer is denied.
-   * - `upload`: Only upload is allowed.
-   * - `download`: Only download is allowed.
-   * - `full`: Both upload and download are allowed.
+   * - `off`: Transfer disabled.
+   * - `upload`: Upload only.
+   * - `download`: Download only.
+   * - `full`: Upload and download allowed.
    * 
-   * Configure this parameter together with the clipboard policy.
+   * Configure this parameter in conjunction with the clipboard policy.
    * 
    * @example
    * full
@@ -920,12 +918,19 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The switch for automatic disconnection upon no operation. The value is case-insensitive.
+   * The dual-screen switch for cloud browsers.
    * 
-   * - `on`: Enabled.
-   * - `off`: Disabled.
+   * @example
+   * off
+   */
+  multiScreen?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically disconnect sessions after a period of inactivity. The value is case-insensitive. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
-   * When enabled, use `NoOperationDisconnectTime` to set the wait duration.
+   * When enabled, use NoOperationDisconnectTime to set the idle timeout period.
    * 
    * @example
    * on
@@ -933,7 +938,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The wait duration before disconnection is triggered after no operation, in seconds. Whether this feature is enabled is indicated by `NoOperationDisconnect`.
+   * The idle timeout period in seconds before a session is automatically disconnected. This feature is enabled or disabled by the NoOperationDisconnect parameter.
    * 
    * @example
    * 600
@@ -949,10 +954,9 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
   policyId?: string;
   /**
    * @remarks
-   * The policy version.
-   * 
-   * - `DEFAULT`: Legacy policy.
-   * - `CENTER`: Centralized policy.
+   * The policy version. Valid values:
+   * - DEFAULT: Legacy policy.
+   * - CENTER: Centralized policy.
    * 
    * @example
    * CENTER
@@ -978,6 +982,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
       fileManager: 'FileManager',
       html5FileTransfer: 'Html5FileTransfer',
+      multiScreen: 'MultiScreen',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyId: 'PolicyId',
@@ -997,6 +1002,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
       disconnectKeepSessionTime: 'number',
       fileManager: 'string',
       html5FileTransfer: 'string',
+      multiScreen: 'string',
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
       policyId: 'string',
@@ -1033,7 +1039,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy 
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelTimers extends $dara.Model {
   /**
    * @remarks
-   * The session retention duration after disconnection, in minutes. A value of `-1` indicates that the session is not unbound due to this timeout, but is still subject to authorization and other session release policies.
+   * The session retention period in minutes after disconnection. A value of -1 indicates that the session is not unbound due to this timeout, but is still subject to authorization and other session release policies.
    * 
    * @example
    * 15
@@ -1041,7 +1047,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelTimers 
   interval?: number;
   /**
    * @remarks
-   * The timer configuration type. `SESSION_TIMEOUT` indicates the session retention duration after disconnection.
+   * The timer configuration type. A value of SESSION_TIMEOUT indicates the session retention period after disconnection.
    * 
    * @example
    * SESSION_TIMEOUT
@@ -1073,7 +1079,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelTimers 
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelUserLimit extends $dara.Model {
   /**
    * @remarks
-   * The user quota.
+   * The number of user quotas.
    * 
    * @example
    * 100
@@ -1103,7 +1109,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelUserLim
 export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether authorization and deauthorization notification emails are enabled. `true` indicates that the feature is enabled. `false` indicates that the feature is disabled.
+   * Specifies whether authorization and revocation notification emails are enabled. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
    * 
    * @example
    * true
@@ -1111,12 +1117,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   authNotificationEnabled?: boolean;
   /**
    * @remarks
-   * The statistics of authorized users for the browser group.
+   * The statistics of authorized users for the browser instance group.
    */
   authorizedUserInfo?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelAuthorizedUserInfo;
   /**
    * @remarks
-   * The business region where the browser group resides.
+   * The business region where the browser instance group is located.
    * 
    * @example
    * cn-hangzhou
@@ -1124,12 +1130,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   bizRegionId?: string;
   /**
    * @remarks
-   * The current browser configuration.
+   * The current configuration of the browser.
    */
   browserConfig?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelBrowserConfig;
   /**
    * @remarks
-   * The cloud browser group ID.
+   * The ID of the cloud browser instance group.
    * 
    * @example
    * big-0c7loey7fzjq****
@@ -1137,15 +1143,15 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   browserInstanceGroupId?: string;
   /**
    * @remarks
-   * The cloud browser group name.
+   * The name of the cloud browser instance group.
    * 
    * @example
-   * Office Browser
+   * Office browser
    */
   browserInstanceGroupName?: string;
   /**
    * @remarks
-   * The ID of the browser group set to which the browser group belongs.
+   * The ID of the browser instance group set to which the browser instance group belongs.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -1153,7 +1159,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   browserInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The billing type. In MAU scenarios, `PostPaid` is returned, which indicates the pay-as-you-go billing method.
+   * The billing method. In the monthly active user (MAU) scenario, `PostPaid` is returned, which indicates pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -1161,7 +1167,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   chargeType?: string;
   /**
    * @remarks
-   * The default access URL of the browser group. Use the URL returned by the API to access the browser group. Replace the resource ID in the example with your actual value.
+   * The default access URL of the browser instance group. Use the actual URL returned by the API operation. Replace the resource ID in the example.
    * 
    * @example
    * https://wuying.aliyun.com/integration?appId=browser&appInstanceGroupId=big-0c7loey7fzjq****
@@ -1169,12 +1175,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   defaultAccessUrl?: string;
   /**
    * @remarks
-   * The plan duration information. In MAU scenarios, plan duration does not apply, and an empty object may be returned.
+   * The package duration information. This parameter is not applicable to the MAU scenario and may return an empty object.
    */
   duration?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelDuration;
   /**
    * @remarks
-   * The expiration time of the browser group. This field does not apply to MAU scenarios and is not returned.
+   * The expiration time of the browser instance group. This parameter is not applicable to the MAU scenario and is not returned.
    * 
    * @example
    * -
@@ -1182,7 +1188,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   expiredTime?: string;
   /**
    * @remarks
-   * The creation time of the browser group. The value is an RFC 3339 time string in the `yyyy-MM-ddTHH:mm:ss.SSSXXX` format, which includes milliseconds and a time zone offset. The `+00:00` in the example indicates the UTC time zone.
+   * The creation time of the browser instance group. The time is displayed in the RFC 3339 format `yyyy-MM-ddTHH:mm:ss.SSSXXX`, which includes milliseconds and time zone offset. In the example, `+00:00` indicates the UTC time zone.
    * 
    * @example
    * 2026-09-21T07:00:39.000+00:00
@@ -1190,7 +1196,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   gmtCreate?: string;
   /**
    * @remarks
-   * The homepage URL of the browser group.
+   * The homepage URL of the browser instance group.
    * 
    * @example
    * https://www.aliyun.com
@@ -1198,7 +1204,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   homepage?: string;
   /**
    * @remarks
-   * The image ID used by the browser group.
+   * The ID of the image used by the browser instance group.
    * 
    * @example
    * imgc-070qhs8oeju4****
@@ -1206,7 +1212,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   imageId?: string;
   /**
    * @remarks
-   * The instance type used by the browser group.
+   * The instance type used by the browser instance group.
    * 
    * @example
    * appstreaming.general.basic
@@ -1214,7 +1220,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   instanceType?: string;
   /**
    * @remarks
-   * The maximum number of instances configured for the MAU scenario.
+   * The maximum number of instances configured in the MAU scenario.
    * 
    * @example
    * 100
@@ -1222,22 +1228,22 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   maxAmount?: number;
   /**
    * @remarks
-   * The office network and website access restriction configuration.
+   * The office network and website access restriction configurations.
    */
   network?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNetwork;
   /**
    * @remarks
-   * The node specifications information. This field does not apply to MAU scenarios.
+   * The node specifications. This parameter is not applicable to the MAU scenario.
    */
   nodeInstanceType?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodeInstanceType;
   /**
    * @remarks
-   * The list of node pool information. In MAU scenarios, this field does not apply and an empty list may be returned.
+   * The list of node pool information. This parameter is not applicable to the MAU scenario and may return an empty list.
    */
   nodePool?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelNodePool[];
   /**
    * @remarks
-   * The operating system type of the browser group. The current MAU product scenario uses Windows.
+   * The operating system type of the browser instance group. Currently, Windows is used in the MAU scenario.
    * 
    * @example
    * Windows
@@ -1245,22 +1251,21 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   osType?: string;
   /**
    * @remarks
-   * The policy configuration returned for the browser group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
+   * The policy configuration returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
    */
   policy?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelPolicy;
   /**
    * @remarks
-   * The status of the browser instance group.
-   * 
-   * - `DEPLOYING`: Being deployed.
-   * - `PUBLISHED`: Deployed.
-   * - `FAILED`: Deployment failed.
-   * - `EXPIRED`: Expired.
-   * - `CEASED`: Suspended due to overdue payment.
-   * - `MAINTAINING`: Being updated.
-   * - `MAINTAIN_FAILED`: Update failed.
-   * - `DELETING`: Being deleted.
-   * - `UNAVAILABLE`: Unavailable.
+   * The status of the browser instance group. Valid values:
+   * - DEPLOYING: Publishing.
+   * - PUBLISHED: Published.
+   * - FAILED: Publish failed.
+   * - EXPIRED: Expired.
+   * - CEASED: Suspended due to overdue payment.
+   * - MAINTAINING: Updating.
+   * - MAINTAIN_FAILED: Update failed.
+   * - DELETING: Deleting.
+   * - UNAVAILABLE: Unavailable.
    * 
    * @example
    * PUBLISHED
@@ -1268,7 +1273,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   status?: string;
   /**
    * @remarks
-   * The sub-billing type. In MAU scenarios, the actual returned value is `mau`, which indicates billing by monthly active users.
+   * The sub-billing type. In the MAU scenario, mau is returned, which indicates billing by monthly active users.
    * 
    * @example
    * mau
@@ -1276,7 +1281,7 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   subPayType?: string;
   /**
    * @remarks
-   * Indicates whether mixed authorization of users and user groups is supported. `true` indicates supported, and `false` indicates not supported. Evaluate this value based on the current authorization mode.
+   * Specifies whether mixed authorization of users and user groups is supported. A value of true indicates that it is supported, and false indicates that it is not supported. Evaluate this parameter based on the current authorization mode.
    * 
    * @example
    * false
@@ -1284,12 +1289,11 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   supportUserGroupMixedAuth?: boolean;
   /**
    * @remarks
-   * The version of the browser.
+   * The version of the browser. Valid values:
+   * - Basic: Basic Edition.
+   * - Pro: Premium Edition.
    * 
-   * - `Basic`: Basic Edition.
-   * - `Pro`: Premium Edition.
-   * 
-   * In MAU scenarios, the value is `Pro`.
+   * In the MAU scenario, the value is Pro.
    * 
    * @example
    * Pro
@@ -1297,16 +1301,15 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
   tier?: string;
   /**
    * @remarks
-   * The session timer configurations currently returned. These are for viewing the effective settings and do not indicate that the creation API supports setting this parameter.
+   * The session timer configurations returned in the current response. This parameter is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
    */
   timers?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelTimers[];
   /**
    * @remarks
-   * The current authorization mode.
-   * 
-   * - `Mixed`: Mixed authorization of users and user groups.
-   * - `User`: User authorization.
-   * - `UserGroup`: User group authorization.
+   * The current authorization mode. Valid values:
+   * - Mixed: Mixed authorization of users and user groups.
+   * - User: User authorization.
+   * - UserGroup: User group authorization.
    * 
    * @example
    * Mixed
@@ -1422,12 +1425,12 @@ export class GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel extend
 export class GetBrowserInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the browser group.
+   * The browser instance group details.
    */
   browserInstanceGroupModel?: GetBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting.
+   * The ID of the request.
    * 
    * @example
    * 01A0C2ED-95F2-1A37-9FC6-4A395179****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The maximum multiplier. A null value indicates no upper limit. For example, Min=1 with a null Max is displayed as 1x and above.
+   * The upper limit of the multiplier. If this parameter is empty, it indicates that there is no upper limit. For example, if Min is 1 and Max is empty, it is displayed as 1x and above.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCr
   max?: number;
   /**
    * @remarks
-   * The minimum multiplier. When equal to Max, the multiplier is fixed. For example, Min=Max=2 is displayed as 2x.
+   * The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min and Max are both 2, it is displayed as 2x.
    * 
    * @example
    * 2
@@ -45,12 +45,12 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCr
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListInferenceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The list of request modalities (such as Text, Image, and Audio).
+   * The list of request modalities, such as Text, Image, and Audio.
    */
   requestModality?: string[];
   /**
    * @remarks
-   * The list of response modalities (such as Text, Image, and Audio).
+   * The list of response modalities, such as Text, Image, and Audio.
    */
   responseModality?: string[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListIn
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList extends $dara.Model {
   /**
    * @remarks
-   * The credit consumption multiplier. A null value indicates that the model does not participate in credit-based billing.
+   * The credit consumption multiplier. If this parameter is empty, it indicates that the model does not participate in credit billing.
    */
   creditMultiplier?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier;
   /**
@@ -93,17 +93,17 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
    * The model description.
    * 
    * @example
-   * The Qwen3.6 native vision-language series Plus model demonstrates outstanding performance comparable to current top frontier models, with significant improvements over the 3.5 series. The model features significantly enhanced capabilities in agentic coding, frontend programming, vibe coding, multimodal universal recognition, OCR, and object localization
+   * The Qwen3.6 native vision-language Plus model series demonstrates exceptional performance comparable to current top-tier frontier models, with significantly improved model effects compared to the 3.5 series. The model shows significant enhancements in coding capabilities such as agentic coding, front-end programming, and vibe coding, as well as in multimodal universal recognition, OCR, and object localization
    */
   description?: string;
   /**
    * @remarks
-   * The list of model features (such as function-calling, web-search, and structured-outputs).
+   * The list of model features, such as function-calling, web-search, and structured-outputs.
    */
   features?: string[];
   /**
    * @remarks
-   * The inference metadata (request and response modalities).
+   * The inference metadata, including request and response modalities.
    */
   inferenceMetadata?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListInferenceMetadata;
   /**
@@ -124,7 +124,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   name?: string;
   /**
    * @remarks
-   * The publish time (ISO 8601 format).
+   * The published time in ISO 8601 format.
    * 
    * @example
    * 2026-03-04T06:25:17.000+00:00
@@ -132,7 +132,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   publishedTime?: string;
   /**
    * @remarks
-   * The model risk type (returned only when the request parameter IncludeRiskInfo is set to true).
+   * The model risk type. This parameter is returned only when the IncludeRiskInfo request parameter is set to true.
    * 
    * @example
    * Normal
@@ -190,7 +190,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderList extends $dar
   llmInfoList?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList[];
   /**
    * @remarks
-   * The model provider template ID.
+   * The ID of the model provider template.
    * 
    * @example
    * mpt-xxxx
@@ -198,15 +198,15 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderList extends $dar
   modelProviderTemplateId?: string;
   /**
    * @remarks
-   * The model provider template name.
+   * The name of the model provider template.
    * 
    * @example
-   * 百炼
+   * Model Studio
    */
   name?: string;
   /**
    * @remarks
-   * The model provider name.
+   * The name of the model provider.
    * 
    * @example
    * bailian
@@ -245,7 +245,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderList extends $dar
 export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The default model (format: providerName/llmCode).
+   * The default model, in the format of providerName/llmCode.
    * 
    * @example
    * bailian/qwen3.6-plus
@@ -258,7 +258,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelProviderList?: GetRuntimeModelConfigResponseBodyDataModelProviderList[];
   /**
    * @remarks
-   * The configured model group ID.
+   * The ID of the configured model group.
    * 
    * @example
    * mt-xxxx
@@ -266,7 +266,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The model group name.
+   * The name of the model group.
    * 
    * @example
    * model-template-001
@@ -274,7 +274,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateName?: string;
   /**
    * @remarks
-   * The model template association type (only when present).
+   * The model template association type.
    * 
    * @example
    * Runtime
@@ -282,7 +282,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateRefType?: string;
   /**
    * @remarks
-   * The resource group ID to which the runtime belongs (null if not assigned to a resource group).
+   * The ID of the resource group to which the runtime belongs. If the runtime does not belong to any resource group, the value is null.
    * 
    * @example
    * rg-xxxxx

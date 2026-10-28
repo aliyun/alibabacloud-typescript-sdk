@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBrowserInstanceGroupRequestBrowserConfigBookmarks extends $dara.Model {
   /**
    * @remarks
-   * The folder in which the bookmark is located. The length after trimming leading and trailing whitespace cannot exceed 64 characters.
+   * The folder where the bookmark is located. The length cannot exceed 64 characters after leading and trailing spaces are removed.
    * 
    * @example
-   * Work Portal
+   * Work portal
    */
   bookmarkFolder?: string;
   /**
    * @remarks
-   * The bookmark name. This parameter is required and cannot be empty when you create a bookmark. The length after trimming leading and trailing whitespace cannot exceed 64 characters.
+   * The bookmark name. This parameter is required and cannot be empty when you create a bookmark. The length cannot exceed 64 characters after leading and trailing spaces are removed.
    * 
    * This parameter is required.
    * 
    * @example
-   * Alibaba Cloud Official Website
+   * Alibaba Cloud website
    */
   bookmarkName?: string;
   /**
    * @remarks
-   * The URL of the bookmark. This parameter is required when you create a bookmark. The length after trimming leading and trailing whitespace cannot exceed 1024 characters.
+   * The URL of the bookmark. This parameter is required when you create a bookmark. The length cannot exceed 1024 characters after leading and trailing spaces are removed.
    * 
    * This parameter is required.
    * 
@@ -60,33 +60,28 @@ export class CreateBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   /**
    * @remarks
    * The list of browser bookmarks.
-   * 
-   * **Limit:** Cannot be specified together with a non-empty `BookmarksFilePath`. Bookmark URLs must be unique.
+   * **Limits:** This parameter cannot be specified together with a non-empty BookmarksFilePath parameter, and bookmark URLs cannot be duplicated.
    */
   bookmarks?: CreateBrowserInstanceGroupRequestBrowserConfigBookmarks[];
   /**
    * @remarks
-   * The path of the uploaded bookmark file. Cannot be specified together with a non-empty `Bookmarks`.
-   * 
-   * **File format:** A headerless CSV file with four columns in the following order:
-   * 
+   * The path of the uploaded bookmark file. This parameter cannot be specified together with a non-empty Bookmarks parameter.
+   * **File format:** A CSV file without a header. Specify the following four columns in order:
    * 1. Bookmark name.
    * 2. URL.
    * 3. Folder.
    * 4. Root directory type: `bookmark_bar` indicates the bookmarks bar, and `other` indicates other bookmarks.
-   * 
    * **Limits:**
-   * 
-   * - Fields are separated by commas. Field values cannot contain commas or line breaks. Quote escaping is not supported.
+   * - Fields are separated by commas. Field content cannot contain commas or line breaks, and quote escaping is not supported.
    * - The file path must belong to the upload directory specified for the current account and cannot contain `..`.
    * 
    * @example
-   * cn-hangzhou/aig_upm/xxx/temp/BrowserBookmarks/浏览器书签模版.csv
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserBookmarks/BrowserBookmarkTemplate.csv
    */
   bookmarksFilePath?: string;
   /**
    * @remarks
-   * The browser startup parameters. For example, --incognito opens the browser in incognito mode.
+   * The browser startup parameters. For example, --incognito indicates that an incognito window is used.
    * 
    * @example
    * --incognito
@@ -102,7 +97,7 @@ export class CreateBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   cookiesSync?: boolean;
   /**
    * @remarks
-   * The homepage URL that opens when the browser starts. The value must conform to URI syntax.
+   * The homepage URL opened when the browser starts. The URL must conform to the URI syntax.
    * 
    * @example
    * https://www.aliyun.com
@@ -143,7 +138,7 @@ export class CreateBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
 export class CreateBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dara.Model {
   /**
    * @remarks
-   * The URL of the allowed website.
+   * The URL of the website that is allowed for access.
    * 
    * @example
    * aliyun.com
@@ -175,8 +170,8 @@ export class CreateBrowserInstanceGroupRequestNetwork extends $dara.Model {
    * @remarks
    * The website access restriction mode.
    * 
-   * - `ALLOW_ALL`: Allows access to all domain names.
-   * - `ALLOW_LIST`: Allows access only to websites in the allowlist.
+   * - ALLOW_ALL: Allows access to all domain names.
+   * - ALLOW_LIST: Allows access only to websites in the whitelist.
    * 
    * @example
    * ALLOW_ALL
@@ -184,7 +179,7 @@ export class CreateBrowserInstanceGroupRequestNetwork extends $dara.Model {
   accessRestriction?: string;
   /**
    * @remarks
-   * The ID of the office network that has been created. The office network must belong to the current account and be located in the target region specified by BizRegionId.
+   * The identifier of the created office network. The office network must belong to the current account and reside in the target region specified by BizRegionId. You can view the office network ID on the Network & Storage > Office Networks page in the Elastic Desktop Service Enterprise Edition console, or call the DescribeOfficeSites operation of Elastic Desktop Service Enterprise Edition to query the ID.
    * 
    * @example
    * cn-hangzhou+dir-643067****
@@ -192,32 +187,32 @@ export class CreateBrowserInstanceGroupRequestNetwork extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The list of allowed websites. This parameter is used in `ALLOW_LIST` mode.
+   * The list of websites that are allowed for access. This parameter is used in ALLOW_LIST mode.
    * 
-   * **Restrictions:**
+   * **Limits:**
    * 
-   * - A maximum of 20 URLs can be specified directly. If more than 20 URLs are required, use `RestrictedURLsFilePath` to import them from a file.
-   * - This parameter cannot be specified together with `RestrictedURLsFilePath`.
-   * - URLs in the list cannot be duplicated.
+   * - You can specify up to 20 URLs directly. To specify more than 20 URLs, use RestrictedURLsFilePath to import them from a file.
+   * - This parameter cannot be specified together with RestrictedURLsFilePath.
+   * - The URLs in the list cannot be duplicated.
    */
   restrictedURLs?: CreateBrowserInstanceGroupRequestNetworkRestrictedURLs[];
   /**
    * @remarks
-   * The path of the uploaded website allowlist file. This parameter is used in `ALLOW_LIST` mode.
+   * The path of the uploaded website whitelist file. This parameter is used in ALLOW_LIST mode.
    * 
-   * If more than 20 URLs are required, use file import. A maximum of 1,000 URLs can be configured by default.
+   * If you need to specify more than 20 URLs, import them from a file. By default, you can configure up to 1,000 URLs.
    * 
-   * This parameter cannot be specified together with `RestrictedURLs`.
+   * This parameter cannot be specified together with RestrictedURLs.
    * 
    * @example
-   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL白名单模版.csv
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL_whitelist_template.csv
    */
   restrictedURLsFilePath?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs.
+   * The list of vSwitch identifiers.
    * 
-   * **Usage condition:** Specify this parameter only when you use a custom office network. Do not specify this parameter for other types of office networks.
+   * **Usage condition:** This parameter is required only when you use a custom office network. Do not specify this parameter for other types of office networks.
    * 
    * Select vSwitches that match the target business region and the custom office network.
    */
@@ -261,7 +256,6 @@ export class CreateBrowserInstanceGroupRequestNodePool extends $dara.Model {
   /**
    * @remarks
    * The number of nodes.
-   * 
    * You do not need to specify this parameter.
    * 
    * @example
@@ -270,7 +264,7 @@ export class CreateBrowserInstanceGroupRequestNodePool extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The node specifications identity.
+   * The identity of the node specifications.
    * 
    * You do not need to specify this parameter.
    * 
@@ -281,7 +275,6 @@ export class CreateBrowserInstanceGroupRequestNodePool extends $dara.Model {
   /**
    * @remarks
    * The node scaling policy.
-   * 
    * You do not need to specify this parameter.
    * 
    * @example
@@ -316,7 +309,7 @@ export class CreateBrowserInstanceGroupRequestNodePool extends $dara.Model {
 export class CreateBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The source CIDR block of clients that are allowed to access the cloud browser.
+   * The source CIDR block of the client that is allowed to access the cloud browser. Use the CIDR format.
    * 
    * @example
    * 192.168.1.0/24
@@ -327,7 +320,7 @@ export class CreateBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules e
    * The description of the client access IP address whitelist rule.
    * 
    * @example
-   * OfficeNetworkAccess
+   * Office network access
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -356,13 +349,13 @@ export class CreateBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules e
 export class CreateBrowserInstanceGroupRequestPolicyClientTypes extends $dara.Model {
   /**
    * @remarks
-   * The client type for which you want to configure an access policy.
+   * The type of the client for which you want to configure an access policy.
    * 
-   * - `windows`: Windows client.
-   * - `macos`: macOS client.
-   * - `html5`: Web client.
-   * - `android`: Android client.
-   * - `ios`: iOS client.
+   * - windows: Windows client.
+   * - macos: macOS client.
+   * - html5: Web client.
+   * - android: Android client.
+   * - ios: iOS client.
    * 
    * @example
    * windows
@@ -372,8 +365,8 @@ export class CreateBrowserInstanceGroupRequestPolicyClientTypes extends $dara.Mo
    * @remarks
    * The access policy switch for the client type.
    * 
-   * - `on`: Allows access from this client type.
-   * - `off`: Denies access from this client type.
+   * - on: Allows access from this type of client.
+   * - off: Denies access from this type of client.
    * 
    * @example
    * on
@@ -405,12 +398,12 @@ export class CreateBrowserInstanceGroupRequestPolicyClientTypes extends $dara.Mo
 export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dara.Model {
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * Specifies the clipboard transfer direction. The value is not case-sensitive.
    * 
-   * - `off`: Bidirectional transfer is disabled.
+   * - `off`: Prohibits bidirectional transfer.
    * - `read`: Allows copy and paste from the local PC to the cloud browser.
    * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `readwrite`: Allows bidirectional copy and paste.
    * 
    * @example
    * readwrite
@@ -418,11 +411,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboard?: string;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * Specifies the clipboard size limit for inbound transfer (from the local PC to the cloud browser).
    * 
    * **Value range:** 1 to 102400. The unit is specified by ClipboardSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1024
@@ -430,10 +423,10 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardReadLimit?: number;
   /**
    * @remarks
-   * The clipboard control granularity.
+   * Specifies the clipboard control granularity.
    * 
    * - `global`: Unified control.
-   * - `grained`: Separate control by text, rich text, and file.
+   * - `grained`: Separate control for text, rich text, and files.
    * 
    * @example
    * grained
@@ -441,7 +434,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardScope?: string;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -452,11 +445,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * Specifies the clipboard size limit for outbound transfer (from the cloud browser to the local PC).
    * 
    * **Value range:** 1 to 102400. The unit is specified by ClipboardSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1024
@@ -464,12 +457,12 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardWriteLimit?: number;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * Specifies the clipboard transfer direction. The value is not case-sensitive.
    * 
-   * - `off`: Bidirectional transfer is disabled.
+   * - `off`: Prohibits bidirectional transfer.
    * - `read`: Allows copy and paste from the local PC to the cloud browser.
    * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `readwrite`: Allows bidirectional copy and paste.
    * 
    * @example
    * off
@@ -477,12 +470,12 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   fileClipboard?: string;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * Specifies the clipboard transfer direction. The value is not case-sensitive.
    * 
-   * - `off`: Bidirectional transfer is disabled.
+   * - `off`: Prohibits bidirectional transfer.
    * - `read`: Allows copy and paste from the local PC to the cloud browser.
    * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `readwrite`: Allows bidirectional copy and paste.
    * 
    * @example
    * off
@@ -490,11 +483,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboard?: string;
   /**
    * @remarks
-   * The rich text clipboard size limit.
+   * Specifies the clipboard size limit for rich text.
    * 
    * **Value range:** 1 to 204800. The unit is specified by RichTextClipboardSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1024
@@ -502,11 +495,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * Specifies the clipboard size limit for inbound transfer (from the local PC to the cloud browser).
    * 
    * **Value range:** 1 to 204800. The unit is specified by RichTextClipboardReadSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1
@@ -514,7 +507,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -527,7 +520,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -538,11 +531,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * Specifies the clipboard size limit for outbound transfer (from the cloud browser to the local PC).
    * 
    * **Value range:** 1 to 204800. The unit is specified by RichTextClipboardWriteSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1
@@ -550,7 +543,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -563,12 +556,12 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard transfer direction. The value is case-insensitive.
+   * Specifies the clipboard transfer direction. The value is not case-sensitive.
    * 
-   * - `off`: Bidirectional transfer is disabled.
+   * - `off`: Prohibits bidirectional transfer.
    * - `read`: Allows copy and paste from the local PC to the cloud browser.
    * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Bidirectional transfer is allowed.
+   * - `readwrite`: Allows bidirectional copy and paste.
    * 
    * @example
    * readwrite
@@ -576,11 +569,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboard?: string;
   /**
    * @remarks
-   * The clipboard size limit for inbound transfer (from the local PC to the cloud browser).
+   * Specifies the clipboard size limit for inbound transfer (from the local PC to the cloud browser).
    * 
    * **Value range:** 1 to 102400. The unit is specified by TextClipboardReadSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1
@@ -588,7 +581,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -601,11 +594,11 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard size limit for outbound transfer (from the cloud browser to the local PC).
+   * Specifies the clipboard size limit for outbound transfer (from the cloud browser to the local PC).
    * 
    * **Value range:** 1 to 102400. The unit is specified by TextClipboardWriteSizeUnit.
    * 
-   * The value range does not change with unit conversion.
+   * This value range does not change with unit conversion.
    * 
    * @example
    * 1
@@ -613,7 +606,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The clipboard size unit.
+   * Specifies the clipboard size unit.
    * 
    * - `B`: Bytes.
    * - `KB`: 1024 bytes.
@@ -682,7 +675,7 @@ export class CreateBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
 export class CreateBrowserInstanceGroupRequestPolicyVideoPolicy extends $dara.Model {
   /**
    * @remarks
-   * The frame rate of the browser session.
+   * Specifies the frame rate for the browser session.
    * 
    * @example
    * 60
@@ -713,11 +706,9 @@ export class CreateBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
   /**
    * @remarks
    * The watermark switch. The value is case-insensitive.
-   * 
    * - `ON`: Enables the watermark.
    * - `OFF`: Disables the watermark.
-   * 
-   * When disabled, the watermark content type list is not used.
+   * The watermark content type list is not used when the watermark is disabled.
    * 
    * @example
    * ON
@@ -726,12 +717,10 @@ export class CreateBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
   /**
    * @remarks
    * The list of watermark content types.
-   * 
    * - `EndUserId`: The user identifier.
    * - `InstanceGroupId`: The delivery group identifier.
-   * - `ClientTime`: The current time on the client.
-   * 
-   * Use watermark types supported by the browser and client.
+   * - `ClientTime`: The current time of the client.
+   * Use the watermark types supported by the browser and the client.
    */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
@@ -763,10 +752,10 @@ export class CreateBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
 export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable screen capture prevention.
+   * The screen capture prevention switch.
    * 
-   * - `on`: Enables screen capture prevention.
-   * - `off`: Disables screen capture prevention.
+   * - on: Enables screen capture prevention.
+   * - off: Disables screen capture prevention.
    * 
    * @example
    * on
@@ -774,7 +763,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   appContentProtection?: string;
   /**
    * @remarks
-   * The client access IP address whitelist. This parameter is used to restrict the source IP addresses of clients that can access the cloud browser.
+   * The client access IP address whitelist, which is used to restrict the source IP addresses of clients that can access the cloud browser.
    */
   authorizeAccessPolicyRules?: CreateBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules[];
   /**
@@ -784,14 +773,14 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   clientTypes?: CreateBrowserInstanceGroupRequestPolicyClientTypes[];
   /**
    * @remarks
-   * Specifies the clipboard transfer direction, content type, and size limit. read indicates transfer from the local PC to the cloud browser. write indicates transfer from the cloud browser to the local PC.
+   * Specifies the clipboard transfer direction, content types, and size limits. read indicates transfer from the local PC to the cloud browser, and write indicates transfer from the cloud browser to the local PC.
    */
   clipboardPolicy?: CreateBrowserInstanceGroupRequestPolicyClipboardPolicy;
   /**
    * @remarks
-   * The session data retention policy after disconnection.
+   * Specifies the data retention policy for sessions after disconnection.
    * 
-   * - `customTime`: Retains the session based on the session data retention policy. Customizing the duration through `DisconnectKeepSessionTime` is not supported.
+   * - `customTime`: Retains the session according to the data retention policy. Custom duration through `DisconnectKeepSessionTime` is not supported.
    * - `persistent`: The session is not subject to automatic release based on disconnection duration.
    * 
    * **Note:** `persistent` is still subject to authorization and other release policies.
@@ -802,7 +791,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -810,7 +799,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable the floating ball file manager.
+   * Specifies whether to enable the file manager floating button.
    * 
    * - `on`: Enabled.
    * - `off`: Disabled.
@@ -823,14 +812,14 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   fileManager?: string;
   /**
    * @remarks
-   * The file transfer policy for the web client.
+   * Specifies the file transfer policy for the web client.
    * 
-   * - `off`: File transfer is disabled.
-   * - `upload`: Only upload is allowed.
-   * - `download`: Only download is allowed.
-   * - `full`: Both upload and download are allowed.
+   * - `off`: Prohibits file transfer.
+   * - `upload`: Allows upload only.
+   * - `download`: Allows download only.
+   * - `full`: Allows both upload and download.
    * 
-   * Configure this parameter together with the clipboard policy.
+   * Configure this parameter in conjunction with the clipboard policy.
    * 
    * @example
    * full
@@ -838,12 +827,20 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic disconnection on inactivity. The value is case-insensitive.
+   * Specifies whether to enable the dual-screen mode for the cloud browser.
+   * 
+   * @example
+   * off
+   */
+  multiScreen?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable automatic disconnection on inactivity. The value is not case-sensitive.
    * 
    * - `on`: Enabled.
    * - `off`: Disabled.
    * 
-   * When enabled, set the wait duration through `NoOperationDisconnectTime`.
+   * When enabled, use `NoOperationDisconnectTime` to set the idle timeout.
    * 
    * @example
    * on
@@ -851,9 +848,9 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The wait duration before disconnection is triggered after user inactivity. Unit: seconds.
+   * Specifies the idle timeout in seconds before automatic disconnection is triggered.
    * 
-   * **Prerequisite:** When `NoOperationDisconnect` is enabled, specify a value greater than 0.
+   * **Prerequisite:** When `NoOperationDisconnect` is enabled, you must specify a value greater than 0.
    * 
    * @example
    * 300
@@ -861,12 +858,12 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnectTime?: number;
   /**
    * @remarks
-   * The policy version. The value is case-insensitive.
+   * Specifies the policy version. The value is not case-sensitive.
    * 
    * - `DEFAULT`: Legacy policy.
    * - `CENTER`: Centralized policy.
    * 
-   * **Default value:** `DEFAULT`. The actual effective policy version depends on the policy configuration available for the account.
+   * **Default value:** `DEFAULT`. The effective policy version is subject to the policy configuration available for the account.
    * 
    * @example
    * CENTER
@@ -874,7 +871,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The video display policy for the browser session.
+   * Specifies the video display policy for the browser session.
    */
   videoPolicy?: CreateBrowserInstanceGroupRequestPolicyVideoPolicy;
   /**
@@ -892,6 +889,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
       fileManager: 'FileManager',
       html5FileTransfer: 'Html5FileTransfer',
+      multiScreen: 'MultiScreen',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyVersion: 'PolicyVersion',
@@ -910,6 +908,7 @@ export class CreateBrowserInstanceGroupRequestPolicy extends $dara.Model {
       disconnectKeepSessionTime: 'number',
       fileManager: 'string',
       html5FileTransfer: 'string',
+      multiScreen: 'string',
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
       policyVersion: 'string',
@@ -946,13 +945,10 @@ export class CreateBrowserInstanceGroupRequestSecurityPolicy extends $dara.Model
   /**
    * @remarks
    * Specifies whether to skip the user authorization check when connecting to the application.
-   * 
    * - `true`: Skips the check.
    * - `false`: Performs the check.
-   * 
-   * If this field is omitted when `SecurityPolicy` is configured, the user authorization check is performed.
-   * 
-   * **Note:** This field cannot be used to skip OpenAPI identity authentication or RAM permission verification.
+   * If SecurityPolicy is configured but this field is omitted, the user authorization check is performed.
+   * **Note:** This field cannot be used to skip OpenAPI authentication and RAM permission verification.
    * 
    * @example
    * false
@@ -982,7 +978,7 @@ export class CreateBrowserInstanceGroupRequestSecurityPolicy extends $dara.Model
 export class CreateBrowserInstanceGroupRequestStoragePolicyUserProfile extends $dara.Model {
   /**
    * @remarks
-   * The size of the user data roaming cloud disk. Unit: GB.
+   * The size of the user data roaming disk, in GB.
    * 
    * @example
    * 30
@@ -991,11 +987,9 @@ export class CreateBrowserInstanceGroupRequestStoragePolicyUserProfile extends $
   /**
    * @remarks
    * Specifies whether to enable user data roaming.
-   * 
-   * - `true`: Enabled.
-   * - `false`: Disabled.
-   * 
-   * In Windows scenarios, if this field is explicitly specified, the specified value is used. If this field is omitted, the user roaming configuration of the current account is used.
+   * - `true`: Enables user data roaming.
+   * - `false`: Disables user data roaming.
+   * In Windows scenarios, if this parameter is explicitly specified, the specified value is used. If this parameter is omitted, the user roaming configuration of the current account is used.
    * 
    * @example
    * true
@@ -1057,7 +1051,7 @@ export class CreateBrowserInstanceGroupRequestStoragePolicy extends $dara.Model 
 export class CreateBrowserInstanceGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1065,7 +1059,7 @@ export class CreateBrowserInstanceGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1097,7 +1091,7 @@ export class CreateBrowserInstanceGroupRequestTag extends $dara.Model {
 export class CreateBrowserInstanceGroupRequestTimers extends $dara.Model {
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1105,7 +1099,7 @@ export class CreateBrowserInstanceGroupRequestTimers extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1138,11 +1132,9 @@ export class CreateBrowserInstanceGroupRequestUserInfo extends $dara.Model {
   /**
    * @remarks
    * The account type of the authorized user.
-   * 
    * - `simple`: Convenience account.
    * - `ad`: AD domain account.
-   * 
-   * The value must match the account type of the user and workspace network.
+   * The account type must match the account types of the user and the office network.
    * 
    * @example
    * simple
@@ -1172,7 +1164,7 @@ export class CreateBrowserInstanceGroupRequestUserInfo extends $dara.Model {
 export class CreateBrowserInstanceGroupRequestUsers extends $dara.Model {
   /**
    * @remarks
-   * The identity of the authorized user to be granted authorization.
+   * The identity of the authorized user for authorization.
    * 
    * @example
    * alice
@@ -1202,9 +1194,9 @@ export class CreateBrowserInstanceGroupRequestUsers extends $dara.Model {
 export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The plan identifier.
+   * The package identifier.
    * 
-   * Do not specify this parameter.
+   * You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -1212,10 +1204,9 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   appPackageType?: string;
   /**
    * @remarks
-   * Specifies whether to send authorization and deauthorization notification emails.
-   * 
-   * - `true`: Sends the notification.
-   * - `false`: Does not send the notification.
+   * Specifies whether to send notification emails for authorization and deauthorization.
+   * - `true`: Sends notification emails.
+   * - `false`: Does not send notification emails.
    * 
    * @example
    * true
@@ -1225,7 +1216,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The automatic payment parameter.
    * 
-   * Do not specify this parameter.
+   * You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -1235,7 +1226,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The auto-renewal parameter.
    * 
-   * Do not specify this parameter.
+   * You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -1243,7 +1234,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The business region ID. This parameter is required.
+   * The identifier of the business region. This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -1258,9 +1249,8 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   browserConfig?: CreateBrowserInstanceGroupRequestBrowserConfig;
   /**
    * @remarks
-   * The resource billing mode.
-   * 
-   * **For MAU scenarios:** Set this parameter to `AppInstance` to bill by instance resource.
+   * The resource billing method.
+   * **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resources.
    * 
    * @example
    * AppInstance
@@ -1268,9 +1258,9 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   chargeResourceMode?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
-   * **For MAU scenarios:** Set this parameter to `PostPaid`, which indicates pay-as-you-go billing.
+   * **For MAU scenarios:** Set this parameter to PostPaid, which indicates pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -1278,21 +1268,19 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The name of the cloud browser group. This parameter cannot be empty. The name is used to distinguish different browser groups in business management scenarios.
+   * The name of the cloud browser group. This parameter cannot be empty. It is used to distinguish different browser groups in business management scenarios.
    * 
    * This parameter is required.
    * 
    * @example
-   * BusinessOfficeBrowser
+   * Business office browser
    */
   cloudBrowserName?: string;
   /**
    * @remarks
-   * The image identifier used by the cloud browser. The image must be compatible with the operating system.
-   * 
+   * The image ID used by the cloud browser. The image must be compatible with the operating system.
    * If this parameter is omitted, the default image available for the account is used. If no default image is available, the creation may fail.
-   * 
-   * **Usage condition:** When `CookiesSync` is enabled, explicitly specify an image that supports cookie synchronization.
+   * **Usage conditions:** When CookiesSync is enabled, explicitly specify an image that supports cookie synchronization.
    * 
    * @example
    * img-bp13mu****
@@ -1301,7 +1289,6 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type identifier. Select an instance type that matches the target region, operating system, and inventory conditions.
-   * 
    * If this parameter is omitted, the default instance type is used.
    * 
    * @example
@@ -1310,7 +1297,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The capacity configuration for the MAU billing scenario.
+   * The capacity configuration in MAU billing scenarios.
    * 
    * @example
    * 5
@@ -1318,13 +1305,12 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The office network and website access restriction configurations. The selected office network must belong to the current account and be located in the region specified by `BizRegionId`.
+   * The configurations for the office network and website access restrictions. The selected office network must belong to the current account and reside in the region specified by BizRegionId.
    */
   network?: CreateBrowserInstanceGroupRequestNetwork;
   /**
    * @remarks
    * The node pool configuration.
-   * 
    * You do not need to specify this parameter.
    * 
    * @example
@@ -1334,7 +1320,6 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The operating system type. This parameter is required.
-   * 
    * Only `Windows` is supported. Other operating systems are not supported.
    * 
    * @example
@@ -1343,9 +1328,9 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The number of subscription periods.
+   * The number of billing cycles for the purchase.
    * 
-   * Do not specify this parameter.
+   * You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -1353,9 +1338,9 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription period.
+   * The unit of the billing cycle for the purchase.
    * 
-   * Do not specify this parameter.
+   * You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -1363,14 +1348,14 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The clipboard, video, watermark, session, and client access policy configurations.
+   * Configures policies for the clipboard, video, watermark, session, and client access.
    */
   policy?: CreateBrowserInstanceGroupRequestPolicy;
   /**
    * @remarks
-   * The promotion ID. Specifies the promotional campaign to apply to the order.
+   * The promotion identifier, which is used to specify the promotional offer applied to the order.
    * 
-   * Whether the promotion is applicable depends on the campaign rules. Do not specify this parameter if no promotional campaign is used.
+   * Applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
    * 
    * @example
    * 17440009****
@@ -1378,19 +1363,19 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The connection security policy for the browser group.
+   * The connection security policy of the browser group.
    */
   securityPolicy?: CreateBrowserInstanceGroupRequestSecurityPolicy;
   /**
    * @remarks
-   * The user data storage configuration for the browser group.
+   * The user data storage configuration of the browser group.
    */
   storagePolicy?: CreateBrowserInstanceGroupRequestStoragePolicy;
   /**
    * @remarks
-   * The billing subtype.
+   * The billing sub-type.
    * 
-   * **Set this parameter to `mau` explicitly, which indicates billing by monthly active users.** Omitting this field does not enable MAU billing.
+   * **You must explicitly set this parameter to mau, which indicates billing by monthly active users (MAUs).** Omitting this parameter does not enable MAU billing.
    * 
    * @example
    * mau
@@ -1398,7 +1383,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1406,7 +1391,7 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   tag?: CreateBrowserInstanceGroupRequestTag[];
   /**
    * @remarks
-   * Not supported. You do not need to specify this parameter.
+   * This parameter is not supported and does not need to be specified.
    * 
    * @example
    * -
@@ -1414,9 +1399,8 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   timers?: CreateBrowserInstanceGroupRequestTimers[];
   /**
    * @remarks
-   * The list of authorized user group identifiers. A maximum of 10 items are supported. The user groups must belong to the current account and match the workspace network account type.
-   * 
-   * **Limit:** Cannot be specified together with a non-empty `Users`.
+   * The list of authorized user group IDs. You can specify up to 10 IDs. The user groups must belong to the current account and match the account type of the office network.
+   * **Limits:** This parameter cannot be specified together with a non-empty Users parameter.
    * 
    * **if can be null:**
    * true
@@ -1424,14 +1408,14 @@ export class CreateBrowserInstanceGroupRequest extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * The authorized user account information. The value must match the user and workspace network type.
+   * The authorized user account information. The information must match the user and office network types.
    */
   userInfo?: CreateBrowserInstanceGroupRequestUserInfo;
   /**
    * @remarks
-   * The list of authorized users. A maximum of 200 users can be specified. Users must be created in advance and must match the account type.
+   * The list of authorized users. You can specify up to 200 users. The users must be created in advance and match the account type.
    * 
-   * **Restriction:** This parameter cannot be specified together with a non-empty `UserGroupIds`.
+   * **Limit:** This parameter cannot be specified together with a non-empty UserGroupIds parameter.
    */
   users?: CreateBrowserInstanceGroupRequestUsers[];
   static names(): { [key: string]: string } {

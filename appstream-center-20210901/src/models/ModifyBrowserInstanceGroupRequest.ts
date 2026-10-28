@@ -13,7 +13,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
   bookmarkFolder?: string;
   /**
    * @remarks
-   * The bookmark ID. This parameter is required only for update operations.
+   * The bookmark ID. This parameter is required only for modification scenarios.
    * 
    * @example
    * bm-12345
@@ -74,7 +74,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   bookmarks?: ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks[];
   /**
    * @remarks
-   * The bookmark list file path.
+   * The file path of the bookmark list.
    * 
    * @example
    * cn-hangzhou/aig_upm/xxx/temp/BrowserBookmarks/BrowserBookmarkTemplate.csv
@@ -90,7 +90,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   browserParam?: string;
   /**
    * @remarks
-   * Specifies whether to enable cookies synchronization.
+   * Specifies whether to enable cookie synchronization.
    */
   cookiesSync?: boolean;
   /**
@@ -103,7 +103,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   homepage?: string;
   /**
    * @remarks
-   * The list of bookmarks to remove.
+   * The list of bookmarks to be removed.
    */
   removeBookmarks?: string[];
   static names(): { [key: string]: string } {
@@ -146,7 +146,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
 export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dara.Model {
   /**
    * @remarks
-   * The domain name configuration ID. This parameter is required only when you modify an existing configuration.
+   * The ID of the domain name configuration. This parameter is required only when you modify the configuration.
    * 
    * @example
    * ru-12345
@@ -186,7 +186,7 @@ export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dar
 export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   /**
    * @remarks
-   * The access restriction type.
+   * The type of access restriction.
    * 
    * @example
    * ALLOW_LIST
@@ -204,10 +204,10 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   restrictedURLs?: ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs[];
   /**
    * @remarks
-   * The file path of the restricted URLs.
+   * The file path for network-restricted URLs.
    * 
    * @example
-   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL白名单模版.csv
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL_whitelist_template.csv
    */
   restrictedURLsFilePath?: string;
   static names(): { [key: string]: string } {
@@ -390,7 +390,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The size limit for rich text clipboard data transferred from the cloud.
+   * The rich text clipboard read size.
    * 
    * @example
    * 1
@@ -398,7 +398,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The size unit for rich text clipboard data transferred from the cloud.
+   * The rich text clipboard read size unit.
    * 
    * @example
    * KB
@@ -414,7 +414,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The size limit for rich text clipboard data transferred to the cloud.
+   * The rich text clipboard write size.
    * 
    * @example
    * 1
@@ -422,7 +422,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The size unit for rich text clipboard data transferred to the cloud.
+   * The rich text clipboard write size unit.
    * 
    * @example
    * KB
@@ -438,7 +438,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboard?: string;
   /**
    * @remarks
-   * The size limit for text clipboard data transferred from the cloud.
+   * The text clipboard read size.
    * 
    * @example
    * 1
@@ -446,7 +446,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The size unit for text clipboard data transferred from the cloud.
+   * The text clipboard read size unit.
    * 
    * @example
    * KB
@@ -454,7 +454,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The size limit for text clipboard data transferred to the cloud.
+   * The text clipboard write size.
    * 
    * @example
    * 1
@@ -462,7 +462,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The size unit for text clipboard data transferred to the cloud.
+   * The text clipboard write size unit.
    * 
    * @example
    * KB
@@ -526,7 +526,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
 export class ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 address or CIDR block to revoke.
+   * The IPv4 address or CIDR block to be revoked.
    * 
    * @example
    * 192.168.1.0/24
@@ -534,7 +534,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules exte
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the access IP address whitelist rule to revoke.
+   * The description of the access IP address whitelist rule to be revoked.
    * 
    * @example
    * office network
@@ -636,7 +636,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
 export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable screenshot protection.
+   * Specifies whether to enable screen capture prevention.
    * 
    * @example
    * off
@@ -649,17 +649,17 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   authorizeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The client type access control settings.
+   * The logon client type control.
    */
   clientTypes?: ModifyBrowserInstanceGroupRequestPolicyClientTypes[];
   /**
    * @remarks
-   * The clipboard-related policy.
+   * The clipboard policies.
    */
   clipboardPolicy?: ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy;
   /**
    * @remarks
-   * The data retention policy after disconnection.
+   * The data retention policy upon disconnection.
    * 
    * @example
    * customTime
@@ -667,7 +667,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration after disconnection.
+   * The session retention duration upon disconnection.
    * 
    * @example
    * 15
@@ -675,7 +675,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable the floating ball file manager.
+   * The floating ball file manager switch.
    * 
    * @example
    * off
@@ -691,7 +691,15 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * Specifies whether to disconnect the session when no operation is performed.
+   * The cloud browser dual-screen switch.
+   * 
+   * @example
+   * off
+   */
+  multiScreen?: string;
+  /**
+   * @remarks
+   * The no-operation disconnect policy.
    * 
    * @example
    * on
@@ -699,7 +707,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The idle timeout period before the session is disconnected, in seconds.
+   * The no-operation disconnect time in seconds.
    * 
    * @example
    * 1
@@ -723,7 +731,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The server access IP address whitelist rules to revoke.
+   * The server access IP address whitelist to be revoked.
    */
   revokeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules[];
   /**
@@ -746,6 +754,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
       fileManager: 'FileManager',
       html5FileTransfer: 'Html5FileTransfer',
+      multiScreen: 'MultiScreen',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyId: 'PolicyId',
@@ -766,6 +775,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       disconnectKeepSessionTime: 'number',
       fileManager: 'string',
       html5FileTransfer: 'string',
+      multiScreen: 'string',
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
       policyId: 'string',
@@ -833,7 +843,7 @@ export class ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile extends $
 export class ModifyBrowserInstanceGroupRequestStoragePolicy extends $dara.Model {
   /**
    * @remarks
-   * The user roaming policy.
+   * The user roaming-related policy.
    */
   userProfile?: ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile;
   static names(): { [key: string]: string } {
@@ -916,7 +926,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   browserConfig?: ModifyBrowserInstanceGroupRequestBrowserConfig;
   /**
    * @remarks
-   * The ID of the cloud browser to modify.
+   * The ID of the cloud browser.
    * 
    * This parameter is required.
    * 
@@ -934,7 +944,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * The maximum resource count. This parameter takes effect for monthly active pay-as-you-go billing.
+   * The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
    * 
    * @example
    * 5
@@ -942,7 +952,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configuration.
+   * The network configurations.
    */
   network?: ModifyBrowserInstanceGroupRequestNetwork;
   /**
@@ -957,7 +967,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   storagePolicy?: ModifyBrowserInstanceGroupRequestStoragePolicy;
   /**
    * @remarks
-   * The timers.
+   * The timer.
    */
   timers?: ModifyBrowserInstanceGroupRequestTimers[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID. You can call [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) to obtain this parameter.
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAppInstancesRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The list of application instance IDs.
+   * The application instance IDs.
    * 
    * This parameter is required.
    * 

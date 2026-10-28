@@ -18,7 +18,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   browserConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the cloud browser to modify.
+   * The ID of the cloud browser.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * The maximum resource count. This parameter takes effect for monthly active pay-as-you-go billing.
+   * The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
    * 
    * @example
    * 5
@@ -44,7 +44,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configuration.
+   * The network configurations.
    */
   networkShrink?: string;
   /**
@@ -59,7 +59,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   storagePolicyShrink?: string;
   /**
    * @remarks
-   * The timers.
+   * The timer.
    */
   timersShrink?: string;
   static names(): { [key: string]: string } {

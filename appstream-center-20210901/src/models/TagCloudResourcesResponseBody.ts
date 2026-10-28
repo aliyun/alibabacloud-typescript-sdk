@@ -63,7 +63,7 @@ export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * Duplicate tag keys exist.

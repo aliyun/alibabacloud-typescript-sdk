@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagCloudResourcesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Tags are case-sensitive. The key must be 1 to 128 characters in length.
+   * The tag key. It is case-sensitive and must be 1 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class TagCloudResourcesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Tags are case-sensitive. The value must be 1 to 128 characters in length.
+   * The tag value. It is case-sensitive and must be 1 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class TagCloudResourcesRequestTags extends $dara.Model {
 export class TagCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of resource IDs. A maximum of 50 IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
+   * The list of resource IDs. A maximum of 50 resource IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
    */
   resourceIds?: string[];
   /**
@@ -66,13 +66,13 @@ export class TagCloudResourcesRequest extends $dara.Model {
    * @remarks
    * The list of tags. System tags and custom tags are supported.
    * 
-   * - System tag enumeration values:
+   * - Valid values for system tags:
    *    - `System/Scheduler/GRAYSCALE`: canary release tag
-   *    - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents newly bound users in a delivery group from establishing connections
+   *    - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents newly bound users from connecting to the app instance group
    * 
-   * - Custom tags: A maximum of 20 custom tags can be created.
+   * - Custom tags: You can create up to 20 custom tags.
    * 
-   * > Each tag key on the same resource can have only one tag value. If you add a tag key that already exists, the corresponding tag value is updated to the new value.
+   * > A tag key on a resource can map to only one tag value. If you add a tag with an existing key, the tag value is updated to the new value.
    * 
    * This parameter is required.
    */

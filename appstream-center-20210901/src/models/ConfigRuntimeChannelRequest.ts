@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigRuntimeChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent platform.
+   * The agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,11 +13,11 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The Agent provider.
+   * The agent provider.
    * 
-   * - JVS Computer: set to OpenClaw.
-   * - OpenClaw: set to OpenClaw.
-   * - Hermes Agent: set to HermesAgent.
+   * - JVS Computer: Set to OpenClaw.
+   * - OpenClaw: Set to OpenClaw.
+   * - Hermes Agent: Set to HermesAgent.
    * 
    * This parameter is required.
    * 
@@ -37,9 +37,9 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The channel configuration JSON string.
+   * The JSON string for channel configuration.
    * 
-   * - Simple configuration mode example:
+   * - Example of the simple configuration mode:
    * ```json
    * {
    *     "appKey": "abc",
@@ -47,7 +47,7 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
    * }
    * ```
    * 
-   * - Custom configuration mode example:
+   * - Example of the custom configuration mode:
    * ```json
    * {
    *   "enabled": true,
@@ -77,10 +77,10 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
    * @remarks
    * The channel name.
    * 
-   * If you leave this parameter empty, the system automatically uses the value of Code as the name.
+   * If you do not specify this parameter, the system automatically uses the value of Code as the name.
    * 
    * @example
-   * 钉钉
+   * DingTalk
    */
   name?: string;
   /**
@@ -92,7 +92,7 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   runtimeIds?: string[];
   /**
    * @remarks
-   * The Agent runtime type.
+   * The agent runtime type.
    * 
    * This parameter is required.
    * 

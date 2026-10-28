@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud graphics workstation ID.
+   * The workstation ID.
    * 
    * This parameter is required.
    * 

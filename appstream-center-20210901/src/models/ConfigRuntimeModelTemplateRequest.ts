@@ -15,14 +15,14 @@ export class ConfigRuntimeModelTemplateRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The list of Agent runtime IDs.
+   * The list of agent runtime IDs.
    * 
    * This parameter is required.
    */
   runtimeIds?: string[];
   /**
    * @remarks
-   * The Agent runtime type.
+   * The agent runtime type.
    * 
    * This parameter is required.
    * 

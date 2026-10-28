@@ -15,7 +15,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment.
+   * Specifies whether to enable automatic payment. If RenewMode is set to RENEW_SPECIFIED_NODE_COUNT or RENEW_SPECIFIED_NODE_IDS, this parameter must be set to false.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The numeric part of the resource purchase duration. This parameter is used together with PeriodUnit to specify the complete purchase duration.
+   * The numeric part of the resource purchase duration. Use this parameter together with `PeriodUnit` to specify the full purchase duration.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit part of the resource purchase duration. This parameter is used together with Period to specify the complete purchase duration. Valid combinations of Period and PeriodUnit:
+   * The unit part of the resource purchase duration. Use this parameter together with `Period` to specify the full purchase duration. The valid combinations of `Period` and `PeriodUnit` are as follows:
    * 
    * - 1 Week (1 week)
    * - 1 Month (1 month)
@@ -44,7 +44,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
    * - 2 Year (2 years)
    * - 3 Year (3 years)
    * 
-   * > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the combinations listed above, such as `2 Week`, the call to this operation succeeds, but an error occurs during the order placement phase.
+   * > This parameter is case-sensitive. For example, `Week` is valid, but `week` is not. If the request parameters do not match the combinations listed above, such as `2 Week`, the operation call succeeds but an error occurs during order placement.
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The promotion ID. You can obtain this value by calling the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation.
+   * The promotion ID. You can obtain this ID by calling the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation.
    * 
    * @example
    * 17440009****

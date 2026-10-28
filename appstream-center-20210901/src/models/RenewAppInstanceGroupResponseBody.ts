@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewAppInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InvalidParameter.ProductType
@@ -13,7 +13,7 @@ export class RenewAppInstanceGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The parameter ProductType is invalid.

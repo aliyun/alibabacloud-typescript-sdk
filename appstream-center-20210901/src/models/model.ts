@@ -423,6 +423,9 @@ export { ModifyNodePoolAttributeRequest } from './ModifyNodePoolAttributeRequest
 export { ModifyNodePoolAttributeShrinkRequest } from './ModifyNodePoolAttributeShrinkRequest';
 export { ModifyNodePoolAttributeResponseBody } from './ModifyNodePoolAttributeResponseBody';
 export { ModifyNodePoolAttributeResponse } from './ModifyNodePoolAttributeResponse';
+export { ModifyShareImageRequest } from './ModifyShareImageRequest';
+export { ModifyShareImageResponseBody } from './ModifyShareImageResponseBody';
+export { ModifyShareImageResponse } from './ModifyShareImageResponse';
 export { ModifyTenantConfigRequest } from './ModifyTenantConfigRequest';
 export { ModifyTenantConfigResponseBody } from './ModifyTenantConfigResponseBody';
 export { ModifyTenantConfigResponse } from './ModifyTenantConfigResponse';
