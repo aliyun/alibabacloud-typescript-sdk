@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the contact groups.
+   * 
    * This parameter is required.
    */
   contactGroupIdsShrink?: string;

@@ -8,16 +8,19 @@ import { EventResourceForIncidentView } from "./EventResourceForIncidentView";
 
 export class IncidentForView extends $dara.Model {
   /**
+   * @remarks
+   * The expiration time of the notification block.
+   * 
    * @example
-   * -1 表示未屏蔽
+   * -1 indicates that notifications are not blocked
    */
   blockingExpireTimestamp?: number;
   /**
    * @remarks
-   * The details of the incident.
+   * The detailed content of the incident.
    * 
    * @example
-   * "{"description":"ECS实例CPU过高","impact":"支付服务延迟"}"
+   * "{"description":"High CPU usage on the ECS instance","impact":"Payment service delay"}"
    */
   content?: string;
   /**
@@ -35,7 +38,7 @@ export class IncidentForView extends $dara.Model {
   groupUuid?: string;
   /**
    * @remarks
-   * The key-value pairs for grouping.
+   * The grouping key-value pairs.
    */
   groupingKeys?: { [key: string]: string };
   /**
@@ -48,15 +51,15 @@ export class IncidentForView extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The name of the notification policy.
+   * The notification policy name.
    * 
    * @example
-   * { "contactId": "contact-123", "name": "张三" }
+   * { "contactId": "contact-123", "name": "Zhang San" }
    */
   notifyStrategyName?: string;
   /**
    * @remarks
-   * The UUID of the associated notification policy, which is used to trigger notifications.
+   * The UUID of the associated notification policy used to trigger notifications.
    * 
    * @example
    * "notify-strategy-789"
@@ -64,7 +67,7 @@ export class IncidentForView extends $dara.Model {
   notifyStrategyUuid?: string;
   /**
    * @remarks
-   * The information about the operator.
+   * The operator information.
    */
   operator?: ContactForIncidentView;
   /**
@@ -105,10 +108,10 @@ export class IncidentForView extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The description of the solution.
+   * The solution description.
    * 
    * @example
-   * "重启ECS实例后恢复正常"
+   * "Recovered to normal after restarting the ECS instance"
    */
   solution?: string;
   /**
@@ -121,7 +124,7 @@ export class IncidentForView extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The name of the subscription policy.
+   * The subscription policy name.
    * 
    * @example
    * "P1-Alert-Notification"
@@ -135,6 +138,10 @@ export class IncidentForView extends $dara.Model {
    * "subscription-abc"
    */
   subscriptionUuid?: string;
+  /**
+   * @remarks
+   * The array of tags.
+   */
   tags?: { [key: string]: string };
   /**
    * @remarks
@@ -149,7 +156,7 @@ export class IncidentForView extends $dara.Model {
    * The title of the incident.
    * 
    * @example
-   * "支付服务不可用"
+   * "Payment service unavailable"
    */
   title?: string;
   /**

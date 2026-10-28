@@ -12,6 +12,9 @@ export class EnableSubscriptionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The subscription ID.
+   * 
    * @example
    * 123123123123
    */

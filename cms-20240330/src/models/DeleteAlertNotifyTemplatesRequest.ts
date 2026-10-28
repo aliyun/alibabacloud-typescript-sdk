@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertNotifyTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the notification templates.
+   * 
    * This parameter is required.
    */
   alertNotifyTemplateIds?: string[];

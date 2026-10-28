@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   /**
    * @remarks
+   * The days of the week when the rotation takes effect.
+   * 
    * This parameter is required.
    */
   activeDays?: number[];
   /**
    * @remarks
+   * The IDs of the contacts.
+   * 
    * This parameter is required.
    */
   contacts?: string[];
   /**
    * @remarks
+   * The end time of the rotation. Format: HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +29,8 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   rotationEndTime?: string;
   /**
    * @remarks
+   * The name of the rotation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +39,8 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   rotationName?: string;
   /**
    * @remarks
+   * The start time of the rotation. Format: HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,12 +48,17 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
    */
   rotationStartTime?: string;
   /**
+   * @remarks
+   * The length of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every 3 days.
+   * 
    * @example
    * 3
    */
   shiftLength?: number;
   /**
    * @remarks
+   * The unit of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every week.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +67,8 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   shiftRecurrenceFrequency?: string;
   /**
    * @remarks
+   * The start date of the rotation. Format: yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +77,8 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
+   * The time zone name. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,21 +130,33 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
 
 export class UpdateOncallScheduleRequestSubstitudes extends $dara.Model {
   /**
+   * @remarks
+   * The contact ID of the substitute.
+   * 
    * @example
    * testId
    */
   contactId?: string;
   /**
+   * @remarks
+   * The end time of the substitution. Format: YYYY-MM-DD HH:mm.
+   * 
    * @example
    * 2024-10-15 18:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The contact ID of the replaced person.
+   * 
    * @example
    * testId
    */
   replacedContactId?: string;
   /**
+   * @remarks
+   * The start time of the substitution. Format: YYYY-MM-DD HH:mm.
+   * 
    * @example
    * 2024-10-10 09:00
    */
@@ -159,16 +190,30 @@ export class UpdateOncallScheduleRequestSubstitudes extends $dara.Model {
 
 export class UpdateOncallScheduleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the on-call schedule.
+   * 
    * @example
    * testName
    */
   oncallScheduleName?: string;
+  /**
+   * @remarks
+   * The list of rotations.
+   */
   rotations?: UpdateOncallScheduleRequestRotations[];
   /**
+   * @remarks
+   * The ID of the shift reminder chatbot.
+   * 
    * @example
    * testId
    */
   shiftRobotId?: string;
+  /**
+   * @remarks
+   * The list of substitution rules.
+   */
   substitudes?: UpdateOncallScheduleRequestSubstitudes[];
   static names(): { [key: string]: string } {
     return {

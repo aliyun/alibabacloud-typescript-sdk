@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOncallContactsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the contacts.
+   */
   contactIds?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */

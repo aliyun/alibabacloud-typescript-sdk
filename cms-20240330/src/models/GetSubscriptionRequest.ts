@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSubscriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * workspace-test
    */

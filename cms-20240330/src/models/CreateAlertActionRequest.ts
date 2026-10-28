@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertActionRequestEbParam extends $dara.Model {
   /**
+   * @remarks
+   * The event source.
+   * 
    * @example
    * test
    */
   ebSource?: string;
   /**
+   * @remarks
+   * The name of the event bus.
+   * 
    * @example
    * test
    */
   eventBusName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
+   * @remarks
+   * The subject.
+   * 
    * @example
    * test
    */
@@ -52,16 +64,25 @@ export class CreateAlertActionRequestEbParam extends $dara.Model {
 
 export class CreateAlertActionRequestEssParam extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the elastic scaling group.
+   * 
    * @example
    * testId
    */
   essGroupId?: string;
   /**
+   * @remarks
+   * The ID of the elastic scaling rule.
+   * 
    * @example
    * testId
    */
   essRuleId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -93,16 +114,25 @@ export class CreateAlertActionRequestEssParam extends $dara.Model {
 
 export class CreateAlertActionRequestFc3Param extends $dara.Model {
   /**
+   * @remarks
+   * The name of the function in Function Compute.
+   * 
    * @example
    * test
    */
   function?: string;
   /**
+   * @remarks
+   * The version or alias of the function.
+   * 
    * @example
    * test
    */
   qualifier?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-nanjing
    */
@@ -134,16 +164,25 @@ export class CreateAlertActionRequestFc3Param extends $dara.Model {
 
 export class CreateAlertActionRequestFcParam extends $dara.Model {
   /**
+   * @remarks
+   * The name of the function in Function Compute.
+   * 
    * @example
    * testFunction
    */
   function?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The service name of Function Compute.
+   * 
    * @example
    * testService
    */
@@ -175,16 +214,28 @@ export class CreateAlertActionRequestFcParam extends $dara.Model {
 
 export class CreateAlertActionRequestMnsParam extends $dara.Model {
   /**
+   * @remarks
+   * The resource type of Simple Message Queue (formerly MNS) (MSMQ).
+   * 
    * @example
    * queue
    */
   mnsType?: string;
   /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * - If the resource type is queue, the resource name is the queue name.
+   * - If the resource type is topic, the resource name is the topic name.
+   * 
    * @example
    * testName
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -216,11 +267,17 @@ export class CreateAlertActionRequestMnsParam extends $dara.Model {
 
 export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
   /**
+   * @remarks
+   * The integration key of PagerDuty.
+   * 
    * @example
    * fds3wr54rvcxfr4543t6435
    */
   key?: string;
   /**
+   * @remarks
+   * The integration webhook URL of PagerDuty. Both V1 and V2 are supported.
+   * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
    */
@@ -250,16 +307,25 @@ export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
 
 export class CreateAlertActionRequestSlsParam extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Logstore in Simple Log Service.
+   * 
    * @example
    * testLogstore。
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the project in Simple Log Service.
+   * 
    * @example
    * testProject
    */
   project?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-zhangjiakou
    */
@@ -291,17 +357,30 @@ export class CreateAlertActionRequestSlsParam extends $dara.Model {
 
 export class CreateAlertActionRequestWebhookParam extends $dara.Model {
   /**
+   * @remarks
+   * The data format. This parameter takes effect only when the request method is POST.
+   * 
    * @example
    * JSON
    */
   contentType?: string;
+  /**
+   * @remarks
+   * The request header information.
+   */
   headers?: { [key: string]: string };
   /**
+   * @remarks
+   * The webhook request method.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The alert callback URL.
+   * 
    * @example
    * http://www.test.com
    */
@@ -338,33 +417,72 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
 
 export class CreateAlertActionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the alert action integration.
+   * 
    * @example
    * testId
    */
   alertActionId?: string;
   /**
    * @remarks
+   * The name of the alert action integration.
+   * 
    * This parameter is required.
    * 
    * @example
    * testName
    */
   alertActionName?: string;
+  /**
+   * @remarks
+   * The event bus parameters.
+   */
   ebParam?: CreateAlertActionRequestEbParam;
+  /**
+   * @remarks
+   * The elastic scaling parameters.
+   */
   essParam?: CreateAlertActionRequestEssParam;
+  /**
+   * @remarks
+   * The Function Compute 3.0 parameters.
+   */
   fc3Param?: CreateAlertActionRequestFc3Param;
+  /**
+   * @remarks
+   * The Function Compute parameters.
+   */
   fcParam?: CreateAlertActionRequestFcParam;
+  /**
+   * @remarks
+   * The Simple Message Queue (formerly MNS) (MSMQ) parameters.
+   */
   mnsParam?: CreateAlertActionRequestMnsParam;
+  /**
+   * @remarks
+   * The PagerDuty parameters.
+   */
   pagerDutyParam?: CreateAlertActionRequestPagerDutyParam;
+  /**
+   * @remarks
+   * The Simple Log Service parameters.
+   */
   slsParam?: CreateAlertActionRequestSlsParam;
   /**
    * @remarks
+   * The type of the alert action integration.
+   * 
    * This parameter is required.
    * 
    * @example
    * FC
    */
   type?: string;
+  /**
+   * @remarks
+   * The webhook parameters.
+   */
   webhookParam?: CreateAlertActionRequestWebhookParam;
   static names(): { [key: string]: string } {
     return {

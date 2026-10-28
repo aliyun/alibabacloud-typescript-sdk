@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContactGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the contact group.
+   * 
    * @example
    * test
    */
   contactGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the contacts.
+   */
   contacts?: string[];
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * default-cms-5884500827389836-cn-hangzhou
    */

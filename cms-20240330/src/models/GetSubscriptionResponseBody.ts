@@ -12,6 +12,10 @@ export class GetSubscriptionResponseBody extends $dara.Model {
    * 111111-222-333-1111-33333
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The subscription object.
+   */
   subscription?: SubscriptionForView;
   static names(): { [key: string]: string } {
     return {

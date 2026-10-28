@@ -3,28 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertNotifyTemplatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of notification template IDs.
+   */
   alertNotifyTemplateIds?: string[];
   /**
+   * @remarks
+   * The notification template name.
+   * 
    * @example
-   * 告警通知模板
+   * Alert notification template
    */
   alertNotifyTemplateName?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The template locale.
+   * 
    * @example
    * GO
    */
   programLang?: string;
   /**
+   * @remarks
+   * The type.
+   * 
    * @example
    * DING
    */

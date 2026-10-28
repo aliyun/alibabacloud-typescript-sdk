@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the contact.
+   * 
    * @example
    * testId
    */
   contactId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

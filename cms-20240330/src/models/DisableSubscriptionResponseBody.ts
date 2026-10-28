@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the subscription.
+   * 
    * @example
    * 123123123123
    */

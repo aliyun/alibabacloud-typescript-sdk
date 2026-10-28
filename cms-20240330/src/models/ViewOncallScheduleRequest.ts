@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ViewOncallScheduleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end date of the query. Format: yyyy-MM-dd. This parameter must be specified together with startDate.
+   * 
    * @example
    * 2024-07-05
    */
   endDate?: string;
   /**
+   * @remarks
+   * The start date of the query. Format: yyyy-MM-dd. This parameter must be specified together with endDate.
+   * 
    * @example
    * 2024-04-04
    */

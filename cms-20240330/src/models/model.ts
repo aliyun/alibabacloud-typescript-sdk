@@ -340,6 +340,7 @@ export { ListAlertActionsResponseBodyAlertActionsPagerDutyParam } from './ListAl
 export { ListAlertActionsResponseBodyAlertActionsSlsParam } from './ListAlertActionsResponseBody';
 export { ListAlertActionsResponseBodyAlertActionsWebhookParam } from './ListAlertActionsResponseBody';
 export { ListAlertActionsResponseBodyAlertActions } from './ListAlertActionsResponseBody';
+export { ListAlertHistoriesResponseBodyData } from './ListAlertHistoriesResponseBody';
 export { ListAlertNotifyTemplatesResponseBodyAlertNotifyTemplates } from './ListAlertNotifyTemplatesResponseBody';
 export { ListAlertRobotsResponseBodyRobots } from './ListAlertRobotsResponseBody';
 export { ListAlertWebhooksResponseBodyWebhooks } from './ListAlertWebhooksResponseBody';
@@ -1135,6 +1136,10 @@ export { ListAlertActionsRequest } from './ListAlertActionsRequest';
 export { ListAlertActionsShrinkRequest } from './ListAlertActionsShrinkRequest';
 export { ListAlertActionsResponseBody } from './ListAlertActionsResponseBody';
 export { ListAlertActionsResponse } from './ListAlertActionsResponse';
+export { ListAlertHistoriesRequest } from './ListAlertHistoriesRequest';
+export { ListAlertHistoriesShrinkRequest } from './ListAlertHistoriesShrinkRequest';
+export { ListAlertHistoriesResponseBody } from './ListAlertHistoriesResponseBody';
+export { ListAlertHistoriesResponse } from './ListAlertHistoriesResponse';
 export { ListAlertNotifyTemplatesRequest } from './ListAlertNotifyTemplatesRequest';
 export { ListAlertNotifyTemplatesShrinkRequest } from './ListAlertNotifyTemplatesShrinkRequest';
 export { ListAlertNotifyTemplatesResponseBody } from './ListAlertNotifyTemplatesResponseBody';

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOncallContactsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp of the on-call shift to query. Unit: milliseconds.
+   * 
    * @example
    * 1730183838000
    */

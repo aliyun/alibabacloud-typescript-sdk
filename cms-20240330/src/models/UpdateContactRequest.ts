@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContactRequest extends $dara.Model {
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * test@aliyun.com
    */
   email?: string;
+  /**
+   * @remarks
+   * The IM user ID mappings. Multiple instant messaging tools are supported.
+   */
   imUserIds?: { [key: string]: string };
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh_CN
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The mobile phone number of the contact. Only mobile phone numbers in the Chinese mainland are supported.
+   * 
    * @example
    * 150123456789
    */

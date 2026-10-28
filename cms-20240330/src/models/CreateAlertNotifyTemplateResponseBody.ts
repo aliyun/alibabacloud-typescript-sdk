@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertNotifyTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the notification template.
+   * 
    * @example
    * testId
    */
   alertNotifyTemplateId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 8A33DBEA-*****-*****-*****-*****
    */

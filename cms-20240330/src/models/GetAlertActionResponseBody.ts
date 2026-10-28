@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlertActionResponseBodyAlertActionsEbParam extends $dara.Model {
   /**
+   * @remarks
+   * The event source.
+   * 
    * @example
    * test
    */
   ebSource?: string;
   /**
+   * @remarks
+   * The name of the event bus.
+   * 
    * @example
    * test
    */
   eventBusName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
+   * @remarks
+   * The subject.
+   * 
    * @example
    * test
    */
@@ -52,16 +64,25 @@ export class GetAlertActionResponseBodyAlertActionsEbParam extends $dara.Model {
 
 export class GetAlertActionResponseBodyAlertActionsEssParam extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the elastic scaling group.
+   * 
    * @example
    * test
    */
   essGroupId?: string;
   /**
+   * @remarks
+   * The ID of the elastic scaling rule.
+   * 
    * @example
    * test
    */
   essRuleId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -93,16 +114,25 @@ export class GetAlertActionResponseBodyAlertActionsEssParam extends $dara.Model 
 
 export class GetAlertActionResponseBodyAlertActionsFc3Param extends $dara.Model {
   /**
+   * @remarks
+   * The name of the function.
+   * 
    * @example
    * test
    */
   function?: string;
   /**
+   * @remarks
+   * The version or alias of the function.
+   * 
    * @example
    * test
    */
   qualifier?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-qingdao
    */
@@ -134,16 +164,25 @@ export class GetAlertActionResponseBodyAlertActionsFc3Param extends $dara.Model 
 
 export class GetAlertActionResponseBodyAlertActionsFcParam extends $dara.Model {
   /**
+   * @remarks
+   * The name of the function in Function Compute.
+   * 
    * @example
    * test
    */
   function?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The service name in Function Compute.
+   * 
    * @example
    * test
    */
@@ -175,16 +214,28 @@ export class GetAlertActionResponseBodyAlertActionsFcParam extends $dara.Model {
 
 export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model {
   /**
+   * @remarks
+   * The resource type of Simple Message Queue (formerly MNS).
+   * 
    * @example
    * queue
    */
   mnsType?: string;
   /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * - If the resource type is queue, the resource name is the name of the queue.
+   * - If the resource type is topic, the resource name is the name of the topic.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -216,11 +267,17 @@ export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model 
 
 export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
+   * @remarks
+   * The integration key of PagerDuty.
+   * 
    * @example
    * EWR4WR4T4GREG4ET453T5Y
    */
   key?: string;
   /**
+   * @remarks
+   * The integration webhook URL for PagerDuty. V1 and V2 are supported.
+   * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
    */
@@ -250,16 +307,25 @@ export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.
 
 export class GetAlertActionResponseBodyAlertActionsSlsParam extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
    * test
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
    * test
    */
   project?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -291,17 +357,30 @@ export class GetAlertActionResponseBodyAlertActionsSlsParam extends $dara.Model 
 
 export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Model {
   /**
+   * @remarks
+   * The data format. This parameter takes effect only when the request method is POST.
+   * 
    * @example
    * JSON
    */
   contentType?: string;
+  /**
+   * @remarks
+   * The request header information.
+   */
   headers?: { [key: string]: string };
   /**
+   * @remarks
+   * The webhook request method.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The URL for the alert callback.
+   * 
    * @example
    * http://www.test.com
    */
@@ -338,27 +417,68 @@ export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Mo
 
 export class GetAlertActionResponseBodyAlertActions extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the alert action integration.
+   * 
    * @example
    * testId
    */
   alertActionId?: string;
   /**
+   * @remarks
+   * The name of the alert action integration.
+   * 
    * @example
    * testName
    */
   alertActionName?: string;
+  /**
+   * @remarks
+   * The event bus parameters.
+   */
   ebParam?: GetAlertActionResponseBodyAlertActionsEbParam;
+  /**
+   * @remarks
+   * The elastic scaling parameters.
+   */
   essParam?: GetAlertActionResponseBodyAlertActionsEssParam;
+  /**
+   * @remarks
+   * The Function Compute 3.0 parameters.
+   */
   fc3Param?: GetAlertActionResponseBodyAlertActionsFc3Param;
+  /**
+   * @remarks
+   * The Function Compute parameters.
+   */
   fcParam?: GetAlertActionResponseBodyAlertActionsFcParam;
+  /**
+   * @remarks
+   * The Simple Message Queue (formerly MNS) parameters.
+   */
   mnsParam?: GetAlertActionResponseBodyAlertActionsMnsParam;
+  /**
+   * @remarks
+   * The PagerDuty parameters.
+   */
   pagerDutyParam?: GetAlertActionResponseBodyAlertActionsPagerDutyParam;
+  /**
+   * @remarks
+   * The Simple Log Service parameters.
+   */
   slsParam?: GetAlertActionResponseBodyAlertActionsSlsParam;
   /**
+   * @remarks
+   * The type of the alert action integration.
+   * 
    * @example
    * FC
    */
   type?: string;
+  /**
+   * @remarks
+   * The webhook parameters.
+   */
   webhookParam?: GetAlertActionResponseBodyAlertActionsWebhookParam;
   static names(): { [key: string]: string } {
     return {
@@ -426,8 +546,15 @@ export class GetAlertActionResponseBodyAlertActions extends $dara.Model {
 }
 
 export class GetAlertActionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert action integration configurations.
+   */
   alertActions?: GetAlertActionResponseBodyAlertActions;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */

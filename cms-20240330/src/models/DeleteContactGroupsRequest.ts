@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the contact groups.
+   * 
    * This parameter is required.
    */
   contactGroupIds?: string[];

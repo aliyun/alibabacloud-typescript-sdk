@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteOncallSchedulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the on-call schedules.
+   */
   oncallScheduleIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {

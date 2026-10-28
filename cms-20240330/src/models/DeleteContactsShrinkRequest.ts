@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteContactsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the contacts.
+   */
   contactIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {

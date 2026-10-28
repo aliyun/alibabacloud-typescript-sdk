@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertActionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the alert action integration.
+   * 
    * @example
    * testId
    */
   alertActionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */

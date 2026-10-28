@@ -3,39 +3,68 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOncallSchedulesResponseBodyOncallSchedulesRotations extends $dara.Model {
+  /**
+   * @remarks
+   * The days of the week when the rotation is active.
+   */
   activeDays?: number[];
+  /**
+   * @remarks
+   * The IDs of the contacts.
+   */
   contacts?: string[];
   /**
+   * @remarks
+   * The end time of the rotation. Format: HH:mm.
+   * 
    * @example
    * 24:00
    */
   rotationEndTime?: string;
   /**
+   * @remarks
+   * The name of the rotation.
+   * 
    * @example
    * testName
    */
   rotationName?: string;
   /**
+   * @remarks
+   * The start time of the rotation. Format: HH:mm.
+   * 
    * @example
    * 00:00
    */
   rotationStartTime?: string;
   /**
+   * @remarks
+   * The length of the shift interval. Used in conjunction with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel rotates every 3 days.
+   * 
    * @example
    * 3
    */
   shiftLength?: number;
   /**
+   * @remarks
+   * The unit of the shift interval. Used in conjunction with shiftLength. For example, a value of Week indicates that the on-call personnel rotates every week.
+   * 
    * @example
    * WEEKLY
    */
   shiftRecurrenceFrequency?: string;
   /**
+   * @remarks
+   * The start date of the rotation. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2024-01-01
    */
   startDate?: string;
   /**
+   * @remarks
+   * The name of the time zone. The IANA Time Zone Database standard is used. Example: Asia/Shanghai.
+   * 
    * @example
    * Asia/Shanghai
    */
@@ -85,21 +114,33 @@ export class ListOncallSchedulesResponseBodyOncallSchedulesRotations extends $da
 
 export class ListOncallSchedulesResponseBodyOncallSchedulesSubstitudes extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the substitute contact.
+   * 
    * @example
    * testId
    */
   contactId?: string;
   /**
+   * @remarks
+   * The end time of the substitution. Format: YYYY-MM-DD HH:mm.
+   * 
    * @example
    * 2024-10-15 18:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the replaced contact.
+   * 
    * @example
    * testId
    */
   replacedContactId?: string;
   /**
+   * @remarks
+   * The start time of the substitution. Format: YYYY-MM-DD HH:mm.
+   * 
    * @example
    * 2024-10-10 09:00
    */
@@ -133,23 +174,43 @@ export class ListOncallSchedulesResponseBodyOncallSchedulesSubstitudes extends $
 
 export class ListOncallSchedulesResponseBodyOncallSchedules extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the on-call schedule.
+   * 
    * @example
    * testId
    */
   oncallScheduleId?: string;
   /**
+   * @remarks
+   * The name of the on-call schedule.
+   * 
    * @example
    * testName
    */
   oncallScheduleName?: string;
+  /**
+   * @remarks
+   * The list of rotations.
+   */
   rotations?: ListOncallSchedulesResponseBodyOncallSchedulesRotations[];
   /**
+   * @remarks
+   * The ID of the chatbot that sends shift reminders.
+   * 
    * @example
    * testId
    */
   shiftRobotId?: string;
+  /**
+   * @remarks
+   * The list of substitution rules.
+   */
   substitudes?: ListOncallSchedulesResponseBodyOncallSchedulesSubstitudes[];
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * default-cms-5884500827389836-cn-hangzhou
    */
@@ -192,13 +253,23 @@ export class ListOncallSchedulesResponseBodyOncallSchedules extends $dara.Model 
 }
 
 export class ListOncallSchedulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of on-call schedules.
+   */
   oncallSchedules?: ListOncallSchedulesResponseBodyOncallSchedules[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 2
    */

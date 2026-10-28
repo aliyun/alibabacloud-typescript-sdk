@@ -12,6 +12,9 @@ export class DeleteSubscriptionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the subscription.
+   * 
    * @example
    * 123123123123
    */

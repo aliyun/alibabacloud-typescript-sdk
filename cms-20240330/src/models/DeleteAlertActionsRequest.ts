@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertActionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifiers of the alert action integrations to delete.
+   * 
    * This parameter is required.
    */
   alertActionIds?: string[];

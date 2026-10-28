@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateContactGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the contact.
+   */
   contacts?: string[];
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * test
    */

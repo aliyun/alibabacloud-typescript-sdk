@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResendVerifyActivateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
    * PHONE
    */
